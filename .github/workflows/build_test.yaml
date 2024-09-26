@@ -9,9 +9,10 @@ jobs:
       matrix:
         python-version: [ '3.9' ]
     steps:
-      - name: Checkout sources
-        uses: actions/checkout@v2
+      - name: Checkout sources with LFS
+        uses: actions/checkout@v4
         with:
+          lfs: true
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Config github user
         run: |
