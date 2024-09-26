@@ -1,0 +1,28 @@
+{
+    "Events": [
+        {
+            "class": "CampaignEvent",
+            "Start_Day": 720,
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Intervention_Config": {
+                    "class": "CondomUsageProbabilityChanger",
+                    "Intervention_Name":"CondomUsageProbabilityChanger-INFORMAL",
+                    "Relationship_Type": "INFORMAL",
+                    "COMMENT1": "Set every INFORMAL coital act to USE condoms",
+                    "Overriding_Condom_Usage_Probability" :
+                    {
+                        "Min": 1.0,
+                        "Max": 1.0,
+                        "Mid": 2000,
+                        "Rate": 1
+                    }
+                }
+            }
+        }
+    ],
+    "Use_Defaults": 1
+}

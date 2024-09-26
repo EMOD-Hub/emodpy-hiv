@@ -1,0 +1,168 @@
+"Axes","array of strings","NA","NA","NA","The axes defined in **Group** to use for the weighting matrix for pair formation. The order of the array defines the order of the weighting matrix.
+",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Assortivity"": {
+                        ""Group"": ""INDIVIDUAL_PROPERTY"",
+                        ""Property_Name"": ""Risk"",
+                        ""Axes"": [
+                            ""LOW"",
+                            ""HIGH""
+                        ],
+                        ""Weighting_Matrix_RowMale_ColumnFemale"": [
+                            [
+                                0.8275185967686474,
+                                0.17248140323135264
+                            ],
+                            [
+                                0.17248140323135264,
+                                0.8275185967686474
+                            ]
+                        ]
+                    }
+                }
+            }
+        }
+    }
+"
+"Group","enum","NA","NA","NO_GROUP","The group that individuals may belong to that is used for weighting assortivity for pair formation. Possible values are:
+
+NO_GROUP
+    Pair with the first person on the list (no axes).
+STI_INFECTION_STATUS
+    Pair based on STI status (TRUE/FALSE axes).
+INDIVIDUAL_PROPERTY
+    Pair based on individual properties (axes are the individual property values).
+STI_COINFECTION_STATUS
+    Pair based on STI co-infection status (TRUE/FALSE axes).
+HIV_INFECTION_STATUS
+    Pair based on HIV infection status, as per infectivity (TRUE/FALSE axes).
+HIV_TESTED_POSITIVE_STATUS
+    Pair based on HIV infection status, as per test results (TRUE/FALSE axes).
+HIV_RECEIVED_RESULTS_STATUS
+    Pair with someone who has received similar HIV test results (UNKNOWN, POSITIVE, NEGATIVE axes).",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Assortivity"": {
+                        ""Group"": ""INDIVIDUAL_PROPERTY"",
+                        ""Property_Name"": ""Risk"",
+                        ""Axes"": [
+                            ""LOW"",
+                            ""HIGH""
+                        ],
+                        ""Weighting_Matrix_RowMale_ColumnFemale"": [
+                            [
+                                0.8275185967686474,
+                                0.17248140323135264
+                            ],
+                            [
+                                0.17248140323135264,
+                                0.8275185967686474
+                            ]
+                        ]
+                    }
+                }
+            }
+        }
+    }
+"
+"Property_Name","string","NA","NA","NA","If **Group** is set to INDIVIDUAL_PROPERTY, the name of the individual property as defined in the **IndividualProperties** section.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Assortivity"": {
+                        ""Group"": ""INDIVIDUAL_PROPERTY"",
+                        ""Property_Name"": ""Risk"",
+                        ""Axes"": [
+                            ""LOW"",
+                            ""HIGH""
+                        ],
+                        ""Weighting_Matrix_RowMale_ColumnFemale"": [
+                            [
+                                0.8275185967686474,
+                                0.17248140323135264
+                            ],
+                            [
+                                0.17248140323135264,
+                                0.8275185967686474
+                            ]
+                        ]
+                    }
+                }
+            }
+        }
+    }
+"
+"Start_Year","float","1900","2200","1900","The year to start using the assortivity weighting matrix. The value must be prior to the current year or **Group** will be set to NO_GROUP. Used only when the **Group** value is one of the following:
+
+* STI_COINFECTION_STATUS
+* HIV_INFECTION_STATUS
+* HIV_TESTED_POSITIVE_STATUS
+* HIV_RECEIVED_RESULTS_STATUS",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Assortivity"": {
+                        ""Group"": ""HIV_INFECTION_STATUS"",
+                        ""Start_Year"": 1990,
+                        ""Axes"": [
+                            ""True"",
+                            ""FALSE""
+                        ],
+                        ""Weighting_Matrix_RowMale_ColumnFemale"": [
+                            [
+                                0.75,
+                                0.25
+                            ],
+                            [
+                                0.4,
+                                0.6
+                            ]
+                        ]
+                    }
+                }
+            }
+        }
+    }
+"
+"Weighting_Matrix_RowMale_ColumnFemale","matrix of floats","0","1","0","The weights to apply to pair formation rates for individuals belonging to the groups defined in **Axes**. Rows are indexed by the male attribute and columns by the female attribute as defined in **Axes**. A single row or column cannot be all zeros. The matrix must be square with the number of dimensions defined by the number of entries in **Axes**.","The following example shows that males who are negative for STI coinfection are 3 times more likely to form relationships with females who are negative and, likewise, individuals positive for STI coinfection are more likely to form relationships with others of the same status.
+
+.. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Assortivity"": {
+                        ""Group"": ""STI_COINFECTION_STATUS"",
+                        ""Start_Year"": 1990,
+                        ""Axes"": [
+                            ""FALSE"",
+                            ""TRUE""
+                        ],
+                        ""Weighting_Matrix_RowMale_ColumnFemale"": [
+                            [
+                                0.75,
+                                0.25
+                            ],
+                            [
+                                0.4,
+                                0.6
+                            ]
+                        ]
+                    }
+                }
+            }
+        }
+    }
+"

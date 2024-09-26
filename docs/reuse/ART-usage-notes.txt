@@ -1,0 +1,7 @@
+Additional considerations when using this intervention:
+
+* The model will not allow someone who is HIV negative to be put on ART.
+* A person who has not previously been on ART is considered to be 'starting ART' at the time this intervention is applied; the model will track this start time/duration.
+* If a person is already on ART from another intervention, receiving a second ART intervention will have no effect.
+* If a person is on already ART and receives the :doc:`parameter-campaign-individual-artmortalitytable` intervention, the original ART start time will be used to calculate the duration from enrollment to ART AIDS Death. The duration since starting ART will not change; it will continue to increase.
+* If a person is on ART and receives the :doc:`parameter-campaign-individual-artdropout` intervention, the person will go off ART and the duration will be reset; if receiving a new ART intervention, this new start time/duration will be used in any calculations.

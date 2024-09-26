@@ -1,0 +1,334 @@
+"Age_of_First_Bin_Edge_Female","integer","0","100","1","The maximum age for the first age bin when dividing the female population into age bins for pair formation.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Number_Age_Bins_Male"": 25,
+                    ""Number_Age_Bins_Female"": 2,
+                    ""Age_of_First_Bin_Edge_Male"": 10,
+                    ""Age_of_First_Bin_Edge_Female"": 20
+                }
+            }
+        }
+    }
+"
+"Age_of_First_Bin_Edge_Male","integer","0","100","1","The maximum age for the first age bin when dividing the male population into age bins for pair formation.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Number_Age_Bins_Male"": 25,
+                    ""Number_Age_Bins_Female"": 2,
+                    ""Age_of_First_Bin_Edge_Male"": 10,
+                    ""Age_of_First_Bin_Edge_Female"": 20
+                }
+            }
+        }
+    }
+"
+"Assortivity","json object","NA","NA","NA","The object that defines how people will preferentially form pairs based on their membership in different groups.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Assortivity"": {
+                        ""Group"": ""INDIVIDUAL_PROPERTY"",
+                        ""Property_Name"": ""Risk"",
+                        ""Axes"": [
+                            ""LOW"",
+                            ""HIGH""
+                        ],
+                        ""Weighting_Matrix_RowMale_ColumnFemale"": [
+                            [
+                                0.8275185967686474,
+                                0.17248140323135264
+                            ],
+                            [
+                                0.17248140323135264,
+                                0.8275185967686474
+                            ]
+                        ]
+                    }
+                }
+            }
+        }
+    }
+"
+"Extra_Relational_Rate_Ratio_Female","integer","1","3.40282e+038","1","For women, the rate ratio for having extra-relational sex for this relationship type, where the ratio is the event over the period of time defined in **Update_Period**.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""INFORMAL"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Update_Period"": 7.0,
+                    ""Extra_Relational_Rate_Ratio_Male"": 4,
+                    ""Extra_Relational_Rate_Ratio_Female"": 2
+                }
+            }
+        }
+    }
+"
+"Extra_Relational_Rate_Ratio_Male","integer","1","3.40282e+038","1","For males, the rate ratio for having extra-relational sex for this relationship type, where the ratio is the event over the period of time defined in **Update_Period**. ",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""INFORMAL"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Update_Period"": 7.0,
+                    ""Extra_Relational_Rate_Ratio_Male"": 4,
+                    ""Extra_Relational_Rate_Ratio_Female"": 2
+                }
+            }
+        }
+    }
+"
+"Formation_Rate_Constant","float","0","1","0.001","If **Formation_Rate_Type** is set to CONSTANT, the number of new relationships per day for this relationship type.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Formation_Rate_Constant"": 0.0013,
+                    ""Update_Period"": 7.0,
+                    ""Extra_Relational_Rate_Ratio_Male"": 5,
+                    ""Extra_Relational_Rate_Ratio_Female"": 2
+                }
+            }
+        }
+    }
+"
+"Formation_Rate_Interpolated_Values","json object","NA","NA","NA","The structure that contains two arrays of floats specifying **Times** and **Values** arrays that will be interpolated to provide the formation rate when **Formation_Rate_Type** is set to INTERPOLATED_VALUES. The years listed in **Times** must be in ascending order; the first year must be prior to the current year and if the last year is prior to the current year, the last value in **Values** will be used for the formation rate.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""INFORMAL"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Formation_Rate_Type"": ""INTERPOLATED_VALUES"",
+                    ""Formation_Rate_Interpolated_Values"": {
+                        ""Times"": [
+                            1980,
+                            2000,
+                            2020
+                        ],
+                        ""Values"": [
+                            0.2,
+                            0.8,
+                            0.4
+                        ]
+                    }
+                }
+            }
+        }
+    }
+"
+"Formation_Rate_Sigmoid","json object","NA","NA","NA","The structure that determines the shape of the sigmoidal curve for pair formation when **Formation_Rate_Type** is set to SIGMOID_VARIABLE_WIDTH_HEIGHT. Include the following parameters:
+
+Min
+   The minimum asymptote (0 to 1, default 1).
+Max
+   The maximum asymptote (0 to 1, default 1).
+Mid
+   The year of the inflection point (0 to 100000, default 2000).
+Rate
+   The rate (proportional to the slope by a factor of 4) at the inflection point (-100 to 100, default 1).",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""INFORMAL"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Formation_Rate_Type"": ""SIGMOID_VARIABLE_WIDTH_HEIGHT"",
+                    ""Formation_Rate_Sigmoid"": {
+                        ""Min"": 0.6,
+                        ""Max"": 0.9,
+                        ""Mid"": 2010,
+                        ""Rate"": 3
+                    }
+                }
+            }
+        }
+    }
+"
+"Formation_Rate_Type","enum","NA","NA","CONSTANT","The type of functional form that describes that pair formation rate. Possible values are:
+
+CONSTANT
+   The rate is a constant value.
+SIGMOID_VARIABLE_WIDTH_HEIGHT
+   The rate is a sigmoidal curve.
+INTERPOLATED_VALUES
+   The rate is interpolated between a set of supplied values.
+",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""MARITAL"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Formation_Rate_Type"": ""CONSTANT"",
+                    ""Formation_Rate_Constant"": 0.002739726
+                }
+            }
+        }
+    }
+"
+"Joint_Probabilities","matrix of floats","0","3.40282e+038, ","0","The relative preference of members of one age bin to form relationships with members of another age bin. The columns represent female bins and rows represent male bins.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""INFORMAL"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Formation_Rate_Constant"": 0.0027398,
+                    ""Update_Period"": 7.0,
+                    ""Number_Age_Bins_Male"": 2,
+                    ""Number_Age_Bins_Female"": 2,
+                    ""Age_of_First_Bin_Edge_Male"": 50,
+                    ""Age_of_First_Bin_Edge_Female"": 50,
+                    ""Years_Between_Bin_Edges_Male"": 35,
+                    ""Years_Between_Bin_Edges_Female"": 35,
+                    ""Joint_Probabilities"": [
+                        [
+                            0,
+                            1
+                        ],
+                        [
+                            1,
+                            0
+                        ]
+                    ]
+                }
+            }
+        }
+    }
+"
+"Number_Age_Bins_Female","integer","1","1000","1","The number of age bins to divide the female population into for pair formation.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""INFORMAL"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Formation_Rate_Constant"": 0.0027398,
+                    ""Update_Period"": 7.0,
+                    ""Number_Age_Bins_Male"": 2,
+                    ""Number_Age_Bins_Female"": 2,
+                    ""Age_of_First_Bin_Edge_Male"": 50,
+                    ""Age_of_First_Bin_Edge_Female"": 50,
+                    ""Years_Between_Bin_Edges_Male"": 35,
+                    ""Years_Between_Bin_Edges_Female"": 35,
+                    ""Joint_Probabilities"": [
+                        [
+                            0,
+                            1
+                        ],
+                        [
+                            1,
+                            0
+                        ]
+                    ]
+                }
+            }
+        }
+    }
+"
+"Number_Age_Bins_Male","integer","1","1000","1","The number of age bins to divide the male population into for pair formation.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""INFORMAL"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Formation_Rate_Constant"": 0.0027398,
+                    ""Update_Period"": 7.0,
+                    ""Number_Age_Bins_Male"": 2,
+                    ""Number_Age_Bins_Female"": 2,
+                    ""Age_of_First_Bin_Edge_Male"": 50,
+                    ""Age_of_First_Bin_Edge_Female"": 50,
+                    ""Years_Between_Bin_Edges_Male"": 35,
+                    ""Years_Between_Bin_Edges_Female"": 35,
+                    ""Joint_Probabilities"": [
+                        [
+                            0,
+                            1
+                        ],
+                        [
+                            1,
+                            0
+                        ]
+                    ]
+                }
+            }
+        }
+    }
+"
+"Update_Period","float","0","3.40282e+38","0","The period, in days, to wait before an individual is eligible to seek out new relationships. ",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Formation_Rate_Constant"": 0.0013,
+                    ""Update_Period"": 7.0,
+                    ""Extra_Relational_Rate_Ratio_Male"": 5,
+                    ""Extra_Relational_Rate_Ratio_Female"": 2
+                }
+            }
+        }
+    }
+"
+"Years_Between_Bin_Edges_Female","float","0.1","100","1","For the female population, the number of years covered in each age bin.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""INFORMAL"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Formation_Rate_Constant"": 0.0027398,
+                    ""Update_Period"": 7.0,
+                    ""Number_Age_Bins_Male"": 2,
+                    ""Number_Age_Bins_Female"": 2,
+                    ""Age_of_First_Bin_Edge_Male"": 50,
+                    ""Age_of_First_Bin_Edge_Female"": 50,
+                    ""Years_Between_Bin_Edges_Male"": 35,
+                    ""Years_Between_Bin_Edges_Female"": 35,
+                    ""Joint_Probabilities"": [
+                        [
+                            0,
+                            1
+                        ],
+                        [
+                            1,
+                            0
+                        ]
+                    ]
+                }
+            }
+        }
+    }
+"
+"Years_Between_Bin_Edges_Male","integer","0.1","100","1","For the male population, the number of years covered in each age bin.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""INFORMAL"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Formation_Rate_Constant"": 0.0027398,
+                    ""Update_Period"": 7.0,
+                    ""Number_Age_Bins_Male"": 2,
+                    ""Number_Age_Bins_Female"": 2,
+                    ""Age_of_First_Bin_Edge_Male"": 50,
+                    ""Age_of_First_Bin_Edge_Female"": 50,
+                    ""Years_Between_Bin_Edges_Male"": 35,
+                    ""Years_Between_Bin_Edges_Female"": 35,
+                    ""Joint_Probabilities"": [
+                        [
+                            0,
+                            1
+                        ],
+                        [
+                            1,
+                            0
+                        ]
+                    ]
+                }
+            }
+        }
+    }
+"

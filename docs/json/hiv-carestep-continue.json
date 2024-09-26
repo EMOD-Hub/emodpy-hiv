@@ -1,0 +1,111 @@
+{
+  "Events": [
+    {
+      "class": "CampaignEventByYear",
+      "Event_Name": "HCTUptakePostDebut: state 0 (Post-Debut)",
+      "Start_Year": 1990,
+      "Nodeset_Config": {
+        "class": "NodeSetAll"
+      },
+      "Event_Coordinator_Config": {
+        "class": "StandardInterventionDistributionEventCoordinator",
+        "Intervention_Config": {
+          "class": "NodeLevelHealthTriggeredIV",
+          "Trigger_Condition_List": [
+            "HCTUptakePostDebut0"
+          ],
+          "Actual_IndividualIntervention_Config": {
+            "class": "STIIsPostDebut",
+            "Event_Or_Config": "Event",
+            "Positive_Diagnosis_Event": "HCTUptakePostDebut1"
+          }
+        }
+      }
+    },
+    {
+      "class": "CampaignEventByYear",
+      "Event_Name": "HCTUptakePostDebut1: state 1 (1-year delay, reachable)",
+      "Start_Year": 1990,
+      "Nodeset_Config": {
+        "class": "NodeSetAll"
+      },
+      "Event_Coordinator_Config": {
+        "class": "StandardInterventionDistributionEventCoordinator",
+        "Intervention_Config": {
+          "class": "NodeLevelHealthTriggeredIV",
+          "Trigger_Condition_List": [
+            "HCTUptakePostDebut1"
+          ],
+          "Property_Restrictions_Within_Node": [
+            {
+              "Accessibility": "Yes"
+            }
+          ],
+          "Actual_IndividualIntervention_Config": {
+            "class": "HIVMuxer",
+            "Muxer_Name": "HCTUptakePostDebut",
+            "Max_Entries": 1,
+            "Disqualifying_Properties": [
+              "InterventionStatus:LostForever",
+              "InterventionStatus:OnART",
+              "InterventionStatus:LinkingToART",
+              "InterventionStatus:OnPreART",
+              "InterventionStatus:LinkingToPreART",
+              "InterventionStatus:ARTStaging",
+              "InterventionStatus:HCTTestingLoop"
+            ],
+            "New_Property_Value": "InterventionStatus:HCTUptakePostDebut",
+            "Delay_Period_Distribution": "EXPONENTIAL_DISTRIBUTION",
+            "Delay_Period_Exponential": 365,
+            "Broadcast_Event": "HCTUptakePostDebut2"
+          }
+        }
+      }
+    },
+    {
+      "class": "CampaignEventByYear",
+      "Event_Name": "HCTUptakePostDebut: state 2 (Decision to uptake HCT)",
+      "Start_Year": 1990,
+      "Nodeset_Config": {
+        "class": "NodeSetAll"
+      },
+      "Event_Coordinator_Config": {
+        "class": "StandardInterventionDistributionEventCoordinator",
+        "Intervention_Config": {
+          "class": "NodeLevelHealthTriggeredIV",
+          "Trigger_Condition_List": [
+            "HCTUptakePostDebut2"
+          ],
+          "Property_Restrictions_Within_Node": [
+            {
+              "Accessibility": "Yes"
+            }
+          ],
+          "Actual_IndividualIntervention_Config": {
+            "class": "HIVSigmoidByYearAndSexDiagnostic",
+            "Disqualifying_Properties": [
+              "InterventionStatus:LostForever",
+              "InterventionStatus:OnART",
+              "InterventionStatus:LinkingToART",
+              "InterventionStatus:OnPreART",
+              "InterventionStatus:LinkingToPreART",
+              "InterventionStatus:ARTStaging",
+              "InterventionStatus:HCTTestingLoop"
+            ],
+            "New_Property_Value": "InterventionStatus:HCTUptakePostDebut",
+            "Days_To_Diagnosis": 0,
+            "Default_Value": 0,
+            "Ramp_Min": -0.01,
+            "Ramp_Max": 0.6,
+            "Ramp_MidYear": 2007,
+            "Ramp_Rate": 1,
+            "Female_Multiplier": 1,
+            "Event_Or_Config": "Event",
+            "Positive_Diagnosis_Event": "HCTTestingLoop0",
+            "Negative_Diagnosis_Event": "HCTUptakePostDebut1"
+          }
+        }
+      }
+    }
+  ]
+}

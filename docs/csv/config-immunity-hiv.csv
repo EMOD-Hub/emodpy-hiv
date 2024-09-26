@@ -1,0 +1,111 @@
+"Enable_Maternal_Protection","boolean","0","1","0","Controls whether or not mothers pass immunity on to their infants. Setting to 1 (true) enables maternal protection as defined by **Maternal_Protection_Type**. **Enable_Birth** must be set to 1 (true).",".. code-block:: json
+
+    {
+      ""Enable_Maternal_Protection"": 1,
+      ""Maternal_Protection_Type"": ""LINEAR_FRACTIONAL""
+    }
+"
+"Immune_Threshold_For_Downsampling","float","0","1","0","The threshold on acquisition immunity at which to apply immunity-dependent downsampling; individuals who are more immune than this this threshold are downsampled. A value of 1 is equivalent to full susceptibility and 0 is equivalent to full immunity. If the acquisition immunity modifier is larger than the threshold, no downsampling occurs. **Individual_Sampling_Type** must set to ADAPTED_SAMPLING_BY_IMMUNE_STATE.",".. code-block:: json
+
+    {
+      ""Relative_Sample_Rate_Immune"": 0.1,
+      ""Immune_Threshold_For_Downsampling"": 0.5,
+      ""Individual_Sampling_Type"": ""ADAPTED_SAMPLING_BY_IMMUNE_STATE""
+    }
+"
+"Maternal_Linear_Slope","float","0.0001","1","0.01","Slope parameter describing the rate of waning for maternal protection, must be positive. The per-day increase in susceptibility. **Maternal_Protection_Type** must be set to LINEAR_FRACTIONAL or LINEAR_BINARY.",".. code-block:: json
+
+    {
+      ""Maternal_Protection_Type"": ""LINEAR_FRACTIONAL"",
+      ""Maternal_Linear_SusZero"": 0.45,
+      ""Maternal_Linear_Slope"": 0.02
+    }
+"
+"Maternal_Linear_SusZero","float","0","1","0.2","The initial level of maternal protection at age 0, given as susceptibility. A value of 0.0 implies total protection, a value of 1.0 implies no protection. **Maternal_Protection_Type** must be set to LINEAR_FRACTIONAL or LINEAR_BINARY.",".. code-block:: json
+
+    {
+      ""Maternal_Protection_Type"": ""LINEAR_FRACTIONAL"",
+      ""Maternal_Linear_SusZero"": 0.45,
+      ""Maternal_Linear_Slope"": 0.02
+    }
+"
+"Maternal_Protection_Type","enum","NA","NA","NONE","The type of maternal protection afforded to infants. **Enable_Maternal_Protection** must be set to 1 (true). Possible values are:
+
+NONE 
+    No immune protection is passed on to infants.
+LINEAR
+    Susceptibility is a function of age and governed by a linear equation. Susceptibility = **Maternal_Linear_Slope** * age + **Maternal_Linear_SusZero**
+SIGMOID
+    Susceptibility is a function of age and governed by a sigmoidal equation. Susceptibility = **Maternal_Sigmoid_SusInit** + (1.0 - **Maternal_Sigmoid_SusInit**) / * (1.0 + EXP(( **Maternal_Sigmoid_HalfMaxAge** - age) / **Maternal_Sigmoid_SteepFac**))
+
+You must set **Susceptibility_Type** to determine if susceptibility at a particular age is interpreted as a fractional value or the probability of complete immunity or susceptibility.",".. code-block:: json
+
+    {
+      ""Enable_Maternal_Protection"": 1,
+      ""Maternal_Protection_Type"": ""LINEAR_FRACTIONAL""
+    }
+"
+"Maternal_Sigmoid_HalfMaxAge","float","-270","3650","180","The age in days that the level of maternal protection is half of its initial value. **Maternal_Protection_Type** must be set to SIGMOID_FRACTIONAL or SIGMOID_BINARY.",".. code-block:: json
+
+    {
+      ""Maternal_Protection_Type"": ""SIGMOID_BINARY"",
+      ""Maternal_Sigmoid_SteepFac"": 30,
+      ""Maternal_Sigmoid_HalfMaxAge"": 365,
+      ""Maternal_Sigmoid_SusInit"": 0.0002
+    }
+"
+"Maternal_Sigmoid_SteepFac","float","0.1","1000","30","The steepness factor describing the rate of waning for maternal protection, must be positive. Small values imply rapid waning.**Maternal_Protection_Type** must be set to SIGMOID_FRACTIONAL or SIGMOID_BINARY.",".. code-block:: json
+
+    {
+      ""Maternal_Protection_Type"": ""SIGMOID_BINARY"",
+      ""Maternal_Sigmoid_SteepFac"": 30,
+      ""Maternal_Sigmoid_HalfMaxAge"": 365,
+      ""Maternal_Sigmoid_SusInit"": 0.0002
+    }
+"
+"Maternal_Sigmoid_SusInit","float","0","1","0","The initial level of maternal protection at age -INF, given as susceptibility. A value of 0.0 implies total protection, a value of 1.0 implies no protection. **Maternal_Protection_Type** must be set to SIGMOID_FRACTIONAL or SIGMOID_BINARY.",".. code-block:: json
+
+    {
+      ""Maternal_Protection_Type"": ""SIGMOID_BINARY"",
+      ""Maternal_Sigmoid_SteepFac"": 30,
+      ""Maternal_Sigmoid_HalfMaxAge"": 365,
+      ""Maternal_Sigmoid_SusInit"": 0.0002
+    }
+"
+"Post_Infection_Acquisition_Multiplier","float","0","1","0","The multiplicative reduction in the probability of reacquiring disease. At the time of recovery, the immunity against acquisition is multiplied by **Acquisition_Blocking_Immunity_Decay_Rate** x (1 - **Post_Infection_Acquisition_Multiplier**). **Enable_Immunity** must be set to 1 (true).",".. code-block:: json
+
+    {
+      ""Enable_Immunity"": 1,
+      ""Enable_Immune_Decay"": 1,
+      ""Post_Infection_Acquisition_Multiplier"": 0.9
+    }
+"
+"Post_Infection_Mortality_Multiplier","float","0","1","0","The multiplicative reduction in the probability of dying from infection after getting reinfected. At the time of recovery, the immunity against mortality is multiplied by **Mortality_Blocking_Immunity_Decay_Rate** x (1 - **Post_Infection_Mortality_Multiplier**). **Enable_Immunity** must be set to 1 (true).",".. code-block:: json
+
+    {
+      ""Enable_Immunity"": 1,
+      ""Enable_Immune_Decay"": 1,
+      ""Post_Infection_Mortality_Multiplier"": 0.5
+    }
+"
+"Post_Infection_Transmission_Multiplier","float","0","1","0","The multiplicative reduction in the probability of transmitting infection after getting reinfected. At the time of recovery, the immunity against transmission is multiplied by **Transmission_Blocking_Immunity_Decay_Rate** x (1 - **Post_Infection_Transmission_Multiplier**). **Enable_Immunity** must be set to 1 (true).",".. code-block:: json
+
+    {
+      ""Enable_Immunity"": 1,
+      ""Enable_Immunity_Decay"": 1,
+      ""Post_Infection_Transmission_Multiplier"": 0.9
+    }
+"
+"Susceptibility_Type","enum","NA","NA","FRACTIONAL","Controls implementation of an individual's susceptibility. Currently only relevant to **Maternal_Protection_Type** parameter. Possible values are:
+
+FRACTIONAL
+    All agents are assigned equal values between 0 and 1 according to a governing equation as specified by **Maternal_Protection_Type**.
+BINARY
+    Agents receive a value of either 0 or 1 (complete immunity or susceptibility) with the probability determined by a governing equation as specified by **Maternal_Protection_Type**. ",".. code-block:: json
+
+    {
+      ""Susceptibility_Type"": ""FRACTIONAL"",
+      ""Enable_Maternal_Protection"": 1,
+      ""Maternal_Protection_Type"": ""LINEAR_FRACTIONAL""
+    }
+"

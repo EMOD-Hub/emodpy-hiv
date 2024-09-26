@@ -1,0 +1,27 @@
+"ART_CD4_at_Initiation_Saturating_Reduction_in_Mortality","float","0","3.40E+38","350","The duration from ART enrollment to on-ART HIV-caused death increases with CD4 at ART initiation up to a threshold determined by this parameter value.",".. code-block:: json
+
+    {
+        ""ART_CD4_at_Initiation_Saturating_Reduction_in_Mortality"": 350
+    }
+"
+"Maternal_Transmission_ART_Multiplier","float","0","1","0.1","The maternal transmission multiplier for on-ART mothers.",".. code-block:: json
+
+    {
+        ""Maternal_Transmission_ART_Multiplier"": 0.03
+    }
+"
+"Report_HIV_ByAgeAndGender_Collect_Intervention_Data","array of strings","NA","NA","[]","A list of interventions used to stratify the report. This allows for reporting on a subset (or all) of the interventions that an individual has been on, of those listed in the **Intervention_Name** campaign parameter. Note: this can only be used with interventions that remain with an individual for a period of time, such as VMMC, vaccine/PrEP, or those with a delay state in the cascade of care. See :doc:`parameter-campaign-individual-interventions` for a list of possible interventions.",".. code-block:: json
+
+    {
+        ""Report_HIV_ByAgeAndGender_Collect_Intervention_Data"": [
+            ""ART_Intervention"",
+            ""PrEP_Intervention""
+        ]
+    }
+"
+"Report_HIV_ByAgeAndGender_Collect_On_Art_Data","boolean","0","1","0","When set to 1, the On_Art_Dim column is included in the output report. The report data will be stratified by those individuals who are on ART and those who are not. Cannot be used with **Report_HIV_ByAgeAndGender_Collect_HIV_Stage_Data**. Note: setting this to 1 doubles the number of rows in the output report.",".. code-block:: json
+
+    {
+        ""Report_HIV_ByAgeAndGender_Collect_On_Art_Data"": 1
+    }
+"

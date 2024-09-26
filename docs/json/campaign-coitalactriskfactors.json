@@ -1,0 +1,29 @@
+{
+    "Use_Defaults": 1,
+    "Events": [{
+        "class": "CampaignEvent",
+        "Start_Day": 40,
+        "Nodeset_Config": {
+            "class": "NodeSetAll"
+        },
+        "Event_Coordinator_Config": {
+            "class": "StandardInterventionDistributionEventCoordinator",
+            "Node_Property_Restrictions": [{
+                "HasAdministeredSexEducation": "YES"
+            }],
+            "Intervention_Config": {
+                "class": "CoitalActRiskFactors",
+                "Intervention_Name" : "MyRiskFactors",
+                "Disqualifying_Properties" : [],
+                "Dont_Allow_Duplicates" : 1,
+                "New_Property_Value" : "",
+                "Cost_To_Consumer": 1,
+                "Acquisition_Multiplier" : 0.8,
+                "Transmission_Multiplier" : 0.8,
+                "Expiration_Distribution" : "CONSTANT_DISTRIBUTION",
+                "Expiration_Constant" : 6,
+                "Expiration_Event_Trigger" : "Risk_Factor_Expired"
+            }
+        }
+    }]
+}

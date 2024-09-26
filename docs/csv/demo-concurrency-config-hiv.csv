@@ -1,0 +1,93 @@
+"Correlated_Relationship_Type_Order","array of strings","NA","NA","NA","The relationship types listed in order of the correlated probabilities. The array must contain all relationship types and **Extra_Relational_Flag_Type** must be set to Correlated.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""Concurrency_Configuration"": {
+                ""NONE"": {
+                    ""Extra_Relational_Flag_Type"": ""Correlated"",
+                    ""Correlated_Relationship_Type_Order"": [
+                        ""TRANSITORY"",
+                        ""INFORMAL"",
+                        ""MARITAL"",
+                        ""COMMERCIAL""
+                    ]
+                }
+            }
+        }
+    }
+"
+"Extra_Relational_Flag_Type","enum","NA","NA","Independent","The manner in which extra-relational flags are distributed. Individuals cannot seek additional concurrent relationships unless they have a flag for the relationship type they are currently in. Possible values are Correlated or Independent.
+
+When independent flags are enabled, all flags are distributed randomly and an individual is unlikely to receive all extra-relational flags. When correlated flags are enabled, flags are distributed for each relationship type in the order listed, with the first flags distributed randomly and each subsequent flag distributed only among individuals who have the prior flag. 
+
+The probability of receiving a flag is defined in **Prob_Extra_Relationship_Male** and **Prob_Extra_Relationship_Female** in :ref:`demo-concurrency-param`.","In the following example, the extra-transitory flag is randomly distributed, the extra-informal flag is provided only to those who possess the extra-transitory flag, and so on.
+
+.. code-block:: json
+
+    {
+        ""Society"": {
+            ""Concurrency_Configuration"": {
+                ""NONE"": {
+                    ""Extra_Relational_Flag_Type"": ""Correlated"",
+                    ""Correlated_Relationship_Type_Order"": [
+                        ""TRANSITORY"",
+                        ""INFORMAL"",
+                        ""MARITAL"",
+                        ""COMMERCIAL""
+                    ]
+                }
+            }
+        }
+    }
+"
+"Individual_Property_Name","string","NA","NA","NA","The individual property used to create groups of people for configuring relationship concurrency settings. The property name must be defined in the **IndividualProperties** section. If the concurrency settings do not vary based on individual properties, set to NONE.","The following example configures different concurrency settings for high and low risk individuals.
+
+.. code-block:: json
+
+    {
+        ""Society"": {
+            ""Concurrency_Configuration"": {
+                ""Probability_Person_Is_Behavioral_Super_Spreader"": 0,
+                ""Individual_Property_Name"": ""Risk"",
+                ""LOW"": {
+                    ""Extra_Relational_Flag_Type"": ""Independent""
+                },
+                ""HIGH"": {
+                    ""Extra_Relational_Flag_Type"": ""Correlated""
+                }
+            }
+        }
+    }
+
+The following example configures the same concurrency settings for all individuals.
+
+.. code-block:: json
+
+    {
+        ""Society"": {
+            ""Concurrency_Configuration"": {
+                ""Individual_Property_Name"": ""NONE"",
+                ""NONE"": {
+                    ""Max_Simultaneous_Relationships_Female"": 4,
+                    ""Max_Simultaneous_Relationships_Male"": 4,
+                    ""Prob_Extra_Relationship_Female"": 1,
+                    ""Prob_Extra_Relationship_Male"": 1
+                }
+            }
+        }
+    }
+"
+"Probability_Person_Is_Behavioral_Super_Spreader","float","0","1","0.001","The probability that an individual is a behavioral super spreader, where they are allowed multiple relationships of all types.",".. code-block:: json
+
+    {
+        ""Social"": {
+            ""Concurrency_Configuration"": {
+                ""Probability_Person_Is_Behavioral_Super_Spreader"": 0.25,
+                ""Individual_Property_Name"": ""NONE"",
+                ""NONE"": {
+                    ""Extra_Relational_Flag_Type"": ""Independent""
+                }
+            }
+        }
+    }
+"

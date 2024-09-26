@@ -1,0 +1,249 @@
+"Broadcast_Event","string","NA","NA","""""","The event that should occur at the end of the delay period. See :doc:`parameter-campaign-event-list` for possible values.",".. code-block:: json
+
+    {
+      ""Broadcast_Event"": ""LTFU0""
+    }
+"
+"Broadcast_On_Expiration_Event","string","NA","NA","""""","If the delay intervention expires before arriving at the end of the delay period, this specifies the event that should occur. For example, if loss to follow-up occurs at a high rate for the first 6 months of care, and then later transitions to a lower rate, then the **Expiration_Period** should be set to 183 days and **Broadcast_On_Expiration_Event** can link to another delay intervention with a longer average delay time until loss to follow up (LTFU). If LTFU does not occur in the first 6 months, then the expiration will allow the first rate to give way to the post-6-month rate. See the list of available events for possible values. See :doc:`parameter-campaign-event-list` for possible values.",".. code-block:: json
+
+    {
+      ""Broadcast_On_Expiration_Event"": ""OnART8""
+    }
+"
+"Coverage","float","0","1","1","The proportion of individuals who receive the **DelayedIntervention** that actually receive the configured interventions.",".. code-block:: json
+
+    {
+      ""Coverage"": 1.0
+    }
+"
+"Delay_Period_Constant","float","0","3.40282E+38","-1","The delay period to use for all interventions, in days, when **Delay_Period_Distribution** is set to CONSTANT_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""CONSTANT_DISTRIBUTION"",
+      ""Delay_Period_Constant"": 8
+    }
+"
+"Delay_Period_Distribution","enum","NA","NA","NOT_INITIALIZED","The distribution type to use for assigning the delay period for distributing interventions. Each assigned value is a random draw from the distribution.
+
+Possible values are:
+
+NOT_INITIALIZED
+    No distribution set. 
+CONSTANT_DISTRIBUTION
+    Use the same value for each individual. Set **Delay_Period_Constant**.
+UNIFORM_DISTRIBUTION
+    Use a `uniform`_ distribution with a given minimum and maximum. Set **Delay_Period_Max** and **Delay_Period_Min**.
+GAUSSIAN_DISTRIBUTION
+    The distribution is `Gaussian`_ (or normal). Values are resampled to ensure >= 0. Set **Delay_Period_Gaussian_Mean** and **Delay_Period_Gaussian_Std_Dev**.
+EXPONENTIAL_DISTRIBUTION
+    The distribution is `exponential`_ with a given mean. Set **Delay_Period_Exponential**.
+WEIBULL_DISTRIBUTION
+    Use a `Weibull`_ distribution with a given shape and scale. Set **Delay_Period_Kappa** and **Delay_Period_Lambda**.
+LOG_NORMAL_DISTRIBUTION
+    Use a `log-normal`_ distribution with a given mean and width. Set **Delay_Period_Log_Normal_Mean** and **Delay_Period_Log_Normal_Width**.
+POISSON_DISTRIBUTION
+    Use a `Poisson`_ distribution with a given mean. Set **Delay_Period_Poisson_Mean**. 
+DUAL_CONSTANT_DISTRIBUTION
+    Use a distribution where some individuals are set to a value of zero and the rest to a given value. Set **Delay_Period_Proportion_0** and **Peak_2_Value**. This distribution does not use the parameters set for CONSTANT_DISTRIBUTION.
+DUAL_EXPONENTIAL_DISTRIBUTION
+    Use two `exponential`_ distributions with given means. Set **Delay_Period_Mean_1**, **Delay_Period_Mean_2**, and **Delay_Period_Proportion_1**. This distribution does not use the parameters set for EXPONENTIAL_DISTRIBUTION.
+
+
+.. _Gaussian: https://en.wikipedia.org/wiki/Normal_distribution
+
+.. _exponential: https://en.wikipedia.org/wiki/Exponential_distribution
+
+.. _Weibull: https://en.wikipedia.org/wiki/Weibull_distribution
+
+.. _log-normal: https://en.wikipedia.org/wiki/Log-normal_distribution
+
+.. _uniform: https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)
+
+.. _Poisson: https://en.wikipedia.org/wiki/Poisson_distribution
+
+",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""GAUSSIAN_DISTRIBUTION"",
+      ""Delay_Period_Gaussian_Mean"": 8,
+      ""Delay_Period_Gaussian_Std_Dev"": 1.5
+    }
+"
+"Delay_Period_Exponential","float","0","3.40282E+38","-1","The mean of the delay period, in days, when **Delay_Period_Distribution** is set to EXPONENTIAL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""EXPONENTIAL_DISTRIBUTION"",
+      ""Delay_Period_Exponential"": 4.25
+    }
+"
+"Delay_Period_Gaussian_Mean","float","0","3.40282E+38","-1","The mean of the delay period, in days, when **Delay_Period_Distribution** is set to GAUSSIAN_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""GAUSSIAN_DISTRIBUTION"",
+      ""Delay_Period_Gaussian_Mean"": 8,
+      ""Delay_Period_Gaussian_Std_Dev"": 1.5
+    }
+"
+"Delay_Period_Gaussian_Std_Dev","float","1.17549E-38","3.40282E+38","-1","The standard deviation of the delay period, in days, when **Delay_Period_Distribution** is set to GAUSSIAN_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""GAUSSIAN_DISTRIBUTION"",
+      ""Delay_Period_Gaussian_Mean"": 8,
+      ""Delay_Period_Gaussian_Std_Dev"": 1.5
+    }
+"
+"Delay_Period_Kappa","float","1.17549E-38","3.40282E+38","-1","The shape value for the delay period, in days, when **Delay_Period_Distribution** is set to WEIBULL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""WEIBULL_DISTRIBUTION"",
+      ""Delay_Period_Kappa"": 0.9,
+      ""Delay_Period_Lambda"": 1.5
+    }
+"
+"Delay_Period_Lambda","float","1.17549E-38","3.40282E+38","-1","The scale value for the delay period, in days, when **Delay_Period_Distribution** is set to WEIBULL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""WEIBULL_DISTRIBUTION"",
+      ""Delay_Period_Kappa"": 0.9,
+      ""Delay_Period_Lambda"": 1.5
+    }
+"
+"Delay_Period_Log_Normal_Mu","float","-3.40282e+38","1.70141e+38","3.40282e+38","The mean of the natural log of the delay period, in days, when **Delay_Period_Distribution** is set to LOG_NORMAL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""LOG_NORMAL_DISTRIBUTION"",
+      ""Delay_Period_Log_Normal_Mu"": 9,
+      ""Delay_Period_Log_Normal_Sigma"": 2
+    }
+"
+"Delay_Period_Log_Normal_Sigma","float","-3.40282e+38","1.70141e+38","3.40282E+38","The standard deviation of the natural log of the delay period, in days, when **Delay_Period_Distribution** is set to LOG_NORMAL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""LOG_NORMAL_DISTRIBUTION"",
+      ""Delay_Period_Log_Normal_Mu"": 9,
+      ""Delay_Period_Log_Normal_Sigma"": 2
+    }
+"
+"Delay_Period_Max","float","0","3.40282E+38","-1","The maximum delay period, in days, when **Delay_Period_Distribution** is set to UNIFORM_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""UNIFORM_DISTRIBUTION"",
+      ""Delay_Period_Min"": 2,
+      ""Delay_Period_Max"": 7
+    }
+"
+"Delay_Period_Mean_1","float","1.17549E-38","3.40282E+38","-1","The mean of the first exponential distribution, in days, when **Delay_Period_Distribution** is set to DUAL_EXPONENTIAL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""DUAL_EXPONENTIAL_DISTRIBUTION"",
+      ""Delay_Period_Mean_1"": 4,
+      ""Delay_Period_Mean_2"": 12,
+      ""Delay_Period_Proportion_1"": 0.2
+    }
+"
+"Delay_Period_Mean_2","float","1.17549E-38","3.40282E+38","-1","The mean of the second exponential distribution, in days, when **Delay_Period_Distribution** is set to DUAL_EXPONENTIAL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""DUAL_EXPONENTIAL_DISTRIBUTION"",
+      ""Delay_Period_Mean_1"": 4,
+      ""Delay_Period_Mean_2"": 12,
+      ""Delay_Period_Proportion_1"": 0.2
+    }
+"
+"Delay_Period_Min","float","0","3.40282E+38","-1","The minimum delay period, in days, when **Delay_Period_Distribution** is set to UNIFORM_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""UNIFORM_DISTRIBUTION"",
+      ""Delay_Period_Min"": 2,
+      ""Delay_Period_Max"": 7
+    }
+"
+"Delay_Period_Peak_2_Value","float","0","3.40282E+38","-1","The delay period value to assign to the remaining interventions, in days, when **Delay_Period_Distribution** is set to DUAL_CONSTANT_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""DUAL_CONSTANT_DISTRIBUTION"",
+      ""Delay_Period_Proportion_0"": 0.25,
+      ""Delay_Period_Peak_2_Value"": 5
+    }
+"
+"Delay_Period_Poisson_Mean","float","0","3.40282E+38","-1","The mean of the delay period, in days, when **Delay_Period_Distribution** is set to POISSON_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""POISSON_DISTRIBUTION"",
+      ""Delay_Period_Poisson_Mean"": 5
+    }
+"
+"Delay_Period_Proportion_0","float","0","1","-1","The proportion of interventions to assign a value of zero delay when **Delay_Period_Distribution** is set to DUAL_CONSTANT_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""DUAL_CONSTANT_DISTRIBUTION"",
+      ""Delay_Period_Proportion_0"": 0.25,
+      ""Delay_Period_Peak_2_Value"": 5
+    }
+"
+"Delay_Period_Proportion_1","float","0","1","-1","The proportion of interventions in the first exponential distribution when **Delay_Period_Distribution** is set to DUAL_EXPONENTIAL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Delay_Period_Distribution"": ""DUAL_EXPONENTIAL_DISTRIBUTION"",
+      ""Delay_Period_Mean_1"": 4,
+      ""Delay_Period_Mean_2"": 12,
+      ""Delay_Period_Proportion_1"": 0.2
+    }
+"
+"Disqualifying_Properties","array of strings","NA","NA","[]","A list of **IndividualProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to individuals with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.",".. code-block:: json
+
+    {
+      ""Disqualifying_Properties"": [
+        ""InterventionStatus:LostForever""
+      ]
+    }
+"
+"Dont_Allow_Duplicates","boolean","0","1","0","If an individual's container has an intervention, set to true (1) to prevent them from receiving another copy of the intervention. Supported by all intervention classes.",".. code-block:: json
+
+    {
+      ""Dont_Allow_Duplicates"": 0
+    }
+"
+"Expiration_Period","float","0","3.40282e+38","3.40E+38","A fixed time period, in days, after which the **Broadcast_On_Expiration_Event** occurs instead of the **Broadcast_Event**. Only applied if the **Expiration_Period** occurs earlier than the end of the delay period. For example, if loss to follow-up (LTFU) occurs at a high rate for the first 6 months of care, and then later transitions to a lower rate, then the **Expiration_Period** should be set to 183 days and **Broadcast_On_Expiration_Event** can link to another delay intervention with a longer average delay time until LTFU. If LTFU does not occur in the first 6 months, then the expiration will allow the first rate to give way to the post-6-month rate.
+
+",".. code-block:: json
+
+    {
+      ""Expiration_Period"": 183
+    }
+"
+"Intervention_Name","string","NA","NA","HIVMuxer","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""class"": ""HIVMuxer"",
+        ""Intervention_Name"": ""Delay for clinic care""
+      }
+    }
+"
+"Max_Entries","integer","0","2147480000.0","1","The maximum number of times the individual can be registered with the HIVMuxer delay. Determines what should happen if an individual reaches the HIVMuxer stage of health care multiple times. For example, registering for an exponential delay two times effectively doubles the rate of leaving the delay. Setting **Max_Entries** to 1 prevents the rate from doubling.",".. code-block:: json
+
+    {
+      ""Actual_IndividualIntervention_Config"": {
+        ""class"": ""HIVMuxer"",
+        ""Muxer_Name"": ""ARTDropoutDelay"",
+        ""Max_Entries"": 1
+      }
+    }
+"
+"Muxer_Name","string","NA","NA","NA","A name used to identify the delay and check whether individuals have entered it multiple times. If the same name is used at multiple points in the health care process, then the number of entries is combined when **Max_Entries** is applied. ",".. code-block:: json
+
+    {
+      ""Actual_IndividualIntervention_Config"": {
+        ""class"": ""HIVMuxer"",
+        ""Muxer_Name"": ""ARTDropoutDelay"",
+        ""Max_Entries"": 1
+      }
+    }
+"
+"New_Property_Value","string","NA","NA","""""","An optional **IndividualProperty** key:value pair that will be assigned when the intervention is applied. See :ref:`demo-properties` parameters for more information. Generally used to indicate the broad category of health care cascade to which an intervention belongs to prevent individuals from accessing care through multiple pathways. For example, if an individual must already be taking a particular medication to be prescribed a new one. ",".. code-block:: json
+
+    {
+      ""New_Property_Value"": ""InterventionStatus:None""
+    }
+"

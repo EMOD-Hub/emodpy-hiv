@@ -1,0 +1,44 @@
+{
+    "IndividualProperties": [{
+            "alpha__Comment": "80% Healthcare Accessible",
+            "Property": "Accessibility",
+            "Values": ["Yes", "No"],
+            "Initial_Distribution": [0.8, 0.2]
+        },
+        {
+            "Property": "InterventionStatus",
+            "Values": [
+                "None",
+                "ARTStaging",
+                "ARTStagingDiagnosticTest",
+                "LinkingToART",
+                "LinkingToPreART",
+                "OnART",
+                "OnPreART",
+                "HCTTestingLoop",
+                "HCTUptakeAtDebut",
+                "HCTUptakePostDebut",
+                "TestingOnANC",
+                "TestingOnChild6w",
+                "TestingOnSymptomatic",
+                "LostForever"
+            ],
+            "Initial_Distribution": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        }
+    ]
+}

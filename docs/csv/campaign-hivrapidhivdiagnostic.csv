@@ -1,0 +1,201 @@
+"Base_Sensitivity","float","0","1","1","The sensitivity of the diagnostic. This sets the proportion of the time that individuals with the condition being tested receive a positive diagnostic test.
+When set to 1, the diagnostic always accurately reflects the condition. When set to zero, then individuals who have the condition always receive a false-negative diagnostic test.",".. code-block:: json
+
+    {
+      ""Base_Sensitivity"": 0.8
+    }
+"
+"Base_Specificity","float","0","1","1","The specificity of the diagnostic. This sets the proportion of the time that individuals without the condition being tested receive a negative diagnostic test. When set to 1, the diagnostic always accurately reflects the lack of having the condition. When set to zero, then individuals who do not have the condition always receive a false-positive diagnostic test.",".. code-block:: json
+
+    {
+      ""Base_Specificity"": 0.9
+    }
+"
+"Cost_To_Consumer","float","0","3.40282e+38","1","The unit 'cost' assigned to the diagnostic. Setting **Cost_To_Consumer** to zero for all other interventions, and to a non-zero amount for one intervention, provides a convenient way to track the number of times the intervention has been applied in a simulation.",".. code-block:: json
+
+    {
+      ""Cost_To_Consumer"": 0.333
+    }
+"
+"Days_To_Diagnosis","float","0","3.40282e+38","0","The number of days from diagnosis (which is done when the intervention is distributed) until a positive response is performed. The response to a negative diagnosis is done immediately when the diagnosis is made (at distribution of the intervention).",".. code-block:: json
+
+    {
+      ""Days_To_Diagnosis"": 0.0
+    }
+"
+"Disqualifying_Properties","array of strings","NA","NA","[]","A list of **IndividualProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to individuals with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.",".. code-block:: json
+
+    {
+      ""Disqualifying_Properties"": [
+        ""InterventionStatus:LostForever""
+      ]
+    }
+"
+"Dont_Allow_Duplicates","boolean","0","1","0","If an individual's container has an intervention, set to true (1) to prevent them from receiving another copy of the intervention. Supported by all intervention classes.",".. code-block:: json
+
+    {
+      ""Dont_Allow_Duplicates"": 0
+    }
+"
+"Enable_Is_Symptomatic","boolean","0","1","0","If true (1), requires an infection to be symptomatic to return a positive test.",".. code-block:: json
+
+    {
+      ""Enable_Is_Symptomatic"": 1,
+      ""Base_Specificity"": 0.85,
+      ""Base_Sensitivity"": 0.92
+    }
+"
+"Intervention_Name","string","NA","NA","HIVRapidHIVDiagnostic","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""class"": ""HIVRapidHIVDiagnostic"",
+        ""Intervention_Name"": ""Mobile HIV diagnosis campaign""
+      }
+    }
+"
+"Negative_Diagnosis_Event","enum","NA","NA","""""","If an individual tests negative, this specifies an event that may trigger another intervention when the event occurs. See :doc:`parameter-campaign-event-list` for possible values.",".. code-block:: json
+
+    {
+      ""Negative_Diagnosis_Event"": ""PreDebut""
+    }
+"
+"New_Property_Value","string","NA","NA","""""","An optional **IndividualProperty** key:value pair that will be assigned when the intervention is applied. See :ref:`demo-properties` parameters for more information. Generally used to indicate the broad category of health care cascade to which an intervention belongs to prevent individuals from accessing care through multiple pathways. For example, if an individual must already be taking a particular medication to be prescribed a new one. ",".. code-block:: json
+
+    {
+      ""New_Property_Value"": ""InterventionStatus:None""
+    }
+"
+"Positive_Diagnosis_Event","enum","NA","NA","""""","If the test is positive, this specifies an event that can trigger another intervention when the event occurs. See :doc:`parameter-campaign-event-list` for possible values.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""Base_Sensitivity"": 1,
+        ""Base_Specificity"": 1,
+        ""Cost_To_Consumer"": 0,
+        ""Days_To_Diagnosis"": 0,
+        ""Positive_Diagnosis_Event"": ""TestedPositive_CureMeNow"",
+        ""class"": ""SimpleDiagnostic""
+      }
+    }
+"
+"Probability_Received_Result","float","0","1","1","The probability that an individual received the results of a diagnostic test.",".. code-block:: json
+
+    {
+      ""Probability_Received_Result"": 0.9
+    }
+"
+"Sensitivity_Type","enum","NA","NA","SINGLE_VALUE","Set to SINGLE_VALUE (default) to use the single value of **Base_Sensitivity** or VERSUS_TIME to have sensitivity be based on the duration since the person became infected, **Sensitivity_Versus_Time**.",".. code-block:: json
+
+    {
+      ""class"": ""HIVRapidHIVDiagnostic"",
+      ""Sensitivity_Type"": ""VERSUS_TIME"",
+      ""Sensitivity_Versus_Time"": {
+        ""Times"": [
+          0,
+          9,
+          10,
+          19,
+          20,
+          29,
+          30,
+          39,
+          40,
+          49,
+          50,
+          59,
+          60,
+          69,
+          70,
+          79,
+          80,
+          89,
+          90,
+          99,
+          100
+        ],
+        ""Values"": [
+          1,
+          1,
+          0.9,
+          0.9,
+          0.8,
+          0.8,
+          0.7,
+          0.7,
+          0.6,
+          0.6,
+          0.5,
+          0.5,
+          0.4,
+          0.4,
+          0.3,
+          0.3,
+          0.2,
+          0.2,
+          0.1,
+          0.1,
+          0
+        ]
+      },
+      ""Positive_Diagnosis_Event"": ""Tested_Positive"",
+      ""Negative_Diagnosis_Event"": ""Tested_Negative""
+    }
+"
+"Sensitivity_Versus_Time","array of floats","","","[]","The 'Times' values are the duration from when the person became infected. 'Values' is the sensitivity of the diagnostic for the given age of the infection.",".. code-block:: json
+
+    {
+      ""class"": ""HIVRapidHIVDiagnostic"",
+      ""Sensitivity_Type"": ""VERSUS_TIME"",
+      ""Sensitivity_Versus_Time"": {
+        ""Times"": [
+          0,
+          9,
+          10,
+          19,
+          20,
+          29,
+          30,
+          39,
+          40,
+          49,
+          50,
+          59,
+          60,
+          69,
+          70,
+          79,
+          80,
+          89,
+          90,
+          99,
+          100
+        ],
+        ""Values"": [
+          1,
+          1,
+          0.9,
+          0.9,
+          0.8,
+          0.8,
+          0.7,
+          0.7,
+          0.6,
+          0.6,
+          0.5,
+          0.5,
+          0.4,
+          0.4,
+          0.3,
+          0.3,
+          0.2,
+          0.2,
+          0.1,
+          0.1,
+          0
+        ]
+      },
+      ""Positive_Diagnosis_Event"": ""Tested_Positive"",
+      ""Negative_Diagnosis_Event"": ""Tested_Negative""
+    }
+"

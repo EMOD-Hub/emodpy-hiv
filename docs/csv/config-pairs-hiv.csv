@@ -1,0 +1,84 @@
+"Coital_Dilution_Factor_2_Partners","float","1.19E-0","1","1","The multiplicative reduction in the coital act rate for all relationship types when an individual has exactly two current partners. Represents coital dilution.",".. code-block:: json
+
+    {
+        ""Coital_Dilution_Factor_2_Partners"": 0.5
+    }
+"
+"Coital_Dilution_Factor_3_Partners","float","1.19E-0","1","1","The multiplicative reduction in the coital act rate for all relationship types when an individual has exactly three current partners. Represents coital dilution.",".. code-block:: json
+
+    {
+        ""Coital_Dilution_Factor_3_Partners"": 0.33
+    }
+"
+"Coital_Dilution_Factor_4_Plus_Partners","float","1.19E-0","1","1","The multiplicative reduction in the coital act rate for all relationship types when an individual has exactly three current partners. Represents coital dilution.",".. code-block:: json
+
+    {
+        ""Coital_Dilution_Factor_4_Partners"": 0.45
+    }
+"
+"Enable_Coital_Dilution","boolean","0","1","1","Controls whether or not coital dilution will occur.",".. code-block:: json
+
+    {
+        ""Enable_Coital_Dilution"": 1
+    }
+"
+"Min_Days_Between_Adding_Relationships","float","0","365","60","The minimum number of days between adding two consecutive relationships as a means to control concurrency. The constraint does not apply if an individual breaks an existing relationship.",".. code-block:: json
+
+    {
+        ""Min_Days_Between_Adding_Relationships"": 1
+    }
+"
+"PFA_Burnin_Duration_In_Days","float","1","3.40E+38","365000","The number of days to continue tuning the pair formation rates. After this duration, the rates will remain at the last rate value calculated.",".. code-block:: json
+
+    {
+        ""PFA_Burnin_Duration_In_Days"": 5475
+    }
+"
+"PFA_Cum_Prob_Selection_Threshold","float","0","1","0.2","This parameter serves to minimize the extent to which relationships with unlikely age gaps are formed. These unlikely relationships could be generated due to lack of diversity in the PFA. Within the algorithm, males pick from amongst the available females by age bin, weighted by the conditional of the joint_probability matrix given the male age bin. If the sum of the probabilities in the female age bins that are not empty is below this threshold, the male will wait till the next update. Setting this parameter to a value near 1 dramatically increases the delay that individuals will experience in seeking relationships. Setting this parameter to 0 disables the feature.",".. code-block:: json
+
+    {
+        ""PFA_Cum_Prob_Selection_Threshold"": 0.4
+    }
+"
+"Report_HIV_ByAgeAndGender_Add_Concordant_Relationships","boolean","0","1","0","When set to 1, a Concordant column for each relationship type (TRANSITORY, INFORMAL, MARITAL, and COMMERCIAL) is included in the output report. These contain totals for each relationship of each type where both partners have the same HIV status.",".. code-block:: json
+
+    {
+        ""Report_HIV_ByAgeAndGender_Add_Concordant_Relationships"": 1
+    }
+"
+"Report_HIV_ByAgeAndGender_Add_Relationships","boolean","0","1","0","When set to 1, the report will contain data on the population currently in a relationship and ever in a relationship for each relationship type (TRANSITORY, INFORMAL, MARITAL, and COMMERCIAL), eight columns total. Additionally, columns containing a sum of individuals in two or more partnerships (Has Concurrent Partners) and a sum of the lifetime number of relationships (Lifetime Partners) will be included.",".. code-block:: json
+
+    {
+        ""Report_HIV_ByAgeAndGender_Add_Relationships"": 1
+    }
+"
+"Sexual_Debut_Age_Female_Weibull_Heterogeneity","float","0","50","20","The inverse shape of the Weibull distribution for female debut age.",".. code-block:: json
+
+    {
+        ""Sexual_Debut_Age_Female_Weibull_Heterogeneity"": 0.05
+    }
+"
+"Sexual_Debut_Age_Female_Weibull_Scale","float","0","50","16","The scale term of the Weibull distribution for female debut age.",".. code-block:: json
+
+    {
+        ""Sexual_Debut_Age_Female_Weibull_Scale"": 15.919654846191
+    }
+"
+"Sexual_Debut_Age_Male_Weibull_Heterogeneity","float","0","50","20","The inverse shape of the Weibull distribution for male debut age.",".. code-block:: json
+
+    {
+        ""Sexual_Debut_Age_Male_Weibull_Heterogeneity"": 0.05
+    }
+"
+"Sexual_Debut_Age_Male_Weibull_Scale","float","0","50","16","The scale term of the Weibull distribution for male debut age.",".. code-block:: json
+
+    {
+        ""Sexual_Debut_Age_Male_Weibull_Scale"": 16.946729660034
+    }
+"
+"Sexual_Debut_Age_Min","float","0","3.40E+38","13","The minimum age at which individuals become eligible to form sexual relationships.",".. code-block:: json
+
+    {
+        ""Sexual_Debut_Age_Min"": 13
+    }
+"

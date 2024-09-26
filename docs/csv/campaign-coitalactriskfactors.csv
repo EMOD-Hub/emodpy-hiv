@@ -1,0 +1,161 @@
+"Acquisition_Multiplier","float","0","100","1","Multiplier for STI acquisition probability per coital act.",".. code-block:: json
+
+    {
+      ""Acquisition_Multiplier"": 2
+    }
+"
+"Cost_To_Consumer","float","0","999999","10","The unit 'cost' assigned to the intervention. Setting **Cost_To_Consumer** to zero for all other interventions, and to a non-zero amount for one intervention, provides a convenient way to track the number of times the intervention has been applied in a simulation.",".. code-block:: json
+
+    {
+      ""Cost_To_Consumer"": 1
+    }
+"
+"Disqualifying_Properties","array of strings","NA","NA","[]","A list of **IndividualProperty** key:value pairs that will prevent an intervention from being distributed or applied/updated. See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.",".. code-block:: json
+
+    {
+      ""Disqualifying_Properties"": [
+        ""InterventionStatus:LostForever""
+      ]
+    }
+"
+"Dont_Allow_Duplicates","boolean","0","1","0","If an individual's container has an intervention, set to true (1) to prevent them from receiving another copy of the intervention. Supported by all intervention classes.",".. code-block:: json
+
+    {
+      ""Dont_Allow_Duplicates"": 0
+    }
+"
+"Expiration_Constant","float","0","3.40282e+38","6","Each instance will receive this constant/fixed value.",".. code-block:: json
+
+    {
+      ""Expiration_Constant"": 8,
+      ""Expiration_Distribution"": ""CONSTANT_DISTRIBUTION""
+    }
+"
+"Expiration_Distribution","enum","NA","NA","NOT_INITIALIZED","The distribution type to use for setting the expiration of the intervention. Each assigned value is a random draw from the distribution. Possible values are:
+
+* NOT_INITIALIZED
+* CONSTANT_DISTRIBUTION
+* UNIFORM_DISTRIBUTION
+* GAUSSIAN_DISTRIBUTION
+* EXPONENTIAL_DISTRIBUTION
+* POISSON_DISTRIBUTION
+* LOG_NORMAL_DISTRIBUTION
+* DUAL_CONSTANT_DISTRIBUTION
+* WEIBULL_DISTRIBUTION
+* DUAL_EXPONENTIAL_DISTRIBUTION",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""UNIFORM_DISTRIBUTION""
+    }
+"
+"Expiration_Event_Trigger","string","NA","NA","""""","When the intervention expires, this event will be broadcasted. See :doc:`parameter-campaign-event-list` for possible built-in values, or create custom values using **Custom_Individual_Events**.",".. code-block:: json
+
+    {
+      ""Expiration_Event_Trigger"": ""My Expiration Event""
+    }
+"
+"Expiration_Exponential","float","0","3.40282e+38","6","The mean for an exponential distribution.",".. code-block:: json
+
+    {
+      ""Expiration_Exponential"": 6
+    }
+"
+"Expiration_Gaussian_Mean","float","0","3.40282e+38","6","The mean for a Gaussian distribution.",".. code-block:: json
+
+    {
+      ""Expiration_Gaussian_Mean"": 6
+    }
+"
+"Expiration_Gaussian_Std_Dev","float","1.17549e-38","3.40282e+38","1","The standard deviation for a Gaussian distribution.",".. code-block:: json
+
+    {
+      ""Expiration_Gaussian_Std_Dev"": 1
+    }
+"
+"Expiration_Kappa","float","1.17549e-38","3.40282e+38","1","The shape value in a Weibull distribution.",".. code-block:: json
+
+    {
+      ""Expiration_Kappa"": 1
+    }
+"
+"Expiration_Lambda","float","1.17549e-38","3.40282e+38","1","The scale value in a Weibull distribution.",".. code-block:: json
+
+    {
+      ""Expiration_Lambda"": 1
+    }
+"
+"Expiration_Log_Normal_Mu","float","-3.40282e+38","3.40282e+38","1","The mean for a log-normal distribution.",".. code-block:: json
+
+    {
+      ""Expiration_Log_Normal_Mu"": 1
+    }
+"
+"Expiration_Max","float","0","3.40282e+38","1","The maximum of the uniform distribution.",".. code-block:: json
+
+    {
+      ""Expiration_Max"": 1
+    }
+"
+"Expiration_Mean_1","float","1.17549e-38","3.40282e+38","1","The mean of the first exponential distribution.",".. code-block:: json
+
+    {
+      ""Expiration_Mean_1"": 1
+    }
+"
+"Expiration_Mean_2","float","1.17549e-38","3.40282e+38","1","The mean of the second exponential distribution.",".. code-block:: json
+
+    {
+      ""Expiration_Mean_2"": 1
+    }
+"
+"Expiration_Min","float","0","3.40282e+38","0","The minimum of the uniform distribution.",".. code-block:: json
+
+    {
+      ""Expiration_Min"": 0
+    }
+"
+"Expiration_Peak_2_Value","float","0","3.40282e+38","1","The value to assign to the remaining individuals.",".. code-block:: json
+
+    {
+      ""Expiration_Peak_2_Value"": 1
+    }
+"
+"Expiration_Poisson_Mean","float","0","3.40282e+38","6","The mean for a Poisson distribution.",".. code-block:: json
+
+    {
+      ""Expiration_Poisson_Mean"": 6
+    }
+"
+"Expiration_Proportion_0","float","0","1","1","The proportion of individuals to assign a value of zero.",".. code-block:: json
+
+    {
+      ""Expiration_Proportion_0"": 1
+    }
+"
+"Expiration_Proportion_1","float","0","1","1","The proportion of individuals in the first exponential distribution.",".. code-block:: json
+
+    {
+      ""Expiration_Proportion_1"": 1
+    }
+"
+"Intervention_Name","string","NA","NA","CoitalActRiskFactors","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""Intervention_Name"": ""My intervention"",
+        ""class"": ""CoitalActRiskFactors""
+      }
+    }
+"
+"New_Property_Value","string","NA","NA","""""","An optional **IndividualProperty** key:value pair that will be assigned when the intervention is distributed. See :ref:`demo-properties` parameters for more information. Generally used to indicate the broad category of health care cascade to which an intervention belongs to prevent individuals from accessing care through multiple pathways. For example, if an individual must already be taking a particular medication to be prescribed a new one. ",".. code-block:: json
+
+    {
+      ""New_Property_Value"": ""InterventionStatus:None""
+    }
+"
+"Transmission_Multiplier","float","0","100","1","Multiplier for STI transmission probability per coital act.",".. code-block:: json
+
+    {
+      ""Transmission_Multiplier"": 1
+    }
+"

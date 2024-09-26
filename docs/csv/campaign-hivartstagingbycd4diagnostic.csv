@@ -1,0 +1,148 @@
+"Cost_To_Consumer","float","0","3.40282e+38","1","The unit 'cost' assigned to the diagnostic. Setting **Cost_To_Consumer** to zero for all other interventions, and to a non-zero amount for one intervention, provides a convenient way to track the number of times the intervention has been applied in a simulation.",".. code-block:: json
+
+    {
+      ""Cost_To_Consumer"": 0.333
+    }
+"
+"Disqualifying_Properties","array of strings","NA","NA","[]","A list of **IndividualProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to individuals with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.",".. code-block:: json
+
+    {
+      ""Disqualifying_Properties"": [
+        ""InterventionStatus:LostForever""
+      ]
+    }
+"
+"Dont_Allow_Duplicates","boolean","0","1","0","If an individual's container has an intervention, set to true (1) to prevent them from receiving another copy of the intervention. Supported by all intervention classes.",".. code-block:: json
+
+    {
+      ""Dont_Allow_Duplicates"": 0
+    }
+"
+"If_Active_TB","json object","NA","NA","NA","If the individual's CD4 is not below the threshold in the **Threshold** table and the individual has TB (via their **IndividualProperties**), then the individual's CD4 will be compared to the CD4 value retrieved from the **InterpolatedValueMap** matrix based on the current year.
+",".. code-block:: json
+
+    {
+      ""If_Active_TB"": {
+        ""Times"": [
+          1990,
+          1995,
+          2000,
+          2005
+        ],
+        ""Values"": [
+          800,
+          600,
+          550,
+          500
+        ]
+      }
+    }
+"
+"If_Pregnant","json object","NA","NA","NA","If the individual does not pass the diagnostic from the **Threshold** or TB matrices, and the individual is pregnant, then the individual's CD4 is compared to the value found in the **InterpolatedValueMap matrix**.
+",".. code-block:: json
+
+    {
+      ""If_Pregnant"": {
+        ""Times"": [
+          1990,
+          1995,
+          2000,
+          2005
+        ],
+        ""Values"": [
+          600,
+          500,
+          450,
+          400
+        ]
+      }
+    }
+"
+"Individual_Property_Active_TB_Key","string","NA","NA","UNINITIALIZED","The **IndividualProperty** key ('HasActiveTB') used to determine whether the individual has TB.",".. code-block:: json
+
+    {
+      ""Individual_Property_Active_TB_Key"": ""HasActiveTB""
+    }
+"
+"Individual_Property_Active_TB_Value","string","NA","NA","UNINITIALIZED","The **IndividualProperty** value ('Yes') used to determine whether the individual has TB.",".. code-block:: json
+
+    {
+      ""Individual_Property_Active_TB_Value"": ""YES""
+    }
+"
+"Intervention_Name","string","NA","NA","HIVARTStagingByCD4Diagnostic","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.",".. code-block:: json
+
+    {
+      ""Intervention_Name"": ""Diagnostic_Sample""
+    }
+"
+"Negative_Diagnosis_Event","enum","NA","NA","""""","If an individual tests negative, this specifies an event that may trigger another intervention when the event occurs. See :doc:`parameter-campaign-event-list` for possible values.",".. code-block:: json
+
+    {
+      ""Negative_Diagnosis_Event"": ""PreDebut""
+    }
+"
+"New_Property_Value","string","NA","NA","""""","An optional **IndividualProperty** key:value pair that will be assigned when the intervention is applied. See :ref:`demo-properties` parameters for more information. Generally used to indicate the broad category of health care cascade to which an intervention belongs to prevent individuals from accessing care through multiple pathways. For example, if an individual must already be taking a particular medication to be prescribed a new one. ",".. code-block:: json
+
+    {
+      ""New_Property_Value"": ""InterventionStatus:None""
+    }
+"
+"Positive_Diagnosis_Event","enum","NA","NA","""""","If the test is positive, this specifies an event that can trigger another intervention when the event occurs. See :doc:`parameter-campaign-event-list` for possible values.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""Positive_Diagnosis_Event"": ""LinkingToART0"",
+        ""class"": ""HIVARTStagingByCD4Diagnostic""
+      }
+    }
+"
+"Threshold","json object","NA","NA","NA","If the individual's CD4 has ever been below the threshold specified, then the test will be positive.",".. code-block:: json
+
+    {
+      ""Threshold"": {
+        ""Times"": [
+          1990,
+          1995,
+          2000,
+          2005
+        ],
+        ""Values"": [
+          500,
+          400,
+          350,
+          300
+        ]
+      }
+    }
+"
+"Times","array of floats","0","999999","[]","An array of years to match the defined **Values**; used with parameters **If_Active_TB**, **If_Pregnant**, and **Threshold**.",".. code-block:: json
+
+    {
+      ""Threshold"": {
+        ""Times"": [
+          1990,
+          2020
+        ],
+        ""Values"": [
+          1,
+          0
+        ]
+      }
+    }
+"
+"Values","array of floats","0","3.40282e+38","[]","An array of values to match the defined **Times**; used with parameters **If_Active_TB**, **If_Pregnant**, and **Threshold**.",".. code-block:: json
+
+    {
+      ""Threshold"": {
+        ""Times"": [
+          1990,
+          2020
+        ],
+        ""Values"": [
+          1,
+          0
+        ]
+      }
+    }
+"

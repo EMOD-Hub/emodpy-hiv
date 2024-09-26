@@ -1,0 +1,171 @@
+"Coital_Act_Rate","float","FLT_EPSILON","20","0.33","The probability of a coital act occurring at each time step.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Relationship_Parameters"": {
+                    ""Coital_Act_Rate"": 1
+                }
+            }
+        }
+    }
+"
+"Condom_Usage_Probability","json object","NA","NA","NA","The structure that determines the probability of condom usage over time in a relationship type. The probability follows a sigmoidal curve, as defined by the following parameters:
+
+Min
+   The minimum asymptote (0 to 1, default 1).
+Max
+   The maximum asymptote (0 to 1, default 1).
+Mid
+   The year of the inflection point (0 to 3.40282e+038, default 2000).
+Rate
+   The rate proportional to the slope at the inflection point (-100 to 100, default is 1).",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Relationship_Parameters"": {
+                    ""Condom_Usage_Probability"": {
+                        ""Min"": 0.0125,
+                        ""Max"": 0.3,
+                        ""Mid"": 2001,
+                        ""Rate"": 1.5
+                    }
+                }
+            }
+        }
+    }
+"
+"Duration_Weibull_Heterogeneity","float","0","100","1","Inverse of the Weibull shape (1/kappa) parameter of relationship duration in years.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Relationship_Parameters"": {
+                    ""Duration_Weibull_Heterogeneity"": 0.1,
+                    ""Duration_Weibull_Scale"": 1051025.709
+                }
+            }
+        }
+    }
+"
+"Duration_Weibull_Scale","float","0","3.40282e+038","1","Weibull scale parameter of relationship duration in years.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Relationship_Parameters"": {
+                    ""Duration_Weibull_Heterogeneity"": 0.1,
+                    ""Duration_Weibull_Scale"": 1051025.709
+                }
+            }
+        }
+    }
+"
+"Max","float","0","1","1","The maximum asymptote (unit of probability) for sigmoidal curve. This parameter is included in the sigmoid utility class, which is currently used with the HIV sim type for the Formation_Rate_Sigmoid and Condom_Usage_Probability parameters.",".. code-block:: json
+
+    {
+        ""Max"": 0.3,
+        ""Mid"": 2019,
+        ""Min"": 0.0125,
+        ""Rate"": 1.5
+    }
+"
+"Mid","float","0","3.40282e+038","2000","The year of the inflection point for sigmoidal curve. This parameter is included in the sigmoid utility class, which is currently used with the HIV sim type for the Formation_Rate_Sigmoid and Condom_Usage_Probability parameters.",".. code-block:: json
+
+    {
+        ""Min"": 0.0125,
+        ""Max"": 0.3,
+        ""Mid"": 2019,
+        ""Rate"": 1.5
+    }
+"
+"Migration_Actions","array of enums","NA","NA","NA","A list of what relationship action to take when one member of the relationship migrates to another node. The order in which they are listed corresponds to the probability values in **Migration_Actions_Distributions**. **Migration_Model** in the configuration file must be set to FIXED_RATE_MIGRATION. Possible values are:
+
+
+Terminate
+    Relationship is stopped. The individual's relationship count is decremented so they can enter new relationships.
+Pause
+    Relationship is put on hold. The couple is not in the same node so they cannot consummate their relationship, but the individual's relationship count is not decremented since they are still in the relationship. The relationship can resume if both partners are in the same node, which need not be their home node. Relationship duration timers continue and relationship could terminate while paused.
+Migrate
+    Partners in the relationship migrate simultaneously and continue the relationship. Person migrating tells their partner to cancel all of their relationships and migrate during the current time step. This avoids a cascade of people migration.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Relationship_Parameters"": {
+                    ""Migration_Actions"": [
+                        ""TERMINATE"",
+                        ""PAUSE"",
+                        ""MIGRATE""
+                    ],
+                    ""Migration_Actions_Distribution"": [
+                        0.7,
+                        0.2,
+                        0.1
+                    ]
+                }
+            }
+        }
+    }
+"
+"Migration_Actions_Distribution","array of floats","0","1","NA","A list of the proportion of relationships that take a given action when one member of the relationship migrates. The sum of all values must be 1 and the order of the list corresponds to the order in **Migration_Actions**. **Migration_Model** in the configuration file must be set to FIXED_RATE_MIGRATION.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Relationship_Parameters"": {
+                    ""Migration_Actions"": [
+                        ""TERMINATE"",
+                        ""PAUSE"",
+                        ""MIGRATE""
+                    ],
+                    ""Migration_Actions_Distribution"": [
+                        0.7,
+                        0.2,
+                        0.1
+                    ]
+                }
+            }
+        }
+    }
+"
+"Min","float","0","1","1","The minimum asymptote (unit of probability) for sigmoidal curve. This parameter is included in the sigmoid utility class, which is currently used with the HIV sim type for the Formation_Rate_Sigmoid and Condom_Usage_Probability parameters.",".. code-block:: json
+
+    {
+        ""Min"": 0.0125,
+        ""Max"": 0.3,
+        ""Mid"": 2019,
+        ""Rate"": 1.5
+    }
+"
+"Rate","float","-100","100","1","The rate (probability/year) proportional to the slope at the inflection point of sigmoidal curve. This parameter is included in the sigmoid utility class, which is currently used with the HIV sim type for the Formation_Rate_Sigmoid and Condom_Usage_Probability parameters.",".. code-block:: json
+
+    {
+        ""Max"": 0.3,
+        ""Mid"": 2019,
+        ""Min"": 0.0125,
+        ""Rate"": 1.5
+    }
+"
+"Relationship_Parameters","json object","NA","NA","NA","The structure that determines basic aspects of the relationship, such as duration, condom usage, or how to handle migration. ",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Relationship_Parameters"": {
+                    ""Migration_Actions"": [
+                        ""TERMINATE"",
+                        ""PAUSE"",
+                        ""MIGRATE""
+                    ],
+                    ""Migration_Actions_Distribution"": [
+                        0.7,
+                        0.2,
+                        0.1
+                    ]
+                }
+            }
+        }
+    }
+"

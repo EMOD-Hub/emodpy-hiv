@@ -1,0 +1,159 @@
+"ART_CD4_at_Initiation_Saturating_Reduction_in_Mortality","float","0","3.40E+38","350","The duration from ART enrollment to on-ART HIV-caused death increases with CD4 at ART initiation up to a threshold determined by this parameter value.",".. code-block:: json
+
+    {
+        ""ART_CD4_at_Initiation_Saturating_Reduction_in_Mortality"": 350
+    }
+"
+"Base_Mortality","float","0","1000","0.001","The base mortality of the infection before accounting for individual immune modification factors. Depending on the setting of **Mortality_Time_Course**, this is either the daily probability of the disease being fatal (DAILY_MORTALITY) or the probability of death at the end of the infection duration (MORTALITY_AFTER_INFECTIOUS). **Enable_Disease_Mortality** must be set to 1 (true).
+
+",".. code-block:: json
+
+    {
+        ""Enable_Vital_Dynamics"": 1,
+        ""Mortality_Time_Course"": ""DAILY_MORTALITY"",
+        ""Base_Mortality"": 0.01
+    }
+"
+"Days_Between_Symptomatic_And_Death_Weibull_Heterogeneity","float","0.1","10","1","The time between the onset of AIDS symptoms and death is sampled from a Weibull distribution; this parameter governs the heterogeneity (inverse shape) of the Weibull.",".. code-block:: json
+
+    {
+        ""Days_Between_Symptomatic_And_Death_Weibull_Heterogeneity"": 0.5
+    }
+"
+"Days_Between_Symptomatic_And_Death_Weibull_Scale","float","1","3650","183","The time between the onset of AIDS symptoms and death is sampled from a Weibull distribution; this parameter governs the scale of the Weibull.",".. code-block:: json
+
+    {
+        ""Days_Between_Symptomatic_And_Death_Weibull_Scale"": 618.3
+    }
+"
+"Death_Rate_Dependence","enum","NA","NA","NOT_INITIALIZED","Determines how likely individuals are to die from natural, non-disease causes. **Enable_Natural_Mortality** must be set to 1. Possible values are:
+
+NOT_INITIALIZED
+    The daily mortality rate is 0, and no one dies from non-disease related causes.
+NONDISEASE_MORTALITY_BY_AGE_AND_GENDER
+    The individual's age and gender are taken into account to determine the daily mortality rate.
+NONDISEASE_MORTALITY_BY_YEAR_AND_AGE_FOR_EACH_GENDER
+    Gender, age, and year, are all taken into account to determine the daily mortality rate. 
+
+Properties, rates, and bin sizes can be set for non-disease mortality for each gender in the demographics file (see :ref:`demo-complexdistro` parameters).",".. code-block:: json
+
+    {
+        ""Death_Rate_Dependence"": ""NONDISEASE_MORTALITY_BY_AGE_AND_GENDER""
+    }
+"
+"Enable_Natural_Mortality","boolean","0","1","0","Controls whether or not individuals are removed from the simulation due to natural (non-disease) deaths. **Enable_Vital_Dynamics** must be set to 1 (true). Use **Death_Rate_Dependence** to set the natural death rate.",".. code-block:: json
+
+    {
+        ""Enable_Natural_Mortality"": 1,
+        ""Enable_Vital_Dynamics"": 1
+    }
+"
+"HIV_Adult_Survival_Scale_Parameter_Intercept","float","0.001","1000","21.182","This parameter determines the intercept of the scale parameter, ?, for the Weibull distribution used to determine HIV survival time.
+
+Survival time with untreated HIV infection depends on the age of the individual at the time of infection, and is drawn from a Weibull distribution with shape parameter (see **HIV_Adult_Survival_Shape_Parameter**)  and scale parameter, ?. The scale parameter is allowed to vary linearly with age as follows: 
+
+:math:`\lambda` = **HIV_Adult_Survival_Scale_Parameter_Intercept** + **HIV_Adult_Survival_Scale_ Parameter_Slope** * Age (in years). 
+
+",".. code-block:: json
+
+    {
+        ""HIV_Adult_Survival_Scale_Parameter_Intercept"": 21.182,
+        ""HIV_Adult_Survival_Scale_Parameter_Slope"": -0.2717,
+        ""HIV_Adult_Survival_Shape_Parameter"": 2.0,
+        ""HIV_Age_Max_for_Adult_Age_Dependent_Survival"": 50.0
+    }
+"
+"HIV_Adult_Survival_Scale_Parameter_Slope","float","-1000","1000","-0.2717","This parameter determines the slope of the scale parameter, ?, for the Weibull distribution used to determine HIV survival time.
+
+Survival time with untreated HIV infection depends on the age of the individual at the time of infection, and is drawn from a Weibull distribution with shape parameter (see **HIV_Adult_Survival_Shape_Parameter**) and scale parameter, ?. The scale parameter is allowed to vary linearly with age as follows: 
+
+:math:`\lambda` = **HIV_Adult_Survival_Scale_Parameter_Intercept** + **HIV_Adult_Survival_Scale_ Parameter_Slope** * Age (in years). 
+
+Because survival time with HIV becomes shorter with increasing age, **HIV_Adult_Survival_Scale_ Parameter_Slope** should be set to a negative number.
+",".. code-block:: json
+
+    {
+        ""HIV_Adult_Survival_Scale_Parameter_Intercept"": 21.182,
+        ""HIV_Adult_Survival_Scale_Parameter_Slope"": -0.2717,
+        ""HIV_Adult_Survival_Shape_Parameter"": 2.0,
+        ""HIV_Age_Max_for_Adult_Age_Dependent_Survival"": 50.0
+    }
+"
+"HIV_Adult_Survival_Shape_Parameter","float","0.001","1000","2","This parameter determines the shape of the Weibull distribution used to determine age-dependent survival time for individuals infected with HIV. ",".. code-block:: json
+
+    {
+        ""HIV_Adult_Survival_Scale_Parameter_Intercept"": 21.182,
+        ""HIV_Adult_Survival_Scale_Parameter_Slope"": -0.2717,
+        ""HIV_Adult_Survival_Shape_Parameter"": 2.0,
+        ""HIV_Age_Max_for_Adult_Age_Dependent_Survival"": 50.0
+    }
+"
+"HIV_Age_Max_for_Adult_Age_Dependent_Survival","float","0","75","70","Survival time with untreated HIV infection depends on the age of the individual at the time of infection, and is drawn from a Weibull distribution with shape parameter and scale parameter, ?. See **HIV_Adult_Survival_Scale_Parameter_Intercept**, **HIV_Adult_Survival_Scale_ Parameter_Slope**, and **HIV_Adult_Survival_Shape_Parameter**. 
+
+Although the scale parameter for survival time declines with age, it cannot become negative. To avoid negative survival times at older ages, this parameter, **HIV_Age_Max_for_Adult_Age_Dependent_Survival**,  determines the age beyond which HIV survival is no longer affected by further aging.
+",".. code-block:: json
+
+    {
+        ""HIV_Adult_Survival_Scale_Parameter_Intercept"": 21.182,
+        ""HIV_Adult_Survival_Scale_Parameter_Slope"": -0.2717,
+        ""HIV_Adult_Survival_Shape_Parameter"": 2.0,
+        ""HIV_Age_Max_for_Adult_Age_Dependent_Survival"": 50.0
+    }
+"
+"HIV_Age_Max_for_Child_Survival_Function","float","0","75","15","The maximum age at which an individual's survival will be fit to the child survival function. If the value of this parameter falls between zero and the age of sexual debut, model results are not sensitive to this parameter as there is no mechanism for children to become infected between infancy and sexual debut.",".. code-block:: json
+
+    {
+        ""HIV_Adult_Survival_Scale_Parameter_Intercept"": 21.182,
+        ""HIV_Adult_Survival_Scale_Parameter_Slope"": -0.2717,
+        ""HIV_Adult_Survival_Shape_Parameter"": 2.0,
+        ""HIV_Age_Max_for_Adult_Age_Dependent_Survival"": 50.0,
+        ""HIV_Age_Max_for_Child_Survival_Function"": 15.0
+    }
+"
+"HIV_Child_Survival_Rapid_Progressor_Fraction","float","0","1","0.57","The proportion of HIV-infected children who are rapid HIV progressors.",".. code-block:: json
+
+    {
+        ""HIV_Child_Survival_Rapid_Progressor_Fraction"": 0.57,
+        ""HIV_Child_Survival_Rapid_Progressor_Rate"": 1.52
+    }
+"
+"HIV_Child_Survival_Rapid_Progressor_Rate","float","0","1000","1.52","The exponential decay rate, in years, describing the distribution of HIV survival for children who are rapid progressors.",".. code-block:: json
+
+    {
+        ""HIV_Child_Survival_Rapid_Progressor_Fraction"": 0.57,
+        ""HIV_Child_Survival_Rapid_Progressor_Rate"": 1.52
+    }
+"
+"HIV_Child_Survival_Slow_Progressor_Scale","float","0.001","1000","16","The Weibull scale parameter describing the distribution of HIV survival for children who are slower progressors.",".. code-block:: json
+
+    {
+        ""HIV_Child_Survival_Slow_Progressor_Scale"": 16.0,
+        ""HIV_Child_Survival_Slow_Progressor_Shape"": 2.7
+    }
+"
+"HIV_Child_Survival_Slow_Progressor_Shape","float","0.001","1000","2.7","The Weibull shape parameter describing the distribution of HIV survival for children who are slower progressors.",".. code-block:: json
+
+    {
+        ""HIV_Child_Survival_Slow_Progressor_Scale"": 16.0,
+        ""HIV_Child_Survival_Slow_Progressor_Shape"": 2.7
+    }
+"
+"Mortality_Time_Course","enum","NA","NA","DAILY_MORTALITY","The method used to calculate disease deaths. **Enable_Disease_Mortality** must be set to 1.
+
+Possible values are: 
+
+DAILY_MORTALITY 
+    Calculated at every time step. 
+MORTALITY_AFTER_INFECTIOUS 
+    Calculated once at the end of the disease duration.",".. code-block:: json
+
+    {
+        ""Mortality_Time_Course"": ""MORTALITY_AFTER_INFECTIOUS""
+    }
+"
+"x_Other_Mortality","float","0","3.40E+38","1","Scale factor for mortality from causes other than the disease being simulated. Base mortality is provided by the demographics file (see :ref:`demo-complexdistro` parameters). **Enable_Natural_Mortality** must be set to 1. ",".. code-block:: json
+
+    {
+        ""x_Other_Mortality"": 1
+    }
+"

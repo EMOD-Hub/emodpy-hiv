@@ -1,0 +1,61 @@
+"Disqualifying_Properties","array of strings","NA","NA","[]","A list of **NodeProperty** key:value pairs that causes the intervention not to be distributed to the node or aborted (stopped before it could be applied). See :ref:`demo-properties` parameters for more information.",".. code-block:: json
+
+    {
+      ""Disqualifying_Properties"": [
+        ""HasHealthCare:YES""
+      ]
+    }
+"
+"Dont_Allow_Duplicates","boolean","0","1","0","If a node's container has an intervention, set to true (1) to prevent it from receiving another copy of the intervention. Supported by all intervention classes.",".. code-block:: json
+
+    {
+      ""Dont_Allow_Duplicates"": 0
+    }
+"
+"Intervention_Name","string","NA","NA","RelationshipDurationChanger","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""Intervention_Name"": ""My_Duration_Changer"",
+        ""class"": ""RelationshipDurationChanger""
+      }
+    }
+"
+"New_Property_Value","string","NA","NA","""""","An optional **NodeProperty** key:value pair that will be assigned when the intervention is applied. See :ref:`demo-properties` parameters for more information.",".. code-block:: json
+
+    {
+      ""New_Property_Value"": ""HasHealthCare:YES""
+    }
+"
+"Overriding_Duration_Weibull_Heterogeneity","float","0","100","1","Overrides the **Duration_Weibull_Heterogeneity** Demographics parameter for the indicated relationship type. The heterogeneity parameter is the inverse of the Weibull shape (1/kappa) parameter of relationship duration in years.",".. code-block:: json
+
+    {
+      ""class"": ""RelationshipDurationChanger"",
+      ""Relationship_Type"": ""COMMERCIAL"",
+      ""Overriding_Duration_Weibull_Heterogeneity"": 0.6,
+      ""Overriding_Duration_Weibull_Scale"": 22
+    }
+"
+"Overriding_Duration_Weibull_Scale","float","0","3.40282e+38","1","Overrides the **Duration_Weibull_Scale** Demographics parameter for the indicated relationship type. The heterogeneity parameter is the Weibull scale parameter of relationship duration in years.",".. code-block:: json
+
+    {
+      ""class"": ""RelationshipDurationChanger"",
+      ""Relationship_Type"": ""COMMERCIAL"",
+      ""Overriding_Duration_Weibull_Heterogeneity"": 0.6,
+      ""Overriding_Duration_Weibull_Scale"": 22
+    }
+"
+"Relationship_Type","enum","NA","NA","TRANSITORY","Change the behavior of the relationships for this type of relationship in this node. Possible values are:
+
+* TRANSITORY
+* INFORMAL
+* MARITAL
+* COMMERCIAL",".. code-block:: json
+
+    {
+      ""Overriding_Duration_Weibull_Heterogeneity"": 0.6,
+      ""Overriding_Duration_Weibull_Scale"": 22,
+      ""Relationship_Type"": ""COMMERCIAL"",
+      ""class"": ""RelationshipDurationChanger""
+    }
+"

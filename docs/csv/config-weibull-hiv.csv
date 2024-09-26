@@ -1,0 +1,126 @@
+"CD4_At_Death_LogLogistic_Heterogeneity","float","0","100","0","The inverse shape parameter of a Weibull distribution that represents the at-death CD4 cell count.",".. code-block:: json
+
+    {
+        ""CD4_At_Death_LogLogistic_Heterogeneity"": 0.7
+    }
+"
+"CD4_At_Death_LogLogistic_Scale","float","1","1000","31.63","The scale parameter of a :term:`Weibull distribution` that represents the at-death CD4 cell count.",".. code-block:: json
+
+    {
+        ""CD4_At_Death_LogLogistic_Scale"": 2.96
+    }
+"
+"CD4_Post_Infection_Weibull_Heterogeneity","float","0","100","0.275642","The inverse shape parameter of a :term:`Weibull distribution` that represents the post-acute-infection CD4 cell count.",".. code-block:: json
+
+    {
+        ""CD4_Post_Infection_Weibull_Heterogeneity"": 0
+    }
+"
+"CD4_Post_Infection_Weibull_Scale","float","1","1000","560.432","The scale parameter of a :term:`Weibull distribution` that represents the post-acute-infection CD4 cell count.",".. code-block:: json
+
+    {
+        ""CD4_Post_Infection_Weibull_Scale"": 550
+    }
+"
+"Days_Between_Symptomatic_And_Death_Weibull_Heterogeneity","float","0.1","10","1","The time between the onset of AIDS symptoms and death is sampled from a Weibull distribution; this parameter governs the heterogeneity (inverse shape) of the Weibull.",".. code-block:: json
+
+    {
+        ""Days_Between_Symptomatic_And_Death_Weibull_Heterogeneity"": 0.5
+    }
+"
+"Days_Between_Symptomatic_And_Death_Weibull_Scale","float","1","3650","183","The time between the onset of AIDS symptoms and death is sampled from a Weibull distribution; this parameter governs the scale of the Weibull.",".. code-block:: json
+
+    {
+        ""Days_Between_Symptomatic_And_Death_Weibull_Scale"": 618.3
+    }
+"
+"HIV_Adult_Survival_Scale_Parameter_Intercept","float","0.001","1000","21.182","This parameter determines the intercept of the scale parameter, ?, for the Weibull distribution used to determine HIV survival time.
+
+Survival time with untreated HIV infection depends on the age of the individual at the time of infection, and is drawn from a Weibull distribution with shape parameter (see **HIV_Adult_Survival_Shape_Parameter**)  and scale parameter, ?. The scale parameter is allowed to vary linearly with age as follows: 
+
+:math:`\lambda` = **HIV_Adult_Survival_Scale_Parameter_Intercept** + **HIV_Adult_Survival_Scale_ Parameter_Slope** * Age (in years). 
+
+",".. code-block:: json
+
+    {
+        ""HIV_Adult_Survival_Scale_Parameter_Intercept"": 21.182,
+        ""HIV_Adult_Survival_Scale_Parameter_Slope"": -0.2717,
+        ""HIV_Adult_Survival_Shape_Parameter"": 2.0,
+        ""HIV_Age_Max_for_Adult_Age_Dependent_Survival"": 50.0
+    }
+"
+"HIV_Adult_Survival_Scale_Parameter_Slope","float","-1000","1000","-0.2717","This parameter determines the slope of the scale parameter, ?, for the Weibull distribution used to determine HIV survival time.
+
+Survival time with untreated HIV infection depends on the age of the individual at the time of infection, and is drawn from a Weibull distribution with shape parameter (see **HIV_Adult_Survival_Shape_Parameter**) and scale parameter, ?. The scale parameter is allowed to vary linearly with age as follows: 
+
+:math:`\lambda` = **HIV_Adult_Survival_Scale_Parameter_Intercept** + **HIV_Adult_Survival_Scale_ Parameter_Slope** * Age (in years). 
+
+Because survival time with HIV becomes shorter with increasing age, **HIV_Adult_Survival_Scale_ Parameter_Slope** should be set to a negative number.
+",".. code-block:: json
+
+    {
+        ""HIV_Adult_Survival_Scale_Parameter_Intercept"": 21.182,
+        ""HIV_Adult_Survival_Scale_Parameter_Slope"": -0.2717,
+        ""HIV_Adult_Survival_Shape_Parameter"": 2.0,
+        ""HIV_Age_Max_for_Adult_Age_Dependent_Survival"": 50.0
+    }
+"
+"HIV_Adult_Survival_Shape_Parameter","float","0.001","1000","2","This parameter determines the shape of the Weibull distribution used to determine age-dependent survival time for individuals infected with HIV. ",".. code-block:: json
+
+    {
+        ""HIV_Adult_Survival_Scale_Parameter_Intercept"": 21.182,
+        ""HIV_Adult_Survival_Scale_Parameter_Slope"": -0.2717,
+        ""HIV_Adult_Survival_Shape_Parameter"": 2.0,
+        ""HIV_Age_Max_for_Adult_Age_Dependent_Survival"": 50.0
+    }
+"
+"HIV_Child_Survival_Slow_Progressor_Scale","float","0.001","1000","16","The Weibull scale parameter describing the distribution of HIV survival for children who are slower progressors.",".. code-block:: json
+
+    {
+        ""HIV_Child_Survival_Slow_Progressor_Scale"": 16.0,
+        ""HIV_Child_Survival_Slow_Progressor_Shape"": 2.7
+    }
+"
+"HIV_Child_Survival_Slow_Progressor_Shape","float","0.001","1000","2.7","The Weibull shape parameter describing the distribution of HIV survival for children who are slower progressors.",".. code-block:: json
+
+    {
+        ""HIV_Child_Survival_Slow_Progressor_Scale"": 16.0,
+        ""HIV_Child_Survival_Slow_Progressor_Shape"": 2.7
+    }
+"
+"Sexual_Debut_Age_Female_Weibull_Heterogeneity","float","0","50","20","The inverse shape of the Weibull distribution for female debut age.",".. code-block:: json
+
+    {
+        ""Sexual_Debut_Age_Female_Weibull_Heterogeneity"": 0.05
+    }
+"
+"Sexual_Debut_Age_Female_Weibull_Scale","float","0","50","16","The scale term of the Weibull distribution for female debut age.",".. code-block:: json
+
+    {
+        ""Sexual_Debut_Age_Female_Weibull_Scale"": 15.919654846191
+    }
+"
+"Sexual_Debut_Age_Male_Weibull_Heterogeneity","float","0","50","20","The inverse shape of the Weibull distribution for male debut age.",".. code-block:: json
+
+    {
+        ""Sexual_Debut_Age_Male_Weibull_Heterogeneity"": 0.05
+    }
+"
+"Sexual_Debut_Age_Male_Weibull_Scale","float","0","50","16","The scale term of the Weibull distribution for male debut age.",".. code-block:: json
+
+    {
+        ""Sexual_Debut_Age_Male_Weibull_Scale"": 16.946729660034
+    }
+"
+"Sexual_Debut_Age_Min","float","0","3.40E+38","13","The minimum age at which individuals become eligible to form sexual relationships.",".. code-block:: json
+
+    {
+        ""Sexual_Debut_Age_Min"": 13
+    }
+"
+"Sexual_Debut_Age_Setting_Type", "enum", "NA", "NA", "WEIBULL", "The **WEIBULL** setting will initialize the debut age of each person using a Weibull distribution according to their gender with the **Sexual_Debut_Age_XXX_Weibull_Heterogeneity** and **Sexual_Debut_Age_XXX_Weibull_Scale** parameters. If the **FROM_INTERVENTION** setting is used, the individual's debut age will not be set unless it is set by the **SetSexualDebutAge** intervention. Accepted values are WEIBULL or FROM_INTERVENTION. See the :py:mod:`interventions.setsexualdebut` intervention for more details.", ".. code-block:: json
+
+    {
+        ""Sexual_Debut_Age_Setting_Type"": ""FROM_INTERVENTION""
+    }
+"

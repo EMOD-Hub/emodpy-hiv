@@ -1,0 +1,31 @@
+{
+    "Campaign_Name": "ARTBasic intervention test",
+    "Use_Defaults": 1,
+    "Events": [
+        {
+            "Description": "New infections get immediate ART",
+            "class": "CampaignEvent",
+            "Start_Day": 1,
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Intervention_Config": {
+                    "class": "NodeLevelHealthTriggeredIV",
+                    "Trigger_Condition_List": [
+                        "NewInfectionEvent"
+                    ],
+                    "Demographic_Coverage": 1.0,
+                    "Actual_IndividualIntervention_Config": {
+                        "class": "AntiretroviralTherapy",
+                        "Days_To_Achieve_Viral_Suppression": 1000000,
+                        "ART_CD4_at_Initiation_Saturating_Reduction_in_Mortality": 350,
+                        "ART_Is_Active_Against_Mortality_And_Transmission": 1,
+                        "ART_Survival_Hazard_Ratio_Female": 0.6775,
+                    }
+                }
+            }
+        }
+    ]
+}

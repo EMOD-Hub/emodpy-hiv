@@ -1,0 +1,30 @@
+"CD4_At_Death_LogLogistic_Scale","float","1","1000","31.63","The scale parameter of a :term:`Weibull distribution` that represents the at-death CD4 cell count.",".. code-block:: json
+
+    {
+        ""CD4_At_Death_LogLogistic_Scale"": 2.96
+    }
+"
+"CD4_Post_Infection_Weibull_Heterogeneity","float","0","100","0.275642","The inverse shape parameter of a :term:`Weibull distribution` that represents the post-acute-infection CD4 cell count.",".. code-block:: json
+
+    {
+        ""CD4_Post_Infection_Weibull_Heterogeneity"": 0
+    }
+"
+"CD4_Post_Infection_Weibull_Scale","float","1","1000","560.432","The scale parameter of a :term:`Weibull distribution` that represents the post-acute-infection CD4 cell count.",".. code-block:: json
+
+    {
+        ""CD4_Post_Infection_Weibull_Scale"": 550
+    }
+"
+"Days_Between_Symptomatic_And_Death_Weibull_Heterogeneity","float","0.1","10","1","The time between the onset of AIDS symptoms and death is sampled from a Weibull distribution; this parameter governs the heterogeneity (inverse shape) of the Weibull.",".. code-block:: json
+
+    {
+        ""Days_Between_Symptomatic_And_Death_Weibull_Heterogeneity"": 0.5
+    }
+"
+"Days_Between_Symptomatic_And_Death_Weibull_Scale","float","1","3650","183","The time between the onset of AIDS symptoms and death is sampled from a Weibull distribution; this parameter governs the scale of the Weibull.",".. code-block:: json
+
+    {
+        ""Days_Between_Symptomatic_And_Death_Weibull_Scale"": 618.3
+    }
+"

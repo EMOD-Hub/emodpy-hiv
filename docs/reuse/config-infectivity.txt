@@ -1,0 +1,3 @@
+The following parameters determine aspects of infectivity and disease transmission. For example,
+how infectious individuals are and the length of time for which they remain infectious, whether the
+disease can be maternally transmitted, and how population density affects infectivity.

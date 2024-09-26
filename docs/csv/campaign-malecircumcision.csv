@@ -1,0 +1,53 @@
+"Apply_If_Higher_Reduced_Acquire","boolean","0","1","0","If set to false (0), the **MaleCircumcision** intervention can never be applied to someone who already has a **MaleCircumcision** intervention. If set to true (1), a male who already has a **MaleCircumcision** intervention, but whose pre-existing **MaleCircumcision** intervention has a lower efficacy parameter (**Circumcision_Reduced_Acquire**) than the one about to be applied, will receive the higher-efficacy **MaleCircumcision**.",".. code-block:: json
+
+    {
+      ""Apply_If_Higher_Reduced_Acquire"": 1
+    }
+"
+"Circumcision_Reduced_Acquire","float","0","1","0.6","The reduction of susceptibility to STI by voluntary male medical circumcision (VMMC).",".. code-block:: json
+
+    {
+      ""Circumcision_Reduced_Acquire"": 0.6
+    }
+"
+"Cost_To_Consumer","float","0","3.40282E+38","0","The cost for one male circumcision. If it is distributed to a man, the value will be added to the Campaign Cost.",".. code-block:: json
+
+    {
+      ""Cost_To_Consumer"": 0.333
+    }
+"
+"Disqualifying_Properties","array of strings","NA","NA","[]","A list of **IndividualProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to individuals with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.",".. code-block:: json
+
+    {
+      ""Disqualifying_Properties"": [
+        ""InterventionStatus:LostForever""
+      ]
+    }
+"
+"Distributed_Event_Trigger","string","NA","NA","NA","When defined as part of an intervention block of class **MaleCircumcision**, this string defines the name of the column in the output files ReportHIVByAgeAndGender.csv and ReportEventRecorder.csv, which log when the intervention has been distributed. See :doc:`parameter-campaign-event-list` for possible values.",".. code-block:: json
+
+    {
+      ""Distributed_Event_Trigger"": ""VMMC_1""
+    }
+"
+"Dont_Allow_Duplicates","boolean","0","1","0","If an individual's container has an intervention, set to true (1) to prevent them from receiving another copy of the intervention. Supported by all intervention classes.",".. code-block:: json
+
+    {
+      ""Dont_Allow_Duplicates"": 0
+    }
+"
+"Intervention_Name","string","NA","NA","MaleCircumcision","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""class"": ""MaleCircumcision"",
+        ""Intervention_Name"": ""Routine voluntary male circumcision""
+      }
+    }
+"
+"New_Property_Value","string","NA","NA","""""","An optional **IndividualProperty** key:value pair that will be assigned when the intervention is applied. See :ref:`demo-properties` parameters for more information. Generally used to indicate the broad category of health care cascade to which an intervention belongs to prevent individuals from accessing care through multiple pathways. For example, if an individual must already be taking a particular medication to be prescribed a new one. ",".. code-block:: json
+
+    {
+      ""New_Property_Value"": ""InterventionStatus:None""
+    }
+"

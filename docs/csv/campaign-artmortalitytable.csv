@@ -1,0 +1,201 @@
+"Age_Years_Bins","array of floats","0","125","[]","An array of bins representing the age of the person, in years, at the time they received the intervention (greater than or equal to the value of the bin, but less than the value of the next bin). If they are new to ART, then it is the age that they started ART. If they are changing their adherence, then it is the age at that time. This bin is used to select the second dimension of the **MortalityTable**.",".. code-block:: json
+
+    {
+      ""Age_Years_Bins"": [
+        0,
+        20,
+        30,
+        40,
+        50
+      ]
+    }
+"
+"ART_Duration_Days_Bins","array of floats","0","3.40282e+38","[]","An array of bins representing the person’s duration on ART, in days (greater than or equal to the value of the bin, but less than the value of the next bin). Each value represents the outer dimension of the **MortalityTable**.",".. code-block:: json
+
+    {
+      ""ART_Duration_Days_Bins"": [
+        0,
+        30,
+        60,
+        90,
+        120
+      ]
+    }
+"
+"ART_Is_Active_Against_Mortality_And_Transmission","boolean","0","1","1","If set to true (1), ART will suppress viral load and extend prognosis.",".. code-block:: json
+
+    {
+      ""ART_Is_Active_Against_Mortality_And_Transmission"": 1
+    }
+"
+"ART_Multiplier_On_Transmission_Prob_Per_Act","float","0","1","0.08","Multiplier acting on Base_Infectivity to determine the per-act transmission probability of a virally suppressed HIV+ individual.",".. code-block:: json
+
+    {
+      ""ART_Multiplier_On_Transmission_Prob_Per_Act"": 0.08
+    }
+"
+"CD4_Count_Bins","array of floats","0","1000","[]","An array of bins representing a person's CD4 count at the time they received the intervention (started ART or changed adherence). For each value in the array, there will be one value in the associated row in the **MortalityTable**.  A mortality rate will be selected from the table as follows:
+
+* Person’s CD4 is less than first value in array: Use first mortality rate
+* Person’s CD4 is greater than the last value in the array: Use the last mortality rate
+* Person’s CD4 is between two values: Use linear interpolation to find the mortality rate associated with the person’s CD4",".. code-block:: json
+
+    {
+      ""CD4_Count_Bins"": [
+        0,
+        200,
+        400,
+        600,
+        800,
+        1000
+      ]
+    }
+"
+"Cost_To_Consumer","float","0","99999","1","Unit cost per drug (unamortized).",".. code-block:: json
+
+    {
+      ""Cost_To_Consumer"": 1
+    }
+"
+"Days_To_Achieve_Viral_Suppression","float","0","3.40282e+38","183","The number of days after ART initiation over which infectiousness declines linearly until the **ART_Multiplier_On_Transmission_Prob_Per_Act** takes full effect.",".. code-block:: json
+
+    {
+      ""Days_To_Achieve_Viral_Suppression"": 183
+    }
+"
+"Disqualifying_Properties","array of strings","NA","NA","[]","A list of **IndividualProperty** key:value pairs that will prevent an intervention from being distributed, applied/updated. See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.",".. code-block:: json
+
+    {
+      ""Disqualifying_Properties"": [
+        ""InterventionStatus:LostForever""
+      ]
+    }
+"
+"Dont_Allow_Duplicates","boolean","0","1","0","If an individual's container has an intervention, set to true (1) to prevent them from receiving another copy of the intervention. Supported by all intervention classes.",".. code-block:: json
+
+    {
+      ""Dont_Allow_Duplicates"": 0
+    }
+"
+"Intervention_Name","string","NA","NA","ARTMortalityTable","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""Intervention_Name"": ""My ART Mortality Table"",
+        ""class"": ""ARTMortalityTable""
+      }
+    }
+"
+"MortalityTable","array of floats","0","1","[]","Three-dimensional array of mortality rates used to determine the number of days until AIDS death. Dimensioned by the values specified in **ART_Duration_Days_Bins**, **Age_Years_Bins**, and **CD4_Count_Bins**.",".. code-block:: json
+
+    {
+      ""MortalityTable"": [
+        [
+          [
+            0.2015,
+            0.2015,
+            0.1128,
+            0.0625,
+            0.0312,
+            0.0206,
+            0.0162
+          ],
+          [
+            0.0875,
+            0.0875,
+            0.049,
+            0.0271,
+            0.0136,
+            0.0062,
+            0.0041
+          ]
+        ],
+        [
+          [
+            0.0271,
+            0.0271,
+            0.0184,
+            0.0149,
+            0.0074,
+            0.0048,
+            0.0048
+          ],
+          [
+            0.0171,
+            0.0171,
+            0.0116,
+            0.0094,
+            0.0047,
+            0.003,
+            0.003
+          ]
+        ],
+        [
+          [
+            0.0119,
+            0.0119,
+            0.0081,
+            0.0066,
+            0.0033,
+            0.0033,
+            0.0033
+          ],
+          [
+            0.0119,
+            0.0119,
+            0.0081,
+            0.0066,
+            0.0033,
+            0.0033,
+            0.0033
+          ]
+        ],
+        [
+          [
+            0.0119,
+            0.0119,
+            0.0081,
+            0.0066,
+            0.0033,
+            0.0033,
+            0.0033
+          ],
+          [
+            0.0119,
+            0.0119,
+            0.0081,
+            0.0066,
+            0.0033,
+            0.0033,
+            0.0033
+          ]
+        ],
+        [
+          [
+            0.0119,
+            0.0119,
+            0.0081,
+            0.0066,
+            0.0033,
+            0.0033,
+            0.0033
+          ],
+          [
+            0.0119,
+            0.0119,
+            0.0081,
+            0.0066,
+            0.0033,
+            0.0033,
+            0.0033
+          ]
+        ]
+      ]
+    }
+"
+"New_Property_Value","string","NA","NA","""""","An optional **IndividualProperty** key:value pair that will be assigned when the intervention is first applied/updated. See :ref:`demo-properties` parameters for more information. Generally used to indicate the broad category of health care cascade to which an intervention belongs to prevent individuals from accessing care through multiple pathways. For example, if an individual must already be taking a particular medication to be prescribed a new one. ",".. code-block:: json
+
+    {
+      ""New_Property_Value"": ""InterventionStatus:None""
+    }
+"

@@ -1,0 +1,89 @@
+"Cost_To_Consumer","float","0","3.40282e+38","1","The unit 'cost' assigned to the diagnostic. Setting **Cost_To_Consumer** to zero for all other interventions, and to a non-zero amount for one intervention, provides a convenient way to track the number of times the intervention has been applied in a simulation.",".. code-block:: json
+
+    {
+      ""Cost_To_Consumer"": 0.333
+    }
+"
+"Default_Value","float","0","1","0","The probability of positive diagnosis if the intervention is used before the earliest specified time in the **Time_Value_Map**.",".. code-block:: json
+
+    {
+      ""Default_Value"": 0
+    }
+"
+"Disqualifying_Properties","array of strings","NA","NA","[]","A list of **IndividualProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to individuals with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.",".. code-block:: json
+
+    {
+      ""Disqualifying_Properties"": [
+        ""InterventionStatus:LostForever""
+      ]
+    }
+"
+"Dont_Allow_Duplicates","boolean","0","1","0","If an individual's container has an intervention, set to true (1) to prevent them from receiving another copy of the intervention. Supported by all intervention classes.",".. code-block:: json
+
+    {
+      ""Dont_Allow_Duplicates"": 0
+    }
+"
+"Female_Multiplier","float","0","3.40282e+38","1","Allows for the probabilities in the **Time_Value_Map** to be different for males and females, by multiplying the female probabilities by a constant value.",".. code-block:: json
+
+    {
+      ""Female_Multiplier"": 1.3
+    }
+"
+"Interpolation_Order","integer","0","1","0","When set to zero, interpolation between values in the **Time_Value_Map** is zero-order ('staircase'). When set to 1, interpolation between values in the **Time_Value_Map** is linear. The final value is held constant for all times after the last time specified in the **Time_Value_Map**.",".. code-block:: json
+
+    {
+      ""Interpolation_Order"": 0
+    }
+"
+"Intervention_Name","string","NA","NA","HIVPiecewiseByYearAndSexDiagnostic","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""class"": ""HIVPiecewiseByYearAndSexDiagnostic"",
+        ""Intervention_Name"": ""Change in health-seeking behavior""
+      }
+    }
+"
+"Negative_Diagnosis_Event","enum","NA","NA","""""","If an individual tests negative, this specifies an event that may trigger another intervention when the event occurs. See :doc:`parameter-campaign-event-list` for possible values.",".. code-block:: json
+
+    {
+      ""Negative_Diagnosis_Event"": ""PreDebut""
+    }
+"
+"New_Property_Value","string","NA","NA","""""","An optional **IndividualProperty** key:value pair that will be assigned when the intervention is applied. See :ref:`demo-properties` parameters for more information. Generally used to indicate the broad category of health care cascade to which an intervention belongs to prevent individuals from accessing care through multiple pathways. For example, if an individual must already be taking a particular medication to be prescribed a new one. ",".. code-block:: json
+
+    {
+      ""New_Property_Value"": ""InterventionStatus:None""
+    }
+"
+"Positive_Diagnosis_Event","enum","NA","NA","""""","If the test is positive, this specifies an event that can trigger another intervention when the event occurs. See :doc:`parameter-campaign-event-list` for possible values.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""Positive_Diagnosis_Event"": ""OnART0"",
+        ""class"": ""HIVPiecewiseByYearAndSexDiagnostic""
+      }
+    }
+"
+"Time_Value_Map","json object","NA","NA","NA","The years (times) and matching probabilities for test results. This parameter uses InterpolatedValueMap to define **Times** (by year) and **Values** for the history and expected treatment guidelines for future years. This creates a JSON structure containing one array of **Times** and one for **Values**, which allows for a time-variable probability that can take on any shape over time. When queried at a simulation year corresponding to one of the listed **Times**, it returns the corresponding **Value**. When queried earlier than the first listed **Time**, it returns the default **Value**. When queried in between listed **Times**, it either returns the **Value** for the most recent past time (when Interpolation_Order is 0) or linearly interpolates Values between **Times** (when Interpolation_Order is 1). When queried after the last **Time** in the list, it returns the last **Value**. The **Times** and **Values** must be of equal length, and can consist of a single value. **Times** must monotonically increase.",".. code-block:: json
+
+    {
+      ""Time_Value_Map"": {
+        ""Times"": [
+          1998,
+          2000,
+          2003,
+          2006,
+          2009
+        ],
+        ""Values"": [
+          0,
+          0.26,
+          0.08,
+          0.14,
+          0.54
+        ]
+      }
+    }
+"

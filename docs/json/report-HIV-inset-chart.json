@@ -1,0 +1,183 @@
+{
+    "Header": {
+        "DateTime": "Tue Feb 14 13:29:43 2023",
+        "DTK_Version": "0 unknown-branch (unknown) Feb  3 2023 09:00:54",
+        "Report_Type": "InsetChart",
+        "Report_Version": "3.2",
+        "Start_Time": 0,
+        "Simulation_Timestep": 1,
+        "Timesteps": 8,
+        "Channels": 42,
+        "Base_Year": 1995
+    },
+    "Channels": {
+        "Active COMMERCIAL Relationships": {
+            "Units": "Relationships",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Active INFORMAL Relationships": {
+            "Units": "Relationships",
+            "Data": [4, 17, 27, 38, 43, 50, 57, 64]
+        },
+        "Active MARITAL Relationships": {
+            "Units": "Relationships",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Active TRANSITORY Relationships": {
+            "Units": "Relationships",
+            "Data": [3, 14, 35, 45, 48, 57, 65, 73]
+        },
+        "Births": {
+            "Units": "Births",
+            "Data": [1, 1, 2, 3, 4, 7, 9, 12]
+        },
+        "Campaign Cost": {
+            "Units": "USD",
+            "Data": [4, 4600, 11049, 11062, 11087, 11116, 11139, 11159]
+        },
+        "Coital Acts Using Condoms-COMMERCIAL": {
+            "Units": "Avg # Acts Per Relationship Using Condoms",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Coital Acts Using Condoms-INFORMAL": {
+            "Units": "Avg # Acts Per Relationship Using Condoms",
+            "Data": [0, 0.0588235296309, 0, 0.0526315793395, 0.02325581386685, 0.0599999986589, 0.1228070184588, 0.109375]
+        },
+        "Coital Acts Using Condoms-MARITAL": {
+            "Units": "Avg # Acts Per Relationship Using Condoms",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Coital Acts Using Condoms-TRANSITORY": {
+            "Units": "Avg # Acts Per Relationship Using Condoms",
+            "Data": [0.3333333432674, 0.1428571492434, 0.0857142880559, 0.02222222276032, 0.02083333395422, 0.0526315793395, 0.04615384712815, 0.01369863003492]
+        },
+        "Coital Acts-COMMERCIAL": {
+            "Units": "Avg # Acts Per Relationship",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Coital Acts-INFORMAL": {
+            "Units": "Avg # Acts Per Relationship",
+            "Data": [1, 0.8235294222832, 0.629629611969, 0.5526315569878, 0.5348837375641, 0.5199999809265, 0.3508771955967, 0.421875]
+        },
+        "Coital Acts-MARITAL": {
+            "Units": "Avg # Acts Per Relationship",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Coital Acts-TRANSITORY": {
+            "Units": "Avg # Acts Per Relationship",
+            "Data": [1, 0.9285714030266, 0.7428571581841, 0.4888888895512, 0.4583333432674, 0.5438596606255, 0.3692307770252, 0.424657523632]
+        },
+        "Disease Deaths": {
+            "Units": "",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 82]
+        },
+        "Fraction of New Infections From Rels Outside PFA": {
+            "Units": "Fraction",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Infected": {
+            "Units": "Infected",
+            "Data": [0, 0.4988502562046, 0.4988501667976, 0.4988322257996, 0.4988143146038, 0.4988682568073, 0.4988504052162, 0.4988145828247]
+        },
+        "New Infections": {
+            "Units": "",
+            "Data": [0, 13884, 0, 0, 1, 1, 1, 1]
+        },
+        "Newly Symptomatic": {
+            "Units": "",
+            "Data": [0, 0, 2874, 2, 4, 6, 3, 4]
+        },
+        "Num Rels Outside PFA": {
+            "Units": "Relationships",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Number of (treated) Individuals with AIDS": {
+            "Units": "",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Number of (untreated) Individuals with AIDS": {
+            "Units": "",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Number of (untreated) Individuals with Acute HIV": {
+            "Units": "",
+            "Data": [0, 13884, 13883, 13883, 13884, 13885, 13886, 13887]
+        },
+        "Number of (untreated) Individuals with Latent HIV": {
+            "Units": "",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Number of ART dropouts (cumulative)": {
+            "Units": "",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Number of Circumcised Males": {
+            "Units": "",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Number of Events": {
+            "Units": "",
+            "Data": [2343, 46758, 11359, 2274, 2230, 2409, 2145, 2352]
+        },
+        "Number of Individuals Ever in a Relationship": {
+            "Units": "",
+            "Data": [14, 62, 126, 174, 204, 246, 286, 328]
+        },
+        "Number of Individuals HIV+ w/ CD4 < 200 (non-ART)": {
+            "Units": "",
+            "Data": [0, 0, 0, 0, 93, 119, 143, 164]
+        },
+        "Number of Individuals HIV+ w/ CD4 < 200 (on-ART)": {
+            "Units": "",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Number of Individuals HIV+ w/ CD4 >= 200 (non-ART)": {
+            "Units": "",
+            "Data": [0, 13884, 13883, 13883, 13791, 13766, 13743, 13723]
+        },
+        "Number of Individuals HIV+ w/ CD4 >= 200 (on-ART)": {
+            "Units": "",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Number of Individuals on ART": {
+            "Units": "",
+            "Data": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        "Paired People": {
+            "Units": "People",
+            "Data": [14, 62, 124, 166, 182, 214, 244, 274]
+        },
+        "Post-Debut Population": {
+            "Units": "",
+            "Data": [15821, 15820, 15821, 15823, 15824, 15825, 15826, 15827]
+        },
+        "Prevalence (Females, 15-49)": {
+            "Units": "",
+            "Data": [0, 0.5059130787849, 0.5059130787849, 0.5057594776154, 0.5057594776154, 0.5057594776154, 0.5058372020721, 0.5057594776154]
+        },
+        "Prevalence (Males, 15-49)": {
+            "Units": "",
+            "Data": [0, 0.4944348633289, 0.4945916235447, 0.4945123791695, 0.4948275983334, 0.4946708381176, 0.4946725070477, 0.4947500526905]
+        },
+        "Prevalence among Sexually Active": {
+            "Units": "",
+            "Data": [0, 0.5322580933571, 0.5476190447807, 0.5114942789078, 0.504901945591, 0.4959349632263, 0.493007004261, 0.4908536672592]
+        },
+        "Single Post-Debut Men": {
+            "Units": "People",
+            "Data": [7642, 7618, 7588, 7568, 7561, 7545, 7530, 7515]
+        },
+        "Single Post-Debut Women": {
+            "Units": "People",
+            "Data": [8165, 8140, 8109, 8089, 8081, 8066, 8052, 8038]
+        },
+        "Statistical Population": {
+            "Units": "Population",
+            "Data": [27832, 27832, 27830, 27831, 27832, 27833, 27836, 27838]
+        },
+        "Symptomatic Population": {
+            "Units": "",
+            "Data": [0, 0, 2874, 2876, 2880, 2886, 2889, 2893]
+        }
+    }
+}

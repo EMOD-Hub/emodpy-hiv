@@ -1,0 +1,76 @@
+"Condom_Usage_Parameters_Type","enum","NA","NA","USE_DEFAULT","Indicates if the relationship should use the **Condom_Usage_Probablility** for the relationship type as defined in the Demographics file ('USE_DEFAULT') or specify usage sigmoid parameters for this specific relationship ('SPECIFY_USAGE').",".. code-block:: json
+
+    {
+      ""Condom_Usage_Parameters_Type"": ""SPECIFY_USAGE"",
+      ""Condom_Usage_Sigmoid"": {
+        ""Max"": 1,
+        ""Mid"": 2000,
+        ""Min"": 1,
+        ""Rate"": 1
+      }
+    }
+"
+"Condom_Usage_Sigmoid","json object","NA","NA","NA","The new sigmoid to use when determining the probability that a condom is used during a coital act within the specified relationship. This overrides the **Condom_Usage_Probablility** for the relationship type as defined in the Demographics file.",".. code-block:: json
+
+    {
+      ""Condom_Usage_Parameters_Type"": ""SPECIFY_USAGE"",
+      ""Condom_Usage_Sigmoid"": {
+        ""Max"": 1,
+        ""Mid"": 2000,
+        ""Min"": 1,
+        ""Rate"": 1
+      }
+    }
+"
+"Disqualifying_Properties","array of strings","NA","NA","""""","A list of **IndividualProperty** key:value pairs that will prevent an intervention from being distributed or applied/updated. See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.",".. code-block:: json
+
+    {
+      ""Disqualifying_Properties"": [
+        ""InterventionStatus:LostForever""
+      ]
+    }
+"
+"Dont_Allow_Duplicates","boolean","0","1","0","If an individual's container has an intervention, set to true (1) to prevent them from receiving another copy of the intervention. Supported by all intervention classes.",".. code-block:: json
+
+    {
+      ""Dont_Allow_Duplicates"": 0
+    }
+"
+"Intervention_Name","string","NA","NA","StartNewRelationship","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""Intervention_Name"": ""Start relationship from wife inheritance"",
+        ""class"": ""StartNewRelationship""
+      }
+    }
+"
+"New_Property_Value","string","NA","NA","""""","An optional **IndividualProperty** key:value pair that will be assigned when the intervention is distributed. See :ref:`demo-properties` parameters for more information. Generally used to indicate the broad category of health care cascade to which an intervention belongs to prevent individuals from accessing care through multiple pathways. For example, if an individual must already be taking a particular medication to be prescribed a new one. ",".. code-block:: json
+
+    {
+      ""New_Property_Value"": ""InterventionStatus:None""
+    }
+"
+"Partner_Has_IP","string","NA","NA","""""","The **IndividualProperty** key:value pair that the potential partner must have. Empty string implies no filtering. See :ref:`demo-properties` parameters for more information.",".. code-block:: json
+
+    {
+      ""Partner_Has_IP"": ""IsPurifier:YES""
+    }
+"
+"Relationship_Created_Event","string","NA","NA","""""","The event trigger to broadcast when a new relationship is created due to the intervention. See :doc:`parameter-campaign-event-list` for possible values. Custom events can be distributed if they are defined in the config parameter **Custom_Individual_Events**.",".. code-block:: json
+
+    {
+      ""Relationship_Created_Event"": ""Started_Purification""
+    }
+"
+"Relationship_Type","enum","NA","NA","TRANSITORY","The type of the relationship to start for this person. Possible values are:
+
+* TRANSITORY
+* INFORMAL
+* MARITAL
+* COMMERCIAL",".. code-block:: json
+
+    {
+      ""Relationship_Type"": ""COMMERCIAL""
+    }
+"

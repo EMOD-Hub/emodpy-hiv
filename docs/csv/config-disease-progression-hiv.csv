@@ -1,0 +1,12 @@
+"Acute_Duration_In_Months","float","0","5","2.9","The time since infection, in months, over which the **Acute_Stage_Infectivity_Multiplier** is applied to coital acts occurring in that time period.",".. code-block:: json
+
+    {
+        ""Acute_Duration_In_Months"": 2.9
+    }
+"
+"AIDS_Duration_In_Months","float","7","12","9","The length of time, in months, prior to an AIDS-related death over which the **AIDS_Stage_Infectivity_Multiplier** is applied.",".. code-block:: json
+
+    {
+        ""AIDS_Duration_In_Months"": 8
+    }
+"

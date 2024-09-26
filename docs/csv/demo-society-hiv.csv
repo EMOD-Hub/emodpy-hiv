@@ -1,0 +1,205 @@
+"COMMERCIAL","json object","NA","NA","NA","The structure that defines basic relationship, pair formation, and concurrency parameters for transactional relationships involving commercial sex work (CSW).",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""COMMERCIAL"": {
+                ""Relationship_Parameters"": {
+                    ""Condom_Usage_Probability"": {
+                        ""Min"": 0.02,
+                        ""Max"": 0.65,
+                        ""Mid"": 2000,
+                        ""Rate"": 1.5
+                    }
+                },
+                ""Pair_Formation_Parameters"": {
+                    ""Formation_Rate_Constant"": 0.05
+                },
+                ""Concurrency_Parameters"": {
+                    ""NONE"": {
+                        ""Max_Simultaneous_Relationships_Female"": 20,
+                        ""Max_Simultaneous_Relationships_Male"": 20
+                    }
+                }
+            }
+        }
+    }
+"
+"Concurrency_Configuration","json object","NA","NA","NA","The structure that determines how concurrent relationships are formed, for *all* relationship types. To apply to all individuals regardless of individual property values, nest parameters under NONE. To apply only to individuals with certain property values, nest parameters under the property value.","The following example sets extra-relational flags independently to everyone regardless of individual properties.
+
+.. code-block:: json
+
+    {
+        ""Society"": {
+            ""Concurrency_Configuration"": {
+                ""Probability_Person_Is_Behavioral_Super_Spreader"": 0,
+                ""Individual_Property_Name"": ""NONE"",
+                ""NONE"": {
+                    ""Extra_Relational_Flag_Type"": ""Independent""
+                }
+            }
+        }
+    }
+
+The following example sets different extra-relational flag types to low-risk and high-risk groups.
+
+.. code-block:: json
+
+    {
+        ""Society"": {
+            ""Concurrency_Configuration"": {
+                ""Individual_Property_Name"": ""Risk"",
+                ""LOW"": {
+                    ""Extra_Relational_Flag_Type"": ""Independent""
+                },
+                ""HIGH"": {
+                    ""Extra_Relational_Flag_Type"": ""Correlated""
+                }
+            }
+        }
+    }
+"
+"INFORMAL","json object","NA","NA","NA","The structure that defines basic relationship, pair formation, and concurrency parameters for longer-term non-marital relationships.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""INFORMAL"": {
+                ""Relationship_Parameters"": {
+                    ""Condom_Usage_Probability"": {
+                        ""Min"": 0.0125,
+                        ""Max"": 0.45,
+                        ""Mid"": 2000,
+                        ""Rate"": 1.5
+                    }
+                },
+                ""Pair_Formation_Parameters"": {
+                    ""Formation_Rate_Constant"": 0.01
+                },
+                ""Concurrency_Parameters"": {
+                    ""NONE"": {
+                        ""Max_Simultaneous_Relationships_Female"": 3,
+                        ""Max_Simultaneous_Relationships_Male"": 3
+                    }
+                }
+            }
+        }
+    }
+"
+"MARITAL","json object","NA","NA","NA","The structure that defines basic relationship, pair formation, and concurrency parameters for marital relationships.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""MARITAL"": {
+                ""Relationship_Parameters"": {
+                    ""Condom_Usage_Probability"": {
+                        ""Min"": 0.002,
+                        ""Max"": 0.05,
+                        ""Mid"": 2000,
+                        ""Rate"": 1.5
+                    }
+                },
+                ""Pair_Formation_Parameters"": {
+                    ""Formation_Rate_Constant"": 0.006
+                },
+                ""Concurrency_Parameters"": {
+                    ""NONE"": {
+                        ""Max_Simultaneous_Relationships_Female"": 1,
+                        ""Max_Simultaneous_Relationships_Male"": 1
+                    }
+                }
+            }
+        }
+    }
+"
+"Pair_Formation_Parameters","json object","NA","NA","NA","Structure that defines all relationship formation parameters for the relationship type specified.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Extra_Relational_Rate_Ratio_Male"": 4,
+                    ""Extra_Relational_Rate_Ratio_Female"": 2
+                }
+            }
+        }
+    }
+"
+"Society","json object","NA","NA","NA","The structure that defines the behavioral-based parameters of a relationship type. Under this structure, include the following and assign JSON objects to each:
+
+Concurrency_Configuration
+    Defines how the simultaneous relationship parameters are used across all relationship types.
+TRANSITORY
+    All parameters for brief relationships lasting one night, weekend, or week.
+INFORMAL
+    All parameters for longer-term non-marital relationships.
+MARITAL
+    All parameters for marital relationships.
+COMMERCIAL
+    All parameters for transactional relationships involving commercial sex work (CSW).",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""Concurrency_Configuration"": {
+                ""NONE"": {
+                    ""Extra_Relational_Flag_Type"": ""Correlated"",
+                    ""Correlated_Relationship_Type_Order"": [
+                        ""TRANSITORY"",
+                        ""INFORMAL"",
+                        ""MARITAL"",
+                        ""COMMERCIAL""
+                    ]
+                }
+            },
+            ""MARITAL"": {
+                ""Pair_Formation_Parameters"": {
+                    ""Assortivity"": {
+                        ""Group"": ""INDIVIDUAL_PROPERTY"",
+                        ""Property_Name"": ""Risk"",
+                        ""Axes"": [
+                            ""LOW"",
+                            ""HIGH""
+                        ],
+                        ""Weighting_Matrix_RowMale_ColumnFemale"": [
+                            [
+                                0.8275185967686474,
+                                0.17248140323135264
+                            ],
+                            [
+                                0.17248140323135264,
+                                0.8275185967686474
+                            ]
+                        ]
+                    }
+                }
+            },
+            ""INFORMAL"": {},
+            ""TRANSITORY"": {},
+            ""COMMERCIAL"": {}
+        }
+    }
+"
+"TRANSITORY","json object","NA","NA","NA","The structure that defines basic relationship, pair formation, and concurrency parameters for brief relationships lasting one night, weekend, or week.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Relationship_Parameters"": {
+                    ""Condom_Usage_Probability"": {
+                        ""Min"": 0.0125,
+                        ""Max"": 0.45,
+                        ""Mid"": 2000,
+                        ""Rate"": 1.5
+                    }
+                },
+                ""Pair_Formation_Parameters"": {
+                    ""Formation_Rate_Constant"": 0.01
+                },
+                ""Concurrency_Parameters"": {
+                    ""NONE"": {
+                        ""Max_Simultaneous_Relationships_Female"": 3,
+                        ""Max_Simultaneous_Relationships_Male"": 3
+                    }
+                }
+            }
+        }
+    }
+"

@@ -1,0 +1,10 @@
+"New_STI_CoInfection_Status","boolean","0","1","0","Determines whether to apply STI co-infection, or cure/remove STI co-infection. Set to true (1) to include co-infection; set to false (0) to remove co-infection.
+",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""class"": ""ModifyStiCoInfectionStatus"",
+        ""New_STI_CoInfection_Status"": 1
+      }
+    }
+"

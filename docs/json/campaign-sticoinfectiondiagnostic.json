@@ -1,0 +1,29 @@
+{
+    "Use_Defaults": 1,
+    "Campaign_Name": "HIV Outbreak via Prevalence Increase",
+    "Events": [
+        {
+            "Description": "STI Diagnostic",
+            "class": "CampaignEvent",
+            "Start_Day": 61,
+            "Nodeset_Config": { "class": "NodeSetAll" },
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Demographic_Coverage": 1.00,
+                "Target_Demographic": "ExplicitAgeRanges",
+                "Target_Age_Min": 15,
+                "Target_Age_Max": 31,
+                "Intervention_Config": {
+                    "class": "StiCoInfectionDiagnostic",
+                    "Event_Or_Config": "Config",
+                    "Treatment_Fraction": 1.0,
+                    "Positive_Diagnosis_Config":
+                    {
+                        "class": "ModifyStiCoInfectionStatus",
+                        "New_STI_CoInfection_Status": 0
+                    }
+                }
+            }
+        }
+    ]
+}

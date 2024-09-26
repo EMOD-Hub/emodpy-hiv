@@ -1,0 +1,121 @@
+"Concurrency_Parameters","json object","NA","NA","NA","The structure that determines how concurrent relationships are formed, for a *specific* relationship type. This parameter is nested under a parameter for one of the supported relationship types. To apply to all individuals regardless of individual property values, nest parameters under NONE. To apply only to individuals with certain property values, nest parameters under the property value as set in **Concurrency_Configuration**.","The following example sets concurrency for transitory relationships regardless of individual properties.
+
+.. code-block:: json
+
+    {
+        ""Society"": {
+            ""TRANSITORY"": {
+                ""Concurrency_Parameters"": {
+                    ""NONE"": {
+                        ""Max_Simultaneous_Relationships_Female"": 2,
+                        ""Max_Simultaneous_Relationships_Male"": 2,
+                        ""Prob_Extra_Relationship_Female"": 0.3,
+                        ""Prob_Extra_Relationship_Male"": 0.3
+                    }
+                }
+            }
+        }
+    }
+
+The following example sets different concurrency parameters for low-risk and high-risk individuals in transitory relationships.
+
+.. code-block:: json
+
+    {
+        ""Society"": {
+            ""Concurrency_Configuration"": {
+                ""Individual_Property_Name"": ""Risk"",
+                ""LOW"": {
+                    ""Extra_Relational_Flag_Type"": ""Independent""
+                },
+                ""HIGH"": {
+                    ""Extra_Relational_Flag_Type"": ""Correlated""
+                }
+            },
+            ""TRANSITORY"": {
+                ""Concurrency_Parameters"": {
+                    ""LOW"": {
+                        ""Max_Simultaneous_Relationships_Female"": 2,
+                        ""Max_Simultaneous_Relationships_Male"": 2,
+                        ""Prob_Extra_Relationship_Female"": 0.3,
+                        ""Prob_Extra_Relationship_Male"": 0.3
+                    },
+                    ""HIGH"": {
+                        ""Max_Simultaneous_Relationships_Female"": 3,
+                        ""Max_Simultaneous_Relationships_Male"": 5,
+                        ""Prob_Extra_Relationship_Female"": 0.5,
+                        ""Prob_Extra_Relationship_Male"": 0.7
+                    }
+                }
+            }
+        }
+    }
+"
+"Max_Simultaneous_Relationships_Female","integer","0","63","1","For females, the maximum number of concurrent relationships. The individual sets the value at initialization and whenever they change relationship type.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""INFORMAL"": {
+                ""Concurrency_Parameters"": {
+                    ""NONE"": {
+                        ""Max_Simultaneous_Relationships_Female"": 3,
+                        ""Max_Simultaneous_Relationships_Male"": 3,
+                        ""Prob_Extra_Relationship_Female"": 0.8,
+                        ""Prob_Extra_Relationship_Male"": 0.8
+                    }
+                }
+            }
+        }
+    }
+"
+"Max_Simultaneous_Relationships_Male","integer","0","63","1","For males, the maximum number of concurrent relationships.",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""INFORMAL"": {
+                ""Concurrency_Parameters"": {
+                    ""NONE"": {
+                        ""Max_Simultaneous_Relationships_Female"": 3,
+                        ""Max_Simultaneous_Relationships_Male"": 3,
+                        ""Prob_Extra_Relationship_Female"": 0.8,
+                        ""Prob_Extra_Relationship_Male"": 0.8
+                    }
+                }
+            }
+        }
+    }
+"
+"Prob_Extra_Relationship_Female","float","0","1","0","The probability of a female receiving a flag that allows her to seek additional relationships while currently in another relationship. ",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""INFORMAL"": {
+                ""Concurrency_Parameters"": {
+                    ""NONE"": {
+                        ""Max_Simultaneous_Relationships_Female"": 3,
+                        ""Max_Simultaneous_Relationships_Male"": 3,
+                        ""Prob_Extra_Relationship_Female"": 0.8,
+                        ""Prob_Extra_Relationship_Male"": 0.8
+                    }
+                }
+            }
+        }
+    }
+"
+"Prob_Extra_Relationship_Male","float","0","1","0","The probability of a male receiving a flag that allows him to seek additional relationships while currently in another relationship. ",".. code-block:: json
+
+    {
+        ""Society"": {
+            ""INFORMAL"": {
+                ""Concurrency_Parameters"": {
+                    ""NONE"": {
+                        ""Max_Simultaneous_Relationships_Female"": 3,
+                        ""Max_Simultaneous_Relationships_Male"": 3,
+                        ""Prob_Extra_Relationship_Female"": 0.8,
+                        ""Prob_Extra_Relationship_Male"": 0.8
+                    }
+                }
+            }
+        }
+    }
+"

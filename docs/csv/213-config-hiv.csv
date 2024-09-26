@@ -1,0 +1,123 @@
+"Custom_Reports_Filename","string","NA","NA","UNINITIALIZED STRING","The name of the file containing custom report configuration parameters. Omitting this parameter or setting it to RunAllCustomReports will load all reporters found that are valid for the given simulation type. The file must be in JSON format.",".. code-block:: json
+
+    {  
+        ""Custom_Reports_Filename"": ""custom_reports.json""
+    }"
+"Heterogeneous_Infectiousness_LogNormal_Scale","float","0","10","0","Scale parameter of a log normal distribution that governs an infectiousness multiplier. The multiplier represents heterogeneity in infectivity and adjusts **Base_Infectivity**.",".. code-block:: json
+
+    {
+        ""Heterogeneous_Infectiousness_LogNormal_Scale"": 1
+    }"
+"Incubation_Period_Log_Mean","float","0","3.40E+38","6","The mean of log normal for the incubation period distribution. **Incubation_Period_Distribution** must be set to LOG_NORMAL_DURATION.",".. code-block:: json
+
+    {
+        ""Incubation_Period_Distribution"": ""LOG_NORMAL_DURATION"",
+        ""Incubation_Period_Log_Mean"": 5.758,
+        ""Incubation_Period_Log_Width"": 0.27
+    }"
+"Incubation_Period_Log_Width","float","0","3.40E+38","1","The log width of log normal for the incubation period distribution. **Incubation_Period_Distribution** must be set to LOG_NORMAL_DURATION.",".. code-block:: json
+
+    {
+        ""Incubation_Period_Distribution"": ""LOG_NORMAL_DURATION"",
+        ""Incubation_Period_Log_Mean"": 5.758,
+        ""Incubation_Period_Log_Width"": 0.27
+    }"
+"Infectivity_Exponential_Baseline","float","0","1","0","The scale factor applied to **Base_Infectivity** at the beginning of a simulation, before the infectivity begins to grow exponentially. **Infectivity_Scale_Type** must be set to EXPONENTIAL_FUNCTION_OF_TIME.",".. code-block:: json
+
+    {
+        ""Infectivity_Exponential_Baseline"": 0.1, 
+        ""Infectivity_Exponential_Delay"": 90, 
+        ""Infectivity_Exponential_Rate"": 45, 
+        ""Infectivity_Scale_Type"": ""EXPONENTIAL_FUNCTION_OF_TIME""
+    }"
+"Infectivity_Exponential_Delay","float","0","3.40E+38","0","The number of days before infectivity begins to ramp up exponentially. **Infectivity_Scale_Type** must be set to EXPONENTIAL_FUNCTION_OF_TIME.",".. code-block:: json
+
+    {
+        ""Infectivity_Exponential_Baseline"": 0.1, 
+        ""Infectivity_Exponential_Delay"": 90, 
+        ""Infectivity_Exponential_Rate"": 45, 
+        ""Infectivity_Scale_Type"": ""EXPONENTIAL_FUNCTION_OF_TIME""
+    }"
+"Infectivity_Exponential_Rate","float","0","3.40E+38","0","The daily rate of exponential growth to approach to full infectivity after the delay set by **Infectivity_Exponential_Delay** has passed. **Infectivity_Scale_Type** must be set to EXPONENTIAL_FUNCTION_OF_TIME.",".. code-block:: json
+
+    {
+        ""Infectivity_Exponential_Rate"": 45
+    }"
+"Memory_Usage_Halting_Threshold_Working_Set_MB","integer","0","1.00E+06","8000","The maximum size (in MB) of working set memory before the system throws an exception and halts. ",".. code-block:: json
+
+    {
+        ""Memory_Usage_Halting_Threshold_Working_Set_MB"": 4000
+    }"
+"Memory_Usage_Warning_Threshold_Working_Set_MB","integer","0","1.00E+06","7000","The maximum size (in MB) of working set memory before memory usage statistics are written to the log regardless of log level.",".. code-block:: json
+
+    {
+        ""Memory_Usage_Warning_Threshold_Working_Set_MB"": 3500
+    }"
+"Report_HIV_ByAgeAndGender_Add_Relationships","boolean","0","1","0","Sets whether or not the ReportHIVByAgeAndGender.csv output file will contain data by relationship type on population currently in a relationship and ever in a relationship.  A sum of those in two or more partnerships and a sum of the lifetime number of relationships in each bin will be included.",".. code-block:: json
+
+    {
+        ""Report_HIV_ByAgeAndGender_Add_Relationships"": 1
+    }"
+"Report_HIV_ByAgeAndGender_Add_Transmitters","boolean","0","1","0","When Set to to true (1), the ""transmitters"" column is included in the output report.  For a given row, ""Transmitters"" indicates how many people that have transmitted the disease meet the specifications of that row.",".. code-block:: json
+
+    {
+        ""Report_HIV_ByAgeAndGender_Add_Transmitters"": 1
+    }"
+"Report_HIV_ByAgeAndGender_Collect_Age_Bins_Data","array of floats","-3.40282e+38","3.40282e+38","1","This array of floats allows the user to define the age bins used to stratify the report by age. Each value defines the minimum value of that bin, while the next value defines the maximum value of the bin. The maximum number of age bins is 100. 
+For example, if you had:
+
+""Report_HIV_ByAgeAndGender_Collect_Age_Bins_Data"" : [ 0, 10, 20, 50, 100 ]
+
+The report would have the following age bins: From 0 up to (but not including) 10, from 10 up to (but not including) 20, from 20 up to (but not including) 50, from 50 up to (but not including) 100, and 100 and over. 
+
+If no values are specified in the array, then the output report will have no age binning.  ",".. code-block:: json
+
+    {
+        ""Report_HIV_ByAgeAndGender_Collect_Age_Bins_Data"" : [
+            0,  1,  2,  3,  4,  5,  6,  7,  8,  9,
+            10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+            20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+            30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+            40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+            50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
+            60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
+            70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
+            80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
+            90, 91, 92, 93, 94, 95, 96, 97, 98, 99
+        ]
+    }"
+"Report_HIV_ByAgeAndGender_Collect_Gender_Data","boolean","0","1","0","Controls whether or not the report is stratified by gender; to enable gender stratification, set to true (1).",".. code-block:: json
+
+    {
+        ""Report_HIV_ByAgeAndGender_Collect_Gender_Data"": 1
+    }"
+"Report_HIV_ByAgeAndGender_Collect_Intervention_Data","array of strings","NA","NA","NA","Stratifies the population by adding a column of 0s and 1s depending on whether or not the person has the indicated intervention. This only works for interventions that remain with a person for a period of time, such as ART, VMMC, vaccine/PrEP, or a delay state in the cascade of care. You can name the intervention by adding a parameter **Intervention_Name** in the campaign file, and then give this parameter the same **Intervention_Name**. This allows you to have multiple types of vaccines, VMMCs, etc., but to only stratify on the type you want.",".. code-block:: json
+
+    {
+        ""Report_HIV_ByAgeAndGender_Collect_Intervention_Data"": [
+            ""ART_Intervention"",
+            ""PrEP_Intervention"" 
+        ]
+    }"
+"Serialization_Time_Steps","array of integers","0","2.15E+09",,"The list of time steps after which to save the serialized state. 0 (zero) indicates the initial state before simulation, n indicates after the nth time step. By default, no serialized state is saved.",".. code-block:: json
+
+    {
+        ""Serialization_Time_Steps"": [
+            0, 
+            10
+        ]
+    }"
+"Serialized_Population_Filenames","array of strings","NA","NA","NA","Array of filenames with serialized population data. The number of filenames must match the number of cores used for the simulation. The file must be in .dtk format.",".. code-block:: json
+
+    {
+        ""Serialized_Population_Filenames"": [
+            ""state-00010.dtk""
+        ]
+    }
+	"
+"Serialized_Population_Path","string ","NA","NA",".","The root path for the serialized population files.",".. code-block:: json
+
+    {
+        ""Serialized_Population_Path"": ""../00_Generic_Version_1_save/output""
+    }
+	"

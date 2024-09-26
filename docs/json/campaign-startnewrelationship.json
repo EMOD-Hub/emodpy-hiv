@@ -1,0 +1,33 @@
+{
+    "Use_Defaults": 1,
+    "Events": [
+        {
+            "class": "CampaignEvent",
+            "Start_Day": 730,
+            "Nodeset_Config": { "class": "NodeSetAll" },
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Target_Demographic": "ExplicitGender", 
+                "Target_Gender" : "MALE",
+                "Demographic_Coverage": 0.05,
+                "Intervention_Config": {
+                    "class": "StartNewRelationship",
+                    "Condom_Usage_Parameters_Type": "SPECIFY_USAGE",
+                    "Condom_Usage_Sigmoid": {
+                        "Max": 1,
+                        "Mid": 2000,
+                        "Min": 1,
+                        "Rate": 1
+                        },
+                    "Disqualifying_Properties": ["InterventionStatus:LostForever"],
+                    "Dont_Allow_Duplicates": 0,
+                    "Intervention_Name": "My Custom Relationship",
+                    "New_Property_Value": "",
+                    "Partner_Has_IP" : "IsPurifier:YES",
+                    "Relationship_Created_Event": "Started_Purification",
+                    "Relationship_Type": "COMMERCIAL"
+                }
+            }
+        }
+    ]
+}

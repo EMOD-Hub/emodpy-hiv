@@ -1,0 +1,92 @@
+"Cost_To_Consumer","float","0","3.40282e+38","1","The unit 'cost' assigned to the diagnostic. Setting **Cost_To_Consumer** to zero for all other interventions, and to a non-zero amount for one intervention, provides a convenient way to track the number of times the intervention has been applied in a simulation.",".. code-block:: json
+
+    {
+      ""Cost_To_Consumer"": 0.333
+    }
+"
+"Disqualifying_Properties","array of strings","NA","NA","[]","A list of **IndividualProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to individuals with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.",".. code-block:: json
+
+    {
+      ""Disqualifying_Properties"": [
+        ""InterventionStatus:LostForever""
+      ]
+    }
+"
+"Dont_Allow_Duplicates","boolean","0","1","0","If an individual's container has an intervention, set to true (1) to prevent them from receiving another copy of the intervention. Supported by all intervention classes.",".. code-block:: json
+
+    {
+      ""Dont_Allow_Duplicates"": 0
+    }
+"
+"Female_Multiplier","float","0","3.40282e+38","1","Allows for the sigmoid time-varying probability to be different for males and females, by multiplying the female probability by a constant value.",".. code-block:: json
+
+    {
+      ""Female_Multiplier"": 1.3
+    }
+"
+"Intervention_Name","string","NA","NA","HIVSigmoidByYearAndSexDiagnostic","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""class"": ""HIVSigmoidByYearAndSexDiagnostic"",
+        ""Intervention_Name"": ""Sigmoidal HIV diagnostic test""
+      }
+    }
+"
+"Negative_Diagnosis_Event","enum","NA","NA","""""","If an individual tests negative, this specifies an event that may trigger another intervention when the event occurs. See :doc:`parameter-campaign-event-list` for possible values.",".. code-block:: json
+
+    {
+      ""Negative_Diagnosis_Event"": ""PreDebut""
+    }
+"
+"New_Property_Value","string","NA","NA","""""","An optional **IndividualProperty** key:value pair that will be assigned when the intervention is applied. See :ref:`demo-properties` parameters for more information. Generally used to indicate the broad category of health care cascade to which an intervention belongs to prevent individuals from accessing care through multiple pathways. For example, if an individual must already be taking a particular medication to be prescribed a new one. ",".. code-block:: json
+
+    {
+      ""New_Property_Value"": ""InterventionStatus:None""
+    }
+"
+"Positive_Diagnosis_Event","enum","NA","NA","""""","If the test is positive, this specifies an event that can trigger another intervention when the event occurs. See :doc:`parameter-campaign-event-list` for possible values.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""Positive_Diagnosis_Event"": ""TestedPositive_CureMeNow"",
+        ""class"": ""SimpleDiagnostic""
+      }
+    }
+"
+"Ramp_Max","float","-1","1","1","The right asymptote for the sigmoid trend over time.",".. code-block:: json
+
+    {
+      ""Ramp_Min"": 0.05,
+      ""Ramp_Max"": 0.6,
+      ""Ramp_MidYear"": 2000,
+      ""Ramp_Rate"": 1
+    }
+"
+"Ramp_MidYear","float","-3.40282e+38","3.40282e+38","2000","The time of the infection point in the sigmoid trend over time.",".. code-block:: json
+
+    {
+      ""Ramp_Min"": 0.05,
+      ""Ramp_Max"": 0.6,
+      ""Ramp_MidYear"": 2000,
+      ""Ramp_Rate"": 1
+    }
+"
+"Ramp_Min","float","-1","1","1","The left asymptote for the sigmoid trend over time.",".. code-block:: json
+
+    {
+      ""Ramp_Min"": 0.05,
+      ""Ramp_Max"": 0.6,
+      ""Ramp_MidYear"": 2000,
+      ""Ramp_Rate"": 1
+    }
+"
+"Ramp_Rate","float","0","1","1","The slope of the inflection point in the sigmoid trend over time. A Rate of 1 sets the slope to a 25% change in probability per year.",".. code-block:: json
+
+    {
+      ""Ramp_Min"": 0.05,
+      ""Ramp_Max"": 0.6,
+      ""Ramp_MidYear"": 2000,
+      ""Ramp_Rate"": 1
+    }
+"
