@@ -197,7 +197,7 @@ And then pip install::
 
 What is the difference between “Transitory” and “Informal” relationships? 
 =================================================================================
-See :ref:`emod-hiv:relationships`. (Transitory relationships are like “one night stands" or commercial relationships whereas Informal are generally intended to represent pre-marital or extra-marital relationships of some length.)
+See :ref:`relationships`. (Transitory relationships are like “one night stands" or commercial relationships whereas Informal are generally intended to represent pre-marital or extra-marital relationships of some length.)
  
 
 How do individual properties like "risk" change model behavior if they are just tags?
@@ -252,11 +252,9 @@ dynamics, behavior, or treatment based on the assigned values. For example, you 
 properties to represent vitamin deficiencies, comorbidities, and more. For more information, see
 :doc:`emod/model-properties`.
 
-
-    .. TODO add link to dev docset once created
-    .. If individual and node properties cannot incorporate the functionality you need, |EMOD_s| is
-    .. open-source software that can be extended to meet your needs. For more information, see 
-    .. :doc:`dev-install-overview`.
+If individual and node properties cannot incorporate the functionality you need, |EMOD_s| is
+open-source software that can be extended to meet your needs. For more information, see 
+:doc:`emod:dev-install-overview`.
 
 Can I model regions, countries, provinces, or cities? 
 =====================================================

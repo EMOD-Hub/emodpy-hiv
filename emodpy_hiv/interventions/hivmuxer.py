@@ -21,7 +21,7 @@ def new_intervention(camp: campaign,
 
     Create a HIVMuxer intervention object and return it.
     Please refer to the documentation for HIVMuxer at the following link:
-    :doc:`emod-hiv:parameter-campaign-individual-hivmuxer`
+    :doc:`emod/parameter-campaign-individual-hivmuxer`.
 
 
     Args:
@@ -105,7 +105,7 @@ def add_hiv_muxer_event_with_trigger(camp: campaign,
 
     Add HIVMuxer intervention with NodeLevelHealthTriggeredIV to campaign object
     Please refer to the documentation for HIVMuxer at the following link:
-    :doc:`emod-hiv:parameter-campaign-individual-hivmuxer`
+    :doc:`emod/parameter-campaign-individual-hivmuxer`.
 
     Args:
         camp (emod_api.campaign): The campaign object to which the event will be added. This should be an instance of

@@ -149,7 +149,7 @@ def add_nchooser_event(
     intervention configurations and distributions, targeting specific nodes from a defined start year.
 
     Please refer to the documentation for NChooserEventCoordinatorHIV at the following link:
-    :doc:`emod-hiv:parameter-campaign-event-nchoosereventcoordinatorhiv`
+    :doc:`emod/parameter-campaign-event-nchoosereventcoordinatorhiv`.
 
     Args:
         camp (emod_api.campaign):                             The campaign object to which the event will be added. This

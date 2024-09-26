@@ -159,7 +159,7 @@ The output report will contain the following information.
         * 4 = On ART
 
     Note: this only included in HIV simulations."
-    "<A or B>_HIV_Tested_Positive", boolean, "If the **Report_Relationship_Start_Include_HIV_Disease_Statistics** parameter is set to 1, this column will be included, indicating whether or not the partner has ever tested positive for HIV using the results of the **HIVRapidHIVDiagnostic** campaign parameter. 0 indicates the partner has never tested positive, 1 indicates they have tested positive. See :doc:`emod-hiv:parameter-campaign-individual-hivrapidhivdiagnostic` for configuration details. There is a column for each partner. Note: this is only included in HIV simulations."
+    "<A or B>_HIV_Tested_Positive", boolean, "If the **Report_Relationship_Start_Include_HIV_Disease_Statistics** parameter is set to 1, this column will be included, indicating whether or not the partner has ever tested positive for HIV using the results of the **HIVRapidHIVDiagnostic** campaign parameter. 0 indicates the partner has never tested positive, 1 indicates they have tested positive. See :doc:`parameter-campaign-individual-hivrapidhivdiagnostic` for configuration details. There is a column for each partner. Note: this is only included in HIV simulations."
     "<A or B>_HIV_Received_Results", string, "If the **Include_HIV_Disease_Statistics** parameter is set to 1, this column will be included, indicating the results received by the individual from the latest HIV test using the **HIVRapidHIVDiagnostic** campaign parameter. Possible values are:
 
 
@@ -173,7 +173,7 @@ The output report will contain the following information.
       Indicates that the most recent results were positive.
 
 
-    Whether or not the an individual receives their results is determined by the **Probability_Received_Results** campaign parameter—see :doc:`emod-hiv:parameter-campaign-individual-hivrapidhivdiagnostic` for configuration details. There is a column for each partner. Note: this is only included in HIV simulations."
+    Whether or not the an individual receives their results is determined by the **Probability_Received_Results** campaign parameter, see :doc:`parameter-campaign-individual-hivrapidhivdiagnostic` for configuration details. There is a column for each partner."
 
 
 

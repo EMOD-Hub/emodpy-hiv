@@ -10,10 +10,7 @@ broadcasted that will trigger some sort of response by the healthcare system.
 distribute this intervention to the node. The node intervention could then broadcast its event 
 that a **TriggeredEventCoordinator** is listening for. One can use the 
 **Report_Coordinator_Event_Recorder** to report on the events broadcasted by this intervention. 
-Note, this coordinator class must be used with listeners that are operating on the same core. 
-
-
-.. TODO add link For more information, see :doc:`dev-architecture-core`.
+Note, this coordinator class must be used with listeners that are operating on the same core. For more information, see :doc:`emod:dev-architecture-core`.
 
 .. include:: ../reuse/warning-case.txt
 

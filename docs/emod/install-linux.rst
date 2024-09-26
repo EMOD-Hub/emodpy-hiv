@@ -9,9 +9,8 @@ install Python virtual environments, software to plot the output of simulations,
 
 .. include:: ../reuse/testing-linux.txt
 
-.. TODO add link to dev docs once they are live
-..     If you want to download and modify the |EMOD_s| source code and build the |linux_binary|
-..    yourself, see :doc:`dev-install-overview`.
+If you want to download and modify the |EMOD_s| source code and build the |linux_binary|
+yourself, see :doc:`emod:dev-install-overview`.
 
 .. contents::
    :local:
@@ -31,10 +30,9 @@ instructions are not included here.
 The script provides the option to install input files that describe the demographics, migration patterns, and
 climate of many different locations across the world. 
 
-.. TODO add link to dev docs once they go live
-.. While the script installs a pre-built version
-.. of the |linux_binary|, it also provides the option of installing the |EMOD_s| source code. For
-.. information on building the |linux_binary| from source code, see :doc:`dev-install-overview`.
+While the script installs a pre-built version
+of the |linux_binary|, it also provides the option of installing the |EMOD_s| source code. For
+information on building the |linux_binary| from source code, see :doc:`emod:dev-install-overview`.
 
 .. include:: ../reuse/centos-install-to-run.txt
 

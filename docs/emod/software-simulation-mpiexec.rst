@@ -12,10 +12,8 @@ Interface (MPI) communicates between the cores when handling the migration of in
 Although mpiexec can be used to run a simulation in parallel on your local computer, it is  more
 often used to run complex simulations in parallel on an HPC cluster or several linked computers.
 
-
-.. TODO add link to dev docs once live
-.. Mpiexec is part of the |HPC_SDK_supp| installed as a prerequisite for building |exe_s| from 
-.. the |EMOD_s| source code. See :doc:`dev-install-overview` for more information.
+Mpiexec is part of the |HPC_SDK_supp| installed as a prerequisite for building |exe_s| from 
+the |EMOD_s| source code. See :doc:`emod:dev-install-overview` for more information.
 
 .. note::
 

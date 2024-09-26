@@ -43,7 +43,7 @@ diseases. Much of  the functionality is inherited from the
 
 Additional information about how to use |IT_s| can be found at in
 :doc:`idmtools:index`.  Additional information about |EMOD_s| HIV
-parameters can be found in :doc:`emod-hiv:parameter-overview`.
+parameters can be found in :doc:`emod/parameter-overview`.
 
 If you have questions, see :doc:`emodpy:faq` for general questions about all 
 |EMODPY_s| functionality or :doc:`faq` for functionality specific to |EMODPY_hiv|. 

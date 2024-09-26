@@ -1,7 +1,7 @@
 """
 This module contains the classes and functions for creating demographics files
 for HIV simulations. For more information on |EMOD_s| demographics files,
-see :doc:`emod-hiv:software-demographics`. 
+see :doc:`emod/software-demographics`. 
 """
 import math
 

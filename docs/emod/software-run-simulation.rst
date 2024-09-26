@@ -36,24 +36,10 @@ Generally, only small simulations should be run locally.
 Many of these options are scripting languages that you can also use to modify the files consumed by
 |EMOD_s|, simplifying your workflow when running many simulations.
 
-
-.. TODO move paragraph below into dev docs and add link once live
-.. Run simulations for debugging
-.. =============================
-
-.. If you are helping advance the |EMOD_s| model by contributing to source code, there are other
-.. options for running simulations that provide debugging support. These options for running
-.. simulations are not recommended if you are not modifying the source code.
-
-.. You can run a simulation locally from Visual Studio using the built-in debugger. You will be able
-.. to put in breakpoints and step through the code while inspecting the values of different state
-.. variables throughout the simulation.
-
-.. You can use regression_test.py in the GitHub Regression_ directory to run multiple simulations on a
-.. cluster, including running the suite of regression tests run by the |IDM_s| testing team. For more
-.. information, see :doc:`dev-regression`.
-
-.. .. _Regression: https://github.com/InstituteforDiseaseModeling/EMOD/tree/master/Regression
+If you are helping advance the |EMOD_s| model by contributing to source code, there are other
+options for running simulations that provide debugging support. These options for running
+simulations are not recommended if you are not modifying the source code. For more
+information, see :doc:`emod:dev-regression`.
 
 
 Directory structure
