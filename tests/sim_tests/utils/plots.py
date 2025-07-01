@@ -3,15 +3,18 @@ import json
 import pandas as pd
 import os
 from itertools import cycle
-import argparse
 import seaborn as sns
 import numpy as np
 import scipy.stats as st
 
-def plot_experiements(ids_array:[], channels:'All', custom_path:str='default', subfolder:str='output'):
+
+def plot_experiements(ids_array=[],
+                      channels='All',
+                      custom_path: str = 'default',
+                      subfolder: str = 'output'):
 
     simulation_results = []
-    if custom_path=='default':
+    if custom_path == 'default':
         path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         path = os.path.join(path, "inputs")
     else:
@@ -45,7 +48,7 @@ def plot_experiements(ids_array:[], channels:'All', custom_path:str='default', s
         rows = int(len(channel_names) / 2) + 1
         cols = 2
 
-    fig = plt.figure().set_size_inches(5*cols, (2*rows)+3)
+    fig = plt.figure().set_size_inches((5 * cols), ((2 * rows) + 3))
     plt.subplots_adjust(left=0.05, bottom=0.05, right=.98, top=.96, wspace=0.1, hspace=0.3)
 
     plt.style.use('ggplot')
@@ -55,28 +58,28 @@ def plot_experiements(ids_array:[], channels:'All', custom_path:str='default', s
     for channel in channel_names:
         exp = 0
         color = cycle(["black", "magenta", "green", "cyan", "orange"])
-        marker = cycle([".", "v", "o", "s", "x", "d"])
+        # marker = cycle([".", "v", "o", "s", "x", "d"])
         linestyle = cycle(["-", "--", ":"])
         for simulation in simulation_results:
             c = next(color)
-            m = next(marker)
-            l = next(linestyle)
+            # m = next(marker)
+            ls = next(linestyle)
             y = simulation['table'][channel]['Data']
             x = range(0, len(y))
             plt.subplot(rows, cols, j)
-            plt.plot(x, y, color=c, linewidth=.5, linestyle=l, label=simulation['id'])
+            plt.plot(x, y, color=c, linewidth=.5, linestyle=ls, label=simulation['id'])
             # plt.scatter(x, y, marker=m, color=c, s=.5)
             plt.title(channel.replace(",", ",\n").replace(":", ":\n"), fontsize=7)
             exp += 1
-        if j==1:
-             plt.figlegend( loc='upper center', ncol=2, fontsize=10)
+        if j == 1:
+            plt.figlegend( loc='upper center', ncol=2, fontsize=10)
 
         j += 1
-
 
     plt.savefig("All_Channels.png")
     plt.show()
     plt.close(fig)
+
 
 def plot_all(file_name):
     """_summary_
@@ -167,8 +170,6 @@ def plot_event_report(EventReport, xvalues="Year", yvalues="AgeYears", useAgeInt
         marker_arr (list, optional): _description_. Defaults to ["o", "v", "*"].
     """
     import matplotlib.pyplot as plot
-    import cycler
-    
 
     # Verify if EventReport is a valid csv file
     if not os.path.isfile(EventReport):
@@ -178,20 +179,18 @@ def plot_event_report(EventReport, xvalues="Year", yvalues="AgeYears", useAgeInt
     # Load the CSV data into a pandas dataframe
     data = pd.read_csv(EventReport)
 
-    data['AgeYears'] = data['Age'].apply(lambda x: int(x/365))
-    data['YearInt'] = data['Year'].apply(lambda x: int(x))
+    data['AgeYears'] = data['Age' ].apply(lambda x: int(x / 365))
+    data['YearInt' ] = data['Year'].apply(lambda x: int(x      ))
 
     # Get the list of unique event names from event_df
     event_names = data['Event_Name'].unique().tolist()
-    
+
     # Create a scatter plot where the series are the event_names
     # form dataframe
     marker = cycle(marker_arr)
     colors = cycle(colors_arr)
-    
+
     data = data[[xvalues, yvalues, 'Event_Name']]
-
-
 
     plot.rcParams["figure.figsize"] = [12, 10]
 
@@ -215,11 +214,11 @@ def plot_event_report(EventReport, xvalues="Year", yvalues="AgeYears", useAgeInt
     plot.close(fig)
 
 
-def plot_heatmap_relationships(filename="output\\RelationshipStart.csv", title="Relationships", output_dir="figs"):
+def plot_heatmap_relationships(filename="output/RelationshipStart.csv", title="Relationships", output_dir="figs"):
     """_summary_
 
     Args:
-        filename (str, optional): _description_. Defaults to "output\RelationshipStart.csv".
+        filename (str, optional): _description_. Defaults to "output/RelationshipStart.csv".
         title (str, optional): _description_. Defaults to "Relationships".
         output_dir (str, optional): _description_. Defaults to "figs".
 
@@ -238,13 +237,10 @@ def plot_heatmap_relationships(filename="output\\RelationshipStart.csv", title="
     dat['FEMALE_age_floor'] = dat['B_age'].floordiv(1)
     dat['Rel_type'] = dat['Rel_type (0 = TRANSITORY; 1 = INFORMAL; 2 = MARITAL; 3 = COMMERCIAL)']
 
-    dat_m = pd.melt(dat, id_vars=['Rel_type', 'MALE_age_floor', 'FEMALE_age_floor'], value_vars=['Count'],
-                    var_name='variable', value_name='Count')
     os.makedirs(fig_dir, exist_ok=True)
 
     for rel_type in rel_names:
         rel_dat = dat[dat['Rel_type'] == rel_names.index(rel_type)]
-        max_age = max(rel_dat['MALE_age_floor'].max(), rel_dat['FEMALE_age_floor'].max())
         print('male-', rel_dat['MALE_age_floor'].min())
         print('female-', rel_dat['FEMALE_age_floor'].min())
 
@@ -332,7 +328,8 @@ def chart_age_gender_compare(df, col_series=['Ratio Has Debuted', 'Ratio First C
     # data and arrays:
     subplot_filters = df['Test'].unique()
     genders = df['Gender'].unique()
-    if len(age_array) == 0: age_array = df['Age'].unique()
+    if len(age_array) == 0:
+        age_array = df['Age'].unique()
 
     # plots features
     plt.style.use('ggplot')
@@ -364,7 +361,7 @@ def chart_age_gender_compare(df, col_series=['Ratio Has Debuted', 'Ratio First C
 def chart_age_gender_splitted_subplots(df,
                                        col_series=['Ratio Has Debuted',
                                                    'Ratio First Coital Act'],
-                                       age_array=[[13,17], [18,20]],
+                                       age_array=[[13, 17], [18, 20]],
                                        addlines=False,
                                        title="",
                                        genders=['Female', 'Male'],
@@ -390,9 +387,9 @@ def chart_age_gender_splitted_subplots(df,
     """
 
     # data and arrays:
-    subplot_filters = df['Test'].unique()
     title = title.replace('.json', '')
-    if len(age_array) == 0: age_array = df['Age'].unique()
+    if len(age_array) == 0:
+        age_array = df['Age'].unique()
 
     # plots features
     plt.style.use('ggplot')
@@ -415,7 +412,8 @@ def chart_age_gender_splitted_subplots(df,
                 x = ss['Year']
                 axs[r, c].scatter(x, y, marker=next(marker), s=10, facecolors=next(filling), color=next(outlinecolor),
                                   label=f"{gender} - {serie}")
-                if addlines: axs[r, c].plot(x, y, linestyle="-", linewidth=.4)
+                if addlines:
+                    axs[r, c].plot(x, y, linestyle="-", linewidth=.4)
                 axs[r, c].legend(fontsize=8)
                 axs[r, c].set_ylim((0, 1.1))
                 axs[r, c].set_title(f"{age} include Left: {leftinclusive}, Right: {rightinclusive}", size='medium')
@@ -567,30 +565,28 @@ def get_best_distribution(data):
 
 
 if __name__ == "__main__":
-    import os
-
     channels_subset = ["Prevalence (Females, 15-49)",
-                        "Infected",
-                        "Prevalence (Females, 15-49)",
-                        "Prevalence (Males, 15-49)",
-                        "Prevalence among Sexually Active (Adults)",
-                        "Single Post-Debut Men",
-                        "Single Post-Debut Women",
-                        "Susceptible Population",
-                        "Waning Population",
-                        "Number of (untreated) Individuals with AIDS",
-                        "Number of Events"]
+                       "Infected",
+                       "Prevalence (Females, 15-49)",
+                       "Prevalence (Males, 15-49)",
+                       "Prevalence among Sexually Active (Adults)",
+                       "Single Post-Debut Men",
+                       "Single Post-Debut Women",
+                       "Susceptible Population",
+                       "Waning Population",
+                       "Number of (untreated) Individuals with AIDS",
+                       "Number of Events"]
     experiment_id = os.path.join("02_184217", "35b9d80a-8e61-ee11-92fc-f0921c167864")
-    
+
     path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     path = os.path.join(path, "inputs", experiment_id)
-    
+
     # folder ids (usualy the simulation folder ids)
     simulation_root_folders_array = os.listdir(path)
-   
+
     plot_experiements(simulation_root_folders_array, channels="All", custom_path=path) # plot all channels for several experiments
     plot_experiements(simulation_root_folders_array, channels=channels_subset, custom_path=path) # plot all channels for several experiments
-    
+
     for x in range(len(simulation_root_folders_array)):
         Ev_Recorder_path = os.path.join(path, simulation_root_folders_array[x], 'output', 'ReportEventRecorder.csv')
         plot_event_report(Ev_Recorder_path, 
@@ -598,4 +594,3 @@ if __name__ == "__main__":
                           yvalues="Age", 
                           useAgeInt=True,  
                           title=f"Event Report for {simulation_root_folders_array[x]}")
-

@@ -14,7 +14,7 @@
                                 "Min": 15.0
                             }
                         ],
-                        "End_Year": 2010.999,
+                        "End_Year": 2010.999999,
                         "Num_Targeted": [],
                         "Num_Targeted_Females": [
                             0,
@@ -45,7 +45,7 @@
                                 "Min": 15.0
                             }
                         ],
-                        "End_Year": 2011.999,
+                        "End_Year": 2011.999999,
                         "Num_Targeted": [],
                         "Num_Targeted_Females": [
                             0,
@@ -83,8 +83,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 17337.0,
-            "class": "CampaignEvent"
+            "Start_Year": 2010.0,
+            "class": "CampaignEventByYear"
         }
     ],
     "Use_Defaults": 1

@@ -16,10 +16,15 @@ podTemplate(
 			stage('Cleanup Workspace') {		    
 				cleanWs()
 				echo "Cleaned Up Workspace For Project"
+				echo "${params.BRANCH}"
 			}
 			stage('Prepare') {
+				sh 'python3 --version'
+				sh 'pip3 --version'
+
 				sh 'python3 -m pip install --upgrade pip'
-				sh "pip3 install wheel"
+				sh "pip3 install wheel "
+				sh "pip3 install build"
 				sh 'python3 -m pip install --upgrade setuptools'
 				sh 'pip3 freeze'
 			}
@@ -43,7 +48,7 @@ podTemplate(
 		stage('Build') {
 			sh 'pwd'
 			sh 'ls -a'
-			sh 'python3 setup.py bdist_wheel'
+			sh 'python3 -m build wheel'
 			 
 		}
 		stage('Install') {
@@ -52,9 +57,8 @@ podTemplate(
 			
 			echo "Installing emodpy-hiv from wheel file built from code."
 			def wheelFile = sh(returnStdout: true, script: "find ./dist -name '*.whl'").toString().trim()
-			//def wheelFile = sh(returnStdout: true, script: "python3.6 ./.github/scripts/get_wheel_filename.py --package-file setup.py").toString().trim()
 			echo "Package file: ${wheelFile}"
-			sh "pip3 install $wheelFile --index-url=https://packages.idmod.org/api/pypi/pypi-production/simple"
+			sh "pip3 install $wheelFile --extra-index-url=https://packages.idmod.org/api/pypi/pypi-production/simple"
 			sh "pip3 install dataclasses"
 			sh 'pip3 install keyrings.alt'
 			sh "pip3 freeze"
@@ -68,7 +72,7 @@ podTemplate(
 		try{
 			stage('Unit Test') {
 				echo "Running Unit test Tests"
-				dir('tests') {
+				dir('tests/unittests') {
 					sh "pip3 install unittest-xml-reporting"
 					sh 'python3 -m xmlrunner discover'
 					junit allowEmptyResults: true, testResults: '*.xml'

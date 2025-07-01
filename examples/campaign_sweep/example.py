@@ -10,10 +10,7 @@ from idmtools.builders import SimulationBuilder
 from idmtools.core.platform_factory import Platform
 from idmtools.entities.experiment import Experiment
 
-import emodpy_hiv.emod_task as emod_task
-from emodpy.utils import EradicationBambooBuilds
-from emodpy.bamboo import get_model_files
-import emod_api.config.default_from_schema_no_validation as dfs
+import emodpy.emod_task as emod_task
 
 import manifest
 
@@ -37,19 +34,20 @@ import manifest
 
 # When you're doing a sweep across campaign parameters, you want those parameters exposed
 # in the build_campaign function as done here
-def build_camp( start_day=365, initial_incidence=0.01 ):
+def build_camp(camp, start_day=365, initial_incidence=0.01):
     """
     Build a campaign input file for the DTK using emod_api.
     Right now this function creates the file and returns the filename. If calling code just needs an asset that's fine.
     """
-    import emod_api.campaign as camp
-    import emodpy_hiv.interventions.outbreak as ob 
+    from emodpy_hiv.campaign.individual_intervention import OutbreakIndividual
+    from emodpy_hiv.campaign.distributor import add_intervention_scheduled
+    from emodpy_hiv.campaign.common import TargetDemographicsConfig as TDC
 
-    print(f"Telling emod-api to use {manifest.schema_file} as schema.")
-    camp.schema_path = manifest.schema_file
-    
-    event = ob.new_intervention( timestep=start_day, camp=camp, coverage=initial_incidence )
-    camp.add( event, first=True )
+    ob = OutbreakIndividual(camp)
+    add_intervention_scheduled(camp,
+                               intervention_list=[ob],
+                               start_day=start_day,
+                               target_demographics_config=TDC(demographic_coverage=initial_incidence))
     return camp
 
 
@@ -89,19 +87,20 @@ def set_config_parameters(config):
     """
     This function is a callback that is passed to emod-api.config to set parameters The Right Way.
     """
-    config.parameters.Simulation_Type = "HIV_SIM" # this should be set in the package.
-    config.parameters.Simulation_Duration = 10*365.0 # maybe this should be a team-wide default?
+    config.parameters.Simulation_Type = "HIV_SIM"  # this should be set in the package.
+    config.parameters.Simulation_Duration = 10 * 365.0  # maybe this should be a team-wide default?
     config.parameters.Enable_Demographics_Reporting = 0  # just because I don't like our default for this
 
     # config hacks until schema fixes arrive
-    config.parameters.pop( "Serialized_Population_Filenames" )
-    config.parameters.pop( "Serialization_Time_Steps" )
+    config.parameters.pop("Serialized_Population_Filenames")
+    config.parameters.pop("Serialization_Time_Steps")
     config.parameters.Report_HIV_Event_Channels_List = []
-    config.parameters.Male_To_Female_Relative_Infectivity_Ages = [] # 15,25,35 ]
-    config.parameters.Male_To_Female_Relative_Infectivity_Multipliers = [] # 5, 1, 0.5 ]
+    config.parameters.Male_To_Female_Relative_Infectivity_Ages = []  # 15,25,35 ]
+    config.parameters.Male_To_Female_Relative_Infectivity_Multipliers = []  # 5, 1, 0.5 ]
     # This one is crazy! :(
     config.parameters.Maternal_Infection_Transmission_Probability = 0
-    config.parameters['logLevel_default'] = "WARNING" # 'LogLevel_Default' is not in scheme, so need to use the old style dict keys_
+    config.parameters[
+        'logLevel_default'] = "WARNING"  # 'LogLevel_Default' is not in scheme, so need to use the old style dict keys_
 
     config.parameters.Incubation_Period_Distribution = 'EXPONENTIAL_DISTRIBUTION'
     config.parameters.Incubation_Period_Exponential = 30
@@ -138,17 +137,13 @@ def sim():
 
     # create EMODTask 
     print("Creating EMODTask (from files)...")
-    task = emod_task.EMODHIVTask.from_default(
-        config_path="config.json",
-        eradication_path=manifest.eradication_path,
-        campaign_builder=build_camp,
-        schema_path=manifest.schema_file,
-        ep4_path=None,
-        param_custom_cb=set_config_parameters,
-        demog_builder=build_demographics
-    )
+    task = emod_task.EMODTask.from_defaults(eradication_path=manifest.eradication_path,
+                                               campaign_builder=build_camp,
+                                               schema_path=manifest.schema_file,
+                                               config_builder=set_config_parameters,
+                                               demographics_builder=build_demographics)
     task.common_assets.add_directory(assets_directory=manifest.assets_input_dir)
-    task.set_sif(str(manifest.sif_path))
+    task.set_sif(str(manifest.sif_path), platform=platform)
 
     # Create simulation sweep with builder
     # sweeping over start day AND killing effectiveness - this will be a cross product
@@ -163,11 +158,10 @@ def sim():
     # this is how you sweep over a multiple-parameters space:
     # itertools product creates a an array with all the combinations of parameters (cross-product)
     # so, 2x3x2 = 12 simulations
-    #import itertools
+    # import itertools
     # .product([start_days],[spray_coverages], [killing_effectivenesses])
-    #builder.add_sweep_definition(update_campaign_multiple_parameters,
-                                 #list(itertools.product([3, 5], [0.95, 0.87, 0.58])))
-
+    # builder.add_sweep_definition(update_campaign_multiple_parameters,
+    # list(itertools.product([3, 5], [0.95, 0.87, 0.58])))
 
     # create experiment from builder
     experiment = Experiment.from_builder(builder, task, name="Campaign Sweep, Outbreak")
@@ -191,22 +185,15 @@ def sim():
 
 def run():
     import emod_hiv.bootstrap as dtk
-    dtk.setup( pathlib.Path( manifest.eradication_path ).parent )
+    dtk.setup(pathlib.Path(manifest.eradication_path).parent)
     sim()
+
 
 if __name__ == "__main__":
     import argparse
+
     parser = argparse.ArgumentParser()
     parser.add_argument('-v', '--use_vpn', type=str, default='No', choices=['No', "Yes"],
                         help='get model files from Bamboo(needs VPN) or Pip installation(No VPN)')
     args = parser.parse_args()
-    if args.use_vpn.lower() == "yes":
-        from enum import Enum, Flag, auto
-        class MyEradicationBambooBuilds(Enum): # EradicationBambooBuilds
-            HIV_LINUX = "DTKHIVONGOING-SCONSRELLNXSFT"
-
-        plan = MyEradicationBambooBuilds.HIV_LINUX
-        get_model_files( plan, manifest, False )
-        sim()
-    else:
-        run()
+    run()

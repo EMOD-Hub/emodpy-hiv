@@ -6,14 +6,14 @@
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
                     "Actual_IndividualIntervention_Config": {
-                        "Cost_To_Consumer": 1,
+                        "Cost_To_Consumer": 0,
                         "Default_Value": 0,
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Female_Multiplier": 1,
                         "Interpolation_Order": 1,
                         "Intervention_Name": "HIVPiecewiseByYearAndSexDiagnostic",
-                        "Negative_Diagnosis_Event": "None",
+                        "Negative_Diagnosis_Event": "",
                         "New_Property_Value": "",
                         "Positive_Diagnosis_Event": "Commercial_DelayFromDebutToUptake",
                         "Time_Value_Map": {
@@ -38,11 +38,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Female",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "STIDebut"
                     ],
@@ -55,6 +55,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -69,8 +70,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -110,11 +111,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Female",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Commercial_DelayFromDebutToUptake"
                     ],
@@ -127,6 +128,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -141,8 +143,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -182,11 +184,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Female",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Commercial_Uptake"
                     ],
@@ -199,6 +201,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -213,8 +216,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -222,14 +225,14 @@
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
                     "Actual_IndividualIntervention_Config": {
-                        "Cost_To_Consumer": 1,
+                        "Cost_To_Consumer": 0,
                         "Default_Value": 0,
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Female_Multiplier": 1,
                         "Interpolation_Order": 1,
                         "Intervention_Name": "HIVPiecewiseByYearAndSexDiagnostic",
-                        "Negative_Diagnosis_Event": "None",
+                        "Negative_Diagnosis_Event": "",
                         "New_Property_Value": "",
                         "Positive_Diagnosis_Event": "Commercial_DelayFromDebutToUptake",
                         "Time_Value_Map": {
@@ -254,11 +257,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "STIDebut"
                     ],
@@ -271,6 +274,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -285,8 +289,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -326,11 +330,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Commercial_DelayFromDebutToUptake"
                     ],
@@ -343,6 +347,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -357,8 +362,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -398,11 +403,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Commercial_Uptake"
                     ],
@@ -415,6 +420,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -429,8 +435,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -442,7 +448,7 @@
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Intervention_Name": "PropertyValueChanger",
-                        "Maximum_Duration": 1,
+                        "Maximum_Duration": 3.40282e+38,
                         "New_Property_Value": "",
                         "Revert": 0,
                         "Target_Property_Key": "Risk",
@@ -461,9 +467,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Commercial_Uptake"
                     ],
@@ -476,6 +484,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -490,8 +499,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -503,7 +512,7 @@
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Intervention_Name": "PropertyValueChanger",
-                        "Maximum_Duration": 1,
+                        "Maximum_Duration": 3.40282e+38,
                         "New_Property_Value": "",
                         "Revert": 0,
                         "Target_Property_Key": "Risk",
@@ -522,9 +531,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Commercial_Dropout"
                     ],
@@ -537,6 +548,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -551,8 +563,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -560,14 +572,14 @@
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
                     "Actual_IndividualIntervention_Config": {
-                        "Cost_To_Consumer": 1,
+                        "Cost_To_Consumer": 0,
                         "Default_Value": 0,
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Female_Multiplier": 1,
                         "Interpolation_Order": 1,
                         "Intervention_Name": "HIVPiecewiseByYearAndSexDiagnostic",
-                        "Negative_Diagnosis_Event": "None",
+                        "Negative_Diagnosis_Event": "",
                         "New_Property_Value": "",
                         "Positive_Diagnosis_Event": "Commercial_DelayFromDebutToUptake",
                         "Time_Value_Map": {
@@ -592,11 +604,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Female",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "STIDebut"
                     ],
@@ -609,6 +621,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -623,8 +636,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -664,11 +677,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Female",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Commercial_DelayFromDebutToUptake"
                     ],
@@ -681,6 +694,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -695,8 +709,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -736,11 +750,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Female",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Commercial_Uptake"
                     ],
@@ -753,6 +767,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -767,8 +782,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -776,14 +791,14 @@
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
                     "Actual_IndividualIntervention_Config": {
-                        "Cost_To_Consumer": 1,
+                        "Cost_To_Consumer": 0,
                         "Default_Value": 0,
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Female_Multiplier": 1,
                         "Interpolation_Order": 1,
                         "Intervention_Name": "HIVPiecewiseByYearAndSexDiagnostic",
-                        "Negative_Diagnosis_Event": "None",
+                        "Negative_Diagnosis_Event": "",
                         "New_Property_Value": "",
                         "Positive_Diagnosis_Event": "Commercial_DelayFromDebutToUptake",
                         "Time_Value_Map": {
@@ -808,11 +823,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "STIDebut"
                     ],
@@ -825,6 +840,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -839,8 +855,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -880,11 +896,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Commercial_DelayFromDebutToUptake"
                     ],
@@ -897,6 +913,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -911,8 +928,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -952,11 +969,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Commercial_Uptake"
                     ],
@@ -969,6 +986,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -983,8 +1001,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -996,7 +1014,7 @@
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Intervention_Name": "PropertyValueChanger",
-                        "Maximum_Duration": 1,
+                        "Maximum_Duration": 3.40282e+38,
                         "New_Property_Value": "",
                         "Revert": 0,
                         "Target_Property_Key": "Risk",
@@ -1015,9 +1033,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Commercial_Uptake"
                     ],
@@ -1030,6 +1050,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -1044,8 +1065,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -1057,7 +1078,7 @@
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Intervention_Name": "PropertyValueChanger",
-                        "Maximum_Duration": 1,
+                        "Maximum_Duration": 3.40282e+38,
                         "New_Property_Value": "",
                         "Revert": 0,
                         "Target_Property_Key": "Risk",
@@ -1076,9 +1097,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Commercial_Dropout"
                     ],
@@ -1091,6 +1114,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -1105,8 +1129,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         }
     ],
     "Use_Defaults": 1

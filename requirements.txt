@@ -1,4 +1,0 @@
--i https://packages.idmod.org/api/pypi/pypi-production/simple
-emodpy~=1.15
-pandas
-emod-hiv==1.0.2

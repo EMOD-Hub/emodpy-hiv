@@ -1,6 +1,9 @@
 # Makefile for Sphinx docs
 #
 
+# sphinx-build -b html -d _build/doctrees -t emodpyhiv -W . _build/html
+
+
 # You can set these variables from the command line.
 SPHINXOPTS    = -t emodpyhiv -W
 SPHINXBUILD   = sphinx-build

@@ -1,16 +1,17 @@
 import coverage
 import unittest
-loader = unittest.TestLoader()
-cov = coverage.Coverage(source=[
-    "emodpy_hiv.interventions"
-    , "emodpy_hiv.demographics"])
-cov.start()
 
-# First, load and run the unittest tests
 from test_demographics import HIVDemographicsTest
 from test_import import HIVTestImports
 from test_intervention import HIVInterventionTest
 
+loader = unittest.TestLoader()
+cov = coverage.Coverage(source=[
+    "emodpy_hiv.interventions",
+    "emodpy_hiv.demographics"])
+cov.start()
+
+# First, load and run the unittest tests
 test_classes_to_run = [HIVDemographicsTest,
                        HIVTestImports,
                        HIVInterventionTest,

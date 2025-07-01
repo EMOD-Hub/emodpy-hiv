@@ -1,0 +1,104 @@
+{
+    "Events": [
+        {
+            "Event_Coordinator_Config": {
+                "Distributions": [
+                    {
+                        "Age_Ranges_Years": [
+                            {
+                                "Max": 14.999,
+                                "Min": 1.0
+                            },
+                            {
+                                "Max": 49.999,
+                                "Min": 15.0
+                            }
+                        ],
+                        "End_Year": 2010.999999,
+                        "Num_Targeted": [],
+                        "Num_Targeted_Females": [
+                            200,
+                            1300
+                        ],
+                        "Num_Targeted_Males": [
+                            0,
+                            0
+                        ],
+                        "Property_Restrictions_Within_Node": [
+                            {
+                                "Risk": "High"
+                            }
+                        ],
+                        "Start_Year": 2010.0,
+                        "Target_Disease_State": [
+                            [
+                                "HIV_Positive",
+                                "Not_Have_Intervention"
+                            ]
+                        ],
+                        "Target_Disease_State_Has_Intervention_Name": "MaleCircumcision"
+                    },
+                    {
+                        "Age_Ranges_Years": [
+                            {
+                                "Max": 14.999,
+                                "Min": 1.0
+                            },
+                            {
+                                "Max": 49.999,
+                                "Min": 15.0
+                            }
+                        ],
+                        "End_Year": 2011.999999,
+                        "Num_Targeted": [],
+                        "Num_Targeted_Females": [
+                            290,
+                            1490
+                        ],
+                        "Num_Targeted_Males": [
+                            0,
+                            0
+                        ],
+                        "Property_Restrictions_Within_Node": [
+                            {
+                                "Risk": "High"
+                            }
+                        ],
+                        "Start_Year": 2011.0,
+                        "Target_Disease_State": [
+                            [
+                                "HIV_Positive",
+                                "Not_Have_Intervention"
+                            ]
+                        ],
+                        "Target_Disease_State_Has_Intervention_Name": "MaleCircumcision"
+                    }
+                ],
+                "Intervention_Config": {
+                    "Apply_If_Higher_Reduced_Acquire": 0,
+                    "Circumcision_Reduced_Acquire": 0.6,
+                    "Cost_To_Consumer": 0,
+                    "Disqualifying_Properties": [],
+                    "Distributed_Event_Trigger": "",
+                    "Dont_Allow_Duplicates": 0,
+                    "Intervention_Name": "MaleCircumcision",
+                    "New_Property_Value": "",
+                    "class": "MaleCircumcision"
+                },
+                "class": "NChooserEventCoordinatorHIV"
+            },
+            "Event_Name": "TestEvent",
+            "Nodeset_Config": {
+                "Node_List": [
+                    1,
+                    2,
+                    3
+                ],
+                "class": "NodeSetNodeList"
+            },
+            "Start_Year": 2010.0,
+            "class": "CampaignEventByYear"
+        }
+    ],
+    "Use_Defaults": 1
+}

@@ -39,9 +39,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "ARTStaging1"
                     ],
@@ -54,6 +56,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -61,8 +64,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -102,9 +105,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "ARTStaging2"
                     ],
@@ -117,6 +122,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -124,8 +130,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -159,9 +165,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "ARTStaging3"
                     ],
@@ -174,6 +182,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -181,8 +190,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -192,7 +201,7 @@
                     "Actual_IndividualIntervention_Config": {
                         "Adult_By_Pregnant": {
                             "Times": [
-                                2002.0,
+                                2002,
                                 2013.95
                             ],
                             "Values": [
@@ -202,7 +211,7 @@
                         },
                         "Adult_By_TB": {
                             "Times": [
-                                2002.0
+                                2002
                             ],
                             "Values": [
                                 1
@@ -210,9 +219,9 @@
                         },
                         "Adult_By_WHO_Stage": {
                             "Times": [
-                                2002.0,
+                                2002,
                                 2007.45,
-                                2016.0
+                                2016
                             ],
                             "Values": [
                                 4,
@@ -223,7 +232,7 @@
                         "Adult_Treatment_Age": 5,
                         "Child_By_TB": {
                             "Times": [
-                                2002.0,
+                                2002,
                                 2010.5
                             ],
                             "Values": [
@@ -233,9 +242,9 @@
                         },
                         "Child_By_WHO_Stage": {
                             "Times": [
-                                2002.0,
+                                2002,
                                 2007.45,
-                                2016.0
+                                2016
                             ],
                             "Values": [
                                 4,
@@ -245,7 +254,7 @@
                         },
                         "Child_Treat_Under_Age_In_Years_Threshold": {
                             "Times": [
-                                2002.0,
+                                2002,
                                 2013.95
                             ],
                             "Values": [
@@ -282,9 +291,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "ARTStaging4"
                     ],
@@ -297,6 +308,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -304,8 +316,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -346,9 +358,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "ARTStaging5"
                     ],
@@ -361,6 +375,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -368,8 +383,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -388,7 +403,7 @@
                         "Dont_Allow_Duplicates": 0,
                         "If_Active_TB": {
                             "Times": [
-                                2002.0,
+                                2002,
                                 2010.5
                             ],
                             "Values": [
@@ -398,7 +413,7 @@
                         },
                         "If_Pregnant": {
                             "Times": [
-                                2002.0,
+                                2002,
                                 2010.5,
                                 2013.95
                             ],
@@ -416,7 +431,7 @@
                         "Positive_Diagnosis_Event": "LinkingToART0",
                         "Threshold": {
                             "Times": [
-                                2002.0,
+                                2002,
                                 2010.5,
                                 2013.95
                             ],
@@ -440,9 +455,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "ARTStaging6"
                     ],
@@ -455,6 +472,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -462,8 +480,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         }
     ],
     "Use_Defaults": 1

@@ -40,35 +40,40 @@ from idmtools.core.platform_factory import Platform
 from idmtools.entities.experiment import Experiment
 from idmtools.builders import SimulationBuilder
 
-import emodpy_hiv.interventions.prep as prep
-import emodpy_hiv.interventions.cascade_helpers as helpers
+from emodpy_hiv.campaign.individual_intervention import ControlledVaccine
+from emodpy_hiv.campaign.distributor import add_intervention_scheduled
+from emodpy_hiv.campaign.common import (CommonInterventionParameters as CIP, PropertyRestrictions,
+                                        TargetDemographicsConfig as TDC)
+from emodpy_hiv.campaign.waning_config import MapPiecewise
+import emodpy_hiv.countries.zambia.zambia as cm
 
-import emodpy_hiv.emod_task as emod_task
-import emodpy_hiv.country_model as cm
+import emodpy.emod_task as emod_task
+
 import manifest
 
 # Will make the warnings off by default in 2.0
 import emod_api.schema_to_class as s2c
+
 s2c.show_warnings = False
 
 
-def build_config( config ):
+def build_config(config):
     """
     In our example function, we are going to double the initial population of the 
     baseline and reduce the duration of the simulation by 10 years.  The increased 
     population will make the simulations take longer, but the reduction in length 
     should reduce that increase.  (Simulations might take 5-7 minutes.)
     """
-    zambia = cm.Zambia()
-    config = zambia.build_config( config )
+    zambia = cm.Zambia
+    config = zambia.build_config(config)
 
     config.parameters.x_Base_Population = config.parameters.x_Base_Population * 2.0
     config.parameters.Simulation_Duration = config.parameters.Simulation_Duration - (10 * 365)
-    
+
     return config
 
 
-def build_campaign( ):
+def build_campaign(campaign):
     """
     In this example, we are going to add the distribution of a Long Lasting PrEP-like 
     intervention.  We will do a mass distribution every year for 15 years and increase 
@@ -77,33 +82,29 @@ def build_campaign( ):
     One goal of this example is to demonstrate how we can use a `for-loop` in Python 
     instead of copying and pasting a large amount of JSON.
     """
-    zambia = cm.Zambia()
-    campaign = zambia.build_campaign( manifest.schema_file )
+    zambia = cm.Zambia
+    zambia.build_campaign(campaign)
+    laprep = ControlledVaccine(campaign,
+                                waning_config=MapPiecewise(days=[0, 180, 210, 240, 270, 300, 330],
+                                                           effects=[0.8, 0.8, 0.7, 0.5, 0.3, 0.1, 0.0]),
+                                common_intervention_parameters=CIP(intervention_name="LA-PrEP"))
 
-    laprep = prep.new_intervention( campaign,
-                                    efficacy_times=   [  0, 180, 210, 240, 270, 300, 330 ],
-                                    efficacy_values=  [0.8, 0.8, 0.7, 0.5, 0.3, 0.1, 0.0 ],
-                                    intervention_name="LA-PrEP",
-                                    disqualifying_properties=None,
-                                    new_property_value=None )
-    
     # Target only people who have accessibility to healthcare AND who's Risk is either HIGH or MEDIUM
-    ip_restrictions = [
-        { "Accessibility": "Yes", "Risk": "HIGH"  },
-        { "Accessibility": "Yes", "Risk": "MEDIUM" }
-    ]
+    ip_restrictions = PropertyRestrictions(
+        individual_property_restrictions=[["Accessibility: Yes", "Risk: HIGH"],
+                                          ["Accessibility: Yes", "Risk: MEDIUM"]])
 
-    laprep_coverages = [ 0.1, 0.3, 0.5, 0.5, 0.5, 0.7, 0.7, 0.7, 0.8, 0.8, 0.8, 0.8, 0.9, 0.9, 0.9  ]
+    laprep_coverages = [0.1, 0.3, 0.5, 0.5, 0.5, 0.7, 0.7, 0.7, 0.8, 0.8, 0.8, 0.8, 0.9, 0.9, 0.9]
     start_year = 2025
     for coverage in laprep_coverages:
         start_day = (start_year - 1960.5) * 365
-        helpers.add_scheduled_event( campaign,
-                                     event_name=("Tutorial 3 LA-PrEP with coverage="+str(coverage)),
-                                     start_day=start_day,
-                                     coverage=coverage,
-                                     property_restrictions=ip_restrictions,
-                                     out_iv=[laprep],
-                                     node_ids=None )
+        add_intervention_scheduled(campaign,
+                                   event_name=("Tutorial 3 LA-PrEP with coverage=" + str(coverage)),
+                                   start_day=start_day,
+                                   target_demographics_config=TDC(demographic_coverage=coverage),
+                                   property_restrictions=ip_restrictions,
+                                   intervention_list=[laprep],
+                                   node_ids=None)
         start_year = start_year + 1
 
     return campaign
@@ -114,44 +115,45 @@ def build_demographics():
     In the demographics example, we are simply going to increase the accessibility 
     to health care to 90%
     """
-    zambia = cm.Zambia()
+    zambia = cm.Zambia
     demographics = zambia.build_demographics()
 
-    demographics.AddIndividualPropertyAndHINT( Property="Accessibility",
-                                               Values=[ "Yes", "No" ],
-                                               InitialDistribution=[ 0.9, 0.1 ],
-                                               overwrite_existing=True )
+    demographics.AddIndividualPropertyAndHINT(Property="Accessibility",
+                                              Values=["Yes", "No"],
+                                              InitialDistribution=[0.9, 0.1],
+                                              overwrite_existing=True)
     return demographics
 
 
-def add_reports( task, mainifest ):
+def add_reports(reporters):
     """
     To organize our logic, we will create a method that configures the reports we want EMOD to produce.
-    EMOD is already generating the default InsetChart.json (by setting 
+    EMOD is already generating the default InsetChart.json (by setting
     `config.parameters.Enable_Default_Reporting = 1`). We will add two more reports so you can see how
     it is done and get everyone's favorite `ReportHIVByAgeAndGender`.
     """
-    import emodpy_hiv.reporters.builtin as rp
+    from emodpy_hiv.reporters.reporters import ReportSimulationStats, ReportHIVByAgeAndGender, ReportFilter
 
-    rp.add_report_simulation_stats( task, manifest )
-    rp.add_report_hiv_by_age_and_gender(task,
-                                        start_year=1985, #avoid outbreak so newly infected plot isn't overwhelmed
-                                        end_year=2070,
-                                        collect_gender_data=True,
-                                        collect_age_bins_data=[15, 20, 25, 30, 35, 40, 45, 50],
-                                        collect_circumcision_data=True,
-                                        collect_hiv_stage_data=False,
-                                        collect_ip_data=[],
-                                        collect_intervention_data=[],
-                                        add_transmitters=False,
-                                        stratify_infected_by_cd4=False,
-                                        event_counter_list=[],
-                                        add_relationships=False,
-                                        add_concordant_relationships=False)
-    return
+    reporters.add(ReportSimulationStats(reporters_object=reporters))
+    reporters.add(ReportHIVByAgeAndGender(reporters_object=reporters,
+                                          report_filter=ReportFilter(start_year=1985,
+                                                                     end_year=2070),
+                                          reporting_period=365/6,
+                                          collect_gender_data=True,
+                                          collect_age_bins_data=[15, 20, 25, 30, 35, 40, 45, 50],
+                                          collect_circumcision_data=True,
+                                          collect_hiv_stage_data=False,
+                                          collect_ip_data=[],
+                                          collect_intervention_data=[],
+                                          add_transmitters=False,
+                                          stratify_infected_by_cd4=False,
+                                          event_counter_list=[],
+                                          add_relationships=False,
+                                          add_concordant_relationships=False))
+    return reporters
 
 
-def process_results( experiment, platform, output_path ):
+def process_results(experiment, platform, output_path):
     """
     We add another function to call that will use the `idmtools` concept of an "analyzer".
     Analyzers are intended to be Python logic that you use to process the output of your
@@ -167,68 +169,72 @@ def process_results( experiment, platform, output_path ):
     from idmtools.analysis.download_analyzer import DownloadAnalyzer
 
     # Clean up 'outputs' dir
-    if os.path.exists( output_path ):
-        shutil.rmtree( output_path )
+    if os.path.exists(output_path):
+        shutil.rmtree(output_path)
 
     # files to be downloaded from each sim
     filenames = [
         'output/InsetChart.json',
         'output/ReportHIVByAgeAndGender.csv'
     ]
-    analyzers = [ DownloadAnalyzer( filenames=filenames, output_path=output_path ) ]
+    analyzers = [DownloadAnalyzer(filenames=filenames, output_path=output_path)]
 
-    manager = AnalyzeManager( platform=platform, analyzers=analyzers )
-    manager.add_item( experiment )
+    manager = AnalyzeManager(platform=platform, analyzers=analyzers)
+    manager.add_item(experiment)
     manager.analyze()
     return
 
 
-def plot_results( output_path ):
+def plot_results(output_path):
     """
     The following code uses some tutorial-helper functions to plot the results
     of these simulations.  The images should be put into the 'output_path'.
     """
     import plot_report_hiv_by_age_and_gender as my_plt
 
-    report_filenames = my_plt.get_report_filenames( output_path,
-                                                    "ReportHIVByAgeAndGender.csv" )
-    
-    df = my_plt.create_dataframe_from_csv_reports( report_filenames )
+    report_filenames = my_plt.get_report_filenames(output_path,
+                                                   "ReportHIVByAgeAndGender.csv")
+
+    df = my_plt.create_dataframe_from_csv_reports(report_filenames)
     num_runs = len(report_filenames)
 
-    my_plt.plot_age_based_data( output_path, df, num_runs,  "Population (15-49) Over Time",                                  " Population" )
-    my_plt.plot_age_based_data( output_path, df, num_runs,  "Number of People (15-49) on ART Over Time",                     " On_ART" )
-    my_plt.plot_age_based_data( output_path, df, num_runs,  "Number of Newly Infected People (15-49) (Incidence) Over Time", " Newly Infected" )
-    my_plt.plot_age_based_data( output_path, df, num_runs,  "Number of Infected People (15-49) (Prevalence) Over Time",      " Infected" )
+    my_plt.plot_age_based_data(output_path, df, num_runs, "Population (15-49) Over Time", " Population")
+    my_plt.plot_age_based_data(output_path, df, num_runs, "Number of People (15-49) on ART Over Time", " On_ART")
+    my_plt.plot_age_based_data(output_path, df, num_runs,
+                               "Number of Newly Infected People (15-49) (Incidence) Over Time", " Newly Infected")
+    my_plt.plot_age_based_data(output_path, df, num_runs, "Number of Infected People (15-49) (Prevalence) Over Time",
+                               " Infected")
 
     return
 
 
-def sweep_run_number( simulation, value ):
+def sweep_run_number(simulation, value):
     """
     This is a function used by the SimulationBuilder to sweep the parameter `Run_Number`.
     `Run_Number` is the random number seed to help us get different statistical 
     realizations of our scenario.
     """
     simulation.task.config.parameters.Run_Number = value
-    return { "Run_Number": value }
+    return {"Run_Number": value}
 
 
 def run_experiment():
     """
     The following code is the code we used in Tutorial #2.
-    Please note how the param_custom_cb, campaign_builder, and demog_builder arguments
-    in the EMODHIVTask are now using the functions we defined above.
+    Please note how the config_builder, campaign_builder, and demographics_builder arguments
+    in the EMODTask are now using the functions we defined above.
     """
 
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     # UPDATE - Select the correct Platform below
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    platform = Platform( "Calculon",
-                         node_group="idm_abcd",
-                         priority="Normal" )
+    platform = Platform('Container', job_directory="tutorial_output")
 
-    #platform = Platform( "SLURM_LOCAL",
+    # platform = Platform("Calculon",
+    #                     node_group="idm_abcd",
+    #                     priority="Normal")
+
+    # platform = Platform( "SLURM_LOCAL",
     #                     job_directory="experiments",
     #                     time="02:00:00",
     #                     partition="cpu_short",
@@ -237,41 +243,39 @@ def run_experiment():
     #                     max_running_jobs=1000000,
     #                     array_batch_size=1000000 )
 
-    task = emod_task.EMODHIVTask.from_default(
-        eradication_path = manifest.eradication_path,
-        schema_path      = manifest.schema_file,
-        param_custom_cb  = build_config,       # !!! from above !!!
-        campaign_builder = build_campaign,     # !!! from above !!!
-        demog_builder    = build_demographics, # !!! from above !!!
-        ep4_path         = None
+    task = emod_task.EMODTask.from_defaults(
+        eradication_path=manifest.eradication_path,
+        schema_path=manifest.schema_file,
+        config_builder=build_config,  # !!! from above !!!
+        campaign_builder=build_campaign,  # !!! from above !!!
+        demographics_builder=build_demographics,  # !!! from above !!!
+        report_builder=add_reports  # !!! from above !!!
     )
-    add_reports( task, manifest )
-    task.config.parameters.Report_HIV_Period = 365/6
 
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     # UPDATE- Select the following line given your platform
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    #task.set_sif( path_to_sif=manifest.sif_path, platform=platform ) # SLURM
-    task.set_sif( path_to_sif=manifest.sif_path ) # COMPS
+    # task.set_sif( path_to_sif=manifest.sif_path, platform=platform ) # SLURM
+    # task.set_sif(path_to_sif=manifest.sif_path, platform=platform)  # COMPS
 
     builder = SimulationBuilder()
-    builder.add_sweep_definition( sweep_run_number, [1,2,3] )
+    builder.add_sweep_definition(sweep_run_number, [1, 2, 3])
 
-    experiment = Experiment.from_builder( builder, task, name="Tutorial_3" )
+    experiment = Experiment.from_builder(builder, task, name="Tutorial_3")
 
-    experiment.run( wait_until_done=True, platform=platform )
+    experiment.run(wait_until_done=True, platform=platform)
 
     # Check result
     if experiment.succeeded:
         print(f"Experiment {experiment.uid} succeeded.")
 
         output_path = "tutorial_3_results"
-        process_results( experiment, platform, output_path )
+        process_results(experiment, platform, output_path)
 
         print(f"Downloaded resuts for experiment {experiment.uid}.")
 
-        plot_results( output_path )
-        
+        plot_results(output_path)
+
         print(f"\nLook in the '{output_path}' directory for the plots of the data.")
     else:
         print(f"Experiment {experiment.uid} failed.\n")
@@ -282,6 +286,7 @@ def run_experiment():
 
 if __name__ == "__main__":
     import emod_hiv.bootstrap as dtk
+
     dtk.setup(local_dir=manifest.executables_dir)
 
     run_experiment()

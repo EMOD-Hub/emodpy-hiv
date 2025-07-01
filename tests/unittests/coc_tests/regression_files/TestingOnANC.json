@@ -19,7 +19,7 @@
                         "Dont_Allow_Duplicates": 0,
                         "Female_Multiplier": 1,
                         "Intervention_Name": "HIVSigmoidByYearAndSexDiagnostic",
-                        "Negative_Diagnosis_Event": "None",
+                        "Negative_Diagnosis_Event": "",
                         "New_Property_Value": "CascadeState:TestingOnANC",
                         "Positive_Diagnosis_Event": "Needs_PMTCT_Diagnostic_Test",
                         "Ramp_Max": 0.975,
@@ -39,14 +39,16 @@
                     "Intervention_Name": "NodeLevelHealthTriggeredIV",
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
-                    "Property_Restrictions": [
-                        "Accessibility:Yes"
+                    "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [
+                        {
+                            "Accessibility": "Yes"
+                        }
                     ],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Female",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "TwelveWeeksPregnant"
                     ],
@@ -59,6 +61,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -66,8 +69,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -91,7 +94,7 @@
                         "Dont_Allow_Duplicates": 0,
                         "Enable_Is_Symptomatic": 0,
                         "Intervention_Name": "HIVRapidHIVDiagnostic",
-                        "Negative_Diagnosis_Event": "None",
+                        "Negative_Diagnosis_Event": "",
                         "New_Property_Value": "CascadeState:TestingOnANC",
                         "Positive_Diagnosis_Event": "HIV_Positive_at_ANC",
                         "Probability_Received_Result": 1,
@@ -110,9 +113,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Needs_PMTCT_Diagnostic_Test"
                     ],
@@ -125,6 +130,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -132,8 +138,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -176,9 +182,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "HIV_Positive_at_ANC"
                     ],
@@ -191,6 +199,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -198,8 +207,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -241,9 +250,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "HIV_Positive_at_ANC"
                     ],
@@ -256,6 +267,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -263,8 +275,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -275,7 +287,7 @@
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Efficacy": 0.66,
-                        "Intervention_Name": "PMTCT",
+                        "Intervention_Name": "PMTCT_sdNVP",
                         "New_Property_Value": "",
                         "class": "PMTCT"
                     },
@@ -291,9 +303,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Needs_sdNVP_PMTCT"
                     ],
@@ -306,6 +320,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -313,8 +328,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -362,9 +377,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Needs_Combination_PMTCT"
                     ],
@@ -377,6 +394,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -384,8 +402,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -396,7 +414,7 @@
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Efficacy": 0.9,
-                        "Intervention_Name": "PMTCT",
+                        "Intervention_Name": "PMTCT_Option_A",
                         "New_Property_Value": "",
                         "class": "PMTCT"
                     },
@@ -412,9 +430,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Needs_Option_A"
                     ],
@@ -427,6 +447,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -434,8 +455,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -446,7 +467,7 @@
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Efficacy": 0.96667,
-                        "Intervention_Name": "PMTCT",
+                        "Intervention_Name": "PMTCT_Option_B",
                         "New_Property_Value": "",
                         "class": "PMTCT"
                     },
@@ -462,9 +483,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Needs_Option_B"
                     ],
@@ -477,6 +500,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -484,8 +508,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         }
     ],
     "Use_Defaults": 1

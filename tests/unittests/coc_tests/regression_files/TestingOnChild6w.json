@@ -21,16 +21,16 @@
                         "Female_Multiplier": 1,
                         "Interpolation_Order": 1,
                         "Intervention_Name": "HIVPiecewiseByYearAndSexDiagnostic",
-                        "Negative_Diagnosis_Event": "None",
+                        "Negative_Diagnosis_Event": "",
                         "New_Property_Value": "CascadeState:TestingOnChild6w",
                         "Positive_Diagnosis_Event": "ARTStaging0",
                         "Time_Value_Map": {
                             "Times": [
-                                2004.0,
-                                2005.0,
-                                2006.0,
-                                2008.0,
-                                2009.0
+                                2004,
+                                2005,
+                                2006,
+                                2008,
+                                2009
                             ],
                             "Values": [
                                 0,
@@ -53,12 +53,16 @@
                     "Intervention_Name": "NodeLevelHealthTriggeredIV",
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
-                    "Property_Restrictions": [
-                        "Accessibility:Yes"
+                    "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [
+                        {
+                            "Accessibility": "Yes"
+                        }
                     ],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "SixWeeksOld"
                     ],
@@ -71,6 +75,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -78,8 +83,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 15877.0,
-            "class": "CampaignEvent"
+            "Start_Year": 2004,
+            "class": "CampaignEventByYear"
         }
     ],
     "Use_Defaults": 1

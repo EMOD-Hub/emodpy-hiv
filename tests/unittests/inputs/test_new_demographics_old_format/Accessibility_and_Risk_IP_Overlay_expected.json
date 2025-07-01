@@ -1,0 +1,669 @@
+{
+    "Defaults": {
+        "IndividualProperties": [
+            {
+                "Initial_Distribution": [
+                    0.66696714,
+                    0.33303286,
+                    0
+                ],
+                "Property": "Risk",
+                "Values": [
+                    "LOW",
+                    "MEDIUM",
+                    "HIGH"
+                ]
+            }
+        ],
+        "NodeID": 0
+    },
+    "Metadata": {
+        "Author": "danbr",
+        "DateCreated": "05/23/2025",
+        "IdReference": "EMOD-HIV world",
+        "NodeCount": 10,
+        "Tool": "emod-api"
+    },
+    "Nodes": [
+        {
+            "IndividualProperties": [
+                {
+                    "Initial_Distribution": [
+                        0.8,
+                        0.2
+                    ],
+                    "Property": "Accessibility",
+                    "Values": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        0.255498673,
+                        0.744501327,
+                        0
+                    ],
+                    "Property": "Risk",
+                    "Values": [
+                        "LOW",
+                        "MEDIUM",
+                        "HIGH"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "Property": "CascadeState",
+                    "Values": [
+                        "",
+                        "ARTStaging",
+                        "ARTStagingDiagnosticTest",
+                        "LinkingToART",
+                        "LinkingToPreART",
+                        "OnART",
+                        "OnPreART",
+                        "HCTTestingLoop",
+                        "HCTUptakeAtDebut",
+                        "HCTUptakePostDebut",
+                        "TestingOnANC",
+                        "TestingOnChild6w",
+                        "TestingOnSymptomatic",
+                        "LostForever"
+                    ]
+                }
+            ],
+            "NodeID": 1
+        },
+        {
+            "IndividualProperties": [
+                {
+                    "Initial_Distribution": [
+                        0.8,
+                        0.2
+                    ],
+                    "Property": "Accessibility",
+                    "Values": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        0.330078204,
+                        0.669921796,
+                        0
+                    ],
+                    "Property": "Risk",
+                    "Values": [
+                        "LOW",
+                        "MEDIUM",
+                        "HIGH"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "Property": "CascadeState",
+                    "Values": [
+                        "",
+                        "ARTStaging",
+                        "ARTStagingDiagnosticTest",
+                        "LinkingToART",
+                        "LinkingToPreART",
+                        "OnART",
+                        "OnPreART",
+                        "HCTTestingLoop",
+                        "HCTUptakeAtDebut",
+                        "HCTUptakePostDebut",
+                        "TestingOnANC",
+                        "TestingOnChild6w",
+                        "TestingOnSymptomatic",
+                        "LostForever"
+                    ]
+                }
+            ],
+            "NodeID": 2
+        },
+        {
+            "IndividualProperties": [
+                {
+                    "Initial_Distribution": [
+                        0.8,
+                        0.2
+                    ],
+                    "Property": "Accessibility",
+                    "Values": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        0.121868492,
+                        0.878131508,
+                        0
+                    ],
+                    "Property": "Risk",
+                    "Values": [
+                        "LOW",
+                        "MEDIUM",
+                        "HIGH"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "Property": "CascadeState",
+                    "Values": [
+                        "",
+                        "ARTStaging",
+                        "ARTStagingDiagnosticTest",
+                        "LinkingToART",
+                        "LinkingToPreART",
+                        "OnART",
+                        "OnPreART",
+                        "HCTTestingLoop",
+                        "HCTUptakeAtDebut",
+                        "HCTUptakePostDebut",
+                        "TestingOnANC",
+                        "TestingOnChild6w",
+                        "TestingOnSymptomatic",
+                        "LostForever"
+                    ]
+                }
+            ],
+            "NodeID": 3
+        },
+        {
+            "IndividualProperties": [
+                {
+                    "Initial_Distribution": [
+                        0.8,
+                        0.2
+                    ],
+                    "Property": "Accessibility",
+                    "Values": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        0.221650376,
+                        0.778349624,
+                        0
+                    ],
+                    "Property": "Risk",
+                    "Values": [
+                        "LOW",
+                        "MEDIUM",
+                        "HIGH"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "Property": "CascadeState",
+                    "Values": [
+                        "",
+                        "ARTStaging",
+                        "ARTStagingDiagnosticTest",
+                        "LinkingToART",
+                        "LinkingToPreART",
+                        "OnART",
+                        "OnPreART",
+                        "HCTTestingLoop",
+                        "HCTUptakeAtDebut",
+                        "HCTUptakePostDebut",
+                        "TestingOnANC",
+                        "TestingOnChild6w",
+                        "TestingOnSymptomatic",
+                        "LostForever"
+                    ]
+                }
+            ],
+            "NodeID": 4
+        },
+        {
+            "IndividualProperties": [
+                {
+                    "Initial_Distribution": [
+                        0.8,
+                        0.2
+                    ],
+                    "Property": "Accessibility",
+                    "Values": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        0.395151764,
+                        0.604848236,
+                        0
+                    ],
+                    "Property": "Risk",
+                    "Values": [
+                        "LOW",
+                        "MEDIUM",
+                        "HIGH"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "Property": "CascadeState",
+                    "Values": [
+                        "",
+                        "ARTStaging",
+                        "ARTStagingDiagnosticTest",
+                        "LinkingToART",
+                        "LinkingToPreART",
+                        "OnART",
+                        "OnPreART",
+                        "HCTTestingLoop",
+                        "HCTUptakeAtDebut",
+                        "HCTUptakePostDebut",
+                        "TestingOnANC",
+                        "TestingOnChild6w",
+                        "TestingOnSymptomatic",
+                        "LostForever"
+                    ]
+                }
+            ],
+            "NodeID": 5
+        },
+        {
+            "IndividualProperties": [
+                {
+                    "Initial_Distribution": [
+                        0.8,
+                        0.2
+                    ],
+                    "Property": "Accessibility",
+                    "Values": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        0.095060159,
+                        0.904939841,
+                        0
+                    ],
+                    "Property": "Risk",
+                    "Values": [
+                        "LOW",
+                        "MEDIUM",
+                        "HIGH"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "Property": "CascadeState",
+                    "Values": [
+                        "",
+                        "ARTStaging",
+                        "ARTStagingDiagnosticTest",
+                        "LinkingToART",
+                        "LinkingToPreART",
+                        "OnART",
+                        "OnPreART",
+                        "HCTTestingLoop",
+                        "HCTUptakeAtDebut",
+                        "HCTUptakePostDebut",
+                        "TestingOnANC",
+                        "TestingOnChild6w",
+                        "TestingOnSymptomatic",
+                        "LostForever"
+                    ]
+                }
+            ],
+            "NodeID": 6
+        },
+        {
+            "IndividualProperties": [
+                {
+                    "Initial_Distribution": [
+                        0.8,
+                        0.2
+                    ],
+                    "Property": "Accessibility",
+                    "Values": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        0.288686141,
+                        0.711313859,
+                        0
+                    ],
+                    "Property": "Risk",
+                    "Values": [
+                        "LOW",
+                        "MEDIUM",
+                        "HIGH"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "Property": "CascadeState",
+                    "Values": [
+                        "",
+                        "ARTStaging",
+                        "ARTStagingDiagnosticTest",
+                        "LinkingToART",
+                        "LinkingToPreART",
+                        "OnART",
+                        "OnPreART",
+                        "HCTTestingLoop",
+                        "HCTUptakeAtDebut",
+                        "HCTUptakePostDebut",
+                        "TestingOnANC",
+                        "TestingOnChild6w",
+                        "TestingOnSymptomatic",
+                        "LostForever"
+                    ]
+                }
+            ],
+            "NodeID": 7
+        },
+        {
+            "IndividualProperties": [
+                {
+                    "Initial_Distribution": [
+                        0.8,
+                        0.2
+                    ],
+                    "Property": "Accessibility",
+                    "Values": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        0.446287507,
+                        0.553712493,
+                        0
+                    ],
+                    "Property": "Risk",
+                    "Values": [
+                        "LOW",
+                        "MEDIUM",
+                        "HIGH"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "Property": "CascadeState",
+                    "Values": [
+                        "",
+                        "ARTStaging",
+                        "ARTStagingDiagnosticTest",
+                        "LinkingToART",
+                        "LinkingToPreART",
+                        "OnART",
+                        "OnPreART",
+                        "HCTTestingLoop",
+                        "HCTUptakeAtDebut",
+                        "HCTUptakePostDebut",
+                        "TestingOnANC",
+                        "TestingOnChild6w",
+                        "TestingOnSymptomatic",
+                        "LostForever"
+                    ]
+                }
+            ],
+            "NodeID": 8
+        },
+        {
+            "IndividualProperties": [
+                {
+                    "Initial_Distribution": [
+                        0.8,
+                        0.2
+                    ],
+                    "Property": "Accessibility",
+                    "Values": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        0.378176731,
+                        0.621823269,
+                        0
+                    ],
+                    "Property": "Risk",
+                    "Values": [
+                        "LOW",
+                        "MEDIUM",
+                        "HIGH"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "Property": "CascadeState",
+                    "Values": [
+                        "",
+                        "ARTStaging",
+                        "ARTStagingDiagnosticTest",
+                        "LinkingToART",
+                        "LinkingToPreART",
+                        "OnART",
+                        "OnPreART",
+                        "HCTTestingLoop",
+                        "HCTUptakeAtDebut",
+                        "HCTUptakePostDebut",
+                        "TestingOnANC",
+                        "TestingOnChild6w",
+                        "TestingOnSymptomatic",
+                        "LostForever"
+                    ]
+                }
+            ],
+            "NodeID": 9
+        },
+        {
+            "IndividualProperties": [
+                {
+                    "Initial_Distribution": [
+                        0.8,
+                        0.2
+                    ],
+                    "Property": "Accessibility",
+                    "Values": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        0.283319058,
+                        0.716680942,
+                        0
+                    ],
+                    "Property": "Risk",
+                    "Values": [
+                        "LOW",
+                        "MEDIUM",
+                        "HIGH"
+                    ]
+                },
+                {
+                    "Initial_Distribution": [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "Property": "CascadeState",
+                    "Values": [
+                        "",
+                        "ARTStaging",
+                        "ARTStagingDiagnosticTest",
+                        "LinkingToART",
+                        "LinkingToPreART",
+                        "OnART",
+                        "OnPreART",
+                        "HCTTestingLoop",
+                        "HCTUptakeAtDebut",
+                        "HCTUptakePostDebut",
+                        "TestingOnANC",
+                        "TestingOnChild6w",
+                        "TestingOnSymptomatic",
+                        "LostForever"
+                    ]
+                }
+            ],
+            "NodeID": 10
+        }
+    ]
+}

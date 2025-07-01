@@ -1,10 +1,17 @@
+# This workflows will upload a Python Package using Twine when a release is created
+
 name: build test publish
+
 on:
   push:
     branches:
-      - release*
-      - master
-      - main
+      # only run this on
+      - 'main'
+      - 'release**'
+    paths:
+      - 'emodpy_hiv/**'
+      - 'pyproject.toml'
+
 jobs:
   build_test_publish:
     runs-on: ubuntu-latest
@@ -12,9 +19,9 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        python-version: [ '3.9']
+        python-version: [3.9]
     steps:
-      - name: Checkout sources
+      - name: Checkout sources with LFS
         uses: actions/checkout@v4
         with:
           lfs: true
@@ -31,20 +38,17 @@ jobs:
         name: Build and install package
         uses: ./.github/actions/build-install-package
         with:
-          package_file: 'setup.py'
-      - name: run tests
+          pyproject_file: 'pyproject.toml'
+      - name: cache comps2 (staging) login
+        run: |
+          python .dev_scripts/create_auth_token_args.py -c https://comps2.idmod.org -u ${{ secrets.COMPS_USER }} -p ${{ secrets.COMPS_USER_PASSWORD }}
+        working-directory: ./
+      - name: run unit, sim, and country tests
         run: python -m unittest discover .
         working-directory: ./tests
-      - name: cache camps staging login
+      - name: cache comps login
         run: |
-          python .dev_scripts/create_auth_token_args.py -c https://comps2.idmod.org -u ${{ secrets.COMPS_USER }} -p ${{ secrets.COMPS_PASSWORD }}
-        working-directory: ./
-      - name: run workflow tests
-        run: python test_sim.py
-        working-directory: ./tests/sim_tests
-      - name: cache camps login
-        run: |
-          python .dev_scripts/create_auth_token_args.py -c https://comps.idmod.org -u ${{ secrets.COMPS_USER }} -p ${{ secrets.COMPS_PASSWORD }}
+          python .dev_scripts/create_auth_token_args.py -c https://comps.idmod.org -u ${{ secrets.COMPS_USER }} -p ${{ secrets.COMPS_USER_PASSWORD }}
         working-directory: ./
       - name: run examples with Eradication from pip install using snakemake
         run: |
@@ -55,10 +59,13 @@ jobs:
       - name: Push version bump
         run: git push
       - name: twine upload
-        run: twine upload --verbose --repository-url https://packages.idmod.org/api/pypi/idm-pypi-staging/ --username ${{ secrets.ARTIFACTORY_USER }} --password ${{ secrets.ARTIFACTORY_TOKEN }} ${{ steps.build-install.outputs.wheel-file }}
+        run: |
+            pip install twine
+            twine upload --verbose --repository-url https://packages.idmod.org/api/pypi/idm-pypi-staging/ --username ${{ secrets.ARTIFACTORY_USER }} --password ${{ secrets.ARTIFACTORY_TOKEN }} dist/*.whl
+        working-directory: ./
       - name: Add wheel artifact
         uses: actions/upload-artifact@v4
         with:
           name: emodpy-hiv.wheel
-          path: ${{ steps.build-install.outputs.wheel-file }}
+          path: dist/*.whl
 

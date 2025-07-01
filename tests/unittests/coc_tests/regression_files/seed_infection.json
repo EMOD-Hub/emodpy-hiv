@@ -8,18 +8,23 @@
                     "Antigen": 0,
                     "Genome": 0,
                     "Ignore_Immunity": 1,
-                    "Incubation_Period_Override": -1,
+                    "Incubation_Period_Override": 0,
                     "class": "OutbreakIndividual"
                 },
+                "Node_Property_Restrictions": [],
                 "Number_Repetitions": 1,
-                "Property_Restrictions": [
-                    "Risk:HIGH"
+                "Property_Restrictions": [],
+                "Property_Restrictions_Within_Node": [
+                    {
+                        "Risk": "HIGH"
+                    }
                 ],
                 "Target_Age_Max": 200,
                 "Target_Age_Min": 0,
                 "Target_Demographic": "ExplicitAgeRanges",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -27,8 +32,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 7847.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1982,
+            "class": "CampaignEventByYear"
         }
     ],
     "Use_Defaults": 1

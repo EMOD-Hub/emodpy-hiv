@@ -10,7 +10,7 @@ eradication_path="download/Eradication"
 assets_input_dir="Assets"
 plugins_folder = "download/reporter_plugins"
 
-ep4_path="python_scripts"
+embedded_python_scripts_path="python_scripts"
 #requirements = "./requirements.txt"
 
 sif_path = "../production_sif.id"

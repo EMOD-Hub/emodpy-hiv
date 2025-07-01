@@ -1,12 +1,12 @@
-import json
 import unittest
 import sys
-from enum import Enum
 import pandas as pd
 from pathlib import Path
-from typing import List
+from typing import List, Callable
 
-from emod_api.demographics.PropertiesAndAttributes import IndividualAttributes
+from emod_api.demographics.Node import Node
+from emod_api.demographics.fertility_distribution import FertilityDistribution
+from emod_api.demographics.Updateable import Updateable
 
 from emodpy_hiv.demographics.hiv_demographics import HIVDemographics
 from emodpy_hiv.demographics.relationship_types import RelationshipTypes
@@ -20,84 +20,129 @@ ROUNDING_DIGITS = 9
 class HIVDemographicsTest(unittest.TestCase):
 
     def setUp(self):
-        pass
+        self.ages_years = [15.0, 24.999, 25.0, 34.999, 35.0, 44.999]  # M ages
+        self.calendar_years = [2010.0, 2014.999, 2015.0, 2019.999]  # N times
+        self.pregnancy_rate_matrix = [[103.3, 103.3, 77.5, 77.5],  # fertility rates at age 15.0, the six timepoints above
+                                      [103.3, 103.3, 77.5, 77.5],  # fertility rates at age 24.999
+                                      [265.0, 265.0, 278.7, 278.7],  # fertility rates at age 25.0
+                                      [265.0, 265.0, 278.7, 278.7],  # fertility rates at age 34.999
+                                      [152.4, 152.4, 129.2, 129.2],  # fertility rates at age 35.0
+                                      [152.4, 152.4, 129.2, 129.2]]  # fertility rates at age 44.999
+        self.fertility_distribution = FertilityDistribution(ages_years=self.ages_years,
+                                                            calendar_years=self.calendar_years,
+                                                            pregnancy_rate_matrix=self.pregnancy_rate_matrix)
+        self.nodes = []
+        self.demographics = HIVDemographics(nodes=self.nodes, default_society_template="PFA-Southern-Africa")
+
+        self.fertility_distribution2 = FertilityDistribution(ages_years=[15, 20],
+                                                             calendar_years=[2000, 2020, 2040],
+                                                             pregnancy_rate_matrix=[[0.1, 0.2, 0.3], [0.4, 0.5, 0.6]])
 
     def tearDown(self):
         pass
 
-    def test_fertility(self):
-        node_id = 0
-        fertility_path = Path(parent, 'inputs', 'Uganda_Fertility_Historical_Projection.csv')
-        demographics = HIVDemographics.from_template_node(lat=0, lon=0, pop=100000, name="some_name", forced_id=1)
-        demographics.set_fertility(path_to_csv=fertility_path, node_ids=[node_id])
-        node = demographics.get_node_by_id(node_id=node_id)
-        distribution = node.individual_attributes.fertility_distribution
-        # first, ensure non-specified node(s) are unaffected
-        self.assertEqual(demographics.get_node_by_id(node_id=1).individual_attributes.fertility_distribution, None)
+        #
+        # a few of reusable testing functions for any distribution use case copied in from emodpy tests.
+        #
 
-        # now verify format/data
-        self.assertTrue(isinstance(distribution, IndividualAttributes.FertilityDistribution))
-        self.assertEqual(distribution.axis_names, ["age", "year"])
-        self.assertEqual(distribution.axis_scale_factors, [365, 1])
-        self.assertEqual(distribution.axis_units, ["years", "simulation_year"])  # TODO: change to simulation_year
+    def _verify_complex_distribution_values(self, use_case: str, node: Node, expected: Updateable):
+        self.assertIsInstance(getattr(node.individual_attributes, f"{use_case}_distribution"), Updateable)
 
-        self.assertEqual(len(distribution.population_groups), 2)  # first for age, second for years
-        ages = [15, 19.99, 20, 24.99, 25, 29.99, 30, 34.99, 35, 39.99, 40, 45.99, 45, 49.99]
-        self.assertEqual(distribution.population_groups[0], ages)
-        # 1950-2100 by 5 year bins (and .99 entries to stair-step)
-        times = [1950, 1954.99, 1955, 1959.99, 1960, 1964.99, 1965, 1969.99, 1970, 1974.99, 1975, 1979.99,
-                 1980, 1984.99, 1985, 1989.99, 1990, 1994.99, 1995, 1999.99, 2000, 2004.99, 2005, 2009.99,
-                 2010, 2014.99, 2015, 2019.99, 2020, 2024.99, 2025, 2029.99, 2030, 2034.99, 2035, 2039.99,
-                 2040, 2044.99, 2045, 2049.99, 2050, 2054.99, 2055, 2059.99, 2060, 2064.99, 2065, 2069.99,
-                 2070, 2074.99, 2075, 2079.99, 2080, 2084.99, 2085, 2089.99, 2090, 2094.99, 2095, 2099.99]
-        self.assertEqual(distribution.population_groups[1], times)
+        # Value-checking complex distribution, not memory address checking as Updateable will not change addresses
+        attributes = vars(getattr(node.individual_attributes, f"{use_case}_distribution"))
+        expected_attributes = vars(expected)
+        self.assertEqual(sorted(attributes.keys()), sorted((expected_attributes.keys())))
+        for attribute, value in attributes.items():
+            self.assertEqual(value, expected_attributes[attribute])
 
-        self.assertEqual(distribution.result_scale_factor, 2.73972602739726e-06)
-        self.assertEqual(distribution.result_units, "annual births per 1000 individuals")
+        flag_attribute = f"{use_case}_distribution_flag"
+        if hasattr(node.individual_attributes, flag_attribute):
+            self.assertEqual(getattr(node.individual_attributes, flag_attribute), None)
+            self.assertEqual(getattr(node.individual_attributes, f"{use_case}_distribution1"), None)
+            self.assertEqual(getattr(node.individual_attributes, f"{use_case}_distribution2"), None)
 
-        # ensuring dimensions and (blind) spot-checking arbitrary values from file
-        self.assertEqual(len(distribution.result_values), len(ages))
-        for index in range(len(distribution.result_values)):
-            self.assertEqual(len(distribution.result_values[index]), len(times))
-        self.assertEqual(distribution.result_values[1][9], 181.8)  # should be 19.99 year-olds, at year 1974.99
-        self.assertEqual(distribution.result_values[10][20], 75.9)  # should be 40 year-olds, at year 2000
+    def _test_set_complex_distribution_works(self,
+                                             use_case: str,
+                                             distribution,
+                                             implicit_functions: List[Callable] = None):
+        """
+        Some common code to allow slight test variations/test naming sugar
+        Args:
+            explicit: True/False: explicitly or implicitly specify the default node
 
-    def test_parsed_and_reloaded_fertility(self):
-        node_id = 0
-        fertility_path = Path(parent, 'inputs', 'parsed_fertility.csv')
-        demographics = HIVDemographics.from_template_node(lat=0, lon=0, pop=100000, name="some_name", forced_id=1)
-        demographics.set_fertility(path_to_csv=fertility_path, node_ids=[node_id])
-        node = demographics.get_node_by_id(node_id=node_id)
-        distribution = node.individual_attributes.fertility_distribution
-        # first, ensure non-specified node(s) are unaffected
-        self.assertEqual(demographics.get_node_by_id(node_id=1).individual_attributes.fertility_distribution, None)
+        Returns:
+            Nothing
+        """
+        selected_node_ids = [0]  # one way to specify the default node
 
-        # now verify format/data
-        self.assertTrue(isinstance(distribution, IndividualAttributes.FertilityDistribution))
-        self.assertEqual(distribution.axis_names, ["age", "year"])
-        self.assertEqual(distribution.axis_scale_factors, [365, 1])
-        self.assertEqual(distribution.axis_units, ["years", "simulation_year"])
+        initial_n_implicits = len(self.demographics.implicits)
+        setting_function = getattr(self.demographics, f"set_{use_case}_distribution")
+        setting_function(distribution=distribution, node_ids=selected_node_ids)
 
-        self.assertEqual(len(distribution.population_groups), 2)  # first for age, second for years
-        ages = [15, 19.99, 20, 24.99, 25, 29.99, 30, 34.99, 35, 39.99, 40, 45.99, 45, 49.99]
-        self.assertEqual(distribution.population_groups[0], ages)
-        # 1950-2100 by 5 year bins (and .99 entries to stair-step)
-        times = [1950, 1954.99, 1955, 1959.99, 1960, 1964.99, 1965, 1969.99, 1970, 1974.99, 1975, 1979.99,
-                 1980, 1984.99, 1985, 1989.99, 1990, 1994.99, 1995, 1999.99, 2000, 2004.99, 2005, 2009.99,
-                 2010, 2014.99, 2015, 2019.99, 2020, 2024.99, 2025, 2029.99, 2030, 2034.99, 2035, 2039.99,
-                 2040, 2044.99, 2045, 2049.99, 2050, 2054.99, 2055, 2059.99, 2060, 2064.99, 2065, 2069.99,
-                 2070, 2074.99, 2075, 2079.99, 2080, 2084.99, 2085, 2089.99, 2090, 2094.99, 2095, 2099.99]
-        self.assertEqual(distribution.population_groups[1], times)
+        final_n_implicits = len(self.demographics.implicits)
 
-        self.assertEqual(distribution.result_scale_factor, 2.73972602739726e-06)
-        self.assertEqual(distribution.result_units, "annual births per 1000 individuals")
+        # check right values on modified demographics object
+        nodes = self.demographics.get_nodes_by_id(node_ids=selected_node_ids)
+        for _, node in nodes.items():
+            self._verify_complex_distribution_values(node=node, expected=distribution, use_case=use_case)
 
-        # ensuring dimensions and (blind) spot-checking arbitrary values from file
-        self.assertEqual(len(distribution.result_values), len(ages))
-        for index in range(len(distribution.result_values)):
-            self.assertEqual(len(distribution.result_values[index]), len(times))
-        self.assertEqual(distribution.result_values[1][9], 189.1)  # 181.8)  # should be 19.99 year-olds, at year 1974.99
-        self.assertEqual(distribution.result_values[10][20], 88.3)  # 75.9)  # should be 40 year-olds, at year 2000
+        # ensuring implicit config call/update(s) are set up properly
+        if implicit_functions is not None:
+            self.assertEqual(final_n_implicits - initial_n_implicits, len(implicit_functions))
+            implicits_set = self.demographics.implicits[-1 * len(implicit_functions):]
+            for i in range(len(implicits_set)):
+                self.assertEqual(implicits_set[i], implicit_functions[i])
+        else:
+            self.assertEqual(final_n_implicits, initial_n_implicits)
+
+    def _test_set_complex_distribution_works_twice(self, use_case: str,
+                                                   distribution1, distribution2,
+                                                   implicit_functions: List[Callable] = None):
+        """
+        Ensure that setting a complex distribution more than once updates properly (last updated values win)
+
+        Returns:
+            Nothing
+        """
+        selected_node_ids = [0]  # one way to specify the default node
+
+        initial_n_implicits = len(self.demographics.implicits)
+
+        setting_function = getattr(self.demographics, f"set_{use_case}_distribution")
+        setting_function(distribution=distribution1, node_ids=selected_node_ids)
+        setting_function(distribution=distribution2, node_ids=selected_node_ids)
+
+        final_n_implicits = len(self.demographics.implicits)
+
+        # check right values on modified demographics object
+        nodes = self.demographics.get_nodes_by_id(node_ids=selected_node_ids)
+        for _, node in nodes.items():
+            self._verify_complex_distribution_values(node=node, expected=distribution2, use_case=use_case)
+
+        # ensuring implicit config call/update(s) are set up properly
+        if implicit_functions is not None:
+            self.assertEqual(final_n_implicits - initial_n_implicits, 2 * len(implicit_functions))
+            implicits_set = self.demographics.implicits[-2 * len(implicit_functions):]  # They've been set twice
+            implicit_functions = implicit_functions + implicit_functions  # They've been set twice
+            for i in range(len(implicits_set)):
+                self.assertEqual(implicits_set[i], implicit_functions[i])
+        else:
+            self.assertEqual(final_n_implicits, initial_n_implicits)
+
+    #
+    # Fertility distribution tests using the same format as emodpy age/mortality/etc distribution tests
+    #
+
+    def test_set_complex_fertility_distribution_works(self):
+        from emod_api.demographics.DemographicsTemplates import _set_fertility_age_year
+        self._test_set_complex_distribution_works(use_case='fertility', implicit_functions=[_set_fertility_age_year],
+                                                  distribution=self.fertility_distribution)
+
+    def test_set_complex_fertility_distribution_works_twice(self):
+        from emod_api.demographics.DemographicsTemplates import _set_fertility_age_year
+        self._test_set_complex_distribution_works_twice(use_case='fertility', implicit_functions=[_set_fertility_age_year],
+                                                        distribution1=self.fertility_distribution,
+                                                        distribution2=self.fertility_distribution2)
 
     def test_from_template_node(self):
         lat = 11
@@ -111,7 +156,7 @@ class HIVDemographicsTest(unittest.TestCase):
         self.assertTrue(isinstance(demog, HIVDemographics))
         self.assertEqual(len(demog.nodes), 1)
 
-        self.default_test(demog)
+        self._default_test(demog)
 
         nodes = demog.nodes
         node_attributes = nodes[0].to_dict()['NodeAttributes']
@@ -122,97 +167,11 @@ class HIVDemographicsTest(unittest.TestCase):
         self.assertEqual(node_attributes["Latitude"], lat)
         self.assertEqual(node_attributes["Longitude"], lon)
 
-    def default_test(self, demog):
+    def _default_test(self, demog):
         defaults = demog.default_node.to_dict()  # ['Defaults']
         self.assertIn('NodeAttributes', defaults)
         self.assertIn('IndividualAttributes', defaults)
         self.assertIn('Society', defaults)
-
-    def _check_mortality_distribution(self, distribution, result_scale_factor, expected_values: List[float]):
-        """
-                        {'NumPopulationGroups': list(female_data.shape),
-                       'AxisNames': ['age', 'year'],
-                       'AxisScaleFactors': [365.0, 1],
-                       'AxisUnits': ['years', 'years'],
-                       'NumDistributionAxes': 2,
-                       'PopulationGroups': [age_out_female, years_out_female],
-                       'ResultScaleFactor': results_scale_factor,
-                       'ResultUnits': 'annual deaths per capita',
-                       'ResultValues': female_output.tolist()
-                       }
-        """
-        self.assertEqual(distribution.axis_names, ['age', 'year'])
-        self.assertEqual(distribution.axis_scale_factors, [365.0, 1])
-        self.assertEqual(distribution.axis_units, ['years', 'years'])  # TODO: change to simulation_year
-        self.assertEqual(distribution.result_scale_factor, result_scale_factor)
-        self.assertEqual(distribution.result_units, 'annual deaths per capita')
-
-        # now for population groups
-        ages = [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 100]
-        # midpoints of the requested 5-year bins
-        years = [1952.5, 1957.5, 1962.5, 1967.5, 1972.5, 1977.5, 1982.5, 1987.5, 1992.5, 1997.5, 2002.5, 2007.5, 2012.5, 2017.5, 2022.5, 2027.5, 2032.5, 2037.5, 2042.5, 2047.5, 2052.5, 2057.5]
-        self.assertEqual(len(distribution.population_groups), 2)
-        self.assertEqual(distribution.population_groups[0], ages)
-        self.assertEqual(distribution.population_groups[1], years)
-
-        # now for result values
-        self.assertEqual(len(distribution.result_values), len(ages))  # age-major ordering
-        for index in range(len(distribution.result_values)):
-            self.assertEqual(len(distribution.result_values[index]), len(years))
-
-        # a couple of regression values here (they are computed from file input, so they are not verification that
-        # these values are RIGHT, just that they aren't CHANGING.
-        self.assertAlmostEqual(distribution.result_values[5][5], expected_values[0], places=ROUNDING_DIGITS)
-        self.assertAlmostEqual(distribution.result_values[6][13], expected_values[1], places=ROUNDING_DIGITS)
-
-    def test_mortality(self):
-        node_id = None  # the default node, testing some other bits of code by passing None
-        results_scale_factor = 1.0/340.0
-        horizon = 2060
-        demographics = HIVDemographics.from_template_node(lat=0, lon=0, pop=100000, name="some_name", forced_id=1)
-        demographics.set_mortality(file_male=Path(parent, "inputs", "Malawi_male_mortality.csv"),
-                                   file_female=Path(parent, "inputs", "Malawi_female_mortality.csv"),
-                                   predict_horizon=horizon, results_scale_factor=results_scale_factor,
-                                   node_ids=[node_id])
-        node = demographics.get_node_by_id(node_id=node_id)
-        male_distribution = node.individual_attributes.mortality_distribution_male
-        female_distribution = node.individual_attributes.mortality_distribution_female
-        expected_values = [0.00716, 0.002239999999999999]  # indicies [5, 5] and [6, 13]
-        self._check_mortality_distribution(distribution=male_distribution, result_scale_factor=results_scale_factor,
-                                           expected_values=expected_values)
-        expected_values = [0.006369999999999964, 0.002310000000000001]
-        self._check_mortality_distribution(distribution=female_distribution, result_scale_factor=results_scale_factor,
-                                           expected_values=expected_values)
-
-    def test_parsed_and_mortality_data(self):
-        # verify that a known input mortality json is turned into a known input mortality csv file properly.
-
-        # TODO: move this script to somewhere else when there is time
-        from inputs import fert_mort_from_json
-        input_demographics_file = Path(parent, 'inputs', 'Demographics--mortality_parsing_test.json')
-        expected_male_mortality_file = Path(parent, 'inputs', 'expected_male_mortality.csv')
-        expected_female_mortality_file = Path(parent, 'inputs', 'expected_female_mortality.csv')
-
-        parsed_df = fert_mort_from_json.parse_mortality_data(source_file=input_demographics_file, gender='Male')
-        expected_df = pd.read_csv(expected_male_mortality_file)
-        self.assertTrue(parsed_df.eq(expected_df).values.all())
-
-        parsed_df = fert_mort_from_json.parse_mortality_data(source_file=input_demographics_file, gender='Female')
-        expected_df = pd.read_csv(expected_female_mortality_file)
-        self.assertTrue(parsed_df.eq(expected_df).values.all())
-
-        # now ensure a demographics object can be updated with this mortality data without failing
-        node_id = None
-        results_scale_factor = 1.0/340.0
-        horizon = 2060
-        demographics = HIVDemographics.from_template_node(lat=0, lon=0, pop=100000, name="some_name", forced_id=1)
-        demographics.set_mortality(file_male=expected_male_mortality_file,
-                                   # yes, I'm using male twice, this is because the infer_natural_mortality() function
-                                   # requires identical sets of age/year data for males and females (which my made up
-                                   # test does not have, to ensure the parsing code works right).
-                                   file_female=expected_male_mortality_file,
-                                   predict_horizon=horizon, results_scale_factor=results_scale_factor,
-                                   node_ids=[node_id], interval_fit=[1995, 2020])
 
     def test_assortivity(self):
         # using the default node (specifying no node(s) means the default node)
@@ -357,6 +316,9 @@ class HIVDemographicsTest(unittest.TestCase):
                 self.assertNotEqual(condom_usage_probs['Rate'], new_rate)
 
     def test_relationship_duration(self):
+        # NOTE: lambda and kappa are really relationship_scale and relationship_duration**-1, respectively.
+        #   Keeping lambda/kappa names here since we are directly comparing the distribution values and their names come
+        #   from emod-api .
         node_id = 1
         duration_scale = 0.1234
         duration_heterogeneity = 0.5678
@@ -366,8 +328,8 @@ class HIVDemographicsTest(unittest.TestCase):
                                                    default_society_template='PFA-Southern-Africa')
         # we will use this later to ensure default node is unaltered
         default_relationship_parameters = demog.get_node_by_id(node_id=0).society.get_relationship_parameters_by_relationship_type(relationship_type=relationship_type)
-        default_lambda = default_relationship_parameters.duration['Lambda']
-        default_kappa = default_relationship_parameters.duration['Kappa']
+        default_lambda = default_relationship_parameters.duration.weibull_lambda
+        default_kappa = default_relationship_parameters.duration.weibull_kappa
 
         demog.set_relationship_parameters(relationship_type=relationship_type,
                                           duration_scale=duration_scale,
@@ -375,13 +337,13 @@ class HIVDemographicsTest(unittest.TestCase):
                                           node_ids=[node_id])
         node = demog.get_node_by_id(node_id=node_id)
         relationship_parameters = node.society.get_relationship_parameters_by_relationship_type(relationship_type=relationship_type)
-        self.assertEqual(relationship_parameters.duration['Lambda'], duration_scale)
-        self.assertEqual(relationship_parameters.duration['Kappa'], duration_heterogeneity ** -1)
+        self.assertEqual(relationship_parameters.duration.weibull_lambda, duration_scale)
+        self.assertEqual(relationship_parameters.duration.weibull_kappa, duration_heterogeneity ** -1)
 
         # ensure default node was not modified
         default_relationship_parameters = demog.get_node_by_id(node_id=0).society.get_relationship_parameters_by_relationship_type(relationship_type=relationship_type)
-        self.assertEqual(default_relationship_parameters.duration['Lambda'], default_lambda)
-        self.assertEqual(default_relationship_parameters.duration['Kappa'], default_kappa)
+        self.assertEqual(default_relationship_parameters.duration.weibull_lambda, default_lambda)
+        self.assertEqual(default_relationship_parameters.duration.weibull_kappa, default_kappa)
 
     def test_ensure_default_and_regular_nodes_are_updated_independently(self):
         # checks to ensure that when the default node is altered, nodes 1+ are not and vice versa (one test per
@@ -493,8 +455,8 @@ class HIVDemographicsTest(unittest.TestCase):
                 'condom_usage_mid': rp.condom_usage.mid,
                 'condom_usage_max': rp.condom_usage.max,
                 'condom_usage_rate': rp.condom_usage.rate,
-                'duration_scale': rp.duration['Lambda'],
-                'duration_heterogeneity': rp.duration['Kappa'] ** -1
+                'duration_scale': rp.duration.weibull_lambda,
+                'duration_heterogeneity': rp.duration.weibull_kappa ** -1
             }
             for attribute, value in value_dict.items():
                 # self.assertEqual(comparable[attribute], value)
@@ -514,8 +476,8 @@ class HIVDemographicsTest(unittest.TestCase):
                 'condom_usage_mid': rp.condom_usage.mid,
                 'condom_usage_max': rp.condom_usage.max,
                 'condom_usage_rate': rp.condom_usage.rate,
-                'duration_scale': rp.duration['Lambda'],
-                'duration_heterogeneity': rp.duration['Kappa'] ** -1
+                'duration_scale': rp.duration.weibull_lambda,
+                'duration_heterogeneity': rp.duration.weibull_kappa ** -1
             }
             for attribute, value in value_dict.items():
                 # self.assertEqual(comparable[attribute], value)
@@ -596,120 +558,11 @@ class HIVDemographicsTest(unittest.TestCase):
         demographics = HIVDemographics.from_template_node(lat=0, lon=0, pop=100000, name="some_name", forced_id=1)
 
         # This attribute of emod-api Demographics is forcefully deprecated to prevent data loss in HIV
-        access_raw_attribute = lambda: demographics.raw
+        def access_raw_attribute():
+            return demographics.raw
+
         self.assertRaises(AttributeError, access_raw_attribute)
-
-    # @unittest.skip(reason='Incomplete test for now')
-    def test_load_zambia_country_model_alpha(self):
-        from emodpy_hiv.demographics.country_models import load_country_model_demographics_default
-        demographics = load_country_model_demographics_default(country_model='zambia')
-        self.assertEqual(len(demographics.implicits), 5)  # enable_births, age_complex, fertility_age_year, and 2xmortality_age_gend_y
-        self.assertEqual(len(demographics.migration_files), 0)
-
-        # load the source demographics file for regression checking
-        regression_file = Path(parent, 'inputs', 'Demographics--zambia_regression.json')
-        with open(regression_file, 'rb') as f:
-            expected = json.load(f)
-
-        # check important per-node information
-        self.assertEqual(len(demographics.nodes), len(expected['Nodes']))
-
-        expected_nodes_by_id = {node_dict['NodeID']: node_dict for node_dict in expected['Nodes']}
-        for node in demographics.nodes:
-            expected_node = expected_nodes_by_id[node.id]
-            self.assertEqual(node.id, expected_node['NodeID'])
-            self.assertEqual(node.name, expected_node['NodeName'])
-            self.assertEqual(node.pop, expected_node['NodeAttributes']['InitialPopulation'])
-
-        # ensure the expected IPs are set (for zambia, all on the default node)
-        for node in demographics.nodes:
-            self.assertEqual(len(node.individual_properties), 0)
-        expected_ips_by_key = {ip_dict['Property']: ip_dict for ip_dict in expected['Defaults']['IndividualProperties']}
-        self.assertEqual(len(demographics.default_node.individual_properties), len(expected_ips_by_key))
-        for ip in demographics.default_node.individual_properties:
-            expected_ip = expected_ips_by_key[ip.property]
-            self.assertEqual(ip.property, expected_ip['Property'])
-            self.assertEqual(ip.values, expected_ip['Values'])
-            self.assertEqual(ip.initial_distribution, expected_ip['Initial_Distribution'])
-            transitions = [] if ip.transitions is None else ip.transitions
-            self.assertEqual(transitions, expected_ip.get('Transitions', []))
-            transmission_matrix = [] if ip.transmission_matrix is None else ip.transmission_matrix
-            self.assertEqual(transmission_matrix, expected_ip.get('TransmissionMatrix', []))
-
-        # check all the individual attributes and ensure none are on non-default node (as is the case for zambia)
-        individual_attributes = demographics.default_node.individual_attributes
-        # TODO: another way to do this?
-        # self.assertEqual(len(individual_attributes), 4)  # fertility, age distribution, male mortality, female mortality
-        # for node in demographics.nodes:
-        #     self.assertEqual(len(node.individual_attributes), 0)
-
-        # TODO: finish the below
-
-        # verify fertility data is the same
-        expected_fertility = expected['Defaults']['IndividualAttributes']['FertilityDistribution']
-        fertility = demographics.default_node.individual_attributes.fertility_distribution
-        self.assertEqual(fertility.axis_names, expected_fertility['AxisNames'])
-        self.assertEqual(fertility.axis_units, expected_fertility['AxisUnits'])
-        self.assertEqual(fertility.axis_scale_factors, expected_fertility['AxisScaleFactors'])
-        self.assertEqual(fertility.result_units, expected_fertility['ResultUnits'])
-        self.assertAlmostEqual(fertility.result_scale_factor, expected_fertility['ResultScaleFactor'],
-                               places=ROUNDING_DIGITS)
-        # self.assertEqual(fertility.population_groups, expected_fertility['PopulationGroups'])  # TODO: off by .009
-        # TODO: fertility result values mismatch with regression file. 'expected' value seems off
-        # self.assertEqual(fertility.result_values, expected_fertility['ResultValues'])
-
-        # verify the male mortality data is the same
-        expected_male_mortality = expected['Defaults']['IndividualAttributes']['MortalityDistributionMale']
-        male_mortality = demographics.default_node.individual_attributes.mortality_distribution_male
-        self.assertEqual(male_mortality.axis_names, expected_male_mortality['AxisNames'])
-        # TODO: this line is broken; need to decide on years vs simulation_year and fix-up emod-api, then restore this test line
-        # self.assertEqual(male_mortality.axis_units, expected_male_mortality['AxisUnits'])
-        self.assertEqual(male_mortality.axis_scale_factors, expected_male_mortality['AxisScaleFactors'])
-
-        self.assertEqual(male_mortality.result_units, expected_male_mortality['ResultUnits'])
-        self.assertAlmostEqual(male_mortality.result_scale_factor, expected_male_mortality['ResultScaleFactor'],
-                               places=ROUNDING_DIGITS)
-        # self.assertEqual(male_mortality.population_groups, expected_male_mortality['PopulationGroups'])  # TODO: difference in length of years list, difference in age bins (expected include 0 and all .999's and has fewer year bins)
-        # self.assertEqual(male_mortality.result_values, expected_male_mortality['ResultValues'])  # TODO: values are not the same, independent of the PopulationGroups
-
-        # verify the female mortality data is the same
-        expected_female_mortality = expected['Defaults']['IndividualAttributes']['MortalityDistributionFemale']
-        female_mortality = demographics.default_node.individual_attributes.mortality_distribution_female
-        self.assertEqual(female_mortality.axis_names, expected_female_mortality['AxisNames'])
-        # TODO: this line is broken; need to decide on years vs simulation_year and fix-up emod-api, then restore this test line
-        # self.assertEqual(female_mortality.axis_units, expected_female_mortality['AxisUnits'])
-        self.assertEqual(female_mortality.axis_scale_factors, expected_female_mortality['AxisScaleFactors'])
-
-        self.assertEqual(female_mortality.result_units, expected_female_mortality['ResultUnits'])
-        self.assertAlmostEqual(female_mortality.result_scale_factor, expected_female_mortality['ResultScaleFactor'],
-                               places=ROUNDING_DIGITS)
-        # self.assertEqual(female_mortality.population_groups, expected_female_mortality['PopulationGroups'])  # TODO: difference in length of years list, difference in age bins (expected include 0 and all .999's and has fewer year bins)
-        # self.assertEqual(female_mortality.result_values, expected_female_mortality['ResultValues'])  # TODO: values are not the same, independent of the PopulationGroups
-
-        # verify the age distributions are the same
-        expected_age_distribution = expected['Defaults']['IndividualAttributes']['AgeDistribution']
-        age_distribution = demographics.default_node.individual_attributes.age_distribution
-        # missing in emod-api but not significant, just in-file documentation
-
-        # self.assertEqual(age_distribution.result_units, expected_age_distribution['ResultUnits'])
-        self.assertAlmostEqual(age_distribution.result_scale_factor, expected_age_distribution['ResultScaleFactor'],
-                               places=ROUNDING_DIGITS)
-        self.assertEqual(age_distribution.result_values, expected_age_distribution['ResultValues'])
-        self.assertEqual([round(value, ROUNDING_DIGITS) for value in age_distribution.distribution_values],
-                         [round(value, ROUNDING_DIGITS) for value in expected_age_distribution['DistributionValues']])
-
-
-        # ensure there are no node attributes (by default in zambia model)
-
-        # # default build has no node attribtues on any node
-        # for node in demographics._all_nodes:
-        #     node_attributes = node.node_attributes.to_dict()
-        #     self.assertEqual(node.node_attributes.to_dict(), {})
-
-        # TODO: now dump to a dict and compare (should still work out)
-        # raise NotImplementedError('In progress test development (but currently skipping, so it is fine, right??')
 
 
 if __name__ == '__main__':
     unittest.main()
-

@@ -1,0 +1,7 @@
+*.xlsx filter=lfs diff=lfs merge=lfs -text
+*.XLSX filter=lfs diff=lfs merge=lfs -text
+*.XLS filter=lfs diff=lfs merge=lfs -text
+*.xls filter=lfs diff=lfs merge=lfs -text
+RelationshipEnd*.csv filter=lfs diff=lfs merge=lfs -text
+RelationshipStart*.csv filter=lfs diff=lfs merge=lfs -text
+ReportHIVByAgeAndGender*.csv filter=lfs diff=lfs merge=lfs -text

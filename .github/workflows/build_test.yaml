@@ -1,5 +1,12 @@
 name: build test
-on: [push, pull_request]
+on:
+  pull_request:
+    branches:
+      - 'main'
+  push:
+    branches-ignore:
+      - 'main'
+
 jobs:
   build_test:
     runs-on: ubuntu-latest
@@ -7,7 +14,7 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        python-version: [ '3.9' ]
+        python-version: [ 3.9 ]
     steps:
       - name: Checkout sources with LFS
         uses: actions/checkout@v4
@@ -25,20 +32,17 @@ jobs:
       - name: Build and install package
         uses: ./.github/actions/build-install-package
         with:
-          package_file: 'setup.py'
-      - name: run tests
+          pyproject_file: 'pyproject.toml'
+      - name: cache comps2 (staging) login
+        run: |
+          python .dev_scripts/create_auth_token_args.py -c https://comps2.idmod.org -u ${{ secrets.COMPS_USER }} -p ${{ secrets.COMPS_USER_PASSWORD }}
+        working-directory: ./
+      - name: run unit, sim, and country tests
         run: python -m unittest discover .
         working-directory: ./tests
-      - name: cache camps staging login
+      - name: cache comps login
         run: |
-          python .dev_scripts/create_auth_token_args.py -c https://comps2.idmod.org -u ${{ secrets.COMPS_USER }} -p ${{ secrets.COMPS_PASSWORD }}
-        working-directory: ./
-      - name: run workflow tests
-        run: python test_sim.py
-        working-directory: ./tests/sim_tests
-      - name: cache camps login
-        run: |
-          python .dev_scripts/create_auth_token_args.py -c https://comps.idmod.org -u ${{ secrets.COMPS_USER }} -p ${{ secrets.COMPS_PASSWORD }}
+          python .dev_scripts/create_auth_token_args.py -c https://comps.idmod.org -u ${{ secrets.COMPS_USER }} -p ${{ secrets.COMPS_USER_PASSWORD }}
         working-directory: ./
       - name: run examples with Eradication from pip install using snakemake
         run: |

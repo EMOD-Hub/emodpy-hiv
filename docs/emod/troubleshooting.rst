@@ -277,4 +277,4 @@ reference plots should always be completely covered by the blue plots.
 
 If you chose not to have the PrepareLinuxEnvironment.sh script download the |EMOD_s| source code and
 input files, you need to set up the environment variable, path and symlink that are needed
-to run simulations on |Centos|. See :doc:`install-linux`.
+to run simulations on |Centos|. See :doc:`../installation`.

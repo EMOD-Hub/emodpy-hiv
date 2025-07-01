@@ -1,0 +1,56 @@
+{
+    "Events": [
+        {
+            "Event_Coordinator_Config": {
+                "Coordinator_Name": "ReferenceTrackingEventCoordinatorTrackingConfig",
+                "End_Year": 2200,
+                "Intervention_Config": {
+                    "Apply_If_Higher_Reduced_Acquire": 0,
+                    "Circumcision_Reduced_Acquire": 0.6,
+                    "Cost_To_Consumer": 0,
+                    "Disqualifying_Properties": [],
+                    "Distributed_Event_Trigger": "",
+                    "Dont_Allow_Duplicates": 0,
+                    "Intervention_Name": "MaleCircumcision",
+                    "New_Property_Value": "",
+                    "class": "MaleCircumcision"
+                },
+                "Node_Property_Restrictions": [],
+                "Property_Restrictions": [],
+                "Property_Restrictions_Within_Node": [],
+                "Target_Demographic": "Everyone",
+                "Target_Gender": "All",
+                "Target_Residents_Only": 0,
+                "Targeting_Config": {},
+                "Time_Value_Map": {
+                    "Times": [
+                        1960,
+                        1961,
+                        1962,
+                        1963,
+                        1964
+                    ],
+                    "Values": [
+                        0.25,
+                        0.375,
+                        0.4,
+                        0.4375,
+                        0.46875
+                    ]
+                },
+                "Tracking_Config": {
+                    "Is_Equal_To": 1,
+                    "class": "IsCircumcised"
+                },
+                "Update_Period": 365,
+                "class": "ReferenceTrackingEventCoordinatorTrackingConfig"
+            },
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Start_Year": 1955,
+            "class": "CampaignEventByYear"
+        }
+    ],
+    "Use_Defaults": 1
+}

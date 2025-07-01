@@ -1,7 +1,6 @@
 # a simple script to backout the source csv data for mortality and fertility distributions in an EMOD demographics json
 
 import json
-import math
 
 import pandas as pd
 from pathlib import Path
@@ -10,8 +9,15 @@ FERTILITY = 'fertility'
 MORTALITY = 'mortality'
 ALLOWED_DATA_TYPES = [FERTILITY, MORTALITY]
 
-is_even = lambda value: value % 2 == 0
-is_odd = lambda value: not is_even(value)
+
+# is_even = lambda value: value % 2 == 0
+def is_even(value):
+    return value % 2 == 0
+
+
+# is_odd = lambda value: not is_even(value)
+def is_odd(value):
+    return not is_even(value)
 
 
 def parse_fertility_data(source_file: str, country: str = 'Zambia--json_parsed', year_bin_size: int = 5) -> pd.DataFrame:
@@ -69,7 +75,7 @@ def parse_mortality_data(source_file: str, gender: str, year_bin_size: int = 5) 
 
     # process the ages; assume they are 'doubled' e.g. 15 & 19.99 (with identical data), so we keep half of them
     ages = [age for index, age in enumerate(raw_ages) if is_even(index)]  # keep index 0, 2, 4, ...
-    age_intervals = [ages[index] - ages[index-1] for index in range(1, len(ages))]
+    age_intervals = [ages[index] - ages[index - 1] for index in range(1, len(ages))]
     # this is missing the FINAL interval, so we add it on manually
     age_intervals.append(raw_ages[-1] - raw_ages[-2])
 
@@ -124,11 +130,11 @@ def main(args):
         output_dir = Path(args.output_file).absolute().parent
         Path(output_dir).absolute().mkdir(parents=True, exist_ok=True)
 
-        output_file = Path(output_dir, Path(args.output_file).stem+'--male.csv')
+        output_file = Path(output_dir, Path(args.output_file).stem + '--male.csv')
         df_male.to_csv(output_file, index=False)
         print(f'wrote file: {output_file}')
 
-        output_file = Path(output_dir, Path(args.output_file).stem+'--female.csv')
+        output_file = Path(output_dir, Path(args.output_file).stem + '--female.csv')
         df_female.to_csv(output_file, index=False)
         print(f'wrote file: {output_file}')
 
@@ -139,11 +145,11 @@ def parse_args():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('-f', '--file', dest='source_file', type=str, required=True,
-                        help=f"EMOD demographics json file to read data from. Required.")
+                        help="EMOD demographics json file to read data from. Required.")
     parser.add_argument('-t', '--type', dest='data_type', type=str, required=True,
-                        help=f"Data to extract, one of: {str(ALLOWED_DATA_TYPES)}. Required.")
+                        help="Data to extract, one of: {str(ALLOWED_DATA_TYPES)}. Required.")
     parser.add_argument('-o', '--output', dest='output_file', type=str, required=True,
-                        help=f"Data csv file path to write results to. Required.")
+                        help="Data csv file path to write results to. Required.")
 
     args = parser.parse_args()
     return args

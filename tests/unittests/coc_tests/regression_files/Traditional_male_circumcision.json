@@ -11,9 +11,9 @@
                     ],
                     "Choice_Probabilities": [
                         0.054978651,
-                        0.9450213
+                        0.945021349
                     ],
-                    "Cost_To_Consumer": 1,
+                    "Cost_To_Consumer": 0,
                     "Disqualifying_Properties": [],
                     "Dont_Allow_Duplicates": 0,
                     "Intervention_Name": "HIVRandomChoice",
@@ -23,11 +23,11 @@
                 "Node_Property_Restrictions": [],
                 "Number_Repetitions": 1,
                 "Property_Restrictions": [],
-                "Target_Age_Max": 9.3228e+35,
-                "Target_Age_Min": 0,
-                "Target_Demographic": "ExplicitAgeRangesAndGender",
+                "Property_Restrictions_Within_Node": [],
+                "Target_Demographic": "ExplicitGender",
                 "Target_Gender": "Male",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -38,8 +38,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -53,9 +53,9 @@
                         ],
                         "Choice_Probabilities": [
                             0.054978651,
-                            0.9450213
+                            0.945021349
                         ],
-                        "Cost_To_Consumer": 1,
+                        "Cost_To_Consumer": 0,
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Intervention_Name": "HIVRandomChoice",
@@ -74,11 +74,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Births"
                     ],
@@ -91,6 +91,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -101,8 +102,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -132,11 +133,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "WillReceiveTraditionalMaleCircumcision"
                     ],
@@ -149,6 +150,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -159,8 +161,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 182.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1961,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -173,9 +175,9 @@
                     ],
                     "Choice_Probabilities": [
                         0.139462861,
-                        0.8605371
+                        0.860537139
                     ],
-                    "Cost_To_Consumer": 1,
+                    "Cost_To_Consumer": 0,
                     "Disqualifying_Properties": [],
                     "Dont_Allow_Duplicates": 0,
                     "Intervention_Name": "HIVRandomChoice",
@@ -185,11 +187,11 @@
                 "Node_Property_Restrictions": [],
                 "Number_Repetitions": 1,
                 "Property_Restrictions": [],
-                "Target_Age_Max": 9.3228e+35,
-                "Target_Age_Min": 0,
-                "Target_Demographic": "ExplicitAgeRangesAndGender",
+                "Property_Restrictions_Within_Node": [],
+                "Target_Demographic": "ExplicitGender",
                 "Target_Gender": "Male",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -200,8 +202,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -215,9 +217,9 @@
                         ],
                         "Choice_Probabilities": [
                             0.139462861,
-                            0.8605371
+                            0.860537139
                         ],
-                        "Cost_To_Consumer": 1,
+                        "Cost_To_Consumer": 0,
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Intervention_Name": "HIVRandomChoice",
@@ -236,11 +238,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Births"
                     ],
@@ -253,6 +255,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -263,8 +266,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -294,11 +297,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "WillReceiveTraditionalMaleCircumcision"
                     ],
@@ -311,6 +314,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -321,8 +325,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 182.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1961,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -335,9 +339,9 @@
                     ],
                     "Choice_Probabilities": [
                         0.028676043,
-                        0.971324
+                        0.971323957
                     ],
-                    "Cost_To_Consumer": 1,
+                    "Cost_To_Consumer": 0,
                     "Disqualifying_Properties": [],
                     "Dont_Allow_Duplicates": 0,
                     "Intervention_Name": "HIVRandomChoice",
@@ -347,11 +351,11 @@
                 "Node_Property_Restrictions": [],
                 "Number_Repetitions": 1,
                 "Property_Restrictions": [],
-                "Target_Age_Max": 9.3228e+35,
-                "Target_Age_Min": 0,
-                "Target_Demographic": "ExplicitAgeRangesAndGender",
+                "Property_Restrictions_Within_Node": [],
+                "Target_Demographic": "ExplicitGender",
                 "Target_Gender": "Male",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -362,8 +366,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -377,9 +381,9 @@
                         ],
                         "Choice_Probabilities": [
                             0.028676043,
-                            0.971324
+                            0.971323957
                         ],
-                        "Cost_To_Consumer": 1,
+                        "Cost_To_Consumer": 0,
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Intervention_Name": "HIVRandomChoice",
@@ -398,11 +402,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Births"
                     ],
@@ -415,6 +419,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -425,8 +430,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -456,11 +461,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "WillReceiveTraditionalMaleCircumcision"
                     ],
@@ -473,6 +478,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -483,8 +489,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 182.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1961,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -497,9 +503,9 @@
                     ],
                     "Choice_Probabilities": [
                         0.091349358,
-                        0.9086506
+                        0.908650642
                     ],
-                    "Cost_To_Consumer": 1,
+                    "Cost_To_Consumer": 0,
                     "Disqualifying_Properties": [],
                     "Dont_Allow_Duplicates": 0,
                     "Intervention_Name": "HIVRandomChoice",
@@ -509,11 +515,11 @@
                 "Node_Property_Restrictions": [],
                 "Number_Repetitions": 1,
                 "Property_Restrictions": [],
-                "Target_Age_Max": 9.3228e+35,
-                "Target_Age_Min": 0,
-                "Target_Demographic": "ExplicitAgeRangesAndGender",
+                "Property_Restrictions_Within_Node": [],
+                "Target_Demographic": "ExplicitGender",
                 "Target_Gender": "Male",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -524,8 +530,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -539,9 +545,9 @@
                         ],
                         "Choice_Probabilities": [
                             0.091349358,
-                            0.9086506
+                            0.908650642
                         ],
-                        "Cost_To_Consumer": 1,
+                        "Cost_To_Consumer": 0,
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Intervention_Name": "HIVRandomChoice",
@@ -560,11 +566,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Births"
                     ],
@@ -577,6 +583,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -587,8 +594,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -618,11 +625,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "WillReceiveTraditionalMaleCircumcision"
                     ],
@@ -635,6 +642,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -645,8 +653,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 182.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1961,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -659,9 +667,9 @@
                     ],
                     "Choice_Probabilities": [
                         0.12318707,
-                        0.8768129
+                        0.87681293
                     ],
-                    "Cost_To_Consumer": 1,
+                    "Cost_To_Consumer": 0,
                     "Disqualifying_Properties": [],
                     "Dont_Allow_Duplicates": 0,
                     "Intervention_Name": "HIVRandomChoice",
@@ -671,11 +679,11 @@
                 "Node_Property_Restrictions": [],
                 "Number_Repetitions": 1,
                 "Property_Restrictions": [],
-                "Target_Age_Max": 9.3228e+35,
-                "Target_Age_Min": 0,
-                "Target_Demographic": "ExplicitAgeRangesAndGender",
+                "Property_Restrictions_Within_Node": [],
+                "Target_Demographic": "ExplicitGender",
                 "Target_Gender": "Male",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -686,8 +694,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -701,9 +709,9 @@
                         ],
                         "Choice_Probabilities": [
                             0.12318707,
-                            0.8768129
+                            0.87681293
                         ],
-                        "Cost_To_Consumer": 1,
+                        "Cost_To_Consumer": 0,
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Intervention_Name": "HIVRandomChoice",
@@ -722,11 +730,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Births"
                     ],
@@ -739,6 +747,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -749,8 +758,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -780,11 +789,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "WillReceiveTraditionalMaleCircumcision"
                     ],
@@ -797,6 +806,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -807,8 +817,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 182.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1961,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -821,9 +831,9 @@
                     ],
                     "Choice_Probabilities": [
                         0.039308099,
-                        0.9606919
+                        0.960691901
                     ],
-                    "Cost_To_Consumer": 1,
+                    "Cost_To_Consumer": 0,
                     "Disqualifying_Properties": [],
                     "Dont_Allow_Duplicates": 0,
                     "Intervention_Name": "HIVRandomChoice",
@@ -833,11 +843,11 @@
                 "Node_Property_Restrictions": [],
                 "Number_Repetitions": 1,
                 "Property_Restrictions": [],
-                "Target_Age_Max": 9.3228e+35,
-                "Target_Age_Min": 0,
-                "Target_Demographic": "ExplicitAgeRangesAndGender",
+                "Property_Restrictions_Within_Node": [],
+                "Target_Demographic": "ExplicitGender",
                 "Target_Gender": "Male",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -848,8 +858,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -863,9 +873,9 @@
                         ],
                         "Choice_Probabilities": [
                             0.039308099,
-                            0.9606919
+                            0.960691901
                         ],
-                        "Cost_To_Consumer": 1,
+                        "Cost_To_Consumer": 0,
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Intervention_Name": "HIVRandomChoice",
@@ -884,11 +894,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Births"
                     ],
@@ -901,6 +911,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -911,8 +922,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -942,11 +953,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "WillReceiveTraditionalMaleCircumcision"
                     ],
@@ -959,6 +970,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -969,8 +981,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 182.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1961,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -983,9 +995,9 @@
                     ],
                     "Choice_Probabilities": [
                         0.727917322,
-                        0.2720827
+                        0.272082678
                     ],
-                    "Cost_To_Consumer": 1,
+                    "Cost_To_Consumer": 0,
                     "Disqualifying_Properties": [],
                     "Dont_Allow_Duplicates": 0,
                     "Intervention_Name": "HIVRandomChoice",
@@ -995,11 +1007,11 @@
                 "Node_Property_Restrictions": [],
                 "Number_Repetitions": 1,
                 "Property_Restrictions": [],
-                "Target_Age_Max": 9.3228e+35,
-                "Target_Age_Min": 0,
-                "Target_Demographic": "ExplicitAgeRangesAndGender",
+                "Property_Restrictions_Within_Node": [],
+                "Target_Demographic": "ExplicitGender",
                 "Target_Gender": "Male",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -1010,8 +1022,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -1025,9 +1037,9 @@
                         ],
                         "Choice_Probabilities": [
                             0.727917322,
-                            0.2720827
+                            0.272082678
                         ],
-                        "Cost_To_Consumer": 1,
+                        "Cost_To_Consumer": 0,
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Intervention_Name": "HIVRandomChoice",
@@ -1046,11 +1058,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Births"
                     ],
@@ -1063,6 +1075,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -1073,8 +1086,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -1104,11 +1117,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "WillReceiveTraditionalMaleCircumcision"
                     ],
@@ -1121,6 +1134,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -1131,8 +1145,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 182.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1961,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -1145,9 +1159,9 @@
                     ],
                     "Choice_Probabilities": [
                         0.041105263,
-                        0.9588947
+                        0.958894737
                     ],
-                    "Cost_To_Consumer": 1,
+                    "Cost_To_Consumer": 0,
                     "Disqualifying_Properties": [],
                     "Dont_Allow_Duplicates": 0,
                     "Intervention_Name": "HIVRandomChoice",
@@ -1157,11 +1171,11 @@
                 "Node_Property_Restrictions": [],
                 "Number_Repetitions": 1,
                 "Property_Restrictions": [],
-                "Target_Age_Max": 9.3228e+35,
-                "Target_Age_Min": 0,
-                "Target_Demographic": "ExplicitAgeRangesAndGender",
+                "Property_Restrictions_Within_Node": [],
+                "Target_Demographic": "ExplicitGender",
                 "Target_Gender": "Male",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -1172,8 +1186,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -1187,9 +1201,9 @@
                         ],
                         "Choice_Probabilities": [
                             0.041105263,
-                            0.9588947
+                            0.958894737
                         ],
-                        "Cost_To_Consumer": 1,
+                        "Cost_To_Consumer": 0,
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Intervention_Name": "HIVRandomChoice",
@@ -1208,11 +1222,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Births"
                     ],
@@ -1225,6 +1239,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -1235,8 +1250,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -1266,11 +1281,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "WillReceiveTraditionalMaleCircumcision"
                     ],
@@ -1283,6 +1298,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -1293,8 +1309,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 182.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1961,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -1307,9 +1323,9 @@
                     ],
                     "Choice_Probabilities": [
                         0.044388102,
-                        0.9556119
+                        0.955611898
                     ],
-                    "Cost_To_Consumer": 1,
+                    "Cost_To_Consumer": 0,
                     "Disqualifying_Properties": [],
                     "Dont_Allow_Duplicates": 0,
                     "Intervention_Name": "HIVRandomChoice",
@@ -1319,11 +1335,11 @@
                 "Node_Property_Restrictions": [],
                 "Number_Repetitions": 1,
                 "Property_Restrictions": [],
-                "Target_Age_Max": 9.3228e+35,
-                "Target_Age_Min": 0,
-                "Target_Demographic": "ExplicitAgeRangesAndGender",
+                "Property_Restrictions_Within_Node": [],
+                "Target_Demographic": "ExplicitGender",
                 "Target_Gender": "Male",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -1334,8 +1350,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -1349,9 +1365,9 @@
                         ],
                         "Choice_Probabilities": [
                             0.044388102,
-                            0.9556119
+                            0.955611898
                         ],
-                        "Cost_To_Consumer": 1,
+                        "Cost_To_Consumer": 0,
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Intervention_Name": "HIVRandomChoice",
@@ -1370,11 +1386,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Births"
                     ],
@@ -1387,6 +1403,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -1397,8 +1414,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -1428,11 +1445,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "WillReceiveTraditionalMaleCircumcision"
                     ],
@@ -1445,6 +1462,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -1455,8 +1473,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 182.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1961,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -1469,9 +1487,9 @@
                     ],
                     "Choice_Probabilities": [
                         0.398239794,
-                        0.6017602
+                        0.601760206
                     ],
-                    "Cost_To_Consumer": 1,
+                    "Cost_To_Consumer": 0,
                     "Disqualifying_Properties": [],
                     "Dont_Allow_Duplicates": 0,
                     "Intervention_Name": "HIVRandomChoice",
@@ -1481,11 +1499,11 @@
                 "Node_Property_Restrictions": [],
                 "Number_Repetitions": 1,
                 "Property_Restrictions": [],
-                "Target_Age_Max": 9.3228e+35,
-                "Target_Age_Min": 0,
-                "Target_Demographic": "ExplicitAgeRangesAndGender",
+                "Property_Restrictions_Within_Node": [],
+                "Target_Demographic": "ExplicitGender",
                 "Target_Gender": "Male",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -1496,8 +1514,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -1511,9 +1529,9 @@
                         ],
                         "Choice_Probabilities": [
                             0.398239794,
-                            0.6017602
+                            0.601760206
                         ],
-                        "Cost_To_Consumer": 1,
+                        "Cost_To_Consumer": 0,
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Intervention_Name": "HIVRandomChoice",
@@ -1532,11 +1550,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "Births"
                     ],
@@ -1549,6 +1567,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -1559,8 +1578,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 5292.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1975.001,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -1590,11 +1609,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
-                    "Target_Age_Max": 9.3228e+35,
-                    "Target_Age_Min": 0,
-                    "Target_Demographic": "ExplicitAgeRangesAndGender",
+                    "Property_Restrictions_Within_Node": [],
+                    "Target_Demographic": "ExplicitGender",
                     "Target_Gender": "Male",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "WillReceiveTraditionalMaleCircumcision"
                     ],
@@ -1607,6 +1626,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -1617,8 +1637,8 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Day": 182.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1961,
+            "class": "CampaignEventByYear"
         }
     ],
     "Use_Defaults": 1

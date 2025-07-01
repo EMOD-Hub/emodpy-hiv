@@ -109,27 +109,27 @@ podTemplate(
 			if (params.hiv_environment == 'Staging') {
 				echo "I am installing emodpy-hiv from Staging"
 				withCredentials([string(credentialsId: 'idm_bamboo_user', variable: 'user'), string(credentialsId: 'idm_bamboo_user_password', variable: 'password')]) {
-					sh 'pip3 install emodpy-hiv --index-url=https://$user:$password@packages.idmod.org/api/pypi/pypi-staging/simple $devInstall'
+					sh 'pip3 install emodpy-hiv --extra-index-url=https://$user:$password@packages.idmod.org/api/pypi/pypi-staging/simple $devInstall'
 				}
 				 
 			 } else if (params.hiv_environment == 'Production'){
 				 echo "I am installing emodpy-hiv from Production"
-				 sh 'pip3 install emodpy-hiv --index-url=https://packages.idmod.org/api/pypi/pypi-production/simple --pre'
+				 sh 'pip3 install emodpy-hiv --extra-index-url=https://packages.idmod.org/api/pypi/pypi-production/simple --pre'
 			 } else {
 				echo "I am installing emodpy-hiv from wheel file built from code"
 				def wheelFile = sh(returnStdout: true, script: "find ./dist -name '*.whl'").toString().trim()
 				//def wheelFile = sh(returnStdout: true, script: "python3 ./.github/scripts/get_wheel_filename.py --package-file setup.py").toString().trim()
 				echo "This is the package file: ${wheelFile}"
-				sh "pip3 install $wheelFile --index-url=https://packages.idmod.org/api/pypi/pypi-production/simple $devInstall"
+				sh "pip3 install $wheelFile --extra-index-url=https://packages.idmod.org/api/pypi/pypi-production/simple $devInstall"
 			 }
              		if (params.emod_hiv_version != '-1') {
                			def emod_version = params.emod_hiv_version
                 		echo "I am re-installing emodhiv==${emod_version} from ${params.emod_hiv_environment}"            
                 		if (params.emod_hiv_environment == 'Staging') {
                     			withCredentials([string(credentialsId: 'idm_bamboo_user', variable: 'user'), string(credentialsId: 'idm_bamboo_user_password', variable: 'password')]) {
-                        		sh "pip3 install emod-hiv==${emod_version} --index-url=https://$user:$password@packages.idmod.org/api/pypi/pypi-staging/simple --force-reinstall --no-cache-dir"} 
+                        		sh "pip3 install emod-hiv==${emod_version} --extra-index-url=https://$user:$password@packages.idmod.org/api/pypi/pypi-staging/simple --force-reinstall --no-cache-dir"}
                 		} else {
-                    			sh "pip3 install emod-hiv==${emod_version} --index-url=https://packages.idmod.org/api/pypi/pypi-production/simple --force-reinstall --no-cache-dir"
+                    			sh "pip3 install emod-hiv==${emod_version} --extra-index-url=https://packages.idmod.org/api/pypi/pypi-production/simple --force-reinstall --no-cache-dir"
                 		}
 			}
 			if (params.emodpy_version != '-1') {
@@ -138,10 +138,10 @@ podTemplate(
 	
 				if (params.emodpy_environment == 'Staging') {
 					withCredentials([string(credentialsId: 'idm_bamboo_user', variable: 'user'), string(credentialsId: 'idm_bamboo_user_password', variable: 'password')]) {
-						sh "pip3 install emodpy==${version} --index-url=https://$user:$password@packages.idmod.org/api/pypi/pypi-staging/simple --force-reinstall --no-cache-dir"
+						sh "pip3 install emodpy==${version} --extra-index-url=https://$user:$password@packages.idmod.org/api/pypi/pypi-staging/simple --force-reinstall --no-cache-dir"
 					} 
 				} else {
-				    sh "pip3 install emodpy==${version} --index-url=https://packages.idmod.org/api/pypi/pypi-production/simple --force-reinstall --no-cache-dir"
+				    sh "pip3 install emodpy==${version} --extra-index-url=https://packages.idmod.org/api/pypi/pypi-production/simple --force-reinstall --no-cache-dir"
 				}
 			}
 			if (params.emodapi_version != '-1') {
@@ -150,10 +150,10 @@ podTemplate(
 				
 				if (params.emodapi_environment == 'Staging') {
 					withCredentials([string(credentialsId: 'idm_bamboo_user', variable: 'user'), string(credentialsId: 'idm_bamboo_user_password', variable: 'password')]) {
-						sh "pip3 install emod-api==${api_version} --index-url=https://$user:$password@packages.idmod.org/api/pypi/pypi-staging/simple --force-reinstall --no-cache-dir"
+						sh "pip3 install emod-api==${api_version} --extra-index-url=https://$user:$password@packages.idmod.org/api/pypi/pypi-staging/simple --force-reinstall --no-cache-dir"
 					} 
 				} else {
-				    sh "pip3 install emod-api==${api_version} --index-url=https://packages.idmod.org/api/pypi/pypi-production/simple --force-reinstall --no-cache-dir"
+				    sh "pip3 install emod-api==${api_version} --extra-index-url=https://packages.idmod.org/api/pypi/pypi-production/simple --force-reinstall --no-cache-dir"
 				}
 			}
 		}

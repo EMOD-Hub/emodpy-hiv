@@ -5,35 +5,37 @@
                 "Demographic_Coverage": 1,
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
-                    "Cost_To_Consumer": 1,
+                    "Cost_To_Consumer": 0,
                     "Disqualifying_Properties": [],
                     "Dont_Allow_Duplicates": 0,
                     "Event_Or_Config": "Event",
                     "Intervention_Name": "STIIsPostDebut",
-                    "Negative_Diagnosis_Config": {},
-                    "Negative_Diagnosis_Event": "None",
+                    "Negative_Diagnosis_Event": "",
                     "New_Property_Value": "",
-                    "Positive_Diagnosis_Config": {},
                     "Positive_Diagnosis_Event": "initial_coinfection_post_debut",
                     "class": "STIIsPostDebut"
                 },
                 "Node_Property_Restrictions": [],
                 "Number_Repetitions": 1,
-                "Property_Restrictions": [
-                    "Risk:HIGH"
+                "Property_Restrictions": [],
+                "Property_Restrictions_Within_Node": [
+                    {
+                        "Risk": "HIGH"
+                    }
                 ],
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
-            "Event_Name": "Identifying initial ['Risk:HIGH'] post-debut population to target for coinfections",
+            "Event_Name": "Identifying initial [['Risk:HIGH']] post-debut population to target for coinfections",
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 1.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.501,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -55,12 +57,16 @@
                     "Intervention_Name": "NodeLevelHealthTriggeredIV",
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
-                    "Property_Restrictions": [
-                        "Risk:HIGH"
+                    "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [
+                        {
+                            "Risk": "HIGH"
+                        }
                     ],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "initial_coinfection_post_debut",
                         "STIDebut"
@@ -74,50 +80,53 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
-            "Event_Name": "Distributing coinfections to ['Risk:HIGH'] population at sexual debut and post debut.",
+            "Event_Name": "Distributing coinfections to [['Risk:HIGH']] population at sexual debut and post debut.",
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
                 "Demographic_Coverage": 1,
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
-                    "Cost_To_Consumer": 1,
+                    "Cost_To_Consumer": 0,
                     "Disqualifying_Properties": [],
                     "Dont_Allow_Duplicates": 0,
                     "Event_Or_Config": "Event",
                     "Intervention_Name": "STIIsPostDebut",
-                    "Negative_Diagnosis_Config": {},
-                    "Negative_Diagnosis_Event": "None",
+                    "Negative_Diagnosis_Event": "",
                     "New_Property_Value": "",
-                    "Positive_Diagnosis_Config": {},
                     "Positive_Diagnosis_Event": "initial_coinfection_post_debut",
                     "class": "STIIsPostDebut"
                 },
                 "Node_Property_Restrictions": [],
                 "Number_Repetitions": 1,
-                "Property_Restrictions": [
-                    "Risk:MEDIUM"
+                "Property_Restrictions": [],
+                "Property_Restrictions_Within_Node": [
+                    {
+                        "Risk": "MEDIUM"
+                    }
                 ],
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
-            "Event_Name": "Identifying initial ['Risk:MEDIUM'] post-debut population to target for coinfections",
+            "Event_Name": "Identifying initial [['Risk:MEDIUM']] post-debut population to target for coinfections",
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 1.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.501,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -139,12 +148,16 @@
                     "Intervention_Name": "NodeLevelHealthTriggeredIV",
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
-                    "Property_Restrictions": [
-                        "Risk:MEDIUM"
+                    "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [
+                        {
+                            "Risk": "MEDIUM"
+                        }
                     ],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "initial_coinfection_post_debut",
                         "STIDebut"
@@ -158,50 +171,53 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
-            "Event_Name": "Distributing coinfections to ['Risk:MEDIUM'] population at sexual debut and post debut.",
+            "Event_Name": "Distributing coinfections to [['Risk:MEDIUM']] population at sexual debut and post debut.",
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
                 "Demographic_Coverage": 1,
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
-                    "Cost_To_Consumer": 1,
+                    "Cost_To_Consumer": 0,
                     "Disqualifying_Properties": [],
                     "Dont_Allow_Duplicates": 0,
                     "Event_Or_Config": "Event",
                     "Intervention_Name": "STIIsPostDebut",
-                    "Negative_Diagnosis_Config": {},
-                    "Negative_Diagnosis_Event": "None",
+                    "Negative_Diagnosis_Event": "",
                     "New_Property_Value": "",
-                    "Positive_Diagnosis_Config": {},
                     "Positive_Diagnosis_Event": "initial_coinfection_post_debut",
                     "class": "STIIsPostDebut"
                 },
                 "Node_Property_Restrictions": [],
                 "Number_Repetitions": 1,
-                "Property_Restrictions": [
-                    "Risk:LOW"
+                "Property_Restrictions": [],
+                "Property_Restrictions_Within_Node": [
+                    {
+                        "Risk": "LOW"
+                    }
                 ],
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
-            "Event_Name": "Identifying initial ['Risk:LOW'] post-debut population to target for coinfections",
+            "Event_Name": "Identifying initial [['Risk:LOW']] post-debut population to target for coinfections",
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 1.001,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.501,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -223,12 +239,16 @@
                     "Intervention_Name": "NodeLevelHealthTriggeredIV",
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
-                    "Property_Restrictions": [
-                        "Risk:LOW"
+                    "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [
+                        {
+                            "Risk": "LOW"
+                        }
                     ],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "initial_coinfection_post_debut",
                         "STIDebut"
@@ -242,15 +262,16 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
-            "Event_Name": "Distributing coinfections to ['Risk:LOW'] population at sexual debut and post debut.",
+            "Event_Name": "Distributing coinfections to [['Risk:LOW']] population at sexual debut and post debut.",
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 1,
-            "class": "CampaignEvent"
+            "Start_Year": 1960.5,
+            "class": "CampaignEventByYear"
         }
     ],
     "Use_Defaults": 1

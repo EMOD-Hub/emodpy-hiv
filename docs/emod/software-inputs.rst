@@ -50,7 +50,7 @@ Input file IDs
 ==============
 
 The |IDM_l| provides collections of climate and demographics files for many different locations in
-the world for download on GitHub. For instructions, see :doc:`install-overview`.  Some input files
+the world for download on GitHub. Some input files
 were prepared using CIESIN Gridded Population of the World (GPW) population distribution and a
 corresponding spatial resolution grid (for example, 2.5 arc minutes) to define the initial
 population and extent of the nodes for country-wide input files. Therefore, the naming convention

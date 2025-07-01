@@ -1,7 +1,7 @@
 from typing import Dict
 
 from emod_api.demographics.Updateable import Updateable
-from emod_api.utils import Distributions
+from emodpy.utils.distributions import WeibullDistribution
 
 from emodpy_hiv.demographics.condom_usage_parameters import CondomUsageParameters
 
@@ -10,17 +10,17 @@ class RelationshipParameters(Updateable):
     def __init__(self,
                  condom_usage: CondomUsageParameters = None,
                  coital_act_rate: float = 0,
-                 duration: Dict = None):
+                 duration: WeibullDistribution = None):
         """
         A RelationshipParameters object defines basic attributes such as relationship duration, what happens if one
-        member of a relationship migrates, and condom usage.
-
-        https://docs.idmod.org/projects/emod-hiv/en/latest/parameter-demographics.html#relationship-parameters
+        member of a relationship migrates, and condom usage. Only WeibullDistribution durations are accepted by EMOD.
 
         Args:
-            condom_usage: a CondomUsageParameters object defining condom usage over time
-            coital_act_rate: the probability of a coital act occurring at each time step
-            duration: a (weibull) duration dict used for determining relationship duration
+            condom_usage: (CondomUsageParameters) (optional) a CondomUsageParameters object defining condom usage over
+                time
+            coital_act_rate: (float) (optional) the number of coital acts per day in a relationship. Default is 0.
+            duration: (WeibullDistribution) (optional) a weibull distribution used for determining relationship duration
+                in days (default is a WeibullDistribution with lambda and kappa values of 0.1)
         """
         super().__init__()
         self.condom_usage = condom_usage if condom_usage is not None else CondomUsageParameters()
@@ -29,19 +29,16 @@ class RelationshipParameters(Updateable):
         self.migration_actions = ["TERMINATE"]
         self.migration_actions_distribution = [1.0]
 
-        # TODO: consider, is it ok for this to NOT be an Updateable? Or should the two contained params just be part of RelationshipParameters?
-        default_duration = Distributions.weibull(weibull_lambda=0, weibull_kappa=0)
+        default_duration = WeibullDistribution(weibull_lambda=0.1, weibull_kappa=0.1)
         self.duration = duration if duration is not None else default_duration
-        if self.duration['Distribution'] != 'WEIBULL_DISTRIBUTION':
-            raise ValueError(f"Only weibull distributed relationship durations accepted. "
-                             f"Received: {self.duration['Distribution']}")
 
     def to_dict(self) -> Dict:
+        duration_heterogeneity = self.duration.weibull_kappa ** -1
         parameters = {
             'Condom_Usage_Probability': self.condom_usage.to_dict(),
             'Coital_Act_Rate': self.coital_act_rate,
-            'Duration_Weibull_Scale': self.duration['Lambda'],
-            'Duration_Weibull_Heterogeneity': self.duration['Kappa'] ** -1,
+            'Duration_Weibull_Scale': self.duration.weibull_lambda,
+            'Duration_Weibull_Heterogeneity': duration_heterogeneity,
             'Migration_Actions': self.migration_actions,
             'Migration_Actions_Distribution': self.migration_actions_distribution
         }
@@ -50,6 +47,6 @@ class RelationshipParameters(Updateable):
     @classmethod
     def from_dict(cls, d: Dict) -> '__class__':
         condom_usage = CondomUsageParameters.from_dict(d=d['Condom_Usage_Probability'])
-        duration = Distributions.weibull(weibull_lambda=d['Duration_Weibull_Scale'],
-                                         weibull_kappa=d['Duration_Weibull_Heterogeneity'])
+        kappa = 0 if d['Duration_Weibull_Heterogeneity'] == 0 else d['Duration_Weibull_Heterogeneity'] ** -1
+        duration = WeibullDistribution(weibull_lambda=d['Duration_Weibull_Scale'], weibull_kappa=kappa)
         return cls(condom_usage=condom_usage, coital_act_rate=d['Coital_Act_Rate'], duration=duration)

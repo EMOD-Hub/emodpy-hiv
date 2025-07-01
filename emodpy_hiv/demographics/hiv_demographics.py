@@ -1,69 +1,53 @@
 """
 This module contains the classes and functions for creating demographics files
 for HIV simulations. For more information on |EMOD_s| demographics files,
-see :doc:`emod/software-demographics`. 
+see :doc:`emod-hiv:emod/software-demographics`.
 """
-import math
-
 import pandas as pd
 
-from typing import List, Union
+from typing import List
 
-from emod_api.demographics import Demographics as demographics_module
-from emod_api.demographics import DemographicsTemplates as dt
-from emod_api.demographics.Demographics import Demographics
-from emod_api.demographics.DemographicsTemplates import YearlyRate
-from emod_api.demographics.PropertiesAndAttributes import IndividualAttributes, IndividualProperty, IndividualProperties
+from emod_api.demographics.fertility_distribution import FertilityDistribution
+from emodpy.demographics.demographics import Demographics
+from emod_api.demographics.PropertiesAndAttributes import IndividualProperty
+from emodpy.utils.distributions import UniformDistribution
 
 from emodpy_hiv.demographics import DemographicsTemplates as hiv_dt
 from emodpy_hiv.demographics.assortivity import Assortivity
 from emodpy_hiv.demographics.hiv_node import HIVNode
 from emodpy_hiv.demographics.society import Society
+from emodpy_hiv.demographics.year_age_rate import YearAgeRate
 
 
 class HIVDemographics(Demographics):
     def __init__(self, nodes: List[HIVNode], default_society_template: str = None):
         """
-        This class is derived from :py:class:`emod_api:emod_api.demographics.Demographics.Demographics` adding HIV-
+        This class is derived from :py:class:`emodpy:emodpy.demographics.demographics.Demographics` adding HIV-
         specific features and sets certain defaults for HIV in construction.
 
         Args:
             nodes: A list of (non-Default) HIVNode objects
             default_society_template: society template name for loading initial society information. Will apply
-                to the Default node.
+                to the Default node. Default society template is 'PFA-Southern-Africa'.
 
         Returns:
             an HIVDemographics object
          """
         # we need to generate the default node before calling super() because we need it to be an HIVNode, not Node
-        if default_society_template is None:
-            society_dict = hiv_dt.get_default_society_dict()
-        else:
-            society_dict = hiv_dt.get_society_dict(society_name=default_society_template)
+        society_dict = hiv_dt.get_society_dict(society_name=default_society_template)
         society = Society.from_dict(d=society_dict)
         default_node = HIVNode(name='Default', lat=0, lon=0, pop=0, forced_id=0, society=society)
 
         super().__init__(nodes=nodes, idref="EMOD-HIV world", default_node=default_node)
-        # TODO: cut-paste this into emod-api DemographicsBase constructor (when default_node is not None)
-        #  https://github.com/InstituteforDiseaseModeling/emod-api/issues/699
 
         # default individual properties for HIV
-        # Note: copied from PFA-Southern-Africa society, we are assuming Risk-based assortivity
+        # We are assuming Risk-based assortivity
         self.add_or_update_initial_risk_distribution(distribution=[0.6669671396606822, 0.3330328603393178, 0])
 
         # default individual attributes for HIV
-
-        # TODO: THIS is the problem ... altering the age distribution LATER does NOT unset these!
-        #  https://github.com/InstituteforDiseaseModeling/emod-api/issues/705
         # Uniform age distribution by default
-        default_node.individual_attributes.age_distribution_flag = 1
-        default_node.individual_attributes.age_distribution1 = 0
-        default_node.individual_attributes.age_distribution2 = 18250
-
-        # no initial prevalence by default
-        # TODO: not currently supported in emod-api directly, update when it is
-        #  https://github.com/InstituteforDiseaseModeling/emod-api/issues/700
-        default_node.individual_attributes.parameter_dict.update({'InitialPrevalence': 0})
+        initial_age_distribution = UniformDistribution(uniform_min=0, uniform_max=18250)
+        self.set_age_distribution(distribution=initial_age_distribution)
 
         # Node attributes copied from Demographics.SetDefaultNodeAttributes (which uses self.raw, which cannot
         #   be used with HIVDemographics). These may or may not be needed by HIV.
@@ -71,88 +55,31 @@ class HIVDemographics(Demographics):
         default_node.node_attributes.airport = 1
         default_node.node_attributes.region = 1
         default_node.node_attributes.seaport = 1
-        default_birth_rate = YearlyRate(math.log(1.03567))
-        self.SetBirthRate(birth_rate=default_birth_rate, node_ids=[None])
-
-        # TODO: total workaround emod-api DemographicsBase class setting this up for raw not objects
-        self.metadata = self.generate_headers()
 
     @property
     def raw(self):
-        raise AttributeError(f"raw is not a valid attribute for HIVDemographics objects")
+        raise AttributeError("raw is not a valid attribute for HIVDemographics objects")
 
     @raw.setter
     def raw(self, value):
-        raise AttributeError(f"raw is not a valid attribute for HIVDemographics objects")
+        raise AttributeError("raw is not a valid attribute for HIVDemographics objects")
 
-    # TODO: push into superclass (emod-api Demographics) if able to safely
-    #  https://github.com/InstituteforDiseaseModeling/emodpy-hiv/issues/207
-    def set_fertility(self, path_to_csv: str, node_ids: List[int] = None) -> None:
+    def set_fertility_distribution(self,
+                                   distribution: FertilityDistribution,
+                                   node_ids: List[int] = None) -> None:
         """
-        Set fertility based on data to the selected node(s). Simulation shall consist of individual pregnancies with
-        rates by woman's age and year-of-simulation using data from provided csv. Bilinear interpolation is performed
-        between supplied data points.
-
+        Sets a fertility distribution on the demographics object. Automatically handles any necessary config updates.
         Args:
-            path_to_csv: path to csv file to load data from
-            node_ids: the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
-
+            distribution: The distribution to set. Must be a FertilityDistribution object for a complex distribution.
+            node_ids: The node id(s) to apply changes to. None or 0 means the default node.
         Returns:
-            None
+            Nothing
         """
-        distribution_dict = dt.get_fert_dist(path_to_csv, verbose=False)['FertilityDistribution']
-        fertility = IndividualAttributes.FertilityDistribution()
-        fertility = fertility.from_dict(fertility_distribution=distribution_dict)
-        nodes = self.get_nodes_by_id(node_ids=node_ids).values()
-        for node in nodes:
-            node._set_fertility_distribution(distribution=fertility)
-        self.implicits.append(dt._set_fertility_age_year)
-
-    # TODO: push into superclass (emod-api Demographics) if able to safely
-    #  https://github.com/InstituteforDiseaseModeling/emodpy-hiv/issues/207
-    def set_mortality(self,
-                      file_male: str,
-                      file_female: str,
-                      node_ids: List[int] = None,
-                      interval_fit: List[Union[int, float]] = None,
-                      which_point: str = 'mid',
-                      predict_horizon: Union[int, float] = 2050,
-                      csv_out: bool = False,
-                      results_scale_factor: float = 1.0/365.0) -> None:
-        """
-        Adds male and female non-disease-mortality to the selected node(s). Non-disease-mortality is estimated using the
-        supplied raw data and arguments.
-
-        Args:
-            file_male: path to csv file to load raw male data from
-            file_female: path to csv file to load raw female data from
-            node_ids: the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
-            interval_fit: A list of two years, [start, end] , defining a period of used as a 'non-disease-timeframe'
-                during the non-disease-mortality calculation
-            which_point: controls mapping of supplied timeframes to 'start', 'end', or 'mid'-points of the timeframes
-            predict_horizon: mortality will be computed and set through this specified year
-            csv_out: Writes out diagnostic files if set to True
-            results_scale_factor: Daily data conversion factor: supplied_mortality * factor = daily_mortality
-
-        Returns:
-            None
-        """
-        female_dict, male_dict = self.infer_natural_mortality(file_male,
-                                                              file_female,
-                                                              interval_fit=interval_fit,
-                                                              which_point=which_point,
-                                                              predict_horizon=predict_horizon,
-                                                              csv_out=csv_out,
-                                                              results_scale_factor=results_scale_factor)
-        female_mortality = IndividualAttributes.MortalityDistribution()
-        female_mortality = female_mortality.from_dict(mortality_distribution=female_dict)
-        male_mortality = IndividualAttributes.MortalityDistribution()
-        male_mortality = male_mortality.from_dict(mortality_distribution=male_dict)
-        nodes = self.get_nodes_by_id(node_ids=node_ids).values()
-        for node in nodes:
-            node._set_mortality_distribution_female(distribution=female_mortality)
-            node._set_mortality_distribution_male(distribution=male_mortality)
-        self.implicits.append(dt._set_mortality_age_gender_year)
+        from emod_api.demographics.DemographicsTemplates import _set_fertility_age_year
+        self._set_distribution(distribution=distribution,
+                               use_case='fertility',
+                               complex_distribution_implicits=[_set_fertility_age_year],
+                               node_ids=node_ids)
 
     def set_concurrency_params_by_type_and_risk(self, relationship_type: str, risk_group: str,
                                                 max_simul_rels_male: float = None, max_simul_rels_female: float = None,
@@ -341,27 +268,8 @@ class HIVDemographics(Demographics):
         self._add_or_update_individual_property_distribution(property_name=property, values=values,
                                                              distribution=distribution, node_ids=node_ids)
 
-    # TODO: push into superclass (emod-api Demographics) if able to safely
-    #  https://github.com/InstituteforDiseaseModeling/emod-api/issues/687
-    def SetAgeDistribution(self, distribution: IndividualAttributes.AgeDistribution,
-                           node_ids: List[int] = None) -> None:
-        """
-        Set the default age distribution for the specified node(s).
-
-        Args:
-            distribution: age distribution information to set.
-            node_ids: the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
-
-        Returns:
-            None
-        """
-        for node in self.get_nodes_by_id(node_ids=node_ids).values():
-            node._set_age_distribution(distribution=distribution)
-        self.implicits.append(dt._set_age_complex)
-
-
-    def AddIndividualPropertyAndHINT(self, Property: str, Values: List[str], InitialDistribution:List[float] = None,
-                                     TransmissionMatrix:List[List[float]] = None, Transitions: List = None,
+    def AddIndividualPropertyAndHINT(self, Property: str, Values: List[str], InitialDistribution: List[float] = None,
+                                     TransmissionMatrix: List[List[float]] = None, Transitions: List = None,
                                      node_ids: List[int] = None, overwrite_existing: bool = False) -> None:
         """
         Add Individual Properties, including an optional HINT configuration matrix.
@@ -428,24 +336,6 @@ class HIVDemographics(Demographics):
                 return config
             self.implicits.append(update_config)
 
-    # TODO: test this new version
-    def to_dict(self):
-        demographics = {'Nodes': [], 'Metadata': self.metadata}
-
-        # TODO: refactor this when emod-api Node.to_dict() is fixed, to be more simply:
-        #  demographics['Nodes'] = [node.to_dict() for node in self.nodes]
-        #  https://github.com/InstituteforDiseaseModeling/emod-api/issues/702
-        node_info = []
-        for node in self.nodes:
-            node_dict = node.to_dict()
-            node_dict.update(node.meta)
-            node_info.append(node_dict)
-        demographics['Nodes'] = node_info
-
-        demographics['Defaults'] = self.default_node.to_dict()
-        demographics["Metadata"]["NodeCount"] = len(self.nodes)
-        return demographics
-
     @classmethod
     def from_population_dataframe(cls, df: pd.DataFrame, default_society_template: str = None) -> '__class__':
         """
@@ -463,7 +353,7 @@ class HIVDemographics(Demographics):
         Args:
             df: data for initializing the nodes of an
             default_society_template: society template name for loading initial society information. Will apply
-                to the Default node.
+                to the Default node. Default society template is 'PFA-Southern-Africa'.
 
         Returns:
             an HIVDemographics object
@@ -497,7 +387,7 @@ class HIVDemographics(Demographics):
                 identifying feature or value.
             forced_id: The node ID for the single node.
             default_society_template: society template name for loading initial society information. Will apply
-                to the Default node.
+                to the Default node. Default society template is 'PFA-Southern-Africa'.
 
         Returns:
             An HIVDemographics object
@@ -505,7 +395,7 @@ class HIVDemographics(Demographics):
         new_nodes = [HIVNode(lat=lat, lon=lon, pop=pop, name=name, forced_id=forced_id)]
         return cls(nodes=new_nodes, default_society_template=default_society_template)
 
-    # Disabling these functions (from the super-class, Demographics, to avoid having to test them as there is no
+    # Disabling these functions (from the super-classes, to avoid having to test them as there is no
     # current workflow using these routes in initialization.
 
     @classmethod
@@ -514,9 +404,6 @@ class HIVDemographics(Demographics):
         This method of building demographics is not available for HIVDemographics
         """
         raise NotImplemented('This method of building demographics is not available for HIVDemographics')
-        generic_demog = demographics_module.from_pop_raster_csv(pop_filename_in=pop_filename_in, pop_filename_out=pop_filename_out, site=site)
-        nodes = generic_demog.nodes
-        return cls(nodes=nodes, idref=site)
 
     @classmethod
     def from_params(cls):
@@ -524,6 +411,56 @@ class HIVDemographics(Demographics):
         This method of building demographics is not available for HIVDemographics
         """
         raise NotImplemented('This method of building demographics is not available for HIVDemographics')
-        generic_demog = demographics_module.from_params(tot_pop, num_nodes, frac_rural, id_ref)
-        nodes = generic_demog.nodes
-        return cls(nodes=nodes, idref=id_ref)
+
+    @classmethod
+    def from_year_age_rate_data(cls,
+                                pop_df:               pd.DataFrame,  # noqa: E241 - node_id, name, population
+                                age_distribution_yar: YearAgeRate,
+                                fertility_yar:        YearAgeRate,   # noqa: E241
+                                male_mortality_yar:   YearAgeRate,   # noqa: E241
+                                female_mortality_yar: YearAgeRate,
+                                society: Society = None):
+        """
+        Create an HIVDemographics object using YearAgeRate data for the initial age distribution,
+        fertility, and mortality.
+
+        Args:
+            pop_df: A pandas dataframe with columns "node_id", "name", and "population" where:
+                "node_id" is an unsigned integer ranging from 1 to  4,294,967,295
+                "name" is a string that one can use when creating the demographics
+                "population" is an unsigned integer ranging from 0 to  4,294,967,295
+            age_distribution_yar: A YearAgeRate object containing data for the ages of the
+                initial population
+            fertility_yar: A YearAgeRate object containing the fertility rates to use during
+                the simulation
+            male_mortality_yar: A YearAgeRate object containing the male mortality rates to use
+                during the simulation
+            female_mortality_yar: A YearAgeRate object containing the fwmale mortality rates to use
+                during the simulation
+            society: A Society object defining how people form relationships and have coital acts.
+                Defaults to None (to be set later).
+
+        Returns:
+            An HIVDemographics object
+        """
+        demog = cls.from_population_dataframe(df=pop_df)
+
+        age_dist_list = age_distribution_yar.to_age_distributions()
+        for node_id, age_dist in age_dist_list:
+            demog.set_age_distribution(distribution=age_dist, node_ids=[node_id])
+
+        fert_dist_list = fertility_yar.to_fertility_distributions()
+        for node_id, fert_dist in fert_dist_list:
+            demog.set_fertility_distribution(distribution=fert_dist, node_ids=[node_id])
+
+        male_mort_dist_dict = male_mortality_yar.to_mortality_distributions()
+        female_mort_dist_dict = female_mortality_yar.to_mortality_distributions()
+        for node_id, male_mort_dist in male_mort_dist_dict.items():
+            demog.set_mortality_distribution(distribution_male=male_mort_dist,
+                                             distribution_female=female_mort_dist_dict[node_id],
+                                             node_ids=[node_id])
+
+        if society:
+            demog.society = society
+
+        return demog

@@ -1,15 +1,47 @@
 import os.path
-import shutil
 import unittest
 import json
 import difflib
 import math
 import pandas as pd
+import sys
+from pathlib import Path
 
-from emodpy_hiv.campaign.coc import *
+from emodpy_hiv.campaign.cascade_of_care import CascadeState
+from emodpy_hiv.campaign.cascade_of_care import timestep_from_year
+from emodpy_hiv.campaign.cascade_of_care import convert_time_value_map
+from emodpy_hiv.campaign.cascade_of_care import all_negative_time_value_map
+from emodpy_hiv.campaign.cascade_of_care import add_state_TestingOnSymptomatic
+from emodpy_hiv.campaign.cascade_of_care import add_state_ARTStagingDiagnosticTest
+from emodpy_hiv.campaign.cascade_of_care import add_state_ARTStaging
+from emodpy_hiv.campaign.cascade_of_care import add_state_LinkingToPreART
+from emodpy_hiv.campaign.cascade_of_care import add_state_OnPreART
+from emodpy_hiv.campaign.cascade_of_care import add_state_LinkingToART
+from emodpy_hiv.campaign.cascade_of_care import add_state_OnART
+from emodpy_hiv.campaign.cascade_of_care import add_state_LostForever
+from emodpy_hiv.campaign.cascade_of_care import add_state_HCTUptakeAtDebut
+from emodpy_hiv.campaign.cascade_of_care import add_state_HCTUptakePostDebut
+from emodpy_hiv.campaign.cascade_of_care import add_state_HCTTestingLoop
+from emodpy_hiv.campaign.cascade_of_care import add_state_TestingOnANC
+from emodpy_hiv.campaign.cascade_of_care import add_state_TestingOnChild6w
+from emodpy_hiv.campaign.cascade_of_care import add_post_debut_coinfection
+from emodpy_hiv.campaign.cascade_of_care import add_csw
+from emodpy_hiv.campaign.cascade_of_care import add_traditional_male_circumcision
+from emodpy_hiv.campaign.cascade_of_care import add_vmmc_reference_tracking
+from emodpy_hiv.campaign.cascade_of_care import add_health_care_testing
+from emodpy_hiv.campaign.cascade_of_care import add_pmtct
+from emodpy_hiv.campaign.cascade_of_care import seed_infections
+from emodpy_hiv.campaign.cascade_of_care import add_historical_vmmc_nchooser
+from emodpy_hiv.campaign.cascade_of_care import add_ART_cascade
+
+manifest_directory = Path(__file__).resolve().parent.parent.parent
+sys.path.append(str(manifest_directory))
+import manifest
+
+from emodpy_hiv.campaign.common import TargetGender
+
 
 from emod_api import campaign as camp
-from emod_hiv import bootstrap
 
 
 NODE_SETS = {
@@ -37,6 +69,9 @@ output_folder = os.path.join(current_folder, 'coc_output')
 
 
 class TestCampaignMethods(unittest.TestCase):
+    def setUp(self):
+        print(f"running test: {self._testMethodName}:")
+
     def test_timestep_from_year(self):
         self.assertEqual(timestep_from_year(1991, 1990), 365)
         self.assertEqual(timestep_from_year(1990, 1990), 0)
@@ -49,14 +84,14 @@ class TestCampaignMethods(unittest.TestCase):
 
 
 class TestAddStateFunctions(unittest.TestCase):
+    is_debugging = False
+
     @classmethod
     def setUpClass(cls):
-        bootstrap.setup('./executables')
-        cls.executable = './executables/Eradication'
         cls.camp = camp
-        cls.camp.schema_path = './executables/schema.json'
+        cls.camp.schema_path = manifest.schema_path
         cls.camp.base_year = 1960.5
-        cls.art_cascade_start_day = timestep_from_year(1990, cls.camp.base_year)
+        cls.art_cascade_start_year = 1990
         cls.output_dir = output_folder
         if not os.path.isdir(cls.output_dir):
             # shutil.rmtree(cls.output_dir)
@@ -64,9 +99,16 @@ class TestAddStateFunctions(unittest.TestCase):
 
     def setUp(self):
         self.camp.reset()
+        self.output_filename = None
+        print(f"running test: {self._testMethodName}:")
+
+    def tearDown(self):
+        if self.output_filename and os.path.exists(self.output_filename) and not self.is_debugging:
+            os.remove(self.output_filename)
 
     def save_json_with_expected_exception(self, file_name):
         file_path = os.path.join(self.output_dir, f'{file_name}.json')
+        self.output_filename = file_path
         if os.path.isfile(file_path):
             os.remove(file_path)
         try:
@@ -80,9 +122,10 @@ class TestAddStateFunctions(unittest.TestCase):
         if os.path.isfile(file_path):
             os.remove(file_path)
         self.camp.save(os.path.join(file_path))
+        self.output_filename = file_path
 
     def compare_json(self, json1, json2):
-        if type(json1) != type(json2):
+        if type(json1) != type(json2): # noqa: E721
             return False
 
         if isinstance(json1, dict):
@@ -135,7 +178,7 @@ class TestAddStateFunctions(unittest.TestCase):
         add_state_TestingOnSymptomatic(campaign=self.camp,
                                        node_ids=None,
                                        disqualifying_properties=disqualifying_properties_plus_art_staging,
-                                       start_day=self.art_cascade_start_day,
+                                       start_year=self.art_cascade_start_year,
                                        tvmap_increased_symptomatic_presentation=all_negative_time_value_map)
         file_name = 'TestingOnSymptomatic'
         self.save_json_no_exception(file_name)
@@ -150,7 +193,7 @@ class TestAddStateFunctions(unittest.TestCase):
         add_state_ARTStagingDiagnosticTest(campaign=self.camp,
                                            node_ids=None,
                                            disqualifying_properties=disqualifying_properties,
-                                           start_day=self.art_cascade_start_day)
+                                           start_year=self.art_cascade_start_year)
         file_name = 'ARTStagingDiagnosticTest'
         self.save_json_with_expected_exception(file_name)
         self.assertTrue(self.compare_json_files(file_name), f'{file_name}.json is not the same as the regression file.')
@@ -168,7 +211,7 @@ class TestAddStateFunctions(unittest.TestCase):
                              pre_staging_retention=art_cascade_pre_staging_retention,
                              node_ids=None,
                              disqualifying_properties=disqualifying_properties,
-                             start_day=self.art_cascade_start_day)
+                             start_year=self.art_cascade_start_year)
         file_name = 'ARTStaging'
         self.save_json_with_expected_exception(file_name)
         self.assertTrue(self.compare_json_files(file_name), f'{file_name}.json is not the same as the regression file.')
@@ -181,7 +224,7 @@ class TestAddStateFunctions(unittest.TestCase):
         add_state_LinkingToPreART(campaign=self.camp,
                                   node_ids=None,
                                   disqualifying_properties=disqualifying_properties_pre_art_linking,
-                                  start_day=self.art_cascade_start_day)
+                                  start_year=self.art_cascade_start_year)
         file_name = 'LinkingToPreART'
         self.save_json_with_expected_exception(file_name)
         self.assertTrue(self.compare_json_files(file_name), f'{file_name}.json is not the same as the regression file.')
@@ -195,7 +238,7 @@ class TestAddStateFunctions(unittest.TestCase):
                            node_ids=None,
                            pre_art_retention=art_cascade_pre_art_retention,
                            disqualifying_properties=disqualifying_properties_pre_art,
-                           start_day=self.art_cascade_start_day)
+                           start_year=self.art_cascade_start_year)
         file_name = 'OnPreART'
         self.save_json_with_expected_exception(file_name)
         self.assertTrue(self.compare_json_files(file_name), f'{file_name}.json is not the same as the regression file.')
@@ -205,7 +248,7 @@ class TestAddStateFunctions(unittest.TestCase):
         add_state_LinkingToART(campaign=self.camp,
                                node_ids=None,
                                disqualifying_properties=art_linking_disqualifying_properties,
-                               start_day=self.art_cascade_start_day)
+                               start_year=self.art_cascade_start_year)
         file_name = 'LinkingToART'
         self.save_json_with_expected_exception(file_name)
         self.assertTrue(self.compare_json_files(file_name), f'{file_name}.json is not the same as the regression file.')
@@ -219,7 +262,7 @@ class TestAddStateFunctions(unittest.TestCase):
                         immediate_art_rate=art_cascade_immediate_art_rate,
                         node_ids=None,
                         disqualifying_properties=disqualifying_properties_art,
-                        start_day=self.art_cascade_start_day,
+                        start_year=self.art_cascade_start_year,
                         tvmap_immediate_ART_restart=all_negative_time_value_map,
                         tvmap_reconsider_lost_forever=all_negative_time_value_map)
         file_name = 'OnART'
@@ -227,7 +270,7 @@ class TestAddStateFunctions(unittest.TestCase):
         self.assertTrue(self.compare_json_files(file_name), f'{file_name}.json is not the same as the regression file.')
 
     def test_LostForever(self):
-        add_state_LostForever(campaign=self.camp, node_ids=None, start_day=self.art_cascade_start_day)
+        add_state_LostForever(campaign=self.camp, node_ids=None, start_year=self.art_cascade_start_year)
         file_name = 'LostForever'
         self.save_json_with_expected_exception(file_name)
         self.assertTrue(self.compare_json_files(file_name), f'{file_name}.json is not the same as the regression file.')
@@ -243,7 +286,7 @@ class TestAddStateFunctions(unittest.TestCase):
         add_state_HCTUptakeAtDebut(campaign=self.camp,
                                    disqualifying_properties=disqualifying_properties,
                                    node_ids=None,
-                                   start_day=self.art_cascade_start_day)
+                                   start_year=self.art_cascade_start_year)
         file_name = 'HCTUptakeAtDebut'
         self.save_json_with_expected_exception(file_name)
         self.assertTrue(self.compare_json_files(file_name), f'{file_name}.json is not the same as the regression file.')
@@ -260,7 +303,7 @@ class TestAddStateFunctions(unittest.TestCase):
                                      disqualifying_properties=disqualifying_properties,
                                      node_ids=None,
                                      hct_reentry_rate=hct_reentry_rate,
-                                     start_day=self.art_cascade_start_day,
+                                     start_year=self.art_cascade_start_year,
                                      tvmap_test_for_enter_HCT_testing_loop=all_negative_time_value_map)
         file_name = 'HCTUptakePostDebut'
         self.save_json_with_expected_exception(file_name)
@@ -282,7 +325,7 @@ class TestAddStateFunctions(unittest.TestCase):
                                  hct_delay_to_next_test=hct_delay_to_next_test,
                                  node_ids=None,
                                  hct_retention_rate=hct_retention_rate,
-                                 start_day=self.art_cascade_start_day,
+                                 start_year=self.art_cascade_start_year,
                                  tvmap_consider_immediate_ART=all_negative_time_value_map,
                                  hct_delay_to_next_test_node_ids=hct_delay_to_next_test_node_ids,
                                  hct_delay_to_next_test_node_names=hct_delay_to_next_test_node_names)
@@ -300,35 +343,35 @@ class TestAddStateFunctions(unittest.TestCase):
                                     CascadeState.TESTING_ON_SYMPTOMATIC]
         property_restrictions = 'Accessibility:Yes'
         pmtct_coverage = 1.0
-        pmtct_sigmoid_ramp_min = 0
-        pmtct_sigmoid_ramp_max = 0.975
-        pmtct_sigmoid_ramp_midyear = 2005.87
-        pmtct_sigmoid_ramp_rate = 0.7136
+        pmtct_sigmoid_min = 0
+        pmtct_sigmoid_max = 0.975
+        pmtct_sigmoid_midyear = 2005.87
+        pmtct_sigmoid_rate = 0.7136
         pmtct_link_to_ART_rate = 0.8
         treatment_a_efficacy = 0.9
         treatment_b_efficacy = 0.96667
-        sdNVP_efficacy= 0.66
+        sdNVP_efficacy = 0.66
 
         add_state_TestingOnANC(campaign=self.camp,
                                disqualifying_properties=disqualifying_properties,
                                coverage=pmtct_coverage,
                                link_to_ART_rate=pmtct_link_to_ART_rate,
                                node_ids=None,
-                               sigmoid_ramp_max=pmtct_sigmoid_ramp_max,
-                               sigmoid_ramp_midyear=pmtct_sigmoid_ramp_midyear,
-                               sigmoid_ramp_min=pmtct_sigmoid_ramp_min,
-                               sigmoid_ramp_rate=pmtct_sigmoid_ramp_rate,
+                               sigmoid_min=pmtct_sigmoid_min,
+                               sigmoid_max=pmtct_sigmoid_max,
+                               sigmoid_midyear=pmtct_sigmoid_midyear,
+                               sigmoid_rate=pmtct_sigmoid_rate,
                                treatment_a_efficacy=treatment_a_efficacy,
                                treatment_b_efficacy=treatment_b_efficacy,
                                sdNVP_efficacy=sdNVP_efficacy,
-                               start_day=self.art_cascade_start_day,
+                               start_year=self.art_cascade_start_year,
                                property_restrictions=property_restrictions)
         file_name = 'TestingOnANC'
         self.save_json_no_exception('TestingOnANC')
         self.assertTrue(self.compare_json_files(file_name), f'{file_name}.json is not the same as the regression file.')
 
     def test_TestingOnChild6w(self):
-        child_testing_start_day = timestep_from_year(2004, self.camp.base_year)
+        child_testing_start_year = 2004
         property_restrictions = 'Accessibility:Yes'
         pmtct_child_testing_time_value_map = {"Times": [2004, 2005, 2006, 2008, 2009], "Values": [0, 0.03, 0.1, 0.2, 0.3365]}
         disqualifying_properties = [CascadeState.LOST_FOREVER,
@@ -339,7 +382,7 @@ class TestAddStateFunctions(unittest.TestCase):
                                     CascadeState.ART_STAGING,
                                     CascadeState.TESTING_ON_SYMPTOMATIC]
         add_state_TestingOnChild6w(campaign=self.camp,
-                                   start_day=child_testing_start_day,
+                                   start_year=child_testing_start_year,
                                    disqualifying_properties=disqualifying_properties,
                                    time_value_map=pmtct_child_testing_time_value_map,
                                    node_ids=None,
@@ -352,17 +395,18 @@ class TestAddStateFunctions(unittest.TestCase):
         coinfection_high_risk_coverage = 0.3
         coinfection_medium_risk_coverage = 0.3
         coinfection_low_risk_coverage = 0.1
+        target_gender = TargetGender.ALL
         add_post_debut_coinfection(campaign=self.camp,
                                    coinfection_coverage=coinfection_high_risk_coverage,
-                                   coinfection_gender='All',
+                                   coinfection_gender=target_gender,
                                    coinfection_IP='Risk:HIGH')
         add_post_debut_coinfection(campaign=self.camp,
                                    coinfection_coverage=coinfection_medium_risk_coverage,
-                                   coinfection_gender='All',
+                                   coinfection_gender=target_gender,
                                    coinfection_IP='Risk:MEDIUM')
         add_post_debut_coinfection(campaign=self.camp,
                                    coinfection_coverage=coinfection_low_risk_coverage,
-                                   coinfection_gender='All',
+                                   coinfection_gender=target_gender,
                                    coinfection_IP='Risk:LOW')
         file_name = 'STI-co'
         self.save_json_no_exception(file_name)
@@ -388,7 +432,7 @@ class TestAddStateFunctions(unittest.TestCase):
     def test_add_traditional_male_circumcision(self):
         traditional_male_circumcision_reduced_acquire = 0.6
         coverages = [0.054978651, 0.139462861, 0.028676043, 0.091349358, 0.12318707, 0.039308099, 0.727917322,
-                    0.041105263, 0.044388102, 0.398239794]
+                     0.041105263, 0.044388102, 0.398239794]
         for i in range(len(coverages)):
             add_traditional_male_circumcision(campaign=self.camp,
                                               traditional_male_circumcision_node_ids=NODE_SETS[f'{i + 1}'],
@@ -429,7 +473,7 @@ class TestAddStateFunctions(unittest.TestCase):
         # the regression file is tested in the previous individual add_state_** tests
 
     def test_seed_infection(self):
-        seeding_target_gender = 'All'
+        seeding_target_gender = TargetGender.ALL
         seeding_target_property_restrictions = ["Risk:HIGH"]
 
         seed_infections(campaign=self.camp,

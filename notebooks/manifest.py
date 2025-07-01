@@ -35,4 +35,4 @@ assets_input_dir = "Assets"
 # This is a location for EMOD embedded python scripts.  Scripts included
 # here will be included in your simulation directory so that EMOD
 # can use them during the simulation.
-ep4_path = "embedded_python"
+embedded_python_scripts_path = "embedded_python"

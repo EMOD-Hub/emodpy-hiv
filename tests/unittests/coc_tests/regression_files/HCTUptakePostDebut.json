@@ -22,9 +22,11 @@
                 "Node_Property_Restrictions": [],
                 "Number_Repetitions": 1,
                 "Property_Restrictions": [],
+                "Property_Restrictions_Within_Node": [],
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -32,8 +34,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -49,7 +51,7 @@
                             1,
                             0
                         ],
-                        "Cost_To_Consumer": 1,
+                        "Cost_To_Consumer": 0,
                         "Disqualifying_Properties": [],
                         "Dont_Allow_Duplicates": 0,
                         "Intervention_Name": "HIVRandomChoice",
@@ -68,9 +70,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "HCTUptakePostDebut3",
                         "HCTUptakePostDebut9"
@@ -84,6 +88,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -91,8 +96,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -105,10 +110,8 @@
                         "Dont_Allow_Duplicates": 0,
                         "Event_Or_Config": "Event",
                         "Intervention_Name": "STIIsPostDebut",
-                        "Negative_Diagnosis_Config": {},
-                        "Negative_Diagnosis_Event": "None",
+                        "Negative_Diagnosis_Event": "",
                         "New_Property_Value": "",
-                        "Positive_Diagnosis_Config": {},
                         "Positive_Diagnosis_Event": "HCTUptakePostDebut1",
                         "class": "STIIsPostDebut"
                     },
@@ -124,9 +127,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "HCTUptakePostDebut0"
                     ],
@@ -139,6 +144,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -146,8 +152,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -188,12 +194,16 @@
                     "Intervention_Name": "NodeLevelHealthTriggeredIV",
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
-                    "Property_Restrictions": [
-                        "Accessibility:Yes"
+                    "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [
+                        {
+                            "Accessibility": "Yes"
+                        }
                     ],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "HCTUptakePostDebut1"
                     ],
@@ -206,6 +216,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -213,8 +224,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -255,12 +266,16 @@
                     "Intervention_Name": "NodeLevelHealthTriggeredIV",
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
-                    "Property_Restrictions": [
-                        "Accessibility:Yes"
+                    "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [
+                        {
+                            "Accessibility": "Yes"
+                        }
                     ],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "HCTUptakePostDebut2"
                     ],
@@ -273,6 +288,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -280,8 +296,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
@@ -309,8 +325,8 @@
                         "Positive_Diagnosis_Event": "HCTTestingLoop0",
                         "Time_Value_Map": {
                             "Times": [
-                                1990.0,
-                                2016.0
+                                1990,
+                                2016
                             ],
                             "Values": [
                                 0,
@@ -331,9 +347,11 @@
                     "New_Property_Value": "",
                     "Node_Property_Restrictions": [],
                     "Property_Restrictions": [],
+                    "Property_Restrictions_Within_Node": [],
                     "Target_Demographic": "Everyone",
                     "Target_Gender": "All",
                     "Target_Residents_Only": 0,
+                    "Targeting_Config": {},
                     "Trigger_Condition_List": [
                         "HCTUptakePostDebut7"
                     ],
@@ -346,6 +364,7 @@
                 "Target_Demographic": "Everyone",
                 "Target_Gender": "All",
                 "Target_Residents_Only": 0,
+                "Targeting_Config": {},
                 "Timesteps_Between_Repetitions": -1,
                 "class": "StandardInterventionDistributionEventCoordinator"
             },
@@ -353,8 +372,8 @@
             "Nodeset_Config": {
                 "class": "NodeSetAll"
             },
-            "Start_Day": 10767.0,
-            "class": "CampaignEvent"
+            "Start_Year": 1990,
+            "class": "CampaignEventByYear"
         }
     ],
     "Use_Defaults": 1

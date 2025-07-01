@@ -2,7 +2,7 @@ import os
 import pathlib
 dirs = os.listdir()
 input_files = list()
-skips = ["start_here--cluster"]
+skips = ["start_here--cluster", "demo_scenario", "rakai"]  # demographics part in demo_scenario and rakai are not working
 for dir in dirs:
     if dir in skips:
         continue

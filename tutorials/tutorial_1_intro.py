@@ -23,35 +23,37 @@ from idmtools.core.platform_factory import Platform
 from idmtools.entities.experiment import Experiment
 from idmtools.builders import SimulationBuilder
 
-import emodpy_hiv.emod_task as emod_task
-import emodpy_hiv.country_model as cm
+import emodpy.emod_task as emod_task
+import emodpy_hiv.countries.zambia.zambia as cm
 import manifest
 
 # Will make the warnings off by default in 2.0
 import emod_api.schema_to_class as s2c
+
 s2c.show_warnings = False
 
 
-def sweep_run_number( simulation, value ):
+def sweep_run_number(simulation, value):
     """
     This is a function used by the SimulationBuilder to sweep the parameter `Run_Number`.
     `Run_Number` is the random number seed to help us get different statistical 
     realizations of our scenario.
     """
     simulation.task.config.parameters.Run_Number = value
-    return { "Run_Number": value }
+    return {"Run_Number": value}
 
 
 def run_experiment():
-
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     # UPDATE - Select the correct Platform below
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    platform = Platform( "Calculon",
-                         node_group="idm_abcd",
-                         priority="Normal" )
+    platform = Platform('Container', job_directory="tutorial_output")
 
-    #platform = Platform( "SLURM_LOCAL",
+    # platform = Platform("Calculon",
+    #                     node_group="idm_abcd",
+    #                     priority="Normal")
+
+    # platform = Platform( "SLURM_LOCAL",
     #                     job_directory="experiments",
     #                     time="02:00:00",
     #                     partition="cpu_short",
@@ -60,28 +62,27 @@ def run_experiment():
     #                     max_running_jobs=1000000,
     #                     array_batch_size=1000000 )
 
-    zambia = cm.Zambia()
-    task = emod_task.EMODHIVTask.from_default(
-        eradication_path = manifest.eradication_path,
-        schema_path      = manifest.schema_file,
-        param_custom_cb  = zambia.build_config,
-        campaign_builder = zambia.build_campaign,
-        demog_builder    = zambia.build_demographics,
-        ep4_path         = None
+    zambia = cm.Zambia
+    task = emod_task.EMODTask.from_defaults(
+        eradication_path=manifest.eradication_path,
+        schema_path=manifest.schema_file,
+        config_builder=zambia.build_config,
+        campaign_builder=zambia.build_campaign,
+        demographics_builder=zambia.build_demographics
     )
 
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     # UPDATE- Select the following line given your platform
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    #task.set_sif( path_to_sif=manifest.sif_path, platform=platform ) # SLURM
-    task.set_sif( path_to_sif=manifest.sif_path ) # COMPS
+    # task.set_sif( path_to_sif=manifest.sif_path, platform=platform ) # SLURM
+    # task.set_sif(path_to_sif=manifest.sif_path, platform=platform)  # COMPS
 
     builder = SimulationBuilder()
-    builder.add_sweep_definition( sweep_run_number, [1,2,3] )
+    builder.add_sweep_definition(sweep_run_number, [1, 2, 3])
 
-    experiment = Experiment.from_builder( builder, task, name="Tutorial_1" )
+    experiment = Experiment.from_builder(builder, task, name="Tutorial_1")
 
-    experiment.run( wait_until_done=True, platform=platform )
+    experiment.run(wait_until_done=True, platform=platform)
 
     print("\nTutorial #1 is done.")
     return
@@ -89,6 +90,7 @@ def run_experiment():
 
 if __name__ == "__main__":
     import emod_hiv.bootstrap as dtk
+
     dtk.setup(local_dir=manifest.executables_dir)
 
     run_experiment()

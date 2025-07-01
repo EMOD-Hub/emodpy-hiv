@@ -19,7 +19,7 @@ class HIVDemographicsTest(unittest.TestCase):
 
     def tearDown(self):
         pass
-    
+
     def test_relationship_types(self):
         # ensure all relationship types are reported, even if not all of pfp/cp/rp parameters are set for all
         rp = {RelationshipTypes.commercial.value: RelationshipParameters()}
@@ -29,3 +29,7 @@ class HIVDemographicsTest(unittest.TestCase):
 
         expected_types = {RelationshipTypes.commercial.value, RelationshipTypes.informal.value, RelationshipTypes.transitory.value}
         self.assertEqual(society.relationship_types, expected_types)
+
+
+if __name__ == '__main__':
+    unittest.main()

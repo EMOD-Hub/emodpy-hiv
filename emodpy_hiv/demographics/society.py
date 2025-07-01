@@ -155,9 +155,9 @@ class Society:
         if condom_usage_rate is not None:
             relationship_parameters.condom_usage.rate = condom_usage_rate
         if duration_scale is not None:
-            relationship_parameters.duration['Lambda'] = duration_scale
+            relationship_parameters.duration.weibull_lambda = duration_scale
         if duration_heterogeneity is not None:
-            relationship_parameters.duration['Kappa'] = duration_heterogeneity ** -1
+            relationship_parameters.duration.weibull_kappa = duration_heterogeneity ** -1
 
     def to_dict(self) -> Dict:
         society = {'Concurrency_Configuration': self.concurrency_configuration}

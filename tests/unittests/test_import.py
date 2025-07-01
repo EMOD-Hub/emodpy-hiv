@@ -5,6 +5,7 @@ class HIVTestImports(unittest.TestCase):
     def setUp(self) -> None:
         self.expected_items = None
         self.found_items = None
+        print(f"running test: {self._testMethodName}:")
         pass
 
     def verify_expected_items_present(self, namespace):
@@ -28,17 +29,6 @@ class HIVTestImports(unittest.TestCase):
             self.assertIn('__package__', package)
         return
 
-    # region interventions
-    def test_intervention_outbreak(self):
-        from emodpy_hiv.interventions import outbreak
-
-        self.expected_items = [
-            "new_intervention", "ob"
-        ]
-        self.verify_expected_items_present(namespace=outbreak)
-        return
-    # endregion
-
     # region demographics
     def test_demographics_imports(self):
         from emodpy_hiv.demographics.hiv_demographics import HIVDemographics
@@ -52,7 +42,7 @@ class HIVTestImports(unittest.TestCase):
         import emodpy_hiv.demographics.DemographicsTemplates as DemographicsTemplates
 
         self.expected_items = [
-            "get_society_dict", "get_default_society_dict"
+            "get_society_dict"
         ]
         self.verify_expected_items_present(namespace=DemographicsTemplates)
 

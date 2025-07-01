@@ -1,0 +1,226 @@
+{
+    "Defaults": {
+        "NodeID": 0,
+        "Society": {
+            "COMMERCIAL": {
+                "Pair_Formation_Parameters": {
+                    "Assortivity": {
+                        "Axes": [
+                            "LOW",
+                            "MEDIUM",
+                            "HIGH"
+                        ],
+                        "Group": "INDIVIDUAL_PROPERTY",
+                        "Property_Name": "Risk",
+                        "Weighting_Matrix_RowMale_ColumnFemale": [
+                            [
+                                1,
+                                1,
+                                1
+                            ],
+                            [
+                                1,
+                                1,
+                                1
+                            ],
+                            [
+                                1,
+                                1,
+                                1
+                            ]
+                        ]
+                    }
+                }
+            },
+            "INFORMAL": {
+                "Pair_Formation_Parameters": {
+                    "Assortivity": {
+                        "Axes": [
+                            "LOW",
+                            "MEDIUM",
+                            "HIGH"
+                        ],
+                        "Group": "INDIVIDUAL_PROPERTY",
+                        "Property_Name": "Risk",
+                        "Weighting_Matrix_RowMale_ColumnFemale": [
+                            [
+                                0.159566722,
+                                0.840433278,
+                                0
+                            ],
+                            [
+                                0.840433278,
+                                0.159566722,
+                                0.159566722
+                            ],
+                            [
+                                0,
+                                0.159566722,
+                                0.840433278
+                            ]
+                        ]
+                    }
+                }
+            },
+            "MARITAL": {
+                "Pair_Formation_Parameters": {
+                    "Assortivity": {
+                        "Axes": [
+                            "LOW",
+                            "MEDIUM",
+                            "HIGH"
+                        ],
+                        "Group": "INDIVIDUAL_PROPERTY",
+                        "Property_Name": "Risk",
+                        "Weighting_Matrix_RowMale_ColumnFemale": [
+                            [
+                                0.159566722,
+                                0.840433278,
+                                0
+                            ],
+                            [
+                                0.840433278,
+                                0.159566722,
+                                0.159566722
+                            ],
+                            [
+                                0,
+                                0.159566722,
+                                0.840433278
+                            ]
+                        ]
+                    }
+                }
+            },
+            "TRANSITORY": {
+                "Pair_Formation_Parameters": {
+                    "Assortivity": {
+                        "Axes": [
+                            "LOW",
+                            "MEDIUM",
+                            "HIGH"
+                        ],
+                        "Group": "INDIVIDUAL_PROPERTY",
+                        "Property_Name": "Risk",
+                        "Weighting_Matrix_RowMale_ColumnFemale": [
+                            [
+                                0.159566722,
+                                0.840433278,
+                                0
+                            ],
+                            [
+                                0.840433278,
+                                0.159566722,
+                                0.159566722
+                            ],
+                            [
+                                0,
+                                0.159566722,
+                                0.840433278
+                            ]
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "Metadata": {
+        "Author": "danbr",
+        "DateCreated": "06/11/2025",
+        "IdReference": "EMOD-HIV world",
+        "NodeCount": 10,
+        "Tool": "emod-api"
+    },
+    "Nodes": [
+        {
+            "NodeID": 1,
+            "Society": {
+                "COMMERCIAL": {},
+                "INFORMAL": {},
+                "MARITAL": {},
+                "TRANSITORY": {}
+            }
+        },
+        {
+            "NodeID": 2,
+            "Society": {
+                "COMMERCIAL": {},
+                "INFORMAL": {},
+                "MARITAL": {},
+                "TRANSITORY": {}
+            }
+        },
+        {
+            "NodeID": 3,
+            "Society": {
+                "COMMERCIAL": {},
+                "INFORMAL": {},
+                "MARITAL": {},
+                "TRANSITORY": {}
+            }
+        },
+        {
+            "NodeID": 4,
+            "Society": {
+                "COMMERCIAL": {},
+                "INFORMAL": {},
+                "MARITAL": {},
+                "TRANSITORY": {}
+            }
+        },
+        {
+            "NodeID": 5,
+            "Society": {
+                "COMMERCIAL": {},
+                "INFORMAL": {},
+                "MARITAL": {},
+                "TRANSITORY": {}
+            }
+        },
+        {
+            "NodeID": 6,
+            "Society": {
+                "COMMERCIAL": {},
+                "INFORMAL": {},
+                "MARITAL": {},
+                "TRANSITORY": {}
+            }
+        },
+        {
+            "NodeID": 7,
+            "Society": {
+                "COMMERCIAL": {},
+                "INFORMAL": {},
+                "MARITAL": {},
+                "TRANSITORY": {}
+            }
+        },
+        {
+            "NodeID": 8,
+            "Society": {
+                "COMMERCIAL": {},
+                "INFORMAL": {},
+                "MARITAL": {},
+                "TRANSITORY": {}
+            }
+        },
+        {
+            "NodeID": 9,
+            "Society": {
+                "COMMERCIAL": {},
+                "INFORMAL": {},
+                "MARITAL": {},
+                "TRANSITORY": {}
+            }
+        },
+        {
+            "NodeID": 10,
+            "Society": {
+                "COMMERCIAL": {},
+                "INFORMAL": {},
+                "MARITAL": {},
+                "TRANSITORY": {}
+            }
+        }
+    ]
+}
