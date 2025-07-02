@@ -19,7 +19,7 @@ SKIP_TESTS = True
 
 class TestPlottingFromHivByAgeAndGender(PlotTestBase):
 
-    @unittest.skipIf(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
+    @pytest.mark.skipif(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
     def test_plot_risk_zambia(self):
             input_filename = os.path.join(self.test_folder,"testdata/ReportHIVAgeAndGender_data")
             input_dir      = os.path.join(self.test_folder,"testdata/ReportHIVAgeAndGender_data/ReportHIVByAgeAndGender_sample00000_run00001.csv")
@@ -148,7 +148,7 @@ class TestPlottingFromHivByAgeAndGender(PlotTestBase):
 
         self.compare_files(exp_dir=exp_img_dir, act_dir=act_img_dir, file_extension=".png")
 
-    @pytest.mark.skipIf(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
+    @pytest.mark.skipif(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
     def test_plot_population_by_ip(self):
         input_filename = os.path.join(self.test_folder,"testdata/ReportHIVAgeAndGender_data/ReportHIVByAgeAndGender_sample00000_run00001.csv")
         input_dir      = os.path.join(self.test_folder,"testdata/ReportHIVAgeAndGender_data")
@@ -242,7 +242,7 @@ class TestPlottingFromHivByAgeAndGender(PlotTestBase):
 
         self.compare_files(exp_dir=exp_img_dir, act_dir=act_img_dir, file_extension=".png")
 
-    @pytest.mark.skipIf(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
+    @pytest.mark.skipif(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
     def test_plot_circumcision(self):
         input_dir_filename = os.path.join(self.test_folder,"testdata/ReportHIVAgeAndGender_data/ReportHIVByAgeAndGender_sample00000_run00001.csv")
         exp_img_dir        = os.path.join(self.test_folder,"testdata/test_plot_circumcision/images_exp")
@@ -255,7 +255,7 @@ class TestPlottingFromHivByAgeAndGender(PlotTestBase):
 
         self.compare_files(exp_dir=exp_img_dir, act_dir=act_img_dir, file_extension=".png")
 
-    @pytest.mark.skipIf(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
+    @pytest.mark.skipif(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
     def test_plot_onART(self):
         input_filename = os.path.join(self.test_folder,"testdata/ReportHIVAgeAndGender_data/ReportHIVByAgeAndGender_sample00000_run00001.csv")
         input_dir      = os.path.join(self.test_folder,"testdata/ReportHIVAgeAndGender_data")
@@ -361,7 +361,7 @@ class TestPlottingFromHivByAgeAndGender(PlotTestBase):
 
         self.compare_files(exp_dir=exp_img_dir, act_dir=act_img_dir, file_extension=".png")
 
-    @pytest.mark.skipIf(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
+    @pytest.mark.skipif(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
     def test_plot_population_vs_world_pop(self):
         input_dir_filename = os.path.join(self.test_folder,"testdata/ReportHIVAgeAndGender_data/ReportHIVByAgeAndGender_sample00000_run00001.csv")
         exp_img_dir        = os.path.join(self.test_folder,"testdata/test_plot_population_vs_world_pop/images_exp")
@@ -380,7 +380,7 @@ class TestPlottingFromHivByAgeAndGender(PlotTestBase):
 
         self.compare_files(exp_dir=exp_img_dir, act_dir=act_img_dir, file_extension=".png")
 
-    @pytest.mark.skipIf(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
+    @pytest.mark.skipif(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
     def test_plot_population_by_dir(self):
         input_dir   = os.path.join(self.test_folder,"testdata/ReportHIVAgeAndGender_data")
         exp_img_dir = os.path.join(self.test_folder,"testdata/test_plot_population_by_dir/images_exp")
@@ -408,7 +408,7 @@ class TestPlottingFromHivByAgeAndGender(PlotTestBase):
             
         self.compare_files(exp_dir=exp_img_dir, act_dir=act_img_dir, file_extension=".png")
 
-    @pytest.mark.skipIf(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
+    @pytest.mark.skipif(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
     def test_plot_vmmc(self):
         input_dir_filename = os.path.join(self.test_folder,"testdata/ReportHIVAgeAndGender_data")
         exp_img_dir        = os.path.join(self.test_folder,"testdata/test_plot_vmmc/images_exp")
@@ -424,7 +424,7 @@ class TestPlottingFromHivByAgeAndGender(PlotTestBase):
 
         self.compare_files(exp_dir=exp_img_dir, act_dir=act_img_dir, file_extension=".png")
 
-    @pytest.mark.skipIf(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
+    @pytest.mark.skipif(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
     def test_plot_vmmc_by_age(self):
         input_dir_filename = os.path.join(self.test_folder,"testdata/ReportHIVAgeAndGender_data")
         exp_img_dir        = os.path.join(self.test_folder,"testdata/test_plot_vmmc_by_age/images_exp")
@@ -439,7 +439,7 @@ class TestPlottingFromHivByAgeAndGender(PlotTestBase):
 
         self.compare_files(exp_dir=exp_img_dir, act_dir=act_img_dir, file_extension=".png")
 
-    @pytest.mark.skipIf(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
+    @pytest.mark.skipif(SKIP_TESTS, "Disabling for time - run tests manually if editing plotting code.")
     def test_plot_prevalence(self):
         input_dir_filename = os.path.join(self.test_folder,"testdata/ReportHIVAgeAndGender_data")
         exp_img_dir        = os.path.join(self.test_folder,"testdata/test_plot_prevalence/images_exp")

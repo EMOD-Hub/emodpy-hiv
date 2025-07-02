@@ -3,7 +3,6 @@ import emod_hiv.bootstrap as dtk
 import os
 import unittest
 import pytest
-from unittest import TestSuite
 from pathlib import Path
 import sys
 
@@ -13,20 +12,9 @@ import manifest
 import helpers
 
 
-def skip_load_tests(loader, standard_tests, pattern):
-    """
-    Customize how tests are loaded from them during normal test runs or test discovery.
-    The test in this file will be skipped in normal test load and will be loaded as the first test in the test suite in the test_a_pre_test.py file.
-    See load_tests Protocol in: https://docs.python.org/3.7/library/unittest.html#load-tests-protocol
-    """
-    suite = TestSuite()
-    return suite
-
-
-load_tests = skip_load_tests
-
 
 @pytest.mark.unit
+@pytest.mark.container
 class TestDownloadFromPackage(unittest.TestCase):
     @classmethod
     def setUpClass(self):
