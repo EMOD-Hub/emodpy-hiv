@@ -2,7 +2,7 @@ import os
 import pathlib
 dirs = os.listdir()
 input_files = list()
-skips = ["start_here--cluster", "demo_scenario", "rakai"]  # demographics part in demo_scenario and rakai are not working
+skips = ["start_here--cluster"]
 for dir in dirs:
     if dir in skips:
         continue
@@ -39,17 +39,6 @@ rule prep:
             shell( "pushd prep && python example.py && popd" )
         else:
             shell( "pushd prep && python3 example.py && popd" )
-rule demo_scenario:
-    """run demo_scenario example"""
-    input:
-    params:
-        expand("{use_vpn}", use_vpn=config["use_vpn"])
-    output: str(pathlib.PurePath( "demo_scenario", "COMPS_ID"))
-    run:
-        if os.name == "nt":
-            shell( "pushd demo_scenario && python example.py && popd" )
-        else:
-            shell( "pushd demo_scenario && python3 example.py && popd" )
 rule campaign_sweep:
     """run campaign_sweep example"""
     input:
@@ -72,17 +61,6 @@ rule demographics_sweep:
             shell( "pushd demographics_sweep && python example.py && popd" )
         else:
             shell( "pushd demographics_sweep && python3 example.py && popd" )
-rule rakai:
-    """run rakai example"""
-    input:
-    params:
-        expand("{use_vpn}", use_vpn=config["use_vpn"])
-    output: str(pathlib.PurePath( "rakai", "COMPS_ID"))
-    run:
-        if os.name == "nt":
-            shell( "pushd rakai && python example.py && popd" )
-        else:
-            shell( "pushd rakai && python3 example.py && popd" )
 rule clean:
     input:
     output:
