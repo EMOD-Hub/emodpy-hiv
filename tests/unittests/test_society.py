@@ -1,4 +1,5 @@
 import unittest
+import pytest
 import sys
 from pathlib import Path
 
@@ -12,6 +13,7 @@ parent = Path(__file__).resolve().parent
 sys.path.append(str(parent))
 
 
+@pytest.mark.unit
 class HIVDemographicsTest(unittest.TestCase):
 
     def setUp(self):

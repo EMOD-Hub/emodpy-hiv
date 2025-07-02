@@ -1,4 +1,5 @@
 import unittest
+import pytest
 import pandas as pd
 import json
 import os
@@ -21,6 +22,7 @@ import manifest
 import helpers
 
 
+@pytest.mark.unit
 class TestDistributor(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

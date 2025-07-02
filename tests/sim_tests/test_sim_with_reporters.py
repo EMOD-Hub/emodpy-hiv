@@ -1,5 +1,6 @@
 import json
 import unittest
+import pytest
 import sys
 import os
 import time
@@ -45,7 +46,7 @@ import manifest
 import helpers
 from base_sim_test import BaseSimTest
 
-
+@pytest.mark.container
 class TestReportersHIV(BaseSimTest):
 
     def setUp(self) -> None:

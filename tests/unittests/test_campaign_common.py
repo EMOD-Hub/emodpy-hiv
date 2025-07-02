@@ -1,4 +1,5 @@
 import unittest
+import pytest
 from pathlib import Path
 import sys
 import os
@@ -16,6 +17,7 @@ import manifest
 
 
 # Todo: package some of the tests classes from Emodpy as a standalone package and import them here.
+@pytest.mark.unit
 class TestDemographicsConfig(unittest.TestCase):
     def setUp(self):
         self.schema_path = manifest.schema_path
@@ -79,6 +81,7 @@ class TestDemographicsConfig(unittest.TestCase):
         self.assertEqual(campaign_object.Target_Demographic, 'Everyone')
 
 
+@pytest.mark.unit
 class TestRepetitionConfig(unittest.TestCase):
     def setUp(self):
         self.schema_path = manifest.schema_path
@@ -126,6 +129,7 @@ class TestRepetitionConfig(unittest.TestCase):
         self.assertTrue("timesteps_between_repetitions is set to a non positive value" in str(context.exception))
 
 
+@pytest.mark.unit
 class TestPropertyRestrictions(unittest.TestCase):
     def setUp(self):
         self.schema_path = manifest.schema_path
@@ -200,6 +204,7 @@ class TestPropertyRestrictions(unittest.TestCase):
 
 
 # This one is not in the Emodpy package
+@pytest.mark.unit
 class TestNChooserTargetedDistributionHIV(unittest.TestCase):
 
     @classmethod
@@ -385,6 +390,7 @@ class TestNChooserTargetedDistributionHIV(unittest.TestCase):
         self.assertTrue("should be less than end_year" in str(context.exception))
 
 
+@pytest.mark.unit
 class TestValueMap(unittest.TestCase):
     def setUp(self):
         self.campaign_obj = campaign
@@ -396,6 +402,7 @@ class TestValueMap(unittest.TestCase):
         self.assertEqual(value_map.to_schema_dict(self.campaign_obj), {"Times": [1995, 2005], "Values": [10, 20]})
 
 
+@pytest.mark.unit
 class TestCommonInterventionParameters(unittest.TestCase):
     def setUp(self):
         print(f"running test: {self._testMethodName}:")

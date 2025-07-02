@@ -1,5 +1,5 @@
 import unittest
-
+import pytest
 from emodpy_hiv.parameterized_call import ParameterizedCall
 
 
@@ -7,6 +7,7 @@ def dummy_function(a=1, b=2, c=3, d=4):
     return {'a': a, 'b': b, 'c': c, 'd': d}
 
 
+@pytest.mark.unit
 class TestParameterizedCall(unittest.TestCase):
 
     def setUp(self):

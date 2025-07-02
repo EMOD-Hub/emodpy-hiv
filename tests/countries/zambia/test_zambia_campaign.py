@@ -1,5 +1,5 @@
 import unittest
-
+import pytest
 from pathlib import Path
 import sys
 import json
@@ -15,7 +15,7 @@ sys.path.append(str(manifest_directory))
 import manifest
 import helpers
 
-
+@pytest.mark.unit
 class TestZambia(unittest.TestCase):
     def setUp(self):
         output_path = Path(__file__).parent.joinpath("outputs")

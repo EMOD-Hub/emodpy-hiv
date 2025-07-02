@@ -1,4 +1,5 @@
 import unittest
+import pytest
 import sys
 import pandas as pd
 from pathlib import Path
@@ -17,7 +18,8 @@ sys.path.append(str(parent))
 ROUNDING_DIGITS = 9
 
 
-class HIVDemographicsTest(unittest.TestCase):
+@pytest.mark.unit
+class TestHIVDemographics(unittest.TestCase):
 
     def setUp(self):
         self.ages_years = [15.0, 24.999, 25.0, 34.999, 35.0, 44.999]  # M ages

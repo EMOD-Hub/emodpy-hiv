@@ -1,5 +1,5 @@
 import unittest
-
+import pytest
 from pathlib import Path
 import sys
 import json
@@ -16,7 +16,7 @@ import helpers
 
 ROUNDING_DIGITS = 9
 
-
+@pytest.mark.unit
 class TestZambiaDemographics(unittest.TestCase):
     def setUp(self):
         output_path = Path(__file__).parent.joinpath("outputs")

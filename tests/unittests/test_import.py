@@ -1,6 +1,7 @@
 import unittest
+import pytest
 
-
+@pytest.mark.unit
 class HIVTestImports(unittest.TestCase):
     def setUp(self) -> None:
         self.expected_items = None

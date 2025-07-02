@@ -1,5 +1,6 @@
 import json
 import unittest
+import pytest
 import sys
 import os
 import time
@@ -10,6 +11,8 @@ import emodpy_hiv.plotting.plot_inset_chart as pic
 import emodpy_hiv.countries.zambia.zambia as cm
 from idmtools.entities.experiment import Experiment
 from idmtools.core import ItemType
+from idmtools_platform_comps.comps_platform import COMPSPlatform
+from idmtools_platform_container.container_platform import ContainerPlatform
 
 # Add the parent directory to sys.path
 manifest_directory = Path(__file__).resolve().parent.parent.parent
@@ -22,6 +25,7 @@ import helpers
 from base_sim_test import BaseSimTest
 
 
+@pytest.mark.container
 class TestZambia(BaseSimTest):
     """
     The goal of this test is to keep the Zambia model up to date.  If this test fails,
@@ -87,9 +91,16 @@ class TestZambia(BaseSimTest):
             not_expected_files = ["DemographicsSummary.json"]
             not_expected_files_with_path = [os.path.join("output", file) for file in not_expected_files]
             self.platform.get_files(this_sim, files=not_expected_files_with_path)
-        print(str(context.exception))
-        self.assertTrue(f"Couldn't find file for path '{not_expected_files_with_path[0]}'" in str(context.exception),
-                        msg=str(context.exception))
+        actual_exception_msg = str(context.exception)
+
+        if type(self.platform) is COMPSPlatform:
+            expected_exception_msg = f"Couldn't find file for path '{not_expected_files_with_path[0]}'"
+        elif type(self.platform) is ContainerPlatform:
+            expected_exception_msg = f"Couldn't find asset for path '{not_expected_files_with_path[0]}'"
+        else:
+            raise RuntimeError(f"Unknown platform: {self.platform}")
+
+        self.assertTrue(expected_exception_msg in actual_exception_msg, msg=actual_exception_msg)
         
         # Now verify that the InsetChart.json produced is what we expect
         filenames = ["output/InsetChart.json"]

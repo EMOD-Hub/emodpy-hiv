@@ -1,5 +1,5 @@
 import unittest
-
+import pytest
 from pathlib import Path
 import json
 import sys
@@ -10,6 +10,7 @@ sys.path.append(str(parent))
 
 import emodpy_hiv.countries.converting.reformat_json as rj
 
+@pytest.mark.unit
 class TestReformatJson(unittest.TestCase):
     def setUp(self):
         self.output_filename = Path(__file__).parent.joinpath('outputs/test_reformat_json_actual.json')

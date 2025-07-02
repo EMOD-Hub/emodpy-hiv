@@ -1,4 +1,5 @@
 import unittest
+import pytest
 import os
 from pathlib import Path
 import sys
@@ -10,6 +11,7 @@ from plot_test_base import PlotTestBase
 
 import emodpy_hiv.plotting.plot_relationship_end as pre
 
+@pytest.mark.unit
 class TestPlottingFromRelationshipEnd(PlotTestBase):
 
     def test_plot_relationship_duration(self):

@@ -2,6 +2,7 @@ import emod_hiv.bootstrap as dtk
 
 import os
 import unittest
+import pytest
 from unittest import TestSuite
 from pathlib import Path
 import sys
@@ -25,6 +26,7 @@ def skip_load_tests(loader, standard_tests, pattern):
 load_tests = skip_load_tests
 
 
+@pytest.mark.unit
 class TestDownloadFromPackage(unittest.TestCase):
     @classmethod
     def setUpClass(self):

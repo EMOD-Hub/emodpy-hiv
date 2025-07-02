@@ -1,5 +1,6 @@
 import os.path
 import unittest
+import pytest
 import json
 import difflib
 import math
@@ -67,7 +68,7 @@ current_folder = os.path.dirname(os.path.abspath(__file__))
 regression_folder = os.path.join(current_folder, 'regression_files')
 output_folder = os.path.join(current_folder, 'coc_output')
 
-
+@pytest.mark.unit
 class TestCampaignMethods(unittest.TestCase):
     def setUp(self):
         print(f"running test: {self._testMethodName}:")
@@ -83,6 +84,7 @@ class TestCampaignMethods(unittest.TestCase):
         self.assertEqual(convert_time_value_map({"Times": [2000, 2010], "Values": [1, 0.5]}), {2000: 1, 2010: 0.5})
 
 
+@pytest.mark.unit
 class TestAddStateFunctions(unittest.TestCase):
     is_debugging = False
 

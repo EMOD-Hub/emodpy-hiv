@@ -1,5 +1,6 @@
 from functools import partial
 import unittest
+import pytest
 import sys
 from pathlib import Path
 import json
@@ -31,6 +32,7 @@ import manifest
 from base_sim_test import BaseSimTest
 
 
+@pytest.mark.container
 class TestSimulation(BaseSimTest):
 
     def update_sim_random_seed(self, simulation, value):

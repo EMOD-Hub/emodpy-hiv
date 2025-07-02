@@ -1,4 +1,5 @@
 import unittest
+import pytest
 import os
 from pathlib import Path
 import sys
@@ -12,6 +13,7 @@ import emodpy_hiv.demographics.infer_natural_mortality as infer
 
 
 
+@pytest.mark.unit
 class TestInferNaturalMortality(PlotTestBase):
 
     def test_infer_natural_mortality(self):

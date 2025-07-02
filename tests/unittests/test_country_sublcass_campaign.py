@@ -1,5 +1,5 @@
 import unittest
-
+import pytest
 from typing import List
 from pathlib import Path
 import sys
@@ -81,6 +81,7 @@ class CountrySubClass(Zambia):
                                    sigmoid_rate=sigmoid_rate)
 
 
+@pytest.mark.unit
 class TestCountrySubClass(unittest.TestCase):
     def setUp(self):
         self.country_subclass = CountrySubClass

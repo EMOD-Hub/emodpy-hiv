@@ -1,4 +1,5 @@
 import unittest
+import pytest
 from emodpy_hiv.campaign.individual_intervention import (
     HIVMuxer, HIVPiecewiseByYearAndSexDiagnostic, HIVRandomChoice, HIVRapidHIVDiagnostic,
     HIVSigmoidByYearAndSexDiagnostic, MaleCircumcision, ModifyStiCoInfectionStatus, PMTCT, STIIsPostDebut,
@@ -24,6 +25,7 @@ sys.path.append(str(manifest_directory))
 import manifest
 
 
+@pytest.mark.unit
 class TestIntervention(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

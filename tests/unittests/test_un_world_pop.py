@@ -1,4 +1,5 @@
 import unittest
+import pytest
 import pandas as pd
 from pathlib import Path
 import sys
@@ -9,6 +10,7 @@ import emodpy_hiv.demographics.un_world_pop as unwp
 parent = Path(__file__).resolve().parent
 sys.path.append(str(parent))
 
+@pytest.mark.unit
 
 class TestUnWorldPop(unittest.TestCase):
     """

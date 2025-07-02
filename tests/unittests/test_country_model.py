@@ -1,4 +1,5 @@
 import unittest
+import pytest
 from typing import List
 
 from emodpy_hiv.country_model import Country
@@ -93,6 +94,7 @@ class MockCountry(Country):
         return parameterized_calls
 
 
+@pytest.mark.unit
 class TestParameterizedCall(unittest.TestCase):
 
     def test_instance_and_functional_parameterized_call_functions_work(self):

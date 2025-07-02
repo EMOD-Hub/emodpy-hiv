@@ -1,5 +1,6 @@
 import json
 import unittest
+import pytest
 import sys
 import os
 import time
@@ -30,6 +31,7 @@ sys.path.append(str(manifest_directory))
 import manifest, helpers
 
 
+@pytest.mark.unit
 class TestReportersHIV(unittest.TestCase):
     """
     This tests hiv-specific reporters

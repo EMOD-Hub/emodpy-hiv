@@ -1,4 +1,5 @@
 import unittest
+import pytest
 from pathlib import Path
 import sys
 
@@ -10,6 +11,7 @@ sys.path.append(str(parent))
 EPSILON = 0.000001
 
 
+@pytest.mark.unit
 class TestYearAgeRate(unittest.TestCase):
     """
     Verify that the functionality of the YearAgeRate class.  This class is used as a standard

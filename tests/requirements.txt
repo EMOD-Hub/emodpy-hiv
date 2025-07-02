@@ -1,0 +1,6 @@
+# emod-api, idmtools should be installed with general emodpy requirements.txt
+--extra-index-url=https://packages.idmod.org/api/pypi/pypi-production/simple
+pytest~=8.1
+unittest-xml-reporting~=3.2
+pytest-xdist
+

@@ -1,5 +1,5 @@
 import unittest
-
+import pytest
 from pathlib import Path
 import json
 import sys
@@ -10,6 +10,7 @@ sys.path.append(str(parent))
 
 import emodpy_hiv.countries.converting.new_demographics_old_format as ndof
 
+@pytest.mark.unit
 class TestNewDemographicsOldFormat(unittest.TestCase):
     def setUp(self):
         self.output_dir = Path(__file__).parent.joinpath('outputs')

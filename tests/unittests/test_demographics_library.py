@@ -1,11 +1,12 @@
 import unittest
-
+import pytest
 from emodpy_hiv.countries.zambia import Zambia
 from emodpy_hiv.demographics import library
 from emodpy_hiv.demographics.relationship_types import RelationshipTypes
 from emodpy_hiv.demographics.risk_groups import RiskGroups
 
 
+@pytest.mark.unit
 class TestDemographicsLibrary(unittest.TestCase):
     def setUp(self):
         print(f"running test: {self._testMethodName}")
@@ -263,17 +264,17 @@ class TestDemographicsLibrary(unittest.TestCase):
                 print(f"parameter: {expected_value} vs {res}")
                 self.assertEqual(expected_value, res)
 
-    @unittest.skip(reason='Waiting for new data file format')
+    @pytest.mark.skip(reason='Waiting for new data file format')
     def test_set_fertility(self):
         # TODO: need a test to cover setting fertility data
         raise NotImplementedError('')
 
-    @unittest.skip(reason='Waiting for new data file format')
+    @pytest.mark.skip(reason='Waiting for new data file format')
     def test_set_mortality(self):
         # TODO: need a test to cover setting mortality data
         raise NotImplementedError('')
 
-    @unittest.skip(reason='Waiting for new data file format')
+    @pytest.mark.skip(reason='Waiting for new data file format')
     def test_set_age_distribution(self):
         # TODO: need a test to cover setting age distribution data
         raise NotImplementedError('')

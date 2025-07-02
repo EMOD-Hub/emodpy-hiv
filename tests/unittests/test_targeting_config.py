@@ -1,4 +1,5 @@
 import unittest
+import pytest
 import os
 
 from emod_api import campaign as api_campaign
@@ -11,6 +12,7 @@ sys.path.append(str(manifest_directory))
 import manifest
 
 
+@pytest.mark.unit
 class TestTargetingConfig(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

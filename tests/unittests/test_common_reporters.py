@@ -1,5 +1,6 @@
 import json
 import unittest
+import pytest
 import sys
 import os
 import time
@@ -28,7 +29,7 @@ manifest_directory = Path(__file__).resolve().parent.parent
 sys.path.append(str(manifest_directory))
 import manifest, helpers
 
-
+@pytest.mark.unit
 class TestCommonReportersHIV(unittest.TestCase):
     """
     These tests for the reporters imported from emodpy.reporters.common via the emodpy_hiv.reporters.reporters module.

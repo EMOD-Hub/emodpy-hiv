@@ -26,8 +26,4 @@ if not os.path.isfile(eradication_path):
 
 # Running things
 comps_platform_name = "SLURMStage"  # "Calculon" or "SLURMStage"
-comps_node_group = "idm_48cores"  # for Calculon
-comps_priority = "Lowest"  # for Calculon
-
-
-
+container_platform_name = "ContainerPlatform"

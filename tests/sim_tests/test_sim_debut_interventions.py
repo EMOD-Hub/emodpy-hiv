@@ -1,5 +1,6 @@
 from functools import partial
 import unittest
+import pytest
 import sys
 from pathlib import Path
 import os
@@ -53,7 +54,7 @@ filenames = [files.config,
              files.ReportEventRecorder,
              files.ReportHIVByAgeAndGender]
 
-
+@pytest.mark.container
 class TestDebutInterventions(BaseSimTest):
     def update_sim_random_seed(self, simulation, value):
         simulation.task.config.parameters.Run_Number = value
