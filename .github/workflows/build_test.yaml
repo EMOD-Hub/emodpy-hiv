@@ -38,6 +38,7 @@ jobs:
           python -m pip install --upgrade -r requirements.txt 
         working-directory: ./tests
       - name: run unit, sim, and country tests
+        run: |
           pytest test_download_from_package.py
           pytest --dist loadfile -v -m unit --junitxml="test_results_unit.xml"
           pytest --dist loadfile -v -m container --junitxml="test_results_container.xml"
