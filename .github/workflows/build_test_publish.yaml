@@ -39,17 +39,15 @@ jobs:
         uses: ./.github/actions/build-install-package
         with:
           pyproject_file: 'pyproject.toml'
-      - name: cache comps2 (staging) login
+      - name: install test packages
         run: |
-          python .dev_scripts/create_auth_token_args.py -c https://comps2.idmod.org -u ${{ secrets.COMPS_USER }} -p ${{ secrets.COMPS_USER_PASSWORD }}
-        working-directory: ./
-      - name: run unit, sim, and country tests
-        run: python -m unittest discover .
+          python -m pip install --upgrade -r requirements.txt 
         working-directory: ./tests
-      - name: cache comps login
-        run: |
-          python .dev_scripts/create_auth_token_args.py -c https://comps.idmod.org -u ${{ secrets.COMPS_USER }} -p ${{ secrets.COMPS_USER_PASSWORD }}
-        working-directory: ./
+      - name: run unit, sim, and country tests
+          pytest test_download_from_package.py
+          pytest --dist loadfile -v -m unit --junitxml="test_results_unit.xml"
+          pytest --dist loadfile -v -m container --junitxml="test_results_container.xml"
+        working-directory: ./tests
       - name: run examples with Eradication from pip install using snakemake
         run: |
           pip install snakemake
