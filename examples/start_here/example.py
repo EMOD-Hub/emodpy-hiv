@@ -102,9 +102,11 @@ def run_test():
     every time we run an emod experiment. 
     """
     # Create a platform
+    platform = Platform("Container", job_directory="container_platform_output")
+
     # Show how to dynamically set priority and node_group
-    platform = Platform("Calculon", node_group="idm_48cores", priority="Highest")
-    pl = RequirementsToAssetCollection(platform, requirements_path=manifest.requirements)
+    # platform = Platform("Calculon", node_group="idm_48cores", priority="Highest")
+    # pl = RequirementsToAssetCollection(platform, requirements_path=manifest.requirements)
 
     task = EMODTask.from_defaults(eradication_path=manifest.eradication_path,
                                   campaign_builder=build_camp,
@@ -139,15 +141,12 @@ def run_test():
     # Check result
     if not experiment.succeeded:
         print(f"Experiment {experiment.uid} failed.\n")
-        exit()
+    else:
+        print(f"Experiment {experiment.uid} succeeded.")
+        # create output file that snakemake will check for to see if the example succeeded
+        with open("COMPS_ID", "w") as fd:
+            fd.write(experiment.uid)
 
-    print(f"Experiment {experiment.uid} succeeded.")
-
-    # Save experiment id to file
-    with open("COMPS_ID", "w") as fd:
-        fd.write(experiment.uid.hex)
-    print()
-    print(experiment.uid.hex)
     assert experiment.succeeded
 
 

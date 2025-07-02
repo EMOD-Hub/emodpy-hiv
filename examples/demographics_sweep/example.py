@@ -122,8 +122,11 @@ def sim():
     """
 
     # Set platform
+    platform = Platform("Container", job_directory="container_platform_output")
+
     # use Platform("SLURMStage") to run on comps2.idmod.org for testing/dev work
-    platform = Platform("Calculon", node_group="idm_48cores")
+    # platform = Platform("Calculon", node_group="idm_48cores")
+     
     experiment_name = "Demographics Sweep example"
     # create EMODTask 
     print("Creating EMODTask (from files)...")
@@ -171,15 +174,14 @@ def sim():
     # Check result
     if not experiment.succeeded:
         print(f"Experiment {experiment.uid} failed.\n")
-        exit()
+    else:
+        print(f"Experiment {experiment.uid} succeeded.")
+        # create output file that snakemake will check for to see if the example succeeded
+        with open("COMPS_ID", "w") as fd:
+            fd.write(experiment.uid)
 
-    print(f"Experiment {experiment.uid} succeeded.")
+    assert experiment.succeeded
 
-    # Save experiment id to file
-    with open("COMPS_ID", "w") as fd:
-        fd.write(experiment.uid.hex)
-    print()
-    print(experiment.uid.hex)
 
 def run():
     import emod_hiv.bootstrap as dtk
