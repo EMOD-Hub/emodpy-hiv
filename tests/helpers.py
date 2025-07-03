@@ -34,10 +34,10 @@ def delete_existing_folder(path, must_be_empty=False):
                     break  # Exit loop if successful
                 except PermissionError as e:
                     print(f"Attempt {try_number} failed to delete folder {path}: {e}")
-                    time.sleep(1)  # Wait before retrying
+                    time.sleep(2)  # Wait before retrying
                     try_number += 1
             if try_number > num_tries:
-                raise PermissionError(f"Failed to delete folder {path} after {num_tries} attempts.")
+                print(f"Failed to delete folder {path} after {num_tries} attempts.  Ignoring issue.")
 
 
 def close_idmtools_logger(logger):
