@@ -1,6 +1,7 @@
 import os
 import shutil
 from pathlib import Path
+import time
 
 from emodpy_hiv.demographics.hiv_demographics import HIVDemographics
 from emodpy_hiv.campaign.individual_intervention import CommonInterventionParameters, SimpleVaccine, \
@@ -25,7 +26,18 @@ def is_dir_path_empty(directory_path):
 def delete_existing_folder(path, must_be_empty=False):
     if os.path.isdir(path):
         if not must_be_empty or (must_be_empty and is_dir_path_empty(path)):
-            shutil.rmtree(path)
+            num_tries = 3
+            try_number = 1
+            while try_number <= num_tries:
+                try:
+                    shutil.rmtree(path)
+                    break  # Exit loop if successful
+                except PermissionError as e:
+                    print(f"Attempt {try_number} failed to delete folder {path}: {e}")
+                    time.sleep(1)  # Wait before retrying
+                    try_number += 1
+            if try_number > num_tries:
+                raise PermissionError(f"Failed to delete folder {path} after {num_tries} attempts.")
 
 
 def close_idmtools_logger(logger):
