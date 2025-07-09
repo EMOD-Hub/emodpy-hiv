@@ -26,18 +26,13 @@ def is_dir_path_empty(directory_path):
 def delete_existing_folder(path, must_be_empty=False):
     if os.path.isdir(path):
         if not must_be_empty or (must_be_empty and is_dir_path_empty(path)):
-            num_tries = 3
-            try_number = 1
-            while try_number <= num_tries:
-                try:
-                    shutil.rmtree(path)
-                    break  # Exit loop if successful
-                except PermissionError as e:
-                    print(f"Attempt {try_number} failed to delete folder {path}: {e}")
-                    time.sleep(2)  # Wait before retrying
-                    try_number += 1
-            if try_number > num_tries:
-                print(f"Failed to delete folder {path} after {num_tries} attempts.  Ignoring issue.")
+            try:
+                shutil.rmtree(path)
+            except PermissionError as e:
+                # 7/9/2025 - This is a workaround for Container Platform running Eradication
+                # as root and the Python code not being able to delete the files because they
+                # are not being run as root.
+                print(f"Failed to delete folder {path}.  It could be that the files are owned by root.")
 
 
 def close_idmtools_logger(logger):
