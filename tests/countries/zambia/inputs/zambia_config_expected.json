@@ -76,8 +76,8 @@
     ],
     "Maternal_Infection_Transmission_Probability": 0.3,
     "Maternal_Transmission_ART_Multiplier": 0.03334,
-    "Memory_Usage_Halting_Threshold_Working_Set_MB": 8000,
-    "Memory_Usage_Warning_Threshold_Working_Set_MB": 7000,
+    "Memory_Usage_Halting_Threshold_Working_Set_MB": 12000,
+    "Memory_Usage_Warning_Threshold_Working_Set_MB": 11000,
     "Migration_Model": "NO_MIGRATION",
     "Min_Days_Between_Adding_Relationships": 0,
     "Node_Grid_Size": 0.009,
@@ -150,7 +150,7 @@
     "logLevel_Simulation": "INFO",
     "logLevel_SusceptibilityHIV": "ERROR",
     "logLevel_default": "WARNING",
-    "x_Base_Population": 0.002,
+    "x_Base_Population": 0.05,
     "x_Birth": 1,
     "x_Other_Mortality": 1
 }

@@ -5061,7 +5061,7 @@
         },
         {
             "Event_Coordinator_Config": {
-                "Demographic_Coverage": 0.032635773,
+                "Demographic_Coverage": 0.00994069137813979,
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
                     "Antigen": 0,
@@ -5094,12 +5094,12 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Year": 1975.073829,
+            "Start_Year": 1977.96490840667,
             "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
-                "Demographic_Coverage": 0.04084491,
+                "Demographic_Coverage": 0.0290879518815339,
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
                     "Antigen": 0,
@@ -5132,12 +5132,12 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Year": 1978.497227,
+            "Start_Year": 1981.21526571588,
             "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
-                "Demographic_Coverage": 0.214647592,
+                "Demographic_Coverage": 0.11194470109949,
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
                     "Antigen": 0,
@@ -5170,12 +5170,12 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Year": 1985.330191,
+            "Start_Year": 1987.89402149164,
             "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
-                "Demographic_Coverage": 0.104800623,
+                "Demographic_Coverage": 0.0222773645719442,
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
                     "Antigen": 0,
@@ -5208,12 +5208,12 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Year": 1970,
+            "Start_Year": 1970.14036061384,
             "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
-                "Demographic_Coverage": 0.24472244,
+                "Demographic_Coverage": 0.35030772723087,
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
                     "Antigen": 0,
@@ -5246,12 +5246,12 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Year": 1970,
+            "Start_Year": 1970.36530180447,
             "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
-                "Demographic_Coverage": 0.01,
+                "Demographic_Coverage": 0.0167949011180618,
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
                     "Antigen": 0,
@@ -5284,12 +5284,12 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Year": 1970.122473,
+            "Start_Year": 1984.22541975358,
             "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
-                "Demographic_Coverage": 0.092125326,
+                "Demographic_Coverage": 0.0930776686478119,
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
                     "Antigen": 0,
@@ -5322,12 +5322,12 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Year": 1980.368638,
+            "Start_Year": 1980.54040493867,
             "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
-                "Demographic_Coverage": 0.016020197,
+                "Demographic_Coverage": 0.0099968647453273,
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
                     "Antigen": 0,
@@ -5360,12 +5360,12 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Year": 1978.154478,
+            "Start_Year": 1979.51682308393,
             "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
-                "Demographic_Coverage": 0.113565582,
+                "Demographic_Coverage": 0.0731563905879651,
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
                     "Antigen": 0,
@@ -5398,12 +5398,12 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Year": 1982.580456,
+            "Start_Year": 1984.36462983067,
             "class": "CampaignEventByYear"
         },
         {
             "Event_Coordinator_Config": {
-                "Demographic_Coverage": 0.332609343,
+                "Demographic_Coverage": 0.267106173241476,
                 "Individual_Selection_Type": "DEMOGRAPHIC_COVERAGE",
                 "Intervention_Config": {
                     "Antigen": 0,
@@ -5436,7 +5436,7 @@
                 ],
                 "class": "NodeSetNodeList"
             },
-            "Start_Year": 1979.359163,
+            "Start_Year": 1982.02918538299,
             "class": "CampaignEventByYear"
         },
         {

@@ -84,8 +84,11 @@ class Zambia(Country):
         config.parameters.Simulation_Duration = 99.5 * 365
         config.parameters.Simulation_Timestep = 30.4166666666667
 
-        # Reduce the initial population so tutorial can double it
-        config.parameters.x_Base_Population = 0.002  # 0.005
+        # This is the current "production scale" population scaling factor for Zambia the model is calibrated to
+        config.parameters.x_Base_Population = 0.05
+        # x_Base_Population = 0.05 needs more than 8GB memory, so we're giving it here
+        config.parameters.Memory_Usage_Halting_Threshold_Working_Set_MB = 12000
+        config.parameters.Memory_Usage_Warning_Threshold_Working_Set_MB = 11000
 
         config.parameters.Start_Time = 0
         config.parameters.AIDS_Duration_In_Months = 9
@@ -233,16 +236,16 @@ class Zambia(Country):
     @classmethod
     def add_seed_infections_parameterized_calls(cls) -> List[ParameterizedCall]:
         seeding_data = []
-        seeding_data.append({"node_id":  1, "start_year": 1975.073829, "coverage": 0.032635773}) # noqa: E241
-        seeding_data.append({"node_id":  2, "start_year": 1978.497227, "coverage": 0.04084491 }) # noqa: E241, E202
-        seeding_data.append({"node_id":  3, "start_year": 1985.330191, "coverage": 0.214647592}) # noqa: E241
-        seeding_data.append({"node_id":  4, "start_year": 1970,        "coverage": 0.104800623}) # noqa: E241
-        seeding_data.append({"node_id":  5, "start_year": 1970,        "coverage": 0.24472244 }) # noqa: E241, E202
-        seeding_data.append({"node_id":  6, "start_year": 1970.122473, "coverage": 0.01       }) # noqa: E241, E202
-        seeding_data.append({"node_id":  7, "start_year": 1980.368638, "coverage": 0.092125326}) # noqa: E241
-        seeding_data.append({"node_id":  8, "start_year": 1978.154478, "coverage": 0.016020197}) # noqa: E241
-        seeding_data.append({"node_id":  9, "start_year": 1982.580456, "coverage": 0.113565582}) # noqa: E241
-        seeding_data.append({"node_id": 10, "start_year": 1979.359163, "coverage": 0.332609343})
+        seeding_data.append({"node_id":  1, "start_year": 1977.96490840667, "coverage": 0.00994069137813979}) # noqa: E241
+        seeding_data.append({"node_id":  2, "start_year": 1981.21526571588, "coverage": 0.0290879518815339}) # noqa: E241, E202
+        seeding_data.append({"node_id":  3, "start_year": 1987.89402149164, "coverage": 0.11194470109949}) # noqa: E241
+        seeding_data.append({"node_id":  4, "start_year": 1970.14036061384, "coverage": 0.0222773645719442}) # noqa: E241
+        seeding_data.append({"node_id":  5, "start_year": 1970.36530180447, "coverage": 0.35030772723087}) # noqa: E241, E202
+        seeding_data.append({"node_id":  6, "start_year": 1984.22541975358, "coverage": 0.0167949011180618}) # noqa: E241, E202
+        seeding_data.append({"node_id":  7, "start_year": 1980.54040493867, "coverage": 0.0930776686478119}) # noqa: E241
+        seeding_data.append({"node_id":  8, "start_year": 1979.51682308393, "coverage": 0.0099968647453273}) # noqa: E241
+        seeding_data.append({"node_id":  9, "start_year": 1984.36462983067, "coverage": 0.0731563905879651}) # noqa: E241
+        seeding_data.append({"node_id": 10, "start_year": 1982.02918538299, "coverage": 0.267106173241476})
 
         parameterized_calls = []
         for data in seeding_data:
@@ -574,7 +577,7 @@ class Zambia(Country):
 
         pair_formation = {
             # assortivity -1 means a matrix of all 1s
-            COMMERCIAL: {'risk_assortivity': -1,                 'formation_rate': 0.15                }, # noqa: E241, E202
+            COMMERCIAL: {'risk_assortivity': -1,                'formation_rate': 0.15                }, # noqa: E241, E202
             TRANSITORY: {'risk_assortivity': 0.159566721712443, 'formation_rate': 0.00135026850353989 }, # noqa: E241, E202
             INFORMAL:   {'risk_assortivity': 0.159566721712443, 'formation_rate': 0.00032670785736624 }, # noqa: E241, E202
             MARITAL:    {'risk_assortivity': 0.159566721712443, 'formation_rate': 0.000151940868159564}, # noqa: E241
@@ -585,16 +588,16 @@ class Zambia(Country):
 
         # This value is by relationship type and node
         condom_usage_max_by_rel_type_by_node = {
-             1: {TRANSITORY: 0.768125525501553,  INFORMAL: 0.00000000000000,   MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241, E126- Central
-             2: {TRANSITORY: 0.0465318600828683, INFORMAL: 0.00000000000000,   MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Copperbelt
-             3: {TRANSITORY: 1.000000000000000,  INFORMAL: 1.0000000000000000, MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Eastern
-             4: {TRANSITORY: 0.729385699413249,  INFORMAL: 0.914462979184887,  MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Luapula
-             5: {TRANSITORY: 0.140581131843158,  INFORMAL: 0.142047989631679,  MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Lusaka
-             6: {TRANSITORY: 0.994397435542292,  INFORMAL: 0.872714880116124,  MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Muchinga
-             7: {TRANSITORY: 0.670742512452915,  INFORMAL: 0.369039487928584,  MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Northwestern
-             8: {TRANSITORY: 0.0351968246341627, INFORMAL: 0.887947627893753,  MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Northern
-             9: {TRANSITORY: 0.652901388440937,  INFORMAL: 0.0673164100373441, MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Southern
-            10: {TRANSITORY: 0.156039574962396,  INFORMAL: 0.0304155588276527, MARITAL: 0.247035322003042, COMMERCIAL: 0.85}  # noqa: E241, E131- Western
+             1: {TRANSITORY: 0.819762848239337,  INFORMAL: 0.203364778711639,  MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241, E126- Central
+             2: {TRANSITORY: 0.397075298252557,  INFORMAL: 0.398597987534942,  MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Copperbelt
+             3: {TRANSITORY: 0.999759873647185,  INFORMAL: 1.0000000000000000, MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Eastern
+             4: {TRANSITORY: 0.929201760347435,  INFORMAL: 0.773399898218325,  MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Luapula
+             5: {TRANSITORY: 0.403033833521129,  INFORMAL: 0.285059471718292,  MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Lusaka
+             6: {TRANSITORY: 1.0000000000000000, INFORMAL: 0.88811421915765,   MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Muchinga
+             7: {TRANSITORY: 0.66571668093682,   INFORMAL: 0.367634610613126,  MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Northwestern
+             8: {TRANSITORY: 0.275068086940464,  INFORMAL: 1.0000000000000000, MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Northern
+             9: {TRANSITORY: 0.636776909282425,  INFORMAL: 0.0000000000000000, MARITAL: 0.247035322003042, COMMERCIAL: 0.85}, # noqa: E241      - Southern
+            10: {TRANSITORY: 0.401805672308032,  INFORMAL: 0.387841572157711,  MARITAL: 0.247035322003042, COMMERCIAL: 0.85}  # noqa: E241, E131- Western
         }
 
         # Other relationship parameters are only by relationship type
