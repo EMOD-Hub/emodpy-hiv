@@ -19,5 +19,5 @@ runs:
     - name: build wheel and install 
       run: |
         python -m build --wheel
-        pip install dist/* --extra-index-url=https://packages.idmod.org/api/pypi/pypi-production/simple
+        python -m pip install --upgrade $(python -c "import glob; files = glob.glob('dist/*.whl'); print(files[0])") --extra-index-url=https://packages.idmod.org/api/pypi/pypi-production/simple
       shell: bash
