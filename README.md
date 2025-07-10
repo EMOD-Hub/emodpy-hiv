@@ -1,25 +1,27 @@
 # emodpy-hiv
-Python module for use as user-space front-end for doing research easily with EMOD (HIV_SIM) via idmtools
+emodpy-hiv is an extension to emodpy that contains HIV-specific campaign, demographics, and reporting classes for 
+configuring EMOD-HIV simulations. Standard country-specific configurations are wrapped into "country model" classes, 
+providing easily accessible, modifiable, and consistent starting points for new projects. HIV-specific plotting tools 
+are also provided to aid in exploring model output.
 
+### Table of Contents
 
-## Description
+- [Documentation](#documentation)
+- [Installation](#installation)
+  - [Software Prerequisites](#software-prerequisites)
+  - [Install](#install)
+- [Training Resources](#training-resources)
+- [Community](#community)
+- [FAQ](#faq)
+- [Support and Contributions](#support)
+- [Disclaimer](#disclaimer)
 
-This package provides a Python scriptable interface for configuring EMOD for HIV modeling. This Python interface abstracts the process of creating JSON formatted files for parameter specification, demographics specification and intervention specification along as well as abstracting the process of creating binary climate and migration files.
+<a id="documentation"></a>
+# Documentation
 
-## Get `emodpy-hiv`
-
-The `emodpy-hiv` package (and its supporting packages) is currently hosted on IDM's Python package repository.
-
-```shell
-python3 -m pip install emodpy-hiv --extra-index-url=https://packages.idmod.org/api/pypi/pypi-production/simple
-```
-
-Note: you may need to only use `python` on Windows machines rather than `python3`.
-
-## Documentation
-
-Documentation for both the EMOD HIV model and the emodpy-hiv package is available 
-at https://docs.idmod.org/projects/emodpy-hiv/en/latest/.
+The emodpy-hiv code is intended to be self-documenting in order to keep the documentation fully up-to-date with the 
+particular installed version. Additional documentation is available at:
+https://docs.idmod.org/projects/emodpy-hiv/en/latest/
 
 To build the documentation locally, do the following:
 
@@ -33,11 +35,36 @@ To build the documentation locally, do the following:
     make html
     ```
 
-## FAQ
+<a id="installation"></a>
+# Installation
+
+<a id="software-prerequisites"></a>
+## Software Prerequisites
+- Python 3.9.X x64
+- Please ensure pip is updated as default-installed pip with python 3.9 is outdated:
+```
+python -m pip install --upgrade pip
+```
+
+<a id="install"></a>
+## Install
+```
+python -m pip install emodpy-hiv --extra-index-url=https://packages.idmod.org/api/pypi/pypi-production/simple
+```
+
+<a id="training-resources"></a>
+# Training Resources
+
+Tutorial Python code can be found in the [tutorials](tutorials) directory.
+
+
+<a id="faq"></a>
+# FAQ
 
 Frequently asked questions are answered in https://docs.idmod.org/projects/emodpy-hiv/en/latest/faq.html.
 
-## Community
+<a id="community"></a>
+# Community
 
 The EMOD Community is made up of researchers and software developers, primarily focused on malaria and HIV research.
 We value mutual respect, openness, and a collaborative spirit. If these values resonate with you, 
@@ -45,7 +72,8 @@ we invite you to join our EMOD Slack Community by completing this form:
 
 https://forms.office.com/r/sjncGvBjvZ
 
-## Support and contributions
+<a id="support"></a>
+# Support and contributions
 
 The code in this repository was developed by IDM to support our research in disease
 transmission and managing epidemics. We’ve made it publicly available under the MIT
@@ -61,6 +89,7 @@ for how to provide your feedback.
 
 Questions or comments can be directed to [idmsupport@gatesfoundation.org](<mailto:idmsupport@gatesfoundation.org>).
 
+<a id="disclaimer"></a>
 # Disclaimer
 
 The code in this repository was developed by IDM and other collaborators to support our joint research on flexible agent-based modeling.
