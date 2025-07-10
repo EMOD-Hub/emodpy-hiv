@@ -1524,7 +1524,7 @@
     },
     "Metadata": {
         "Author": "danbr",
-        "DateCreated": "06/11/2025",
+        "DateCreated": "07/10/2025",
         "IdReference": "EMOD-HIV world",
         "NodeCount": 10,
         "Tool": "emod-api"
@@ -1556,7 +1556,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.0,
+                            "Max": 0.203364779,
                             "Mid": 2002.789368,
                             "Min": 0,
                             "Rate": 0.288440458
@@ -1594,7 +1594,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.768125526,
+                            "Max": 0.819762848,
                             "Mid": 2001.296562358,
                             "Min": 0,
                             "Rate": 2.360085971
@@ -1637,7 +1637,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.0,
+                            "Max": 0.398597988,
                             "Mid": 2002.789368,
                             "Min": 0,
                             "Rate": 0.288440458
@@ -1675,7 +1675,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.04653186,
+                            "Max": 0.397075298,
                             "Mid": 2001.296562358,
                             "Min": 0,
                             "Rate": 2.360085971
@@ -1756,7 +1756,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 1.0,
+                            "Max": 0.999759874,
                             "Mid": 2001.296562358,
                             "Min": 0,
                             "Rate": 2.360085971
@@ -1799,7 +1799,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.914462979,
+                            "Max": 0.773399898,
                             "Mid": 2002.789368,
                             "Min": 0,
                             "Rate": 0.288440458
@@ -1837,7 +1837,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.729385699,
+                            "Max": 0.92920176,
                             "Mid": 2001.296562358,
                             "Min": 0,
                             "Rate": 2.360085971
@@ -1880,7 +1880,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.14204799,
+                            "Max": 0.285059472,
                             "Mid": 2002.789368,
                             "Min": 0,
                             "Rate": 0.288440458
@@ -1918,7 +1918,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.140581132,
+                            "Max": 0.403033834,
                             "Mid": 2001.296562358,
                             "Min": 0,
                             "Rate": 2.360085971
@@ -1961,7 +1961,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.87271488,
+                            "Max": 0.888114219,
                             "Mid": 2002.789368,
                             "Min": 0,
                             "Rate": 0.288440458
@@ -1999,7 +1999,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.994397436,
+                            "Max": 1.0,
                             "Mid": 2001.296562358,
                             "Min": 0,
                             "Rate": 2.360085971
@@ -2042,7 +2042,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.369039488,
+                            "Max": 0.367634611,
                             "Mid": 2002.789368,
                             "Min": 0,
                             "Rate": 0.288440458
@@ -2080,7 +2080,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.670742512,
+                            "Max": 0.665716681,
                             "Mid": 2001.296562358,
                             "Min": 0,
                             "Rate": 2.360085971
@@ -2123,7 +2123,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.887947628,
+                            "Max": 1.0,
                             "Mid": 2002.789368,
                             "Min": 0,
                             "Rate": 0.288440458
@@ -2161,7 +2161,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.035196825,
+                            "Max": 0.275068087,
                             "Mid": 2001.296562358,
                             "Min": 0,
                             "Rate": 2.360085971
@@ -2204,7 +2204,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.06731641,
+                            "Max": 0.0,
                             "Mid": 2002.789368,
                             "Min": 0,
                             "Rate": 0.288440458
@@ -2242,7 +2242,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.652901388,
+                            "Max": 0.636776909,
                             "Mid": 2001.296562358,
                             "Min": 0,
                             "Rate": 2.360085971
@@ -2285,7 +2285,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.030415559,
+                            "Max": 0.387841572,
                             "Mid": 2002.789368,
                             "Min": 0,
                             "Rate": 0.288440458
@@ -2323,7 +2323,7 @@
                     "Relationship_Parameters": {
                         "Coital_Act_Rate": 0.33,
                         "Condom_Usage_Probability": {
-                            "Max": 0.156039575,
+                            "Max": 0.401805672,
                             "Mid": 2001.296562358,
                             "Min": 0,
                             "Rate": 2.360085971
