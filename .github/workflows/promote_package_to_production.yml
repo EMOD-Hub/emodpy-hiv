@@ -1,0 +1,70 @@
+name: Promote emodpy-hiv package to Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      package_version:
+        description: 'Package version to promote'
+        required: true
+
+jobs:
+  promote-package-to-production:
+    runs-on: ubuntu-latest
+    environment: Release_Production
+    strategy:
+      max-parallel: 1
+      matrix:
+        python-version: [ '3.9' ]
+    steps:
+      - name: Set package variables
+        run: |
+          echo "STAGING_REGISTRY=https://packages.idmod.org/api/pypi/idm-pypi-staging/" >> $GITHUB_ENV
+          echo "PROD_REGISTRY=https://packages.idmod.org/api/pypi/idm-pypi-production/" >> $GITHUB_ENV
+          echo "PACKAGE_NAME=emodpy_hiv" >> $GITHUB_ENV
+
+      - name: Checkout sources
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@master
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+
+      - name: Download package from staging
+        env:
+          PIP_EXTRA_INDEX_URL: https://${{ secrets.STAGING_ARTIFACTORY_USERNAME }}:${{ secrets.STAGING_ARTIFACTORY_PASSWORD }}@packages.idmod.org/api/pypi/idm-pypi-staging/simple/
+        run: |
+          pip install --upgrade pip
+          pip download --index-url $PIP_EXTRA_INDEX_URL --no-deps ${{ env.PACKAGE_NAME }}==${{ github.event.inputs.package_version }} -d ./dist
+
+      - name: install staging package
+        run: |
+          pip install ./dist/${{ env.PACKAGE_NAME }}-${{ github.event.inputs.package_version }}-py3-none-any.whl --extra-index-url=https://packages.idmod.org/api/pypi/pypi-production/simple
+      
+      - name: run unit, sim, and country tests
+        run: |
+          pip install -r requirements.txt
+          pytest unittests/test_emod_hiv_package.py
+          pytest --dist loadfile -v -m unit --junitxml="test_results_unit.xml"
+          pytest --dist loadfile -v -m container --junitxml="test_results_container.xml"
+        working-directory: ./tests
+
+      - name: run examples with Eradication from pip install snakemake
+        run: |
+          pip install snakemake
+          pip install pulp==2.7.0
+          snakemake --cores all
+        working-directory: ./examples
+
+      - name: Install twine
+        run: pip install twine
+
+      - name: Upload to production PyPI
+        run: |
+          twine upload --verbose \
+            --repository-url ${{ env.PROD_REGISTRY }} \
+            --username ${{ secrets.PROD_ARTIFACTORY_USERNAME }} \
+            --password ${{ secrets.PROD_ARTIFACTORY_PASSWORD }} \
+            ./dist/*.whl
