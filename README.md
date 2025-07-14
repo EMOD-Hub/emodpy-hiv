@@ -84,7 +84,7 @@ requests. You are welcome to create your own fork and modify the code to suit yo
 modeling needs as contemplated under the MIT License.
 
 If you have feature requests, issues, or new code, please see our
-'CONTRIBUTING <https://github.com/InstituteforDiseaseModeling/emodpy-hiv/blob/main/CONTRIBUTING.rst>' page
+'CONTRIBUTING <https://github.com/EMOD-Hub/emodpy-hiv/blob/main/CONTRIBUTING.rst>' page
 for how to provide your feedback.
 
 Questions or comments can be directed to [idmsupport@gatesfoundation.org](<mailto:idmsupport@gatesfoundation.org>).

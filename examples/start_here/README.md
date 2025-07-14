@@ -37,7 +37,7 @@ pip install pip --upgrade
 pip install emodpy-hiv
 pip install dataclasses (if you are using Python 3.6)
 pip install keyrings.alt (Linux only)
-git clone https://github.com/InstituteforDiseaseModeling/emodpy-hiv.git
+git clone https://github.com/EMOD-Hub/emodpy-hiv.git
 cd emodpy-hiv/examples/start_here
 pip install eradicationpy
 python -m eradicationpy.bootstrap

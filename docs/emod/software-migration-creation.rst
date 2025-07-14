@@ -41,7 +41,7 @@ To use the same average migration rate for every individual in a node, create th
     Rate
         The average number of trips per day.
 
-#.  Run the `convert_txt_to_bin.py <https://github.com/InstituteforDiseaseModeling/EMOD/blob/master/Scripts/MigrationTools/convert_txt_to_bin.py>`_ script using the command format below::
+#.  Run the `convert_txt_to_bin.py <https://github.com/EMOD-Hub/EMOD/blob/master/Scripts/MigrationTools/convert_txt_to_bin.py>`_ script using the command format below::
 
         python convert_txt_to_bin.py [input-migration-csv] [output-bin] [migration-type] [idreference]
 
@@ -56,7 +56,7 @@ To vary the average migration rate based on age and/or gender, create the migrat
 
 #.  Create a JSON file with the structure described in the sections below.
 
-#.  Run the `convert_json_to_bin.py <https://github.com/InstituteforDiseaseModeling/EMOD/blob/master/Scripts/MigrationTools/convert_json_to_bin.py>`_ script using the command format below::
+#.  Run the `convert_json_to_bin.py <https://github.com/EMOD-Hub/EMOD/blob/master/Scripts/MigrationTools/convert_json_to_bin.py>`_ script using the command format below::
 
         python convert_json_to_bin.py [input-json] [output-bin] [migration-type]
 

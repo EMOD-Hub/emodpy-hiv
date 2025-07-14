@@ -76,4 +76,4 @@ Working directory
 Finally, if neither the the map file or the command-line option are provided, |exe_s| looks for the
 reporter plug-in in the current working directory.
 
-.. _reporters: https://github.com/InstituteforDiseaseModeling/EMOD/tree/master/reporters
+.. _reporters: https://github.com/EMOD-Hub/EMOD/tree/master/reporters
