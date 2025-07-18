@@ -2,6 +2,16 @@
 
 This guide explains how to develop and validate tests for a new country class in the `emodpy-hiv` project.
 
+
+## Contents
+
+- [1. Overview](#1-overview)
+- [2. Create a Test Folder](#2-create-a-test-folder)
+- [3. Update Test Files](#3-update-test-files)
+- [4. Prepare Reference Files](#4-prepare-reference-files)
+- [5. Update Validation Logic](#5-update-validation-logic)
+- [6. Run and Verify Tests](#6-run-and-verify-tests)
+- [7. Tips](#7-tips)
 ---
 
 ## 1. Overview
