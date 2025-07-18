@@ -55,7 +55,7 @@ class TestZambia(BaseSimTest):
             demographics_builder=zambia.build_demographics,
             report_builder=zambia.build_reports
         )
-        if type(self.platform) is COMPSPlatform:
+        if isinstance(self.platform, COMPSPlatform):
             self.task.set_sif(self.sif_path, platform=self.platform)
         experiment = Experiment.from_task(task=self.task,
                                           name=self.case_name)
@@ -91,9 +91,9 @@ class TestZambia(BaseSimTest):
             self.platform.get_files(this_sim, files=not_expected_files_with_path)
         actual_exception_msg = str(context.exception)
 
-        if type(self.platform) is COMPSPlatform:
+        if isinstance(self.platform, COMPSPlatform):
             expected_exception_msg = f"Couldn't find file for path '{not_expected_files_with_path[0]}'"
-        elif type(self.platform) is ContainerPlatform:
+        elif isinstance(self.platform, ContainerPlatform):
             expected_exception_msg = f"Couldn't find asset for path '{not_expected_files_with_path[0]}'"
         else:
             raise RuntimeError(f"Unknown platform: {self.platform}")
