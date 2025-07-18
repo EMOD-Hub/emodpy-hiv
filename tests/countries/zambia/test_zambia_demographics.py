@@ -17,6 +17,7 @@ import helpers
 ROUNDING_DIGITS = 9
 
 @pytest.mark.unit
+@pytest.mark.country
 class TestZambiaDemographics(unittest.TestCase):
     def setUp(self):
         output_path = Path(__file__).parent.joinpath("outputs")
