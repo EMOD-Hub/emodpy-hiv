@@ -68,19 +68,24 @@ Update all references from zambia to zambia_prep_at_debut in the test functions.
 Assume you run a simulation using the new country class and you are able to get the expected results. You can use the output files from the simulation run as reference files for the new test.
 Here are the steps to prepare the reference files using the `test_zambia_prep_at_debut.py` test file:(You can write a script to do this too)
 
-- Comment out all lines that validate the simulation result for now (e.g., all lines after `self.assertTrue(experiment.succeeded, ...)`).
-- Run the test to ensure it executes without errors and generates output files.
+- Run the test to ensure it executes generates output files.
 ```bash
 pytest tests/countries/zambia_prep_at_debut/test_zambia_prep_at_debut.py
 ```
+- The test is expected to fail at validation steps (e.g., `self.assertTrue(experiment.succeeded, ...)`) because the reference files do not exist yet.
 - Inspect output files (e.g., `InsetChart.json`) to verify the new country class works as expected.
+- You can compare the new output file with the old reference file by plotting them together. Use a command like:
+```bash
+python -m emodpy_hiv.plotting.plot_inset_chart countries\zambia_prep_at_debut\inputs\test_zambia_sim_InsetChart.json failed_tests\container_jobs\test_zambia_prep_at_debut\6c7f4f95-6017-4b34-a833-a403a39d676c\output\InsetChart.json -o tmp
+```
+This will generate a PNG image in the tmp directory, allowing you to visually inspect the differences between the files. Please update the simulation output path to match your actual output folder.
 - Copy `InsetChart.json` from the simulation output folder to `tests/countries/zambia_prep_at_debut/inputs` and rename it to `test_zambia_prep_at_debut_InsetChart.json`.
 - Copy campaign, demographics, and config reference files from the simulation output folder to the new test folder's `inputs` subdirectory, renaming them to match reference filenames in the campaign, demographics and config tests.
 
 ---
 
 ## 5. Update Validation Logic
-- Uncomment or update validation lines in `test_zambia_prep_at_debut.py` to check for expected results.
+- Update validation lines in `test_zambia_prep_at_debut.py` as needed to check for expected results.
 - Adjust expected filenames and report names to match your new country class.
 - Add extra validation checks for new features (e.g., population distribution, campaign states, additional reports).
 For demographics tests, keep the `test_demographics()` function and remove any Zambia-specific tests (e.g., `test_demographics_v2()`) that do not apply.
@@ -101,12 +106,12 @@ Ensure all tests pass and outputs match expectations.
 ---
 
 ## 7. Tips
-- Update and test each file individually to isolate issues. Repeat steps 3 to 6 for each file, but note that step 4 (preparing reference files) only needs to be done once after running the simulation.
+- Update and test each file individually to isolate issues. Repeat steps 3 to 6 for each file, but note that step 4 (preparing reference files) only needs to be done once after running the test for the first time.
 - Remove or update any Zambia-specific tests that do not apply to your new country class.
 - Add comments to highlight changes and custom validations.
 - You can add more validation checks to test specific changes, such as population distribution in the demographics file or cascade of care states in the campaign file.
 - `pytest` markers can be used to categorize tests (e.g., `@pytest.mark.country`, `@pytest.mark.container`). You can run tests with specific markers using `pytest -m <marker>`.
-
+- The `test_*.py` files serve as regression tests to ensure the model produces consistent and correct results as the model or emodpy code evolves. If a test fails after code changes, compare and plot the `InsetChart.json` files to investigate the cause. This helps prevent unintended changes in model behavior.
 ---
 
 For more details on the test structure, see the main [README.md](README.md).
