@@ -26,6 +26,7 @@ from base_sim_test import BaseSimTest
 
 
 @pytest.mark.container
+@pytest.mark.country
 class TestZambia(BaseSimTest):
     """
     The goal of this test is to keep the Zambia model up to date.  If this test fails,
@@ -46,19 +47,16 @@ class TestZambia(BaseSimTest):
             config.parameters.Simulation_Duration = 80 * 365
             return config
 
-        def campaign_builder(campaign):
-            return zambia.build_campaign(campaign)
-
         self.task = EMODTask.from_defaults(
             eradication_path=self.eradication_path,
             schema_path=self.schema_path,
             config_builder=config_setter,
-            campaign_builder=campaign_builder,
+            campaign_builder=zambia.build_campaign,
             demographics_builder=zambia.build_demographics,
             report_builder=zambia.build_reports
         )
-
-        self.task.set_sif(self.sif_path, platform=self.platform)
+        if type(self.platform) is COMPSPlatform:
+            self.task.set_sif(self.sif_path, platform=self.platform)
         experiment = Experiment.from_task(task=self.task,
                                           name=self.case_name)
 

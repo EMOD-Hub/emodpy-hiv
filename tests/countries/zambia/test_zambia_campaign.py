@@ -16,6 +16,7 @@ import manifest
 import helpers
 
 @pytest.mark.unit
+@pytest.mark.country
 class TestZambia(unittest.TestCase):
     def setUp(self):
         output_path = Path(__file__).parent.joinpath("outputs")

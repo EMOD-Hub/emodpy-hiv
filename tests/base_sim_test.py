@@ -37,7 +37,7 @@ class BaseSimTest(unittest.TestCase):
         os.mkdir(self.test_folder)
         os.chdir(self.test_folder)# so EMODTask creates demographics folder here
         self.output_path = Path(self.test_folder).resolve()
-        self.platform = Platform(manifest.container_platform_name)
+        self.platform = Platform(manifest.container_platform_name, job_directory="container_jobs")
         # self.platform = Platform("SLURMStage")  # "Calculon", node_group="idm_48cores", priority="Highest"
 
     def tearDown(self) -> None:
