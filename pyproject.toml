@@ -23,6 +23,7 @@ keywords=["modeling", "IDM"]
 dependencies = [
     "emodpy>=2.0",
     "pandas",
+    "scikit-learn",
     "python-calamine",
     "emod-hiv==1.0.4"]
 
