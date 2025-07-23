@@ -6,7 +6,7 @@
 sudo DEBIAN_FRONTEND=noninteractive UCF_FORCE_CONFFOLD=1 apt update && sudo DEBIAN_FRONTEND=noninteractive UCF_FORCE_CONFFOLD=1 apt upgrade -y
 
 # Install extra system dependencies if needed
-sudo apt install -y build-essential curl git unzip zip
+sudo apt install -y build-essential curl git unzip zip git-lfs
 
 # Install additional Python packages
 pip install --upgrade pip
@@ -15,6 +15,9 @@ pip install --upgrade pip
 # installed when we install this repo.
 # pip install numpy pandas matplotlib seaborn ipykernel ipywidgets
 
+# Ensure git lfs is installed and pull LFS files
+git lfs install
+git lfs pull
 
 # dev install emodpy-hiv (can be replaced later by pip install emodpy-hiv from jfrog)
 pip install -e . --index-url=https://packages.idmod.org/api/pypi/pypi-production/simple
