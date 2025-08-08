@@ -1,1 +1,1 @@
-from .zambia import Zambia # noqa: F401
+from .zambia import Zambia, ZambiaForTraining # noqa: F401

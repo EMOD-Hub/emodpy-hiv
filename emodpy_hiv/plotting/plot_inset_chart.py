@@ -13,6 +13,7 @@ import os
 import pylab
 from math import sqrt, ceil
 
+import emodpy_hiv.plotting.helpers as helpers
 
 def get_raw_color(idx: int):
     """
@@ -108,36 +109,6 @@ def create_title_string(reference: str, data_filenames: list[str]):
             title = title + "\n"
 
     return title
-
-
-def get_data_from_directory(directory: str):
-    """
-    Gets the JSON files from the input directory and return the names of the files
-    and the dictionaries of data.  The idea is to allow the user to put several
-    channel reports into one directory and plot them all by just giving the name
-    of the directory.
-
-    Args:
-        directory:
-            a path to a directory that contains only a collection of channel reports
-
-    Returns:
-        Return the list of file names in the directory AND the list of dictionaries
-        containing the data of those files
-    """
-    dir_data = []
-    dir_data_filenames = []
-    for file in os.listdir(directory):
-        file = os.path.join(directory, file)
-        if file.endswith(".json"):
-            dir_data_filenames.append(file)
-
-    dir_data_filenames = sorted(dir_data_filenames)
-    for file in dir_data_filenames:
-        with open(file) as dir_sim:
-            dir_data.append(json.loads(dir_sim.read()))
-
-    return dir_data_filenames, dir_data
 
 
 def plot_subplot(chan_title: str,
@@ -325,26 +296,26 @@ def plot_inset_chart(dir_name: str = None,
     test_filenames = []
     test_data = []
     if dir_name is not None:
-        test_filenames, test_data = get_data_from_directory(dir_name)
+        test_filenames = helpers.get_filenames(dir_or_filename=dir_name,
+                                               file_prefix="InsetChart",
+                                               file_extension="json")
 
     if comparison1 is not None:
         test_filenames.append(comparison1)
-        with open(comparison1) as test_sim:
-            test_data.append(json.loads(test_sim.read()))
 
     if comparison2 is not None:
         test_filenames.append(comparison2)
-        with open(comparison2) as test_sim:
-            test_data.append(json.loads(test_sim.read()))
 
     if comparison3 is not None:
         test_filenames.append(comparison3)
-        with open(comparison3) as test_sim:
-            test_data.append(json.loads(test_sim.read()))
+
+    for test_fn in test_filenames:
+        with open(test_fn, "r") as test_file:
+            test_data.append(json.loads(test_file.read()))
 
     ref_data = None
     if reference is not None:
-        with open(reference) as ref_file:
+        with open(reference, "r") as ref_file:
             ref_data = json.loads(ref_file.read())
 
     plot_name = title
@@ -376,7 +347,7 @@ if __name__ == "__main__":
     parser.add_argument('comparison1', default=None, nargs='?', help='Comparison1 InsetChart filename')
     parser.add_argument('comparison2', default=None, nargs='?', help='Comparison2 InsetChart filename')
     parser.add_argument('comparison3', default=None, nargs='?', help='Comparison3 InsetChart filename')
-    parser.add_argument('-d', '--dir', default=None, nargs='?', help='Directory of InsetChart.json files')
+    parser.add_argument('-d', '--dir', default=None, nargs='?', help='Directory, or parent directory that contains subdirectories, of InsetChart.json files')
     parser.add_argument('-t', '--title', default=None, nargs='?', help='Title of Plot')
     parser.add_argument('-o', '--output', default=None, help='If provided, a directory will be created and images saved to the folder.  If not provided, it opens windows.')
 

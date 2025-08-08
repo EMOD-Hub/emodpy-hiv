@@ -708,3 +708,22 @@ class Zambia(Country):
                                                                          end_year=2050)))
 
         return reporters
+
+
+class ZambiaForTraining(Zambia):
+    """
+    A version of Zambia that is used for training purposes.
+    It has a smaller population and shorter simulation time.
+    """
+    @classmethod
+    def initialize_config(cls, schema_path: Union[str, Path]) -> ReadOnlyDict:
+        config = super().initialize_config(schema_path=schema_path)
+
+        # Set the base population to a small value for training purposes
+        # This is to avoid the model running for too long during training.
+        config.parameters.x_Base_Population = 0.002
+
+        # Reduce the simulation duration by 10 years to decrease runtime.
+        config.parameters.Simulation_Duration = config.parameters.Simulation_Duration - (10 * 365)
+    
+        return config

@@ -648,7 +648,10 @@ def plot_population_for_dir(dir_or_filename: str,
     title2 = dir_or_filename
     if unworld_pop_filename:
         title2 = str(unworld_pop_filename)
-        unwp_df = unwp.extract_population_by_age(unworld_pop_filename, country, version, years=years)
+        unwp_df = unwp.extract_population_by_age(country=country, 
+                                                 version=version,
+                                                 years=years,
+                                                 filename=unworld_pop_filename)
         unwp_df.index = unwp_df[date_column].astype(float)
         del unwp_df[date_column]
         rename_dict = {}
@@ -1375,6 +1378,10 @@ def plot_population_by_age(dir_or_filename: str,
     Returns:
         None - but image will be saved or window opened.
     """
+    if age_bin_list is not None and len(age_bin_list) == 0:
+        raise ValueError("The 'age_bin_list' parameter must be a list of ages in years where the population will be counted for each bin. "
+                         + "If you do not want to use age bins, please set it to None.")
+    
     base_plot_by_age(base_title="",
                      main_column_name=COL_NAME_POP,
                      dir_or_filename=dir_or_filename,
@@ -1397,7 +1404,7 @@ def plot_vmmc_by_age(dir_or_filename: str,
                      show_avg_per_run: bool = False,
                      img_dir: str = None):
     """
-    Create a plot showing information about the men who are cicumcised.
+    Create a plot showing information about the men who are circumcised.
 
     Args:
         dir_or_filename (str, required):
@@ -1690,18 +1697,18 @@ def plot_vmmc_for_dir(dir_or_filename: str,
 
     combined_df = pd.DataFrame()
     for fn in dir_filenames:
-        df_circ = extract_population_data_multiple_ages(fn,
-                                                        node_id=node_id,
-                                                        gender="Male",
-                                                        age_bin_list=age_bin_list,
-                                                        other_strat_column_name=COL_NAME_IS_CIRC,
-                                                        other_strat_value=1)
-        df_un_circ = extract_population_data_multiple_ages(fn,
-                                                           node_id=node_id,
-                                                           gender="Male",
-                                                           age_bin_list=age_bin_list,
-                                                           other_strat_column_name=COL_NAME_IS_CIRC,
-                                                           other_strat_value=0)
+        df_circ, not_used = extract_population_data_multiple_ages(fn,
+                                                                  node_id=node_id,
+                                                                  gender="Male",
+                                                                  age_bin_list=age_bin_list,
+                                                                  other_strat_column_name=COL_NAME_IS_CIRC,
+                                                                  other_strat_value=1)
+        df_un_circ, not_used = extract_population_data_multiple_ages(fn,
+                                                                     node_id=node_id,
+                                                                     gender="Male",
+                                                                     age_bin_list=age_bin_list,
+                                                                     other_strat_column_name=COL_NAME_IS_CIRC,
+                                                                     other_strat_value=0)
         if len(combined_df.columns) == 0:
             combined_df.index = df_circ.index
             for column_name in df_circ.columns:

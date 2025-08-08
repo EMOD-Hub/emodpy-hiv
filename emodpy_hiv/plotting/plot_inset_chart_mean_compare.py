@@ -1,7 +1,9 @@
 import sys
 import argparse
 import pandas as pd
+import json
 
+import emodpy_hiv.plotting.helpers as helpers
 import emodpy_hiv.plotting.plot_inset_chart as pic
 from emodpy_hiv.plotting.channel_report import ChannelReport
 
@@ -18,11 +20,17 @@ def calculate_mean(dir_name: str):
         mean_cr: Mean ChannelReport object
         raw_data_list: List of raw data dictionaries from the InsetChart.json files
     """
-    not_used_filenames, raw_data_list = pic.get_data_from_directory(dir_name)
-
+    test_filenames = helpers.get_filenames(dir_or_filename=dir_name,
+                                           file_prefix="InsetChart",
+                                           file_extension="json")
+    
+    raw_data_list = []
     total_df = pd.DataFrame()
-    for data in raw_data_list:
-        df = ChannelReport.convert_to_df(data)
+    for test_fn in test_filenames:
+        with open(test_fn, "r") as test_file:
+            test_json = json.loads(test_file.read())
+            raw_data_list.append(test_json)
+        df = ChannelReport.convert_to_df(test_json)
         total_df = pd.concat([total_df, df])
 
     mean_df = total_df.groupby("Time").mean().reset_index()
@@ -118,9 +126,9 @@ def plot_mean(dir1: str,
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('dir1', default=None, nargs='?', help='Directory with InsetChart.json files')
-    parser.add_argument('dir2', default=None, nargs='?', help='Directory with InsetChart.json files')
-    parser.add_argument('dir3', default=None, nargs='?', help='Directory with InsetChart.json files')
+    parser.add_argument('dir1', default=None, nargs='?', help='Directory, or parent directory that contains subdirectories, of InsetChart.json files')
+    parser.add_argument('dir2', default=None, nargs='?', help='Directory, or parent directory that contains subdirectories, of InsetChart.json files')
+    parser.add_argument('dir3', default=None, nargs='?', help='Directory, or parent directory that contains subdirectories, of InsetChart.json files')
     parser.add_argument('-r', '--raw', help='If provided, shows the raw/individual simulation data in a lighter color.', action='store_true')
     parser.add_argument('-m', '--subplot_index_min', default=0, type=int, help='Index of the first subplot to show.')
     parser.add_argument('-x', '--subplot_index_max', default=100, type=int, help='Index of the last subplot to show.')

@@ -43,7 +43,7 @@ from emodpy_hiv.campaign.common import (CommonInterventionParameters as CIP, Pro
                                         TargetDemographicsConfig as TDC)
 from emodpy_hiv.campaign.distributor import add_intervention_scheduled, add_intervention_triggered
 
-from emodpy_hiv.countries.zambia.zambia import Zambia
+from emodpy_hiv.countries.zambia.zambia import ZambiaForTraining
 import emodpy.emod_task as emod_task
 
 import manifest
@@ -54,7 +54,7 @@ import emod_api.schema_to_class as s2c
 s2c.show_warnings = False
 
 
-class MyZambia(Zambia):
+class MyZambia(ZambiaForTraining):
     country_name = 'MyZambia'
 
     @classmethod
@@ -74,7 +74,7 @@ class MyZambia(Zambia):
         __NOTE:__ In the last `add_triggered_event`, notice that it is distributing the 
         same `uptake_choice` intervention as the first one. This is one of those 
         benefits of using Python. If this were done in JSON, the configuration of 
-        `uptake_choise` would have to be copy and pasted. Not having this data duplcated
+        `uptake_choice` would have to be copy and pasted. Not having this data duplicated
         multiple times should lead to fewer bugs.
         """
         disqualifying_properties = [coc.CascadeState.LOST_FOREVER,
@@ -153,7 +153,7 @@ def build_config(config):
     should reduce that increase.  (Simulations might take 5-7 minutes.)
     """
     # !!!!!!!!!!!!!!!!!!!!!!!!
-    # Overriden Country Model 
+    # Overridden Country Model 
     # !!!!!!!!!!!!!!!!!!!!!!!!
     zambia = MyZambia
 
@@ -175,7 +175,7 @@ def build_campaign(campaign):
     instead of copying and pasting a large amount of JSON.
     """
     # !!!!!!!!!!!!!!!!!!!!!!!!
-    # Overriden Country Model 
+    # Overridden Country Model 
     # !!!!!!!!!!!!!!!!!!!!!!!!
     zambia = MyZambia
 
@@ -213,7 +213,7 @@ def build_demographics():
     to health care to 90%
     """
     # !!!!!!!!!!!!!!!!!!!!!!!!
-    # Overriden Country Model 
+    # Overridden Country Model 
     # !!!!!!!!!!!!!!!!!!!!!!!!
     zambia = MyZambia
 
@@ -288,23 +288,43 @@ def process_results(experiment, platform, output_path):
 
 def plot_results(output_path):
     """
-    The following code uses some tutorial-helper functions to plot the results
+    The following code uses the emodpy_hiv plotting utilities to plot the results
     of these simulations.  The images should be put into the 'output_path'.
     """
-    import plot_report_hiv_by_age_and_gender as my_plt
+    import emodpy_hiv.plotting.plot_inset_chart as ic
+    import emodpy_hiv.plotting.plot_hiv_by_age_and_gender as ang
+    
+    ic.plot_inset_chart(dir_name=output_path,
+                        title="Tutorial #2 - Add Reports - InsetChart",
+                        include_filenames_in_title=True,
+                        output=output_path)
 
-    report_filenames = my_plt.get_report_filenames(output_path,
-                                                   "ReportHIVByAgeAndGender.csv")
+    ang.plot_population_by_age(dir_or_filename=output_path,
+                               exp_dir_or_filename=None,
+                               node_id=None,
+                               gender=None,
+                               age_bin_list=None,
+                               show_avg_per_run=False,
+                               img_dir=output_path)
 
-    df = my_plt.create_dataframe_from_csv_reports(report_filenames)
-    num_runs = len(report_filenames)
-
-    my_plt.plot_age_based_data(output_path, df, num_runs, "Population (15-49) Over Time", " Population")
-    my_plt.plot_age_based_data(output_path, df, num_runs, "Number of People (15-49) on ART Over Time", " On_ART")
-    my_plt.plot_age_based_data(output_path, df, num_runs,
-                               "Number of Newly Infected People (15-49) (Incidence) Over Time", " Newly Infected")
-    my_plt.plot_age_based_data(output_path, df, num_runs, "Number of Infected People (15-49) (Prevalence) Over Time",
-                               " Infected")
+    ang.plot_prevalence_for_dir(dir_or_filename=output_path,
+                                exp_dir_or_filename=None,
+                                node_id=None,
+                                gender=None,
+                                age_bin_list=None,
+                                show_avg_per_run=None,
+                                show_fraction=True,
+                                img_dir=output_path)
+    
+    ang.plot_onART_by_age(dir_or_filename=output_path,
+                          exp_dir_or_filename=None,
+                          node_id=None,
+                          gender=None,
+                          age_bin_list=None,
+                          show_avg_per_run=False,
+                          show_fraction=True,
+                          fraction_of_infected=True,
+                          img_dir=output_path)
 
     return
 
