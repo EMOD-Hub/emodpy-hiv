@@ -62,7 +62,7 @@ def run_experiment():
     #                     max_running_jobs=1000000,
     #                     array_batch_size=1000000 )
 
-    zambia = cm.Zambia
+    zambia = cm.ZambiaForTraining
     task = emod_task.EMODTask.from_defaults(
         eradication_path=manifest.eradication_path,
         schema_path=manifest.schema_file,

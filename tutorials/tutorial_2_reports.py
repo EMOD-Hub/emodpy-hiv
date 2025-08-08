@@ -22,6 +22,8 @@ mail_type        - ... if you set this parameter (ALL means jobs begin, finish, 
 max_running_jobs - This and the next param are for idmtools to allow parallel simulations
 array_batch_size - ???
 """
+import os
+
 from idmtools.core.platform_factory import Platform
 from idmtools.entities.experiment import Experiment
 from idmtools.builders import SimulationBuilder
@@ -36,15 +38,20 @@ import emod_api.schema_to_class as s2c
 s2c.show_warnings = False
 
 
-def add_reports(reporters):
+def build_reports(reporters):
     """
     To organize our logic, we will create a method that configures the reports we want EMOD to produce.
-    EMOD is already generating the default InsetChart.json (by setting 
-    `config.parameters.Enable_Default_Reporting = 1`). We will add two more reports so you can see how
-    it is done and get everyone's favorite `ReportHIVByAgeAndGender`.
+    We will add three reports so you can see how it is done and get everyone's favorite `ReportHIVByAgeAndGender`.
     """
-    from emodpy_hiv.reporters.reporters import ReportSimulationStats, ReportHIVByAgeAndGender, ReportFilter
+    from emodpy_hiv.reporters.reporters import ReportSimulationStats, ReportHIVByAgeAndGender
+    from emodpy_hiv.reporters.reporters import ReportFilter, InsetChart
 
+    reporters.add(InsetChart(reporters_object=reporters,
+                             has_ip=None,                 # default
+                             has_interventions=None,      # default
+                             include_pregnancies=False,   # default
+                             include_coital_acts=False,
+                             event_channels_list=["NonDiseaseDeaths"]))
     reporters.add(ReportSimulationStats(reporters_object=reporters))
     reporters.add(ReportHIVByAgeAndGender(reporters_object=reporters,
                                           report_filter=ReportFilter(start_year=1985,
@@ -98,23 +105,43 @@ def process_results(experiment, platform, output_path):
 
 def plot_results(output_path):
     """
-    The following code uses some tutorial-helper functions to plot the results
+    The following code uses the emodpy_hiv plotting utilities to plot the results
     of these simulations.  The images should be put into the 'output_path'.
     """
-    import plot_report_hiv_by_age_and_gender as my_plt
+    import emodpy_hiv.plotting.plot_inset_chart as ic
+    import emodpy_hiv.plotting.plot_hiv_by_age_and_gender as ang
+    
+    ic.plot_inset_chart(dir_name=output_path,
+                        title="Tutorial #2 - Add Reports - InsetChart",
+                        include_filenames_in_title=True,
+                        output=output_path)
 
-    report_filenames = my_plt.get_report_filenames(output_path,
-                                                   "ReportHIVByAgeAndGender.csv")
+    ang.plot_population_by_age(dir_or_filename=output_path,
+                               exp_dir_or_filename=None,
+                               node_id=None,
+                               gender=None,
+                               age_bin_list=None,
+                               show_avg_per_run=False,
+                               img_dir=output_path)
 
-    df = my_plt.create_dataframe_from_csv_reports(report_filenames)
-    num_runs = len(report_filenames)
-
-    my_plt.plot_age_based_data(output_path, df, num_runs, "Population (15-49) Over Time", " Population")
-    my_plt.plot_age_based_data(output_path, df, num_runs, "Number of People (15-49) on ART Over Time", " On_ART")
-    my_plt.plot_age_based_data(output_path, df, num_runs,
-                               "Number of Newly Infected People (15-49) (Incidence) Over Time", " Newly Infected")
-    my_plt.plot_age_based_data(output_path, df, num_runs, "Number of Infected People (15-49) (Prevalence) Over Time",
-                               " Infected")
+    ang.plot_prevalence_for_dir(dir_or_filename=output_path,
+                                exp_dir_or_filename=None,
+                                node_id=None,
+                                gender=None,
+                                age_bin_list=None,
+                                show_avg_per_run=None,
+                                show_fraction=True,
+                                img_dir=output_path)
+    
+    ang.plot_onART_by_age(dir_or_filename=output_path,
+                          exp_dir_or_filename=None,
+                          node_id=None,
+                          gender=None,
+                          age_bin_list=None,
+                          show_avg_per_run=False,
+                          show_fraction=True,
+                          fraction_of_infected=True,
+                          img_dir=output_path)
 
     return
 
@@ -134,8 +161,8 @@ def run_experiment():
     The following code is the code we used in Tutorial #1, but all bunched together.
     Please note the following:
     - The `sweep_run_number()` function was placed right after the reports.
-    - `add_reports()` is called right after the creation of the EMODTask.
-    - Logic is added after `experiment.run()` to check if the experiement 
+    - `build_reports()` is called right after the creation of the EMODTask.
+    - Logic is added after `experiment.run()` to check if the experiment 
       succeeded and call `process_results()'.
     """
 
@@ -157,14 +184,14 @@ def run_experiment():
     #                     max_running_jobs=1000000,
     #                     array_batch_size=1000000 )
 
-    zambia = cm.Zambia
+    zambia = cm.ZambiaForTraining
     task = emod_task.EMODTask.from_defaults(
         eradication_path=manifest.eradication_path,
         schema_path=manifest.schema_file,
         config_builder=zambia.build_config,
         campaign_builder=zambia.build_campaign,
         demographics_builder=zambia.build_demographics,
-        report_builder=add_reports
+        report_builder=build_reports
     )
 
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

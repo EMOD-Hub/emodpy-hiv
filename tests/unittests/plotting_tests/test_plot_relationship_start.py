@@ -13,7 +13,7 @@ import emodpy_hiv.plotting.plot_relationship_start as prs
 
 class TestPlottingFromRelationshipStart(PlotTestBase):
 
-    @pytest.mark.skip("Disabling for time - run tests manually if editing plotting code.")
+    @pytest.mark.skip(reason="Disabling for time - run tests manually if editing plotting code.")
     def test_plot_relationship_assortivity_risk_all(self):
         input_dir   = os.path.join(self.test_folder,"testdata/RelationshipStart_data/")
         exp_img_dir = os.path.join(self.test_folder,"testdata/test_plot_relationship_assortivity_risk_all/images_exp")

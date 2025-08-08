@@ -64,7 +64,7 @@ def build_config(config):
     population will make the simulations take longer, but the reduction in length 
     should reduce that increase.  (Simulations might take 5-7 minutes.)
     """
-    zambia = cm.Zambia
+    zambia = cm.ZambiaForTraining
     config = zambia.build_config(config)
 
     config.parameters.x_Base_Population = config.parameters.x_Base_Population * 2.0
@@ -82,7 +82,7 @@ def build_campaign(campaign):
     One goal of this example is to demonstrate how we can use a `for-loop` in Python 
     instead of copying and pasting a large amount of JSON.
     """
-    zambia = cm.Zambia
+    zambia = cm.ZambiaForTraining
     zambia.build_campaign(campaign)
     laprep = ControlledVaccine(campaign,
                                 waning_config=MapPiecewise(days=[0, 180, 210, 240, 270, 300, 330],
@@ -115,7 +115,7 @@ def build_demographics():
     In the demographics example, we are simply going to increase the accessibility 
     to health care to 90%
     """
-    zambia = cm.Zambia
+    zambia = cm.ZambiaForTraining
     demographics = zambia.build_demographics()
 
     demographics.AddIndividualPropertyAndHINT(Property="Accessibility",
@@ -187,23 +187,43 @@ def process_results(experiment, platform, output_path):
 
 def plot_results(output_path):
     """
-    The following code uses some tutorial-helper functions to plot the results
+    The following code uses the emodpy_hiv plotting utilities to plot the results
     of these simulations.  The images should be put into the 'output_path'.
     """
-    import plot_report_hiv_by_age_and_gender as my_plt
+    import emodpy_hiv.plotting.plot_inset_chart as ic
+    import emodpy_hiv.plotting.plot_hiv_by_age_and_gender as ang
+    
+    ic.plot_inset_chart(dir_name=output_path,
+                        title="Tutorial #2 - Add Reports - InsetChart",
+                        include_filenames_in_title=True,
+                        output=output_path)
 
-    report_filenames = my_plt.get_report_filenames(output_path,
-                                                   "ReportHIVByAgeAndGender.csv")
+    ang.plot_population_by_age(dir_or_filename=output_path,
+                               exp_dir_or_filename=None,
+                               node_id=None,
+                               gender=None,
+                               age_bin_list=None,
+                               show_avg_per_run=False,
+                               img_dir=output_path)
 
-    df = my_plt.create_dataframe_from_csv_reports(report_filenames)
-    num_runs = len(report_filenames)
-
-    my_plt.plot_age_based_data(output_path, df, num_runs, "Population (15-49) Over Time", " Population")
-    my_plt.plot_age_based_data(output_path, df, num_runs, "Number of People (15-49) on ART Over Time", " On_ART")
-    my_plt.plot_age_based_data(output_path, df, num_runs,
-                               "Number of Newly Infected People (15-49) (Incidence) Over Time", " Newly Infected")
-    my_plt.plot_age_based_data(output_path, df, num_runs, "Number of Infected People (15-49) (Prevalence) Over Time",
-                               " Infected")
+    ang.plot_prevalence_for_dir(dir_or_filename=output_path,
+                                exp_dir_or_filename=None,
+                                node_id=None,
+                                gender=None,
+                                age_bin_list=None,
+                                show_avg_per_run=None,
+                                show_fraction=True,
+                                img_dir=output_path)
+    
+    ang.plot_onART_by_age(dir_or_filename=output_path,
+                          exp_dir_or_filename=None,
+                          node_id=None,
+                          gender=None,
+                          age_bin_list=None,
+                          show_avg_per_run=False,
+                          show_fraction=True,
+                          fraction_of_infected=True,
+                          img_dir=output_path)
 
     return
 
