@@ -1,6 +1,6 @@
 {
 	"name": "emodpy-hiv devcontainer (light)",
-	"image": "mcr.microsoft.com/devcontainers/python:3.9",
+	"image": "mcr.microsoft.com/devcontainers/python:3.9-bullseye",
 	"features": {
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
 		"ghcr.io/devcontainers/features/node:1": {
