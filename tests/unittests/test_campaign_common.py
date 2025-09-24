@@ -20,10 +20,8 @@ import manifest
 @pytest.mark.unit
 class TestDemographicsConfig(unittest.TestCase):
     def setUp(self):
-        self.schema_path = manifest.schema_path
-        if not os.path.exists(self.schema_path):
-            import emod_hiv.bootstrap as dtk
-            dtk.setup(manifest.package_folder)
+        with open(manifest.schema_path) as schema_file:
+            self.schema_json = json.load(schema_file)
         print(f"running test: {self._testMethodName}:")
 
     def test_init(self):
@@ -36,7 +34,7 @@ class TestDemographicsConfig(unittest.TestCase):
 
     def test_set_target_demographics_default(self):
         demo_config = TargetDemographicsConfig()
-        campaign_object = s2c.get_class_with_defaults('NodeLevelHealthTriggeredIV', self.schema_path)
+        campaign_object = s2c.get_class_with_defaults('NodeLevelHealthTriggeredIV', schema_json=self.schema_json)
         demo_config._set_target_demographics(campaign_object)
         self.assertEqual(campaign_object.Demographic_Coverage, 1.0)
         self.assertEqual(campaign_object.Target_Residents_Only, False)
@@ -44,7 +42,7 @@ class TestDemographicsConfig(unittest.TestCase):
 
     def test_set_target_demographics_age(self):
         demo_config = TargetDemographicsConfig(demographic_coverage=0.6, target_age_min=15, target_age_max=49)
-        campaign_object = s2c.get_class_with_defaults('NodeLevelHealthTriggeredIV', self.schema_path)
+        campaign_object = s2c.get_class_with_defaults('NodeLevelHealthTriggeredIV', schema_json=self.schema_json)
         demo_config._set_target_demographics(campaign_object)
         self.assertEqual(campaign_object.Demographic_Coverage, 0.6)
         self.assertEqual(campaign_object.Target_Residents_Only, False)
@@ -54,7 +52,7 @@ class TestDemographicsConfig(unittest.TestCase):
 
     def test_set_target_demographics_gender(self):
         demo_config = TargetDemographicsConfig(demographic_coverage=0.9, target_gender=TargetGender.FEMALE)
-        campaign_object = s2c.get_class_with_defaults('NodeLevelHealthTriggeredIV', self.schema_path)
+        campaign_object = s2c.get_class_with_defaults('NodeLevelHealthTriggeredIV', schema_json=self.schema_json)
         demo_config._set_target_demographics(campaign_object)
         self.assertEqual(campaign_object.Demographic_Coverage, 0.9)
         self.assertEqual(campaign_object.Target_Residents_Only, False)
@@ -63,7 +61,7 @@ class TestDemographicsConfig(unittest.TestCase):
 
     def test_set_target_demographics_age_gender(self):
         demo_config = TargetDemographicsConfig(demographic_coverage=0.8, target_age_min=10, target_age_max=30, target_gender=TargetGender.MALE)
-        campaign_object = s2c.get_class_with_defaults('NodeLevelHealthTriggeredIV', self.schema_path)
+        campaign_object = s2c.get_class_with_defaults('NodeLevelHealthTriggeredIV', schema_json=self.schema_json)
         demo_config._set_target_demographics(campaign_object)
         self.assertEqual(campaign_object.Demographic_Coverage, 0.8)
         self.assertEqual(campaign_object.Target_Residents_Only, False)
@@ -74,7 +72,7 @@ class TestDemographicsConfig(unittest.TestCase):
 
     def test_set_target_demographics_residents_only(self):
         demo_config = TargetDemographicsConfig(demographic_coverage=0.7, target_residents_only=True)
-        campaign_object = s2c.get_class_with_defaults('NodeLevelHealthTriggeredIV', self.schema_path)
+        campaign_object = s2c.get_class_with_defaults('NodeLevelHealthTriggeredIV', schema_json=self.schema_json)
         demo_config._set_target_demographics(campaign_object)
         self.assertEqual(campaign_object.Demographic_Coverage, 0.7)
         self.assertEqual(campaign_object.Target_Residents_Only, True)
@@ -84,7 +82,8 @@ class TestDemographicsConfig(unittest.TestCase):
 @pytest.mark.unit
 class TestRepetitionConfig(unittest.TestCase):
     def setUp(self):
-        self.schema_path = manifest.schema_path
+        with open(manifest.schema_path) as schema_file:
+            self.schema_json = json.load(schema_file)
         print(f"running test: {self._testMethodName}:")
 
     def test_init(self):
@@ -96,14 +95,14 @@ class TestRepetitionConfig(unittest.TestCase):
 
     def test_set_repetitions(self):
         repetition_config = RepetitionConfig(number_repetitions=3, timesteps_between_repetitions=5)
-        campaign_object = s2c.get_class_with_defaults('StandardEventCoordinator', self.schema_path)
+        campaign_object = s2c.get_class_with_defaults('StandardEventCoordinator', schema_json=self.schema_json)
         repetition_config._set_repetitions(campaign_object)
         self.assertEqual(campaign_object["Number_Repetitions"], 3)
         self.assertEqual(campaign_object["Timesteps_Between_Repetitions"], 5)
 
     def test_set_repetitions_infinity(self):
         repetition_config = RepetitionConfig(infinite_repetitions=True, timesteps_between_repetitions=30)
-        campaign_object = s2c.get_class_with_defaults('StandardEventCoordinator', self.schema_path)
+        campaign_object = s2c.get_class_with_defaults('StandardEventCoordinator', schema_json=self.schema_json)
         repetition_config._set_repetitions(campaign_object)
         self.assertEqual(campaign_object["Number_Repetitions"], -1)
         self.assertEqual(campaign_object["Timesteps_Between_Repetitions"], 30)
@@ -132,7 +131,8 @@ class TestRepetitionConfig(unittest.TestCase):
 @pytest.mark.unit
 class TestPropertyRestrictions(unittest.TestCase):
     def setUp(self):
-        self.schema_path = manifest.schema_path
+        with open(manifest.schema_path) as schema_file:
+            self.schema_json = json.load(schema_file)
         print(f"running test: {self._testMethodName}:")
 
     def test_init(self):
@@ -143,7 +143,7 @@ class TestPropertyRestrictions(unittest.TestCase):
         self.assertTrue("No property restrictions are provided." in str(context.warning))
 
     def test_individual_space(self):
-        campaign_object = s2c.get_class_with_defaults('ReferenceTrackingEventCoordinator', self.schema_path)
+        campaign_object = s2c.get_class_with_defaults('ReferenceTrackingEventCoordinator', schema_json=self.schema_json)
         property_restrictions = PropertyRestrictions(
             individual_property_restrictions=[[" Risk : High ", " InterventionStatus : ARTStaging "]])
         property_restrictions._set_property_restrictions(campaign_object)
@@ -153,7 +153,7 @@ class TestPropertyRestrictions(unittest.TestCase):
         self.assertEqual(campaign_object["Node_Property_Restrictions"], [])
 
     def test_individual_and_logic(self):
-        campaign_object = s2c.get_class_with_defaults('ReferenceTrackingEventCoordinator', self.schema_path)
+        campaign_object = s2c.get_class_with_defaults('ReferenceTrackingEventCoordinator', schema_json=self.schema_json)
         property_restrictions = PropertyRestrictions(
             individual_property_restrictions=[["Risk:HIGH", "InterventionStatus:ARTStaging"]])
         property_restrictions._set_property_restrictions(campaign_object)
@@ -163,7 +163,7 @@ class TestPropertyRestrictions(unittest.TestCase):
         self.assertEqual(campaign_object["Node_Property_Restrictions"], [])
 
     def test_individual_and_or_logic(self):
-        campaign_object = s2c.get_class_with_defaults('ReferenceTrackingEventCoordinator', self.schema_path)
+        campaign_object = s2c.get_class_with_defaults('ReferenceTrackingEventCoordinator', schema_json=self.schema_json)
         individual_property_restrictions = [["Risk:HIGH",   "InterventionStatus:ARTStaging"], # noqa: E241
                                             ["Risk:MEDIUM", "InterventionStatus:ARTStaging"]]
         property_restrictions = PropertyRestrictions(individual_property_restrictions)
@@ -175,7 +175,7 @@ class TestPropertyRestrictions(unittest.TestCase):
         self.assertEqual(campaign_object["Node_Property_Restrictions"], [])
 
     def test_node(self):
-        campaign_object = s2c.get_class_with_defaults('ReferenceTrackingEventCoordinator', self.schema_path)
+        campaign_object = s2c.get_class_with_defaults('ReferenceTrackingEventCoordinator', schema_json=self.schema_json)
         property_restrictions = PropertyRestrictions(
             node_property_restrictions=[["Risk:MEDIUM", "Place:URBAN"], ["Risk:LOW", "Place:RURAL"]])
         property_restrictions._set_property_restrictions(campaign_object)
