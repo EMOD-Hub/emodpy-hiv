@@ -1,6 +1,7 @@
 import unittest
 import pytest
 from pathlib import Path
+import json
 import sys
 import os
 from emod_api import schema_to_class as s2c
