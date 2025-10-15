@@ -38,8 +38,7 @@ parameters, output reports, and other components of the model that are available
 
 |EMODPY_hiv| is a collection of Python scripts and utilities created to
 streamline user interactions with |EMOD_s| and |IT_s| for modeling generic
-diseases. Much of  the functionality is inherited from the
-:doc:`emod-api:index` and :doc:`emodpy:index`.
+diseases. Much of the functionality is inherited from the `emod-api <https://docs.idmod.org/projects/emod-api/en/latest/>`__ and :doc:`emodpy:index`.
 
 Additional information about how to use |IT_s| can be found at in
 :doc:`idmtools:index`.  Additional information about |EMOD_s| HIV
