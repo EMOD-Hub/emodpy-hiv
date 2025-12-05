@@ -38,14 +38,13 @@ parameters, output reports, and other components of the model that are available
 
 |EMODPY_hiv| is a collection of Python scripts and utilities created to
 streamline user interactions with |EMOD_s| and |IT_s| for modeling generic
-diseases. Much of the functionality is inherited from the `emod-api <https://docs.idmod.org/projects/emod-api/en/latest/>`__ and :doc:`emodpy:index`.
+diseases. Much of the functionality is inherited from `emod-api <https://emod-hub.github.io/emod-api/>`__ and `emodpy <https://emod-hub.github.io/emodpy/>`__.
 
 Additional information about how to use |IT_s| can be found at in
 :doc:`idmtools:index`.  Additional information about |EMOD_s| HIV
 parameters can be found in :doc:`emod/parameter-overview`.
 
-If you have questions, see :doc:`emodpy:faq` for general questions about all 
-|EMODPY_s| functionality or :doc:`faq` for functionality specific to |EMODPY_hiv|. 
+If you have questions, see :doc:`faq` for functionality specific to |EMODPY_hiv|. 
 
 See :doc:`idmtools:index` for a diagram showing how |IT_s| and each of the
 related packages are used in an end-to-end workflow using |EMOD_s| as the
@@ -68,7 +67,7 @@ disease transmission model.
    :titlesonly:
    :caption: Related documentation
 
-   emod-api <https://docs.idmod.org/projects/emod-api/en/latest/>
-   emodpy <https://docs.idmod.org/projects/emodpy/en/latest/>
+   emod-api <https://emod-hub.github.io/emod-api/>
+   emodpy <https://emod-hub.github.io/emodpy/>
    idmtools <https://docs.idmod.org/projects/idmtools/en/latest/>
    idmtools-calibra <https://docs.idmod.org/projects/idmtools_calibra/en/latest/>

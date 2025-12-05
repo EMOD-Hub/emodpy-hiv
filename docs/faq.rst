@@ -7,8 +7,6 @@ questions are answered below. For questions related to functionality in
 related packages, see the following documentation:
 
 * :doc:`idmtools:faq` for |IT_s|
-* `FAQ <https://docs.idmod.org/projects/emod-api/en/latest/faq/>`__ for |emod_api|
-* :doc:`emodpy:faq` for |EMODPY_s|
 
 This section also includes a topic on troubleshooting when working with
 |EMOD_s| and |EMODPY_hiv|.
@@ -20,7 +18,7 @@ How do I set configuration parameters?
 =========================================
 
 Define your own parameter-setting function such as ``set_param_fn`` and pass
-that function to the |EMODPY_s| task creator as the ``config_builder``
+that function to the task creator as the ``config_builder``
 parameter. In that function, you can set the parameters directly. For
 example:
 
