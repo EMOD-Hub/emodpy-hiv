@@ -94,7 +94,6 @@ def config_builder(config):
     config.parameters.Enable_Aging = 1
     config.parameters.Enable_Birth = 1
     config.parameters.Enable_Coital_Dilution = 1
-    config.parameters.Enable_Demographics_Birth = 0
     config.parameters.Enable_Infectivity_Reservoir = 0
     config.parameters.Enable_Maternal_Protection = 0
     config.parameters.Enable_Natural_Mortality = 0
