@@ -68,8 +68,8 @@ class TestSimulation(BaseSimTest):
     def set_param_fn(config, duration):  # from start here example
         config.parameters.Simulation_Type = "HIV_SIM"  # this should be set in the package.
         config.parameters.Simulation_Duration = duration
-        config.parameters.Base_Infectivity = 3.5
-        config.parameters.Enable_Demographics_Reporting = 0  # just because I don't like our default for this
+        config.parameters.Enable_Default_Reporting = 1 # enable InsetChart, now disabled by default
+        config.parameters.Base_Infectivity = 3.5 # just because I don't like our default for this
         config.parameters.Incubation_Period_Distribution = "CONSTANT_DISTRIBUTION"
         # This one is crazy! :(
         config.parameters.Maternal_Infection_Transmission_Probability = 0
