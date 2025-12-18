@@ -25,7 +25,7 @@ dependencies = [
     "pandas",
     "scikit-learn",
     "python-calamine",
-    "emod-hiv==1.0.4"]
+    "emod-hiv==2.30.0"]
 
 license = "MIT"
 
