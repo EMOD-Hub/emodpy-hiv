@@ -54,7 +54,23 @@ class TestReportersHIV(unittest.TestCase):
 
     def tearDown(self) -> None:
         # Check if the test failed and leave the data in the folder if it did
-        if any(error[1] for error in self._outcome.errors):
+        # Compatible with unittest (Python 3.9-3.13) and pytest
+        test_failed = False
+        try:
+            if hasattr(self._outcome, 'errors'):
+                # unittest Python 3.10 and earlier
+                test_failed = any(error[1] for error in self._outcome.errors)
+            elif hasattr(self._outcome, 'result'):
+                # unittest Python 3.11+
+                result = self._outcome.result
+                if hasattr(result, 'errors') and hasattr(result, 'failures'):
+                    test_failed = len(result.errors) > 0 or len(result.failures) > 0
+        except (AttributeError, TypeError):
+            # When running under pytest or if _outcome structure is different,
+            # assume test passed (pytest has its own failure handling)
+            test_failed = False
+
+        if test_failed:
             if hasattr(self, "task"):  # don't need to do this for error checking tests
                 if self.task:
                     # writing data to be looked at in the failed_tests folder
