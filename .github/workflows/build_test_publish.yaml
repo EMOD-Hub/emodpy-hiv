@@ -20,7 +20,7 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        python-version: [3.9]
+        python-version: [3.13]
     steps:
       - name: Checkout sources with LFS
         uses: actions/checkout@v4

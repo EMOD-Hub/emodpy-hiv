@@ -27,6 +27,11 @@ dependencies = [
 license = "MIT"
 classifiers=[
     "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Framework:: IDM-Tools :: models",
     "Operating System :: OS Independent",
 ]
@@ -76,4 +81,7 @@ emodpy_hiv = [
 
 [tool.pip]
 extra-index-url = "https://packages.idmod.org/api/pypi/pypi-production/simple"
+
+[tool.uv]
+extra-index-url = ["https://packages.idmod.org/api/pypi/pypi-production/simple"]
 

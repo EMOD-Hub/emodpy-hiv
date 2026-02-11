@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '***SKIPBUILD***')"
     strategy:
-      max-parallel: 1
+      max-parallel: 3
       matrix:
-        python-version: [ 3.9 ]
+        python-version: ['3.9', '3.13', '3.14']
     steps:
       - name: Checkout sources with LFS
         uses: actions/checkout@v4
