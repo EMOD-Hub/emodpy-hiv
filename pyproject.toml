@@ -55,6 +55,7 @@ test = [
     "flake8",
     "coverage",
     "py-make",
+    "pillow",
 ]
 
 [project.urls]
