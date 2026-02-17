@@ -47,7 +47,23 @@ class BaseSimTest(unittest.TestCase):
             time.sleep(1)  # only needed for windows
         os.chdir(self.original_working_dir)
 
-        delete_if_empty = any(error[1] for error in self._outcome.errors)
+        # Compatible with unittest (Python 3.9-3.13) and pytest
+        test_failed = False
+        try:
+            if hasattr(self._outcome, 'errors'):
+                # unittest Python 3.10 and earlier
+                test_failed = any(error[1] for error in self._outcome.errors)
+            elif hasattr(self._outcome, 'result'):
+                # unittest Python 3.11+
+                result = self._outcome.result
+                if hasattr(result, 'errors') and hasattr(result, 'failures'):
+                    test_failed = len(result.errors) > 0 or len(result.failures) > 0
+        except (AttributeError, TypeError):
+            # When running under pytest or if _outcome structure is different,
+            # assume test passed (pytest has its own failure handling)
+            test_failed = False
+
+        delete_if_empty = test_failed
         helpers.delete_existing_folder(self.test_folder, must_be_empty=delete_if_empty)
 
     def compare_json(self, fn_exp, fn_act):
