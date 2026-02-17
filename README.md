@@ -40,7 +40,7 @@ To build the documentation locally, do the following:
 
 <a id="software-prerequisites"></a>
 ## Software Prerequisites
-- Python 3.13.X x64 (also supports Python 3.9-3.14)
+- Python 3.13.X x64 (also supports Python 3.10-3.14)
 - Please ensure pip is updated:
 ```
 python -m pip install --upgrade pip
