@@ -5,9 +5,9 @@ import pandas as pd
 from pathlib import Path
 from typing import List, Callable
 
-from emod_api.demographics.Node import Node
+from emod_api.demographics.node import Node
 from emod_api.demographics.fertility_distribution import FertilityDistribution
-from emod_api.demographics.Updateable import Updateable
+from emod_api.demographics.updateable import Updateable
 
 from emodpy_hiv.demographics.hiv_demographics import HIVDemographics
 from emodpy_hiv.demographics.relationship_types import RelationshipTypes
@@ -136,12 +136,12 @@ class TestHIVDemographics(unittest.TestCase):
     #
 
     def test_set_complex_fertility_distribution_works(self):
-        from emod_api.demographics.DemographicsTemplates import _set_fertility_age_year
+        from emod_api.demographics.implicit_functions import _set_fertility_age_year
         self._test_set_complex_distribution_works(use_case='fertility', implicit_functions=[_set_fertility_age_year],
                                                   distribution=self.fertility_distribution)
 
     def test_set_complex_fertility_distribution_works_twice(self):
-        from emod_api.demographics.DemographicsTemplates import _set_fertility_age_year
+        from emod_api.demographics.implicit_functions import _set_fertility_age_year
         self._test_set_complex_distribution_works_twice(use_case='fertility', implicit_functions=[_set_fertility_age_year],
                                                         distribution1=self.fertility_distribution,
                                                         distribution2=self.fertility_distribution2)
