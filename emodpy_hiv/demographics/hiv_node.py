@@ -1,6 +1,6 @@
 from typing import Dict
 
-from emod_api.demographics.Node import Node
+from emod_api.demographics.node import Node
 
 from emodpy_hiv.demographics.society import Society
 

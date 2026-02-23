@@ -9,7 +9,7 @@ from typing import List
 
 from emod_api.demographics.fertility_distribution import FertilityDistribution
 from emodpy.demographics.demographics import Demographics
-from emod_api.demographics.PropertiesAndAttributes import IndividualProperty
+from emod_api.demographics.properties_and_attributes import IndividualProperty
 from emodpy.utils.distributions import UniformDistribution
 
 from emodpy_hiv.demographics import DemographicsTemplates as hiv_dt
@@ -75,7 +75,7 @@ class HIVDemographics(Demographics):
         Returns:
             Nothing
         """
-        from emod_api.demographics.DemographicsTemplates import _set_fertility_age_year
+        from emod_api.demographics.implicit_functions import _set_fertility_age_year
         self._set_distribution(distribution=distribution,
                                use_case='fertility',
                                complex_distribution_implicits=[_set_fertility_age_year],

@@ -1,6 +1,6 @@
 from typing import Dict, List
 
-from emod_api.demographics.Updateable import Updateable
+from emod_api.demographics.updateable import Updateable
 
 from emodpy_hiv.demographics.assortivity import Assortivity as AssortivityClass
 

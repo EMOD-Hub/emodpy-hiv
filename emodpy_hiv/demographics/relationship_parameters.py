@@ -1,6 +1,6 @@
 from typing import Dict
 
-from emod_api.demographics.Updateable import Updateable
+from emod_api.demographics.updateable import Updateable
 from emodpy.utils.distributions import WeibullDistribution
 
 from emodpy_hiv.demographics.condom_usage_parameters import CondomUsageParameters

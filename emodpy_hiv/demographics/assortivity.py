@@ -1,6 +1,6 @@
 from typing import List, Dict
 
-from emod_api.demographics.Updateable import Updateable
+from emod_api.demographics.updateable import Updateable
 
 
 # TODO: should we drop NO_GROUP support altogether? If so, group is always INDIVIDUAL_PROPERTY and the instantiation
