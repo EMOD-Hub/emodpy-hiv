@@ -18,8 +18,8 @@ authors = [
 ]
 keywords=["modeling", "IDM"]
 dependencies = [
-    "emodpy~=2.1.0",
-    "pandas",
+    "emodpy~=3.0",
+    "pandas~=3.0",
     "scikit-learn",
     "python-calamine",
     "emod-hiv==2.30.0",
