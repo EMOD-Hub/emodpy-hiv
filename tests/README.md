@@ -1,38 +1,65 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+# emodpy-hiv Tests
 
-- [emodpy-hiv tests](#emodpy-hiv-tests)
+How to run these tests after installing emodpy-hiv.
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+## Prerequisites
 
+- Python 3.13 (also supports 3.10–3.14)
+- A virtual environment with emodpy-hiv installed
 
-# emodpy-hiv tests
+## Installation
 
+Install the package with test dependencies from the repo root:
 
-How to run these tests after you have emodpy-hiv installed in a virtual environment. 
-
-1. Active your virtual environment
-
-2. install dataclasses and keyrings (Linux only) if you haven't installed it
 ```bash
-pip install dataclasses
-pip install keyrings.alt (Linux only)
+pip install -e ".[test]"
 ```
 
-3. run unit tests and import tests
+## Running Tests
+
+### Unit tests (no EMOD execution required)
+
 ```bash
-python -m unittest discover .
+pytest -m unit
 ```
 
-4. run sim tests
+### Import/package tests
 
-&ensp;&ensp;&ensp;&ensp;4.1. go to tests/sim_tests folder
-
-&ensp;&ensp;&ensp;&ensp;4.2. run simulation tests
 ```bash
-python -m unittest discover .
+pytest unittests/test_emod_hiv_package.py
 ```
 
+### Simulation tests (requires Docker for ContainerPlatform)
 
-&ensp;&ensp;&ensp;&ensp;It may prompt to ask you to enter username and password for comps2 if your token is expired.
+```bash
+pytest -m container
+```
+
+### Country-specific tests
+
+```bash
+pytest -m country
+```
+
+Or for a specific country:
+
+```bash
+pytest tests/countries/zambia
+```
+
+### All tests in parallel
+
+```bash
+pytest -n auto
+```
+
+### ContainerPlatform requirements
+
+- Docker installed and running
+- **Windows only**: Enable WSL2 backend in Docker Desktop, enable Developer Mode (`Settings → Update & Security → For developers`), and enable long file path support via Group Policy Editor ([Microsoft guide](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation))
+
+See the [Docker installation guide](https://docs.docker.com/get-docker/) and [ContainerPlatform docs](https://github.com/InstituteforDiseaseModeling/idmtools/tree/main/idmtools_platform_container) for more details.
+
+## Country Tests
+
+For prerequisites, platform configuration, and instructions on adding new country tests, see [countries/README.md](countries/README.md).
