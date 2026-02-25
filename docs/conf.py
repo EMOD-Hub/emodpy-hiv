@@ -55,7 +55,6 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
     'sphinx.ext.todo',
-    'plantweb.directive',
     'sphinxcontrib.programoutput',
     'sphinx.ext.intersphinx',
     'sphinxext.remoteliteralinclude',
@@ -82,8 +81,6 @@ myst_enable_extensions = [
     "substitution",
     "tasklist",
 ]
-
-plantuml = 'plantweb'
 
 autodoc_default_options = {
     'member-order': 'bysource',
