@@ -3,9 +3,15 @@ on:
   pull_request:
     branches:
       - 'main'
+    paths:
+      - 'emodpy_hiv/**'
+      - 'pyproject.toml'
   push:
     branches-ignore:
       - 'main'
+    paths:
+      - 'emodpy_hiv/**'
+      - 'pyproject.toml'
 
 jobs:
   build_test:
