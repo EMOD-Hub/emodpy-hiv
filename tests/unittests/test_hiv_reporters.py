@@ -1,4 +1,5 @@
 import json
+import types
 import unittest
 import pytest
 import sys
@@ -577,7 +578,8 @@ class TestReportersHIV(unittest.TestCase):
         self.assertEqual(task.config.parameters.Report_HIV_ByAgeAndGender_Event_Counter_List,
                          [])
         self.assertEqual(str(task.config.parameters.Report_HIV_ByAgeAndGender_Collect_Targeting_Config_Data),
-                         str([targeting_config.HasIntervention(self.random_string1).to_schema_dict(self.reporter)]))
+                         str([targeting_config.HasIntervention(self.random_string1).to_schema_dict(
+                             types.SimpleNamespace(get_schema=self.reporter.get_schema_json))]))
         # we validate that the targeting config converts and works correctly in test_sim_with_reporters.py
         self.assertEqual(task.config.parameters.Report_HIV_Period, 38 * 2) # see reporter for explanation
         # ReportFilter
@@ -626,7 +628,8 @@ class TestReportersHIV(unittest.TestCase):
         self.assertEqual(task.config.parameters.Report_HIV_ByAgeAndGender_Event_Counter_List,
                          self.event_list)
         self.assertEqual(str(task.config.parameters.Report_HIV_ByAgeAndGender_Collect_Targeting_Config_Data),
-                         str([targeting_config.HasIntervention(self.random_string1).to_schema_dict(self.reporter)]))
+                         str([targeting_config.HasIntervention(self.random_string1).to_schema_dict(
+                             types.SimpleNamespace(get_schema=self.reporter.get_schema_json))]))
         # we validate that the targeting config converts and works correctly in test_sim_with_reporters.py
         self.assertEqual(task.config.parameters.Report_HIV_Period, 38 * 2) # see reporter for explanation
         # ReportFilter
