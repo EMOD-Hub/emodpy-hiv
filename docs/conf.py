@@ -89,6 +89,7 @@ autodoc_default_options = {
 }
 
 autodoc_mock_imports = []
+autodoc_use_type_comments = False  # Avoid Sphinx/Python 3.13 incompatibility in update_annotations_using_type_comments
 
 napoleon_google_docstring = True
 # napoleon_numpy_docstring = True
