@@ -16,7 +16,7 @@ authors = [
     {name = "Svetlana Titova", email = "svetlana.titova@gatesfoundation.org"},
     {name = "Ye Chen", email = "ye.chen@gatesfoundation.org"},
 ]
-keywords=["modeling", "IDM"]
+keywords = ["modeling", "IDM"]
 dependencies = [
     "emodpy~=3.0",
     "pandas",
@@ -26,16 +26,34 @@ dependencies = [
 ]
 license = "MIT"
 classifiers=[
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
-    "Framework:: IDM-Tools :: models",
     "Operating System :: OS Independent",
 ]
 
 [project.optional-dependencies]
+docs = [
+    "sphinxext.remoteliteralinclude~=0.4.0",
+    "sphinx",
+    "pydata-sphinx-theme",
+    "sphinxcontrib-programoutput~=0.17",
+    "nbsphinx~=0.9",
+    "jupyterlab~=4.0",
+    "myst-parser~=2.0",
+    "readthedocs-sphinx-search~=0.3",
+    "sphinx-copybutton~=0.5",
+    "pygithub~=1.57",
+    "sphinxcontrib-jquery~=4.1",
+    "chardet<6.0.0",
+]
+lint = [
+    "flake8",
+]
 packaging = [
     "build",
     "flake8",
@@ -61,7 +79,6 @@ test = [
 Repository="https://github.com/EMOD-Hub/emodpy-hiv"
 Issues="https://github.com/EMOD-Hub/emodpy-hiv/issues"
 
-
 [tool.setuptools.packages]
 find = {include = ["emodpy_hiv*"]}
 
@@ -84,4 +101,3 @@ extra-index-url = "https://packages.idmod.org/api/pypi/pypi-production/simple"
 
 [tool.uv]
 extra-index-url = ["https://packages.idmod.org/api/pypi/pypi-production/simple"]
-
