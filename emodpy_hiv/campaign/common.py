@@ -193,7 +193,7 @@ class NChooserTargetedDistributionHIV:
         """
         Returns the TargetedDistributionHIV object as a dictionary that match the schema and can be used in the campaign.
         """
-        self._targeted_distribution = s2c.get_class_with_defaults("idmType:TargetedDistributionHIV", campaign.schema_path)
+        self._targeted_distribution = s2c.get_class_with_defaults("idmType:TargetedDistributionHIV", schema_json=campaign.get_schema())
         self._targeted_distribution.Age_Ranges_Years = self.age_ranges_years_list
         if self.num_targeted:
             self._targeted_distribution.Num_Targeted = self.num_targeted

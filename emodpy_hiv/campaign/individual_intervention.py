@@ -95,7 +95,7 @@ class Sigmoid:
         """
         A function that converts the Sigmoid object to a schema dictionary.
         """
-        sigmoid = s2c.get_class_with_defaults("idmType:Sigmoid", campaign.schema_path)
+        sigmoid = s2c.get_class_with_defaults("idmType:Sigmoid", schema_json=campaign.get_schema())
         sigmoid.Min = self.min
         sigmoid.Max = self.max
         sigmoid.Mid = self.mid
@@ -143,7 +143,7 @@ class RangeThreshold:
         """
         A function that converts the Sigmoid object to a schema dictionary.
         """
-        rt = s2c.get_class_with_defaults("idmType:RangeThreshold", campaign.schema_path)
+        rt = s2c.get_class_with_defaults("idmType:RangeThreshold", schema_json=campaign.get_schema())
         rt.Low = self.low
         rt.High = self.high
         rt.Event = set_event(self.event_to_broadcast, 'event_to_broadcast', campaign, True)
