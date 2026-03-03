@@ -9,11 +9,11 @@ from emodpy_hiv.campaign.individual_intervention import (OutbreakIndividual, HIV
                                                          PropertyValueChanger, BroadcastEvent, HIVDrawBlood,
                                                          HIVARTStagingCD4AgnosticDiagnostic,
                                                          HIVARTStagingByCD4Diagnostic, Sigmoid, AntiretroviralTherapy,
-                                                         ARTDropout, MultiInterventionDistributor)
+                                                         ARTDropout)
 
 
 from emodpy_hiv.campaign.common import (TargetDemographicsConfig, TargetGender, PropertyRestrictions, ValueMap,
-                                        CommonInterventionParameters)
+                                        CommonInterventionParameters, RepetitionConfig)
 from emodpy_hiv.campaign.distributor import (add_intervention_scheduled, add_intervention_triggered,
                                              add_intervention_nchooser_df, add_intervention_reference_tracking)
 from emodpy_hiv.utils.distributions import (UniformDistribution, ExponentialDistribution, ConstantDistribution,
@@ -536,7 +536,7 @@ def add_traditional_male_circumcision(campaign: emod_api.campaign,
                                target_demographics_config=target_male,
                                node_ids=traditional_male_circumcision_node_ids,
                                event_name=f"Traditional male circumcision initialization in node(s) "
-                                             f"{str(traditional_male_circumcision_node_ids)}")
+                                          f"{str(traditional_male_circumcision_node_ids)}")
 
     # traditional male circumcision at birth, ongoing
     add_intervention_triggered(campaign,
@@ -546,7 +546,7 @@ def add_traditional_male_circumcision(campaign: emod_api.campaign,
                                target_demographics_config=target_male,
                                node_ids=traditional_male_circumcision_node_ids,
                                event_name=f"Traditional male circumcision at birth in node(s) "
-                                             f"{str(traditional_male_circumcision_node_ids)}")
+                                          f"{str(traditional_male_circumcision_node_ids)}")
 
     # NOTE: this creates per-node-set events, which is more 'wasteful' if non-all-nodes are specified. But should work
     # just as well and prevent the user from calling a separate, second TMC function
@@ -567,7 +567,7 @@ def add_traditional_male_circumcision(campaign: emod_api.campaign,
                                node_ids=traditional_male_circumcision_node_ids,
                                target_demographics_config=target_male,
                                event_name=f"Apply traditional male circumcision intervention in node(s)"
-                                             f" {str(traditional_male_circumcision_node_ids)}"
+                                          f" {str(traditional_male_circumcision_node_ids)}"
                                )
     return malecirc_intervention_name
 
@@ -689,6 +689,7 @@ def add_historical_vmmc_nchooser(campaign: emod_api.campaign,
         event_name=event_name,
         node_ids=historical_vmmc_node_ids
     )
+
 
 def add_health_care_testing(campaign: emod_api.campaign,
                             hct_node_ids: Union[List[int], None] = None,
@@ -992,7 +993,7 @@ def add_state_TestingOnANC(campaign: emod_api.campaign,
 
     # distributing PMTCT HIV diagnostic test
     hiv_positive_at_anc_event = 'HIV_Positive_at_ANC'
-    
+
     pmtct_hiv_test = HIVRapidHIVDiagnostic(campaign,
                                            positive_diagnosis_event=hiv_positive_at_anc_event,
                                            negative_diagnosis_event=None,
@@ -1010,7 +1011,7 @@ def add_state_TestingOnANC(campaign: emod_api.campaign,
     # QUESTION: should we send the signal ARTStaging2 instead? We already have a 0.8/0.2 dropout from PMTCT test here. Why double the chance to drop?
     choices = {ART_STAGING_TRIGGER_1: link_to_ART_rate,
                DUMMY_TRIGGER: round(1 - link_to_ART_rate, 7)}  # to get rid of floating point decimal issues
-    
+
     link_to_ART_decision = HIVRandomChoice(campaign,
                                            choice_names=list(choices.keys()),
                                            choice_probabilities=list(choices.values()),
@@ -1032,10 +1033,10 @@ def add_state_TestingOnANC(campaign: emod_api.campaign,
                                                                                 max=1,
                                                                                 mid=2008.4,
                                                                                 rate=-1),
-                                                          positive_diagnosis_event=needs_sdnvp_pmtct_event,
-                                                          negative_diagnosis_event=needs_combination_pmtct_event,
-                                                          common_intervention_parameters=CommonInterventionParameters(disqualifying_properties=disqualifying_properties,
-                                                                                                                      new_property_value=testing_on_ANC_pv))
+                                                           positive_diagnosis_event=needs_sdnvp_pmtct_event,
+                                                           negative_diagnosis_event=needs_combination_pmtct_event,
+                                                           common_intervention_parameters=CommonInterventionParameters(disqualifying_properties=disqualifying_properties,
+                                                                                                                       new_property_value=testing_on_ANC_pv))
     add_intervention_triggered(campaign,
                                intervention_list=[treatment_selection],
                                triggers_list=[hiv_positive_at_anc_event],
@@ -1134,7 +1135,7 @@ def add_state_TestingOnChild6w(campaign: emod_api.campaign,
         time_value_map = convert_time_value_map(time_value_map)
 
     child_hiv_test = HIVPiecewiseByYearAndSexDiagnostic(campaign,
-                                                        time_value_map=ValueMap(times=list(time_value_map.keys()), 
+                                                        time_value_map=ValueMap(times=list(time_value_map.keys()),
                                                                                 values=list(time_value_map.values())),
                                                         positive_diagnosis_event=ART_STAGING_DIAGNOSTIC_TEST_TRIGGER,
                                                         negative_diagnosis_event=None,
@@ -1179,7 +1180,7 @@ def add_state_HCTUptakeAtDebut(campaign: emod_api.campaign,
 
     initial_trigger = CustomEvent.STI_DEBUT
     hct_upate_at_debut_pv = CascadeState.HCT_UPTAKE_AT_DEBUT
-    
+
     # set up health care testing uptake at sexual debut by time
     uptake_choice = HIVSigmoidByYearAndSexDiagnostic(campaign,
                                                      year_sigmoid=Sigmoid(min=-0.005,
@@ -1241,7 +1242,7 @@ def add_state_HCTUptakePostDebut(campaign: emod_api.campaign,
     is_post_debut_trigger = CustomEvent.HCT_UPTAKE_POST_DEBUT_0
 
     # initialization of health care testing (hct) at specified starting year
-    
+
     initialize_hct = BroadcastEvent(campaign, broadcast_event=is_post_debut_trigger,
                                     common_intervention_parameters=CommonInterventionParameters(disqualifying_properties=disqualifying_properties,
                                                                                                 new_property_value=hct_uptake_post_debut_pv))
@@ -1253,7 +1254,7 @@ def add_state_HCTUptakePostDebut(campaign: emod_api.campaign,
 
     # reentry into uptake loop from lost-to-followup and ART dropout
     # QUESTION: ask... should this be HCTUptakePostDebut1 **1** ?? (can someone be non-debut and artdropout or ltfu? (maybe exposed children??)
-    
+
     choices = {is_post_debut_trigger: hct_reentry_rate, DUMMY_TRIGGER: round(1 - hct_reentry_rate, 7)} # to get rid of floating point decimal issues
     reentry_decision = HIVRandomChoice(campaign,
                                        choice_names=list(choices.keys()),
@@ -1322,7 +1323,7 @@ def add_state_HCTUptakePostDebut(campaign: emod_api.campaign,
     # testing loop if test positive, if test negative, trigger hivmuxer again.
     consider_enter_HCT_testing_loop = HIVPiecewiseByYearAndSexDiagnostic(
         campaign,
-        time_value_map=ValueMap(times=list(tvmap_test_for_enter_HCT_testing_loop.keys()), 
+        time_value_map=ValueMap(times=list(tvmap_test_for_enter_HCT_testing_loop.keys()),
                                 values=list(tvmap_test_for_enter_HCT_testing_loop.values())),
         positive_diagnosis_event=HCT_TESTING_LOOP_TRIGGER,
         negative_diagnosis_event=hivmuxer_trigger,
@@ -1442,8 +1443,7 @@ def add_state_HCTTestingLoop(campaign: emod_api.campaign,
             not isinstance(hct_delay_to_next_test_node_names, list)):  # noqa: E129
             raise ValueError("hct_delay_to_next_test_node_ids and hct_delay_to_next_test_node_names must be provided "
                              "if hct_delay_to_next_test is a list.")
-        elif (len(hct_delay_to_next_test) != len(hct_delay_to_next_test_node_ids  ) or # noqa: W504
-              len(hct_delay_to_next_test) != len(hct_delay_to_next_test_node_names)):
+        elif (len(hct_delay_to_next_test) != len(hct_delay_to_next_test_node_ids) or len(hct_delay_to_next_test) != len(hct_delay_to_next_test_node_names)):
             raise ValueError("hct_delay_to_next_test, hct_delay_to_next_test_node_ids, and "
                              "hct_delay_to_next_test_node_names must have the same length.")
     else:
@@ -1604,7 +1604,7 @@ def add_state_ARTStagingDiagnosticTest(campaign,
     art_staging_diagnostic_test_pv = CascadeState.ART_STAGING_DIAGNOSTIC_TEST
 
     initial_trigger = ART_STAGING_DIAGNOSTIC_TEST_TRIGGER
-    
+
     hiv_test = HIVRapidHIVDiagnostic(campaign,
                                      positive_diagnosis_event=ART_STAGING_TRIGGER_1,
                                      negative_diagnosis_event=None,
@@ -2253,7 +2253,7 @@ def _add_rtri_testing(campaign: emod_api.campaign,
     # NOT recently_infected AND NOT has been_on_ART
     # We do not consider any case where an HIV- person is tested.
 
-    target_hiv_positive = IsHIVPositive()
+    target_hiv_positive = IsHivPositive()
     # RTRI test (1/4): recently_infected AND has_been_on_ART
     # TODO: set these probabilities properly
     choices = {'RTRI_TESTED_RECENT': 0.85, 'RTRI_TESTED_LONGTERM': 0.15}
@@ -2420,7 +2420,7 @@ def _add_rtri_testing(campaign: emod_api.campaign,
     # ART medications. This event ensures there is a tunable fraction of the ART-history population HIV/RTRI testing
     # each timestep.
     # TODO: when should retesting start? probably before RTRI testing timeframe? Maybe once ART starts up?
-      
+
     target_on_ART = IsHivPositive() & IsOnART()
     retest_signal = BroadcastEvent(campaign, broadcast_event='HCTTestingLoop1--retesters')
     add_intervention_scheduled(campaign,
@@ -2430,9 +2430,8 @@ def _add_rtri_testing(campaign: emod_api.campaign,
                                target_demographics_config=TargetDemographicsConfig(demographic_coverage=rtri_retesting_rate),
                                start_year=rtri_start_year,
                                event_name='Send people to test even if they are HIV+ and on ART. E.g., they might just be moving health facilities. Happens.',
-                               repetition_config=RepetitionConfiguration(number_of_repetitions=-1,  # FOREVER
-                                                                         timesteps_between_repetitions=1)  # every timestep
-                               )
+                               repetition_config=RepetitionConfig(number_of_repetitions=-1,  # FOREVER
+                                                                  timesteps_between_repetitions=1))  # every timestep
 
     # HIV test for retesters (looser property restrictions compared to regular health care testing)
     # we target on-ART people here (again) to ensure that individuals who JUST went off of ART (but after broadcasting
@@ -2495,7 +2494,7 @@ def _add_index_testing(campaign: emod_api.campaign,
     # Actual event targeting partners: % coverage (calibrated) of their partners (of N_Partners) selected
     #   -> signal them.
     # TODO - talk with Dan B about this partner targeting
-    
+
     # todo:
     index_testing_elicit_contacts = BroadcastEvent(campaign,
                                                    broadcast_event='ELICITED_CONTACT')
@@ -2510,7 +2509,7 @@ def _add_index_testing(campaign: emod_api.campaign,
 
     # partners: send them to HIV testing. QUESTION: Where exactly to link up in the CoC?
     # QUESTION = need to know which HIV test to send them to... HCT, prenatal (ha), symptomatic presentation, ...
-    
+
     index_testing_contact_to_testing = BroadcastEvent(campaign,
                                                       broadcast_event='TODO:HIV_test_which_one')
     add_intervention_triggered(campaign,

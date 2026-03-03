@@ -1,5 +1,6 @@
 import json
 
+
 def compare_intervention_name(iv_config_1: dict, iv_config_2: dict) -> int:
     """
     Compare two intervention names.
@@ -62,7 +63,7 @@ def compare_sec(event1: dict, event2: dict) -> int:
     ec_config_2 = event2['Event_Coordinator_Config']
     iv_config_1 = ec_config_1['Intervention_Config']
     iv_config_2 = ec_config_2['Intervention_Config']
-    
+
     if iv_config_1['class'] < iv_config_2['class']:
         return -1
     elif iv_config_1['class'] > iv_config_2['class']:
@@ -70,12 +71,12 @@ def compare_sec(event1: dict, event2: dict) -> int:
     elif iv_config_1['class'] == 'NodeLevelHealthTriggeredIV':
         tcl_event_1 = iv_config_1['Trigger_Condition_List'][0]
         tcl_event_2 = iv_config_2['Trigger_Condition_List'][0]
-        #print(tcl_event_1, tcl_event_2)
+        # print(tcl_event_1, tcl_event_2)
         if tcl_event_1 < tcl_event_2:
-            #print(tcl_event_1)
+            # print(tcl_event_1)
             return -1
         elif tcl_event_1 > tcl_event_2:
-            #print(tcl_event_2)
+            # print(tcl_event_2)
             return 1
         else:
             ac_iv_config_1 = iv_config_1['Actual_IndividualIntervention_Config']
@@ -173,7 +174,7 @@ def compare_event_coordinator(event1: dict, event2: dict) -> int:
     """
     ec_config_1 = event1['Event_Coordinator_Config']
     ec_config_2 = event2['Event_Coordinator_Config']
-    
+
     if ec_config_1['class'] < ec_config_2['class']:
         return -1
     elif ec_config_1['class'] > ec_config_2['class']:
@@ -186,6 +187,7 @@ def compare_event_coordinator(event1: dict, event2: dict) -> int:
         return compare_tracker(event1, event2)
     else:
         return 0
+
 
 def compare_campaign_event(event1: dict, event2: dict) -> int:
     """
@@ -256,16 +258,14 @@ def remove_defaults_from_intervention(iv_config: dict):
         iv_config.pop("Disqualifying_Properties", None)
     if 'Event_Or_Config' in iv_config:
         iv_config.pop("Event_Or_Config", None)
-    
+
     # consider the specific intervention classes
     if iv_config['class'] == 'DelayedIntervention':
         if 'Coverage' in iv_config and iv_config['Coverage'] == 1:
             iv_config.pop("Coverage", None)
         if 'Delay_Period_Min' in iv_config and iv_config['Delay_Period_Min'] == 0:
             iv_config.pop("Delay_Period_Min", None)
-        if (('Intervention_Name' in iv_config) and
-            ((iv_config['Intervention_Name'] == 'DelayedIntervention') or 
-             (iv_config['Intervention_Name'] == 'HIVDelayedIntervention'))):
+        if (('Intervention_Name' in iv_config) and ((iv_config['Intervention_Name'] == 'DelayedIntervention') or (iv_config['Intervention_Name'] == 'HIVDelayedIntervention'))):
             iv_config.pop("Intervention_Name", None)
         ac_iv_config_list = iv_config['Actual_IndividualIntervention_Configs']
         for config in ac_iv_config_list:
@@ -278,11 +278,9 @@ def remove_defaults_from_intervention(iv_config: dict):
             iv_config.pop("Delay_Period_Min", None)
         if 'Delay_Period_Min' in iv_config and iv_config['Delay_Period_Min'] == 0:
             iv_config.pop("Delay_Period_Min", None)
-        if (('Intervention_Name' in iv_config) and
-            ((iv_config['Intervention_Name'] == 'DelayedIntervention') or 
-             (iv_config['Intervention_Name'] == 'HIVDelayedIntervention'))):
+        if (('Intervention_Name' in iv_config) and ((iv_config['Intervention_Name'] == 'DelayedIntervention') or (iv_config['Intervention_Name'] == 'HIVDelayedIntervention'))):
             iv_config.pop("Intervention_Name", None)
-            
+
     elif iv_config['class'] == 'HIVRapidHIVDiagnostic':
         if 'Base_Sensitivity' in iv_config and iv_config['Base_Sensitivity'] == 1:
             iv_config.pop("Base_Sensitivity", None)
@@ -322,8 +320,7 @@ def remove_defaults_from_intervention(iv_config: dict):
         if 'Max_Entries' in iv_config and iv_config['Max_Entries'] == 1:
             iv_config.pop("Max_Entries", None)
 
-    elif ((iv_config['class'] == 'HIVARTStagingCD4AgnosticDiagnostic') or
-          (iv_config['class'] == 'HIVARTStagingByCD4Diagnostic')):
+    elif ((iv_config['class'] == 'HIVARTStagingCD4AgnosticDiagnostic') or (iv_config['class'] == 'HIVARTStagingByCD4Diagnostic')):
         if 'Adult_Treatment_Age' in iv_config and iv_config['Adult_Treatment_Age'] == 5:
             iv_config.pop("Adult_Treatment_Age", None)
         if 'Individual_Property_Active_TB_Key' in iv_config and iv_config['Individual_Property_Active_TB_Key'] == "UNINITIALIZED":
@@ -409,7 +406,7 @@ def remove_defaults_from_sec(ec_config: dict):
         ec_config.pop("Timesteps_Between_Repetitions", None)
     if 'Individual_Selection_Type' in ec_config and ec_config['Individual_Selection_Type'] == "DEMOGRAPHIC_COVERAGE":
         ec_config.pop("Individual_Selection_Type", None)
-    
+
     # defaults common with NLHTIV
     remove_defaults_from_xxx_target_demographic(ec_config)
 
@@ -480,8 +477,8 @@ def sort_campaign(campaign_json: dict):
 
     n = len(campaign_json["Events"])
     for i in range(n - 1):
-        for j in range(i+1,n):
-            #print(f"Comparing event {i} with event {j}")
+        for j in range(i + 1, n):
+            # print(f"Comparing event {i} with event {j}")
             event_i = campaign_json["Events"][i]
             event_j = campaign_json["Events"][j]
             cmp = compare_campaign_event(event_i, event_j)
@@ -489,6 +486,7 @@ def sort_campaign(campaign_json: dict):
                 campaign_json["Events"][i], campaign_json["Events"][j] = campaign_json["Events"][j], campaign_json["Events"][i]
 
     return campaign_json
+
 
 def sort_campaign_file(existing_filename: str, new_filename: str = None):
     """
@@ -514,9 +512,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
     parser.add_argument('existing_filename', type=str, nargs=1, help='Name of campaign file to sort.')
-    parser.add_argument('new_filename',      type=str, default=None, nargs='?',
-                        help='Name of new campaign file to write sorted events to. ' +
-                             'If not provided, will overwrite the existing file.')
+    parser.add_argument('new_filename', type=str, default=None, nargs='?',
+                        help='Name of new campaign file to write sorted events to. '
+                        + 'If not provided, will overwrite the existing file.')
 
     args = parser.parse_args()
 

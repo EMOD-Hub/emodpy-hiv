@@ -1,14 +1,11 @@
 # TODO: update any doc strings as needed in here
 # TODO: ensure that 'Default' setting takes None or 0 as a node number (None is all-nodes, 0 is UNKNOWN/UNINTERPRETED). Think I did this for None.
 
-import os
 from abc import ABC
 from collections import defaultdict
-from inspect import getfullargspec
 from pathlib import Path
 from typing import List, Union
 import importlib
-import json
 import pandas as pd
 
 import emod_api
@@ -71,7 +68,7 @@ class Country(ABC):
     NOTE: We are using classes instead of modules because we can still get inheritance
     like you'd expect.  For example, with classes if BaseCountry has three methods:
     func_A(), func_B(), and func_C().  Assume func_C() calls both func_A() and func_B().
-    Let's alo assume that we create Zambia as a subclass of BaseCountry and have it 
+    Let's alo assume that we create Zambia as a subclass of BaseCountry and have it
     override func_B().  With classes, when func_C()) is called for Zambia, it will use
     the overridden func_B().  If we tried to do the same thing with modules, func_C()
     would use the func_B() defined in BaseCountry.
@@ -118,7 +115,7 @@ class Country(ABC):
     @classmethod
     def get_config_parameterized_calls(cls, config: ReadOnlyDict) -> List[ParameterizedCall]:
         """
-        Return a list of ParameterizedCall objects that will complete the configuration of an 
+        Return a list of ParameterizedCall objects that will complete the configuration of an
         EMOD config object.
 
         Args
@@ -179,8 +176,8 @@ class Country(ABC):
         Create the initial demographics object that will be modified by the ParameterizedCall
         objects from **get_demographics_parameterized_calls()**
         """
-        demographics = HIVDemographics.from_template_node( pop=10000,
-                                                           default_society_template="PFA-Southern-Africa" )
+        demographics = HIVDemographics.from_template_node(pop=10000,
+                                                          default_society_template="PFA-Southern-Africa")
 
         # TODO:  How to load default node attributes?
 
@@ -239,7 +236,6 @@ class Country(ABC):
         cls._execute_parameterized_calls_on(obj=config, parameterized_calls=cls.get_config_parameterized_calls(config=config))
         return config
 
-
     @classmethod
     def build_demographics(cls) -> HIVDemographics:
         """
@@ -272,7 +268,6 @@ class Country(ABC):
     #
     # common functions used for building campaign ParameterizedCalls below
     #
-
 
     @staticmethod
     def load_nchooser_distribution_data(file_path: str) -> dict:
@@ -334,8 +329,8 @@ class Country(ABC):
                                               traditional_male_circumcision_node_ids=node_ids)
 
     @classmethod
-    def add_vmmc_reference_tracking(cls, 
-                                    campaign: emod_api.campaign, 
+    def add_vmmc_reference_tracking(cls,
+                                    campaign: emod_api.campaign,
                                     tracking_vmmc_reduced_acquire: float = 0.6):
         vmmc_time_value_map = {
             "Times": [2015.9999, 2016, 2021],
@@ -354,7 +349,7 @@ class Country(ABC):
     def seed_infections(cls,
                         campaign: emod_api.campaign,
                         node_ids: Union[List[int], None] = None,
-                        seeding_start_year: float=1982,
+                        seeding_start_year: float = 1982,
                         seeding_coverage: float = 0.2,
                         seeding_target_min_age: float = 0,
                         seeding_target_max_age: float = 200,
@@ -546,8 +541,8 @@ class Country(ABC):
                                        start_year=child_testing_start_year)
 
     @classmethod
-    def add_state_HCTUptakeAtDebut(cls, 
-                                   campaign: emod_api.campaign, 
+    def add_state_HCTUptakeAtDebut(cls,
+                                   campaign: emod_api.campaign,
                                    start_year: float,
                                    node_ids: Union[List[int], None] = None):
         disqualifying_properties = [coc.CascadeState.LOST_FOREVER,
@@ -562,7 +557,7 @@ class Country(ABC):
                                        start_year=start_year)
 
     @classmethod
-    def add_state_HCTUptakePostDebut(cls, 
+    def add_state_HCTUptakePostDebut(cls,
                                      campaign: emod_api.campaign,
                                      start_year: float,
                                      node_ids: Union[List[int], None] = None):
@@ -603,8 +598,8 @@ class Country(ABC):
                                      node_ids=node_ids)
 
     @classmethod
-    def add_state_TestingOnSymptomatic(cls, 
-                                       campaign: emod_api.campaign, 
+    def add_state_TestingOnSymptomatic(cls,
+                                       campaign: emod_api.campaign,
                                        start_year: float,
                                        node_ids: Union[List[int], None] = None):
         disqualifying_properties = [coc.CascadeState.LOST_FOREVER,
@@ -654,8 +649,8 @@ class Country(ABC):
                                  cd4_retention_rate=cd4_retention_rate)
 
     @classmethod
-    def add_state_LinkingToPreART(cls, 
-                                  campaign: emod_api.campaign, 
+    def add_state_LinkingToPreART(cls,
+                                  campaign: emod_api.campaign,
                                   start_year: float,
                                   sigmoid_min: float = 0.7572242198,
                                   sigmoid_max: float = 0.9591484679,
@@ -691,8 +686,8 @@ class Country(ABC):
                                start_year=start_year)
 
     @classmethod
-    def add_state_LinkingToART(cls, 
-                               campaign: emod_api.campaign, 
+    def add_state_LinkingToART(cls,
+                               campaign: emod_api.campaign,
                                start_year: float,
                                sigmoid_min: float = 0.0,
                                sigmoid_max: float = 0.8507390283,
@@ -729,11 +724,10 @@ class Country(ABC):
                             tvmap_reconsider_lost_forever=tvmap_reconsider_lost_forever)
 
     @classmethod
-    def add_state_LostForever(cls, 
-                              campaign: emod_api.campaign, 
+    def add_state_LostForever(cls,
+                              campaign: emod_api.campaign,
                               start_year: float,
                               node_ids: Union[List[int], None] = None):
         coc.add_state_LostForever(campaign=campaign,
                                   node_ids=node_ids,
                                   start_year=start_year)
-

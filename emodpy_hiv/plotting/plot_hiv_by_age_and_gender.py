@@ -475,6 +475,7 @@ def extract_population_data_by_stratification(filename: str,
 
     return df2
 
+
 def extract_population_data_by_stratification_for_dir(dir_or_filename: str,
                                                       node_id: int = None,
                                                       gender: str = None,
@@ -648,7 +649,7 @@ def plot_population_for_dir(dir_or_filename: str,
     title2 = dir_or_filename
     if unworld_pop_filename:
         title2 = str(unworld_pop_filename)
-        unwp_df = unwp.extract_population_by_age(country=country, 
+        unwp_df = unwp.extract_population_by_age(country=country,
                                                  version=version,
                                                  years=years,
                                                  filename=unworld_pop_filename)
@@ -810,20 +811,19 @@ def plot_population_by_ip(dir_or_filename: str,
     if (exp_dir_or_filename is not None) and (expected_values is not None):
         raise ValueError("You cannot specify both 'exp_dir_or_filename' and 'expected_values'. "
                          + "Please only specify one of these.")
-    
+
     if ip_key is None:
         raise ValueError("IP Key must be specified.")
     ip_col_name = " IP_Key:" + ip_key
 
-    combined_df, col_name_prefixs = extract_population_data_by_stratification_for_dir(
-                                        dir_or_filename=dir_or_filename,
-                                        node_id=node_id,
-                                        gender=gender,
-                                        age_bin_list=age_bin_list,
-                                        start_column_name=ip_col_name,
-                                        strat_values=ip_values,
-                                        show_avg_per_run=show_avg_per_run)
-    
+    combined_df, col_name_prefixs = extract_population_data_by_stratification_for_dir(dir_or_filename=dir_or_filename,
+                                                                                      node_id=node_id,
+                                                                                      gender=gender,
+                                                                                      age_bin_list=age_bin_list,
+                                                                                      start_column_name=ip_col_name,
+                                                                                      strat_values=ip_values,
+                                                                                      show_avg_per_run=show_avg_per_run)
+
     combined_df = create_df_for_plot_by_stratification(combined_df=combined_df,
                                                        col_name_prefixs=col_name_prefixs,
                                                        age_bin_list=age_bin_list,
@@ -836,14 +836,13 @@ def plot_population_by_ip(dir_or_filename: str,
         for value in ip_values:
             expected_df["Expected: " + value] = expected_values[value]
     elif exp_dir_or_filename is not None:
-        expected_df, exp_col_name_prefixs = extract_population_data_by_stratification_for_dir(
-                                                dir_or_filename=exp_dir_or_filename,
-                                                node_id=node_id,
-                                                gender=gender,
-                                                age_bin_list=age_bin_list,
-                                                start_column_name=ip_col_name,
-                                                strat_values=ip_values,
-                                                show_avg_per_run=show_avg_per_run)
+        expected_df, exp_col_name_prefixs = extract_population_data_by_stratification_for_dir(dir_or_filename=exp_dir_or_filename,
+                                                                                              node_id=node_id,
+                                                                                              gender=gender,
+                                                                                              age_bin_list=age_bin_list,
+                                                                                              start_column_name=ip_col_name,
+                                                                                              strat_values=ip_values,
+                                                                                              show_avg_per_run=show_avg_per_run)
         expected_df = create_df_for_plot_by_stratification(combined_df=expected_df,
                                                            col_name_prefixs=exp_col_name_prefixs,
                                                            age_bin_list=age_bin_list,
@@ -1068,12 +1067,12 @@ def extract_population_data_multiple_ages_for_dir(dir_or_filename: str,
                                                                     other_strat_column_name=other_strat_column_name,
                                                                     other_strat_value=other_strat_value_b,
                                                                     other_data_column_names=other_data_column_names)
-        
+
         if hiv_neg_b is not None and hiv_neg_a != hiv_neg_b:
             raise ValueError("The two dataframes for the two stratifications do not have the same HIV negative status. "
                              + "This is likely because you are trying to extract data for a stratification that does not exist in the file.")
         data_is_for_hiv_negative = hiv_neg_a
-        
+
         if len(combined_df.columns) == 0:
             combined_df.index = df_a.index
             for column_name in df_a.columns:
@@ -1182,19 +1181,18 @@ def base_plot_by_age(base_title: str,
     if show_fraction and fraction_of:
         other_data_column_names.append(fraction_of_column_name)
 
-    combined_df, col_name_prefixs, hiv_neg = extract_population_data_multiple_ages_for_dir(
-                                                 dir_or_filename=dir_or_filename,
-                                                 node_id=node_id,
-                                                 gender=gender,
-                                                 age_bin_list=age_bins,
-                                                 show_avg_per_run=show_avg_per_run,
-                                                 filter_by_hiv_negative=filter_by_hiv_negative,
-                                                 other_strat_column_name=other_strat_column_name,
-                                                 other_strat_value_a=other_strat_value_a,
-                                                 other_strat_value_b=other_strat_value_b,
-                                                 other_data_column_names=other_data_column_names)
-    
-    df2 = create_df_for_plot_by_age(combined_df=combined_df, 
+    combined_df, col_name_prefixs, hiv_neg = extract_population_data_multiple_ages_for_dir(dir_or_filename=dir_or_filename,
+                                                                                           node_id=node_id,
+                                                                                           gender=gender,
+                                                                                           age_bin_list=age_bins,
+                                                                                           show_avg_per_run=show_avg_per_run,
+                                                                                           filter_by_hiv_negative=filter_by_hiv_negative,
+                                                                                           other_strat_column_name=other_strat_column_name,
+                                                                                           other_strat_value_a=other_strat_value_a,
+                                                                                           other_strat_value_b=other_strat_value_b,
+                                                                                           other_data_column_names=other_data_column_names)
+
+    df2 = create_df_for_plot_by_age(combined_df=combined_df,
                                     col_name_prefixs=col_name_prefixs,
                                     main_column_name=main_column_name,
                                     gender=gender,
@@ -1206,17 +1204,16 @@ def base_plot_by_age(base_title: str,
     exp_df2 = None
     exp_hiv_neg = None
     if exp_dir_or_filename:
-        exp_combined_df, exp_col_name_prefixs, exp_hiv_neg = extract_population_data_multiple_ages_for_dir(
-                                                                  dir_or_filename=exp_dir_or_filename,
-                                                                  node_id=node_id,
-                                                                  gender=gender,
-                                                                  age_bin_list=age_bins,
-                                                                  show_avg_per_run=show_avg_per_run,
-                                                                  filter_by_hiv_negative=filter_by_hiv_negative,
-                                                                  other_strat_column_name=other_strat_column_name,
-                                                                  other_strat_value_a=other_strat_value_a,
-                                                                  other_strat_value_b=other_strat_value_b,
-                                                                  other_data_column_names=other_data_column_names)
+        exp_combined_df, exp_col_name_prefixs, exp_hiv_neg = extract_population_data_multiple_ages_for_dir(dir_or_filename=exp_dir_or_filename,
+                                                                                                           node_id=node_id,
+                                                                                                           gender=gender,
+                                                                                                           age_bin_list=age_bins,
+                                                                                                           show_avg_per_run=show_avg_per_run,
+                                                                                                           filter_by_hiv_negative=filter_by_hiv_negative,
+                                                                                                           other_strat_column_name=other_strat_column_name,
+                                                                                                           other_strat_value_a=other_strat_value_a,
+                                                                                                           other_strat_value_b=other_strat_value_b,
+                                                                                                           other_data_column_names=other_data_column_names)
         exp_df2 = create_df_for_plot_by_age(combined_df=exp_combined_df,
                                             col_name_prefixs=exp_col_name_prefixs,
                                             main_column_name=main_column_name,
@@ -1227,7 +1224,7 @@ def base_plot_by_age(base_title: str,
                                             fraction_of_column_name=fraction_of_column_name)
 
     if exp_hiv_neg is not None and hiv_neg != exp_hiv_neg:
-        raise ValueError(f"The two sets of data do not each have the HasHIV column.\n"
+        raise ValueError("The two sets of data do not each have the HasHIV column.\n"
                          + "The files in {dir_or_filename} have HasHIV={hiv_neg}.\n"
                          + "The files in {exp_dir_or_filename} have HasHIV={exp_hiv_neg}.\n"
                          + "Please check the files and make sure they are correct.")
@@ -1381,7 +1378,7 @@ def plot_population_by_age(dir_or_filename: str,
     if age_bin_list is not None and len(age_bin_list) == 0:
         raise ValueError("The 'age_bin_list' parameter must be a list of ages in years where the population will be counted for each bin. "
                          + "If you do not want to use age bins, please set it to None.")
-    
+
     base_plot_by_age(base_title="",
                      main_column_name=COL_NAME_POP,
                      dir_or_filename=dir_or_filename,
@@ -1452,7 +1449,7 @@ def plot_vmmc_by_age(dir_or_filename: str,
                      other_strat_value_a=1,  # Only show circumcised
                      other_strat_value_b=0,  # Not circumcised
                      img_dir=img_dir)
-    
+
 
 def plot_population_by_age_vs_unworld_pop(filename: str,
                                           unworld_pop_filename: str,
@@ -1541,7 +1538,7 @@ def plot_population_by_age_vs_unworld_pop(filename: str,
 
     for index in range(len(age_bin_list) - 1):
         name_old = str(age_bin_list[index])
-        name_new = f"Expected Population: {age_bin_list[index]}-{age_bin_list[index+1]}"
+        name_new = f"Expected Population: {age_bin_list[index]}-{age_bin_list[index + 1]}"
         unwp_df2[name_new] = unwp_df[name_old]
 
     unwp_df2.index = unwp_df2.index.astype(float)

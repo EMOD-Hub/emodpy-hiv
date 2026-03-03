@@ -2,11 +2,10 @@ from emod_api import campaign as api_campaign
 from emodpy.campaign.base_intervention import IndividualIntervention
 from emodpy.campaign.event import create_campaign_event
 
-from emodpy_hiv.campaign.common import (TargetDemographicsConfig, PropertyRestrictions, NChooserTargetedDistributionHIV,
-                                        ValueMap, CommonInterventionParameters as CIP)
+from emodpy_hiv.campaign.common import TargetDemographicsConfig, PropertyRestrictions, NChooserTargetedDistributionHIV, ValueMap
 from emodpy_hiv.campaign.event_coordinator import NChooserEventCoordinatorHIV, ReferenceTrackingEventCoordinatorTrackingConfig
 from emodpy_hiv.utils.emod_enum import TargetDiseaseState
-from emodpy_hiv.utils.targeting_config import AbstractTargetingConfig, HasIntervention
+from emodpy_hiv.utils.targeting_config import AbstractTargetingConfig
 
 import pandas as pd
 import warnings
@@ -213,8 +212,7 @@ def add_intervention_nchooser_df(campaign: api_campaign,
                                                                 num_targeted_males=num_targeted_male,
                                                                 property_restrictions=property_restrictions,
                                                                 target_disease_state=target_disease_state,
-                                                                target_disease_state_has_intervention_name=
-                                                                target_disease_state_has_intervention_name)
+                                                                target_disease_state_has_intervention_name=target_disease_state_has_intervention_name)
         targeted_distributions.append(targeted_distribution)
 
     # Call the add_intervention_nchooser function to distribute the intervention_list with target_distributions

@@ -217,7 +217,7 @@ class NChooserTargetedDistributionHIV:
         if len(self.age_ranges_years) != 2:
             raise ValueError("The age_ranges_years must contains exactly 2 lists.")
         # Check if max_ages and min_ages are lists and have the same length
-        min_ages, max_ages  = self.age_ranges_years
+        min_ages, max_ages = self.age_ranges_years
         if not isinstance(max_ages, list) or not isinstance(min_ages, list) or len(max_ages) != len(min_ages):
             raise ValueError("The age_ranges_years must contains 2 lists with the same length.")
 

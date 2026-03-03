@@ -15,6 +15,7 @@ from math import sqrt, ceil
 
 import emodpy_hiv.plotting.helpers as helpers
 
+
 def get_raw_color(idx: int):
     """
     When plotting the raw data as background, use a lighter color than the test data.

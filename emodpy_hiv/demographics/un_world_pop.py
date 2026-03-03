@@ -28,25 +28,26 @@ FERTILITY_FILES = {
 
 MORTALITY_FILES = {
     "2012": {
-        "male":   "WPP2012_MORT_F17_2_ABRIDGED_LIFE_TABLE_MALE.xlsx",
+        "male": "WPP2012_MORT_F17_2_ABRIDGED_LIFE_TABLE_MALE.xlsx",
         "female": "WPP2012_MORT_F17_3_ABRIDGED_LIFE_TABLE_FEMALE.xlsx"
     },
     "2015": {
-        "male":   "WPP2015_MORT_F17_2_ABRIDGED_LIFE_TABLE_MALE.XLS",
+        "male": "WPP2015_MORT_F17_2_ABRIDGED_LIFE_TABLE_MALE.XLS",
         "female": "WPP2015_MORT_F17_3_ABRIDGED_LIFE_TABLE_FEMALE.XLS"
     },
     "2019": {
-        "male":   "WPP2019_MORT_F17_2_ABRIDGED_LIFE_TABLE_MALE.xlsx",
+        "male": "WPP2019_MORT_F17_2_ABRIDGED_LIFE_TABLE_MALE.xlsx",
         "female": "WPP2019_MORT_F17_3_ABRIDGED_LIFE_TABLE_FEMALE.xlsx"
     },
     "2024": {
-        "male":   "WPP2024_MORT_F07_2_ABRIDGED_LIFE_TABLE_MALE.xlsx",
+        "male": "WPP2024_MORT_F07_2_ABRIDGED_LIFE_TABLE_MALE.xlsx",
         "female": "WPP2024_MORT_F07_3_ABRIDGED_LIFE_TABLE_FEMALE.xlsx"
     }
 }
 
 KNOWN_VERSIONS = ["2012", "2015", "2019", "2024"]
 KNOWN_GENDERS = ["male", "female"]
+
 
 def _check_version(version):
     if version not in KNOWN_VERSIONS:
@@ -91,8 +92,7 @@ def _check_country(country, possible_countries, filename):
 
 
 def _check_filename(filename):
-    if ((isinstance(filename, Path) and not filename.exists()) or
-        (isinstance(filename, str) and not Path(filename).exists())):
+    if ((isinstance(filename, Path) and not filename.exists()) or (isinstance(filename, str) and not Path(filename).exists())):
         raise ValueError(f"The file does not exist.\n{filename}")
 
 
@@ -105,7 +105,7 @@ def _check_years(years, possible_years, filename):
 def extract_population_by_age(country: str,
                               version: str,
                               years: list[float],
-                              filename: Union[str,Path] = None):
+                              filename: Union[str, Path] = None):
     """
     This code is for extracting population by age data from the files
     downloaded from the UN World Pop (https://population.un.org/wpp/Download/Standard/Population/).
@@ -262,7 +262,7 @@ def extract_population_by_age(country: str,
     # --- Some columns can have the "...".  This changes those to zeros.
     # --- (This could go away with the 80+ handling.)
     # ------------------------------------------------------------------
-    #df[year] = ( pd.to_numeric(df[year], errors='coerce' ).fillna(0) )
+    #  df[year] = ( pd.to_numeric(df[year], errors='coerce' ).fillna(0) )
 
     # -----------------------------------------------------------------
     # --- The data is in thousands of people so multiply by 1000
@@ -288,7 +288,7 @@ def extract_population_by_age_for_ingest_form(filename, country, version, years,
         if col_name != "Reference date (as of 1 July)":
             for index, value in df[col_name].items():
                 year = df["Reference date (as of 1 July)"][index]
-                age_bin = f"[{str(col_name)}:{str(int(col_name)+5)})"
+                age_bin = f"[{str(col_name)}:{str(int(col_name) + 5)})"
                 ret_df.loc[len(ret_df)] = [year, gender, age_bin, value]
 
     return ret_df
@@ -703,5 +703,3 @@ def extract_mortality(country: str,
     df = df[YearAgeRate.COL_NAMES]
 
     return YearAgeRate(df=df)
-
-

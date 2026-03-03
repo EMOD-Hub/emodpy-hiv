@@ -23,7 +23,7 @@ def calculate_mean(dir_name: str):
     test_filenames = helpers.get_filenames(dir_or_filename=dir_name,
                                            file_prefix="InsetChart",
                                            file_extension="json")
-    
+
     raw_data_list = []
     total_df = pd.DataFrame()
     for test_fn in test_filenames:

@@ -226,12 +226,12 @@ class ReportHIVByAgeAndGender(ConfigReporter):
             targeting_config_data_schema_dict = []
             # Reporters.get_schema_json() is the equivalent of campaign.get_schema() expected by to_schema_dict()
             schema_adapter = types.SimpleNamespace(get_schema=reporters_object.get_schema_json)
-            for targeting_config in collect_targeting_config_data:
-                if not isinstance(targeting_config, AbstractTargetingConfig):
+            for target_conf in collect_targeting_config_data:
+                if not isinstance(target_conf, AbstractTargetingConfig):
                     raise ValueError(f"collect_targeting_config_data must be a list of AbstractTargetingConfig objects, "
-                                     f"but we found a type {type(targeting_config).__name__}.")
+                                     f"but we found a type {type(target_conf).__name__}.")
                 else:
-                    targeting_config_data_schema_dict.append(targeting_config.to_schema_dict(schema_adapter))
+                    targeting_config_data_schema_dict.append(target_conf.to_schema_dict(schema_adapter))
 
             self.parameters[
                 f"{reporter_parameter_prefix}_Collect_Targeting_Config_Data"] = targeting_config_data_schema_dict

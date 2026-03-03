@@ -379,26 +379,26 @@ class Zambia(Country):
         uwp_country = "Zambia"
         uwp_version = "2015"
 
-        total_pop, age_distribution_yar = unwp.extract_population_by_age_and_distribution(country =uwp_country, # noqa: E221, E251
-                                                                                          version =uwp_version, # noqa: E221, E251
-                                                                                          year    =1960)        # noqa: E221, E251
+        total_pop, age_distribution_yar = unwp.extract_population_by_age_and_distribution(country=uwp_country,
+                                                                                          version=uwp_version,
+                                                                                          year=1960)
 
-        fertility_yar        = unwp.extract_fertility(country=uwp_country, version=uwp_version)                  # noqa: E241, E221
-        male_mortality_yar   = unwp.extract_mortality(country=uwp_country, version=uwp_version, gender="male"  ) # noqa: E241, E221
+        fertility_yar = unwp.extract_fertility(country=uwp_country, version=uwp_version)
+        male_mortality_yar = unwp.extract_mortality(country=uwp_country, version=uwp_version, gender="male")
         female_mortality_yar = unwp.extract_mortality(country=uwp_country, version=uwp_version, gender="female")
 
         # -----------------------------------------------------------------------------------------
         # --- Need a longer fitting interval to flatten natural deaths under the peak in HIV deaths
         # -----------------------------------------------------------------------------------------
-        male_mortality_yar   = infer.infer_natural_mortality(male_mortality_yar,   interval_fit=(1950, 1975)) # noqa: E241, E221
+        male_mortality_yar = infer.infer_natural_mortality(male_mortality_yar, interval_fit=(1950, 1975))
         female_mortality_yar = infer.infer_natural_mortality(female_mortality_yar, interval_fit=(1950, 1975))
 
-        demog = HIVDemographics.from_year_age_rate_data(pop_df               = pop_df,               # noqa: E251, E221
-                                                        age_distribution_yar = age_distribution_yar, # noqa: E251
-                                                        fertility_yar        = fertility_yar,        # noqa: E251, E221
-                                                        male_mortality_yar   = male_mortality_yar,   # noqa: E251, E221
-                                                        female_mortality_yar = female_mortality_yar, # noqa: E251
-                                                        society              = None)                 # noqa: E251, E221, E202
+        demog = HIVDemographics.from_year_age_rate_data(pop_df=pop_df,
+                                                        age_distribution_yar=age_distribution_yar,
+                                                        fertility_yar=fertility_yar,
+                                                        male_mortality_yar=male_mortality_yar,
+                                                        female_mortality_yar=female_mortality_yar,
+                                                        society=None)
 
         cls._inital_demog_cache = copy.deepcopy(demog)
 
@@ -724,5 +724,5 @@ class ZambiaForTraining(Zambia):
 
         # Reduce the simulation duration by 10 years to decrease runtime.
         config.parameters.Simulation_Duration = config.parameters.Simulation_Duration - (10 * 365)
-    
+
         return config

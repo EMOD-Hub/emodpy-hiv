@@ -98,15 +98,15 @@ societies["PFA-Southern-Africa"] = {
                 ],
                 "Assortivity": {
                     "Axes": [
-                        "LOW", 
-                        "MEDIUM", 
+                        "LOW",
+                        "MEDIUM",
                         "HIGH"
-                    ], 
-                    "Group": "INDIVIDUAL_PROPERTY", 
-                    "Property_Name": "Risk", 
+                    ],
+                    "Group": "INDIVIDUAL_PROPERTY",
+                    "Property_Name": "Risk",
                     "Weighting_Matrix_RowMale_ColumnFemale": [
-                        [1, 1, 1], 
-                        [1, 1, 1], 
+                        [1, 1, 1],
+                        [1, 1, 1],
                         [1, 1, 1]
                     ]
                 }
@@ -606,15 +606,15 @@ societies["PFA-Southern-Africa"] = {
                 ],
                 "Assortivity": {
                     "Axes": [
-                        "LOW", 
-                        "MEDIUM", 
+                        "LOW",
+                        "MEDIUM",
                         "HIGH"
                     ],
-                    "Group": "INDIVIDUAL_PROPERTY", 
-                    "Property_Name": "Risk", 
+                    "Group": "INDIVIDUAL_PROPERTY",
+                    "Property_Name": "Risk",
                     "Weighting_Matrix_RowMale_ColumnFemale": [
-                        [0.6097767084, 0.3902232916, 0], 
-                        [0.3902232916, 0.6097767084, 0.6097767084], 
+                        [0.6097767084, 0.3902232916, 0],
+                        [0.3902232916, 0.6097767084, 0.6097767084],
                         [0, 0.6097767084, 0.3902232916]
                     ]
                 }
@@ -1114,21 +1114,21 @@ societies["PFA-Southern-Africa"] = {
                 ],
                 "Assortivity": {
                     "Axes": [
-                        "LOW", 
-                        "MEDIUM", 
+                        "LOW",
+                        "MEDIUM",
                         "HIGH"
                     ],
-                    "Group": "INDIVIDUAL_PROPERTY", 
-                    "Property_Name": "Risk", 
+                    "Group": "INDIVIDUAL_PROPERTY",
+                    "Property_Name": "Risk",
                     "Weighting_Matrix_RowMale_ColumnFemale": [
-                        [0.6097767084, 0.3902232916, 0], 
-                        [0.3902232916, 0.6097767084, 0.6097767084], 
+                        [0.6097767084, 0.3902232916, 0],
+                        [0.3902232916, 0.6097767084, 0.6097767084],
                         [0, 0.6097767084, 0.3902232916]
                     ]
                 }
             }
         },
-        "TRANSITORY": { 
+        "TRANSITORY": {
             "Relationship_Parameters": {
                 "Coital_Act_Rate": 0.33,
                 "Condom_Usage_Probability": {
@@ -1621,15 +1621,15 @@ societies["PFA-Southern-Africa"] = {
                 ],
                 "Assortivity": {
                     "Axes": [
-                        "LOW", 
-                        "MEDIUM", 
+                        "LOW",
+                        "MEDIUM",
                         "HIGH"
-                    ], 
-                    "Group": "INDIVIDUAL_PROPERTY", 
-                    "Property_Name": "Risk", 
+                    ],
+                    "Group": "INDIVIDUAL_PROPERTY",
+                    "Property_Name": "Risk",
                     "Weighting_Matrix_RowMale_ColumnFemale": [
-                        [0.6097767084, 0.3902232916, 0], 
-                        [0.3902232916, 0.6097767084, 0.6097767084], 
+                        [0.6097767084, 0.3902232916, 0],
+                        [0.3902232916, 0.6097767084, 0.6097767084],
                         [0, 0.6097767084, 0.3902232916]
                     ]
                 }

@@ -258,7 +258,7 @@ class YearAgeRate:
                 min_age_group["max_year"] = min_age_group["max_year"].fillna(2101)
                 new_node_group2 = pd.concat([new_node_group2, min_age_group])
             new_node_group = new_node_group2.sort_values(by=[YearAgeRate.COL_NAME_MIN_YEAR, YearAgeRate.COL_NAME_MIN_AGE],
-                                                        ascending=True)
+                                                         ascending=True)
 
             # ----------------------------------------------------------------------------------
             # --- Duplicate the set of rows, but have the min_year be the max_year determined above
@@ -273,7 +273,7 @@ class YearAgeRate:
         else:
             # Not coming up with a quick way to determine that the difference between years is 5.
             difference_between_years = 5
-            new_node_group[YearAgeRate.COL_NAME_MIN_YEAR] = new_node_group[YearAgeRate.COL_NAME_MIN_YEAR] + difference_between_years/2.0
+            new_node_group[YearAgeRate.COL_NAME_MIN_YEAR] = new_node_group[YearAgeRate.COL_NAME_MIN_YEAR] + difference_between_years / 2.0
 
         # -----------------------------------------
         # --- Create the JSON for the distribution
@@ -333,7 +333,7 @@ class YearAgeRate:
 
         return fertility_distributions
 
-    def to_mortality_distributions(self, stepwise_for_year: bool =True) -> Dict[int, MortalityDistribution]:
+    def to_mortality_distributions(self, stepwise_for_year: bool = True) -> Dict[int, MortalityDistribution]:
         """
         Convert this YearAgeRate object to a dict of node_id: MortalityDistribution entries.
 
@@ -357,7 +357,7 @@ class YearAgeRate:
         for node_id, node_group in node_group_collection:
             # TODO: we should be creating and returning distribution objects in this call, not json/converting below
             #  https://github.com/InstituteforDiseaseModeling/emodpy-hiv-old/issues/316
-            dist_dict = YearAgeRate._node_group_to_distribution_json(node_group,stepwise_for_year=stepwise_for_year)
+            dist_dict = YearAgeRate._node_group_to_distribution_json(node_group, stepwise_for_year=stepwise_for_year)
             dist_dict["ResultUnits"] = "annual death rate for an individual"
 
             distribution = MortalityDistribution.from_dict(distribution_dict=dist_dict)

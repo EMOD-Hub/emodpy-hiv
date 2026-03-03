@@ -403,14 +403,14 @@ class HIVDemographics(Demographics):
         """
         This method of building demographics is not available for HIVDemographics
         """
-        raise NotImplemented('This method of building demographics is not available for HIVDemographics')
+        raise NotImplementedError('This method of building demographics is not available for HIVDemographics')
 
     @classmethod
     def from_params(cls):
         """
         This method of building demographics is not available for HIVDemographics
         """
-        raise NotImplemented('This method of building demographics is not available for HIVDemographics')
+        raise NotImplementedError('This method of building demographics is not available for HIVDemographics')
 
     @classmethod
     def from_year_age_rate_data(cls,

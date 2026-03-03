@@ -1,11 +1,9 @@
-from emod_api import campaign as api_campaign, schema_to_class as s2c
+from emod_api import campaign as api_campaign
 
-from emodpy.campaign.base_intervention import IndividualIntervention, NodeIntervention
+from emodpy.campaign.base_intervention import IndividualIntervention
 from emodpy.campaign.event_coordinator import InterventionDistributorEventCoordinator
 from emodpy_hiv.campaign.common import TargetDemographicsConfig, ValueMap, PropertyRestrictions, NChooserTargetedDistributionHIV
 from emodpy_hiv.utils.targeting_config import AbstractTargetingConfig
-
-from typing import Union
 
 # ported from emodpy/campaign/event_coordinator.py
 # The StandardEventCoordinator coordinator class distributes an individual-level or node-level intervention to
@@ -115,7 +113,6 @@ class ReferenceTrackingEventCoordinatorTrackingConfig(InterventionDistributorEve
             property_restrictions._set_property_restrictions(self._coordinator)
         if targeting_config is not None:
             self._coordinator.Targeting_Config = targeting_config.to_schema_dict(campaign)
-
 
         self._coordinator.End_Year = end_year
         self._coordinator.Update_Period = update_period

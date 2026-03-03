@@ -135,7 +135,7 @@ def plot_relationship_duration_histogram(dir_or_filename: str,
         if bin_index == 0:
             label = f"0-{this_bin}"
         else:
-            label = f"{bins[bin_index-1]}-{this_bin}"
+            label = f"{bins[bin_index - 1]}-{this_bin}"
         bin_label_list.append(label)
 
     # -----------------------------------------

@@ -1,4 +1,4 @@
-def download( experiment_id, local_output_path="", files_to_get=None ):
+def download(experiment_id, local_output_path="", files_to_get=None):
     """
     Download HIV output file(s) to local disk. Just gets ReportHIVByAgeAndGender.csv. Intended to be
     used command line: python -m emopyhiv.download <COMPS Experiment ID> <Optional Output Path> <Files To Get>
@@ -12,7 +12,7 @@ def download( experiment_id, local_output_path="", files_to_get=None ):
     elif type(files_to_get) is str:
         files_to_get = files_to_get.split(',')
 
-    print( f"Attempting to download {files_to_get} for experiment {experiment_id} into {local_output_path}." )
+    print(f"Attempting to download {files_to_get} for experiment {experiment_id} into {local_output_path}.")
     dl_wi = DownloadWorkItem(
         related_experiments=[experiment_id],
         file_patterns=files_to_get,
@@ -24,6 +24,6 @@ def download( experiment_id, local_output_path="", files_to_get=None ):
 if __name__ == "__main__":
     import sys
     if len(sys.argv) == 1:
-        print( "Usage: python -m emopyhiv.download <COMPS Experiment ID> <Optional Output Path> <Optional List Of Files To Get>" )
+        print("Usage: python -m emopyhiv.download <COMPS Experiment ID> <Optional Output Path> <Optional List Of Files To Get>")
         sys.exit()
-    download( sys.argv[1], (sys.argv[2] if len(sys.argv) > 2 else ""), (sys.argv[3] if len(sys.argv) == 4 else None) )
+    download(sys.argv[1], (sys.argv[2] if len(sys.argv) > 2 else ""), (sys.argv[3] if len(sys.argv) == 4 else None))

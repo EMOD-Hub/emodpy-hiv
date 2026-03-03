@@ -29,6 +29,7 @@ from emod_api import campaign as api_campaign
 
 from typing import Union
 
+
 class Sigmoid:
     """
     Defines a sigmoidal curve that can be used to define probabilities versus time.
@@ -314,7 +315,7 @@ class ARTMortalityTable(IndividualIntervention):
         super().__init__(campaign, 'ARTMortalityTable', common_intervention_parameters)
 
         self._validate_mortality_table_inputs(mortality_table, art_duration_days_bins, age_years_bins, cd4_count_bins)
-        
+
         self._intervention.MortalityTable = mortality_table
         self._intervention.Days_To_Achieve_Viral_Suppression = validate_value_range(days_to_achieve_viral_suppression, 'days_to_achieve_viral_suppression', 0, 3.40282e+38, float)
         self._intervention.CD4_Count_Bins = cd4_count_bins
@@ -326,7 +327,7 @@ class ARTMortalityTable(IndividualIntervention):
     def _validate_mortality_table_inputs(self, mortality_table, art_duration_days_bins, age_years_bins, cd4_count_bins):
         """
         Validate that mortality table and associated bins are consistent and properly formatted.
-        
+
         Args:
             mortality_table: 3D list of mortality rates (required)
             art_duration_days_bins: List of ART duration bins (required)
@@ -339,7 +340,7 @@ class ARTMortalityTable(IndividualIntervention):
     def _validate_mortality_table_structure_and_dimensions(self, mortality_table, art_duration_days_bins, age_years_bins, cd4_count_bins):
         """
         Validate the 3D structure, values, and dimensions of the mortality table in a single pass.
-        
+
         Args:
             mortality_table: 3D list of mortality rates
             art_duration_days_bins: List of ART duration bins
@@ -348,31 +349,31 @@ class ARTMortalityTable(IndividualIntervention):
         """
         if not isinstance(mortality_table, list):
             raise TypeError("mortality_table must be a list")
-        
+
         # Check first dimension (duration bins)
         if len(mortality_table) != len(art_duration_days_bins):
             raise ValueError(f"mortality_table first dimension ({len(mortality_table)}) must match art_duration_days_bins length ({len(art_duration_days_bins)})")
-        
+
         # Validate each dimension and check dimensional consistency
         expected_age_bins = len(age_years_bins)
         expected_cd4_bins = len(cd4_count_bins)
-        
+
         for i, outer_list in enumerate(mortality_table):
             if not isinstance(outer_list, list):
                 raise TypeError(f"mortality_table[{i}] must be a list")
-            
+
             # Check second dimension (age bins)
             if len(outer_list) != expected_age_bins:
                 raise ValueError(f"mortality_table[{i}] length ({len(outer_list)}) must match age_years_bins length ({expected_age_bins})")
-            
+
             for j, inner_list in enumerate(outer_list):
                 if not isinstance(inner_list, list):
                     raise TypeError(f"mortality_table[{i}][{j}] must be a list")
-                
+
                 # Check third dimension (CD4 bins)
                 if len(inner_list) != expected_cd4_bins:
                     raise ValueError(f"mortality_table[{i}][{j}] length ({len(inner_list)}) must match cd4_count_bins length ({expected_cd4_bins})")
-                
+
                 # Validate all values are numeric and within valid range
                 for k, value in enumerate(inner_list):
                     if not isinstance(value, (int, float)):
@@ -383,7 +384,7 @@ class ARTMortalityTable(IndividualIntervention):
     def _validate_bin_parameters(self, art_duration_days_bins, age_years_bins, cd4_count_bins):
         """
         Validate the bin parameter arrays.
-        
+
         Args:
             art_duration_days_bins: List of ART duration bins
             age_years_bins: List of age bins
@@ -396,7 +397,7 @@ class ARTMortalityTable(IndividualIntervention):
                 raise TypeError(f"{bin_name} must be a list")
             if len(bin_values) == 0:
                 raise ValueError(f"{bin_name} cannot be empty")
-            
+
             # Validate all values are numeric and non-negative
             for i, value in enumerate(bin_values):
                 if not isinstance(value, (int, float)):
@@ -405,12 +406,11 @@ class ARTMortalityTable(IndividualIntervention):
                     raise ValueError(f"{bin_name}[{i}] must be non-negative, got {value}")
                 if max_value and value > max_value:
                     raise ValueError(f"{bin_name}[{i}] must be less than or equal to {max_value}, got {value}")
-            
+
             # Validate bins are in ascending order
             for i in range(1, len(bin_values)):
-                if bin_values[i] <= bin_values[i-1]:
-                    raise ValueError(f"{bin_name} must be in ascending order: {bin_values[i-1]} >= {bin_values[i]} at positions {i-1}, {i}")
-
+                if bin_values[i] <= bin_values[i - 1]:
+                    raise ValueError(f"{bin_name} must be in ascending order: {bin_values[i - 1]} >= {bin_values[i]} at positions {i - 1}, {i}")
 
 
 class AgeDiagnostic(IndividualIntervention):
@@ -1797,10 +1797,10 @@ class HIVSigmoidByYearAndSexDiagnostic(IndividualIntervention):
             raise ValueError("'year_sigmoid' must be defined.")
 
         # Don't need to check values because these values are the same as the ranges in the Sigmoid class.
-        self._intervention.Ramp_Min     = year_sigmoid.min
-        self._intervention.Ramp_Max     = year_sigmoid.max
+        self._intervention.Ramp_Min = year_sigmoid.min
+        self._intervention.Ramp_Max = year_sigmoid.max
         self._intervention.Ramp_MidYear = year_sigmoid.mid
-        self._intervention.Ramp_Rate    = year_sigmoid.rate
+        self._intervention.Ramp_Rate = year_sigmoid.rate
         self._intervention.Female_Multiplier = validate_value_range(female_multiplier, 'female_multiplier', 0, 3.40282e+38, float)
         self._intervention.Positive_Diagnosis_Event = set_event(positive_diagnosis_event, 'positive_diagnosis_event', campaign, False)
         self._intervention.Negative_Diagnosis_Event = set_event(negative_diagnosis_event, 'negative_diagnosis_event', campaign, True)
@@ -2197,11 +2197,11 @@ class STIBarrier(IndividualIntervention):
         if condom_usage_sigmoid is None:
             raise ValueError("'condom_usage_sigmoid' must be defined.")
         else:
-            condom_usage_sigmoid.check_value_ranges( class_name="STIBarrier",
-                                                     min_low= 0, min_high=1,
-                                                     max_low= 0, max_high=1,
-                                                     mid_low=1900, mid_high=2200,
-                                                     rate_low=-100, rate_high=100)
+            condom_usage_sigmoid.check_value_ranges(class_name="STIBarrier",
+                                                    min_low=0, min_high=1,
+                                                    max_low=0, max_high=1,
+                                                    mid_low=1900, mid_high=2200,
+                                                    rate_low=-100, rate_high=100)
 
         if not isinstance(usage_duration_distribution, BaseDistribution):
             raise ValueError(f"usage_duration_distribution must be an instance of BaseDistribution, not {type(usage_duration_distribution)}.")
@@ -2209,10 +2209,10 @@ class STIBarrier(IndividualIntervention):
 
         self._intervention.Usage_Expiration_Event = set_event(usage_expiration_event, 'usage_expiration_event', campaign, True)
         self._intervention.Relationship_Type = relationship_type
-        self._intervention.Rate    = condom_usage_sigmoid.rate
+        self._intervention.Rate = condom_usage_sigmoid.rate
         self._intervention.MidYear = condom_usage_sigmoid.mid
-        self._intervention.Late    = condom_usage_sigmoid.max
-        self._intervention.Early   = condom_usage_sigmoid.min
+        self._intervention.Late = condom_usage_sigmoid.max
+        self._intervention.Early = condom_usage_sigmoid.min
 
 
 class STIIsPostDebut(IndividualIntervention):
@@ -2424,11 +2424,11 @@ class StartNewRelationship(IndividualIntervention):
             self._intervention.Partner_Has_IP = validate_key_value_pair(partner_has_ip)
 
         if condom_usage_sigmoid is not None:
-            condom_usage_sigmoid.check_value_ranges( class_name="StartNewRelationship",
-                                                     min_low= 0, min_high=1,
-                                                     max_low= 0, max_high=1,
-                                                     mid_low=1900, mid_high=2200,
-                                                     rate_low=-100, rate_high=100)
+            condom_usage_sigmoid.check_value_ranges(class_name="StartNewRelationship",
+                                                    min_low=0, min_high=1,
+                                                    max_low=0, max_high=1,
+                                                    mid_low=1900, mid_high=2200,
+                                                    rate_low=-100, rate_high=100)
             self._intervention.Condom_Usage_Parameters_Type = CondomUsageParametersType.SPECIFY_USAGE
             self._intervention.Condom_Usage_Sigmoid = condom_usage_sigmoid.to_schema_dict(campaign)
         else:

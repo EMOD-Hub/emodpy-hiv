@@ -1,22 +1,15 @@
-
-import os
 import pandas as pd
 import numpy as np
 from functools import reduce
-from pathlib import Path
-from importlib import resources
 import argparse
 
 from sklearn.pipeline import make_pipeline
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 
-import emodpy_hiv.countries as countries
-
 from emodpy_hiv.demographics.year_age_rate import YearAgeRate
 import emodpy_hiv.demographics.year_age_rate as year_age_rate
 import emodpy_hiv.demographics.un_world_pop as unwp
-
 
 
 def infer_natural_mortality(year_age_rate_data: YearAgeRate,
@@ -169,7 +162,7 @@ def mortality_read_infer_plot(country: str,
                               version: str,
                               gender: str,
                               interval_fit: tuple[float, float] = None,
-                              save_data: bool = False, 
+                              save_data: bool = False,
                               other_csv_filename: str = None,
                               img_dir: str = None,
                               filename_to_save_to: str = None) -> None:
@@ -240,11 +233,11 @@ def mortality_read_infer_plot(country: str,
 
 
 def mortality_read_infer_plot_app(country: str,
-                                  version: str, 
+                                  version: str,
                                   gender: str,
                                   min_year: int,
                                   max_year: int,
-                                  save_data: bool = False, 
+                                  save_data: bool = False,
                                   other_csv_filename: str = None,
                                   img_dir: str = None) -> None:
     """
@@ -284,21 +277,21 @@ def mortality_read_infer_plot_app(country: str,
         No return
     """
     if min_year >= max_year:
-        raise ValueError(f"Invalid interval: {min_year} >= {max_year}.\n" +
-                         "The min year must be less than the max year.")
+        raise ValueError(f"Invalid interval: {min_year} >= {max_year}.\n"
+                         + "The min year must be less than the max year.")
     if min_year < 1950:
-        raise ValueError(f"Invalid interval: {min_year} < 1950.\n" +
-                         "The min year must be greater than or equal to 1950,\n" +
-                         "because the data is not present in the files.")
+        raise ValueError(f"Invalid interval: {min_year} < 1950.\n"
+                         + "The min year must be greater than or equal to 1950,\n"
+                         + "because the data is not present in the files.")
     if max_year > 2100:
-        raise ValueError(f"Invalid interval: {max_year} > 2100.\n" +
-                         "The max year must be less than or equal to 2100,\n" +
-                         "because the data is not present in the files.")
+        raise ValueError(f"Invalid interval: {max_year} > 2100.\n"
+                         + "The max year must be less than or equal to 2100,\n"
+                         + "because the data is not present in the files.")
 
     filename_to_save_to = f"Inferred_Mortality_{gender}_{country}_{version}_from_{min_year}_to_{max_year}.png"
     filename_to_save_to = filename_to_save_to.replace(" ", "_")
 
-    mortality_read_infer_plot(country=country, 
+    mortality_read_infer_plot(country=country,
                               version=version,
                               gender=gender,
                               interval_fit=(min_year, max_year),
@@ -312,16 +305,16 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-g', '--gender',   type=str, default='male',   help="Gender of mortality data. Options: 'male' or 'female'")
-    parser.add_argument('-y', '--year',     type=str, default="2015",   help="Year of UN World Population data.  Options: 2012, 2015, 2019, 2024")
-    parser.add_argument('-c', '--country',  type=str, default="Zambia", help="Country name in UN World Population data.")
-    parser.add_argument('-m', '--min_year', type=int, default=1950,     help="The start year of the interval to fit the data to.")
-    parser.add_argument('-x', '--max_year', type=int, default=1975,     help="The end year of the interval to fit the data to.")
-    parser.add_argument('-o', '--output',   type=str, default=None,     help='If provided, a directory will be created and images saved to the folder.  If not provided, it opens windows.')
+    parser.add_argument('-g', '--gender', type=str, default='male', help="Gender of mortality data. Options: 'male' or 'female'")
+    parser.add_argument('-y', '--year', type=str, default="2015", help="Year of UN World Population data.  Options: 2012, 2015, 2019, 2024")
+    parser.add_argument('-c', '--country', type=str, default="Zambia", help="Country name in UN World Population data.")
+    parser.add_argument('-m', '--min_year', type=int, default=1950, help="The start year of the interval to fit the data to.")
+    parser.add_argument('-x', '--max_year', type=int, default=1975, help="The end year of the interval to fit the data to.")
+    parser.add_argument('-o', '--output', type=str, default=None, help='If provided, a directory will be created and images saved to the folder.  If not provided, it opens windows.')
 
     args = parser.parse_args()
 
-    mortality_read_infer_plot_app(country=args.country, 
+    mortality_read_infer_plot_app(country=args.country,
                                   version=args.year,
                                   gender=args.gender,
                                   min_year=args.min_year,
