@@ -1,0 +1,47 @@
+name: Run tests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+  # Allows manual run from the Actions tab
+  workflow_dispatch:
+
+  # Allows re-use in other workflows
+  workflow_call:
+
+jobs:
+  run-tests:
+    name: Run tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      max-parallel: 8
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ['3.10', '3.13', '3.14']
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6
+        with:
+          lfs: true
+      - name: Setup python ${{ matrix.python-version }}
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install .[test] --extra-index-url=https://packages.idmod.org/api/pypi/pypi-production/simple
+      - name: Run unit, sim, and country tests
+        run: |
+          python3 -m pytest unittests/test_emod_hiv_package.py
+          python3 -m pytest --dist loadfile -v -m unit --junitxml="test_results_unit.xml"
+          python3 -m pytest --dist loadfile -v -m container --junitxml="test_results_container.xml"
+        working-directory: ./tests
+      - name: Run examples with Eradication from pip install snakemake
+        run: |
+          pip install snakemake
+          pip install pulp==2.7.0
+          snakemake --cores all
+        working-directory: ./examples

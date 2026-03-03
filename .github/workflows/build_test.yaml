@@ -1,17 +1,8 @@
-name: build test
+name: build test - deprecated
+
 on:
-  pull_request:
-    branches:
-      - 'main'
-    paths:
-      - 'emodpy_hiv/**'
-      - 'pyproject.toml'
-  push:
-    branches-ignore:
-      - 'main'
-    paths:
-      - 'emodpy_hiv/**'
-      - 'pyproject.toml'
+  # Allows manual run from the Actions tab
+  workflow_dispatch:
 
 jobs:
   build_test:

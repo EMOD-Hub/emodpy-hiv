@@ -1,14 +1,8 @@
-# This workflows will upload a Python Package using Twine when a release is created
-
-name: build test publish
+name: build test publish - deprecated
 
 on:
-  push:
-    branches:
-      - 'main'
-    paths:
-      - 'emodpy_hiv/**'
-      - 'pyproject.toml'
+  # Allows manual run from the Actions tab
+  workflow_dispatch:
 
 permissions:
     contents: write # Allow writing to the repository (e.g., commits, pushes)
