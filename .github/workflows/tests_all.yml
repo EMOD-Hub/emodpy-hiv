@@ -33,13 +33,19 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install .[test]
-      - name: Run unit, sim, and country tests
+      - name: Run unit tests
         run: |
           python -m pytest unittests/test_emod_hiv_package.py
           python -m pytest --dist loadfile -v -m unit --junitxml="test_results_unit.xml"
+        working-directory: ./tests
+      - name: Run country and container tests
+        if: runner.os == 'Linux'
+        run: |
+          python -m pytest unittests/test_emod_hiv_package.py
           python -m pytest --dist loadfile -v -m container --junitxml="test_results_container.xml"
         working-directory: ./tests
-      - name: Run examples with Eradication from pip install snakemake
+      - name: Run examples with Eradication from pip install snakemake (Container)
+        if: runner.os == 'Linux'
         run: |
           python -m pip install snakemake
           python -m pip install pulp==2.7.0
