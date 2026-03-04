@@ -26,4 +26,4 @@ if not os.path.isfile(eradication_path):
 
 # Running things
 comps_platform_name = "SLURMStage"  # "Calculon" or "SLURMStage"
-container_platform_name = "ContainerPlatform"
+container_platform_name = "Container"
