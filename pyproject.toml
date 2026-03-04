@@ -97,9 +97,3 @@ filename = "pyproject.toml"
 
 [[tool.bumpversion.files]]
 filename = "emodpy_hiv/__init__.py"
-
-[tool.pip]
-extra-index-url = "https://packages.idmod.org/api/pypi/pypi-production/simple"
-
-[tool.uv]
-extra-index-url = ["https://packages.idmod.org/api/pypi/pypi-production/simple"]
