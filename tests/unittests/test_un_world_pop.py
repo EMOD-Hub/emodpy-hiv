@@ -275,7 +275,7 @@ class TestUnWorldPop(unittest.TestCase):
         
         with self.assertRaises(ValueError) as context:
             df = unwp.extract_population_by_age(country="Zambia", version="2012", years=[1960, 1961, 1962], filename="XXXXXXXX")
-        self.assertTrue("The file does not exist.\nXXXXXXXX" in str(context.exception),
+        self.assertTrue("The file does not exist.\n" in str(context.exception),
                         msg=str(context.exception))
 
     def test_error_handling_extract_population_by_age_and_distribution(self):
@@ -291,7 +291,7 @@ class TestUnWorldPop(unittest.TestCase):
         
         with self.assertRaises(ValueError) as context:
             total_pop, act_yar = unwp.extract_population_by_age_and_distribution("Zambia", "2012", filename="XXXXXXXX")
-        self.assertTrue("The file does not exist.\nXXXXXXXX" in str(context.exception),
+        self.assertTrue("The file does not exist.\n" in str(context.exception),
                         msg=str(context.exception))
 
     def test_error_handling_extract_fertility(self):
@@ -307,7 +307,7 @@ class TestUnWorldPop(unittest.TestCase):
         
         with self.assertRaises(ValueError) as context:
             act_yar = unwp.extract_fertility("Zambia", "2012", filename="XXXXXXXX")
-        self.assertTrue("The file does not exist.\nXXXXXXXX" in str(context.exception),
+        self.assertTrue("The file does not exist.\n" in str(context.exception),
                         msg=str(context.exception))
 
     def test_error_handling_extract_mortality(self):
@@ -328,7 +328,7 @@ class TestUnWorldPop(unittest.TestCase):
         
         with self.assertRaises(ValueError) as context:
             act_yar = unwp.extract_mortality(country="Zambia", version="2012", gender="male", filename="XXXXXXXX")
-        self.assertTrue("The file does not exist.\nXXXXXXXX" in str(context.exception),
+        self.assertTrue("The file does not exist.\n" in str(context.exception),
                         msg=str(context.exception))
 
 

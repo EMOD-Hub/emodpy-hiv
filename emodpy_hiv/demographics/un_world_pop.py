@@ -92,8 +92,10 @@ def _check_country(country, possible_countries, filename):
 
 
 def _check_filename(filename):
-    if ((isinstance(filename, Path) and not filename.exists()) or (isinstance(filename, str) and not Path(filename).exists())):
-        raise ValueError(f"The file does not exist.\n{filename}")
+    if (isinstance(filename, Path) and not filename.exists()) or (isinstance(filename, str) and not Path(filename).exists()):
+        raise ValueError(f"{filename} - The file does not exist.\nThe World Population files are not included in "
+                         f"this package and must be downloaded from 'https://github.com/EMOD-Hub/emodpy-hiv/tree/main/emodpy_hiv/countries/un_world_pop_data' "
+                         f"and placed in the {Path(filename).parent} directory.")
 
 
 def _check_years(years, possible_years, filename):
@@ -137,8 +139,7 @@ def extract_population_by_age(country: str,
     """
     if filename is None:
         filename = _get_population_filename(version)
-    else:
-        _check_filename(filename)
+    _check_filename(filename)
 
     # ---------------------------------------------------------
     # --- Define column names and sheets to read the data from.
@@ -331,8 +332,7 @@ def extract_population_by_age_and_distribution(country: str,
     """
     if filename is None:
         filename = _get_population_filename(version)
-    else:
-        _check_filename(filename)
+    _check_filename(filename)
 
     # ---------------------------------------------------------
     # --- Define column names and sheets to read the data from.
@@ -511,8 +511,7 @@ def extract_fertility(country: str,
     """
     if filename is None:
         filename = _get_fertility_filename(version)
-    else:
-        _check_filename(filename)
+    _check_filename(filename)
 
     # ---------------------------------------------------------
     # --- Define column names and sheets to read the data from.
@@ -632,8 +631,7 @@ def extract_mortality(country: str,
     """
     if filename is None:
         filename = _get_mortality_filename(version, gender)
-    else:
-        _check_filename(filename)
+    _check_filename(filename)
 
     # ---------------------------------------------------------
     # --- Define column names and sheets to read the data from.
