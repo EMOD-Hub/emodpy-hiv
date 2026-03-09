@@ -64,6 +64,7 @@ test = [
     "coverage",
     "py-make",
     "pillow",
+    "snakemake",
 ]
 
 [project.urls]

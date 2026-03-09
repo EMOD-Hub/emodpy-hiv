@@ -47,7 +47,5 @@ jobs:
       - name: Run examples with Eradication from pip install snakemake (Container)
         if: runner.os == 'Linux'
         run: |
-          python -m pip install snakemake
-          python -m pip install pulp==2.7.0
           snakemake --cores all
         working-directory: ./examples
