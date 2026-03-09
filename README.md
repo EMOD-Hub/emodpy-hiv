@@ -20,7 +20,7 @@ are also provided to aid in exploring model output.
 
 The emodpy-hiv code is intended to be self-documenting in order to keep the documentation fully up-to-date with the 
 particular installed version. Additional documentation is available at:
-https://docs.idmod.org/projects/emodpy-hiv/en/latest/
+https://emod-hub.github.io/emodpy-hiv/
 
 To build the documentation locally, do the following:
 
@@ -28,10 +28,8 @@ To build the documentation locally, do the following:
 2. Navigate to the root directory of the repo and enter the following
 
     ```
-    pip install -e .
-    cd docs
-    pip install -r requirements.txt
-    make html
+    python -m pip install .[docs]
+	python -m sphinx -T --keep-going -b html ./docs ./site
     ```
 
 <a id="installation"></a>
@@ -48,7 +46,7 @@ python -m pip install --upgrade pip
 <a id="install"></a>
 ## Install
 ```
-python -m pip install emodpy-hiv --extra-index-url=https://packages.idmod.org/api/pypi/pypi-production/simple
+python -m pip install emodpy-hiv
 ```
 
 <a id="training-resources"></a>
@@ -60,7 +58,7 @@ Tutorial Python code can be found in the [tutorials](tutorials) directory.
 <a id="faq"></a>
 # FAQ
 
-Frequently asked questions are answered in https://docs.idmod.org/projects/emodpy-hiv/en/latest/faq.html.
+Frequently asked questions are answered in https://emod-hub.github.io/emodpy-hiv/faq.html
 
 <a id="support"></a>
 # Support and Contributions
