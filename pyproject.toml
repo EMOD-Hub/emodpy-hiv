@@ -18,11 +18,11 @@ authors = [
 ]
 keywords = ["modeling", "IDM"]
 dependencies = [
-    "emodpy~=3.0",
+    "emodpy~=3.1",
     "pandas~=3.0",
     "scikit-learn~=1.8",
     "python-calamine~=0.6",
-    "emod-hiv==2.30.0",
+    "emod-hiv==2.32.24.dev1",
 ]
 license = "MIT"
 classifiers=[
@@ -81,8 +81,6 @@ emodpy_hiv = [
 [tool.setuptools.exclude-package-data]
 # ...except the source files which have been compiled (C extensions):
 "*" = ["*.xlsx", "*.XLS"]
-
-
 
 [tool.bumpversion]
 current_version = "3.0.4"
