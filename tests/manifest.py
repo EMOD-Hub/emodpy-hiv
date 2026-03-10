@@ -4,7 +4,6 @@ import emod_hiv.bootstrap as emod_hiv
 
 current_directory = os.path.dirname(os.path.realpath(__file__))
 
-
 failed_tests = os.path.join(current_directory, "failed_tests")
 
 sif_path = os.path.join(current_directory, "stage_sif.id")
@@ -28,4 +27,4 @@ if not os.path.isfile(eradication_path):
 comps_platform_name = "SLURMStage"  # "Calculon" or "SLURMStage"
 
 container_platform_name = "Container"
-plat_image = "ghcr.io/institutefordiseasemodeling/container-rocky-runtime:0.0.6"
+plat_image = "ghcr.io/emod-hub/emod_runtime_env:3.1.3"
