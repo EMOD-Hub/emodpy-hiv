@@ -76,12 +76,13 @@ find = {include = ["emodpy_hiv*"]}
 [tool.setuptools.package-data]
 emodpy_hiv = [
     "countries/*.csv",
-    "countries/**/*.csv"
+    "countries/**/*.csv",
+    "countries/un_world_pop_data/WPP2015_*.XLS"
 ]
 
 [tool.setuptools.exclude-package-data]
 # ...except the source files which have been compiled (C extensions):
-"*" = ["*.xlsx", "*.XLS"]
+"*" = ["*.xlsx", "WPP2012_*.XLS"]
 
 
 
