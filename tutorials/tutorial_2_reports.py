@@ -169,7 +169,7 @@ def run_experiment():
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     # UPDATE - Select the correct Platform below
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    platform = Platform('Container', job_directory="tutorial_output")
+    platform = Platform('Container', job_directory="tutorial_output", docker_image=manifest.plat_image)
 
     # platform = Platform("Calculon",
     #                     node_group="idm_abcd",

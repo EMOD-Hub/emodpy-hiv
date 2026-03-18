@@ -1,16 +1,10 @@
-#!/usr/bin/env python
-
 import pathlib  # for a join
-from functools import \
-    partial  # for setting Run_Number. In Jonathan Future World, Run_Number is set by dtk_pre_proc based on generic param_sweep_value...
 
 # idmtools ...
 from idmtools.assets import Asset, AssetCollection  #
 from idmtools.builders import SimulationBuilder
 from idmtools.core.platform_factory import Platform
 from idmtools.entities.experiment import Experiment
-from idmtools_platform_comps.utils.python_requirements_ac.requirements_to_asset_collection import \
-    RequirementsToAssetCollection
 
 # emodpy
 from emodpy.emod_task import EMODTask
@@ -102,28 +96,17 @@ def run_test():
     every time we run an emod experiment. 
     """
     # Create a platform
-    platform = Platform("Container", job_directory="container_platform_output")
-
-    # Show how to dynamically set priority and node_group
-    # platform = Platform("Calculon", node_group="idm_48cores", priority="Highest")
-    # pl = RequirementsToAssetCollection(platform, requirements_path=manifest.requirements)
+    platform = Platform(manifest.plat_name, job_directory=manifest.job_dir, docker_image=manifest.plat_image)
 
     task = EMODTask.from_defaults(eradication_path=manifest.eradication_path,
                                   campaign_builder=build_camp,
                                   demographics_builder=build_demog,
                                   schema_path=manifest.schema_file,
                                   config_builder=set_param_fn)
-    task.set_sif(str(manifest.sif_path), platform=platform)# set_sif() expects a string
-
-    # task.common_assets.add_asset( demog_path )
-
-    # print("Adding asset dir...")
-    # task.common_assets.add_directory(assets_directory=manifest.assets_input_dir)
 
     # Set task.campaign to None to not send any campaign to comps since we are going to override it later with
     # dtk-pre-process.
     print("Adding local assets (py scripts mainly)...")
-
 
     # Create simulation sweep with builder
     builder = SimulationBuilder()

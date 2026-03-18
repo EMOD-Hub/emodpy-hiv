@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import pathlib  # for a join
 from functools import \
     partial  # for setting Run_Number. In Jonathan Future World, Run_Number is set by dtk_pre_proc based on generic param_sweep_value...
@@ -132,10 +130,7 @@ def sim():
     """
 
     # Set platform
-    platform = Platform("Container", job_directory="container_platform_output")
-
-    # use Platform("SLURMStage") to run on comps2.idmod.org for testing/dev work
-    # platform = Platform("Calculon", node_group="idm_48cores", priority="Highest")
+    platform = Platform(manifest.plat_name, job_directory=manifest.job_dir, docker_image=manifest.plat_image)
 
     # create EMODTask 
     print("Creating EMODTask (from files)...")
@@ -145,7 +140,6 @@ def sim():
                                                config_builder=set_config_parameters,
                                                demographics_builder=build_demographics)
     task.common_assets.add_directory(assets_directory=manifest.assets_input_dir)
-    task.set_sif(str(manifest.sif_path), platform=platform)
 
     # Create simulation sweep with builder
     # sweeping over start day AND killing effectiveness - this will be a cross product

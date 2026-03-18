@@ -26,4 +26,6 @@ if not os.path.isfile(eradication_path):
 
 # Running things
 comps_platform_name = "SLURMStage"  # "Calculon" or "SLURMStage"
+
 container_platform_name = "Container"
+plat_image = "ghcr.io/institutefordiseasemodeling/container-rocky-runtime:0.0.6"

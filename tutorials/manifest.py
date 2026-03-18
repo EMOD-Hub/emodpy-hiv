@@ -1,10 +1,5 @@
 import os
 
-#
-# This is a user-modifiable Python file designed to be a set of simple input
-# file and directory settings that you can choose and change.
-#
-
 # === Directory for Executables ===
 # This folder will contain your Eradication binary, schema, SIF files and other
 # things that you might need to run EMOD.
@@ -36,3 +31,6 @@ assets_input_dir = "Assets"
 # here will be included in your simulation directory so that EMOD
 # can use them during the simulation.
 embedded_python_scripts_path = "embedded_python"
+
+# === Container Platform ===
+plat_image = "ghcr.io/institutefordiseasemodeling/container-rocky-runtime:0.0.6"

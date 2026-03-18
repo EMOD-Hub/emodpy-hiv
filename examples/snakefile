@@ -1,13 +1,17 @@
 import os
 import pathlib
+
 dirs = os.listdir()
 input_files = list()
+
 skips = ["start_here--cluster"]
+
 for dir in dirs:
     if dir in skips:
         continue
     if os.path.isdir(dir) and str(dir).startswith(".") == False:
         input_files.append(str(pathlib.PurePath(dir, "COMPS_ID")))
+
 print(input_files)
 configfile: "snakemake_config.json"
 
@@ -17,6 +21,7 @@ rule run:
     input: input_files
     output:
     shell: ""
+
 rule start_here:
     """run start_here example"""
     input:
@@ -28,6 +33,7 @@ rule start_here:
             shell( "pushd start_here && python example.py && popd" )
         else:
             shell( "pushd start_here && python3 example.py && popd" )
+
 rule prep:
     """run prep example"""
     input:
@@ -39,6 +45,7 @@ rule prep:
             shell( "pushd prep && python example.py && popd" )
         else:
             shell( "pushd prep && python3 example.py && popd" )
+
 rule campaign_sweep:
     """run campaign_sweep example"""
     input:
@@ -50,6 +57,7 @@ rule campaign_sweep:
             shell( "pushd campaign_sweep && python example.py && popd" )
         else:
             shell( "pushd campaign_sweep && python3 example.py && popd" )
+
 rule demographics_sweep:
     """run demographics_sweep example"""
     input:
@@ -61,6 +69,7 @@ rule demographics_sweep:
             shell( "pushd demographics_sweep && python example.py && popd" )
         else:
             shell( "pushd demographics_sweep && python3 example.py && popd" )
+
 rule clean:
     input:
     output:

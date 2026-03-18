@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import pathlib  # for a join
 from functools import \
     partial  # for setting Run_Number. In Jonathan Future World, Run_Number is set by dtk_pre_proc based on generic param_sweep_value...
@@ -156,10 +154,7 @@ def run_test():
     every time we run an emod experiment. 
     """
     # Create a platform
-    platform = Platform("Container", job_directory="container_platform_output")
-
-    # Show how to dynamically set priority and node_group
-    # platform = Platform("Calculon", node_group="idm_48cores", priority="Highest")
+    platform = Platform(manifest.plat_name, job_directory=manifest.job_dir, docker_image=manifest.plat_image)
 
     task = EMODTask.from_defaults(eradication_path=manifest.eradication_path,
                                   campaign_builder=build_camp,
@@ -167,7 +162,6 @@ def run_test():
                                   schema_path=manifest.schema_file,
                                   config_builder=set_param_fn,
                                   report_builder=add_reports)
-    task.set_sif(str(manifest.sif_path), platform=platform)# set_sif() expects a string
 
     # Create simulation sweep with builder
     builder = SimulationBuilder()
