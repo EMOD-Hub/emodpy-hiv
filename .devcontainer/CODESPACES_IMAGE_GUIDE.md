@@ -6,7 +6,7 @@ This doc explains how to pick a GitHub Codespaces **base image** for our dev con
 
 ## 1) Goals & constraints
 
-- **Python version:** Must include **Python 3.9** (current supported version for our package).
+- **Python version:** Must include **Python 3.13** (current supported version for our package).
 - **Features needed (Dev Container):**
   ```json
   "features": {
@@ -30,7 +30,7 @@ This doc explains how to pick a GitHub Codespaces **base image** for our dev con
   - Python debugging (debugpy) works in VS Code.
   - Plotting works and you can **view** plots (e.g., matplotlib in notebooks or interactive windows).
   - JSON/YAML authoring (formatting, schema help) works via VS Code extensions.
-- **Compatibility note:** Do **not** use `mcr.microsoft.com/devcontainers/python:3.9` based on Debian **“trixie”**; it no longer supports the `moby` packages required by the Docker feature (DinD). We need an image where the Docker feature can install moby successfully.
+- **Compatibility note:** Do **not** use `mcr.microsoft.com/devcontainers/python:3.13` based on Debian **“trixie”**; it no longer supports the `moby` packages required by the Docker feature (DinD). We need an image where the Docker feature can install moby successfully.
 
 ---
 
@@ -61,7 +61,7 @@ Start here (review tags and their Dockerfiles to see what’s included):
 
 Pick **2–4** images that:
 - Are Linux-based,
-- Have **Python 3.9** built-in,
+- Have **Python 3.13** built-in,
 - Are **not** on Debian “trixie” (or otherwise incompatible with moby),
 - Look reasonably sized (check tags like `-slim`, `-bookworm`, `-bullseye`, `-jammy`, etc., as appropriate).
 
