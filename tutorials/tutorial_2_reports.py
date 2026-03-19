@@ -171,9 +171,7 @@ def run_experiment():
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     platform = Platform('Container', job_directory="tutorial_output", docker_image=manifest.plat_image)
 
-    # platform = Platform("Calculon",
-    #                     node_group="idm_abcd",
-    #                     priority="Normal")
+    # platform = Platform("Calculon", node_group="idm_48cores", priority="Normal")
 
     # platform = Platform( "SLURM_LOCAL",
     #                     job_directory="experiments",
@@ -194,11 +192,8 @@ def run_experiment():
         report_builder=build_reports
     )
 
-    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    # UPDATE- Select the following line given your platform
-    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    # task.set_sif( path_to_sif=manifest.sif_path, platform=platform ) # SLURM
-    # task.set_sif(path_to_sif=manifest.sif_path, platform=platform)  # COMPS
+    if (platform.get_platform_type() == 'COMPS'):
+        task.set_sif(path_to_sif=manifest.sif_path, platform=platform)
 
     builder = SimulationBuilder()
     builder.add_sweep_definition(sweep_run_number, [1, 2, 3])

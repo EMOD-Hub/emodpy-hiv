@@ -133,7 +133,14 @@ def add_reports(reporters):
     it is done and get everyone's favorite `ReportHIVByAgeAndGender`.
     """
     from emodpy_hiv.reporters.reporters import ReportSimulationStats, ReportHIVByAgeAndGender, ReportFilter
+    from emodpy_hiv.reporters.reporters import ReportFilter, InsetChart
 
+    reporters.add(InsetChart(reporters_object=reporters,
+                             has_ip=None,                 # default
+                             has_interventions=None,      # default
+                             include_pregnancies=False,   # default
+                             include_coital_acts=False,
+                             event_channels_list=["NonDiseaseDeaths"]))
     reporters.add(ReportSimulationStats(reporters_object=reporters))
     reporters.add(ReportHIVByAgeAndGender(reporters_object=reporters,
                                           report_filter=ReportFilter(start_year=1985,
@@ -250,9 +257,7 @@ def run_experiment():
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     platform = Platform('Container', job_directory="tutorial_output", docker_image=manifest.plat_image)
 
-    # platform = Platform("Calculon",
-    #                     node_group="idm_abcd",
-    #                     priority="Normal")
+    # platform = Platform("Calculon", node_group="idm_48cores", priority="Normal")
 
     # platform = Platform( "SLURM_LOCAL",
     #                     job_directory="experiments",
@@ -272,11 +277,8 @@ def run_experiment():
         report_builder=add_reports  # !!! from above !!!
     )
 
-    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    # UPDATE- Select the following line given your platform
-    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    # task.set_sif( path_to_sif=manifest.sif_path, platform=platform ) # SLURM
-    # task.set_sif(path_to_sif=manifest.sif_path, platform=platform)  # COMPS
+    if (platform.get_platform_type() == 'COMPS'):
+        task.set_sif(path_to_sif=manifest.sif_path, platform=platform)
 
     builder = SimulationBuilder()
     builder.add_sweep_definition(sweep_run_number, [1, 2, 3])

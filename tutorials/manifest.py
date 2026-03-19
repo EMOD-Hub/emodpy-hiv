@@ -7,7 +7,7 @@ executables_dir="executables"
 
 # === Singularity Image ===
 # COMPS - the location of the file containing AssetCollection id for the dtk sif
-sif_path = os.path.join(executables_dir, "dtk_sif.id")
+sif_path = "comps_sif_file.id"
 # SLURM_LOCAL - BigPurple - Full path to the SIF file
 #sif_path = "/gpfs/data/bershteynlab/EMOD/singularity_images/centos_dtk-build.sif"
 
