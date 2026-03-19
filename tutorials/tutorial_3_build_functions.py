@@ -132,7 +132,7 @@ def add_reports(reporters):
     `config.parameters.Enable_Default_Reporting = 1`). We will add two more reports so you can see how
     it is done and get everyone's favorite `ReportHIVByAgeAndGender`.
     """
-    from emodpy_hiv.reporters.reporters import ReportSimulationStats, ReportHIVByAgeAndGender, ReportFilter
+    from emodpy_hiv.reporters.reporters import ReportSimulationStats, ReportHIVByAgeAndGender
     from emodpy_hiv.reporters.reporters import ReportFilter, InsetChart
 
     reporters.add(InsetChart(reporters_object=reporters,
