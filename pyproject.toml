@@ -80,10 +80,7 @@ emodpy_hiv = [
 ]
 
 [tool.setuptools.exclude-package-data]
-# ...except the source files which have been compiled (C extensions):
 "*" = ["*.xlsx", "WPP2012_*.XLS"]
-
-
 
 [tool.bumpversion]
 current_version = "3.0.4"
