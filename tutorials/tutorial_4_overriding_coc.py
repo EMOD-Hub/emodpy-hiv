@@ -376,7 +376,9 @@ def run_experiment():
         report_builder=add_reports)  # !!! from above !!!
 
     if (platform.get_platform_type() == 'COMPS'):
-        task.set_sif(path_to_sif=manifest.sif_path, platform=platform)
+        task.set_sif(path_to_sif=manifest.comps_sif_path, platform=platform)
+    elif (platform.get_platform_type() == 'Slurm'):
+        task.set_sif(path_to_sif=manifest.slurm_sif_path, platform=platform)
 
     builder = SimulationBuilder()
     builder.add_sweep_definition(sweep_run_number, [1, 2, 3])

@@ -1,15 +1,18 @@
 import os
 
+# === Tutorials Directory ===
+tutorials_dir = os.path.dirname(__file__)
+
 # === Directory for Executables ===
 # This folder will contain your Eradication binary, schema, SIF files and other
 # things that you might need to run EMOD.
-executables_dir="executables"
+executables_dir = os.path.join(tutorials_dir, "executables")
 
 # === Singularity Image ===
 # COMPS - the location of the file containing AssetCollection id for the dtk sif
-sif_path = "comps_sif_file.id"
+comps_sif_path = os.path.join(tutorials_dir, "comps_sif_file.id")
 # SLURM_LOCAL - BigPurple - Full path to the SIF file
-#sif_path = "/gpfs/data/bershteynlab/EMOD/singularity_images/centos_dtk-build.sif"
+slurm_sif_path = "/gpfs/data/bershteynlab/EMOD/singularity_images/centos_dtk-build.sif"
 
 # === Schema ===
 # The script is going to use this to store the downloaded schema file.

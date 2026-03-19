@@ -274,11 +274,12 @@ def run_experiment():
         config_builder=build_config,  # !!! from above !!!
         campaign_builder=build_campaign,  # !!! from above !!!
         demographics_builder=build_demographics,  # !!! from above !!!
-        report_builder=add_reports  # !!! from above !!!
-    )
+        report_builder=add_reports)  # !!! from above !!!
 
     if (platform.get_platform_type() == 'COMPS'):
-        task.set_sif(path_to_sif=manifest.sif_path, platform=platform)
+        task.set_sif(path_to_sif=manifest.comps_sif_path, platform=platform)
+    elif (platform.get_platform_type() == 'Slurm'):
+        task.set_sif(path_to_sif=manifest.slurm_sif_path, platform=platform)
 
     builder = SimulationBuilder()
     builder.add_sweep_definition(sweep_run_number, [1, 2, 3])
