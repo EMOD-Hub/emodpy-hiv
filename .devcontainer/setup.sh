@@ -20,7 +20,6 @@ git lfs install
 git lfs pull
 
 # dev install emodpy-hiv (can be replaced later by pip install emodpy-hiv from jfrog)
-pip install -e . --index-url=https://packages.idmod.org/api/pypi/pypi-production/simple
+pip install -e .
 # install idmtools
-pip install idmtools[full] --index-url=https://packages.idmod.org/api/pypi/pypi-production/simple --upgrade --force-reinstall
-pip install idmtools-test --index-url=https://packages.idmod.org/api/pypi/pypi-production/simple  --upgrade --force-reinstall
+pip install idmtools[full] --upgrade --force-reinstall

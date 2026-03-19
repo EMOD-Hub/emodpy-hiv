@@ -112,7 +112,7 @@ Once you have a conda environment created and activated, go ahead and conda inst
 
 And then pip install::
 
-    pip install emodpy-hiv --extra-index-url https://packages.idmod.org/api/pypi/pypi-production/simple
+    pip install emodpy-hiv
 
 
 What is the difference between "Transitory" and "Informal" relationships? 

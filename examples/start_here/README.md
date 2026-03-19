@@ -19,10 +19,6 @@ pip config -v list
 ```
 To view where the pip.config (or .ini) can live. Note that if the file or even directory referenced above doesn't exist already, you just create it. Also, choose the most global option that you have permissions for.
 
-```
-[global]
-index-url = https://packages.idmod.org/api/pypi/pypi-production/simple
-```
 
 ## Environment Prep
 1. Create virtual environment (e.g., python -m venv emodpy)
