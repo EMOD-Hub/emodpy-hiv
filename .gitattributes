@@ -2,6 +2,10 @@
 *.XLSX filter=lfs diff=lfs merge=lfs -text
 *.XLS filter=lfs diff=lfs merge=lfs -text
 *.xls filter=lfs diff=lfs merge=lfs -text
+# huge example files need lfs
 RelationshipStart_*.csv filter=lfs diff=lfs merge=lfs -text
 RelationshipEnd_*.csv filter=lfs diff=lfs merge=lfs -text
 ReportHIVByAgeAndGender_*.csv filter=lfs diff=lfs merge=lfs -text
+
+# these actual files need to be added to the package (pip install can't pull down lfs files)
+emodpy_hiv/countries/un_world_pop_data/WPP2015_*.XLS filter= diff= merge= -text
