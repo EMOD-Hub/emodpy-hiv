@@ -19,7 +19,7 @@ pip install --upgrade pip
 git lfs install
 git lfs pull
 
-# dev install emodpy-hiv (can be replaced later by pip install emodpy-hiv from jfrog)
+# dev install emodpy-hiv
 pip install -e .
 # install idmtools
 pip install idmtools[full] --upgrade --force-reinstall

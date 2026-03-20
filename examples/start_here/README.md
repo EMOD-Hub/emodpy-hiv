@@ -12,14 +12,6 @@ python --version
 ```
 - Make sure you have your COMPS creds.
 
-## PIP config
-- If you haven't already done this, edit your pip.conf (or pip.ini) to make sure it's pointing at our Artifactory. You can run
-```
-pip config -v list
-```
-To view where the pip.config (or .ini) can live. Note that if the file or even directory referenced above doesn't exist already, you just create it. Also, choose the most global option that you have permissions for.
-
-
 ## Environment Prep
 1. Create virtual environment (e.g., python -m venv emodpy)
 2. Activate virtual environment: run 'emodpy/bin/activate'
@@ -31,7 +23,6 @@ pip install pip --upgrade
 ## Installation
 ```
 pip install emodpy-hiv
-pip install dataclasses (if you are using Python 3.6)
 pip install keyrings.alt (Linux only)
 git clone https://github.com/EMOD-Hub/emodpy-hiv.git
 cd emodpy-hiv/examples/start_here

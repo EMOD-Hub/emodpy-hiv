@@ -42,7 +42,7 @@
 .. |IDM_s| replace:: IDM
 .. |IT_s| replace:: idmtools
 .. |linux_binary| replace:: Eradication binary for Linux
-.. |Linux_dtksupp| replace:: CentOS 7.1 or Ubuntu 18
+.. |Linux_dtksupp| replace::  Ubuntu 22
 .. |Mac_dtksupp| replace:: Mac OS X
 .. |MATLAB_supp_path| replace:: http://www.mathworks.com/products/matlab/
 .. |MATLAB_supp| replace:: MATLAB R2021b
@@ -58,7 +58,7 @@
 .. |Python_27| replace:: Python 2.7
 .. |Python_36| replace:: Python 3.6 64-bit
 .. |Python_supp_path| replace:: https://www.python.org/downloads/release/python-399/
-.. |Python_supp| replace:: Python 3.9 64-bit
+.. |Python_supp| replace:: Python 3.13 64-bit
 .. |quick| replace:: Quick Start
 .. |R_supp_path| replace:: https://www.r-project.org/
 .. |R_supp| replace:: R 4.1.2 (64-bit)
