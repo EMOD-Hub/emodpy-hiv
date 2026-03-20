@@ -16,11 +16,11 @@ It includes:
 
 ### ✨ Features Enabled
 
-| Tool / Language  | Version       | Notes                            |
-|------------------|---------------|----------------------------------|
-| Python           | 3.9           | Required for EMOD                |
-| Docker-in-Docker | -             | Enables Docker inside container  |
-|                  |               | and ContainerPlatform            |
+| Tool / Language  | Version | Notes                            |
+|------------------|---------|----------------------------------|
+| Python           | 3.13    | Required for EMOD                |
+| Docker-in-Docker | -       | Enables Docker inside container  |
+|                  |         | and ContainerPlatform            |
 
 ---
 
