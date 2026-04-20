@@ -6,7 +6,7 @@ This doc explains how to pick a GitHub Codespaces **base image** for our dev con
 
 ## 1) Goals & constraints
 
-- **Python version:** Must include **Python 3.9** (current supported version for our package).
+- **Python version:** Must include **Python 3.13** (current supported version for our package).
 - **Features needed (Dev Container):**
   ```json
   "features": {
@@ -30,7 +30,7 @@ This doc explains how to pick a GitHub Codespaces **base image** for our dev con
   - Python debugging (debugpy) works in VS Code.
   - Plotting works and you can **view** plots (e.g., matplotlib in notebooks or interactive windows).
   - JSON/YAML authoring (formatting, schema help) works via VS Code extensions.
-- **Compatibility note:** Do **not** use `mcr.microsoft.com/devcontainers/python:3.9` based on Debian **“trixie”**; it no longer supports the `moby` packages required by the Docker feature (DinD). We need an image where the Docker feature can install moby successfully.
+- **Compatibility note:** Do **not** use `mcr.microsoft.com/devcontainers/python:3.13` based on Debian **“trixie”**; it no longer supports the `moby` packages required by the Docker feature (DinD). We need an image where the Docker feature can install moby successfully.
 
 ---
 
@@ -49,7 +49,7 @@ Start here (review tags and their Dockerfiles to see what’s included):
 ## 3) Selection criteria (ranked)
 
 1. **DinD compatibility** (must): can the `docker-in-docker:2` feature install and run Docker/moby?
-2. **Python 3.9 present** (must) with a healthy scientific/plotting path (we can install `matplotlib`, `plotly`, etc.).
+2. **Python 3.13 present** (must) with a healthy scientific/plotting path (we can install `matplotlib`, `plotly`, etc.).
 3. **Image size** (smaller is better). Target ≲ **~1.05 GB** (around our current image size) if possible.
 4. **Setup time** (shorter is better). Prefer images that already include common tooling to reduce post-create installs.
 5. **Node 20** via devcontainer feature works.
@@ -61,17 +61,17 @@ Start here (review tags and their Dockerfiles to see what’s included):
 
 Pick **2–4** images that:
 - Are Linux-based,
-- Have **Python 3.9** built-in,
+- Have **Python 3.13** built-in,
 - Are **not** on Debian “trixie” (or otherwise incompatible with moby),
 - Look reasonably sized (check tags like `-slim`, `-bookworm`, `-bullseye`, `-jammy`, etc., as appropriate).
 
 Record them in a short table:
 
-| Candidate | Base distro | Python | Tag | Approx. size (local) | Notes |
-|---|---|---|---|---:|---|
-| e.g., `python:3.9-slim-bullseye` | Debian bullseye | 3.9 | slim |  |  |
-| e.g., `mcr.microsoft.com/devcontainers/base:ubuntu-22.04` + py 3.9 | Ubuntu 22.04 | via apt/pyenv |  |  | May need Python install step |
-| … | … | … | … | … | … |
+| Candidate                                                           | Base distro | Python        | Tag | Approx. size (local) | Notes |
+|---------------------------------------------------------------------|---|---------------|---|---:|---|
+| e.g., `python:3.13-slim-bullseye`                                   | Debian bullseye | 3.13          | slim |  |  |
+| e.g., `mcr.microsoft.com/devcontainers/base:ubuntu-22.04` + py 3.13 | Ubuntu 22.04 | via apt/pyenv |  |  | May need Python install step |
+| …                                                                   | … | …             | … | … | … |
 
 ---
 
@@ -94,7 +94,7 @@ python3 --version
 pip --version
 ```
 
-If Python 3.9 isn’t present on an otherwise good candidate, consider how costly it is to add (and whether that hurts setup time).
+If Python 3.13 isn’t present on an otherwise good candidate, consider how costly it is to add (and whether that hurts setup time).
 
 ---
 
@@ -128,7 +128,7 @@ Then **create a Codespace** from your testing branch and run through this **chec
 
 ### Startup & environment
 1. **Codespace starts successfully?** No build errors, no feature install failures.
-2. `python -V` shows **3.9.x**.
+2. `python -V` shows **3.13.x**.
 3. **Docker feature running?**
    ```bash
    docker --version
@@ -173,23 +173,23 @@ Then **create a Codespace** from your testing branch and run through this **chec
 
 Capture results in a short matrix:
 
-| Check | Pass/Fail | Notes |
-|---|---|---|
-| Start success |  |  |
-| Docker DinD |  |  |
-| Python 3.9 |  |  |
+| Check                    | Pass/Fail | Notes |
+|--------------------------|---|---|
+| Start success            |  |  |
+| Docker DinD              |  |  |
+| Python 3.13               |  |  |
 | pip freeze (emodpy deps) |  |  |
-| Debugpy works |  |  |
-| Plotting works |  |  |
-| JSON/YAML formatting |  |  |
-| Storage OK |  |  |
-| Other issues |  |  |
+| Debugpy works            |  |  |
+| Plotting works           |  |  |
+| JSON/YAML formatting     |  |  |
+| Storage OK               |  |  |
+| Other issues             |  |  |
 
 ---
 
 ## 7) Troubleshooting tips
 
-- **Docker feature fails on moby:** Your base distro may not provide supported `moby` packages (e.g., Debian **trixie**). Pick a different base (e.g., Debian **bullseye/bookworm** or Ubuntu **20.04/22.04**) where moby installs cleanly.
+- **Docker feature fails on moby:** Your base distro may not provide supported `moby` packages (e.g., Debian **trixie**). Pick a different base (e.g., Ubuntu **20.04/22.04**) where moby installs cleanly.
 - **Plot viewing doesn’t work:** Ensure you save plots to files (e.g., `plt.savefig(...)`) and open them in VS Code, or use Jupyter notebooks in the Codespace for inline output.
 - **Setup time too long:** Prefer images with more essentials pre-installed (but still small). Consider adding a lightweight `postCreateCommand` rather than heavy installs.
 - **Disk warnings:** Remove unneeded packages/layers or choose a slimmer tag (e.g., `-slim`). Avoid the universal image.
@@ -200,7 +200,7 @@ Capture results in a short matrix:
 
 From your tested candidates, pick the best **balance** of:
 - DinD reliability,
-- Python 3.9 availability,
+- Python 3.13 availability,
 - Small image size and fast startup,
 - Smooth VS Code experience.
 
@@ -259,6 +259,6 @@ PY
 
 ## 11) Summary
 
-- Avoid Debian **trixie**–based Python 3.9 devcontainer images due to **moby**/Docker incompatibility.
-- Target an image ≲ **~1.05 GB**, with **Python 3.9**, and seamless **DinD**, **debugging**, **plotting**, and **JSON/YAML** workflows.
+- Avoid Debian **trixie**–based Python 3.13 devcontainer images due to **moby**/Docker incompatibility.
+- Target an image ≲ **~1.05 GB**, with **Python 3.13**, and seamless **DinD**, **debugging**, **plotting**, and **JSON/YAML** workflows.
 - Test candidates in a dedicated branch via Codespaces using the **checklist**, then document your decision and **deploy** via PR.
