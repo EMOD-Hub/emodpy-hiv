@@ -12,8 +12,8 @@ class CondomUsageParameters(Updateable):
         """
             Parameterizes condom usage over time, a component of EMOD relationship parameters.
 
-            https://docs.idmod.org/projects/emod-hiv/en/latest/sti-model-relationships.html#condom-usage
-            https://docs.idmod.org/projects/emod-hiv/en/latest/parameter-demographics.html#relationship-parameters
+            https://emod.idmod.org/emodpy-hiv/emod/sti-model-relationships.html#condom-usage
+            https://emod.idmod.org/emodpy-hiv/emod/parameter-demographics.html#relationship-parameters
 
             Args:
                 min: minimum condom usage probability (pre-inflection point)

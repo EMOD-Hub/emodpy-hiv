@@ -15,7 +15,7 @@ class ConcurrencyParameters(Updateable):
         per relationship type and risk group (e.g. one for Commercial HIGH risk relationships, one for
         Transitory MED risk relationships, etc.).
 
-        https://docs.idmod.org/projects/emod-hiv/en/latest/parameter-demographics.html#concurrency-parameters
+        https://emod.idmod.org/emodpy-hiv/emod/parameter-demographics.html#concurrency-parameters
 
         Args:
             probability_extra_relationship_male: the probability of having extra relationships for males
