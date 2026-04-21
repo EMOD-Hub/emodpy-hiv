@@ -67,7 +67,7 @@ disease transmission model.
    :titlesonly:
    :caption: Related documentation
 
-   emod-api <https://emod-hub.github.io/emod-api/>
-   emodpy <https://emod-hub.github.io/emodpy/>
+   emod-api <https://emod.idmod.org/emod-api/>
+   emodpy <https://emod.idmod.org/emodpy/>
    idmtools <https://docs.idmod.org/projects/idmtools/en/latest/>
    idmtools-calibra <https://docs.idmod.org/projects/idmtools_calibra/en/latest/>

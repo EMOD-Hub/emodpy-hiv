@@ -17,7 +17,7 @@ class Society:
         such as rates of partnership formation, partner preference, relationship duration, and concurrent partnerships.
         It must contain the (argument listed)) sets of relationship type parameters and the concurrency configuration.
 
-        https://docs.idmod.org/projects/emod-hiv/en/latest/parameter-demographics.html#society
+        https://emod.idmod.org/emodpy-hiv/emod/parameter-demographics.html#society
 
         Args:
             concurrency_configuration: a non-default concurrency configuration dict, if provided. A broadly applicable

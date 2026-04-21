@@ -20,7 +20,7 @@ class PairFormationParameters(Updateable):
                  Years_Between_Bin_Edges_Male: float = None,
                  Joint_Probabilities: List[List[float]] = None):
         """
-        https://docs.idmod.org/projects/emod-hiv/en/latest/parameter-demographics.html#pair-formation-parameters
+        https://emod.idmod.org/emodpy-hiv/emod/parameter-demographics.html#pair-formation-parameters
 
         Args:
             Assortivity:

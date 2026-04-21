@@ -203,7 +203,7 @@ html_theme_options = {
         {"name": "IDM docs", "url": "https://docs.idmod.org", "icon": "fas fa-home"},
         {
             "name": "GitHub",
-            "url": "https://github.com/institutefordiseasemodeling/emodpy-hiv",
+            "url": "https://github.com/EMOD-Hub/emodpy-hiv",
             "icon": "fab fa-github-square",
         },
     ],
@@ -219,9 +219,9 @@ html_sidebars = {
 html_logo = "images/idm-logo-transparent.png"
 html_favicon = "images/favicon.ico"
 html_static_path = ['_static']
-html_baseurl = "https://docs.idmod.org/projects/emodpy-hiv/en/latest"
+html_baseurl = "https://emod.idmod.org/emodpy-hiv"
 html_context = {
-    'rtd_url': 'https://docs.idmod.org/projects/emodpy-hiv/en/latest',
+    'rtd_url': 'https://emod.idmod.org/emodpy-hiv',
     "versions_dropdown": {
         "latest": "devel (latest)",
         "stable": "current (stable)",

@@ -36,4 +36,4 @@ assets_input_dir = "Assets"
 embedded_python_scripts_path = "embedded_python"
 
 # === Container Platform ===
-plat_image = "ghcr.io/institutefordiseasemodeling/container-rocky-runtime:0.0.6"
+plat_image = "ghcr.io/emod-hub/emod-ubuntu-runtime:latest"
