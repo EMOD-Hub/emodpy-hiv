@@ -1,8 +1,8 @@
 # 🧪 emodpy-hiv Dev Container
 
 This dev container sets up a ready-to-use environment for working on the `emodpy-hiv` project for HIV using
-[VS Code Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) or
-[GitHub Codespaces](https://docs.github.com/en/codespaces/overview).
+[VS Code Dev Containers][vscode-dev-containers] or
+[GitHub Codespaces][github-codespaces].
 
 ---
 
@@ -45,9 +45,9 @@ After the container is built, the `setup.sh` script is executed. This script per
 
 ## 🚀 Getting Started to build dev container in local VS Code
 
-1. Install [Docker](https://www.docker.com/products/docker-desktop)
-2. Install [Visual Studio Code](https://code.visualstudio.com/)
-3. Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+1. Install [Docker][docker-desktop]
+2. Install [Visual Studio Code][vscode]
+3. Install the [Dev Containers extension][vscode-dev-containers-ext]
 4. Open the project folder in VS Code
 5. Press `F1` and run: `Dev Containers: Rebuild Container`
 6. Wait for the container to build and start
@@ -78,7 +78,7 @@ After the container is built, the `setup.sh` script is executed. This script per
 ## $$$ Cost of Using Codespaces $$$
 Codespaces is a GitHub feature that allows you to run code in a virtual machine owned by GitHub.  It can **COST MONEY** so please be aware.
 GitHub gives each user 120 core hours per month for free.  Please see the
-[GitHub documentation on Codespaces](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)
+[GitHub documentation on Codespaces][github-codespaces-billing]
 for more information.
 
 ### Checking Codespaces Usage

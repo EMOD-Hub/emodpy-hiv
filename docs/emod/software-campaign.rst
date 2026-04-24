@@ -43,7 +43,8 @@ and campaign files that illustrate how to model different disease scenarios at `
 information, see :doc:`tutorials`. 
 
 
-.. _EMOD scenarios: https://github.com/InstituteforDiseaseModeling/docs-emod-scenarios/releases
+.. TODO: verify -- docs-emod-scenarios may not exist under EMOD-Hub
+.. _EMOD scenarios: https://github.com/EMOD-Hub/docs-emod-scenarios/releases
 
 
 .. toctree::

@@ -60,7 +60,7 @@ If you're running tests on **ContainerPlatform**, follow these additional setup 
    - Enable **WSL2 backend** in Docker settings (only for Windows users)
    - Make sure Docker is running
 
-   See the [Docker Installation Guide](https://docs.docker.com/get-docker/) and [ContainerPlatform Docs](https://github.com/InstituteforDiseaseModeling/idmtools/tree/main/idmtools_platform_container) for details.
+   See the [Docker Installation Guide][docker-install] and [ContainerPlatform Docs][idmtools-container-platform] for details.
 
 #### Extra steps for Windows users:
 
@@ -69,7 +69,7 @@ If you're running tests on **ContainerPlatform**, follow these additional setup 
 
 2. **Enable Long File Path Support (Optional if you did not get error with length limit)**  
    Windows has a default file path length limit of 255 characters. Enable long path support via Group Policy Editor.  
-   [Microsoft's guide](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation)
+   [Microsoft's guide][microsoft-long-path]
 
 ---
 

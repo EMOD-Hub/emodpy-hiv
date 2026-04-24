@@ -141,4 +141,5 @@ missed by the vaccination campaign, allowing the outbreak to persist.
 
    Figure 3: Vaccination campaign that misses 30% of the population
 
-.. _EMOD scenarios: https://github.com/InstituteforDiseaseModeling/docs-emod-scenarios/releases
+.. TODO: verify -- docs-emod-scenarios may not exist under EMOD-Hub
+.. _EMOD scenarios: https://github.com/EMOD-Hub/docs-emod-scenarios/releases

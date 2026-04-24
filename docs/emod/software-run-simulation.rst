@@ -61,7 +61,8 @@ or passed as arguments to |exe_s|.
 
 It is not important where you install |exe_s| or the |linux_binary|.
 
-.. _EMOD scenarios: https://github.com/InstituteforDiseaseModeling/docs-emod-scenarios/releases
+.. TODO: verify -- docs-emod-scenarios may not exist under EMOD-Hub
+.. _EMOD scenarios: https://github.com/EMOD-Hub/docs-emod-scenarios/releases
 
 
 .. toctree::

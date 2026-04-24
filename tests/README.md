@@ -56,9 +56,9 @@ pytest -n auto
 ### ContainerPlatform requirements
 
 - Docker installed and running
-- **Windows only**: Enable WSL2 backend in Docker Desktop, enable Developer Mode (`Settings → Update & Security → For developers`), and enable long file path support via Group Policy Editor ([Microsoft guide](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation))
+- **Windows only**: Enable WSL2 backend in Docker Desktop, enable Developer Mode (`Settings → Update & Security → For developers`), and enable long file path support via Group Policy Editor ([Microsoft guide][microsoft-long-path])
 
-See the [Docker installation guide](https://docs.docker.com/get-docker/) and [ContainerPlatform docs](https://github.com/InstituteforDiseaseModeling/idmtools/tree/main/idmtools_platform_container) for more details.
+See the [Docker installation guide][docker-install] and [ContainerPlatform docs][idmtools-container-platform] for more details.
 
 ## Country Tests
 
