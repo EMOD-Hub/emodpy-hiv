@@ -36,5 +36,4 @@ For more information on the structure of these files, see :doc:`software-migrati
 The Generic/Zoonosis scenario in the downloadable `EMOD scenarios`_ zip file includes daily migration.
 Review the README files there for more information.
 
-.. TODO: verify -- docs-emod-scenarios may not exist under EMOD-Hub
-.. _EMOD scenarios: https://github.com/EMOD-Hub/docs-emod-scenarios/releases
+.. _EMOD scenarios: https://github.com/InstituteforDiseaseModeling/docs-emod-scenarios/releases

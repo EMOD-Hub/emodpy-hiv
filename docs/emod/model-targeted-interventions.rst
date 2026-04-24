@@ -229,5 +229,4 @@ all individuals who are easily accessed. Notice how the infection is almost enti
 among the easily accessible population, but there is only a slight reduction in infection among the
 inaccessible population that was not reached by the vaccination campaign.
 
-.. TODO: verify -- docs-emod-scenarios may not exist under EMOD-Hub
-.. _EMOD scenarios: https://github.com/EMOD-Hub/docs-emod-scenarios/releases
+.. _EMOD scenarios: https://github.com/InstituteforDiseaseModeling/docs-emod-scenarios/releases

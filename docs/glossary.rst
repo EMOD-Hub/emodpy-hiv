@@ -659,5 +659,4 @@ Glossary
         The complete, infective form of a virus outside of a host cell, with a core of RNA or DNA
         and a capsid. Also known as a viral particle.
 
-.. TODO: verify -- docs-emod-scenarios may not exist under EMOD-Hub
-.. _EMOD scenarios: https://github.com/EMOD-Hub/docs-emod-scenarios/releases
+.. _EMOD scenarios: https://github.com/InstituteforDiseaseModeling/docs-emod-scenarios/releases

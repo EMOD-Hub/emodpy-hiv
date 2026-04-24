@@ -94,6 +94,5 @@ reservoir, as shown in the log prevalence chart.
 
    Figure 2: All output channels showing re-seeding caused by zoonosis and waning immunity
 
-.. TODO: verify -- docs-emod-scenarios may not exist under EMOD-Hub
-.. _EMOD scenarios: https://github.com/EMOD-Hub/docs-emod-scenarios/releases
+.. _EMOD scenarios: https://github.com/InstituteforDiseaseModeling/docs-emod-scenarios/releases
 

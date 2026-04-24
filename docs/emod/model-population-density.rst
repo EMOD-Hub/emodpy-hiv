@@ -127,5 +127,4 @@ endemic status while in lower density is difficult to do so.
    Figure 4: Node_Grid_Size = 0.3, population density 9/km\ :sup:`2`\ and R\ :sub:`0`\  < 1
 
 
-.. TODO: verify -- docs-emod-scenarios may not exist under EMOD-Hub
-.. _EMOD scenarios: https://github.com/EMOD-Hub/docs-emod-scenarios/releases
+.. _EMOD scenarios: https://github.com/InstituteforDiseaseModeling/docs-emod-scenarios/releases

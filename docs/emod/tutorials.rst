@@ -136,8 +136,7 @@ For a complete list of all available output reports, see :doc:`parameter-configu
 
 
 
-.. TODO: verify -- docs-emod-scenarios may not exist under EMOD-Hub
-.. _EMOD scenarios: https://github.com/EMOD-Hub/docs-emod-scenarios/releases
+.. _EMOD scenarios: https://github.com/InstituteforDiseaseModeling/docs-emod-scenarios/releases
 
 .. toctree::
 
