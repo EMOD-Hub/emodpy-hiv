@@ -18,7 +18,7 @@ are also provided to aid in exploring model output.
 # Documentation
 
 The emodpy-hiv code is intended to be self-documenting in order to keep the documentation fully up-to-date with the 
-particular installed version. Additional documentation is available at the [emodpy-hiv documentation][emodpy-hiv-docs].
+particular installed version. Additional documentation is available at the [emodpy-hiv documentation](https://emod-hub.github.io/emodpy-hiv/).
 
 To build the documentation locally, do the following:
 
@@ -65,9 +65,9 @@ requests. You are welcome to create your own fork and modify the code to suit yo
 modeling needs as contemplated under the MIT License.
 
 If you have feature requests, issues, or new code, please see our
-[CONTRIBUTING][contributing] page for how to provide your feedback.
+[CONTRIBUTING](https://github.com/EMOD-Hub/emodpy-hiv/blob/main/CONTRIBUTING.rst) page for how to provide your feedback.
 
-Questions or comments are welcome in [Discussions][discussions].
+Questions or comments are welcome in [Discussions](https://github.com/orgs/EMOD-Hub/discussions).
 
 <a id="disclaimer"></a>
 # Disclaimer
