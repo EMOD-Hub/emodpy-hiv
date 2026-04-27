@@ -8,7 +8,7 @@ the commands available for running simulations.
 The |exe_l| and |linux_binary| also provide commands that provide information about the version of
 |EMOD_s| that is installed, such as available parameters and simulation types. For more information,
 see :doc:`parameter-schema`. The examples below show the Windows |exe_s|, but the options are the same
-for the |linux_binary| on |Centos|.
+for the |linux_binary| on |Linux_supp|.
 
 Command options
 ===============

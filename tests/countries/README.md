@@ -60,7 +60,7 @@ If you're running tests on **ContainerPlatform**, follow these additional setup 
    - Enable **WSL2 backend** in Docker settings (only for Windows users)
    - Make sure Docker is running
 
-   See the [Docker Installation Guide](https://docs.docker.com/get-docker/) and [ContainerPlatform Docs](https://github.com/InstituteforDiseaseModeling/idmtools/tree/main/idmtools_platform_container) for details.
+   See the [Docker Installation Guide](https://docs.docker.com/get-docker/) and [ContainerPlatform Docs](https://github.com/EMOD-Hub/idmtools/tree/main/idmtools_platform_container) for details.
 
 #### Extra steps for Windows users:
 

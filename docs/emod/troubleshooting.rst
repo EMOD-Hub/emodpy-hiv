@@ -5,9 +5,8 @@ Troubleshooting |EMOD_s| simulations
 If you encounter any of the following problems when attempting to run |EMOD_s| simulations, see the
 information below to resolve the issue.
 
-If you need assistance, you can contact support for help with solving issues. You can contact
-|IDM_l| support at idm@gatesfoundation.org. When submitting the issue, please include any error
-information. 
+If you need assistance, please post on our `discussion board <https://github.com/orgs/EMOD-Hub/discussions>`_. When submitting the issue, please include any error
+information.
 
 See :doc:`emod:dev-debugging-overview` for troubleshooting issues when attempting to
 build |exe_s| or |linux_binary|.
@@ -59,7 +58,7 @@ this occurs where spatial output channel names are specified in the configuratio
 if an unrecognized channel name is used.
 
 If you have not modified the |EMOD_s| source code or used an unrecognized channel name, this error
-could signal an internal problem with the code. Contact idm@gatesfoundation.org.
+could signal an internal problem with the code. Please post on our `discussion board <https://github.com/orgs/EMOD-Hub/discussions>`_.
 
 CalculatedValueOutOfRangeException
 ----------------------------------
@@ -246,7 +245,7 @@ exception is thrown when a required interface is queried on an object and the ob
 that the interface is not supported.
 
 If you have not modified the |EMOD_s| source code and receive this error, it could signal an
-internal problem with the code. Contact idm@gatesfoundation.org.
+internal problem with the code. Please post on our `discussion board <https://github.com/orgs/EMOD-Hub/discussions>`_.
 
 SerializationException
 ----------------------
@@ -255,18 +254,18 @@ This exception is thrown when there is a serialization (or de-serialization) iss
 data is being passed over the network (MPI) and the connection drops, then the serialization fails
 and this exception is thrown.
 
-|Centos| environment
+|Linux_supp| environment
 ====================
 
-The following problems are specific to running simulations using the |linux_binary| on |Centos_supp|.
+The following problems are specific to running simulations using the |linux_binary| on |Linux_supp|.
 
-Regression test graphs differ when run on |Centos|
+Regression test graphs differ when run on |Linux_supp|
 --------------------------------------------------
 
-After you run regression simulations on |Centos| using runemod.sh in the Scripts directory, it plots
+After you run regression simulations on |Linux_supp| using runemod.sh in the Scripts directory, it plots
 graphs from the simulation output data with a red line for the reference output and a blue line for
 the new output. The reference output was created by running the simulation on Windows, which in some
-cases may be slightly different than the output from |Centos|.
+cases may be slightly different than the output from |Linux_supp|.
 
 For simulations that plot a baseline, you can override the Windows reference output by modifying
 runemod.sh to use output/InsetChart.linux.json as the output location. In that case, the red
@@ -277,4 +276,4 @@ reference plots should always be completely covered by the blue plots.
 
 If you chose not to have the PrepareLinuxEnvironment.sh script download the |EMOD_s| source code and
 input files, you need to set up the environment variable, path and symlink that are needed
-to run simulations on |Centos|. See :doc:`../installation`.
+to run simulations on |Linux_supp|. See :doc:`../installation`.

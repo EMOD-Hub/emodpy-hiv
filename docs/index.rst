@@ -15,7 +15,7 @@ simulation jobs to a compute cluster, and more.
 The |IDM_l| develops disease modeling software that is thoroughly tested and shared with the
 research community to advance the understanding of disease dynamics. This software helps determine
 the combination of health policies and intervention strategies that can lead to disease eradication.
-If you encounter any issues while using the software, please contact idm@gatesfoundation.org.
+If you encounter any issues while using the software, please post on our `discussion board <https://github.com/orgs/EMOD-Hub/discussions>`_.
 
 |EMOD_s|, is an :term:`agent-based model` (ABM) that simulates the
 simultaneous interactions of agents in an effort to recreate complex phenomena. Each human agent can be assigned a variety of "properties" (for example, age, gender, etc.), and
@@ -44,8 +44,6 @@ Additional information about how to use |IT_s| can be found at in
 :doc:`idmtools:index`.  Additional information about |EMOD_s| HIV
 parameters can be found in :doc:`emod/parameter-overview`.
 
-If you have questions, see :doc:`faq` for functionality specific to |EMODPY_hiv|. 
-
 See :doc:`idmtools:index` for a diagram showing how |IT_s| and each of the
 related packages are used in an end-to-end workflow using |EMOD_s| as the
 disease transmission model.
@@ -58,7 +56,6 @@ disease transmission model.
    overview
    emod/tutorials
    reference
-   faq
    glossary
 
 
