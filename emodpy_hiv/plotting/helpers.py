@@ -21,7 +21,7 @@ def get_filenames(dir_or_filename: str,
     Args:
         dir_or_filename (string, required):
             Directory or filename to search.
-        file_prefix (string, required)
+        file_prefix (string, required):
             Prefix to filter files by.
         file_extension (string, optional):
             Extension to filter files by.

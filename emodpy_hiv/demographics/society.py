@@ -27,19 +27,19 @@ class Society:
             pair_formation_parameters: a dict of PairFormationParameters objects, each key: value pair being
                 relationship_type: PairFormationParameters()
             concurrency_parameters: a nested dict of ConcurrencyParameters objects, indexed by type then risk, e.g.:
-            {
-                "INFORMAL": {
-                    "HIGH": ConcurrencyParameter object,
-                    "MED": ConcurrencyParameter object,
-                    "LOW": ConcurrencyParameter object
-                },
-                "TRANSITORY": {
-                    "HIGH": ConcurrencyParameter object,
-                    "MED": ConcurrencyParameter object,
-                    "LOW": ConcurrencyParameter object
-                },
-                ...
-            }
+                {
+                    "INFORMAL": {
+                        "HIGH": ConcurrencyParameter object,
+                        "MED": ConcurrencyParameter object,
+                        "LOW": ConcurrencyParameter object
+                    },
+                    "TRANSITORY": {
+                        "HIGH": ConcurrencyParameter object,
+                        "MED": ConcurrencyParameter object,
+                        "LOW": ConcurrencyParameter object
+                    },
+                    ...
+                }
         """
         super().__init__()
         self.concurrency_configuration = concurrency_configuration if concurrency_configuration is not None \

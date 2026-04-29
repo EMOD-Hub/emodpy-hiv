@@ -180,7 +180,6 @@ def xy_plot(img_dir: str,
             If True, the Y-axis is assumed to be logrithmic.
 
     Returns:
-        None - but image will be saved or window opened.
     """
 
     fig, ax = plt.subplots(layout='constrained')

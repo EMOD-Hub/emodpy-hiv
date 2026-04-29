@@ -44,8 +44,8 @@ def extract_data_for_relationship(filename: str,
             The type of relationship. Options: 0 (transitory), 1 (informal), 2 (marital), 3 (commercial).
 
     Returns:
-        Dataframe where the rows must be of the given relationship type and with the extra column
-        of the actual relationship duration.
+        (pd.DataFrame): Dataframe where the rows must be of the given relationship type and with the extra column
+            of the actual relationship duration.
     """
     df = pd.read_csv(filename)
 
@@ -108,7 +108,6 @@ def plot_relationship_duration_histogram(dir_or_filename: str,
             Directory to save the images. If None, the images will not be saved and a window will be opened.
 
     Returns:
-        None - but image will be saved or window opened.
     """
 
     # -------------------------------------------------------
@@ -276,7 +275,6 @@ def plot_relationship_duration_histogram_with_expected(dir_or_filename: str,
             Default is none - don't save image and open a window.
 
     Returns:
-        None - but image will be saved or window opened.
     """
     bin_size = None
     expected = None

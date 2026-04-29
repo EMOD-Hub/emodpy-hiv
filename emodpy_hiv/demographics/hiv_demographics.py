@@ -31,7 +31,7 @@ class HIVDemographics(Demographics):
                 to the Default node. Default society template is 'PFA-Southern-Africa'.
 
         Returns:
-            an HIVDemographics object
+            (HIVDemographics): Demographics object
          """
         # we need to generate the default node before calling super() because we need it to be an HIVNode, not Node
         society_dict = hiv_dt.get_society_dict(society_name=default_society_template)
@@ -73,7 +73,6 @@ class HIVDemographics(Demographics):
             distribution: The distribution to set. Must be a FertilityDistribution object for a complex distribution.
             node_ids: The node id(s) to apply changes to. None or 0 means the default node.
         Returns:
-            Nothing
         """
         from emod_api.demographics.implicit_functions import _set_fertility_age_year
         self._set_distribution(distribution=distribution,
@@ -117,7 +116,6 @@ class HIVDemographics(Demographics):
             node_ids: the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
 
         Returns:
-            None
         """
         for node in self.get_nodes_by_id(node_ids=node_ids).values():
             node.society.set_concurrency_parameters(relationship_type=relationship_type,
@@ -139,7 +137,7 @@ class HIVDemographics(Demographics):
         Args:
             relationship_type: Relationship type to update: "COMMERCIAL", "MARITAL", "INFORMAL" or "TRANSITORY"
             assortivity_matrix: 3x3 row-major matrix of assortivity values, row represents male,
-                column represents female. E.g. matrix[male_index][female_index]
+                column represents female. E.g. matrix[male_index, female_index]
                 This matrix defines the tendency for a man of a particular Risk group to select a woman based on her
                 Risk group (LOW/MEDIUM/HIGH male selecting LOW/MEDIUM/HIGH female -> 3x3 matrix).
             formation_rate: The number of new relationships per day for this relationship type that an individual will
@@ -147,7 +145,6 @@ class HIVDemographics(Demographics):
             node_ids: the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
 
         Returns:
-            None
         """
         assortivity = None if assortivity_matrix is None else Assortivity(matrix=assortivity_matrix)
         for node in self.get_nodes_by_id(node_ids=node_ids).values():
@@ -183,7 +180,6 @@ class HIVDemographics(Demographics):
             node_ids: the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
 
         Returns:
-            None
         """
         for node in self.get_nodes_by_id(node_ids=node_ids).values():
             node.society.set_relationship_parameters(relationship_type=relationship_type,
@@ -261,7 +257,6 @@ class HIVDemographics(Demographics):
             node_ids: the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
 
         Returns:
-            None
         """
         property = 'Accessibility'
         values = ['Yes', 'No']
@@ -300,7 +295,6 @@ class HIVDemographics(Demographics):
             overwrite_existing: Determines if an error is thrown if the IP is found pre-existing at a specified node.
                 False: throw exception. True: overwrite the existing property.
         Returns:
-            None
         """
         # TODO: This does not play nicely with emod-api Demographics (used by malaria/other diseases). Need to remove
         #  this HIV-specific override method once demographics.raw is removed entirely from emod-api
@@ -441,7 +435,7 @@ class HIVDemographics(Demographics):
                 Defaults to None (to be set later).
 
         Returns:
-            An HIVDemographics object
+            (HIVDemographics): Demographics object
         """
         demog = cls.from_population_dataframe(df=pop_df)
 
