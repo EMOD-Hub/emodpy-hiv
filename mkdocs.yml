@@ -30,6 +30,11 @@ theme:
 
 nav:
   - Home: index.md
+  - Overview: overview.md
+  - Installation: installation.md
+  - Tutorials: emod/tutorials.md
+  - Reference: reference.md
+  - API reference: autoapi/
   - Related projects: https://emod.idmod.org/
 
 plugins:
@@ -38,6 +43,15 @@ plugins:
   - include-markdown:
   - glightbox:
   - table-reader:
+  - mkdocs-autoapi:
+      autoapi_ignore:
+        - .github/**/*
+        - build/**/*
+        - docs/**/*
+        - emodpy_hiv/**/__main__.py
+        - examples/**/*
+        - tests/**/*
+      autoapi_add_nav_entry: false
   - mkdocstrings:
 
 markdown_extensions:
