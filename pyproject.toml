@@ -37,18 +37,12 @@ classifiers=[
 
 [project.optional-dependencies]
 docs = [
-    "sphinxext.remoteliteralinclude~=0.4.0",
-    "sphinx",
-    "pydata-sphinx-theme",
-    "sphinxcontrib-programoutput~=0.17",
-    "nbsphinx~=0.9",
-    "jupyterlab~=4.0",
-    "myst-parser[linkify]~=2.0",
-    "readthedocs-sphinx-search~=0.3",
-    "sphinx-copybutton~=0.5",
-    "pygithub~=1.57",
-    "sphinxcontrib-jquery~=4.1",
-    "chardet<6.0.0",
+    "mkdocs-material",
+    "mkdocs-include-markdown-plugin",
+    "mkdocstrings-python",
+    "mkdocs-autoapi",
+    "mkdocs-glightbox",
+    "mkdocs-table-reader-plugin",
 ]
 lint = [
     "flake8",
