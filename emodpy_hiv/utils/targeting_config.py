@@ -3,7 +3,6 @@ from enum import Enum
 from emodpy.utils.targeting_config import AbstractTargetingConfig, BaseTargetingConfig
 from emodpy.utils.targeting_config import HasIP, HasIntervention, IsPregnant
 
-import emod_api.campaign
 
 class YesNoNa(Enum):
     """
