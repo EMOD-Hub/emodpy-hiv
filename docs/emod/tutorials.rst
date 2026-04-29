@@ -46,9 +46,9 @@ We recommend running these scenarios on a Windows computer. You must install the
 Python packages described in :doc:`../installation`. You do not need to download another copy of
 |exe_s|, although it won't hurt if you do.
 
-Although |EMOD_s| also supports |Centos|, the scripts to run simulations will not work and the
+Although |EMOD_s| also supports |Linux_supp|, the scripts to run simulations will not work and the
 installation instructions differ. However, you can still run simulations from the command line. See
-the |Centos| installation instructions at :doc:`../installation`.
+the |Linux_supp| installation instructions at :doc:`../installation`.
 
 
 General |EMOD_s| information
