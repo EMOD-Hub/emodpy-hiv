@@ -188,7 +188,6 @@ def seed_infections(campaign: emod_api.campaign,
         seeding_target_property_restrictions: List of property restrictions. Defaults to None.
 
     Returns:
-        None
 
     """
     event_name = f"Epidemic seeding in node(s) {str(seeding_node_ids)}"
@@ -228,7 +227,6 @@ def add_csw(campaign: emod_api.campaign,
         female_uptake_coverage (float, optional): The coverage of CSW uptake among females. Defaults to 0.03.
 
     Returns:
-        None
 
     Example:
         >>> add_csw(campaign, node_ids=[1, 2, 3], male_uptake_coverage=0.05, female_uptake_coverage=0.04)
@@ -354,12 +352,11 @@ def add_post_debut_coinfection(campaign: emod_api.campaign,
                                                     Defaults to None, which applies to all nodes.
         coinfection_coverage (float, optional): The coverage of co-infection among the population. Defaults to 0.3.
         coinfection_gender (str, optional): A TargetGender object which define the gender to which the co-infection
-         management is to be applied. Please see emodpy.campaign.common.TargetGender for details. Default to TargetGender.ALL.
+            management is to be applied. Please see emodpy.campaign.common.TargetGender for details. Default to TargetGender.ALL.
         coinfection_IP (Union[List[str], str], optional): The individual properties to which the co-infection management is to be applied.
                                                           Defaults to "Risk:HIGH".
 
     Returns:
-        None
 
     Example:
         >>> add_post_debut_coinfection(campaign, coinfection_node_ids=[1, 2, 3], coinfection_coverage=0.4, coinfection_gender='Male', coinfection_IP="Risk:MEDIUM")
@@ -437,7 +434,6 @@ def add_pmtct(campaign: emod_api.campaign,
         sdNVP_efficacy (float, optional): The efficacy of Single-Dose Nevirapine (sdNVP). Defaults to 0.66.
 
     Returns:
-        None
 
     Example:
         >>> add_pmtct(campaign,
@@ -511,7 +507,6 @@ def add_traditional_male_circumcision(campaign: emod_api.campaign,
                                                          Defaults to None, which applies to all nodes.
 
     Returns:
-        None
 
     Example:
         >>> add_traditional_male_circumcision(campaign, traditional_male_circumcision_coverage=0.06, traditional_male_circumcision_reduced_acquire=0.5, traditional_male_circumcision_node_ids=[1, 2, 3])
@@ -595,10 +590,9 @@ def add_vmmc_reference_tracking(campaign: emod_api.campaign,
                                              Defaults to None, which applies to all nodes.
         update_period (float, optional): The update period for VMMC reference tracking. Defaults to 30.4166666666667.
         distributed_event_trigger (str, optional): The trigger for distributed event. Defaults to PROGRAM_VMMC.
-        target_disease_state (str, optional): The target disease state for VMMC reference tracking. Defaults to HIV_NEGATIVE.
 
     Returns:
-        str: The intervention name for male circumcision.
+        (str): The intervention name for male circumcision.
 
     Example:
         >>> add_vmmc_reference_tracking(campaign, vmmc_time_value_map={"Times": [2002, 2010.5, 2013.95], "Values": [200, 350, 500]}, vmmc_node_ids=[1, 2, 3], vmmc_reduced_acquire=0.5, vmmc_target_min_age=10, vmmc_target_max_age=30, vmmc_start_year=2010, update_period=30, distributed_event_trigger=PROGRAM_VMMC, target_disease_state=HIV_NEGATIVE)
@@ -654,7 +648,6 @@ def add_historical_vmmc_nchooser(campaign: emod_api.campaign,
         event_name (str, optional): The name of the event. Defaults to 'nchooser of VMMC'.
 
     Returns:
-        None
 
     Example:
         >>> data = {'year': [2010, 2010, 2011, 2011],
@@ -727,7 +720,6 @@ def add_health_care_testing(campaign: emod_api.campaign,
         in HCTTestingLoop state. Defaults to all_negative_time_value_map.
 
     Returns:
-      None
 
     Example:
         >>> add_health_care_testing(
@@ -804,14 +796,13 @@ def add_ART_cascade(campaign: emod_api.campaign,
        art_cascade_immediate_art_rate (float, optional): The rate for immediate ART. Defaults to 0.1.
        art_cascade_art_reenrollment_willingness (float, optional): The willingness rate for ART reenrollment. Defaults to 0.9.
        tvmap_increased_symptomatic_presentation (dict, optional): A dictionary containing time-value map for increased
-         symptomatic presentation in TestingOnSymptomatic state. Defaults to all_negative_time_value_map.
+          symptomatic presentation in TestingOnSymptomatic state. Defaults to all_negative_time_value_map.
        tvmap_immediate_ART_restart (dict, optional): A dictionary containing time-value map for immediate ART restart in
-         OnART state. Defaults to all_negative_time_value_map.
+          OnART state. Defaults to all_negative_time_value_map.
        tvmap_reconsider_lost_forever (dict, optional): A dictionary containing time-value map for reconsidering lost
-         forever in LostForever state. Defaults to all_negative_time_value_map.
+          forever in LostForever state. Defaults to all_negative_time_value_map.
 
     Returns:
-       None
 
     Example:
        >>> add_ART_cascade(campaign, art_cascade_node_ids=[1, 2, 3], art_cascade_start_year=1995, art_cascade_pre_staging_retention=0.8, art_cascade_cd4_retention_rate=0.9, art_cascade_pre_art_retention=0.7, art_cascade_immediate_art_rate=0.15, art_cascade_art_reenrollment_willingness=0.85)
@@ -1125,7 +1116,7 @@ def add_state_TestingOnChild6w(campaign: emod_api.campaign,
             'Accessibility:Yes'.
 
     Returns:
-        str: The trigger event name for the ARTStagingDiagnosticTest state.
+        (str): The trigger event name for the ARTStagingDiagnosticTest state.
     """
     initial_trigger = SIX_WEEKS_OLD
     if not isinstance(property_restrictions, list):
@@ -1591,7 +1582,7 @@ def add_state_ARTStagingDiagnosticTest(campaign,
     transition to the ARTStaging state using the ART_STAGING_TRIGGER_1 event.
 
     Args:
-        campaign: The campaign to which the state is added.
+        campaign (emod_api.campaign): The campaign to which the state is added.
         node_ids (Union[List[int], None]): A list of node IDs where the state is to be applied. If None, the state is
             applied to all nodes.
         disqualifying_properties (List[str]): A list of properties that disqualify an individual from the state.
@@ -1642,9 +1633,9 @@ def add_state_ARTStaging(campaign: emod_api.campaign,
         start_year (float): The start year for the state.
 
     Returns:
-        Tuple[str, str, str, str]: The triggers for the LinkingToART, LinkingToPreART, HCTUptakePostDebut states for
-        individuals who are not eligible for ART from the randomchoice, and HCTUptakePostDebut state for individuals
-        who are lost to follow-up (LTFU).
+        (str, str, str, str): The triggers for the LinkingToART, LinkingToPreART, HCTUptakePostDebut states for
+            individuals who are not eligible for ART from the randomchoice, and HCTUptakePostDebut state for individuals
+            who are lost to follow-up (LTFU).
     """
     art_staging_pv = CascadeState.ART_STAGING
 
@@ -1971,7 +1962,7 @@ def add_state_LinkingToART(campaign: emod_api.campaign,
             per year.
 
     Returns:
-        Tuple[str, str]: The triggers for the OnART and 'HCTUptakePostDebut' states.
+        (str, str): The triggers for the OnART and 'HCTUptakePostDebut' states.
     """
     linking_to_art_pv = CascadeState.LINKING_TO_ART
 
@@ -2029,7 +2020,7 @@ def add_state_OnART(campaign: emod_api.campaign,
             will always trigger the Negative event(LostForever) and transit to LostForever state.
 
     Returns:
-        Tuple[str, str]: The triggers for the HCTUptakePostDebut and LostForever states.
+        (str, str): The triggers for the HCTUptakePostDebut and LostForever states.
     """
     on_art_pv = CascadeState.ON_ART
 

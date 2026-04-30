@@ -121,8 +121,7 @@ def create_old_demographic_files(country_name: str,
     helpful wnen comparing the new and old models.
 
     Args:
-        output_dir (str or Path)
-            The directory where the files will be created. If None, the current
+        output_dir (str or Path): The directory where the files will be created. If None, the current
             directory will be used.
 
         suffix (str):

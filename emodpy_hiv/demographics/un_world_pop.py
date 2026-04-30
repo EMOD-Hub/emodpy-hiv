@@ -493,13 +493,13 @@ def extract_fertility(country: str,
     rates (i.e. WPP2012_FERT_F07_AGE_SPECIFIC_FERTILITY, WPP2024_FERT_F02_FERTILITY_RATES_BY_5-YEAR_AGE_GROUPS_OF_MOTHER)
 
     Args:
-        country
+        country:
             The name of the country used in the spreadsheet for which you want to extract the data.
 
-        version
+        version:
             A string with the year/version of the file.  Supported versions are 2012, 2015, 2019, 2024
 
-        filename
+        filename:
             If not provided, the 'version' will be used to select from the known versions.  If a filename
             is provided, it is assumed to be file from the UN World Pop website.  It may have several sheets
             but the data will be extracted from the first two.  The 'estimates' sheet gives you data for the

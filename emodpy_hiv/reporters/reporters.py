@@ -380,7 +380,7 @@ class ReportCoitalActs(ConfigReporter):
             Leave empty or None to include all relationship types. Default: None
             Note: RelationshipType.COUNT is not a valid parameter for this report.
 
-        has_intervention_with_name (list[str], optional) : An list of intervention names where a column is added for
+        has_intervention_with_name (list[str], optional): An list of intervention names where a column is added for
             each name. The column will have a value of 1 if the person has the intervention and 0 if they do not.
             The intervention_name parameter in the campaigns are the available values for this parameter.
 

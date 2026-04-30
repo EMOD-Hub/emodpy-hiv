@@ -79,10 +79,10 @@ def extract_assortivity_risk(start_rel_filename: str,
             Default is LOW.
 
     Returns:
-        Dataframe with three columns where each column is for a risk value pairing.
-        Each row should represent a simulation time (in days) that had relationhips
-        created of that time and risk value pairing.  There is no guarantee that
-        relationships are created each time step.
+        (pd.DataFrame): Dataframe with three columns where each column is for a risk value pairing.
+            Each row should represent a simulation time (in days) that had relationhips
+            created of that time and risk value pairing.  There is no guarantee that
+            relationships are created each time step.
     """
     df = pd.read_csv(start_rel_filename)
 
@@ -174,7 +174,6 @@ def plot_relationship_assortivity_risk(dir_or_filename: str,
             Directory to save the images. If None, the images will not be saved and a window will be opened.
 
     Returns:
-        None - but image will be saved or window opened.
     """
     if not show_regression and regression_dir:
         raise ValueError("Regression directory is set but show_regression is False.\nYou need to show regression if you want to save it.")
@@ -322,7 +321,6 @@ def plot_relationship_assortivity_risk_all(dir_or_filename: str,
             Default is none - don't save image and open a window.
 
     Returns:
-        None - but images will be saved or windows opened.
     """
     male_risk_values = ["LOW", "MEDIUM", "HIGH"]
     for rel_type in [0, 1, 2, 3]:

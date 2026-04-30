@@ -1,14 +1,9 @@
-# Link Bibliography
-
-All external URLs used across EMOD-Hub documentation.
-Update links here; all docs reference this file by label.
-
 [contributing]: https://github.com/EMOD-Hub/emodpy-hiv/blob/main/CONTRIBUTING.rst
 [discussions]: https://github.com/orgs/EMOD-Hub/discussions
 [docker-desktop]: https://www.docker.com/products/docker-desktop
 [docker-install]: https://docs.docker.com/get-docker/
 [emod-hub]: https://github.com/EMOD-Hub
-[emodpy-hiv-docs]: https://emod-hub.github.io/emodpy-hiv/
+[emodpy-hiv-docs]: https://emod.idmod.org/emodpy-hiv/
 [github-codespaces]: https://docs.github.com/en/codespaces/overview
 [github-codespaces-billing]: https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
 [idmtools-container-platform]: https://github.com/EMOD-Hub/idmtools/tree/main/idmtools_platform_container
@@ -16,4 +11,31 @@ Update links here; all docs reference this file by label.
 [vscode]: https://code.visualstudio.com/
 [vscode-dev-containers]: https://code.visualstudio.com/docs/devcontainers/containers
 [vscode-dev-containers-ext]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
-<!-- add further entries below in alphabetical order by label -->
+[avert-global-hiv-stats]: https://www.avert.org/global-hiv-and-aids-statistics
+[avert-pmtct]: https://www.avert.org/professionals/hiv-programming/prevention/prevention-mother-child#footnote14_zn0wh44
+[bershteyn-2012-arxiv]: https://arxiv.org/pdf/1206.3720.pdf
+[bershteyn-et-al-2012]: https://arxiv.org/abs/1206.3720
+[bershteyn-et-al-2013]: http://rsif.royalsocietypublishing.org/content/royinterface/10/88/20130613.full.pdf
+[cdc-hiv-prep]: https://www.cdc.gov/hiv/basics/prep.html
+[cdc-hiv-risk-tool]: https://wwwn.cdc.gov/hivrisk/about_the_data.html
+[emod-api-docs]: https://emod.idmod.org/emod-api/
+[emod-convert-json-to-bin]: https://github.com/EMOD-Hub/EMOD/blob/master/Scripts/MigrationTools/convert_json_to_bin.py
+[emod-convert-txt-to-bin]: https://github.com/EMOD-Hub/EMOD/blob/master/Scripts/MigrationTools/convert_txt_to_bin.py
+[emodpy-docs]: https://emod.idmod.org/emodpy/
+[gbd-study]: http://www.healthdata.org/research-article/global-regional-and-national-incidence-and-mortality-hiv-tuberculosis-and-malaria
+[greaterthan-prep]: https://www.greaterthan.org/PrEP-HIV-prevention/?gclid=CjwKCAiAvMPRBRBIEiwABuO6qU68b-0cU9CU94oM-Xts07uyWpvhzbEkzObeDukGyEO3QEwGdqcZDRoCABsQAvD_BwE
+[hptn-052]: https://hptn.org/research/studies/hptn052
+[klein-2012]: http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6426573&tag=1
+[klein-bershteyn-aids-2014]: https://journals.lww.com/aidsonline/Abstract/2014/01001/Dropout_and_re_enrollment__implications_for.6.aspx
+[microbeonline-hiv-structure]: https://microbeonline.com/describe-structure-of-hiv-virus-t-u-2058/
+[niaid-hiv-replication]: https://www.niaid.nih.gov/diseases-conditions/hiv-replication-cycle
+[niaid-hivaids]: https://www.niaid.nih.gov/diseases-conditions/hivaids
+[nih-start-study]: https://www.nih.gov/news-events/news-releases/tarting-antiretroviral-treatment-early-improves-outcomes-hiv-infected-individuals
+[rodger-et-al-jama]: https://jamanetwork.com/journals/jama/fullarticle/2533066
+[swiss-hiv-cohort-study]: http://www.shcs.ch
+[unaids-2014-report]: http://www.unaids.org/en/resources/presscentre/pressreleaseandstatementarchive/2014/july/20140716prgapreport
+[what-is-prep]: http://www.whatisprep.org/
+[who-hiv-clinical-staging]: http://www.who.int/hiv/pub/guidelines/HIVstaging150307.pdf
+[who-hiv-global]: http://www.who.int/gho/hiv/en/
+[wikipedia-hiv-genome]: https://en.wikipedia.org/wiki/HIV#Structure_and_genome
+[idmtools]: https://institutefordiseasemodeling.github.io/idmtools/

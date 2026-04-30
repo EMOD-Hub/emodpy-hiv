@@ -20,8 +20,9 @@ class ChannelReport:
         from the input files, but these are hardcoded for now.
 
         Args:
+
         Returns:
-            A dictionary that has the header and an emtpy 'Channels' entry
+            (dict): A dictionary that has the header and an emtpy 'Channels' entry
         """
         report = {}
         report["Header"] = {}
@@ -43,12 +44,11 @@ class ChannelReport:
         Add the values of the channel to the report
 
         Args:
-            report: a channel report formatted JSON dictionary
-            channel_name: the name of the channel to Add
-            values: a list of integers or floats for that channel
+            report (dict): a channel report formatted JSON dictionary
+            channel_name (str): the name of the channel to Add
+            values (list): a list of integers or floats for that channel
 
         Returns:
-            The 'report' object is modified
         """
         report["Channels"][channel_name] = {}
         report["Channels"][channel_name]["Units"] = ""
@@ -63,13 +63,12 @@ class ChannelReport:
         Convert the dataframe to a dictionary of the channel report format.
 
         Args:
-            df:
-                a dataframe where the columns are the channels and there
+            df (pd.DataFrame): a dataframe where the columns are the channels and there
                 is a row for each time step
 
         Returns:
-            A dictionary that contains the data from the dataframe and can be
-            converted to a JSON channel report
+            (dict): A dictionary that contains the data from the dataframe and can be
+                converted to a JSON channel report
         """
         report = self.create_empty_channel_report()
 
@@ -84,8 +83,8 @@ class ChannelReport:
         Save this report data to a file.
         Args:
             filename: The name of the file (including path) to contain the data/JSON.
+
         Returns:
-            A file should be saved
         """
         with open(filename, 'w') as file:
             json.dump(self.json_data, file, indent=4)
@@ -97,16 +96,16 @@ class ChannelReport:
         Convert the input dictionary into a dataframe
 
         Args:
-            channel_report_dict:
+            channel_report_dict (dict):
                 The name of the file (including path) to contain the data/JSON.
 
-            channels_to_extract:
+            channels_to_extract (list):
                 A list of strings that are the channel names to extract from the
                 JSON and put into the dataframe
 
         Returns:
-            A dataframe where the columns are the channels of the report.
-            An extra 'Time' column is added to the dataframe
+            (pd.DataFrame): A dataframe where the columns are the channels of the report.
+                An extra 'Time' column is added to the dataframe
         """
         dt             = channel_report_dict["Header"]["Simulation_Timestep"]  # noqa: E221
         start_time     = channel_report_dict["Header"]["Start_Time"]           # noqa: E221

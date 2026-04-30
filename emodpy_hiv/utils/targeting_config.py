@@ -172,10 +172,10 @@ class IsHivPositive(BaseTargetingConfig):
         This is the dictionary used to generate the JSON for EMOD.
 
         Args:
-            campaign: The campaign module that has the path to the schema
+            campaign (emod_api.campaign): The campaign module that has the path to the schema
 
         Returns:
-            A ReadOnlyDict object created by schema_to_class
+            (ReadOnlyDict): Schema for object.
         """
         tc_obj = super().to_schema_dict(campaign)
         tc_obj.And_Has_Ever_Been_Tested          = self.been_tested.value                # noqa: E221
@@ -231,10 +231,10 @@ class HasBeenOnArtMoreOrLessThanNumMonths(BaseTargetingConfig):
         This is the dictionary used to generate the JSON for EMOD.
 
         Args:
-            campaign: The campaign module that has the path to the schema
+            campaign (emod_api.campaign): The campaign module that has the path to the schema
 
         Returns:
-            A ReadOnlyDict object created by schema_to_class
+            (ReadOnlyDict): Schema for object.
         """
         tc_obj = super().to_schema_dict(campaign)
         tc_obj.Num_Months   = self.num_months          # noqa: E221
@@ -279,10 +279,10 @@ class HasMoreOrLessThanNumPartners(BaseTargetingConfig):
         This is the dictionary used to generate the JSON for EMOD.
 
         Args:
-            campaign: The campaign module that has the path to the schema
+            campaign (emod_api.campaign): The campaign module that has the path to the schema
 
         Returns:
-            A ReadOnlyDict object created by schema_to_class
+            (ReadOnlyDict): Schema for object.
         """
         tc_obj = super().to_schema_dict(campaign)
         tc_obj.Num_Partners         = self.num_partners               # noqa: E221
@@ -335,10 +335,10 @@ class HasHadMultiplePartnersInLastNumMonths(BaseTargetingConfig):
         This is the dictionary used to generate the JSON for EMOD.
 
         Args:
-            campaign: The campaign module that has the path to the schema
+            campaign (emod_api.campaign): The campaign module that has the path to the schema
 
         Returns:
-            A ReadOnlyDict object created by schema_to_class
+            (ReadOnlyDict): Schema for object.
         """
         tc_obj = super().to_schema_dict(campaign)
         tc_obj.Num_Months_Type      = self.num_month_type.value       # noqa: E221
@@ -379,10 +379,10 @@ class HasCd4BetweenMinAndMax(BaseTargetingConfig):
         This is the dictionary used to generate the JSON for EMOD.
 
         Args:
-            campaign: The campaign module that has the path to the schema
+            campaign (emod_api.campaign): The campaign module that has the path to the schema
 
         Returns:
-            A ReadOnlyDict object created by schema_to_class
+            (ReadOnlyDict): Schema for object.
         """
         tc_obj = super().to_schema_dict(campaign)
         tc_obj.Min_CD4 = self.min_cd4
@@ -464,10 +464,10 @@ class HasRelationship(BaseTargetingConfig):
         This is the dictionary used to generate the JSON for EMOD.
 
         Args:
-            campaign: The campaign module that has the path to the schema
+            campaign (emod_api.campaign): The campaign module that has the path to the schema
 
         Returns:
-            A ReadOnlyDict object created by schema_to_class
+            (ReadOnlyDict): Schema for object.
         """
         tc_obj = super().to_schema_dict(campaign)
         tc_obj.Of_Relationship_Type       = self.of_relationship_type.value        # noqa: E221
@@ -486,10 +486,10 @@ class HasRelationship(BaseTargetingConfig):
         that the logic written in python is translated to the JSON correctly.
 
         Args:
-            campaign: The campaign module that has the path to the schema
+            campaign (emod_api.campaign): The campaign module that has the path to the schema
 
         Returns:
-            A simple dictionary containing the data for EMOD.
+            (dict): Campagin object as a dictionary.
         """
         tc_dict = super().to_simple_dict(campaign)
         if self.with_partner_who:

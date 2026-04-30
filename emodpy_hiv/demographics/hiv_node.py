@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Any, Dict
 
 from emod_api.demographics.node import Node
 
@@ -6,7 +6,7 @@ from emodpy_hiv.demographics.society import Society
 
 
 class HIVNode(Node):
-    def __init__(self, society: Society = None, **kwargs):
+    def __init__(self, society: Society = None, **kwargs: Any):
         """
         An extension of emod-api Node that adds society representation of interpersonal relationships for HIV
         simulations. HIVNode can be used to represent individual simulation nodes and an EMOD 'Defaults' node. To be

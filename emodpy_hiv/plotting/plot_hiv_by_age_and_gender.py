@@ -77,7 +77,7 @@ def create_title(base_title: str = "",
             If True, then 'by Age' is added to the title.
 
     Returns:
-        A string to be used a the top line title of the plot.
+        (str): A string to be used a the top line title of the plot.
     """
     title = ""
     if show_avg_per_run and not show_fraction:
@@ -155,7 +155,7 @@ def create_y_axis_name(base_title: str = "",
             TBD
 
     Returns:
-        A string to be used a the top line title of the plot.
+        (str): A string to be used a the top line title of the plot.
     """
     y_axis_name = "Number of "
     if show_fraction:
@@ -604,7 +604,6 @@ def plot_population_for_dir(dir_or_filename: str,
             Directory to save the images. If None, the images will not be saved and a window will be opened.
 
     Returns:
-        None - but image will be saved or window opened.
     """
     if x_base_population <= 0.0:
         raise ValueError("'x_base_population' must be a value greater than zero.")
@@ -712,7 +711,6 @@ def plot_population_by_gender(filename: str,
             Directory to save the images. If None, the images will not be saved and a window will be opened.
 
     Returns:
-        None - but image will be saved or window opened.
     """
     if not os.path.isfile(filename):
         raise ValueError(f"The filename, '{filename}' given does not appear to be a file.")
@@ -805,7 +803,6 @@ def plot_population_by_ip(dir_or_filename: str,
             Directory to save the images. If None, the images will not be saved and a window will be opened.
 
     Returns:
-        None - but image will be saved or window opened.
     """
 
     if (exp_dir_or_filename is not None) and (expected_values is not None):
@@ -917,7 +914,6 @@ def plot_columns(filename: str,
             Directory to save the images. If None, the images will not be saved and a window will be opened.
 
     Returns:
-        None - but image will be saved or window opened.
     """
     if not os.path.isfile(filename):
         raise ValueError(f"The filename, '{filename}' given does not appear to be a file.")
@@ -979,7 +975,6 @@ def plot_circumcision_by_age(filename: str,
             Directory to save the images. If None, the images will not be saved and a window will be opened.
 
     Returns:
-        None - but image will be saved or window opened.
     """
     if not os.path.isfile(filename):
         raise ValueError(f"The filename, '{filename}' given does not appear to be a file.")
@@ -1319,7 +1314,6 @@ def plot_onART_by_age(dir_or_filename: str,
             Directory to save the images. If None, the images will not be saved and a window will be opened.
 
     Returns:
-        None - but image will be saved or window opened.
     """
     base_plot_by_age(base_title="On ART",
                      main_column_name=COL_NAME_ON_ART,
@@ -1373,7 +1367,6 @@ def plot_population_by_age(dir_or_filename: str,
             Directory to save the images. If None, the images will not be saved and a window will be opened.
 
     Returns:
-        None - but image will be saved or window opened.
     """
     if age_bin_list is not None and len(age_bin_list) == 0:
         raise ValueError("The 'age_bin_list' parameter must be a list of ages in years where the population will be counted for each bin. "
@@ -1413,9 +1406,6 @@ def plot_vmmc_by_age(dir_or_filename: str,
         node_id (int, optional):
             The ID of the node for which the data is being filtered for.
 
-        gender (str, optional):
-            The string (Male or Female) for the gender that data is being filtered for.
-
         age_bin_list (list[float], optional):
             A list of ages in years where the population with risk value will be counted
             for each bin.  For example, if you enter [10, 25, 30, 55], there will be three
@@ -1430,7 +1420,6 @@ def plot_vmmc_by_age(dir_or_filename: str,
             Directory to save the images. If None, the images will not be saved and a window will be opened.
 
     Returns:
-        None - but image will be saved or window opened.
     """
     base_plot_by_age(base_title="VMMC",
                      main_column_name=COL_NAME_POP,
@@ -1492,7 +1481,6 @@ def plot_population_by_age_vs_unworld_pop(filename: str,
             Directory to save the images. If None, the images will not be saved and a window will be opened.
 
     Returns:
-        None - but image will be saved or window opened.
     """
     if not os.path.isfile(filename):
         raise ValueError(f"The filename, '{filename}' given does not appear to be a file.")
@@ -1603,7 +1591,6 @@ def plot_risk(dir_or_filename: str,
             Directory to save the images. If None, the images will not be saved and a window will be opened.
 
     Returns:
-        None - but image will be saved or window opened.
     """
 
     if ((starting_expected_values is not None) and (expected_value_for_high_per_node is     None) or    # noqa: E271, W504
@@ -1683,7 +1670,6 @@ def plot_vmmc_for_dir(dir_or_filename: str,
             Directory to save the images. If None, the images will not be saved and a window will be opened.
 
     Returns:
-        None - but image will be saved or window opened.
     """
     if node_id is None and show_expected:
         raise ValueError("You need to specify 'node_id' if you want to compare actual data against the expected values.")
@@ -1813,7 +1799,6 @@ def plot_prevalence_for_dir(dir_or_filename: str,
             Directory to save the images. If None, the images will not be saved and a window will be opened.
 
     Returns:
-        None - but image will be saved or window opened.
     """
     base_plot_by_age(base_title="Infected",
                      main_column_name=COL_NAME_INFECTED,
@@ -1868,7 +1853,6 @@ def plot_risk_zambia(dir_or_filename: str,
             Directory to save the images. If None, the images will not be saved and a window will be opened.
 
     Returns:
-        None - but image will be saved or window opened.
     """
     starting_expected_values = {
         "LOW": 0.85,

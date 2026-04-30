@@ -26,7 +26,7 @@ def get_raw_color(idx: int):
             index of the plot used to select color
 
     Returns:
-        Matplotlib basic color to use for plotting.
+        (str, float): Tuple with color name and intensity
     """
     colors = [('blue', 0.1),
               ('green', 0.1),
@@ -47,7 +47,7 @@ def get_color_name(idx: int):
             index of the plot used to select color
 
     Returns:
-        Name of the basic color to use for plotting in matplotlib.
+        (str): Color name
     """
     color_names = ['blue', 'green', 'cyan', 'magenta', 'yellow', 'black']
     return color_names[idx % len(color_names)]
@@ -67,7 +67,7 @@ def get_list_of_channels(ref_data: dict, test_data: list[dict]):
             a list of channel reports (dictionaries) containing data to compare to
 
     Returns:
-        Unique list of channels from all the channels in the input
+        (list): Unique list of channels from all the channels in the input
     """
 
     channel_titles_list = []
@@ -96,8 +96,8 @@ def create_title_string(reference: str, data_filenames: list[str]):
             a list of the test data file names
 
     Returns:
-        A string where each file name is on its own line and includes the color
-        to be used in plotting in the name.
+        (str): A string where each file name is on its own line and includes the color
+            to be used in plotting in the name.
     """
     title = ""
     if reference is not None:
@@ -153,14 +153,15 @@ def plot_data(title: str,
         test_data:
             A list of channel report dictionaries whose data will be plotted
             in colors other than red
-        test_file_names:
+
+        test_filenames:
             The list of file names in parallel to the test_data.
 
         subplot_index_min:
             The index of the first subplot to show based on the alphabetical
             order of the channels in the report.
 
-        subplot_index_min:
+        subplot_index_max:
             The index of the last subplot to show based on the alphabetical
             order of the channels in the report.
 
@@ -171,7 +172,6 @@ def plot_data(title: str,
             If provided the name of the file for the saved image.
 
     Returns:
-        Nothing
     """
     if test_filenames is None:
         test_filenames = []
@@ -261,7 +261,7 @@ def plot_inset_chart(dir_name: str = None,
                      comparison2: str = None,
                      comparison3: str = None,
                      title: str = None,
-                     include_filenames_in_title=True,
+                     include_filenames_in_title: bool = True,
                      output: str = None):
     """
     Plot the inset chart using the provided parameters.
@@ -292,7 +292,6 @@ def plot_inset_chart(dir_name: str = None,
             If provided, a directory will be created and images saved to the folder.  If not provided, it opens windows.
 
     Returns:
-        Nothing
     """
     test_filenames = []
     test_data = []

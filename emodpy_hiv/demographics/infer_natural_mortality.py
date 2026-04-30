@@ -174,9 +174,6 @@ def mortality_read_infer_plot(country: str,
     age range being represented is from this value to the next largest age that is plotted.
 
     Args:
-        un_world_pop_filename: The path to a UN World Population spreadsheet containing
-            mortality data.  It can be for either female or male.
-
         country: The name of the country to be extracted.  It must match exactly to the
             country name used in the referenced spreadsheet.
 

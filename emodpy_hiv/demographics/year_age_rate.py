@@ -127,7 +127,7 @@ class YearAgeRate:
         Save the dataframe to a csv file.
 
         Args:
-            csv_filename: The name of the file to write the dataframe to.
+            csv_filename (str): The name of the file to write the dataframe to.
         """
         self.df.to_csv(csv_filename, index=False)
 
