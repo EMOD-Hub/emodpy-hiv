@@ -20,16 +20,16 @@ the EMOD source code. See [emod:dev-install-overview](emod:dev-install-overview.
 
 ## Usage
 
-#.  Take note of the number of cores on your computer or cluster.
+1.  Take note of the number of cores on your computer or cluster.
 
     If running locally, we recommend running mpiexec with one fewer cores than are available, so one
     core is reserved for the operating system. The simulation can be run on all available cores and
     will complete faster, but the desktop will not be responsive.
 
-#.  Open a Command Prompt window and navigate to the directory that contains the configuration and
+1.  Open a Command Prompt window and navigate to the directory that contains the configuration and
     campaign files for the simulation.
 
-#.  Invoke Eradication.exe using mpiexec as follows, replacing the number of cores, paths, and command options
+1.  Invoke Eradication.exe using mpiexec as follows, replacing the number of cores, paths, and command options
     as necessary for your environment. See [software-simulation-cli](software-simulation-cli.md) for more information about
     the command options available for use with Eradication.exe.
 

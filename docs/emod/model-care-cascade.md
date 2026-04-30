@@ -105,10 +105,10 @@ To summarize, the cascade of care system consists of a series of campaign interv
 which are configured to have dependencies based on the previous intervention (or it's outcome).
 The simplified version is as follows:
 
-#. Start with diagnostic testing.
-#. If positive, enroll in follow-up testing.
-#. HIV+ individuals link to either pre-ART or ART.
-#. If pre-ART, individuals return periodically for monitoring; may eventually link to ART.
+1. Start with diagnostic testing.
+1. If positive, enroll in follow-up testing.
+1. HIV+ individuals link to either pre-ART or ART.
+1. If pre-ART, individuals return periodically for monitoring; may eventually link to ART.
 
 Care systems will likely be much more complicated: there are many "leaky" points in the cascade,
 where individuals can drop out of care or are LTFU. Further, care systems can be created to

@@ -21,9 +21,9 @@ host and port.
 
 ## Usage
 
-#.  Open a Command Prompt window and navigate to the *working directory*, which contains the
+1.  Open a Command Prompt window and navigate to the *working directory*, which contains the
     configuration and campaign files.
-#.  Enter a command like the one illustrated below, substituting the appropriate paths and file
+1.  Enter a command like the one illustrated below, substituting the appropriate paths and file
     names for your simulation::
 
         ../Eradication.exe -C config.json -I C:\EMOD\InputFiles -O Sim1Output
@@ -31,8 +31,8 @@ host and port.
     If you do not specify anything when invoking Eradication.exe, it will not execute with all defaults, but
     will instead tell you how to invoke the `--help` command.
 
-#.  EMOD will display logging information, including an errors that occur, while running
+1.  EMOD will display logging information, including an errors that occur, while running
     the simulation. See [software-error-logging](software-error-logging.md) for more information.
 
-#.  Output files will be placed in the directory specified. For more information on how to evaluate
+1.  Output files will be placed in the directory specified. For more information on how to evaluate
     and analyze the output, see [software-outputs](software-outputs.md).

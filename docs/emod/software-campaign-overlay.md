@@ -28,14 +28,14 @@ files to understand how they are used.
 
 To flatten campaign files:
 
-#.  Create the default campaign file in JSON. You may, though it is not required, organize the
+1.  Create the default campaign file in JSON. You may, though it is not required, organize the
     parameters into logical categories of nested JSON objects to make managing the parameters
     easier. See [parameter-campaign](parameter-campaign.md) for a complete list of all parameters that are
     available. See the example default campaign file below.
 
 *See example: [howto-generic-default-campaign.json](../json/howto-generic-default-campaign.json)*
 
-#.  Create the overlay campaign file in JSON. This file must include the parameter
+1.  Create the overlay campaign file in JSON. This file must include the parameter
     **Default_Campaign_Path**, set to the path to the default campaign file, relative to the
     location of the flatten_campaign.py script in the EMOD Regression_ folder. Again, you may
     organize these into logical categories if you desire. See the example overlay campaign
@@ -43,15 +43,15 @@ To flatten campaign files:
 
 *See example: [howto-campaign-overlay.json](../json/howto-campaign-overlay.json)*
 
-#.  In a Command Prompt window, navigate to the Regression folder.
+1.  In a Command Prompt window, navigate to the Regression folder.
 
-#.  Run the flatten_campaign.py script, providing the relative path to the overlay file and the
+1.  Run the flatten_campaign.py script, providing the relative path to the overlay file and the
     path to and name of the new flattened campaign file that will be saved, using the arguments
     as shown below::
 
         python flatten_campaign.py --overlay experiment/campaign_overlay.json --saveto experiment/campaign.json
 
-#.  Open the resulting campaign.json file and see that it has been flattened into a single file with
+1.  Open the resulting campaign.json file and see that it has been flattened into a single file with
     nested JSON objects and any logical categories *retained*.
 
 *See example: [howto-generic-campaign-flat-full.json](../json/howto-generic-campaign-flat-full.json)*

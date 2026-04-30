@@ -25,7 +25,7 @@ the hub of its tile.
 
 To use the same average migration rate for every individual in a node, create the migration files from a CSV input file. 
 
-#.  Create a CSV file with the following three columns (do not include column headers):
+1.  Create a CSV file with the following three columns (do not include column headers):
 
     From_Node_ID
         The origin node, which must match a node ID in the demographics file. You do not need to have the same number of entries for each **From_Node_ID**. 
@@ -34,7 +34,7 @@ To use the same average migration rate for every individual in a node, create th
     Rate
         The average number of trips per day.
 
-#.  Run the [convert_txt_to_bin.py][emod-convert-txt-to-bin] script using the command format below::
+1.  Run the [convert_txt_to_bin.py][emod-convert-txt-to-bin] script using the command format below::
 
         python convert_txt_to_bin.py [input-migration-csv] [output-bin] [migration-type] [idreference]
 
@@ -44,9 +44,9 @@ This will create both the metadata and binary file needed by EMOD.
 
 To vary the average migration rate based on age and/or gender, create the migration files from a JSON input file.
 
-#.  Create a JSON file with the structure described in the sections below.
+1.  Create a JSON file with the structure described in the sections below.
 
-#.  Run the [convert_json_to_bin.py][emod-convert-json-to-bin] script using the command format below::
+1.  Run the [convert_json_to_bin.py][emod-convert-json-to-bin] script using the command format below::
 
         python convert_json_to_bin.py [input-json] [output-bin] [migration-type]
 

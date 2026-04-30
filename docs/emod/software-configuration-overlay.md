@@ -20,14 +20,14 @@ it must also be flattened using the Python script below.
 
 To flatten two configuration files:
 
-#.  Create the default configuration file in JSON. You may, though it is not required, organize the
+1.  Create the default configuration file in JSON. You may, though it is not required, organize the
     parameters into logical categories of nested JSON objects to make managing the parameters
     easier. See [parameter-configuration](parameter-configuration.md) for a complete list of all parameters that are
     available. See the example default configuration file below.
 
 *See example: [howto-generic-default-config.json](../json/howto-generic-default-config.json)*
 
-#.  Create the overlay configuration file in JSON. This file must include the parameter
+1.  Create the overlay configuration file in JSON. This file must include the parameter
     **Default_Config_Path**, set to the path to the default configuration file, relative to the
     location of the flatten_config.py script in the EMOD Regression_ folder. Again, you may
     organize the parameters into logical categories if you desire. See the example overlay
@@ -35,13 +35,13 @@ To flatten two configuration files:
 
 *See example: [howto-param-overlay.json](../json/howto-param-overlay.json)*
 
-#.  In a Command Prompt window, navigate to the Regression folder.
+1.  In a Command Prompt window, navigate to the Regression folder.
 
-#.  Run the flatten_config.py script, providing the relative path to the overlay file::
+1.  Run the flatten_config.py script, providing the relative path to the overlay file::
 
         python flatten_config.py experiment/parameter_overrides.json
 
-#.  Open the resulting config.json file in the same folder as parameter_overrides.json and see that it
+1.  Open the resulting config.json file in the same folder as parameter_overrides.json and see that it
     has been flattened into a single layer with all parameters listed alphabetically and any logical
     categories *removed*. Eradication.exe will not accept a configuration file with nested JSON objects.
 

@@ -14,15 +14,16 @@ demographics layers allows for the following scenarios:
 
 To use an overlay file:
 
-#.  Select the demographics file to use as the base layer file. All nodes to be included in the simulation
+1.  Select the demographics file to use as the base layer file. All nodes to be included in the simulation
     must be listed in this file.
-#.  In the metadata, make note of the **IdReference** value.
+
+1.  In the metadata, make note of the **IdReference** value.
 
     You may change this value if you desire, but all input files for a simulation must have the
     same **IdReference** value. For more information about this parameter and the structure of
     demographics files in general, see [parameter-demographics](parameter-demographics.md).
 
-#.  Create one or more overlay files. Keep the following things in mind:
+1.  Create one or more overlay files. Keep the following things in mind:
 
     * In the metadata, the value for **IdReference** must match the value in the base layer file and
       all other input files except configuration and campaign.
@@ -35,9 +36,9 @@ To use an overlay file:
       that file, not all nodes in the entire simulation. Therefore, an overlay file that includes a
       **Defaults** section but no **Nodes** section will not have any effect.
 
-#.  Place all demographics files in the directory where the other input files are stored.
+1.  Place all demographics files in the directory where the other input files are stored.
 
-#.  In the *configuration file*, set **Demographics_Filenames** to an array that contains a
+1.  In the *configuration file*, set **Demographics_Filenames** to an array that contains a
     comma-delimited list of demographics files, listing the base layer file first.
 
 An example base layer demographics file and an overlay file is below. You can see that the overlay

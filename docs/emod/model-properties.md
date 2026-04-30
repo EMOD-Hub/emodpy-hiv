@@ -34,22 +34,22 @@ define individuals as high and low risk, that does not add different risk factor
 individuals. Higher prevalence or any other differences must be configured separately. Therefore,
 the different properties are merely suggestions and can be used to track any property you like.
 
-#.  In the demographics file, add the **IndividualProperties** parameter and set it to an empty array.
+1.  In the demographics file, add the **IndividualProperties** parameter and set it to an empty array.
     If you want the values to apply to all nodes, add it in the **Defaults** section; if you want the
     values to be applied to specific nodes, add it to the **Nodes** section.
 
-#.  In the array, add an empty JSON object. Within it, do the following:
+1.  In the array, add an empty JSON object. Within it, do the following:
 
-    #.  Add the **Property** parameter and set it to one of the supported values.
+    2.  Add the **Property** parameter and set it to one of the supported values.
 
-    #.  Add the **Values** parameter and set it to an array of possible values that can
+    2.  Add the **Values** parameter and set it to an array of possible values that can
         be assigned to individuals. You can define any string value here.
 
-    #.  Add the **Initial_Distribution** parameter and set it to an array of numbers that add
+    2.  Add the **Initial_Distribution** parameter and set it to an array of numbers that add
         up to 1. This configures the initial distribution of the values assigned to individuals
         in one or all nodes.
 
-#.  If you want to add another property and associated values, add a new JSON object in the
+1.  If you want to add another property and associated values, add a new JSON object in the
     **IndividualProperties** array as above.
 
 > **NOTE:**
@@ -65,15 +65,15 @@ Some of its characteristics, such as initial distribution and transitions, are d
 information from the demographics file and EMOD that manages individual aging during the
 simulation.
 
-#.  In the demographics file, add the **IndividualProperties** parameter and set it to an empty array.
+1.  In the demographics file, add the **IndividualProperties** parameter and set it to an empty array.
     If you want the values to apply to all nodes, add it in the **Defaults** section; if you want the
     values to be applied to specific nodes, add it to the **Nodes** section.
 
-#.  In the array, add an empty JSON object. Within it, do the following:
+1.  In the array, add an empty JSON object. Within it, do the following:
 
-    #.  Add the **Property** parameter and set it to "Age_Bin".
+    2.  Add the **Property** parameter and set it to "Age_Bin".
 
-    #.  Add the **Age_Bin_Edges_In_Years** parameter and set it to an array that contains a comma-
+    2.  Add the **Age_Bin_Edges_In_Years** parameter and set it to an array that contains a comma-
         delimited list of integers in ascending order that define the boundaries used for each of
         the age bins, in years. The first number must always be 0 (zero) to indicate the age at
         birth and the last number must be -1 to indicate the maximum age in the simulation.
