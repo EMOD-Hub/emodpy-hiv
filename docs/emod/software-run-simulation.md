@@ -19,7 +19,7 @@ run a single simulation and put the output files in a local directory.
 
 You must either download the latest version of Eradication.exe from GitHub or clone the EMOD source from
 GitHub and build Eradication.exe yourself. This gives you access to the latest features and parameters for
-EMOD. To learn EMOD, you can also download the `EMOD scenarios`_, which contains all input files
+EMOD. To learn EMOD, you can also download the EMOD scenarios, which contains all input files
 needed to run local simulations that model a variety of disease scenarios.
 
 ## Run multiple simulations
@@ -54,7 +54,3 @@ or passed as arguments to Eradication.exe.
     and campaign files.
 
 It is not important where you install Eradication.exe or the Eradication binary for Linux.
-
-- [software-simulation-cli](software-simulation-cli.md)
-- [software-simulation-mpiexec](software-simulation-mpiexec.md)
-- [software-simulation-performance](software-simulation-performance.md)

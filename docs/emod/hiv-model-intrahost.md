@@ -77,15 +77,11 @@ range of CD4 counts. Following a model by Johnson et al [^Ref31], progression ac
 categories is divided into Weibull-distributed durations over the interval of survival, using the
 Weibull parameters tabulated below:
 
-+-----------------------+--------+---------+
-| WHO stage transition  | Shape  | Scale   |
-+=======================+========+=========+
-| 1 to 2                | 0.9664 | 0.26596 |
-+-----------------------+--------+---------+
-| 2 to 3                | 0.9916 | 0.19729 |
-+-----------------------+--------+---------+
-| 3 to 4                | 0.9356 | 0.34721 |
-+-----------------------+--------+---------+
+| WHO stage transition | Shape  | Scale   |
+| -------------------- | ------ | ------- |
+| 1 to 2               | 0.9664 | 0.26596 |
+| 2 to 3               | 0.9916 | 0.19729 |
+| 3 to 4               | 0.9356 | 0.34721 |
 
 The WHO stage is generally considered an integer of 1, 2, 3, or 4. To provide additional information
 about how close an individual is to advancing to the next WHO stage, EMOD interpolates between

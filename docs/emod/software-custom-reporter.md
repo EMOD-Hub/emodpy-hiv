@@ -1,7 +1,6 @@
 # Custom reporters
 
-Reporters extract simulation data, aggregate it, and output it to a file known as an :term:`output
-report`. You can process the report data using tools, such as Python or MATLAB, to create graphs and
+Reporters extract simulation data, aggregate it, and output it to a file known as an output report. You can process the report data using tools, such as Python or MATLAB, to create graphs and
 charts for analysis. EMOD provides built-in reporters that are part of the EMOD executable (Eradication.exe) and can be
 enabled or disabled by setting parameters in the *configuration file*. See [software-outputs](software-outputs.md)
 for a list of the reports that are available using built-in reporters.

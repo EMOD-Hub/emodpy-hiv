@@ -84,15 +84,12 @@ declining body weight between each transition.
 
 The hazard ratios are shown in the following tables:
 
-+---------------------------+-------------------+-----------------------------------+
 | Category                  | Hazard ratio base | Hazard ratio multiplier           |
-+===========================+===================+===================================+
+| ------------------------- | ----------------- | --------------------------------- |
 | Body weight at initiation | 21:1              | 0.93 per kg                       |
-+---------------------------+-------------------+-----------------------------------+
 | CD4 count at initiation   | 1:32              | 0.9925/cell/uL up to 350 cells/uL |
-+---------------------------+-------------------+-----------------------------------+
 
-  Continuously applied hazard ratios
+Continuously applied hazard ratios
 
 The reduction in hazard of death per increase in CD4 count is capped at a CD4 count of 350 cells/uL,
 such that individuals initiating at CD4 counts greater than 350 cells/uL receive the same
@@ -100,17 +97,13 @@ CD4-related hazard adjustment as those with a CD4 count of 350 cells/uL. In othe
 currently makes a conservative assumption that the health benefit of initiating at CD4 counts
 greater than 350 cells/uL is identical to that of initiating at exactly 350 cells/uL.
 
-+------------+------------+--------------+
-| Category   | Value      | Hazard ratio |
-+============+============+==============+
-| WHO stage  | 3 or 4     | 2.71         |
-+------------+------------+--------------+
-| Gender     | Female     | 0.68         |
-+------------+------------+--------------+
-| Age        | >40 years  | 1.43         |
-+------------+------------+--------------+
+| Category  | Value     | Hazard ratio |
+| --------- | --------- | ------------ |
+| WHO stage | 3 or 4    | 2.71         |
+| Gender    | Female    | 0.68         |
+| Age       | >40 years | 1.43         |
 
-  Categorically applied hazard ratios
+Categorically applied hazard ratios
 
 There are multiple campaign classes that are used to implement ART programs in the model. To enroll
 individuals on ART, the **ARTBasic** intervention is applied. To remove individuals from ART, the

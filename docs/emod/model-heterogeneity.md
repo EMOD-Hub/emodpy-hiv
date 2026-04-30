@@ -60,7 +60,3 @@ how the disease spreads.
 
 For more information on how you can target campaign interventions to individuals or locations based
 on certain criteria, see [model-campaign](model-campaign.md).
-
-- [model-population-density](model-population-density.md)
-- [model-properties](model-properties.md)
-- [model-migration](model-migration.md)

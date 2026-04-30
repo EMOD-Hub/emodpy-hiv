@@ -346,7 +346,7 @@ For more information on the global PMTCT plans, targets, and progress, see [Aver
 
 ### 90-90-90
 
-The driving goal for HIV is to end the global AIDS epidemic.  To achieve this, `UNAIDS <www.unaids.org>`__
+The driving goal for HIV is to end the global AIDS epidemic.  To achieve this, [UNAIDS](https://www.unaids.org)
 has created an ambitious target program called "90-90-90." Under these guidelines, the goal is that
 by the year 2020, 90% of all people living with HIV will know their status; 90% of all people with a
 diagnosed HIV infection will receive sustained ART; and 90% of all people on ART will have viral

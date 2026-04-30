@@ -5,7 +5,7 @@ individual's demographics and health status at the time of an event. Additionall
 see the value of specific **IndividualProperties**, as assigned in the demographics file (see
 [NodeProperties and IndividualProperties](parameter-demographics.md#nodeproperties-and-individualproperties) for more information).
 
-This report is highly customizable; see the `Configuration`_ section, below, for details and instructions.
+This report is highly customizable; see the [Configuration](#configuration) section, below, for details and instructions.
 Disease-specific information and examples are provided at the end of page.
 
 ## Configuration

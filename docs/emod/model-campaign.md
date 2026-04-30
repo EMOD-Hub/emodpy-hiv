@@ -59,7 +59,3 @@ of these files and available parameters for this simulation type.
 For a complete list of campaign parameters that are available to use with this simulation type and
 more detail about the campaign file structure, see [parameter-campaign](parameter-campaign.md). For more information about
 JSON, see [parameter-overview](parameter-overview.md).
-
-- [model-targeted-interventions](model-targeted-interventions.md)
-- [model-vaccination](model-vaccination.md)
-- [model-care-cascade](model-care-cascade.md)

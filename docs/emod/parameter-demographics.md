@@ -1,4 +1,4 @@
-# Demographics parameters
+# Demographics
 
 The parameters described in this reference section can be added to the *JSON (JavaScript Object Notation)* formatted demographics file to determine the demographics of the population within
 each geographic *node* in a simulation. For example, the number of individuals and the

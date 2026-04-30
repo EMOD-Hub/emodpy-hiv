@@ -72,7 +72,5 @@ simulation type.
 
 Although you can create campaign files entirely from scratch, it is often easier to start from
 an existing campaign file and modify it to meet your needs. You can download sets of configuration
-and campaign files that illustrate how to model different disease scenarios at `EMOD scenarios`_. For more
+and campaign files that illustrate how to model different disease scenarios at EMOD scenarios. For more
 information, see [tutorials](tutorials.md). 
-
-- [software-campaign-overlay](software-campaign-overlay.md)

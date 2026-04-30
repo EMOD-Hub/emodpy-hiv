@@ -31,5 +31,5 @@ fraction of the node’s population that is migrating *out* of the node per day.
 per day, meaning the number of people migrating per day divided by the total population of the node.
 For more information on the structure of these files, see [software-migration](software-migration.md).
 
-The Generic/Zoonosis scenario in the downloadable `EMOD scenarios`_ zip file includes daily migration.
+The Generic/Zoonosis scenario in the downloadable EMOD scenarios zip file includes daily migration.
 Review the README files there for more information.

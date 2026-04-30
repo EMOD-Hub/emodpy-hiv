@@ -12,8 +12,8 @@ theme:
   logo: images/EMOD_logo.png
   favicon: images/favicon.ico
   features:
-    # - navigation.footer
     - content.code.copy
+    # - navigation.footer
   palette:
     - scheme: default
       toggle:
@@ -32,10 +32,188 @@ nav:
   - Home: index.md
   - EMOD-HIV:
     - Overview: emod/overview.md
-    - emod/software-overview.md
-    - emod/model-overview.md
+    - Software:
+        - Overview: emod/software-overview.md
+        - Inputs:
+            - Overview: emod/software-inputs.md
+            - Demographics:
+                - Overview: emod/software-demographics.md
+                - emod/software-demographics-overlay.md
+            - Configuration:
+                - Overview: emod/software-configuration.md
+                - emod/software-configuration-overlay.md
+                - emod/software-parameter-sweep.md
+            - Campaign:
+                - Overview: emod/software-campaign.md
+                - emod/software-campaign-overlay.md
+            - Migration:
+                - Overview: emod/software-migration.md
+                - emod/software-migration-creation.md
+            - emod/software-load-balancing.md
+        - Run simulation:
+            - Overview: emod/software-run-simulation.md
+            - emod/software-simulation-cli.md
+            - emod/software-simulation-mpiexec.md
+            - emod/software-simulation-performance.md
+        - Output reports:
+            - Overview: emod/software-outputs.md
+            - emod/software-custom-reporter.md
+            - emod/software-error-logging.md
+            - emod/software-report-binned.md
+            - emod/software-report-demographic-summary.md
+            - emod/software-report-inset-chart.md
+            - emod/software-report-property.md
+            - emod/software-report-event-counter.md
+            - emod/software-report-event-recorder.md
+            - emod/software-report-human-migration.md
+            - emod/software-report-node-demographics.md
+            - emod/software-report-spatial.md
+            - emod/software-report-age-gender.md
+            - emod/software-report-hivart.md
+            - emod/software-report-hivinfection.md
+            - emod/software-report-hivmort.md
+            - emod/software-report-relationship-end.md
+            - emod/software-report-relationship-census.md
+            - emod/software-report-relationship-consummated.md
+            - emod/software-report-relationship-migration-tracking.md
+            - emod/software-report-relationship-start.md
+            - emod/software-report-transmission.md
+        - Troubleshooting: emod/troubleshooting.md
+    - Model:
+        - Overview: emod/model-overview.md
+        - STI model:
+            - Overview: emod/sti-model-overview.md
+            - emod/sti-model-relationships.md
+            - emod/sti-model-transmission.md
+        - HIV model:
+            - Overview: emod/hiv-model-overview.md
+            - emod/hiv-model-intrahost.md
+            - emod/hiv-model-healthcare-systems.md
+        - emod/model-outbreak.md
+        - Heterogeneity:
+            - Overview: emod/model-heterogeneity.md
+            - emod/model-population-density.md
+            - emod/model-properties.md
+            - emod/model-migration.md
+        - Campaign:
+            - Overview: emod/model-campaign.md
+            - emod/model-targeted-interventions.md
+            - emod/model-vaccination.md
+            - emod/model-care-cascade.md
     - emod/hiv-disease-overview.md
-    - emod/parameter-overview.md
+    - Parameters:
+        - Overview: emod/parameter-overview.md
+        - emod/parameter-demographics.md
+        - Configuration:
+            - Overview: emod/parameter-configuration.md
+            - emod/parameter-configuration-disease-progression.md
+            - emod/parameter-configuration-drugs.md
+            - emod/parameter-configuration-enable.md
+            - emod/parameter-configuration-env.md
+            - emod/parameter-configuration-immunity.md
+            - emod/parameter-configuration-incubation.md
+            - emod/parameter-configuration-infectivity.md
+            - emod/parameter-configuration-input.md
+            - emod/parameter-configuration-migration.md
+            - emod/parameter-configuration-mortality.md
+            - emod/parameter-configuration-output.md
+            - emod/parameter-configuration-population.md
+            - emod/parameter-configuration-pairs.md
+            - emod/parameter-configuration-sampling.md
+            - emod/parameter-configuration-scalars.md
+            - emod/parameter-configuration-setup.md
+            - emod/parameter-configuration-symptoms.md
+            - emod/parameter-configuration-weibull.md
+        - Campaign:
+            - Overview: emod/parameter-campaign.md
+            - Event coordinators:
+                - Overview: emod/parameter-campaign-event-coordinators.md
+                - emod/parameter-campaign-event-broadcastcoordinatorevent.md
+                - emod/parameter-campaign-event-calendareventcoordinator.md
+                - emod/parameter-campaign-event-campaignevent.md
+                - emod/parameter-campaign-event-campaigneventbyyear.md
+                - emod/parameter-campaign-event-communityhealthworkereventcoordinator.md
+                - emod/parameter-campaign-event-coveragebynodeeventcoordinator.md
+                - emod/parameter-campaign-event-delayeventcoordinator.md
+                - emod/parameter-campaign-event-incidenceeventcoordinator.md
+                - emod/parameter-campaign-event-nchoosereventcoordinator.md
+                - emod/parameter-campaign-event-nchoosereventcoordinatorhiv.md
+                - emod/parameter-campaign-event-nchoosereventcoordinatorsti.md
+                - emod/parameter-campaign-event-referencetrackingeventcoordinator.md
+                - emod/parameter-campaign-event-referencetrackingeventcoordinatorhiv.md
+                - emod/parameter-campaign-event-referencetrackingeventcoordinatortrackingconfig.md
+                - emod/parameter-campaign-event-standardinterventiondistributioneventcoordinator.md
+                - emod/parameter-campaign-event-surveillanceeventcoordinator.md
+                - emod/parameter-campaign-event-triggeredeventcoordinator.md
+            - Node IVs:
+                - Overview: emod/parameter-campaign-node-interventions.md
+                - emod/parameter-campaign-node-birthtriggerediv.md
+                - emod/parameter-campaign-node-broadcastcoordinatoreventfromnode.md
+                - emod/parameter-campaign-node-broadcastnodeevent.md
+                - emod/parameter-campaign-node-coitalactratechanger.md
+                - emod/parameter-campaign-node-condomusageprobabilitychanger.md
+                - emod/parameter-campaign-node-firstnodewithnodepropertyeventcoordinator.md
+                - emod/parameter-campaign-node-importpressure.md
+                - emod/parameter-campaign-node-migratefamily.md
+                - emod/parameter-campaign-node-multinodeinterventiondistributor.md
+                - emod/parameter-campaign-node-nodelevelhealthtriggerediv.md
+                - emod/parameter-campaign-node-nodepropertyvaluechanger.md
+                - emod/parameter-campaign-node-nlhtivnode.md
+                - emod/parameter-campaign-node-outbreak.md
+                - emod/parameter-campaign-node-relationshipdurationchanger.md
+                - emod/parameter-campaign-node-relationshipformationratechanger.md
+            - Individual IVs:
+                - Overview: emod/parameter-campaign-individual-interventions.md
+                - emod/parameter-campaign-individual-agediagnostic.md
+                - emod/parameter-campaign-individual-antiretroviraltherapy.md
+                - emod/parameter-campaign-individual-antiretroviraltherapyfull.md
+                - emod/parameter-campaign-individual-artdropout.md
+                - emod/parameter-campaign-individual-artmortalitytable.md
+                - emod/parameter-campaign-individual-broadcastevent.md
+                - emod/parameter-campaign-individual-broadcasteventtoothernodes.md
+                - emod/parameter-campaign-individual-cd4diagnostic.md
+                - emod/parameter-campaign-individual-coitalactriskfactors.md
+                - emod/parameter-campaign-individual-controlledvaccine.md
+                - emod/parameter-campaign-individual-delayedintervention.md
+                - emod/parameter-campaign-individual-femalecontraceptive.md
+                - emod/parameter-campaign-individual-hivartstagingbycd4diagnostic.md
+                - emod/parameter-campaign-individual-hivartstagingcd4agnosticdiagnostic.md
+                - emod/parameter-campaign-individual-hivdelayedintervention.md
+                - emod/parameter-campaign-individual-hivdrawblood.md
+                - emod/parameter-campaign-individual-hivmuxer.md
+                - emod/parameter-campaign-individual-hivpiecewisebyyearandsexdiagnostic.md
+                - emod/parameter-campaign-individual-hivrandomchoice.md
+                - emod/parameter-campaign-individual-hivrapidhivdiagnostic.md
+                - emod/parameter-campaign-individual-hivsigmoidbyyearandsexdiagnostic.md
+                - emod/parameter-campaign-individual-hivsimplediagnostic.md
+                - emod/parameter-campaign-individual-immunitybloodtest.md
+                - emod/parameter-campaign-individual-individualimmunitychanger.md
+                - emod/parameter-campaign-individual-individualnondiseasedeathratemodifier.md
+                - emod/parameter-campaign-individual-interventionforcurrentpartners.md
+                - emod/parameter-campaign-individual-ivcalendar.md
+                - emod/parameter-campaign-individual-malecircumcision.md
+                - emod/parameter-campaign-individual-migrateindividuals.md
+                - emod/parameter-campaign-individual-modifysticoinfectionstatus.md
+                - emod/parameter-campaign-individual-multieffectboostervaccine.md
+                - emod/parameter-campaign-individual-multieffectvaccine.md
+                - emod/parameter-campaign-individual-multiinterventiondistributor.md
+                - emod/parameter-campaign-individual-outbreakindividual.md
+                - emod/parameter-campaign-individual-pmtct.md
+                - emod/parameter-campaign-individual-propertyvaluechanger.md
+                - emod/parameter-campaign-individual-simpleboostervaccine.md
+                - emod/parameter-campaign-individual-simplediagnostic.md
+                - emod/parameter-campaign-individual-simplehealthseekingbehavior.md
+                - emod/parameter-campaign-individual-simplevaccine.md
+                - emod/parameter-campaign-individual-standarddiagnostic.md
+                - emod/parameter-campaign-individual-startnewrelationship.md
+                - emod/parameter-campaign-individual-stibarrier.md
+                - emod/parameter-campaign-individual-sticoinfectiondiagnostic.md
+                - emod/parameter-campaign-individual-stiispostdebut.md
+            - emod/parameter-campaign-waningeffects.md
+            - emod/parameter-campaign-targeting-config.md
+            - emod/parameter-campaign-event-list.md
+        - emod/parameter-schema.md
+        - emod/software-outputs.md
   - Tutorials:
     - Overview: emod/tutorials.md
     - emod/sti-scenarios.md

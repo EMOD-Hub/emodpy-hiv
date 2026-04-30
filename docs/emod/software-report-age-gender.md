@@ -6,9 +6,9 @@ facilitates further analysis using a pivot table.
 
 Some results, such as population size or number infected, are reported as single "snapshots" at the end
 of the reporting period. Other values, such as deaths or new infections, are aggregated for the entire
-reporting period. Further information on the output data types can be seen in the `Output file data`_ section.
+reporting period. Further information on the output data types can be seen in the [Output file data](#output-file-data) section.
 
-See the `Configuration`_ section, below, for customization options and instructions.
+See the [Configuration](#configuration) section, below, for customization options and instructions.
 
 ## Configuration
 
@@ -38,12 +38,12 @@ To generate this report, the following parameters must be configured in the conf
 
 ## Output file data
 
-The output report has three types of columns: stratification, polling, and period. The `Stratification columns`_
+The output report has three types of columns: stratification, polling, and period. The [Stratification columns](#stratification-columns)
 have a predetermined value such as true (1) or false (0). The individuals in the row must have
-this attribute to be included. The `Polling columns`_ are those that count statistics as a snapshot at the end of the
+this attribute to be included. The [Polling columns](#polling-columns) are those that count statistics as a snapshot at the end of the
 reporting period. That is, if **HIV_Reporting_Period** is set to 360, then at the end of every 180 days,
 the report will take a survey/poll to count statistics on the population. The data reflects the counts
-for that specific day. By contrast, the `Period columns`_ will contain counts for the entire reporting period,
+for that specific day. By contrast, the [Period columns](#period-columns) will contain counts for the entire reporting period,
 stratified into the rows the individuals qualify for when the count occurs. It is possible that
 an individual qualifies for one stratification when the count occurs, and another when the polling is done.
 

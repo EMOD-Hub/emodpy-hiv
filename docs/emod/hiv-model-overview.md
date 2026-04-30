@@ -76,9 +76,6 @@ the specifics of the model are discussed in detail in the articles
 [Bershteyn, Klein, Wenger, and Eckhoff, arXiv.org][bershteyn-2012-arxiv], and
 [Klein, Bershteyn, and Eckhoff, AIDS 2014][klein-bershteyn-aids-2014].
 
-- [hiv-model-intrahost](hiv-model-intrahost.md)
-- [hiv-model-healthcare-systems](hiv-model-healthcare-systems.md)
-
 ## Citations
 
 [^Ref29]: Jun-jie, et al, 2010. Dynamic mathematical models of HIV/AIDS transmission in China. Chin Med J. 123(15): 2120-2127. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5523934/

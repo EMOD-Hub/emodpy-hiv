@@ -28,7 +28,7 @@ will notice that each of these files begins with a left brace ({) and ends with 
 (}).
 
 A value can be a string, number, Boolean, array, or an object. The campaign and data input files
-often use nested objects and arrays. See www.json.org_ for more information on JSON.
+often use nested objects and arrays. See [www.json.org](https://www.json.org) for more information on JSON.
 
 A few important details to call out when creating JSON files:
 
@@ -68,8 +68,3 @@ identifying missing commas, unbalanced curly braces, missing quotation marks, an
 syntax errors. Another helpful site is http://jsondiff.com/, which highlights differences between
 two uploaded JSON files.
 
-- [parameter-demographics](parameter-demographics.md)
-- [parameter-configuration](parameter-configuration.md)
-- [parameter-campaign](parameter-campaign.md)
-- [parameter-schema](parameter-schema.md)
-- [software-outputs](software-outputs.md)

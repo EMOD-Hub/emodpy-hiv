@@ -67,7 +67,7 @@ fraction of cases that are primary zoonotic infections.
 
 The following graphs show the *inset chart* and charts for all channels in an outbreak of a
 zoonotic disease. To run this example simulation, see the Generic/Zoonosis scenario in the
-downloadable `EMOD scenarios`_ zip file. Review the README files there for more information.
+downloadable EMOD scenarios zip file. Review the README files there for more information.
 
 After the initial outbreak, there are no additional imported cases set in the campaign file.
 However, there are additional introductions from the animal

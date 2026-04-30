@@ -50,11 +50,4 @@ repository list the parameters and nested objects differently.
 }
 ```
 
-The topics below contain only parameters available when using the HIV *simulation type*. The
-
-- [parameter-campaign-event-coordinators](parameter-campaign-event-coordinators.md)
-- [parameter-campaign-node-interventions](parameter-campaign-node-interventions.md)
-- [parameter-campaign-individual-interventions](parameter-campaign-individual-interventions.md)
-- [parameter-campaign-waningeffects](parameter-campaign-waningeffects.md)
-- [parameter-campaign-targeting-config](parameter-campaign-targeting-config.md)
-- [parameter-campaign-event-list](parameter-campaign-event-list.md)
+The topics below contain only parameters available when using the HIV *simulation type*.

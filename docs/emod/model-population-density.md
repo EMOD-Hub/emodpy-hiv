@@ -72,37 +72,30 @@ The saturating function of density is enabled by setting the EMOD configuration 
 Finally, the `\rho_{50}` parameter is configured using the configuration parameter
 **Population_Density_C50**. For more information, see [parameter-configuration-infectivity](parameter-configuration-infectivity.md) parameters.
 
-This is described in more detail in the article `The scaling of contact rates
-with population density for the infectious disease models
-<http://www.sciencedirect.com/science/article/pii/S0025556413001235>`__, by Hu *et al*., 2013
+This is described in more detail in the article [The scaling of contact rates with population density for the infectious disease models](http://www.sciencedirect.com/science/article/pii/S0025556413001235), by Hu *et al*., 2013
 *Mathematical Biosciences*. 244(2):125-134. See the figure from that article below.
 
 ![Figure 1: Effect of population density on transmissibility](../images/general/DensityScaling_orig_cropped.png)
 
-The Generic/DensityScaling example scenario in the `EMOD scenarios`_ zip file illustrates how population
+The Generic/DensityScaling example scenario in the EMOD scenarios zip file illustrates how population
 density can be configured to affect transmission. Review the README files there for more
 information.
 
 The table below shows how setting **Node_Grid_Size** in that scenario to 0.1, 0.15, and 0.3 affects
-population density and R\ `0` \ values.
+population density and R~0~ values.
 
-+------------+-------------+------------+----------------+------------+---------+------------------+
-| Simulation | Population  | Latitude,  | Node_Grid_Size | Node Area  | Density | R\ `0`\     |
-|            |             | Longitude  |                |            |         |                  |
-+============+=============+============+================+============+=========+==================+
-|  1         |  10,000     |   0, 0     |  0.1           |  124       |  80     | R\ `0`\ > 1 |
-+------------+-------------+------------+----------------+------------+---------+------------------+
-|  2         |  10,000     |   0, 0     |  0.15          |  278       |  36     | R\ `0`\ ~ 1 |
-+------------+-------------+------------+----------------+------------+---------+------------------+
-|  3         |  10,000     |   0, 0     |  0.3           |  1112      |  9      | R\ `0`\ < 1 |
-+------------+-------------+------------+----------------+------------+---------+------------------+
+| Simulation | Population | Latitude, Longitude | Node_Grid_Size | Node Area | Density | R~0~     |
+| ---------- | ---------- | ------------------- | -------------- | --------- | ------- | -------- |
+| 1          | 10,000     | 0, 0                | 0.1            | 124       | 80      | R~0~ > 1 |
+| 2          | 10,000     | 0, 0                | 0.15           | 278       | 36      | R~0~ ~ 1 |
+| 3          | 10,000     | 0, 0                | 0.3            | 1112      | 9       | R~0~ < 1 |
 
 The following graphs show the effect of population density on transmissibility, in terms of
 maintaining endemic status. When population density is large enough, it is easy to maintain an
 endemic status while in lower density is difficult to do so.
 
-![Figure 2: Node_Grid_Size = 0.1, population density 80/km\ `2`\ and R\ `0`\  > 1](../images/general/Density_default.png)
+![Figure 2: Node_Grid_Size = 0.1, population density 80/km~2~ and R~0~ > 1](../images/general/Density_default.png)
 
-![Figure 3: Node_Grid_Size = 0.15, population density 36/km\ `2`\ and R\ `0`\  ~ 1](../images/general/Density_15.png)
+![Figure 3: Node_Grid_Size = 0.15, population density 36/km~2~ and R~0~ ~ 1](../images/general/Density_15.png)
 
-![Figure 4: Node_Grid_Size = 0.3, population density 9/km\ `2`\ and R\ `0`\  < 1](../images/general/Density_3.png)
+![Figure 4: Node_Grid_Size = 0.3, population density 9/km~2~ and R~0~ < 1](../images/general/Density_3.png)

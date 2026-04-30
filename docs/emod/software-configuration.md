@@ -12,7 +12,7 @@ config.json. The configuration file controls many different aspects of the simul
 
 Although you can create configuration files entirely from scratch, it is often easier to start from
 an existing configuration file and modify it to meet your needs. You can download sets of configuration
-and campaign files that illustrate how to model different disease scenarios at `EMOD scenarios`_. For more
+and campaign files that illustrate how to model different disease scenarios at EMOD scenarios. For more
 information, see [tutorials](tutorials.md). 
 
 The simplest method of working with the configuration files is to use a text editor to directly edit
@@ -44,6 +44,3 @@ for more information on flattening files.
 Below is an example of a hierarchical configuration file:
 
 *See example: [howto-generic-default-config.json](../json/howto-generic-default-config.json)*
-
-- [software-configuration-overlay](software-configuration-overlay.md)
-- [software-parameter-sweep](software-parameter-sweep.md)

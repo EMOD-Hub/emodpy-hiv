@@ -28,5 +28,3 @@ not represent the population of a real geographic location.
 
 The demographics file structure and parameters are described in more detail in
 [parameter-demographics](parameter-demographics.md).
-
-- [software-demographics-overlay](software-demographics-overlay.md)

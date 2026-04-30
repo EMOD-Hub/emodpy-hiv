@@ -31,6 +31,3 @@ by the migrating individual (see [sti-model-relationships](sti-model-relationshi
 The following pages describe the structure of the STI model and explore the model components. Additionally,
 the specifics of the HIV model, which is based on the STI model, are discussed in detail in the articles
 [Bershteyn, Klein, Wenger, and Eckhoff, arXiv.org][bershteyn-2012-arxiv], and [Klein, Bershteyn, and Eckhoff, AIDS 2014][klein-bershteyn-aids-2014].
-
-- [sti-model-relationships](sti-model-relationships.md)
-- [sti-model-transmission](sti-model-transmission.md)

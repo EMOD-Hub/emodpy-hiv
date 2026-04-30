@@ -1,4 +1,4 @@
-# Output files (reports)
+# Output files
 
 After the simulation finishes, a *reporter* extracts simulation data, aggregates it, and
 outputs it to a file (known as an *output report*). Most of the reports are also JSON files,
@@ -48,8 +48,8 @@ See [software-simulation-cli](software-simulation-cli.md) for more information.
 
 ### Use Python to plot data
 
-The example below uses the Python package JSON_ to parse the file and the Python package
-`matplotlib.pyplot`_ to plot the output. This is a very simple example and not likely the most robust
+The example below uses the Python package `json` to parse the file and the Python package
+[matplotlib.pyplot](https://matplotlib.org/stable/api/pyplot_api.html) to plot the output. This is a very simple example and not likely the most robust
 or elegant. Be sure to set the actual path to your working directory.
 
 ```python
@@ -90,26 +90,3 @@ M = num2cell(ic_json_birthdata);
 plot(cell2mat(M));
 title( 'Births' );
 ```
-
-- [software-custom-reporter](software-custom-reporter.md)
-- [software-error-logging](software-error-logging.md)
-- [software-report-binned](software-report-binned.md)
-- [software-report-demographic-summary](software-report-demographic-summary.md)
-- [software-report-inset-chart](software-report-inset-chart.md)
-- [software-report-property](software-report-property.md)
-- [software-report-event-counter](software-report-event-counter.md)
-- [software-report-event-recorder](software-report-event-recorder.md)
-- [software-report-human-migration](software-report-human-migration.md)
-- [software-report-node-demographics](software-report-node-demographics.md)
-- [software-report-spatial](software-report-spatial.md)
-
-- [software-report-age-gender](software-report-age-gender.md)
-- [software-report-hivart](software-report-hivart.md)
-- [software-report-hivinfection](software-report-hivinfection.md)
-- [software-report-hivmort](software-report-hivmort.md)
-- [software-report-relationship-end](software-report-relationship-end.md)
-- [software-report-relationship-census](software-report-relationship-census.md)
-- [software-report-relationship-consummated](software-report-relationship-consummated.md)
-- [software-report-relationship-migration-tracking](software-report-relationship-migration-tracking.md)
-- [software-report-relationship-start](software-report-relationship-start.md)
-- [software-report-transmission](software-report-transmission.md)

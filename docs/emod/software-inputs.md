@@ -55,9 +55,3 @@ All input files except configuration and campaign files include the parameter **
 metadata, which is used to generate the **NodeID** associated with each node in a simulation. The
 values for **IdReference** and **NodeID** must be the same across all input files used in a
 simulation. See [parameter-demographics](parameter-demographics.md) for more information about **NodeID** generation.
-
-- [software-demographics](software-demographics.md)
-- [software-configuration](software-configuration.md)
-- [software-campaign](software-campaign.md)
-- [software-migration](software-migration.md)
-- [software-load-balancing](software-load-balancing.md)

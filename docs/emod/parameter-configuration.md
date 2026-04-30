@@ -21,21 +21,3 @@ Some parameters may appear in multiple categories.
 > information to your files. Any keys that are not EMOD parameter names will be ignored by the
 > model.
 
-- [parameter-configuration-disease-progression](parameter-configuration-disease-progression.md)
-- [parameter-configuration-drugs](parameter-configuration-drugs.md)
-- [parameter-configuration-enable](parameter-configuration-enable.md)
-- [parameter-configuration-env](parameter-configuration-env.md)
-- [parameter-configuration-immunity](parameter-configuration-immunity.md)
-- [parameter-configuration-incubation](parameter-configuration-incubation.md)
-- [parameter-configuration-infectivity](parameter-configuration-infectivity.md)
-- [parameter-configuration-input](parameter-configuration-input.md)
-- [parameter-configuration-migration](parameter-configuration-migration.md)
-- [parameter-configuration-mortality](parameter-configuration-mortality.md)
-- [parameter-configuration-output](parameter-configuration-output.md)
-- [parameter-configuration-population](parameter-configuration-population.md)
-- [parameter-configuration-pairs](parameter-configuration-pairs.md)
-- [parameter-configuration-sampling](parameter-configuration-sampling.md)
-- [parameter-configuration-scalars](parameter-configuration-scalars.md)
-- [parameter-configuration-setup](parameter-configuration-setup.md)
-- [parameter-configuration-symptoms](parameter-configuration-symptoms.md)
-- [parameter-configuration-weibull](parameter-configuration-weibull.md)

@@ -2,8 +2,7 @@
 
 While the workings of the model are explained in detail, it is often more useful to learn through hands-on implementation. To illustrate many of the concepts and capabilities of EMOD, IDM provides tested files to
 run example simulations that model a variety of disease scenarios. The directory for each scenario
-contains the files needed to run a simulation and generate the output graphs. Click `EMOD scenarios`_ to
-download a zipped folder containing all required files. These scenarios are referenced throughout the documentation where relevant.
+contains the files needed to run a simulation and generate the output graphs. Click EMOD scenarios to download a zipped folder containing all required files. These scenarios are referenced throughout the documentation where relevant.
 
 > **NOTE:**
 > Because the EMOD model is *stochastic*, graphs you produce from the scenarios may

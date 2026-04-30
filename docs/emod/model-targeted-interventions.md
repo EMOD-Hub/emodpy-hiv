@@ -193,7 +193,7 @@ vaccination to children aged 6 to 10. The second graph shows the effect of inste
 all individuals who are easy to access.
 
 To run this example simulation, see the Generic/HINT_AgeAndAccess scenario in
-the downloadable `EMOD scenarios`_ zip file. Review the README files there for more information.
+the downloadable EMOD scenarios zip file. Review the README files there for more information.
 
 ![Figure 1: Age-targeted vaccination](../images/general/HINT_AgeAndAccess_PropertyReport_agetargeted.png)
 

@@ -22,7 +22,7 @@ The EMOD Regression_ directory contains many different subdirectories that conta
 configuration, campaign, and other associated files to run simulations used in regression testing.
 Some subdirectories include a campaign overlay file (campaign_overrides.json), which has been
 created by combining campaign_overrides.json with one of the default files in
-`Regression/defaults`_. The naming of these files is an arbitrary convention used at IDM; you
+Regression/defaults. The naming of these files is an arbitrary convention used at IDM; you
 may name this files anything you choose. However, it may be useful to see some examples of these
 files to understand how they are used.
 

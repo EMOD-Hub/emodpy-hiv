@@ -1,4 +1,4 @@
-# Generate a list of all available parameters (a schema)
+# Generate the schema
 
 You can generate a *schema* from the EMOD executable (Eradication.exe) or Eradication binary for Linux that defines all configuration
 parameters and campaign parameters available in the version of EMOD that is installed, for all
@@ -20,13 +20,13 @@ The following command-line options are available for providing information about
 
 ## Usage
 
-#.  Open a Command Prompt window and navigate to the directory where Eradication.exe is installed.
-#.  To output the schema to the Command Prompt window, enter::
+1.  Open a Command Prompt window and navigate to the directory where Eradication.exe is installed.
+
+1.  To output the schema to the Command Prompt window, enter::
 
         Eradication.exe --get-schema
 
-#.  To output the schema to a file, do one of the following (replacing <filename> with the
-    desired filename):
+1.  To output the schema to a file, do one of the following (replacing <filename> with the desired filename):
 
     *   To output a text file that includes logging information, enter::
 

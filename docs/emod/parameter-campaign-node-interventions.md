@@ -12,19 +12,3 @@ notifications broadcast after some an event, such as Births, NewInfectionEvent, 
 possible to have one intervention trigger another intervention by asking the first intervention to
 broadcast a unique string, and having the second intervention be triggered upon receipt of that
 string. See [parameter-campaign-event-list](parameter-campaign-event-list.md).
-
-- [parameter-campaign-node-birthtriggerediv](parameter-campaign-node-birthtriggerediv.md)
-- [parameter-campaign-node-broadcastcoordinatoreventfromnode](parameter-campaign-node-broadcastcoordinatoreventfromnode.md)
-- [parameter-campaign-node-broadcastnodeevent](parameter-campaign-node-broadcastnodeevent.md)
-- [parameter-campaign-node-coitalactratechanger](parameter-campaign-node-coitalactratechanger.md)
-- [parameter-campaign-node-condomusageprobabilitychanger](parameter-campaign-node-condomusageprobabilitychanger.md)
-- [parameter-campaign-node-firstnodewithnodepropertyeventcoordinator](parameter-campaign-node-firstnodewithnodepropertyeventcoordinator.md)
-- [parameter-campaign-node-importpressure](parameter-campaign-node-importpressure.md)
-- [parameter-campaign-node-migratefamily](parameter-campaign-node-migratefamily.md)
-- [parameter-campaign-node-multinodeinterventiondistributor](parameter-campaign-node-multinodeinterventiondistributor.md)
-- [parameter-campaign-node-nodelevelhealthtriggerediv](parameter-campaign-node-nodelevelhealthtriggerediv.md)
-- [parameter-campaign-node-nodepropertyvaluechanger](parameter-campaign-node-nodepropertyvaluechanger.md)
-- [parameter-campaign-node-nlhtivnode](parameter-campaign-node-nlhtivnode.md)
-- [parameter-campaign-node-outbreak](parameter-campaign-node-outbreak.md)
-- [parameter-campaign-node-relationshipdurationchanger](parameter-campaign-node-relationshipdurationchanger.md)
-- [parameter-campaign-node-relationshipformationratechanger](parameter-campaign-node-relationshipformationratechanger.md)
