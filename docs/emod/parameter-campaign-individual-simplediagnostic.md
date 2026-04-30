@@ -16,6 +16,6 @@ The **SimpleDiagnostic** intervention class identifies infected individuals, reg
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-simplediagnostic.csv](../csv/campaign-simplediagnostic.csv)*
+{{ read_csv('../csv/campaign-simplediagnostic.csv') }}
 
 *See example: [campaign-simplediagnostic.json](../json/campaign-simplediagnostic.json)*

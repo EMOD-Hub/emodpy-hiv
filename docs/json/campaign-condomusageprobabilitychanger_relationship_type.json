@@ -1,0 +1,10 @@
+{
+  "Overriding_Condom_Usage_Probability": {
+    "Max": 1,
+    "Mid": 2000,
+    "Min": 1,
+    "Rate": 1
+  },
+  "Relationship_Type": "INFORMAL",
+  "class": "CondomUsageProbabilityChanger"
+}

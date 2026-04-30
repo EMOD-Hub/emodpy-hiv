@@ -27,7 +27,7 @@ The efficacy is held at a constant rate until it drops to zero after the user-de
 
 *See example: [campaign-waningeffectbox.json](../json/campaign-waningeffectbox.json)*
 
-*See parameter table: [campaign-waningeffectbox.csv](../csv/campaign-waningeffectbox.csv)*
+{{ read_csv('../csv/campaign-waningeffectbox.csv') }}
 
 ## WaningEffectBoxExponential
 
@@ -35,7 +35,7 @@ The initial efficacy is held for a specified duration, then the efficacy decays 
 
 *See example: [campaign-waningeffectboxexponential.json](../json/campaign-waningeffectboxexponential.json)*
 
-*See parameter table: [campaign-waningeffectboxexponential.csv](../csv/campaign-waningeffectboxexponential.csv)*
+{{ read_csv('../csv/campaign-waningeffectboxexponential.csv') }}
 
 ## WaningEffectCombo
 
@@ -43,7 +43,7 @@ The **WaningEffectCombo** class is used within individual-level interventions an
 
 *See example: [campaign-waningeffectcombo.json](../json/campaign-waningeffectcombo.json)*
 
-*See parameter table: [campaign-waningeffectconstant.csv](../csv/campaign-waningeffectconstant.csv)*
+{{ read_csv('../csv/campaign-waningeffectconstant.csv') }}
 
 ## WaningEffectConstant
 
@@ -51,7 +51,7 @@ The efficacy is held at a constant rate.
 
 *See example: [campaign-waningeffectconstant.json](../json/campaign-waningeffectconstant.json)*
 
-*See parameter table: [campaign-waningeffectconstant.csv](../csv/campaign-waningeffectconstant.csv)*
+{{ read_csv('../csv/campaign-waningeffectconstant.csv') }}
 
 ## WaningEffectExponential
 
@@ -59,7 +59,7 @@ The efficacy decays at an exponential rate where the current effect is equal to 
 
 *See example: [campaign-waningeffectexponential.json](../json/campaign-waningeffectexponential.json)*
 
-*See parameter table: [campaign-waningeffectexponential.csv](../csv/campaign-waningeffectexponential.csv)*
+{{ read_csv('../csv/campaign-waningeffectexponential.csv') }}
 
 ## WaningEffectMapLinear
 
@@ -72,7 +72,7 @@ defined by the **Initial_Effect** multiplier.
 
 *See example: [campaign-waningeffectmaplinear.json](../json/campaign-waningeffectmaplinear.json)*
 
-*See parameter table: [campaign-waningeffectmaplinear.csv](../csv/campaign-waningeffectmaplinear.csv)*
+{{ read_csv('../csv/campaign-waningeffectmaplinear.csv') }}
 
 ## WaningEffectMapLinearAge
 
@@ -81,7 +81,7 @@ individual who owns the intervention instead of the time since the start of the 
 
 *See example: [campaign-waningeffectmaplinearage.json](../json/campaign-waningeffectmaplinearage.json)*
 
-*See parameter table: [campaign-waningeffectmaplinearage.csv](../csv/campaign-waningeffectmaplinearage.csv)*
+{{ read_csv('../csv/campaign-waningeffectmaplinearage.csv') }}
 
 ## WaningEffectMapLinearSeasonal
 
@@ -91,7 +91,7 @@ seasonal effects.
 
 *See example: [campaign-waningeffectmaplinearseasonal.json](../json/campaign-waningeffectmaplinearseasonal.json)*
 
-*See parameter table: [campaign-waningeffectmaplinearseasonal.csv](../csv/campaign-waningeffectmaplinearseasonal.csv)*
+{{ read_csv('../csv/campaign-waningeffectmaplinearseasonal.csv') }}
 
 ## WaningEffectMapPiecewise
 
@@ -101,7 +101,7 @@ of the earlier time point is used.
 
 *See example: [campaign-waningeffectmappiecewise.json](../json/campaign-waningeffectmappiecewise.json)*
 
-*See parameter table: [campaign-waningeffectmappiecewise.csv](../csv/campaign-waningeffectmappiecewise.csv)*
+{{ read_csv('../csv/campaign-waningeffectmappiecewise.csv') }}
 
 ## WaningEffectRandomBox
 
@@ -111,4 +111,4 @@ the mean.
 
 *See example: [campaign-waningeffectrandombox.json](../json/campaign-waningeffectrandombox.json)*
 
-*See parameter table: [campaign-waningeffectrandombox.csv](../csv/campaign-waningeffectrandombox.csv)*
+{{ read_csv('../csv/campaign-waningeffectrandombox.csv') }}

@@ -18,6 +18,6 @@ conjunction with the **ModifyCoInfectionStatus** flag.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-sticoinfectiondiagnostic.csv](../csv/campaign-sticoinfectiondiagnostic.csv)*
+{{ read_csv('../csv/campaign-sticoinfectiondiagnostic.csv') }}
 
 *See example: [campaign-sticoinfectiondiagnostic.json](../json/campaign-sticoinfectiondiagnostic.json)*

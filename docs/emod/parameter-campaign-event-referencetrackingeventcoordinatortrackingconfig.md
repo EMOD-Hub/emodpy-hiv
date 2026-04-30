@@ -23,7 +23,7 @@ tracking overall coverage when, potentially, multiple routes exist for individua
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-referencetrackingeventcoordinatortrackingconfig.csv](../csv/campaign-referencetrackingeventcoordinatortrackingconfig.csv)*
+{{ read_csv('../csv/campaign-referencetrackingeventcoordinatortrackingconfig.csv') }}
 
 Example: Use **Tracking_Config** to look at men who are not circumcised (by any route, not only via the **MaleCircumcision** 
 intervention); if coverage is below the target level at the time of polling, apply the **MaleCircumcision** 

@@ -14,4 +14,4 @@ waning immunity after an infection clears.
 > information to your files. Any keys that are not EMOD parameter names will be ignored by the
 > model.
 
-*See parameter table: [config-immunity-hiv.csv](../csv/config-immunity-hiv.csv)*
+{{ read_csv('../csv/config-immunity-hiv.csv') }}

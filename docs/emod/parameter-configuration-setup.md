@@ -15,4 +15,4 @@ duration.
 > information to your files. Any keys that are not EMOD parameter names will be ignored by the
 > model.
 
-*See parameter table: [config-setup-hiv.csv](../csv/config-setup-hiv.csv)*
+{{ read_csv('../csv/config-setup-hiv.csv') }}

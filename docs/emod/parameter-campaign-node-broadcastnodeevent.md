@@ -22,6 +22,6 @@ operating on the same core. You can also use [parameter-campaign-node-nlhtivnode
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-broadcastnodeevent.csv](../csv/campaign-broadcastnodeevent.csv)*
+{{ read_csv('../csv/campaign-broadcastnodeevent.csv') }}
 
 *See example: [campaign-broadcastnodeevent.json](../json/campaign-broadcastnodeevent.json)*

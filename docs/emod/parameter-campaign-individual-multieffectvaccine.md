@@ -23,6 +23,6 @@ After distribution, the effect wanes over time.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-multieffectvaccine.csv](../csv/campaign-multieffectvaccine.csv)*
+{{ read_csv('../csv/campaign-multieffectvaccine.csv') }}
 
 *See example: [campaign-multieffectvaccine.json](../json/campaign-multieffectvaccine.json)*

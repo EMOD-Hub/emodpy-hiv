@@ -20,6 +20,6 @@ must be set to INDIVIDUAL_PREGNANCIES or INDIVIDUAL_PREGNANCIES_BY_AGE_AND_YEAR 
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-femalecontraceptive.csv](../csv/campaign-femalecontraceptive.csv)*
+{{ read_csv('../csv/campaign-femalecontraceptive.csv') }}
 
 *See example: [campaign-femalecontraceptive.json](../json/campaign-femalecontraceptive.json)*

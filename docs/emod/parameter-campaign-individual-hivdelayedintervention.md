@@ -19,6 +19,6 @@ broadcasting after the delay period expires.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-hivdelayedintervention.csv](../csv/campaign-hivdelayedintervention.csv)*
+{{ read_csv('../csv/campaign-hivdelayedintervention.csv') }}
 
 *See example: [campaign-hivdelayedintervention.json](../json/campaign-hivdelayedintervention.json)*

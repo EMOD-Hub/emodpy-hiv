@@ -17,4 +17,4 @@ economic prosperity and available medical technology.
 > information to your files. Any keys that are not EMOD parameter names will be ignored by the
 > model.
 
-*See parameter table: [config-scalars-hiv.csv](../csv/config-scalars-hiv.csv)*
+{{ read_csv('../csv/config-scalars-hiv.csv') }}

@@ -1,0 +1,6 @@
+{
+  "class": "CoitalActRateChanger",
+  "Intervention_Name": "CoitalActRateChanger-INFORMAL",
+  "Relationship_Type": "INFORMAL",
+  "Overriding_Coital_Act_Rate": 0.1
+}

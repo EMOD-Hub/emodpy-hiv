@@ -13,4 +13,4 @@ The following parameters determine aspects of HIV progression from the acute sta
 > information to your files. Any keys that are not EMOD parameter names will be ignored by the
 > model.
 
-*See parameter table: [config-disease-progression-hiv.csv](../csv/config-disease-progression-hiv.csv)*
+{{ read_csv('../csv/config-disease-progression-hiv.csv') }}

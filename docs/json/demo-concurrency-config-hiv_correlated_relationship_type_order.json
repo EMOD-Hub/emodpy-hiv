@@ -1,0 +1,15 @@
+{
+    "Society": {
+        "Concurrency_Configuration": {
+            "NONE": {
+                "Extra_Relational_Flag_Type": "Correlated",
+                "Correlated_Relationship_Type_Order": [
+                    "TRANSITORY",
+                    "INFORMAL",
+                    "MARITAL",
+                    "COMMERCIAL"
+                ]
+            }
+        }
+    }
+}

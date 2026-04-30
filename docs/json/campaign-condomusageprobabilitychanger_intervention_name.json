@@ -1,0 +1,6 @@
+{
+  "Intervention_Config": {
+    "Intervention_Name": "My_Probability_Changer",
+    "class": "CondomUsageProbabilityChanger"
+  }
+}

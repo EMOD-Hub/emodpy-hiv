@@ -25,6 +25,6 @@ as each vaccine has a different value for **Intervention_Name**.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-controlledvaccine.csv](../csv/campaign-controlledvaccine.csv)*
+{{ read_csv('../csv/campaign-controlledvaccine.csv') }}
 
 *See example: [campaign-controlledvaccine.json](../json/campaign-controlledvaccine.json)*

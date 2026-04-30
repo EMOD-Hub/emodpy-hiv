@@ -1,0 +1,10 @@
+{
+    "Society": {
+        "MARITAL": {
+            "Pair_Formation_Parameters": {
+                "Formation_Rate_Type": "CONSTANT",
+                "Formation_Rate_Constant": 0.002739726
+            }
+        }
+    }
+}

@@ -14,4 +14,4 @@ files* for climate, migration, demographics, and load-balancing.
 > information to your files. Any keys that are not EMOD parameter names will be ignored by the
 > model.
 
-*See parameter table: [config-input-hiv.csv](../csv/config-input-hiv.csv)*
+{{ read_csv('../csv/config-input-hiv.csv') }}

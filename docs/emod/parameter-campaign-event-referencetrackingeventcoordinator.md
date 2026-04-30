@@ -20,6 +20,6 @@ coverage, it will distribute enough interventions to reach the desired coverage.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-referencetrackingeventcoordinator.csv](../csv/campaign-referencetrackingeventcoordinator.csv)*
+{{ read_csv('../csv/campaign-referencetrackingeventcoordinator.csv') }}
 
 *See example: [campaign-referencetrackingeventcoordinator.json](../json/campaign-referencetrackingeventcoordinator.json)*

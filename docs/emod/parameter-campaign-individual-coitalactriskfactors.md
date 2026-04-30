@@ -21,6 +21,6 @@ to one. Since this intervention persists, it can be used with a reference tracki
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-coitalactriskfactors.csv](../csv/campaign-coitalactriskfactors.csv)*
+{{ read_csv('../csv/campaign-coitalactriskfactors.csv') }}
 
 *See example: [campaign-coitalactriskfactors.json](../json/campaign-coitalactriskfactors.json)*

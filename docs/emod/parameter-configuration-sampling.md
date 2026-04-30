@@ -17,4 +17,4 @@ particular regions or age groups.
 > information to your files. Any keys that are not EMOD parameter names will be ignored by the
 > model.
 
-*See parameter table: [config-sampling-hiv.csv](../csv/config-sampling-hiv.csv)*
+{{ read_csv('../csv/config-sampling-hiv.csv') }}

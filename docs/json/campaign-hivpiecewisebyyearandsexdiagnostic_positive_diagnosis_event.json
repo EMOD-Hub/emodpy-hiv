@@ -1,0 +1,6 @@
+{
+  "Intervention_Config": {
+    "Positive_Diagnosis_Event": "OnART0",
+    "class": "HIVPiecewiseByYearAndSexDiagnostic"
+  }
+}

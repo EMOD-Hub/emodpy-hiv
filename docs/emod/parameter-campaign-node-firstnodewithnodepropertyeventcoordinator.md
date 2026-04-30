@@ -21,6 +21,6 @@ coordinator event can be broadcast if the desired NP is NOT found.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-firstnodewithnodepropertyeventcoordinator.csv](../csv/campaign-firstnodewithnodepropertyeventcoordinator.csv)*
+{{ read_csv('../csv/campaign-firstnodewithnodepropertyeventcoordinator.csv') }}
 
 *See example: [campaign-firstnodewithnodepropertyeventcoordinator.json](../json/campaign-firstnodewithnodepropertyeventcoordinator.json)*

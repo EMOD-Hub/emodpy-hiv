@@ -1,0 +1,6 @@
+{
+  "Intervention_Config": {
+    "class": "HIVRapidHIVDiagnostic",
+    "Intervention_Name": "Mobile HIV diagnosis campaign"
+  }
+}

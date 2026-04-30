@@ -38,4 +38,4 @@ The report contains the following data channels for HIV simulations.
 
 The following is an example of a ReportEventRecorder.csv report from an HIV simulation:
 
-*See parameter table: [ReportEventRecorder-Example.csv](ReportEventRecorder-Example.csv)*
+{{ read_csv('ReportEventRecorder-Example.csv') }}

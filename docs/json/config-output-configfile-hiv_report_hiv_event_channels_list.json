@@ -1,0 +1,13 @@
+{
+  "Report_HIV_Event_Channels_List": [
+    "NewInfectionEvent",
+    "HIVNeedsHIVTest",
+    "HIVPositiveHIVTest",
+    "HIVNegativeHIVTest",
+    "HIVDiagnosedEligibleForART",
+    "HIVSymptomatic",
+    "DiseaseDeaths",
+    "NonDiseaseDeaths",
+    "Births"
+  ]
+}

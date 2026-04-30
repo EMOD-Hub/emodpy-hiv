@@ -21,4 +21,4 @@ The output report will contain the following information.
 
 The following is an example of a TransmissionReport.csv report:
 
-*See parameter table: [TransmissionReport-Example.csv](TransmissionReport-Example.csv)*
+{{ read_csv('TransmissionReport-Example.csv') }}

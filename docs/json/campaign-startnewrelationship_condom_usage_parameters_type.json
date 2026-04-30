@@ -1,0 +1,9 @@
+{
+  "Condom_Usage_Parameters_Type": "SPECIFY_USAGE",
+  "Condom_Usage_Sigmoid": {
+    "Max": 1,
+    "Mid": 2000,
+    "Min": 1,
+    "Rate": 1
+  }
+}

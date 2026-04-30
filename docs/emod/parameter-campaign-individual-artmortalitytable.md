@@ -26,6 +26,6 @@ Additional considerations when using this intervention:
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-artmortalitytable.csv](../csv/campaign-artmortalitytable.csv)*
+{{ read_csv('../csv/campaign-artmortalitytable.csv') }}
 
 *See example: [campaign-artmortalitytable.json](../json/campaign-artmortalitytable.json)*

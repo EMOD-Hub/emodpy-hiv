@@ -18,7 +18,7 @@ campaign event.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-campaigneventbyyear.csv](../csv/campaign-campaigneventbyyear.csv)*
+{{ read_csv('../csv/campaign-campaigneventbyyear.csv') }}
 
 *See example: [campaign-campaigneventbyyear.json](../json/campaign-campaigneventbyyear.json)*
 
@@ -42,10 +42,10 @@ The event will occur in all nodes in the simulation. This class has no associate
 
 The event will occur in the nodes listed by Node ID.
 
-*See parameter table: [campaign-nodesetnodelist.csv](../csv/campaign-nodesetnodelist.csv)*
+{{ read_csv('../csv/campaign-nodesetnodelist.csv') }}
 
 ### NodeSetPolygon
 
 The event will occur in the nodes that fall within a given polygon.
 
-*See parameter table: [campaign-nodesetpolygon.csv](../csv/campaign-nodesetpolygon.csv)*
+{{ read_csv('../csv/campaign-nodesetpolygon.csv') }}

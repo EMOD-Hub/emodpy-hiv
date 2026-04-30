@@ -26,6 +26,6 @@ demographics file, and use the Haversine Formula for calculating the great-circl
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-broadcasteventtoothernodes.csv](../csv/campaign-broadcasteventtoothernodes.csv)*
+{{ read_csv('../csv/campaign-broadcasteventtoothernodes.csv') }}
 
 *See example: [campaign-broadcasteventtoothernodes.json](../json/campaign-broadcasteventtoothernodes.json)*

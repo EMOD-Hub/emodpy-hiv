@@ -13,4 +13,4 @@ The following parameters determine the efficacy of drugs and other treatments.
 > information to your files. Any keys that are not EMOD parameter names will be ignored by the
 > model.
 
-*See parameter table: [config-drugs-hiv.csv](../csv/config-drugs-hiv.csv)*
+{{ read_csv('../csv/config-drugs-hiv.csv') }}

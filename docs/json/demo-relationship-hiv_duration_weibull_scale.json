@@ -1,0 +1,10 @@
+{
+    "Society": {
+        "TRANSITORY": {
+            "Relationship_Parameters": {
+                "Duration_Weibull_Heterogeneity": 0.1,
+                "Duration_Weibull_Scale": 1051025.709
+            }
+        }
+    }
+}

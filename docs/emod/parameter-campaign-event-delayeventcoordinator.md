@@ -17,6 +17,6 @@ event is typically used with [parameter-campaign-event-broadcastcoordinatorevent
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-delayeventcoordinator.csv](../csv/campaign-delayeventcoordinator.csv)*
+{{ read_csv('../csv/campaign-delayeventcoordinator.csv') }}
 
 *See example: [campaign-delayeventcoordinator.json](../json/campaign-delayeventcoordinator.json)*

@@ -1,0 +1,6 @@
+{
+  "Intervention_Config": {
+    "Positive_Diagnosis_Event": "LinkingToART0",
+    "class": "HIVARTStagingCD4AgnosticDiagnostic"
+  }
+}

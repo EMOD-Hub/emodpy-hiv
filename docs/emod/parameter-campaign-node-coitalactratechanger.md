@@ -23,6 +23,6 @@ value. This change impacts the relationships one time step after it was distribu
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-coitalactratechanger.csv](../csv/campaign-coitalactratechanger.csv)*
+{{ read_csv('../csv/campaign-coitalactratechanger.csv') }}
 
 *See example: [campaign-coitalactratechanger.json](../json/campaign-coitalactratechanger.json)*

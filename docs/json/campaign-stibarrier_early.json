@@ -1,0 +1,11 @@
+{
+  "Intervention_Config": {
+    "class": "STIBarrier",
+    "Early": 0.0,
+    "Late": 1.0,
+    "Midyear": 1990,
+    "Rate": 0.0,
+    "Relationship_Type": "TRANSITORY",
+    "Cost_To_Consumer": 1.0
+  }
+}

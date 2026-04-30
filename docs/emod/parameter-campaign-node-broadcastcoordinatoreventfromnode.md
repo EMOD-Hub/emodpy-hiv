@@ -23,6 +23,6 @@ Note, this coordinator class must be used with listeners that are operating on t
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-broadcastcoordinatoreventfromnode.csv](../csv/campaign-broadcastcoordinatoreventfromnode.csv)*
+{{ read_csv('../csv/campaign-broadcastcoordinatoreventfromnode.csv') }}
 
 *See example: [campaign-broadcastcoordinatoreventfromnode.json](../json/campaign-broadcastcoordinatoreventfromnode.json)*

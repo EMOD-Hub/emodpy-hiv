@@ -1,0 +1,9 @@
+{
+  "Target_Disease_State": [
+    [
+      "HIV_Negative",
+      "Not_Have_Intervention"
+    ]
+  ],
+  "Target_Disease_State_Has_Intervention_Name": "Vaccine48"
+}

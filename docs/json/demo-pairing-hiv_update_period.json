@@ -1,0 +1,12 @@
+{
+    "Society": {
+        "TRANSITORY": {
+            "Pair_Formation_Parameters": {
+                "Formation_Rate_Constant": 0.0013,
+                "Update_Period": 7.0,
+                "Extra_Relational_Rate_Ratio_Male": 5,
+                "Extra_Relational_Rate_Ratio_Female": 2
+            }
+        }
+    }
+}

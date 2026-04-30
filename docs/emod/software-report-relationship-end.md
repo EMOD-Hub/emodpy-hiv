@@ -18,4 +18,4 @@ The output report will contain the following information.
 
 The following is an example of a RelationshipEnd.csv report:
 
-*See parameter table: [RelationshipEnd-Example.csv](RelationshipEnd-Example.csv)*
+{{ read_csv('RelationshipEnd-Example.csv') }}

@@ -1,0 +1,14 @@
+{
+  "Society": {
+    "TRANSITORY": {
+      "Concurrency_Parameters": {
+        "NONE": {
+          "Max_Simultaneous_Relationships_Female": 2,
+          "Max_Simultaneous_Relationships_Male": 2,
+          "Prob_Extra_Relationship_Female": 0.3,
+          "Prob_Extra_Relationship_Male": 0.3
+        }
+      }
+    }
+  }
+}

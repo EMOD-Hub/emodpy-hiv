@@ -23,6 +23,6 @@ relationships one time step after it was distributed.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-relationshipformationratechanger.csv](../csv/campaign-relationshipformationratechanger.csv)*
+{{ read_csv('../csv/campaign-relationshipformationratechanger.csv') }}
 
 *See example: [campaign-relationshipformationratechanger.json](../json/campaign-relationshipformationratechanger.json)*

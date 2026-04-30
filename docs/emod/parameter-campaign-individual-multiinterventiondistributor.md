@@ -18,6 +18,6 @@ individuals.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-multiinterventiondistributor.csv](../csv/campaign-multiinterventiondistributor.csv)*
+{{ read_csv('../csv/campaign-multiinterventiondistributor.csv') }}
 
 *See example: [campaign-multiinterventiondistributor.json](../json/campaign-multiinterventiondistributor.json)*

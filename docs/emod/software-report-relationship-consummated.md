@@ -47,4 +47,4 @@ The output report will contain the following information.
 
 The following is an example of a RelationshipConsummated.csv report:
 
-*See parameter table: [RelationshipConsummated-Example.csv](RelationshipConsummated-Example.csv)*
+{{ read_csv('RelationshipConsummated-Example.csv') }}

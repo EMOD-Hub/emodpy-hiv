@@ -1,0 +1,23 @@
+{
+    "Society": {
+        "COMMERCIAL": {
+            "Relationship_Parameters": {
+                "Condom_Usage_Probability": {
+                    "Min": 0.02,
+                    "Max": 0.65,
+                    "Mid": 2000,
+                    "Rate": 1.5
+                }
+            },
+            "Pair_Formation_Parameters": {
+                "Formation_Rate_Constant": 0.05
+            },
+            "Concurrency_Parameters": {
+                "NONE": {
+                    "Max_Simultaneous_Relationships_Female": 20,
+                    "Max_Simultaneous_Relationships_Male": 20
+                }
+            }
+        }
+    }
+}

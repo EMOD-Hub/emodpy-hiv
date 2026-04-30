@@ -26,6 +26,6 @@ intended to mimic biological priming and boosting.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-simpleboostervaccine.csv](../csv/campaign-simpleboostervaccine.csv)*
+{{ read_csv('../csv/campaign-simpleboostervaccine.csv') }}
 
 *See example: [campaign-simpleboostervaccine.json](../json/campaign-simpleboostervaccine.json)*

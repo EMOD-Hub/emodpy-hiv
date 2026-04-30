@@ -24,6 +24,6 @@ To configure vaccines that have an effect on more than one of these, use
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-simplevaccine.csv](../csv/campaign-simplevaccine.csv)*
+{{ read_csv('../csv/campaign-simplevaccine.csv') }}
 
 *See example: [campaign-simplevaccine.json](../json/campaign-simplevaccine.json)*

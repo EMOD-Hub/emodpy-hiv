@@ -1,0 +1,11 @@
+{
+    "Society": {
+        "INFORMAL": {
+            "Pair_Formation_Parameters": {
+                "Update_Period": 7.0,
+                "Extra_Relational_Rate_Ratio_Male": 4,
+                "Extra_Relational_Rate_Ratio_Female": 2
+            }
+        }
+    }
+}

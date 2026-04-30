@@ -1,0 +1,6 @@
+{
+  "Intervention_Config": {
+    "class": "HIVARTStagingCD4AgnosticDiagnostic",
+    "Intervention_Name": "Low resource setting diagnostic"
+  }
+}

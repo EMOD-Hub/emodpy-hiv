@@ -24,6 +24,6 @@ is focused on *node* interventions and events while **NodeLevelHealthTriggeredIV
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-nlhtivnode.csv](../csv/campaign-nlhtivnode.csv)*
+{{ read_csv('../csv/campaign-nlhtivnode.csv') }}
 
 *See example: [campaign-nlhtivnode.json](../json/campaign-nlhtivnode.json)*

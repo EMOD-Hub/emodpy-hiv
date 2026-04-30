@@ -21,6 +21,6 @@ must have in order to qualify for the intervention.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-nchoosereventcoordinatorhiv.csv](../csv/campaign-nchoosereventcoordinatorhiv.csv)*
+{{ read_csv('../csv/campaign-nchoosereventcoordinatorhiv.csv') }}
 
 *See example: [campaign-nchoosereventcoordinatorhiv.json](../json/campaign-nchoosereventcoordinatorhiv.json)*

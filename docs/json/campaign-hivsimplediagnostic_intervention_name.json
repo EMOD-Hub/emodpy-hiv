@@ -1,0 +1,6 @@
+{
+  "Intervention_Config": {
+    "class": "HIVSimpleDiagnostic",
+    "Intervention_Name": "HIV test"
+  }
+}

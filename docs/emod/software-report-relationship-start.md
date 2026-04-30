@@ -34,4 +34,4 @@ The output report will contain the following information.
 
 The following is an example of a RelationshipStart.csv report:
 
-*See parameter table: [RelationshipStart-Example.csv](RelationshipStart-Example.csv)*
+{{ read_csv('RelationshipStart-Example.csv') }}
