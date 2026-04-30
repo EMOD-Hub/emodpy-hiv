@@ -17,6 +17,6 @@ to the new individuals as specified in **Actual_IndividualIntervention_Config**.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-birthtriggerediv.csv](../csv/campaign-birthtriggerediv.csv)*
+{{ read_csv('../csv/campaign-birthtriggerediv.csv') }}
 
 *See example: [campaign-birthtriggerediv.json](../json/campaign-birthtriggerediv.json)*

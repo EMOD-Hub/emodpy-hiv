@@ -33,4 +33,4 @@ The output report will contain the following information.
 
 The following is an example of a ReportRelationshipCensus.csv file.
 
-*See parameter table: [ReportRelationshipCensus-Example.csv](ReportRelationshipCensus-Example.csv)*
+{{ read_csv('ReportRelationshipCensus-Example.csv') }}

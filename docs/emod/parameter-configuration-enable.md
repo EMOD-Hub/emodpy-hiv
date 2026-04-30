@@ -14,4 +14,4 @@ or aging. Set to false (0) to disable; set to true (1) to enable.
 > information to your files. Any keys that are not EMOD parameter names will be ignored by the
 > model.
 
-*See parameter table: [config-enable-hiv.csv](../csv/config-enable-hiv.csv)*
+{{ read_csv('../csv/config-enable-hiv.csv') }}

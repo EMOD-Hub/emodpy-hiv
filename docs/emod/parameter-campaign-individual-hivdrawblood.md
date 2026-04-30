@@ -21,6 +21,6 @@ distributing another **HIVDrawBlood** intervention.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-hivdrawblood.csv](../csv/campaign-hivdrawblood.csv)*
+{{ read_csv('../csv/campaign-hivdrawblood.csv') }}
 
 *See example: [campaign-hivdrawblood.json](../json/campaign-hivdrawblood.json)*

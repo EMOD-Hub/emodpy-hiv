@@ -1,0 +1,13 @@
+{
+  "Society": {
+    "Concurrency_Configuration": {
+      "Individual_Property_Name": "Risk",
+      "LOW": {
+        "Extra_Relational_Flag_Type": "Independent"
+      },
+      "HIGH": {
+        "Extra_Relational_Flag_Type": "Correlated"
+      }
+    }
+  }
+}

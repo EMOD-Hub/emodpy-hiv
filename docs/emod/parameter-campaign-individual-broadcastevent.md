@@ -19,6 +19,6 @@ for a broadcast event, such as [parameter-campaign-node-nodelevelhealthtriggered
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-broadcastevent.csv](../csv/campaign-broadcastevent.csv)*
+{{ read_csv('../csv/campaign-broadcastevent.csv') }}
 
 *See example: [campaign-broadcastevent.json](../json/campaign-broadcastevent.json)*

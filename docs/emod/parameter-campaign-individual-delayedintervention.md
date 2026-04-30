@@ -20,6 +20,6 @@ the population that receives the specified intervention.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-delayedintervention.csv](../csv/campaign-delayedintervention.csv)*
+{{ read_csv('../csv/campaign-delayedintervention.csv') }}
 
 *See example: [campaign-delayedintervention.json](../json/campaign-delayedintervention.json)*

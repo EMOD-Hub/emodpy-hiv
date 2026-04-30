@@ -19,6 +19,6 @@ resulting age of the individuals. This intervention should be used in conjunctio
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-agediagnostic.csv](../csv/campaign-agediagnostic.csv)*
+{{ read_csv('../csv/campaign-agediagnostic.csv') }}
 
 *See example: [campaign-agediagnostic.json](../json/campaign-agediagnostic.json)*

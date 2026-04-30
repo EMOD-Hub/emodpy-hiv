@@ -29,4 +29,4 @@ steps.
 > information to your files. Any keys that are not EMOD parameter names will be ignored by the
 > model.
 
-*See parameter table: [config-output-configfile-hiv.csv](../csv/config-output-configfile-hiv.csv)*
+{{ read_csv('../csv/config-output-configfile-hiv.csv') }}

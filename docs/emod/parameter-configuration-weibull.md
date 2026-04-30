@@ -13,4 +13,4 @@ The following parameters use a *Weibull distribution*.
 > information to your files. Any keys that are not EMOD parameter names will be ignored by the
 > model.
 
-*See parameter table: [config-weibull-hiv.csv](../csv/config-weibull-hiv.csv)*
+{{ read_csv('../csv/config-weibull-hiv.csv') }}

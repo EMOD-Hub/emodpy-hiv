@@ -18,6 +18,6 @@ the demographics file.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-stiispostdebut.csv](../csv/campaign-stiispostdebut.csv)*
+{{ read_csv('../csv/campaign-stiispostdebut.csv') }}
 
 *See example: [campaign-stiispostdebut.json](../json/campaign-stiispostdebut.json)*

@@ -18,6 +18,6 @@ for this event coordinator.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-calendareventcoordinator.csv](../csv/campaign-calendareventcoordinator.csv)*
+{{ read_csv('../csv/campaign-calendareventcoordinator.csv') }}
 
 *See example: [campaign-calendareventcoordinator.json](../json/campaign-calendareventcoordinator.json)*

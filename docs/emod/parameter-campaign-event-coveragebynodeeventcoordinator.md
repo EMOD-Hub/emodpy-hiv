@@ -24,6 +24,6 @@ parameters for this event coordinator.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-coveragebynodeeventcoordinator.csv](../csv/campaign-coveragebynodeeventcoordinator.csv)*
+{{ read_csv('../csv/campaign-coveragebynodeeventcoordinator.csv') }}
 
 *See example: [campaign-coveragebynodeeventcoordinator.json](../json/campaign-coveragebynodeeventcoordinator.json)*

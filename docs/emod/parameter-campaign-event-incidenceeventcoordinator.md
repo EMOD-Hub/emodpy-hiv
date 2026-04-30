@@ -16,6 +16,6 @@ The **IncidenceEventCoordinator** coordinator class distributes interventions ba
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-incidenceeventcoordinator.csv](../csv/campaign-incidenceeventcoordinator.csv)*
+{{ read_csv('../csv/campaign-incidenceeventcoordinator.csv') }}
 
 *See example: [campaign-incidenceeventcoordinator.json](../json/campaign-incidenceeventcoordinator.json)*

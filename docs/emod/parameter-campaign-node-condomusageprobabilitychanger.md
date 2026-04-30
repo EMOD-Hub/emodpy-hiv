@@ -22,6 +22,6 @@ relationships one time step after it was distributed.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-condomusageprobabilitychanger.csv](../csv/campaign-condomusageprobabilitychanger.csv)*
+{{ read_csv('../csv/campaign-condomusageprobabilitychanger.csv') }}
 
 *See example: [campaign-condomusageprobablitychanger.json](../json/campaign-condomusageprobablitychanger.json)*

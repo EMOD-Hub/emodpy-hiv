@@ -14,4 +14,4 @@ as CD4 counts at various times in the progression of the disease.
 > information to your files. Any keys that are not EMOD parameter names will be ignored by the
 > model.
 
-*See parameter table: [config-symptoms-hiv.csv](../csv/config-symptoms-hiv.csv)*
+{{ read_csv('../csv/config-symptoms-hiv.csv') }}

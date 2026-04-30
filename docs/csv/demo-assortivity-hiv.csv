@@ -1,28 +1,7 @@
-"Name","Type","Min","Max","Default","Description","Example"
-"Axes","array of strings","NA","NA","NA","The axes defined in **Group** to use for the weighting matrix for pair formation. The order of the array defines the order of the weighting matrix.
-","[link](../json/demo-assortivity-hiv_axes.json)"
-"Group","enum","NA","NA","NO_GROUP","The group that individuals may belong to that is used for weighting assortivity for pair formation. Possible values are:
-
-NO_GROUP
-    Pair with the first person on the list (no axes).
-STI_INFECTION_STATUS
-    Pair based on STI status (TRUE/FALSE axes).
-INDIVIDUAL_PROPERTY
-    Pair based on individual properties (axes are the individual property values).
-STI_COINFECTION_STATUS
-    Pair based on STI co-infection status (TRUE/FALSE axes).
-HIV_INFECTION_STATUS
-    Pair based on HIV infection status, as per infectivity (TRUE/FALSE axes).
-HIV_TESTED_POSITIVE_STATUS
-    Pair based on HIV infection status, as per test results (TRUE/FALSE axes).
-HIV_RECEIVED_RESULTS_STATUS
-    Pair with someone who has received similar HIV test results (UNKNOWN, POSITIVE, NEGATIVE axes).","[link](../json/demo-assortivity-hiv_group.json)"
-"Property_Name","string","NA","NA","NA","If **Group** is set to INDIVIDUAL_PROPERTY, the name of the individual property as defined in the **IndividualProperties** section.","[link](../json/demo-assortivity-hiv_property_name.json)"
-"Start_Year","float","1900","2200","1900","The year to start using the assortivity weighting matrix. The value must be prior to the current year or **Group** will be set to NO_GROUP. Used only when the **Group** value is one of the following:
-
-* STI_COINFECTION_STATUS
-* HIV_INFECTION_STATUS
-* HIV_TESTED_POSITIVE_STATUS
-* HIV_RECEIVED_RESULTS_STATUS","[link](../json/demo-assortivity-hiv_start_year.json)"
-"Weighting_Matrix_RowMale_ColumnFemale","matrix of floats","0","1","0","The weights to apply to pair formation rates for individuals belonging to the groups defined in **Axes**. Rows are indexed by the male attribute and columns by the female attribute as defined in **Axes**. A single row or column cannot be all zeros. The matrix must be square with the number of dimensions defined by the number of entries in **Axes**.","The following example shows that males who are negative for STI coinfection are 3 times more likely to form relationships with females who are negative and, likewise, individuals positive for STI coinfection are more likely to form relationships with others of the same status.
-[link](../json/demo-assortivity-hiv_weighting_matrix_rowmale_columnfemale.json)"
+"Name","Example","Type","Min","Max","Default","Description"
+"Axes","[link](../json/demo-assortivity-hiv_axes.json)","array of strings","NA","NA","NA","The axes defined in **Group** to use for the weighting matrix for pair formation. The order of the array defines the order of the weighting matrix."
+"Group","[link](../json/demo-assortivity-hiv_group.json)","enum","NA","NA","NO_GROUP","The group that individuals may belong to that is used for weighting assortivity for pair formation. Possible values are:<br> <br> NO_GROUP<br> Pair with the first person on the list (no axes).<br> STI_INFECTION_STATUS<br> Pair based on STI status (TRUE/FALSE axes).<br> INDIVIDUAL_PROPERTY<br> Pair based on individual properties (axes are the individual property values).<br> STI_COINFECTION_STATUS<br> Pair based on STI co-infection status (TRUE/FALSE axes).<br> HIV_INFECTION_STATUS<br> Pair based on HIV infection status, as per infectivity (TRUE/FALSE axes).<br> HIV_TESTED_POSITIVE_STATUS<br> Pair based on HIV infection status, as per test results (TRUE/FALSE axes).<br> HIV_RECEIVED_RESULTS_STATUS<br> Pair with someone who has received similar HIV test results (UNKNOWN, POSITIVE, NEGATIVE axes)."
+"Property_Name","[link](../json/demo-assortivity-hiv_property_name.json)","string","NA","NA","NA","If **Group** is set to INDIVIDUAL_PROPERTY, the name of the individual property as defined in the **IndividualProperties** section."
+"Start_Year","[link](../json/demo-assortivity-hiv_start_year.json)","float","1900","2200","1900","The year to start using the assortivity weighting matrix. The value must be prior to the current year or **Group** will be set to NO_GROUP. Used only when the **Group** value is one of the following:<br> <br> * STI_COINFECTION_STATUS<br> * HIV_INFECTION_STATUS<br> * HIV_TESTED_POSITIVE_STATUS<br> * HIV_RECEIVED_RESULTS_STATUS"
+"Weighting_Matrix_RowMale_ColumnFemale","The following example shows that males who are negative for STI coinfection are 3 times more likely to form relationships with females who are negative and, likewise, individuals positive for STI coinfection are more likely to form relationships with others of the same status.
+[link](../json/demo-assortivity-hiv_weighting_matrix_rowmale_columnfemale.json)","matrix of floats","0","1","0","The weights to apply to pair formation rates for individuals belonging to the groups defined in **Axes**. Rows are indexed by the male attribute and columns by the female attribute as defined in **Axes**. A single row or column cannot be all zeros. The matrix must be square with the number of dimensions defined by the number of entries in **Axes**."

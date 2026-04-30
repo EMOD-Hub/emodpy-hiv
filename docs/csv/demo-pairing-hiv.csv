@@ -1,33 +1,16 @@
-"Name","Type","Min","Max","Default","Description","Example"
-"Age_of_First_Bin_Edge_Female","integer","0","100","1","The maximum age for the first age bin when dividing the female population into age bins for pair formation.","[link](../json/demo-pairing-hiv_age_of_first_bin_edge_female.json)"
-"Age_of_First_Bin_Edge_Male","integer","0","100","1","The maximum age for the first age bin when dividing the male population into age bins for pair formation.","[link](../json/demo-pairing-hiv_age_of_first_bin_edge_male.json)"
-"Assortivity","json object","NA","NA","NA","The object that defines how people will preferentially form pairs based on their membership in different groups.","[link](../json/demo-pairing-hiv_assortivity.json)"
-"Extra_Relational_Rate_Ratio_Female","integer","1","3.40282e+038","1","For women, the rate ratio for having extra-relational sex for this relationship type, where the ratio is the event over the period of time defined in **Update_Period**.","[link](../json/demo-pairing-hiv_extra_relational_rate_ratio_female.json)"
-"Extra_Relational_Rate_Ratio_Male","integer","1","3.40282e+038","1","For males, the rate ratio for having extra-relational sex for this relationship type, where the ratio is the event over the period of time defined in **Update_Period**. ","[link](../json/demo-pairing-hiv_extra_relational_rate_ratio_male.json)"
-"Formation_Rate_Constant","float","0","1","0.001","If **Formation_Rate_Type** is set to CONSTANT, the number of new relationships per day for this relationship type.","[link](../json/demo-pairing-hiv_formation_rate_constant.json)"
-"Formation_Rate_Interpolated_Values","json object","NA","NA","NA","The structure that contains two arrays of floats specifying **Times** and **Values** arrays that will be interpolated to provide the formation rate when **Formation_Rate_Type** is set to INTERPOLATED_VALUES. The years listed in **Times** must be in ascending order; the first year must be prior to the current year and if the last year is prior to the current year, the last value in **Values** will be used for the formation rate.","[link](../json/demo-pairing-hiv_formation_rate_interpolated_values.json)"
-"Formation_Rate_Sigmoid","json object","NA","NA","NA","The structure that determines the shape of the sigmoidal curve for pair formation when **Formation_Rate_Type** is set to SIGMOID_VARIABLE_WIDTH_HEIGHT. Include the following parameters:
-
-Min
-   The minimum asymptote (0 to 1, default 1).
-Max
-   The maximum asymptote (0 to 1, default 1).
-Mid
-   The year of the inflection point (0 to 100000, default 2000).
-Rate
-   The rate (proportional to the slope by a factor of 4) at the inflection point (-100 to 100, default 1).","[link](../json/demo-pairing-hiv_formation_rate_sigmoid.json)"
-"Formation_Rate_Type","enum","NA","NA","CONSTANT","The type of functional form that describes that pair formation rate. Possible values are:
-
-CONSTANT
-   The rate is a constant value.
-SIGMOID_VARIABLE_WIDTH_HEIGHT
-   The rate is a sigmoidal curve.
-INTERPOLATED_VALUES
-   The rate is interpolated between a set of supplied values.
-","[link](../json/demo-pairing-hiv_formation_rate_type.json)"
-"Joint_Probabilities","matrix of floats","0","3.40282e+038, ","0","The relative preference of members of one age bin to form relationships with members of another age bin. The columns represent female bins and rows represent male bins.","[link](../json/demo-pairing-hiv_joint_probabilities.json)"
-"Number_Age_Bins_Female","integer","1","1000","1","The number of age bins to divide the female population into for pair formation.","[link](../json/demo-pairing-hiv_number_age_bins_female.json)"
-"Number_Age_Bins_Male","integer","1","1000","1","The number of age bins to divide the male population into for pair formation.","[link](../json/demo-pairing-hiv_number_age_bins_male.json)"
-"Update_Period","float","0","3.40282e+38","0","The period, in days, to wait before an individual is eligible to seek out new relationships. ","[link](../json/demo-pairing-hiv_update_period.json)"
-"Years_Between_Bin_Edges_Female","float","0.1","100","1","For the female population, the number of years covered in each age bin.","[link](../json/demo-pairing-hiv_years_between_bin_edges_female.json)"
-"Years_Between_Bin_Edges_Male","integer","0.1","100","1","For the male population, the number of years covered in each age bin.","[link](../json/demo-pairing-hiv_years_between_bin_edges_male.json)"
+"Name","Example","Type","Min","Max","Default","Description"
+"Age_of_First_Bin_Edge_Female","[link](../json/demo-pairing-hiv_age_of_first_bin_edge_female.json)","integer","0","100","1","The maximum age for the first age bin when dividing the female population into age bins for pair formation."
+"Age_of_First_Bin_Edge_Male","[link](../json/demo-pairing-hiv_age_of_first_bin_edge_male.json)","integer","0","100","1","The maximum age for the first age bin when dividing the male population into age bins for pair formation."
+"Assortivity","[link](../json/demo-pairing-hiv_assortivity.json)","json object","NA","NA","NA","The object that defines how people will preferentially form pairs based on their membership in different groups."
+"Extra_Relational_Rate_Ratio_Female","[link](../json/demo-pairing-hiv_extra_relational_rate_ratio_female.json)","integer","1","3.40282e+038","1","For women, the rate ratio for having extra-relational sex for this relationship type, where the ratio is the event over the period of time defined in **Update_Period**."
+"Extra_Relational_Rate_Ratio_Male","[link](../json/demo-pairing-hiv_extra_relational_rate_ratio_male.json)","integer","1","3.40282e+038","1","For males, the rate ratio for having extra-relational sex for this relationship type, where the ratio is the event over the period of time defined in **Update_Period**."
+"Formation_Rate_Constant","[link](../json/demo-pairing-hiv_formation_rate_constant.json)","float","0","1","0.001","If **Formation_Rate_Type** is set to CONSTANT, the number of new relationships per day for this relationship type."
+"Formation_Rate_Interpolated_Values","[link](../json/demo-pairing-hiv_formation_rate_interpolated_values.json)","json object","NA","NA","NA","The structure that contains two arrays of floats specifying **Times** and **Values** arrays that will be interpolated to provide the formation rate when **Formation_Rate_Type** is set to INTERPOLATED_VALUES. The years listed in **Times** must be in ascending order; the first year must be prior to the current year and if the last year is prior to the current year, the last value in **Values** will be used for the formation rate."
+"Formation_Rate_Sigmoid","[link](../json/demo-pairing-hiv_formation_rate_sigmoid.json)","json object","NA","NA","NA","The structure that determines the shape of the sigmoidal curve for pair formation when **Formation_Rate_Type** is set to SIGMOID_VARIABLE_WIDTH_HEIGHT. Include the following parameters:<br> <br> Min<br> The minimum asymptote (0 to 1, default 1).<br> Max<br> The maximum asymptote (0 to 1, default 1).<br> Mid<br> The year of the inflection point (0 to 100000, default 2000).<br> Rate<br> The rate (proportional to the slope by a factor of 4) at the inflection point (-100 to 100, default 1)."
+"Formation_Rate_Type","[link](../json/demo-pairing-hiv_formation_rate_type.json)","enum","NA","NA","CONSTANT","The type of functional form that describes that pair formation rate. Possible values are:<br> <br> CONSTANT<br> The rate is a constant value.<br> SIGMOID_VARIABLE_WIDTH_HEIGHT<br> The rate is a sigmoidal curve.<br> INTERPOLATED_VALUES<br> The rate is interpolated between a set of supplied values."
+"Joint_Probabilities","[link](../json/demo-pairing-hiv_joint_probabilities.json)","matrix of floats","0","3.40282e+038, ","0","The relative preference of members of one age bin to form relationships with members of another age bin. The columns represent female bins and rows represent male bins."
+"Number_Age_Bins_Female","[link](../json/demo-pairing-hiv_number_age_bins_female.json)","integer","1","1000","1","The number of age bins to divide the female population into for pair formation."
+"Number_Age_Bins_Male","[link](../json/demo-pairing-hiv_number_age_bins_male.json)","integer","1","1000","1","The number of age bins to divide the male population into for pair formation."
+"Update_Period","[link](../json/demo-pairing-hiv_update_period.json)","float","0","3.40282e+38","0","The period, in days, to wait before an individual is eligible to seek out new relationships."
+"Years_Between_Bin_Edges_Female","[link](../json/demo-pairing-hiv_years_between_bin_edges_female.json)","float","0.1","100","1","For the female population, the number of years covered in each age bin."
+"Years_Between_Bin_Edges_Male","[link](../json/demo-pairing-hiv_years_between_bin_edges_male.json)","integer","0.1","100","1","For the male population, the number of years covered in each age bin."

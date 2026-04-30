@@ -24,6 +24,6 @@ to the corresponding boost parameter. After distribution, the effect wanes, just
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-multieffectboostervaccine.csv](../csv/campaign-multieffectboostervaccine.csv)*
+{{ read_csv('../csv/campaign-multieffectboostervaccine.csv') }}
 
 *See example: [campaign-multieffectboostervaccine.json](../json/campaign-multieffectboostervaccine.json)*

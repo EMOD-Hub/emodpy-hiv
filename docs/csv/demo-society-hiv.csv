@@ -1,20 +1,9 @@
-"Name","Type","Min","Max","Default","Description","Example"
-"COMMERCIAL","json object","NA","NA","NA","The structure that defines basic relationship, pair formation, and concurrency parameters for transactional relationships involving commercial sex work (CSW).","[link](../json/demo-society-hiv_commercial.json)"
-"Concurrency_Configuration","json object","NA","NA","NA","The structure that determines how concurrent relationships are formed, for *all* relationship types. To apply to all individuals regardless of individual property values, nest parameters under NONE. To apply only to individuals with certain property values, nest parameters under the property value.","The following example sets extra-relational flags independently to everyone regardless of individual properties.
-[link](../json/demo-society-hiv_concurrency_configuration.json)"
-"INFORMAL","json object","NA","NA","NA","The structure that defines basic relationship, pair formation, and concurrency parameters for longer-term non-marital relationships.","[link](../json/demo-society-hiv_informal.json)"
-"MARITAL","json object","NA","NA","NA","The structure that defines basic relationship, pair formation, and concurrency parameters for marital relationships.","[link](../json/demo-society-hiv_marital.json)"
-"Pair_Formation_Parameters","json object","NA","NA","NA","Structure that defines all relationship formation parameters for the relationship type specified.","[link](../json/demo-society-hiv_pair_formation_parameters.json)"
-"Society","json object","NA","NA","NA","The structure that defines the behavioral-based parameters of a relationship type. Under this structure, include the following and assign JSON objects to each:
-
-Concurrency_Configuration
-    Defines how the simultaneous relationship parameters are used across all relationship types.
-TRANSITORY
-    All parameters for brief relationships lasting one night, weekend, or week.
-INFORMAL
-    All parameters for longer-term non-marital relationships.
-MARITAL
-    All parameters for marital relationships.
-COMMERCIAL
-    All parameters for transactional relationships involving commercial sex work (CSW).","[link](../json/demo-society-hiv_society.json)"
-"TRANSITORY","json object","NA","NA","NA","The structure that defines basic relationship, pair formation, and concurrency parameters for brief relationships lasting one night, weekend, or week.","[link](../json/demo-society-hiv_transitory.json)"
+"Name","Example","Type","Min","Max","Default","Description"
+"COMMERCIAL","[link](../json/demo-society-hiv_commercial.json)","json object","NA","NA","NA","The structure that defines basic relationship, pair formation, and concurrency parameters for transactional relationships involving commercial sex work (CSW)."
+"Concurrency_Configuration","The following example sets extra-relational flags independently to everyone regardless of individual properties.
+[link](../json/demo-society-hiv_concurrency_configuration.json) [link](../json/demo-society-hiv_concurrency_configuration_2.json)","json object","NA","NA","NA","The structure that determines how concurrent relationships are formed, for *all* relationship types. To apply to all individuals regardless of individual property values, nest parameters under NONE. To apply only to individuals with certain property values, nest parameters under the property value."
+"INFORMAL","[link](../json/demo-society-hiv_informal.json)","json object","NA","NA","NA","The structure that defines basic relationship, pair formation, and concurrency parameters for longer-term non-marital relationships."
+"MARITAL","[link](../json/demo-society-hiv_marital.json)","json object","NA","NA","NA","The structure that defines basic relationship, pair formation, and concurrency parameters for marital relationships."
+"Pair_Formation_Parameters","[link](../json/demo-society-hiv_pair_formation_parameters.json)","json object","NA","NA","NA","Structure that defines all relationship formation parameters for the relationship type specified."
+"Society","[link](../json/demo-society-hiv_society.json)","json object","NA","NA","NA","The structure that defines the behavioral-based parameters of a relationship type. Under this structure, include the following and assign JSON objects to each:<br> <br> Concurrency_Configuration<br> Defines how the simultaneous relationship parameters are used across all relationship types.<br> TRANSITORY<br> All parameters for brief relationships lasting one night, weekend, or week.<br> INFORMAL<br> All parameters for longer-term non-marital relationships.<br> MARITAL<br> All parameters for marital relationships.<br> COMMERCIAL<br> All parameters for transactional relationships involving commercial sex work (CSW)."
+"TRANSITORY","[link](../json/demo-society-hiv_transitory.json)","json object","NA","NA","NA","The structure that defines basic relationship, pair formation, and concurrency parameters for brief relationships lasting one night, weekend, or week."

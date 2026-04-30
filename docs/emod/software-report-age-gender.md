@@ -59,4 +59,4 @@ Data columns of each type are as follows.
 
 The following is an example of a ReportHIVByAgeAndGender.csv report:
 
-*See parameter table: [ReportHIVByAgeAndGender-Example.csv](ReportHIVByAgeAndGender-Example.csv)*
+{{ read_csv('ReportHIVByAgeAndGender-Example.csv') }}

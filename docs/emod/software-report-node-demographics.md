@@ -47,4 +47,4 @@ columns.
 
 The following is an example of ReportNodeDemographics.csv.
 
-*See parameter table: [report-node-demographics.csv](report-node-demographics.csv)*
+{{ read_csv('report-node-demographics.csv') }}

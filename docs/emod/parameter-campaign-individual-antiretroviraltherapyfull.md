@@ -29,6 +29,6 @@ Additional considerations when using this intervention:
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-antiretroviraltherapyfull.csv](../csv/campaign-antiretroviraltherapyfull.csv)*
+{{ read_csv('../csv/campaign-antiretroviraltherapyfull.csv') }}
 
 *See example: [campaign-antiretroviraltherapyfull.json](../json/campaign-antiretroviraltherapyfull.json)*

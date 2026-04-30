@@ -19,6 +19,6 @@ start until all residents are at the *home node*.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-migratefamily.csv](../csv/campaign-migratefamily.csv)*
+{{ read_csv('../csv/campaign-migratefamily.csv') }}
 
 *See example: [campaign-migratefamily.json](../json/campaign-migratefamily.json)*

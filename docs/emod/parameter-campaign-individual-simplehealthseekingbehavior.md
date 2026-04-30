@@ -24,6 +24,6 @@ exponentially distributed delay and ultimately receives the specified interventi
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-simplehealthseekingbehavior.csv](../csv/campaign-simplehealthseekingbehavior.csv)*
+{{ read_csv('../csv/campaign-simplehealthseekingbehavior.csv') }}
 
 *See example: [campaign-simplehealthseekingbehavior.json](../json/campaign-simplehealthseekingbehavior.json)*

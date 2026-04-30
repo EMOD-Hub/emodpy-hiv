@@ -23,6 +23,6 @@ does not need to be enabled to use this intervention. To instead change node pro
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-propertyvaluechanger.csv](../csv/campaign-propertyvaluechanger.csv)*
+{{ read_csv('../csv/campaign-propertyvaluechanger.csv') }}
 
 *See example: [campaign-propertyvaluechanger.json](../json/campaign-propertyvaluechanger.json)*

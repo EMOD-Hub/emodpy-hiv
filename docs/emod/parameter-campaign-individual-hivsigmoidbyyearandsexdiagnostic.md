@@ -18,6 +18,6 @@ by allowing the probability of "positive diagnosis" to be configured sigmoidally
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-hivsigmoidbyyearandsexdiagnostic.csv](../csv/campaign-hivsigmoidbyyearandsexdiagnostic.csv)*
+{{ read_csv('../csv/campaign-hivsigmoidbyyearandsexdiagnostic.csv') }}
 
 *See example: [campaign-hivsigmoidbyyearandsexdiagnostic.json](../json/campaign-hivsigmoidbyyearandsexdiagnostic.json)*

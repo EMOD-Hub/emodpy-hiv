@@ -18,6 +18,6 @@ specify outcomes instead of the results of CD4 testing.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-hivartstagingcd4agnosticdiagnostic.csv](../csv/campaign-hivartstagingcd4agnosticdiagnostic.csv)*
+{{ read_csv('../csv/campaign-hivartstagingcd4agnosticdiagnostic.csv') }}
 
 *See example: [campaign-hivartstagingcd4agnosticdiagnostic.json](../json/campaign-hivartstagingcd4agnosticdiagnostic.json)*

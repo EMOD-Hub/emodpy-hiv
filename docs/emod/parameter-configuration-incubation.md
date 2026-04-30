@@ -13,4 +13,4 @@ The following parameters determine the characteristics of the incubation period.
 > information to your files. Any keys that are not EMOD parameter names will be ignored by the
 > model.
 
-*See parameter table: [config-incubation-hiv.csv](../csv/config-incubation-hiv.csv)*
+{{ read_csv('../csv/config-incubation-hiv.csv') }}

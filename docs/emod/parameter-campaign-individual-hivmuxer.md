@@ -21,6 +21,6 @@ effectively doubling the rate of leaving the delay.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-hivmuxer.csv](../csv/campaign-hivmuxer.csv)*
+{{ read_csv('../csv/campaign-hivmuxer.csv') }}
 
 *See example: [campaign-hivmuxer.json](../json/campaign-hivmuxer.json)*

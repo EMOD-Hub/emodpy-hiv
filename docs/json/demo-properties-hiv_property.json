@@ -1,33 +1,15 @@
-{
-      "NodeProperties": [
-        {
-          "Property": "InterventionStatus",
-          "Values": [
-            "NONE",
-            "RECENT_SPRAY"
-          ],
-          "Initial_Distribution": [
-            1.0,
-            0.0
-          ]
-        }
-      ]
-    }
-.. code-block:: json
-
-    {
-      "Defaults": {
-        "IndividualProperties": [
-          {
-            "Property": "Age_Bin",
-            "Age_Bin_Edges_In_Years": [
-              0,
-              6,
-              10,
-              20,
-              -1
-            ]
-          }
-        ]
-      }
+{
+  "NodeProperties": [
+    {
+      "Property": "InterventionStatus",
+      "Values": [
+        "NONE",
+        "RECENT_SPRAY"
+      ],
+      "Initial_Distribution": [
+        1.0,
+        0.0
+      ]
     }
+  ]
+}

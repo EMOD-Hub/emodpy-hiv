@@ -1,33 +1,16 @@
-"Name","Type","Min","Max","Default","Description","Example"
-"End_Year","float","1900","2200","2200","The final date (year) at which this set of targeted coverages should be applied (expiration).","[link](../json/campaign-referencetrackingeventcoordinator_end_year.json)"
-"Intervention_Config","json object","NA","NA","NA","The nested JSON of the actual intervention to be distributed by this event coordinator.","[link](../json/campaign-referencetrackingeventcoordinator_intervention_config.json)"
-"Node_Property_Restrictions","array of json objects","NA","NA","NA","A list of the **NodeProperty** key:value pairs, as defined in the demographics file, that nodes must have to be targeted by the intervention. See :ref:`demo-properties` parameters for more information.
-
-You can specify AND and OR combinations of key:value pairs with this parameter.","The following example restricts the intervention to nodes that are urban and medium risk or rural and low risk.
-[link](../json/campaign-referencetrackingeventcoordinator_node_property_restrictions.json)"
-"Property_Restrictions","array of json objects","NA","NA","NA","A list of the **IndividualProperty** key:value pairs, as defined in the demographics file, that individuals must have to be targeted by this intervention. See :ref:`demo-properties` parameters for more information.
-
-To specify AND and OR combinations of key:value pairs, use **Property_Restrictions_Within_Node**. You cannot use both of these parameters in the same event coordinator.","[link](../json/campaign-referencetrackingeventcoordinator_property_restrictions.json)"
-"Property_Restrictions_Within_Node","array of json objects","NA","NA","NA","A list of the **IndividualProperty** key:value pairs, as defined in the demographics file, that individuals must have to be targeted by this intervention. See :ref:`demo-properties` parameters for more information.
-
-This parameter allows you to specify AND and OR combinations of key:value pairs. You may specify individual property restrictions using either this parameter or **Property_Restrictions**, but not both. ","The following example restricts the intervention to individuals who are urban and high risk or urban and medium risk.
-[link](../json/campaign-referencetrackingeventcoordinator_property_restrictions_within_node.json)"
-"Target_Age_Max","float","0","9.3228e+35","9.3228e+35","The upper end of ages targeted for an intervention, in years.","[link](../json/campaign-referencetrackingeventcoordinator_target_age_max.json)"
-"Target_Age_Min","float","-3","9.3228e+35","0","The lower end of ages targeted for an intervention, in years. Used when **Target_Demographic** is set to ExplicitAgeRanges or ExplicitAgeRangesAndGender.","[link](../json/campaign-referencetrackingeventcoordinator_target_age_min.json)"
-"Target_Demographic","enum","NA","NA","Everyone","The target demographic group. Possible values are:
-
-* Everyone
-* ExplicitAgeRanges
-* ExplicitAgeRangesAndGender
-* ExplicitGender
-* ExplicitDiseaseState","[link](../json/campaign-referencetrackingeventcoordinator_target_demographic.json)"
-"Target_Gender","enum","NA","NA","All","Specifies the gender restriction for the intervention. Possible values are:
-
-* Male
-* Female
-* All
-","[link](../json/campaign-referencetrackingeventcoordinator_target_gender.json)"
-"Target_Residents_Only","boolean","0","1","0","When set to true (1), the intervention is only distributed to individuals that began the simulation in the node (i.e. those that claim the node as their residence).","[link](../json/campaign-referencetrackingeventcoordinator_target_residents_only.json)"
-"Targeting_Config","json object","NA","NA","NA","Be more selective of individuals by using the :doc:`parameter-campaign-targeting-config`.","[link](../json/campaign-referencetrackingeventcoordinator_targeting_config.json)"
-"Time_Value_Map","json object","NA","NA","NA","The years (times) and matching values of coverages. This parameter uses InterpolatedValueMap to create a JSON structure containing one array of **Times** and one for **Values**, which allows for a time-variable probability that can take on any shape over time. When queried at a simulation year corresponding to one of the listed **Times**, it returns the corresponding **Value**. The **Times** and **Values** must be of equal length, and can consist of a single value. **Times** must monotonically increase.","[link](../json/campaign-referencetrackingeventcoordinator_time_value_map.json)"
-"Update_Period","float","1","3650","365","The time between distribution updates.","[link](../json/campaign-referencetrackingeventcoordinator_update_period.json)"
+"Name","Example","Type","Min","Max","Default","Description"
+"End_Year","[link](../json/campaign-referencetrackingeventcoordinator_end_year.json)","float","1900","2200","2200","The final date (year) at which this set of targeted coverages should be applied (expiration)."
+"Intervention_Config","[link](../json/campaign-referencetrackingeventcoordinator_intervention_config.json)","json object","NA","NA","NA","The nested JSON of the actual intervention to be distributed by this event coordinator."
+"Node_Property_Restrictions","The following example restricts the intervention to nodes that are urban and medium risk or rural and low risk.
+[link](../json/campaign-referencetrackingeventcoordinator_node_property_restrictions.json)","array of json objects","NA","NA","NA","A list of the **NodeProperty** key:value pairs, as defined in the demographics file, that nodes must have to be targeted by the intervention. See :ref:`demo-properties` parameters for more information.<br> <br> You can specify AND and OR combinations of key:value pairs with this parameter."
+"Property_Restrictions","[link](../json/campaign-referencetrackingeventcoordinator_property_restrictions.json)","array of json objects","NA","NA","NA","A list of the **IndividualProperty** key:value pairs, as defined in the demographics file, that individuals must have to be targeted by this intervention. See :ref:`demo-properties` parameters for more information.<br> <br> To specify AND and OR combinations of key:value pairs, use **Property_Restrictions_Within_Node**. You cannot use both of these parameters in the same event coordinator."
+"Property_Restrictions_Within_Node","The following example restricts the intervention to individuals who are urban and high risk or urban and medium risk.
+[link](../json/campaign-referencetrackingeventcoordinator_property_restrictions_within_node.json)","array of json objects","NA","NA","NA","A list of the **IndividualProperty** key:value pairs, as defined in the demographics file, that individuals must have to be targeted by this intervention. See :ref:`demo-properties` parameters for more information.<br> <br> This parameter allows you to specify AND and OR combinations of key:value pairs. You may specify individual property restrictions using either this parameter or **Property_Restrictions**, but not both."
+"Target_Age_Max","[link](../json/campaign-referencetrackingeventcoordinator_target_age_max.json)","float","0","9.3228e+35","9.3228e+35","The upper end of ages targeted for an intervention, in years."
+"Target_Age_Min","[link](../json/campaign-referencetrackingeventcoordinator_target_age_min.json)","float","-3","9.3228e+35","0","The lower end of ages targeted for an intervention, in years. Used when **Target_Demographic** is set to ExplicitAgeRanges or ExplicitAgeRangesAndGender."
+"Target_Demographic","[link](../json/campaign-referencetrackingeventcoordinator_target_demographic.json)","enum","NA","NA","Everyone","The target demographic group. Possible values are:<br> <br> * Everyone<br> * ExplicitAgeRanges<br> * ExplicitAgeRangesAndGender<br> * ExplicitGender<br> * ExplicitDiseaseState"
+"Target_Gender","[link](../json/campaign-referencetrackingeventcoordinator_target_gender.json)","enum","NA","NA","All","Specifies the gender restriction for the intervention. Possible values are:<br> <br> * Male<br> * Female<br> * All"
+"Target_Residents_Only","[link](../json/campaign-referencetrackingeventcoordinator_target_residents_only.json)","boolean","0","1","0","When set to true (1), the intervention is only distributed to individuals that began the simulation in the node (i.e. those that claim the node as their residence)."
+"Targeting_Config","[link](../json/campaign-referencetrackingeventcoordinator_targeting_config.json)","json object","NA","NA","NA","Be more selective of individuals by using the :doc:`parameter-campaign-targeting-config`."
+"Time_Value_Map","[link](../json/campaign-referencetrackingeventcoordinator_time_value_map.json)","json object","NA","NA","NA","The years (times) and matching values of coverages. This parameter uses InterpolatedValueMap to create a JSON structure containing one array of **Times** and one for **Values**, which allows for a time-variable probability that can take on any shape over time. When queried at a simulation year corresponding to one of the listed **Times**, it returns the corresponding **Value**. The **Times** and **Values** must be of equal length, and can consist of a single value. **Times** must monotonically increase."
+"Update_Period","[link](../json/campaign-referencetrackingeventcoordinator_update_period.json)","float","1","3650","365","The time between distribution updates."

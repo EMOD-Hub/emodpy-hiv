@@ -23,6 +23,6 @@ relationship type, unless modified by the user.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-startnewrelationship.csv](../csv/campaign-startnewrelationship.csv)*
+{{ read_csv('../csv/campaign-startnewrelationship.csv') }}
 
 *See example: [campaign-startnewrelationship.json](../json/campaign-startnewrelationship.json)*

@@ -21,6 +21,6 @@ all available parameters for this event coordinator.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-nchoosereventcoordinatorsti.csv](../csv/campaign-nchoosereventcoordinatorsti.csv)*
+{{ read_csv('../csv/campaign-nchoosereventcoordinatorsti.csv') }}
 
 *See example: [campaign-nchoosereventcoordinatorsti.json](../json/campaign-nchoosereventcoordinatorsti.json)*

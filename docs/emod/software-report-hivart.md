@@ -16,4 +16,4 @@ The output report will contain the following information.
 
 The following is an example of a ReportHIVART.csv report:
 
-*See parameter table: [ReportHIVART-Example.csv](ReportHIVART-Example.csv)*
+{{ read_csv('ReportHIVART-Example.csv') }}

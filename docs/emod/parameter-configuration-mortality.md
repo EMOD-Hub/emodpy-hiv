@@ -14,4 +14,4 @@ and the population in general (non-disease mortality).
 > information to your files. Any keys that are not EMOD parameter names will be ignored by the
 > model.
 
-*See parameter table: [config-mortality-hiv.csv](../csv/config-mortality-hiv.csv)*
+{{ read_csv('../csv/config-mortality-hiv.csv') }}

@@ -16,6 +16,6 @@ The **BroadcastCoordinatorEvent** coordinator class broadcasts the event you spe
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-broadcastcoordinatorevent.csv](../csv/campaign-broadcastcoordinatorevent.csv)*
+{{ read_csv('../csv/campaign-broadcastcoordinatorevent.csv') }}
 
 *See example: [campaign-broadcastcoordinatorevent.json](../json/campaign-broadcastcoordinatorevent.json)*

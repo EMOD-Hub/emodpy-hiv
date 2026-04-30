@@ -1,29 +1,11 @@
-{
-        "Society": {
-            "Concurrency_Configuration": {
-                "Probability_Person_Is_Behavioral_Super_Spreader": 0,
-                "Individual_Property_Name": "NONE",
-                "NONE": {
-                    "Extra_Relational_Flag_Type": "Independent"
-                }
-            }
-        }
-    }
-
-The following example sets different extra-relational flag types to low-risk and high-risk groups.
-
-.. code-block:: json
-
-    {
-        "Society": {
-            "Concurrency_Configuration": {
-                "Individual_Property_Name": "Risk",
-                "LOW": {
-                    "Extra_Relational_Flag_Type": "Independent"
-                },
-                "HIGH": {
-                    "Extra_Relational_Flag_Type": "Correlated"
-                }
-            }
-        }
+{
+  "Society": {
+    "Concurrency_Configuration": {
+      "Probability_Person_Is_Behavioral_Super_Spreader": 0,
+      "Individual_Property_Name": "NONE",
+      "NONE": {
+        "Extra_Relational_Flag_Type": "Independent"
+      }
     }
+  }
+}

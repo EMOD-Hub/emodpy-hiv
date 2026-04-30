@@ -1,12 +1,7 @@
-"Name","Type","Min","Max","Default","Description","Example"
-"Disqualifying_Properties","array of strings","NA","NA","[]","A list of **NodeProperty** key:value pairs that causes the intervention not to be distributed to the node or aborted (stopped before it could be applied). See :ref:`demo-properties` parameters for more information.","[link](../json/campaign-relationshipformationratechanger_disqualifying_properties.json)"
-"Dont_Allow_Duplicates","boolean","0","1","0","If a node's container has an intervention, set to true (1) to prevent it from receiving another copy of the intervention. Supported by all intervention classes.","[link](../json/campaign-relationshipformationratechanger_dont_allow_duplicates.json)"
-"Intervention_Name","string","NA","NA","RelationshipFormationRateChanger","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.","[link](../json/campaign-relationshipformationratechanger_intervention_name.json)"
-"New_Property_Value","string","NA","NA","""""","An optional **NodeProperty** key:value pair that will be assigned when the intervention is applied. See :ref:`demo-properties` parameters for more information.","[link](../json/campaign-relationshipformationratechanger_new_property_value.json)"
-"Overriding_Formation_Rate","float","0","1","0.001","The constant formation rate to start using for the relationships in the node of the selected type. Assumes the node is configured with **Formation_Rate_Type** set to 'CONSTANT'.","[link](../json/campaign-relationshipformationratechanger_overriding_formation_rate.json)"
-"Relationship_Type","enum","NA","NA","TRANSITORY","Change the behavior of the relationships for this type of relationship in this node. Possible values are:
-
-* TRANSITORY
-* INFORMAL
-* MARITAL
-* COMMERCIAL","[link](../json/campaign-relationshipformationratechanger_relationship_type.json)"
+"Name","Example","Type","Min","Max","Default","Description"
+"Disqualifying_Properties","[link](../json/campaign-relationshipformationratechanger_disqualifying_properties.json)","array of strings","NA","NA","[]","A list of **NodeProperty** key:value pairs that causes the intervention not to be distributed to the node or aborted (stopped before it could be applied). See :ref:`demo-properties` parameters for more information."
+"Dont_Allow_Duplicates","[link](../json/campaign-relationshipformationratechanger_dont_allow_duplicates.json)","boolean","0","1","0","If a node's container has an intervention, set to true (1) to prevent it from receiving another copy of the intervention. Supported by all intervention classes."
+"Intervention_Name","[link](../json/campaign-relationshipformationratechanger_intervention_name.json)","string","NA","NA","RelationshipFormationRateChanger","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class."
+"New_Property_Value","[link](../json/campaign-relationshipformationratechanger_new_property_value.json)","string","NA","NA","""""","An optional **NodeProperty** key:value pair that will be assigned when the intervention is applied. See :ref:`demo-properties` parameters for more information."
+"Overriding_Formation_Rate","[link](../json/campaign-relationshipformationratechanger_overriding_formation_rate.json)","float","0","1","0.001","The constant formation rate to start using for the relationships in the node of the selected type. Assumes the node is configured with **Formation_Rate_Type** set to 'CONSTANT'."
+"Relationship_Type","[link](../json/campaign-relationshipformationratechanger_relationship_type.json)","enum","NA","NA","TRANSITORY","Change the behavior of the relationships for this type of relationship in this node. Possible values are:<br> <br> * TRANSITORY<br> * INFORMAL<br> * MARITAL<br> * COMMERCIAL"

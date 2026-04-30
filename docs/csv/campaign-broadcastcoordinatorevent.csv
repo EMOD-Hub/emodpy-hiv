@@ -1,4 +1,4 @@
-"Name","Type","Min","Max","Default","Description","Example"
-"Broadcast_Event","string","NA","NA","""""","The name of the event to be broadcast. This event must be set in the **Custom_Coordinator_Events** configuration parameter. This cannot be assigned an empty string for the event.","[link](../json/campaign-broadcastcoordinatorevent_broadcast_event.json)"
-"Coordinator_Name","string","NA","NA","NA","The unique identifying coordinator name, which is useful with the output report, ReportCoordinatorEventRecorder.csv.","[link](../json/campaign-broadcastcoordinatorevent_coordinator_name.json)"
-"Cost_To_Consumer","float","0","3.40282e+38","0","The unit cost of broadcasting the event.","[link](../json/campaign-broadcastcoordinatorevent_cost_to_consumer.json)"
+"Name","Example","Type","Min","Max","Default","Description"
+"Broadcast_Event","[link](../json/campaign-broadcastcoordinatorevent_broadcast_event.json)","string","NA","NA","""""","The name of the event to be broadcast. This event must be set in the **Custom_Coordinator_Events** configuration parameter. This cannot be assigned an empty string for the event."
+"Coordinator_Name","[link](../json/campaign-broadcastcoordinatorevent_coordinator_name.json)","string","NA","NA","NA","The unique identifying coordinator name, which is useful with the output report, ReportCoordinatorEventRecorder.csv."
+"Cost_To_Consumer","[link](../json/campaign-broadcastcoordinatorevent_cost_to_consumer.json)","float","0","3.40282e+38","0","The unit cost of broadcasting the event."

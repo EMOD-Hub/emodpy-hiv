@@ -19,6 +19,6 @@ coordinators that were designed to distribute one intervention to instead distri
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-multinodeinterventiondistributor.csv](../csv/campaign-multinodeinterventiondistributor.csv)*
+{{ read_csv('../csv/campaign-multinodeinterventiondistributor.csv') }}
 
 *See example: [campaign-multinodeinterventiondistributor.json](../json/campaign-multinodeinterventiondistributor.json)*

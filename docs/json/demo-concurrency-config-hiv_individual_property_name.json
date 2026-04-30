@@ -1,32 +1,14 @@
-{
-        "Society": {
-            "Concurrency_Configuration": {
-                "Probability_Person_Is_Behavioral_Super_Spreader": 0,
-                "Individual_Property_Name": "Risk",
-                "LOW": {
-                    "Extra_Relational_Flag_Type": "Independent"
-                },
-                "HIGH": {
-                    "Extra_Relational_Flag_Type": "Correlated"
-                }
-            }
-        }
-    }
-
-The following example configures the same concurrency settings for all individuals.
-
-.. code-block:: json
-
-    {
-        "Society": {
-            "Concurrency_Configuration": {
-                "Individual_Property_Name": "NONE",
-                "NONE": {
-                    "Max_Simultaneous_Relationships_Female": 4,
-                    "Max_Simultaneous_Relationships_Male": 4,
-                    "Prob_Extra_Relationship_Female": 1,
-                    "Prob_Extra_Relationship_Male": 1
-                }
-            }
-        }
+{
+  "Society": {
+    "Concurrency_Configuration": {
+      "Probability_Person_Is_Behavioral_Super_Spreader": 0,
+      "Individual_Property_Name": "Risk",
+      "LOW": {
+        "Extra_Relational_Flag_Type": "Independent"
+      },
+      "HIGH": {
+        "Extra_Relational_Flag_Type": "Correlated"
+      }
     }
+  }
+}

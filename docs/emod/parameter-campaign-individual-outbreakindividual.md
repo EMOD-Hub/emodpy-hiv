@@ -18,6 +18,6 @@ in the appropriate event coordinator. To instead add new infection individuals, 
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-outbreakindividual.csv](../csv/campaign-outbreakindividual.csv)*
+{{ read_csv('../csv/campaign-outbreakindividual.csv') }}
 
 *See example: [campaign-outbreakindividual.json](../json/campaign-outbreakindividual.json)*

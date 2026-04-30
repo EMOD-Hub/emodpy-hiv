@@ -14,4 +14,4 @@ relationship duration, age gaps, and any gender differences in those characteris
 > information to your files. Any keys that are not EMOD parameter names will be ignored by the
 > model.
 
-*See parameter table: [config-pairs-hiv.csv](../csv/config-pairs-hiv.csv)*
+{{ read_csv('../csv/config-pairs-hiv.csv') }}

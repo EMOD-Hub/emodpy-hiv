@@ -1,48 +1,14 @@
-{
-        "Society": {
-            "TRANSITORY": {
-                "Concurrency_Parameters": {
-                    "NONE": {
-                        "Max_Simultaneous_Relationships_Female": 2,
-                        "Max_Simultaneous_Relationships_Male": 2,
-                        "Prob_Extra_Relationship_Female": 0.3,
-                        "Prob_Extra_Relationship_Male": 0.3
-                    }
-                }
-            }
-        }
-    }
-
-The following example sets different concurrency parameters for low-risk and high-risk individuals in transitory relationships.
-
-.. code-block:: json
-
-    {
-        "Society": {
-            "Concurrency_Configuration": {
-                "Individual_Property_Name": "Risk",
-                "LOW": {
-                    "Extra_Relational_Flag_Type": "Independent"
-                },
-                "HIGH": {
-                    "Extra_Relational_Flag_Type": "Correlated"
-                }
-            },
-            "TRANSITORY": {
-                "Concurrency_Parameters": {
-                    "LOW": {
-                        "Max_Simultaneous_Relationships_Female": 2,
-                        "Max_Simultaneous_Relationships_Male": 2,
-                        "Prob_Extra_Relationship_Female": 0.3,
-                        "Prob_Extra_Relationship_Male": 0.3
-                    },
-                    "HIGH": {
-                        "Max_Simultaneous_Relationships_Female": 3,
-                        "Max_Simultaneous_Relationships_Male": 5,
-                        "Prob_Extra_Relationship_Female": 0.5,
-                        "Prob_Extra_Relationship_Male": 0.7
-                    }
-                }
-            }
-        }
+{
+  "Society": {
+    "TRANSITORY": {
+      "Concurrency_Parameters": {
+        "NONE": {
+          "Max_Simultaneous_Relationships_Female": 2,
+          "Max_Simultaneous_Relationships_Male": 2,
+          "Prob_Extra_Relationship_Female": 0.3,
+          "Prob_Extra_Relationship_Male": 0.3
+        }
+      }
     }
+  }
+}

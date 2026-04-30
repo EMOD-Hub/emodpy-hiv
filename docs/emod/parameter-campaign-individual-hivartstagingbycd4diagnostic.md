@@ -20,6 +20,6 @@ instead of CD4 testing, use [parameter-campaign-individual-hivartstagingcd4agnos
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-hivartstagingbycd4diagnostic.csv](../csv/campaign-hivartstagingbycd4diagnostic.csv)*
+{{ read_csv('../csv/campaign-hivartstagingbycd4diagnostic.csv') }}
 
 *See example: [campaign-hivartstagingbycd4diagnostic.json](../json/campaign-hivartstagingbycd4diagnostic.json)*

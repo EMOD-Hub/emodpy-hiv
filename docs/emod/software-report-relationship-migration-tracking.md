@@ -37,4 +37,4 @@ The output report will contain the following information.
 
 The following is an example of a ReportRelationshipMigrationTracking.csv file.
 
-*See parameter table: [ReportRelationshipMigrationTracking-Example.csv](ReportRelationshipMigrationTracking-Example.csv)*
+{{ read_csv('ReportRelationshipMigrationTracking-Example.csv') }}

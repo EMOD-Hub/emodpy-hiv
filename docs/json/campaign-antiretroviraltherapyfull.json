@@ -24,7 +24,7 @@
                         "ART_Survival_Hazard_Ratio_Female": 0.6775,
                         "Stop_ART_Event": "My_Custom_Event",
                         "Time_On_ART_Constant": 6,
-                        "Time_On_ART_Distribution" : "CONSTANT_DISTRIBUTION"
+                        "Time_On_ART_Distribution": "CONSTANT_DISTRIBUTION"
                     }
                 }
             }

@@ -20,6 +20,6 @@ can be designated, and linear interpolation will be used to calculate values bet
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-individualnondiseasedeathratemodifier.csv](../csv/campaign-individualnondiseasedeathratemodifier.csv)*
+{{ read_csv('../csv/campaign-individualnondiseasedeathratemodifier.csv') }}
 
 *See example: [campaign-individualnondiseasedeathratemodifier.json](../json/campaign-individualnondiseasedeathratemodifier.json)*

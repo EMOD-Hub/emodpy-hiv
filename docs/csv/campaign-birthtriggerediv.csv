@@ -1,36 +1,17 @@
-"Name","Type","Min","Max","Default","Description","Example"
-"Actual_IndividualIntervention_Config","json object","NA","NA","NA","The configuration of an actual individual intervention sought. Selects a class for the intervention and configures the parameters specific for that intervention class.","[link](../json/campaign-birthtriggerediv_actual_individualintervention_config.json)"
-"Demographic_Coverage","float","0","1","1","The fraction of individuals in the target demographic that will receive this intervention.","[link](../json/campaign-birthtriggerediv_demographic_coverage.json)"
-"Disqualifying_Properties","array of strings","NA","NA","[]","A list of **NodeProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to nodes with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.","[link](../json/campaign-birthtriggerediv_disqualifying_properties.json)"
-"Dont_Allow_Duplicates","boolean","0","1","0","If an individual's container has an intervention, set to true (1) to prevent them from receiving another copy of the intervention. Supported by all intervention classes.","[link](../json/campaign-birthtriggerediv_dont_allow_duplicates.json)"
-"Duration","float","-1","3.40282e+38","-1","The number of days to continue this intervention. 
-
-.. Note::
-
-  For **BirthTriggeredIV**, specifying a value of -1 results in indefinite persistence of the birth-triggered intervention.","[link](../json/campaign-birthtriggerediv_duration.json)"
-"Intervention_Name","string","NA","NA","BirthTriggeredIV","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.","[link](../json/campaign-birthtriggerediv_intervention_name.json)"
-"New_Property_Value","string","NA","NA","""""","An optional **NodeProperty** key:value pair that will be assigned when the intervention is applied. See :ref:`demo-properties` parameters for more information.","[link](../json/campaign-birthtriggerediv_new_property_value.json)"
-"Property_Restrictions","array of json objects","NA","NA","NA","A list of the **IndividualProperty** key:value pairs, as defined in the demographics file, that individuals must have to be targeted by this intervention. See :ref:`demo-properties` parameters for more information.
-
-To specify AND and OR combinations of key:value pairs, use **Property_Restrictions_Within_Node**. You cannot use both of these parameters in the same event coordinator.","[link](../json/campaign-birthtriggerediv_property_restrictions.json)"
-"Property_Restrictions_Within_Node","array of json objects","NA","NA","NA","A list of the **IndividualProperty** key:value pairs, as defined in the demographics file, that individuals must have to be targeted by this intervention. See :ref:`demo-properties` parameters for more information.
-
-This parameter allows you to specify AND and OR combinations of key:value pairs. You may specify individual property restrictions using either this parameter or **Property_Restrictions**, but not both. ","The following example restricts the intervention to individuals who are urban and high risk or urban and medium risk.
-[link](../json/campaign-birthtriggerediv_property_restrictions_within_node.json)"
-"Target_Age_Max","float","0","9.3228e+35","9.3228e+35","The upper end of ages targeted for an intervention, in years. Used when **Target_Demographic** is set to ExplicitAgeRanges or ExplicitAgeRangesAndGender.","[link](../json/campaign-birthtriggerediv_target_age_max.json)"
-"Target_Age_Min","float","0","9.3228e+35","0","The lower end of ages targeted for an intervention, in years. Used when **Target_Demographic** is set to ExplicitAgeRanges or ExplicitAgeRangesAndGender.","[link](../json/campaign-birthtriggerediv_target_age_min.json)"
-"Target_Demographic","enum","NA","NA","Everyone","The target demographic group. Possible values are:
-
-* Everyone
-* ExplicitAgeRanges
-* ExplicitAgeRangesAndGender
-* ExplicitGender
-* ExplicitDiseaseState","[link](../json/campaign-birthtriggerediv_target_demographic.json)"
-"Target_Gender","enum","NA","NA","All","Specifies the gender restriction for the intervention. Possible values are:
-
-* Male
-* Female
-* All
-","[link](../json/campaign-birthtriggerediv_target_gender.json)"
-"Target_Residents_Only","boolean","0","1","0","When set to true (1), the intervention is only distributed to individuals that began the simulation in the node (i.e. those that claim the node as their residence).","[link](../json/campaign-birthtriggerediv_target_residents_only.json)"
-"Targeting_Config","json object","NA","NA","NA","Be more selective of individuals by using the :doc:`parameter-campaign-targeting-config`.","[link](../json/campaign-birthtriggerediv_targeting_config.json)"
+"Name","Example","Type","Min","Max","Default","Description"
+"Actual_IndividualIntervention_Config","[link](../json/campaign-birthtriggerediv_actual_individualintervention_config.json)","json object","NA","NA","NA","The configuration of an actual individual intervention sought. Selects a class for the intervention and configures the parameters specific for that intervention class."
+"Demographic_Coverage","[link](../json/campaign-birthtriggerediv_demographic_coverage.json)","float","0","1","1","The fraction of individuals in the target demographic that will receive this intervention."
+"Disqualifying_Properties","[link](../json/campaign-birthtriggerediv_disqualifying_properties.json)","array of strings","NA","NA","[]","A list of **NodeProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to nodes with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time."
+"Dont_Allow_Duplicates","[link](../json/campaign-birthtriggerediv_dont_allow_duplicates.json)","boolean","0","1","0","If an individual's container has an intervention, set to true (1) to prevent them from receiving another copy of the intervention. Supported by all intervention classes."
+"Duration","[link](../json/campaign-birthtriggerediv_duration.json)","float","-1","3.40282e+38","-1","The number of days to continue this intervention. <br> <br> .. Note::<br> <br> For **BirthTriggeredIV**, specifying a value of -1 results in indefinite persistence of the birth-triggered intervention."
+"Intervention_Name","[link](../json/campaign-birthtriggerediv_intervention_name.json)","string","NA","NA","BirthTriggeredIV","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class."
+"New_Property_Value","[link](../json/campaign-birthtriggerediv_new_property_value.json)","string","NA","NA","""""","An optional **NodeProperty** key:value pair that will be assigned when the intervention is applied. See :ref:`demo-properties` parameters for more information."
+"Property_Restrictions","[link](../json/campaign-birthtriggerediv_property_restrictions.json)","array of json objects","NA","NA","NA","A list of the **IndividualProperty** key:value pairs, as defined in the demographics file, that individuals must have to be targeted by this intervention. See :ref:`demo-properties` parameters for more information.<br> <br> To specify AND and OR combinations of key:value pairs, use **Property_Restrictions_Within_Node**. You cannot use both of these parameters in the same event coordinator."
+"Property_Restrictions_Within_Node","The following example restricts the intervention to individuals who are urban and high risk or urban and medium risk.
+[link](../json/campaign-birthtriggerediv_property_restrictions_within_node.json)","array of json objects","NA","NA","NA","A list of the **IndividualProperty** key:value pairs, as defined in the demographics file, that individuals must have to be targeted by this intervention. See :ref:`demo-properties` parameters for more information.<br> <br> This parameter allows you to specify AND and OR combinations of key:value pairs. You may specify individual property restrictions using either this parameter or **Property_Restrictions**, but not both."
+"Target_Age_Max","[link](../json/campaign-birthtriggerediv_target_age_max.json)","float","0","9.3228e+35","9.3228e+35","The upper end of ages targeted for an intervention, in years. Used when **Target_Demographic** is set to ExplicitAgeRanges or ExplicitAgeRangesAndGender."
+"Target_Age_Min","[link](../json/campaign-birthtriggerediv_target_age_min.json)","float","0","9.3228e+35","0","The lower end of ages targeted for an intervention, in years. Used when **Target_Demographic** is set to ExplicitAgeRanges or ExplicitAgeRangesAndGender."
+"Target_Demographic","[link](../json/campaign-birthtriggerediv_target_demographic.json)","enum","NA","NA","Everyone","The target demographic group. Possible values are:<br> <br> * Everyone<br> * ExplicitAgeRanges<br> * ExplicitAgeRangesAndGender<br> * ExplicitGender<br> * ExplicitDiseaseState"
+"Target_Gender","[link](../json/campaign-birthtriggerediv_target_gender.json)","enum","NA","NA","All","Specifies the gender restriction for the intervention. Possible values are:<br> <br> * Male<br> * Female<br> * All"
+"Target_Residents_Only","[link](../json/campaign-birthtriggerediv_target_residents_only.json)","boolean","0","1","0","When set to true (1), the intervention is only distributed to individuals that began the simulation in the node (i.e. those that claim the node as their residence)."
+"Targeting_Config","[link](../json/campaign-birthtriggerediv_targeting_config.json)","json object","NA","NA","NA","Be more selective of individuals by using the :doc:`parameter-campaign-targeting-config`."

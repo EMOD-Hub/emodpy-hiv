@@ -20,6 +20,6 @@ of drugs  and node-level interventions could be spraying houses with insecticide
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-*See parameter table: [campaign-communityhealthworkereventcoordinator.csv](../csv/campaign-communityhealthworkereventcoordinator.csv)*
+{{ read_csv('../csv/campaign-communityhealthworkereventcoordinator.csv') }}
 
 *See example: [campaign-communityhealthworkereventcoordinator.json](../json/campaign-communityhealthworkereventcoordinator.json)*

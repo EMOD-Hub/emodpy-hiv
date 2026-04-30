@@ -17,4 +17,4 @@ The file contains the following data channels:
 
 The following is an example of ReportHumanMigrationTracking.csv.
 
-*See parameter table: [reporthumanmigration.csv](reporthumanmigration.csv)*
+{{ read_csv('reporthumanmigration.csv') }}

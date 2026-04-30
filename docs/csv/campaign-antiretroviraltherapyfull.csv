@@ -1,74 +1,38 @@
-"Name","Type","Min","Max","Default","Description","Example"
-"ART_CD4_at_Initiation_Saturating_Reduction_in_Mortality","float","0","3.40282e+38","350","The duration from ART enrollment to on-ART HIV-cause death increases with CD4 at ART initiation up to a threshold determined by this parameter value. This is the maximum value that CD4 is allowed to have in the hazard ratio calculation for CD4.","[link](../json/campaign-antiretroviraltherapyfull_art_cd4_at_initiation_saturating_reduction_in_mortality.json)"
-"ART_Is_Active_Against_Mortality_And_Transmission","boolean","0","1","1","If set to true (1), ART will suppress viral load and extend prognosis.","[link](../json/campaign-antiretroviraltherapyfull_art_is_active_against_mortality_and_transmission.json)"
-"ART_Multiplier_On_Transmission_Prob_Per_Act","float","0","1","0.08","Multiplier acting on Base_Infectivity to determine the per-act transmission probability of a virally suppressed HIV+ individual.","[link](../json/campaign-antiretroviraltherapyfull_art_multiplier_on_transmission_prob_per_act.json)"
-"ART_Survival_Baseline_Hazard_Weibull_Scale","float","1e-06","1e+06","123.83","Scale parameter for a Weibull distribution of survival time in years for a male < 40 with WHO stage of 1 or 2 starting ART (base case).","[link](../json/campaign-antiretroviraltherapyfull_art_survival_baseline_hazard_weibull_scale.json)"
-"ART_Survival_Baseline_Hazard_Weibull_Shape","float","0","10","0.34","Shape parameter for a Weibull distribution of survival time in years for a male < 40 with WHO stage of 1 or 2 starting ART (base case).","[link](../json/campaign-antiretroviraltherapyfull_art_survival_baseline_hazard_weibull_shape.json)"
-"ART_Survival_Hazard_Ratio_Age_Over_40Yr","float","1e-06","1e+06","1.4309","The hazard ratio comparing the survival time of those starting ART over 40 years of age compared to those starting ART <40 years.","[link](../json/campaign-antiretroviraltherapyfull_art_survival_hazard_ratio_age_over_40yr.json)"
-"ART_Survival_Hazard_Ratio_Body_Weight_Kg_Intercept","float","1e-06","1e+06","3.05043","The Y-intercept to use when calculating the hazard ratio for the person's body weight. 
-
-The body weight is determined by WHO stage:
-
-* WHO Stage 0 = 65.0 kg
-* WHO Stage 1-2 = 62.1 kg
-* WHO Stage 2-3 = 57.0 kg
-* WHO Stage 3-4 = 50.0 kg
-* WHO Stage 4+ = 40.1 kg
-
-multiplier = exp(weight_slope * weight + weight_intercept)","[link](../json/campaign-antiretroviraltherapyfull_art_survival_hazard_ratio_body_weight_kg_intercept.json)"
-"ART_Survival_Hazard_Ratio_Body_Weight_Kg_Slope","float","1e-06","1e+06","-0.073153","The slope to use when calculating the hazard ratio for the person's body weight.
-
-The body weight is determined by WHO stage:
-
-* WHO Stage 0 = 65.0 kg
-* WHO Stage 1-2 = 62.1 kg
-* WHO Stage 2-3 = 57.0 kg
-* WHO Stage 3-4 = 50.0 kg
-* WHO Stage 4+ = 40.1 kg
-
-multiplier = exp(weight_slope * weight + weight_intercept)","[link](../json/campaign-antiretroviraltherapyfull_art_survival_hazard_ratio_body_weight_kg_slope.json)"
-"ART_Survival_Hazard_Ratio_CD4_Intercept","float","1e-06","1e+06","0.282852","The Y-intercept to use when calculating the hazard ratio for the person based on their CD4 count.
-
-multiplier = exp(cd4_slope * cd4 + cd4_intercept)","[link](../json/campaign-antiretroviraltherapyfull_art_survival_hazard_ratio_cd4_intercept.json)"
-"ART_Survival_Hazard_Ratio_CD4_Slope","float","1e-06","1e+06","-0.00758256","The slope value to sue when calculating the hazard for for the person based on their CD4 count.
-
-multiplier = exp(cd4_slope * cd4 + cd4_intercept)
-","[link](../json/campaign-antiretroviraltherapyfull_art_survival_hazard_ratio_cd4_slope.json)"
-"ART_Survival_Hazard_Ratio_Female","float","1e-06","1e+06","0.6775","The hazard ratio comparing survival female to male survival for those starting ART.","[link](../json/campaign-antiretroviraltherapyfull_art_survival_hazard_ratio_female.json)"
-"ART_Survival_Hazard_Ratio_WHO_Stage_3Plus","float","1e-06","1e+06","2.7142","The hazard ratio comparing those starting ART in WHO stage >= 3 to those in WHO stage < 3.","[link](../json/campaign-antiretroviraltherapyfull_art_survival_hazard_ratio_who_stage_3plus.json)"
-"ART_Survival_WHO_Stage_Threshold_For_Cox","float","0","5","3","If the person receiving ART has a WHO Stage greater than or equal to this threshold, then use the hazard ratio determined by the parameter **ART_Survival_Hazard_Ratio_WHO_Stage_3Plus**.","[link](../json/campaign-antiretroviraltherapyfull_art_survival_who_stage_threshold_for_cox.json)"
-"Cost_To_Consumer","float","0","99999","1","Unit cost per drug (unamortized).","[link](../json/campaign-antiretroviraltherapyfull_cost_to_consumer.json)"
-"Days_To_Achieve_Viral_Suppression","float","0","3.40282e+38","183","The number of days after ART initiation over which infectiousness declines linearly until the **ART_Multiplier_On_Transmission_Prob_Per_Act** takes full effect.","[link](../json/campaign-antiretroviraltherapyfull_days_to_achieve_viral_suppression.json)"
-"Disqualifying_Properties","array of strings","NA","NA","[]","A list of **IndividualProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to individuals with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.","[link](../json/campaign-antiretroviraltherapyfull_disqualifying_properties.json)"
-"Dont_Allow_Duplicates","boolean","0","1","0","If an individual's container has an intervention, set to true (1) to prevent them from receiving another copy of the intervention. Supported by all intervention classes.","[link](../json/campaign-antiretroviraltherapyfull_dont_allow_duplicates.json)"
-"Intervention_Name","string","NA","NA","AntiretroviralTherapyFull","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.","[link](../json/campaign-antiretroviraltherapyfull_intervention_name.json)"
-"New_Property_Value","string","NA","NA","""""","An optional **IndividualProperty** key:value pair that will be assigned when the intervention is distributed. See :ref:`demo-properties` parameters for more information. Generally used to indicate the broad category of health care cascade to which an intervention belongs to prevent individuals from accessing care through multiple pathways. For example, if an individual must already be taking a particular medication to be prescribed a new one. ","[link](../json/campaign-antiretroviraltherapyfull_new_property_value.json)"
-"Stop_ART_Event","string","NA","NA","""""","This event is broadcasted when the person drops off ART. This could happen either via the timer running out or the intervention detected a disqualifying property.  See :doc:`parameter-campaign-event-list` for possible values or define custom events by adding to the list for the configuration parameter **Custom_Individual_Event**.","[link](../json/campaign-antiretroviraltherapyfull_stop_art_event.json)"
-"Time_On_ART_Constant","float","0","3.40282e+38","6","Each instance will receive this constant/fixed value.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_constant.json)"
-"Time_On_ART_Distribution","enum","NA","NA","NOT_INITIALIZED","The type of distribution to use when determine how long a person will be on ART. Possible values are:
-
-* NOT_INITIALIZED
-* CONSTANT_DISTRIBUTION
-* UNIFORM_DISTRIBUTION
-* GAUSSIAN_DISTRIBUTION
-* EXPONENTIAL_DISTRIBUTION
-* POISSON_DISTRIBUTION
-* LOG_NORMAL_DISTRIBUTION
-* DUAL_CONSTANT_DISTRIBUTION
-* WEIBULL_DISTRIBUTION
-* DUAL_EXPONENTIAL_DISTRIBUTION","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_distribution.json)"
-"Time_On_ART_Exponential","float","0","3.40282e+38","6","The mean for an exponential distribution.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_exponential.json)"
-"Time_On_ART_Gaussian_Mean","float","0","3.40282e+38","6","The mean for a Gaussian distribution.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_gaussian_mean.json)"
-"Time_On_ART_Gaussian_Std_Dev","float","1.17549e-38","3.40282e+38","1","The standard deviation for a Gaussian distribution.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_gaussian_std_dev.json)"
-"Time_On_ART_Kappa","float","1.17549e-38","3.40282e+38","1","The shape value in a Weibull distribution.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_kappa.json)"
-"Time_On_ART_Lambda","float","1.17549e-38","3.40282e+38","1","The scale value in a Weibull distribution.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_lambda.json)"
-"Time_On_ART_Log_Normal_Mu","float","-3.40282e+38","3.40282e+38","6","The mean for a log-normal distribution.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_log_normal_mu.json)"
-"Time_On_ART_Log_Normal_Sigma","float","-3.40282e+38","3.40282e+38","1","The width for a log-normal distribution.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_log_normal_sigma.json)"
-"Time_On_ART_Max","float","0","3.40282e+38","1","The maximum of the uniform distribution.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_max.json)"
-"Time_On_ART_Mean_1","float","1.17549e-38","3.40282e+38","1","The mean of the first exponential distribution.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_mean_1.json)"
-"Time_On_ART_Mean_2","float","1.17549e-38","3.40282e+38","1","The mean of the second exponential distribution.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_mean_2.json)"
-"Time_On_ART_Min","float","0","3.40282e+38","0","The minimum of the uniform distribution.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_min.json)"
-"Time_On_ART_Peak_2_Value","float","0","3.40282e+38","1","The value to assign to the remaining individuals.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_peak_2_value.json)"
-"Time_On_ART_Poisson_Mean","float","0","3.40282e+38","6","The mean for a Poisson distribution.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_poisson_mean.json)"
-"Time_On_ART_Proportion_0","float","0","1","1","The proportion of individuals to assign a value of zero.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_proportion_0.json)"
-"Time_On_ART_Proportion_1","float","0","1","1","The proportion of individuals in the first exponential distribution.","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_proportion_1.json)"
+"Name","Example","Type","Min","Max","Default","Description"
+"ART_CD4_at_Initiation_Saturating_Reduction_in_Mortality","[link](../json/campaign-antiretroviraltherapyfull_art_cd4_at_initiation_saturating_reduction_in_mortality.json)","float","0","3.40282e+38","350","The duration from ART enrollment to on-ART HIV-cause death increases with CD4 at ART initiation up to a threshold determined by this parameter value. This is the maximum value that CD4 is allowed to have in the hazard ratio calculation for CD4."
+"ART_Is_Active_Against_Mortality_And_Transmission","[link](../json/campaign-antiretroviraltherapyfull_art_is_active_against_mortality_and_transmission.json)","boolean","0","1","1","If set to true (1), ART will suppress viral load and extend prognosis."
+"ART_Multiplier_On_Transmission_Prob_Per_Act","[link](../json/campaign-antiretroviraltherapyfull_art_multiplier_on_transmission_prob_per_act.json)","float","0","1","0.08","Multiplier acting on Base_Infectivity to determine the per-act transmission probability of a virally suppressed HIV+ individual."
+"ART_Survival_Baseline_Hazard_Weibull_Scale","[link](../json/campaign-antiretroviraltherapyfull_art_survival_baseline_hazard_weibull_scale.json)","float","1e-06","1e+06","123.83","Scale parameter for a Weibull distribution of survival time in years for a male < 40 with WHO stage of 1 or 2 starting ART (base case)."
+"ART_Survival_Baseline_Hazard_Weibull_Shape","[link](../json/campaign-antiretroviraltherapyfull_art_survival_baseline_hazard_weibull_shape.json)","float","0","10","0.34","Shape parameter for a Weibull distribution of survival time in years for a male < 40 with WHO stage of 1 or 2 starting ART (base case)."
+"ART_Survival_Hazard_Ratio_Age_Over_40Yr","[link](../json/campaign-antiretroviraltherapyfull_art_survival_hazard_ratio_age_over_40yr.json)","float","1e-06","1e+06","1.4309","The hazard ratio comparing the survival time of those starting ART over 40 years of age compared to those starting ART <40 years."
+"ART_Survival_Hazard_Ratio_Body_Weight_Kg_Intercept","[link](../json/campaign-antiretroviraltherapyfull_art_survival_hazard_ratio_body_weight_kg_intercept.json)","float","1e-06","1e+06","3.05043","The Y-intercept to use when calculating the hazard ratio for the person's body weight. <br> <br> The body weight is determined by WHO stage:<br> <br> * WHO Stage 0 = 65.0 kg<br> * WHO Stage 1-2 = 62.1 kg<br> * WHO Stage 2-3 = 57.0 kg<br> * WHO Stage 3-4 = 50.0 kg<br> * WHO Stage 4+ = 40.1 kg<br> <br> multiplier = exp(weight_slope * weight + weight_intercept)"
+"ART_Survival_Hazard_Ratio_Body_Weight_Kg_Slope","[link](../json/campaign-antiretroviraltherapyfull_art_survival_hazard_ratio_body_weight_kg_slope.json)","float","1e-06","1e+06","-0.073153","The slope to use when calculating the hazard ratio for the person's body weight.<br> <br> The body weight is determined by WHO stage:<br> <br> * WHO Stage 0 = 65.0 kg<br> * WHO Stage 1-2 = 62.1 kg<br> * WHO Stage 2-3 = 57.0 kg<br> * WHO Stage 3-4 = 50.0 kg<br> * WHO Stage 4+ = 40.1 kg<br> <br> multiplier = exp(weight_slope * weight + weight_intercept)"
+"ART_Survival_Hazard_Ratio_CD4_Intercept","[link](../json/campaign-antiretroviraltherapyfull_art_survival_hazard_ratio_cd4_intercept.json)","float","1e-06","1e+06","0.282852","The Y-intercept to use when calculating the hazard ratio for the person based on their CD4 count.<br> <br> multiplier = exp(cd4_slope * cd4 + cd4_intercept)"
+"ART_Survival_Hazard_Ratio_CD4_Slope","[link](../json/campaign-antiretroviraltherapyfull_art_survival_hazard_ratio_cd4_slope.json)","float","1e-06","1e+06","-0.00758256","The slope value to sue when calculating the hazard for for the person based on their CD4 count.<br> <br> multiplier = exp(cd4_slope * cd4 + cd4_intercept)"
+"ART_Survival_Hazard_Ratio_Female","[link](../json/campaign-antiretroviraltherapyfull_art_survival_hazard_ratio_female.json)","float","1e-06","1e+06","0.6775","The hazard ratio comparing survival female to male survival for those starting ART."
+"ART_Survival_Hazard_Ratio_WHO_Stage_3Plus","[link](../json/campaign-antiretroviraltherapyfull_art_survival_hazard_ratio_who_stage_3plus.json)","float","1e-06","1e+06","2.7142","The hazard ratio comparing those starting ART in WHO stage >= 3 to those in WHO stage < 3."
+"ART_Survival_WHO_Stage_Threshold_For_Cox","[link](../json/campaign-antiretroviraltherapyfull_art_survival_who_stage_threshold_for_cox.json)","float","0","5","3","If the person receiving ART has a WHO Stage greater than or equal to this threshold, then use the hazard ratio determined by the parameter **ART_Survival_Hazard_Ratio_WHO_Stage_3Plus**."
+"Cost_To_Consumer","[link](../json/campaign-antiretroviraltherapyfull_cost_to_consumer.json)","float","0","99999","1","Unit cost per drug (unamortized)."
+"Days_To_Achieve_Viral_Suppression","[link](../json/campaign-antiretroviraltherapyfull_days_to_achieve_viral_suppression.json)","float","0","3.40282e+38","183","The number of days after ART initiation over which infectiousness declines linearly until the **ART_Multiplier_On_Transmission_Prob_Per_Act** takes full effect."
+"Disqualifying_Properties","[link](../json/campaign-antiretroviraltherapyfull_disqualifying_properties.json)","array of strings","NA","NA","[]","A list of **IndividualProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to individuals with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time."
+"Dont_Allow_Duplicates","[link](../json/campaign-antiretroviraltherapyfull_dont_allow_duplicates.json)","boolean","0","1","0","If an individual's container has an intervention, set to true (1) to prevent them from receiving another copy of the intervention. Supported by all intervention classes."
+"Intervention_Name","[link](../json/campaign-antiretroviraltherapyfull_intervention_name.json)","string","NA","NA","AntiretroviralTherapyFull","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class."
+"New_Property_Value","[link](../json/campaign-antiretroviraltherapyfull_new_property_value.json)","string","NA","NA","""""","An optional **IndividualProperty** key:value pair that will be assigned when the intervention is distributed. See :ref:`demo-properties` parameters for more information. Generally used to indicate the broad category of health care cascade to which an intervention belongs to prevent individuals from accessing care through multiple pathways. For example, if an individual must already be taking a particular medication to be prescribed a new one."
+"Stop_ART_Event","[link](../json/campaign-antiretroviraltherapyfull_stop_art_event.json)","string","NA","NA","""""","This event is broadcasted when the person drops off ART. This could happen either via the timer running out or the intervention detected a disqualifying property.  See :doc:`parameter-campaign-event-list` for possible values or define custom events by adding to the list for the configuration parameter **Custom_Individual_Event**."
+"Time_On_ART_Constant","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_constant.json)","float","0","3.40282e+38","6","Each instance will receive this constant/fixed value."
+"Time_On_ART_Distribution","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_distribution.json)","enum","NA","NA","NOT_INITIALIZED","The type of distribution to use when determine how long a person will be on ART. Possible values are:<br> <br> * NOT_INITIALIZED<br> * CONSTANT_DISTRIBUTION<br> * UNIFORM_DISTRIBUTION<br> * GAUSSIAN_DISTRIBUTION<br> * EXPONENTIAL_DISTRIBUTION<br> * POISSON_DISTRIBUTION<br> * LOG_NORMAL_DISTRIBUTION<br> * DUAL_CONSTANT_DISTRIBUTION<br> * WEIBULL_DISTRIBUTION<br> * DUAL_EXPONENTIAL_DISTRIBUTION"
+"Time_On_ART_Exponential","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_exponential.json)","float","0","3.40282e+38","6","The mean for an exponential distribution."
+"Time_On_ART_Gaussian_Mean","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_gaussian_mean.json)","float","0","3.40282e+38","6","The mean for a Gaussian distribution."
+"Time_On_ART_Gaussian_Std_Dev","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_gaussian_std_dev.json)","float","1.17549e-38","3.40282e+38","1","The standard deviation for a Gaussian distribution."
+"Time_On_ART_Kappa","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_kappa.json)","float","1.17549e-38","3.40282e+38","1","The shape value in a Weibull distribution."
+"Time_On_ART_Lambda","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_lambda.json)","float","1.17549e-38","3.40282e+38","1","The scale value in a Weibull distribution."
+"Time_On_ART_Log_Normal_Mu","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_log_normal_mu.json)","float","-3.40282e+38","3.40282e+38","6","The mean for a log-normal distribution."
+"Time_On_ART_Log_Normal_Sigma","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_log_normal_sigma.json)","float","-3.40282e+38","3.40282e+38","1","The width for a log-normal distribution."
+"Time_On_ART_Max","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_max.json)","float","0","3.40282e+38","1","The maximum of the uniform distribution."
+"Time_On_ART_Mean_1","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_mean_1.json)","float","1.17549e-38","3.40282e+38","1","The mean of the first exponential distribution."
+"Time_On_ART_Mean_2","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_mean_2.json)","float","1.17549e-38","3.40282e+38","1","The mean of the second exponential distribution."
+"Time_On_ART_Min","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_min.json)","float","0","3.40282e+38","0","The minimum of the uniform distribution."
+"Time_On_ART_Peak_2_Value","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_peak_2_value.json)","float","0","3.40282e+38","1","The value to assign to the remaining individuals."
+"Time_On_ART_Poisson_Mean","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_poisson_mean.json)","float","0","3.40282e+38","6","The mean for a Poisson distribution."
+"Time_On_ART_Proportion_0","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_proportion_0.json)","float","0","1","1","The proportion of individuals to assign a value of zero."
+"Time_On_ART_Proportion_1","[link](../json/campaign-antiretroviraltherapyfull_time_on_art_proportion_1.json)","float","0","1","1","The proportion of individuals in the first exponential distribution."
