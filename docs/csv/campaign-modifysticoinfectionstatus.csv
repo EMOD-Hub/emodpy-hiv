@@ -1,2 +1,2 @@
-"Name","Example","Type","Min","Max","Default","Description"
-"New_STI_CoInfection_Status","[link](../json/campaign-modifysticoinfectionstatus_new_sti_coinfection_status.json)","boolean","0","1","0","Determines whether to apply STI co-infection, or cure/remove STI co-infection. Set to true (1) to include co-infection; set to false (0) to remove co-infection."
+"Name","Example","Description","Type","Min","Max","Default"
+"New_STI_CoInfection_Status","[link](../json/campaign-modifysticoinfectionstatus_new_sti_coinfection_status.json)","Determines whether to apply STI co-infection, or cure/remove STI co-infection. Set to true (1) to include co-infection; set to false (0) to remove co-infection.","boolean","0","1","0"
