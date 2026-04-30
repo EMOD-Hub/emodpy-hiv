@@ -30,10 +30,16 @@ theme:
 
 nav:
   - Home: index.md
-  - Overview: overview.md
-  - Installation: installation.md
-  - Tutorials: emod/tutorials.md
-  - Reference: reference.md
+  - EMOD-HIV:
+    - Overview: emod/overview.md
+    - emod/software-overview.md
+    - emod/model-overview.md
+    - emod/hiv-disease-overview.md
+    - emod/parameter-overview.md
+  - Tutorials:
+    - Overview: emod/tutorials.md
+    - emod/sti-scenarios.md
+    - emod/hiv-scenarios.md
   - API reference: autoapi/
   - Related projects: https://emod.idmod.org/
 
@@ -98,8 +104,8 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/EMOD-Hub/
-    - icon: fontawesome/regular/envelope
-      link: mailto:idm@gatesfoundation.org
+    - icon: octicons/comment-discussion-24
+      link: https://github.com/orgs/EMOD-Hub/discussions
     - icon: octicons/globe-24
       link: https://idmod.org
     - icon: simple/youtube

@@ -36,16 +36,6 @@ These are the scripts pointed to by the plotting batch files.
 Most input files use *JSON (JavaScript Object Notation)* format. If you are unfamiliar with
 this format, see [parameter-overview](parameter-overview.md).
 
-## Prerequisites
-
-We recommend running these scenarios on a Windows computer. You must install the HPC, MPI, and
-Python packages described in [installation](../installation.md). You do not need to download another copy of
-Eradication.exe, although it won't hurt if you do.
-
-Although EMOD also supports Ubuntu 22.04 (Jammy Jellyfish), the scripts to run simulations will not work and the
-installation instructions differ. However, you can still run simulations from the command line. See
-the Ubuntu 22.04 (Jammy Jellyfish) installation instructions at [installation](../installation.md).
-
 ## General EMOD information
 
 The features of the model are described in greater detail elsewhere in the documentation, but this
@@ -152,6 +142,3 @@ populations are large, as output files will become very large and the simulation
 slowly.
 
 For a complete list of all available output reports, see [parameter-configuration-output](parameter-configuration-output.md).
-
-- [sti-scenarios](sti-scenarios.md)
-- [hiv-scenarios](hiv-scenarios.md)

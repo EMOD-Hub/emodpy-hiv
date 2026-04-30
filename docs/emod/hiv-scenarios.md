@@ -4,7 +4,7 @@ The EMOD HIV model is explained in detail in [hiv-model-overview](hiv-model-over
 components that comprise the model are explained with examples, it may be more useful to learn the
 model through hands-on implementation. The following sections will introduce sets of example files
 that illustrate how the HIV model works on particular topics. All files are available in a
-downloadable `EMOD scenarios`_ zip file and, in addition to the explanations below, each scenario will
+downloadable `EMOD scenarios` zip file and, in addition to the explanations below, each scenario will
 have a more detailed README file to cover relevant information. Within the
 EMODScenarios > Scenarios > HIV folder is an Excel worksheet titled "Weibull.xlsx," which
 can be used to explore how Weibull parameters influence the shape of the distribution. Note that
@@ -21,7 +21,7 @@ biomarkers such as CD4 count specific to HIV-infected individuals. These factors
 of HIV+ individuals according to their age, disease state, co-infection status, and use of
 antiretroviral therapy (ART) or other interventions.
 
-In the `EMOD scenarios`_ > Scenarios > HIV > HIVBiology folder you will find files to run an
+In the `EMOD scenarios` > Scenarios > HIV > HIVBiology folder you will find files to run an
 HIV simulation. In the README file, you will find instructions on how to configure baseline HIV
 transmission, how to change survival time for children and adults, how CD4 count and WHO stage
 progress, and how to configure heterogeneity in CD4 count.
@@ -36,7 +36,7 @@ for more information). These two campaign intervention classes work by "distribu
 configured population. After the initial seeding, transmission can occur via the sexual or vertical
 routes.
 
-In the `EMOD scenarios`_ > Scenarios > HIV > Transmission folder you will find files to run an
+In the `EMOD scenarios` > Scenarios > HIV > Transmission folder you will find files to run an
 HIV simulation. In the README file, you will find instructions on how to configure sexual
 transmission, vertical transmission, and how to initiate co-infections.
 
@@ -53,7 +53,7 @@ move through the healthcare system created, with options for follow-up tests, an
 Some individuals will exit the care system (e.g. "lost to follow up"), and in some cases, individuals
 that exit the care system may re-initiate care and return.
 
-In the `EMOD scenarios`_ > Scenarios > HIV > Health_care folder, you will find files to run
+In the `EMOD scenarios` > Scenarios > HIV > Health_care folder, you will find files to run
 simulations with a configured cascade of care. In the README file, you will be provided with
 instructions for working with cascades of care.
 
