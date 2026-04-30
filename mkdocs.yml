@@ -66,6 +66,7 @@ markdown_extensions:
   - admonition:
   - attr_list:  # enables HTMl and CSS classes to inline elements
   - def_list:
+  - footnotes:
   - md_in_html:  # enables grids
   - pymdownx.arithmatex:  # Latex processing for math equations
       generic: true
