@@ -1,0 +1,7 @@
+{
+  "Report_Relationship_Start_Individual_Properties": [
+    "CascadeState",
+    "Risk",
+    "HasSTI"
+  ]
+}

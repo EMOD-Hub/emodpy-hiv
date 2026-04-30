@@ -1,0 +1,18 @@
+{
+    "Society": {
+        "TRANSITORY": {
+            "Relationship_Parameters": {
+                "Migration_Actions": [
+                    "TERMINATE",
+                    "PAUSE",
+                    "MIGRATE"
+                ],
+                "Migration_Actions_Distribution": [
+                    0.7,
+                    0.2,
+                    0.1
+                ]
+            }
+        }
+    }
+}

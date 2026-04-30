@@ -1,0 +1,40 @@
+{
+    "Society": {
+        "Concurrency_Configuration": {
+            "NONE": {
+                "Extra_Relational_Flag_Type": "Correlated",
+                "Correlated_Relationship_Type_Order": [
+                    "TRANSITORY",
+                    "INFORMAL",
+                    "MARITAL",
+                    "COMMERCIAL"
+                ]
+            }
+        },
+        "MARITAL": {
+            "Pair_Formation_Parameters": {
+                "Assortivity": {
+                    "Group": "INDIVIDUAL_PROPERTY",
+                    "Property_Name": "Risk",
+                    "Axes": [
+                        "LOW",
+                        "HIGH"
+                    ],
+                    "Weighting_Matrix_RowMale_ColumnFemale": [
+                        [
+                            0.8275185967686474,
+                            0.17248140323135264
+                        ],
+                        [
+                            0.17248140323135264,
+                            0.8275185967686474
+                        ]
+                    ]
+                }
+            }
+        },
+        "INFORMAL": {},
+        "TRANSITORY": {},
+        "COMMERCIAL": {}
+    }
+}

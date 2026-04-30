@@ -1,0 +1,7 @@
+{
+  "Actual_IndividualIntervention_Config": {
+    "class": "HIVMuxer",
+    "Muxer_Name": "ARTDropoutDelay",
+    "Max_Entries": 1
+  }
+}

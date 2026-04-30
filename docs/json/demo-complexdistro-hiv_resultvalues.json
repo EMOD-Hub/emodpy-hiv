@@ -1,0 +1,73 @@
+{
+        "IndividualAttributes": {
+            "AgeDistribution": {
+                "DistributionValues": [
+                    0.1,
+                    0.25,
+                    0.75,
+                    1
+                ],
+                "ResultValues": [
+                    0,
+                    5,
+                    20,
+                    35
+                ]
+            }
+        }
+    }
+
+The following example configures relatively high infant mortality and lower mortality at ages 10 and 40, with everyone dead by age 120.
+
+.. code-block:: json
+
+    {
+        "IndividualAttributes": {
+            "MortalityDistribution": {
+                "AxisNames": [
+                    "gender",
+                    "age"
+                ],
+                "AxisUnits": [
+                    "male=0,female=1",
+                    "years"
+                ],
+                "AxisScaleFactors": [
+                    1,
+                    365
+                ],
+                "NumPopulationGroups": [
+                    2,
+                    1
+                ],
+                "PopulationGroups": [
+                    [
+                        0,
+                        1
+                    ],
+                    [
+                        0,
+                        10,
+                        40,
+                        120
+                    ]
+                ],
+                "ResultUnits": "annual deaths per 1000 individuals",
+                "ResultScaleFactor": 2.739726027397e-06,
+                "ResultValues": [
+                    [
+                        51.6,
+                        3.7,
+                        5.3,
+                        1000
+                    ],
+                    [
+                        60.1,
+                        4.1,
+                        4.8,
+                        1000
+                    ]
+                ]
+            }
+        }
+    }

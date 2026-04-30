@@ -1,0 +1,6 @@
+{
+  "Intervention_Config": {
+    "class": "HIVSigmoidByYearAndSexDiagnostic",
+    "Intervention_Name": "Sigmoidal HIV diagnostic test"
+  }
+}

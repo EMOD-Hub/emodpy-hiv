@@ -1,0 +1,11 @@
+{
+    "Social": {
+        "Concurrency_Configuration": {
+            "Probability_Person_Is_Behavioral_Super_Spreader": 0.25,
+            "Individual_Property_Name": "NONE",
+            "NONE": {
+                "Extra_Relational_Flag_Type": "Independent"
+            }
+        }
+    }
+}

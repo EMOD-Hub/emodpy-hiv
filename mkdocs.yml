@@ -218,7 +218,7 @@ nav:
     - Overview: emod/tutorials.md
     - emod/sti-scenarios.md
     - emod/hiv-scenarios.md
-  - emodpy-hiv API: autoapi/
+  - API reference: autoapi/
   - Related projects: https://emod.idmod.org/
 
 plugins:

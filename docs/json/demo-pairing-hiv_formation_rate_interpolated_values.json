@@ -1,0 +1,21 @@
+{
+    "Society": {
+        "INFORMAL": {
+            "Pair_Formation_Parameters": {
+                "Formation_Rate_Type": "INTERPOLATED_VALUES",
+                "Formation_Rate_Interpolated_Values": {
+                    "Times": [
+                        1980,
+                        2000,
+                        2020
+                    ],
+                    "Values": [
+                        0.2,
+                        0.8,
+                        0.4
+                    ]
+                }
+            }
+        }
+    }
+}

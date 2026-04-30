@@ -1,0 +1,26 @@
+{
+    "Society": {
+        "TRANSITORY": {
+            "Pair_Formation_Parameters": {
+                "Assortivity": {
+                    "Group": "STI_COINFECTION_STATUS",
+                    "Start_Year": 1990,
+                    "Axes": [
+                        "FALSE",
+                        "TRUE"
+                    ],
+                    "Weighting_Matrix_RowMale_ColumnFemale": [
+                        [
+                            0.75,
+                            0.25
+                        ],
+                        [
+                            0.4,
+                            0.6
+                        ]
+                    ]
+                }
+            }
+        }
+    }
+}

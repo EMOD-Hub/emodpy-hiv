@@ -1,0 +1,21 @@
+{
+  "Distributions": {
+    "Age_Ranges_Years": [
+      {
+        "Max": 19,
+        "Min": 10
+      },
+      {
+        "Max": 49,
+        "Min": 40
+      }
+    ],
+    "Num_Targeted": [
+      100,
+      300
+    ],
+    "Property_Restrictions_Within_Node": [],
+    "Start_Year": 1963,
+    "End_Year": 1963.5
+  }
+}

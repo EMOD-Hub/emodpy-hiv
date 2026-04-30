@@ -1,0 +1,5 @@
+{
+  "class": "RelationshipFormationRateChanger",
+  "Relationship_Type": "MARITAL",
+  "Overriding_Formation_Rate": 0.0001
+}

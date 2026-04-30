@@ -1,0 +1,14 @@
+{
+    "Society": {
+        "INFORMAL": {
+            "Concurrency_Parameters": {
+                "NONE": {
+                    "Max_Simultaneous_Relationships_Female": 3,
+                    "Max_Simultaneous_Relationships_Male": 3,
+                    "Prob_Extra_Relationship_Female": 0.8,
+                    "Prob_Extra_Relationship_Male": 0.8
+                }
+            }
+        }
+    }
+}

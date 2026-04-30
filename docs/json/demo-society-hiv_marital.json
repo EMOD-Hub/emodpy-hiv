@@ -1,0 +1,23 @@
+{
+    "Society": {
+        "MARITAL": {
+            "Relationship_Parameters": {
+                "Condom_Usage_Probability": {
+                    "Min": 0.002,
+                    "Max": 0.05,
+                    "Mid": 2000,
+                    "Rate": 1.5
+                }
+            },
+            "Pair_Formation_Parameters": {
+                "Formation_Rate_Constant": 0.006
+            },
+            "Concurrency_Parameters": {
+                "NONE": {
+                    "Max_Simultaneous_Relationships_Female": 1,
+                    "Max_Simultaneous_Relationships_Male": 1
+                }
+            }
+        }
+    }
+}

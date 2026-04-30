@@ -1,0 +1,6 @@
+{
+  "Overriding_Duration_Weibull_Heterogeneity": 0.6,
+  "Overriding_Duration_Weibull_Scale": 22,
+  "Relationship_Type": "COMMERCIAL",
+  "class": "RelationshipDurationChanger"
+}

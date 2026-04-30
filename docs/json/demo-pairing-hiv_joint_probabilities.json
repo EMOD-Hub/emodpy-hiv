@@ -1,0 +1,26 @@
+{
+    "Society": {
+        "INFORMAL": {
+            "Pair_Formation_Parameters": {
+                "Formation_Rate_Constant": 0.0027398,
+                "Update_Period": 7.0,
+                "Number_Age_Bins_Male": 2,
+                "Number_Age_Bins_Female": 2,
+                "Age_of_First_Bin_Edge_Male": 50,
+                "Age_of_First_Bin_Edge_Female": 50,
+                "Years_Between_Bin_Edges_Male": 35,
+                "Years_Between_Bin_Edges_Female": 35,
+                "Joint_Probabilities": [
+                    [
+                        0,
+                        1
+                    ],
+                    [
+                        1,
+                        0
+                    ]
+                ]
+            }
+        }
+    }
+}

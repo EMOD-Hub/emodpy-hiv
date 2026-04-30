@@ -1,0 +1,6 @@
+{
+  "Intervention_Config": {
+    "Intervention_Name": "Intervention_For_Spouse",
+    "class": "InterventionForCurrentPartnersr"
+  }
+}

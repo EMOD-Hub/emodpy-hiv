@@ -1,0 +1,10 @@
+{
+    "Society": {
+        "TRANSITORY": {
+            "Pair_Formation_Parameters": {
+                "Extra_Relational_Rate_Ratio_Male": 4,
+                "Extra_Relational_Rate_Ratio_Female": 2
+            }
+        }
+    }
+}

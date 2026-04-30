@@ -1,0 +1,30 @@
+{
+      "NodeProperties": [
+        {
+          "Property": "InterventionStatus",
+          "Values": [
+            "NONE",
+            "RECENT_SPRAY"
+          ],
+          "Initial_Distribution": [
+            1.0,
+            0.0
+          ]
+        }
+      ]
+    }
+.. code-block:: json
+
+    {
+      "Defaults": {
+        "IndividualProperties": [
+          {
+            "Values": [
+              "Low",
+              "Medium",
+              "High"
+            ]
+          }
+        ]
+      }
+    }

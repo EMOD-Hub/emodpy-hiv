@@ -1,89 +1,27 @@
-"Acute_Duration_In_Months","float","0","5","2.9","The time since infection, in months, over which the **Acute_Stage_Infectivity_Multiplier** is applied to coital acts occurring in that time period.",".. code-block:: json
-
-    {
-        ""Acute_Duration_In_Months"": 2.9
-    }
-"
-"Acute_Stage_Infectivity_Multiplier","float","1","100","26","The multiplier acting on **Base_Infectivity** to determine the per-act transmission probability of an HIV+ individual during the acute stage.",".. code-block:: json
-
-    {
-        ""Acute_Stage_Infectivity_Multiplier"": 3
-    }
-"
+"Name","Type","Min","Max","Default","Description","Example"
+"Acute_Duration_In_Months","float","0","5","2.9","The time since infection, in months, over which the **Acute_Stage_Infectivity_Multiplier** is applied to coital acts occurring in that time period.","[link](../json/config-infectivity-hiv_acute_duration_in_months.json)"
+"Acute_Stage_Infectivity_Multiplier","float","1","100","26","The multiplier acting on **Base_Infectivity** to determine the per-act transmission probability of an HIV+ individual during the acute stage.","[link](../json/config-infectivity-hiv_acute_stage_infectivity_multiplier.json)"
 "Base_Infectivity","float","0","1000","0.3","The base infectiousness of individuals before accounting for transmission-blocking effects of acquired immunity and/or campaign interventions.
 
-For STI or HIV simulations, this is the probability of transmission when none of the transmission multipliers apply to a particular coital act (or when all multipliers are set to 1).",".. code-block:: json
-
-    {
-        ""Base_Infectivity"": 0.5
-    }
-"
-"CD4_At_Death_LogLogistic_Heterogeneity","float","0","100","0","The inverse shape parameter of a Weibull distribution that represents the at-death CD4 cell count.",".. code-block:: json
-
-    {
-        ""CD4_At_Death_LogLogistic_Heterogeneity"": 0.7
-    }
-"
-"Condom_Transmission_Blocking_Probability","float","0","1","0.9","The per-act multiplier of the transmission probability when a condom is used.",".. code-block:: json
-
-    {
-        ""Condom_Transmission_Blocking_Probability"": 0.99
-    }
-"
+For STI or HIV simulations, this is the probability of transmission when none of the transmission multipliers apply to a particular coital act (or when all multipliers are set to 1).","[link](../json/config-infectivity-hiv_base_infectivity.json)"
+"CD4_At_Death_LogLogistic_Heterogeneity","float","0","100","0","The inverse shape parameter of a Weibull distribution that represents the at-death CD4 cell count.","[link](../json/config-infectivity-hiv_cd4_at_death_loglogistic_heterogeneity.json)"
+"Condom_Transmission_Blocking_Probability","float","0","1","0.9","The per-act multiplier of the transmission probability when a condom is used.","[link](../json/config-infectivity-hiv_condom_transmission_blocking_probability.json)"
 "Enable_Infectivity_Reservoir","boolean","0","1","0","Controls whether or not an exogeneous reservoir of infectivity will be included in the simulation and allows for the infectivity in a node to be increased additively. When set to 1 (true), the demographics parameter **InfectivityReservoirSize** is expected in **NodeAtttributes** for each node.
 
 .. warning::
 
-    Do not set both **Enable_Infectivity_Reservoir** and  **Enable_Strain_Tracking** to true (1) - as this combination will cause an exception error.",".. code-block:: json
-
-    {
-        ""Enable_Infectivity_Reservoir"": 1
-    }
-"
+    Do not set both **Enable_Infectivity_Reservoir** and  **Enable_Strain_Tracking** to true (1) - as this combination will cause an exception error.","[link](../json/config-infectivity-hiv_enable_infectivity_reservoir.json)"
 "Enable_Maternal_Infection_Transmission","boolean","0","1","0","Controls whether or not infectious mothers infect infants at birth. **Enable_Birth** must be set to 1 (true).
 
 .. warning::
 
-    Do not set both **Enable_Maternal_Infection_Transmission** and  **Enable_Strain_Tracking** to true (1) - as this combination will cause an exception error.",".. code-block:: json
-
-    {
-        ""Enable_Birth"": 1,
-        ""Enable_Maternal_Infection_Transmission"": 1
-    }
-"
+    Do not set both **Enable_Maternal_Infection_Transmission** and  **Enable_Strain_Tracking** to true (1) - as this combination will cause an exception error.","[link](../json/config-infectivity-hiv_enable_maternal_infection_transmission.json)"
 "Enable_Skipping","boolean","0","1","0","Controls whether or not the simulation uses an optimization that can increase performance by up to 50% in some cases by probabilistically exposing individuals rather than exposing every single person. Useful in low-prevalence, high-population scenarios.
-",".. code-block:: json
-
-    {
-        ""Enable_Skipping"": 0
-    }
-"
-"Enable_Termination_On_Zero_Total_Infectivity","boolean","0","1","0","Controls whether or not the simulation should be ended when total infectivity falls to zero. Supported only in single-node simulations. ",".. code-block:: json
-
-    {
-        ""Enable_Termination_On_Zero_Total_Infectivity"": 1,
-        ""Minimum_End_Time"": 3650
-    }
-"
-"Heterogeneous_Infectiousness_LogNormal_Scale","float","0","10","0","Scale parameter of a log normal distribution that governs an infectiousness multiplier. The multiplier represents heterogeneity in infectivity and adjusts **Base_Infectivity**.",".. code-block:: json
-
-    {
-        ""Heterogeneous_Infectiousness_LogNormal_Scale"": 1
-    }
-"
-"Infection_Updates_Per_Timestep","integer","0","144","1","The number of infection updates executed during each timestep; note that a timestep defaults to one day.",".. code-block:: json
-
-    {
-        ""Infection_Updates_Per_Timestep"": 1
-    }
-"
-"Infectious_Period_Constant","float","0","3.40282E+38","-1","The infectious period to use for all individuals, in days, when **Infectious_Period_Distribution** is set to CONSTANT_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""CONSTANT_DISTRIBUTION"",
-        ""Infectious_Period_Constant"": 8
-    }
-"
+","[link](../json/config-infectivity-hiv_enable_skipping.json)"
+"Enable_Termination_On_Zero_Total_Infectivity","boolean","0","1","0","Controls whether or not the simulation should be ended when total infectivity falls to zero. Supported only in single-node simulations. ","[link](../json/config-infectivity-hiv_enable_termination_on_zero_total_infectivity.json)"
+"Heterogeneous_Infectiousness_LogNormal_Scale","float","0","10","0","Scale parameter of a log normal distribution that governs an infectiousness multiplier. The multiplier represents heterogeneity in infectivity and adjusts **Base_Infectivity**.","[link](../json/config-infectivity-hiv_heterogeneous_infectiousness_lognormal_scale.json)"
+"Infection_Updates_Per_Timestep","integer","0","144","1","The number of infection updates executed during each timestep; note that a timestep defaults to one day.","[link](../json/config-infectivity-hiv_infection_updates_per_timestep.json)"
+"Infectious_Period_Constant","float","0","3.40282E+38","-1","The infectious period to use for all individuals, in days, when **Infectious_Period_Distribution** is set to CONSTANT_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_constant.json)"
 "Infectious_Period_Distribution","enum","NA","NA","NOT_INITIALIZED","The distribution type to use for assigning the infectious period to each individual in the population. Each individual's value is a random draw from the distribution.
 
 Possible values are:
@@ -122,186 +60,32 @@ DUAL_EXPONENTIAL_DISTRIBUTION
 
 .. _Poisson: https://en.wikipedia.org/wiki/Poisson_distribution
 
-",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""GAUSSIAN_DISTRIBUTION"",
-        ""Infectious_Period_Gaussian_Mean"": 4,
-        ""Infectious_Period_Gaussian_Std_Dev"": 1
-    }
-"
-"Infectious_Period_Exponential","float","0","3.40282E+38","-1","The mean infectious period, in days, when **Infectious_Period_Distribution** is set to EXPONENTIAL_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""EXPONENTIAL_DISTRIBUTION"",
-        ""Infectious_Period_Exponential"": 4.25
-    }
-"
-"Infectious_Period_Gaussian_Mean","float","0","3.40282E+38","-1","The mean infectious period, in days, when **Infectious_Period_Distribution** is set to GAUSSIAN_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""GAUSSIAN_DISTRIBUTION"",
-        ""Infectious_Period_Gaussian_Mean"": 4,
-        ""Infectious_Period_Gaussian_Std_Dev"": 1
-    }
-"
-"Infectious_Period_Gaussian_Std_Dev","float","1.17549E-38","3.40282E+38","-1","The standard deviation of the infectious period, in days, when **Infectious_Period_Distribution** is set to GAUSSIAN_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""GAUSSIAN_DISTRIBUTION"",
-        ""Infectious_Period_Gaussian_Mean"": 4,
-        ""Infectious_Period_Gaussian_Std_Dev"": 1
-    }
-"
-"Infectious_Period_Kappa","float","1.17549E-38","3.40282E+38","-1","The shape value for the infectious period, in days, when **Infectious_Period_Distribution** is set to WEIBULL_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""WEIBULL_DISTRIBUTION"",
-        ""Infectious_Period_Kappa"": 0.9,
-        ""Infectious_Period_Lambda"": 1.5
-    }
-"
-"Infectious_Period_Lambda","float","1.17549E-38","3.40282E+38","-1","The scale value for the infectious period, in days, when **Infectious_Period_Distribution** is set to WEIBULL_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""WEIBULL_DISTRIBUTION"",
-        ""Infectious_Period_Kappa"": 0.9,
-        ""Infectious_Period_Lambda"": 1.5
-    }
-"
-"Infectious_Period_Log_Normal_Mu","float","-3.40282e+38","1.70141e+38","3.40282e+38","The mean of the natural log of the infectious period, in days, when **Infectious_Period_Distribution** is set to LOG_NORMAL_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""LOG_NORMAL_DISTRIBUTION"",
-        ""Infectious_Period_Log_Normal_Mu"": 9,
-        ""Infectious_Period_Log_Normal_Sigma"": 2
-    }
-"
-"Infectious_Period_Log_Normal_Sigma","float","-3.40282e+38","1.70141e+38","3.40282e+38","The standard deviation of the natural log of the infectious period, in days, when **Infectious_Period_Distribution** is set to LOG_NORMAL_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""LOG_NORMAL_DISTRIBUTION"",
-        ""Infectious_Period_Log_Normal_Mu"": 9,
-        ""Infectious_Period_Log_Normal_Sigma"": 2
-    }
-"
-"Infectious_Period_Max","float","0","3.40282E+38","-1","The maximum infectious period, in days, when **Infectious_Period_Distribution** is set to UNIFORM_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""UNIFORM_DISTRIBUTION"",
-        ""Infectious_Period_Min"": 2,
-        ""Infectious_Period_Max"": 7
-    }
-"
-"Infectious_Period_Mean_1","float","1.17549E-38","3.4E+38","-1","The mean of the first exponential distribution, in days, when **Infectious_Period_Distribution** is set to DUAL_EXPONENTIAL_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""DUAL_EXPONENTIAL_DISTRIBUTION"",
-        ""Infectious_Period_Mean_1"": 4,
-        ""Infectious_Period_Mean_2"": 12,
-        ""Infectious_Period_Proportion_1"": 0.2
-    }
-"
-"Infectious_Period_Mean_2","float","1.17549E-38","3.40282E+38","-1","The mean of the second exponential distribution, in days, when **Infectious_Period_Distribution** is set to DUAL_EXPONENTIAL_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""DUAL_EXPONENTIAL_DISTRIBUTION"",
-        ""Infectious_Period_Mean_1"": 4,
-        ""Infectious_Period_Mean_2"": 12,
-        ""Infectious_Period_Proportion_1"": 0.2
-    }
-"
-"Infectious_Period_Min","float","0","3.40282E+38","-1","The minimum infectious period, in days, when **Infectious_Period_Distribution** is set to UNIFORM_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""UNIFORM_DISTRIBUTION"",
-        ""Infectious_Period_Min"": 2,
-        ""Infectious_Period_Max"": 7
-    }
-"
-"Infectious_Period_Peak_2_Value","float","0","3.40282E+38","-1","The infectious period value, in days, to assign to the remaining individuals when **Infectious_Period_Distribution** is set to DUAL_CONSTANT_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""DUAL_CONSTANT_DISTRIBUTION"",
-        ""Infectious_Period_Proportion_0"": 0.25,
-        ""Infectious_Period_Peak_2_Value"": 5
-    }
-"
-"Infectious_Period_Poisson_Mean","float","0","3.40282E+38","-1","The mean of the infectious period, in days, when **Infectious_Period_Distribution** is set to POISSON_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""POISSON_DISTRIBUTION"",
-        ""Infectious_Period_Poisson_Mean"": 5
-    }
-"
-"Infectious_Period_Proportion_0","float","0","1","-1","The proportion of individuals to assign a value of zero days infectiousness when **Infectious_Period_Distribution** is set to DUAL_CONSTANT_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""DUAL_CONSTANT_DISTRIBUTION"",
-        ""Infectious_Period_Proportion_0"": 0.25,
-        ""Infectious_Period_Peak_2_Value"": 5
-    }
-"
-"Infectious_Period_Proportion_1","float","0","1","-1","The proportion of individuals in the first exponential distribution when **Infectious_Period_Distribution** is set to DUAL_EXPONENTIAL_DISTRIBUTION.",".. code-block:: json
-
-    {
-        ""Infectious_Period_Distribution"": ""DUAL_EXPONENTIAL_DISTRIBUTION"",
-        ""Infectious_Period_Mean_1"": 4,
-        ""Infectious_Period_Mean_2"": 12,
-        ""Infectious_Period_Proportion_1"": 0.2
-    }
-"
-"Infectivity_Exponential_Baseline","float","0","1","0","The scale factor applied to **Base_Infectivity** at the beginning of a simulation, before the infectivity begins to grow exponentially. **Infectivity_Scale_Type** must be set to EXPONENTIAL_FUNCTION_OF_TIME.",".. code-block:: json
-
-    {
-        ""Infectivity_Exponential_Baseline"": 0.1,
-        ""Infectivity_Exponential_Delay"": 90,
-        ""Infectivity_Exponential_Rate"": 45,
-        ""Infectivity_Scale_Type"": ""EXPONENTIAL_FUNCTION_OF_TIME""
-    }
-"
-"Male_To_Female_Relative_Infectivity_Ages","array of floats","NA","NA","0","The vector of ages governing the susceptibility of females relative to males, by age. Used with **Male_To_Female_Relative_Infectivity_Multipliers**.",".. code-block:: json
-
-    {
-        ""Male_To_Female_Relative_Infectivity_Ages"": [
-            15,
-            25,
-            35
-        ]
-    }
-"
-"Male_To_Female_Relative_Infectivity_Multipliers","array of floats","NA","NA","1","An array of scale factors governing the susceptibility of females relative to males, by age. Used with **Male_To_Female_Relative_Infectivity_Ages**. Scaling is linearly interpolated between ages. The first value is used for individuals younger than the first age in **Male_To_Female_Relative_Infectivity_Ages** and the last value is used for individuals older than the last age.",".. code-block:: json
-
-    {
-        ""Male_To_Female_Relative_Infectivity_Multipliers"": [
-            5,
-            1,
-            0.5
-        ]
-    }
-"
+","[link](../json/config-infectivity-hiv_infectious_period_distribution.json)"
+"Infectious_Period_Exponential","float","0","3.40282E+38","-1","The mean infectious period, in days, when **Infectious_Period_Distribution** is set to EXPONENTIAL_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_exponential.json)"
+"Infectious_Period_Gaussian_Mean","float","0","3.40282E+38","-1","The mean infectious period, in days, when **Infectious_Period_Distribution** is set to GAUSSIAN_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_gaussian_mean.json)"
+"Infectious_Period_Gaussian_Std_Dev","float","1.17549E-38","3.40282E+38","-1","The standard deviation of the infectious period, in days, when **Infectious_Period_Distribution** is set to GAUSSIAN_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_gaussian_std_dev.json)"
+"Infectious_Period_Kappa","float","1.17549E-38","3.40282E+38","-1","The shape value for the infectious period, in days, when **Infectious_Period_Distribution** is set to WEIBULL_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_kappa.json)"
+"Infectious_Period_Lambda","float","1.17549E-38","3.40282E+38","-1","The scale value for the infectious period, in days, when **Infectious_Period_Distribution** is set to WEIBULL_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_lambda.json)"
+"Infectious_Period_Log_Normal_Mu","float","-3.40282e+38","1.70141e+38","3.40282e+38","The mean of the natural log of the infectious period, in days, when **Infectious_Period_Distribution** is set to LOG_NORMAL_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_log_normal_mu.json)"
+"Infectious_Period_Log_Normal_Sigma","float","-3.40282e+38","1.70141e+38","3.40282e+38","The standard deviation of the natural log of the infectious period, in days, when **Infectious_Period_Distribution** is set to LOG_NORMAL_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_log_normal_sigma.json)"
+"Infectious_Period_Max","float","0","3.40282E+38","-1","The maximum infectious period, in days, when **Infectious_Period_Distribution** is set to UNIFORM_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_max.json)"
+"Infectious_Period_Mean_1","float","1.17549E-38","3.4E+38","-1","The mean of the first exponential distribution, in days, when **Infectious_Period_Distribution** is set to DUAL_EXPONENTIAL_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_mean_1.json)"
+"Infectious_Period_Mean_2","float","1.17549E-38","3.40282E+38","-1","The mean of the second exponential distribution, in days, when **Infectious_Period_Distribution** is set to DUAL_EXPONENTIAL_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_mean_2.json)"
+"Infectious_Period_Min","float","0","3.40282E+38","-1","The minimum infectious period, in days, when **Infectious_Period_Distribution** is set to UNIFORM_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_min.json)"
+"Infectious_Period_Peak_2_Value","float","0","3.40282E+38","-1","The infectious period value, in days, to assign to the remaining individuals when **Infectious_Period_Distribution** is set to DUAL_CONSTANT_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_peak_2_value.json)"
+"Infectious_Period_Poisson_Mean","float","0","3.40282E+38","-1","The mean of the infectious period, in days, when **Infectious_Period_Distribution** is set to POISSON_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_poisson_mean.json)"
+"Infectious_Period_Proportion_0","float","0","1","-1","The proportion of individuals to assign a value of zero days infectiousness when **Infectious_Period_Distribution** is set to DUAL_CONSTANT_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_proportion_0.json)"
+"Infectious_Period_Proportion_1","float","0","1","-1","The proportion of individuals in the first exponential distribution when **Infectious_Period_Distribution** is set to DUAL_EXPONENTIAL_DISTRIBUTION.","[link](../json/config-infectivity-hiv_infectious_period_proportion_1.json)"
+"Infectivity_Exponential_Baseline","float","0","1","0","The scale factor applied to **Base_Infectivity** at the beginning of a simulation, before the infectivity begins to grow exponentially. **Infectivity_Scale_Type** must be set to EXPONENTIAL_FUNCTION_OF_TIME.","[link](../json/config-infectivity-hiv_infectivity_exponential_baseline.json)"
+"Male_To_Female_Relative_Infectivity_Ages","array of floats","NA","NA","0","The vector of ages governing the susceptibility of females relative to males, by age. Used with **Male_To_Female_Relative_Infectivity_Multipliers**.","[link](../json/config-infectivity-hiv_male_to_female_relative_infectivity_ages.json)"
+"Male_To_Female_Relative_Infectivity_Multipliers","array of floats","NA","NA","1","An array of scale factors governing the susceptibility of females relative to males, by age. Used with **Male_To_Female_Relative_Infectivity_Ages**. Scaling is linearly interpolated between ages. The first value is used for individuals younger than the first age in **Male_To_Female_Relative_Infectivity_Ages** and the last value is used for individuals older than the last age.","[link](../json/config-infectivity-hiv_male_to_female_relative_infectivity_multipliers.json)"
 "Maternal_Infection_Transmission_Probability","float","0","1","0","The probability of transmission of infection from mother to infant at birth. **Enable_Maternal_Infection_Transmission** must be set to 1. 
 
 .. note::
 
-    For malaria and vector simulations, set this to 0. Instead, use the **Maternal_Antibody_Protection**, **Maternal_Antibody_Decay_Rate**, and **Maternal_Antibodies_Type** parameters.  ",".. code-block:: json
-
-    {
-        ""Maternal_Infection_Transmission_Probability"": 0.3
-    }
-"
-"Maternal_Transmission_ART_Multiplier","float","0","1","0.1","The maternal transmission multiplier for on-ART mothers.",".. code-block:: json
-
-    {
-        ""Maternal_Transmission_ART_Multiplier"": 0.03
-    }
-"
-"Population_Density_C50","float","0","3.40E+38","10","The population density at which R0 for a 2.5-arc minute square reaches half of its initial value. **Population_Density_Infectivity_Correction** must be set to SATURATING_FUNCTION_OF_DENSITY.",".. code-block:: json
-
-    {
-        ""Population_Density_C50"": 30
-    }
-"
+    For malaria and vector simulations, set this to 0. Instead, use the **Maternal_Antibody_Protection**, **Maternal_Antibody_Decay_Rate**, and **Maternal_Antibodies_Type** parameters.  ","[link](../json/config-infectivity-hiv_maternal_infection_transmission_probability.json)"
+"Maternal_Transmission_ART_Multiplier","float","0","1","0.1","The maternal transmission multiplier for on-ART mothers.","[link](../json/config-infectivity-hiv_maternal_transmission_art_multiplier.json)"
+"Population_Density_C50","float","0","3.40E+38","10","The population density at which R0 for a 2.5-arc minute square reaches half of its initial value. **Population_Density_Infectivity_Correction** must be set to SATURATING_FUNCTION_OF_DENSITY.","[link](../json/config-infectivity-hiv_population_density_c50.json)"
 "Population_Density_Infectivity_Correction","enum","NA","NA","CONSTANT_INFECTIVITY","Correction to alter infectivity by population density set in the **Population_Density_C50** parameter. Measured in people per square kilometer. 
 Possible values are:
 
@@ -310,44 +94,13 @@ Possible values are:
   
 .. note::
 
-   Sparsely populated areas have a lower infectivity, while densely populated areas have a higher infectivity, which rises to saturate at the **Base_Infectivity** value.",".. code-block:: json
-
-    {
-        ""Population_Density_Infectivity_Correction"": ""SATURATING_FUNCTION_OF_DENSITY""
-    }
-"
-"Relative_Sample_Rate_Immune","float","0.001","1","0.1","The relative sampling rate for people who have acquired immunity through recovery or vaccination. The immune threshold at which to downsample is set by **Immune_Threshold_For_Downsampling**. If set to 1, this will have no effect, even if the individual's immunity modifier is below threshold. This can be a useful sanity check while learning this feature. **Individual_Sampling_Type** must be set to ADAPTED_SAMPLING_BY_IMMUNE_STATE. ",".. code-block:: json
-
-    {
-        ""Relative_Sample_Rate_Immune"": 0.1,
-        ""Immune_Threshold_For_Downsampling"": 0.8,
-        ""Individual_Sampling_Type"": ""ADAPTED_SAMPLING_BY_IMMUNE_STATE""
-    }
-"
-"STI_Coinfection_Acquisition_Multiplier","float","0","100","10","The per-act HIV acquisition probability multiplier for individuals with the STI coinfection flag.",".. code-block:: json
-
-    {
-        ""STI_Coinfection_Transmission_Multiplier"": 13.4,
-        ""STI_Coinfection_Acquisition_Multiplier"": 10
-    }
-"
-"STI_Coinfection_Transmission_Multiplier","float","0","100","10","The per-act HIV transmission probability multiplier for individuals with the STI coinfection flag.",".. code-block:: json
-
-    {
-        ""STI_Coinfection_Transmission_Multiplier"": 13.4,
-        ""STI_Coinfection_Acquisition_Multiplier"": 10
-    }
-"
+   Sparsely populated areas have a lower infectivity, while densely populated areas have a higher infectivity, which rises to saturate at the **Base_Infectivity** value.","[link](../json/config-infectivity-hiv_population_density_infectivity_correction.json)"
+"Relative_Sample_Rate_Immune","float","0.001","1","0.1","The relative sampling rate for people who have acquired immunity through recovery or vaccination. The immune threshold at which to downsample is set by **Immune_Threshold_For_Downsampling**. If set to 1, this will have no effect, even if the individual's immunity modifier is below threshold. This can be a useful sanity check while learning this feature. **Individual_Sampling_Type** must be set to ADAPTED_SAMPLING_BY_IMMUNE_STATE. ","[link](../json/config-infectivity-hiv_relative_sample_rate_immune.json)"
+"STI_Coinfection_Acquisition_Multiplier","float","0","100","10","The per-act HIV acquisition probability multiplier for individuals with the STI coinfection flag.","[link](../json/config-infectivity-hiv_sti_coinfection_acquisition_multiplier.json)"
+"STI_Coinfection_Transmission_Multiplier","float","0","100","10","The per-act HIV transmission probability multiplier for individuals with the STI coinfection flag.","[link](../json/config-infectivity-hiv_sti_coinfection_transmission_multiplier.json)"
 "Susceptibility_Type","enum","NA","NA","FRACTIONAL","Controls implementation of an individual's susceptibility. Currently only relevant to **Maternal_Protection_Type** parameter. Possible values are:
 
 FRACTIONAL
     All agents are assigned equal values between 0 and 1 according to a governing equation as specified by **Maternal_Protection_Type**.
 BINARY
-    Agents receive a value of either 0 or 1 (complete immunity or susceptibility) with the probability determined by a governing equation as specified by **Maternal_Protection_Type**. ",".. code-block:: json
-
-    {
-        ""Susceptibility_Type"": ""FRACTIONAL"",
-        ""Enable_Maternal_Protection"": 1,
-        ""Maternal_Protection_Type"": ""LINEAR_FRACTIONAL""
-    }
-"
+    Agents receive a value of either 0 or 1 (complete immunity or susceptibility) with the probability determined by a governing equation as specified by **Maternal_Protection_Type**. ","[link](../json/config-infectivity-hiv_susceptibility_type.json)"

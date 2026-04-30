@@ -1,0 +1,8 @@
+{
+  "Intervention_Config": {
+    "Event_Or_Config": "Event",
+    "Negative_Diagnosis_Event": "PreDebut",
+    "Positive_Diagnosis_Event": "PostDebut",
+    "class": "STIIsPostDebut"
+  }
+}

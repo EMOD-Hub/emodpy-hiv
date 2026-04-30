@@ -1,0 +1,6 @@
+{
+  "Intervention_Config": {
+    "class": "StiCoInfectionDiagnostic",
+    "Intervention_Name": "Test for other STIs upon positive HIV diagnosis"
+  }
+}

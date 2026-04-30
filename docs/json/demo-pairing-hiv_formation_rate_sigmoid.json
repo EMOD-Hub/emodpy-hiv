@@ -1,0 +1,15 @@
+{
+    "Society": {
+        "INFORMAL": {
+            "Pair_Formation_Parameters": {
+                "Formation_Rate_Type": "SIGMOID_VARIABLE_WIDTH_HEIGHT",
+                "Formation_Rate_Sigmoid": {
+                    "Min": 0.6,
+                    "Max": 0.9,
+                    "Mid": 2010,
+                    "Rate": 3
+                }
+            }
+        }
+    }
+}

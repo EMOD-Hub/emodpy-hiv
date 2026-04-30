@@ -1,0 +1,12 @@
+{
+  "Intervention_Config": {
+    "class": "CD4Diagnostic",
+    "CD4_Thresholds": [
+      {
+        "Low": 100,
+        "High": 500,
+        "Event": "CD4Measured0"
+      }
+    ]
+  }
+}
