@@ -55,18 +55,18 @@ HIV's ability to infect new cells, replicate, or cause disease.
 
 **The structural genes:**
 
-#. Group-specific antigen (Gag): responsible for the core structural proteins of the virus
-#. Envelope (Env): responsible for gp120 and gp41
-#. Polymerase (Pol): responsible for reverse transcriptase, integrase, protease
+1. Group-specific antigen (Gag): responsible for the core structural proteins of the virus
+1. Envelope (Env): responsible for gp120 and gp41
+1. Polymerase (Pol): responsible for reverse transcriptase, integrase, protease
 
 **The Regulatory genes:**
 
-#. Tat: responsible for activation of transcription of viral genes (required for replication)
-#. Rev: responsible for transport of late mRNAs from the nucleus to cytoplasm (required for replication)
-#. Nef: Decreases CD4 and MHC class I protein expression in virus-infected cells
-#. Vif: Enhances viral infectivity
-#. Vpr: Transports the viral core from the cytoplasm into the nucleus
-#. Vpu: Enhances virion release from the host cell
+1. Tat: responsible for activation of transcription of viral genes (required for replication)
+1. Rev: responsible for transport of late mRNAs from the nucleus to cytoplasm (required for replication)
+1. Nef: Decreases CD4 and MHC class I protein expression in virus-infected cells
+1. Vif: Enhances viral infectivity
+1. Vpr: Transports the viral core from the cytoplasm into the nucleus
+1. Vpu: Enhances virion release from the host cell
 
 ![Diagram illustrating the structure of the HIV genome. Image credit [Wikipedia "HIV - Structure and genome"][wikipedia-hiv-genome].](../images/hiv/HIV-genome.png)
 
@@ -379,17 +379,17 @@ to be conducted on appropriate time-scales.
 There are three main types of tests currently in use; note that any positive test, regardless of type,
 requires a follow-up test (usually in a lab) to confirm the results.
 
-#. Nucleic acid testing (NAT): These test for virus in the blood, and is also known as a viral
+1. Nucleic acid testing (NAT): These test for virus in the blood, and is also known as a viral
    load test. These tests tend to be more expensive than other methods, and are not commonly used in
    routine testing. These tests are accurate during the early stages of infection, and can detect
    HIV 10 - 33 days after exposure.
 
-#. Antigen/antibody tests: These test for the presence of HIV *antibodies* and *antigens*.
+1. Antigen/antibody tests: These test for the presence of HIV *antibodies* and *antigens*.
    When the test is conducted in a lab using blood from a vein, they are able to detect HIV 18 - 45
    days after exposure. When the test is conducted using a finger prick, they are able to detect
    HIV 18 - 90 days after exposure.
 
-#. Rapid tests and home tests: These tests are also antibody tests, and typically rely on blood from
+1. Rapid tests and home tests: These tests are also antibody tests, and typically rely on blood from
    a finger prick or oral fluid. These tests have been designed to facilitate fast turnaround for
    results.
 
@@ -487,11 +487,11 @@ identify optimal drug therapy regimes [^Ref28].
 
 [^Ref3]: aidsmap, http://www.aidsmap.com/HIV-1-and-HIV-2/page/1322970/
 
-[^Ref4]: Sharp, P. M.; Hahn, B. H., 2011. Origins of HIV and the AIDS Pandemic. Cold Spring Harbor Perspectives in Medicine. 1 (1): a006841–a006835. doi:10.1101/cshperspect.a006841. PMC 3234451 Freely accessible. PMID 22229120.
+[^Ref4]: Sharp, P. M.; Hahn, B. H., 2011. Origins of HIV and the AIDS Pandemic. Cold Spring Harbor Perspectives in Medicine. 1 (1): a006841–a006835. doi:10.1101/cshperspect.a006841. PMC 3234451 Freely accessible. PMID 22229120.
 
 [^Ref5]: http://book.bionumbers.org/how-many-virions-result-from-a-single-viral-infection/
 
-[^Ref6]: Roach JC, Glusman G, Smit AF, et al., 2010. Analysis of genetic inheritance in a family quartet by whole-genome sequencing. Science. 328 (5978): 636–9. doi:10.1126/science.1186802. PMC 3037280 Freely accessible. PMID 20220176
+[^Ref6]: Roach JC, Glusman G, Smit AF, et al., 2010. Analysis of genetic inheritance in a family quartet by whole-genome sequencing. Science. 328 (5978): 636–9. doi:10.1126/science.1186802. PMC 3037280 Freely accessible. PMID 20220176
 
 [^Ref7]: Reeves, Jacqueline D. and Derdeyn, Cynthia A. Entry Inhibitors in HIV Therapy. Boston: Birkhauser Verlag, 2007.
 

@@ -1,6 +1,6 @@
 # Disease progression
 
-The following parameters determine aspects of HIV progression from the acute stage to AIDS. For more information, see [hiv-model-stages](#hiv-model-stages).
+The following parameters determine aspects of HIV progression from the acute stage to AIDS. For more information, see [HIV symptoms and disease stages](hiv-disease-overview.md#hiv-symptoms-and-disease-stages).
 
 > **NOTE:**
 > Parameters are case-sensitive. For Boolean parameters, set to 1 for true or 0 for false.

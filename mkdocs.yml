@@ -50,7 +50,9 @@ plugins:
         - docs/**/*
         - emodpy_hiv/**/__main__.py
         - examples/**/*
+        - notebooks/**/*
         - tests/**/*
+        - tutorials/**/*
       autoapi_add_nav_entry: false
   - mkdocstrings:
 

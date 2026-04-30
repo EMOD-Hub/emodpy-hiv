@@ -21,7 +21,7 @@ demographic changes. For more information on the PFA, see [sti-model-relationshi
 The contact networks formed within the STI model are driven by the behavioral parameters found in
 the **Society** section of the demographics file. These parameters control pair formation,
 relationship types, and level of relationship concurrency. For more information about this section
-of the demographics file, see [demo-society](#demo-society). 
+of the demographics file, see [Society](parameter-demographics.md#society). 
 
 Because the STI model is built around person-to-person contact networks, human relationships impact
 nearly every aspect of model functionality. For example, migration is supported in the STI model, but
@@ -30,8 +30,7 @@ by the migrating individual (see [sti-model-relationships](sti-model-relationshi
 
 The following pages describe the structure of the STI model and explore the model components. Additionally,
 the specifics of the HIV model, which is based on the STI model, are discussed in detail in the articles
-[Bershteyn, Klein, Wenger, and Eckhoff, arXiv.org][bershteyn-2012-arxiv], and
-[Klein, Bershteyn, and Eckhoff, AIDS 2014][klein-bershteyn-aids-2014].
+[Bershteyn, Klein, Wenger, and Eckhoff, arXiv.org][bershteyn-2012-arxiv], and [Klein, Bershteyn, and Eckhoff, AIDS 2014][klein-bershteyn-aids-2014].
 
 - [sti-model-relationships](sti-model-relationships.md)
 - [sti-model-transmission](sti-model-transmission.md)

@@ -116,7 +116,7 @@ There are multiple campaign classes that are used to implement ART programs in t
 individuals on ART, the **ARTBasic** intervention is applied. To remove individuals from ART, the
 **ARTDropout** intervention is applied. Note that both of these interventions will only impact
 individuals that are HIV+; in order to use ART as a prophylactic, the **SimpleVaccine** class must
-be used (see [prep](#prep)). Finally, eligibility for ART can be determined through two classes,
+be used (see [PrEP](#pre-exposure-prophylaxis)). Finally, eligibility for ART can be determined through two classes,
 **HIVARTStagingCD4AgnosticDiagnostic** and **HIVARTStagingByCD4Diagnostic**. When using CD4-dependent
 ART interventions, it is important to use the **HIVDrawBlood** intervention first, as this acts
 analogously to performing phlebotomy and logs an HIV-infected individual's current CD4 count.
@@ -161,7 +161,7 @@ continuous ART by repeatedly exposing the individual to this high early mortalit
 
 ## Pre-exposure prophylaxis
 
-Antiretroviral therapy as treatment for HIV was explained above, in [art](#art). ART can also be
+Antiretroviral therapy as treatment for HIV was explained above, in [ART](#antiretroviral-therapy-art). ART can also be
 used as pre-exposure prophylaxis  (*PrEP*), to prevent the transmission of HIV. In EMOD, the
 ART interventions are only used for treatment for HIV+ individuals, so to use ART as a prophylactic,
 it is treated as a "vaccine" and the vaccine intervention classes are used.

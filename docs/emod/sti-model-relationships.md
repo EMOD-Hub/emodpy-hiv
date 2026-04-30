@@ -4,7 +4,7 @@ Human relationships are at the center of the EMOD STI model. Who individuals for
 relationships with, and how those partnerships are formed, are the basis for STI transmission. The
 EMOD STI model contains detailed information for configuring the relationships and tracking
 partnerships over time. There is a pair formation algorithm (PFA) that balances the "supply and
-demand" for partners (see [PFA](#pfa) for more information), and numerous parameters that configure
+demand" for partners (see [PFA](#pair-formation-algorithm-pfa) for more information), and numerous parameters that configure
 the type and duration of relationships, as well as the ages and behavior of the participants. These
 relationship settings are configured in the demographics file; for a complete list of the parameters
 see [parameter-demographics](parameter-demographics.md); the majority of the relationship parameters will be located in the
@@ -19,8 +19,7 @@ STI model has included an algorithm to form sexual relationships with a specific
 distribution, and enables control over the rates at which individuals seek new relationships.
 
 For more information on relationship formation, including the math for the pair formation algorithm,
-see [Klein 2012][klein-2012] and
-[Bershteyn et al 2013][bershteyn-et-al-2013].
+see [Klein 2012][klein-2012] and [Bershteyn et al 2013][bershteyn-et-al-2013].
 
 ### Pair formation algorithm (PFA)
 
@@ -29,9 +28,9 @@ Individuals seeking to enter a relationship are  managed by a feed-forward pair 
 The PFA dynamically adjusts the rates of relationship formation as the population structure
 changes; feed-forward can be disabled during the simulation to allow future patterns of relationship
 formation to change in  response to demographic shifts in the population. The algorithms used for
-each type of relationship (see [relationships](#relationships) for more information) are identical, but utilize
+each type of relationship (see [Relationship types and durations](#relationship-types-and-durations) for more information) are identical, but utilize
 different input data about the age distribution and age gaps within partnerships. Entrance into the
-PFA is governed by the relationship flow (see [flow](#flow) for more information).
+PFA is governed by the relationship flow (see [Relationship flow](#relationship-flow) for more information).
 
 Internally, the algorithm maintains a series of queues that are arranged by age and gender. Discrete
 age bins, N in total, are generated in a manner that is consistent with the discretization of the
@@ -149,7 +148,7 @@ at their final controlled values and the input matrix is permitted to change as 
 ## Relationship types and durations
 
 Partnerships form after individuals have reached the age of sexual debut, and partners are chosen
-from a pool of available individuals within the desired age group (see [PFA](#pfa) for more
+from a pool of available individuals within the desired age group (see [PFA](#pair-formation-algorithm-pfa) for more
 information). However, partnerships are also categorized by type, which will impact a variety of
 factors governing relationship duration and the behavior of the participants.
 
@@ -157,7 +156,7 @@ Currently, EMOD supports four different types of heterosexual relationships: tra
 informal, marital, and commercial. Each type can have independently configured mixing patterns,
 rates of formation, and average durations. In addition, each type of relationship can configure
 specific condom usage probabilities, rates of coital acts, and migration actions. Individuals can be
-involved in multiple relationships of different types (see [concurrency](#concurrency) for more information
+involved in multiple relationships of different types (see [Concurrent partnerships](#concurrent-partnerships) for more information
 about multiple partnerships).
 
 While relationship types are fully configurable, it is useful to use guidelines when doing so.
@@ -252,7 +251,7 @@ prior to the start of infection, (in the example, the year 1960) to allow ample 
 relationships to “burn-in.” During this burn-in time, individuals with demographic properties dictated
 in the demographics file begin forming relationships; relationship formation rates for each gender
 and relationship type are updated daily using the relationship flow algorithm (see
-[flow](#flow) for more information). Adjustment of pair formation entry rates is
+[Relationship flow](#relationship-flow) for more information). Adjustment of pair formation entry rates is
 terminated at a specific timepoint (in the example, at 1975) and the rates are fixed at that value
 for the remainder of the simulation.
 

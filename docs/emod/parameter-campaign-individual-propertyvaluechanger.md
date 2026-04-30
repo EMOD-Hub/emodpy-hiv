@@ -5,7 +5,7 @@ individuals. You must update one property value and have the option to update an
 **New_Property_Value**. This parameter is generally used to move patients from one intervention
 state in the health care cascade (InterventionStatus) to another, though it can be used for any
 individual property. Individual property values are user-defined in the demographics file (see
-[demo-properties](#demo-properties) for more information). Note that the HINT feature
+[NodeProperties and IndividualProperties](parameter-demographics.md#nodeproperties-and-individualproperties) for more information). Note that the HINT feature
 does not need to be enabled to use this intervention. To instead change node properties, use
 [parameter-campaign-node-nodepropertyvaluechanger](parameter-campaign-node-nodepropertyvaluechanger.md).
 

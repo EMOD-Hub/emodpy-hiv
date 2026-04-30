@@ -3,7 +3,7 @@
 The following classes can be used to enhance the selection of people when distributing interventions.
 Most event coordinators and node-level interventions that distribute interventions to people have a
 parameter called **Targeting_Config**.  This allows you to not only target individuals based on their
-gender, age, and **IndividualProperties** (See [demo-properties](#demo-properties) parameters for more information),
+gender, age, and **IndividualProperties** (See [NodeProperties and IndividualProperties](parameter-demographics.md#nodeproperties-and-individualproperties) parameters for more information),
 but also on things such as whether or not they have a particular intervention or are in a relationship.
 
 > **NOTE:**

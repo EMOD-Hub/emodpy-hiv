@@ -19,7 +19,7 @@ density, viral load, biting frequency, and other measures relevant to the diseas
 The following sections describe how to define individual properties and assign different values to
 individuals in a simulation. However, with the exception of setting up age bins, you can use the
 same process to assign properties to a *node*. To see all individual and node property
-parameters, see [demo-properties](#demo-properties).
+parameters, see [NodeProperties and IndividualProperties](parameter-demographics.md#nodeproperties-and-individualproperties).
 
 ## Create individual properties other than age
 
