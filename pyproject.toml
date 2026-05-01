@@ -25,7 +25,7 @@ dependencies = [
     "emod-hiv==2.34.0",
 ]
 license = "MIT"
-classifiers=[
+classifiers = [
     "Intended Audience :: Science/Research",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.11",
@@ -60,8 +60,9 @@ test = [
 ]
 
 [project.urls]
-Repository="https://github.com/EMOD-Hub/emodpy-hiv"
-Issues="https://github.com/EMOD-Hub/issues-and-discussions/issues"
+Repository = "https://github.com/EMOD-Hub/emodpy-hiv"
+Documentation = "https://emod.idmod.org/emodpy-hiv/"
+Issues = "https://github.com/EMOD-Hub/issues-and-discussions/issues"
 
 [tool.setuptools.packages]
 find = {include = ["emodpy_hiv*"]}

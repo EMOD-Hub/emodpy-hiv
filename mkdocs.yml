@@ -284,7 +284,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/EMOD-Hub/
     - icon: octicons/comment-discussion-24
-      link: https://github.com/orgs/EMOD-Hub/discussions
+      link: https://github.com/EMOD-Hub/issues-and-discussions
     - icon: octicons/globe-24
       link: https://idmod.org
     - icon: simple/youtube
