@@ -10,3 +10,11 @@ The emodpy-hiv tutorials introduce you to the key components of configuring, run
 | [Tutorial 4: Override the cascade of care](tutorial-4.md) | Subclass a country model to customize the HIV cascade of care |
 
 Before running the tutorials, see [Setup](setup.md) to prepare your environment.
+
+## emodpy-workflow
+
+An alternative method for running EMOD-HIV is via the
+[emodpy-workflow](https://emod.idmod.org/emodpy-workflow/) tools, which are built on top of
+emodpy-hiv. emodpy-workflow also has a
+[tutorial](https://emod.idmod.org/emodpy-workflow/tutorials/get_started/) so you can compare
+which approach works better for you.
