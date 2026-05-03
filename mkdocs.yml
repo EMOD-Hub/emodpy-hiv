@@ -211,10 +211,6 @@ nav:
             - emod/parameter-campaign-event-list.md
         - emod/parameter-schema.md
         - emod/software-outputs.md
-  - Tutorials:
-    - Overview: emod/tutorials.md
-    - emod/sti-scenarios.md
-    - emod/hiv-scenarios.md
   - API reference: autoapi/
   - Related projects: https://emod.idmod.org/
 

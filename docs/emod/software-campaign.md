@@ -69,8 +69,3 @@ string. See [parameter-campaign-event-list](parameter-campaign-event-list.md).
 particular characteristics, repeat interventions, and more. See [parameter-campaign](parameter-campaign.md) for a
 comprehensive list and description of all parameters available to use in the campaign file for this
 simulation type.
-
-Although you can create campaign files entirely from scratch, it is often easier to start from
-an existing campaign file and modify it to meet your needs. You can download sets of configuration
-and campaign files that illustrate how to model different disease scenarios at EMOD scenarios. For more
-information, see [tutorials](tutorials.md). 
