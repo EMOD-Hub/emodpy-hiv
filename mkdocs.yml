@@ -31,6 +31,13 @@ theme:
 nav:
   - Home: index.md
   - Installation: installation.md
+  - Tutorials:
+    - Overview: tutorials/overview.md
+    - Setup: tutorials/setup.md
+    - Tutorial 1 - Run a simulation: tutorials/tutorial-1.md
+    - Tutorial 2 - Add reports and plot results: tutorials/tutorial-2.md
+    - Tutorial 3 - Customize with build functions: tutorials/tutorial-3.md
+    - Tutorial 4 - Override the cascade of care: tutorials/tutorial-4.md
   - EMOD-HIV:
     - Overview: emod/overview.md
     - Software:
@@ -261,6 +268,8 @@ markdown_extensions:
   - pymdownx.snippets:  # snippet reuse functionality
       auto_append:
         - docs/bib.md
+  - pymdownx.tabbed:  # content tabs
+      alternate_style: true
   - pymdownx.tilde:  # subscripts
 
 copyright: Copyright &copy; 2025 Gates Foundation. All rights reserved.
