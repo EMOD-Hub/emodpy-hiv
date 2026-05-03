@@ -49,6 +49,7 @@ nav:
         - Output reports:
             - Overview: emod/software-outputs.md
             - Working with output: emod/software-working-with-output.md
+            - Plot simulation output: emod/software-plotting.md
             - emod/software-error-logging.md
             - emod/software-report-binned.md
             - emod/software-report-demographic-summary.md
