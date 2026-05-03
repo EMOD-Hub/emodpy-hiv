@@ -30,6 +30,7 @@ theme:
 
 nav:
   - Home: index.md
+  - Installation: installation.md
   - EMOD-HIV:
     - Overview: emod/overview.md
     - Software:
@@ -221,6 +222,9 @@ nav:
   - API reference: autoapi/
   - Related projects: https://emod.idmod.org/
 
+not_in_nav: |
+  emod/virtual_environments.md
+
 plugins:
   - search:
   - autorefs:
@@ -237,6 +241,7 @@ plugins:
         - notebooks/**/*
         - tests/**/*
         - tutorials/**/*
+        - env/**/*
       autoapi_add_nav_entry: false
   - mkdocstrings:
 
