@@ -2,7 +2,7 @@
 
 EMOD takes a number of files as inputs for running simulations. The input files indicate the
 transmission mode, population size, age distribution, disease interventions, and many more qualities
-that affect disease transmission. The EMOD executable (Eradication.exe) takes these input files and uses them to run a simulation
+that affect disease transmission. The EMOD executable takes these input files and uses them to run a simulation
 of the disease dynamics.
 
 Many of the input files are formatted as *JSON (JavaScript Object Notation)* files. JSON is a

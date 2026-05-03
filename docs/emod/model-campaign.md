@@ -41,10 +41,7 @@ of the distributions and the two distributions will be independent. Therefore, e
 For the interventions to take place, the campaign file must be in the same directory as the
 *configuration file* and you must set the configuration parameters **Enable_Interventions** to
 1 and **Campaign_Filename** to the name of the campaign file. When you run a simulation, you must
-have a single campaign file. However, you can use a campaign overlay file that includes certain
-parameters of interest that will override the settings in a base file; these files must be flattened
-into a single file before running a simulation. See [software-campaign-overlay](software-campaign-overlay.md) for more information
-flattening two campaign files.
+have a single campaign file.
 
 The following is an example of campaign file that has two events (SimpleVaccine and Outbreak) that
 occur in all nodes at day 1 and day 30, respectively. Each event contains an event coordinator that

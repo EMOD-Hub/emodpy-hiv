@@ -30,7 +30,7 @@ binary data file. Both files are required. To create these files see, [software-
 
 The metadata file is a JSON-formatted file that includes a metadata section and a node offsets
 section. The **Metadata** section contains a JSON object with parameters, some of which are
-strictly  informational and some of which are used by Eradication.exe. However, the informational ones may
+strictly  informational and some of which are used by EMOD. However, the informational ones may
 still be important to understand the provenance and meaning of the data.
 
 ### Parameters

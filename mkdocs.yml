@@ -40,13 +40,8 @@ nav:
             - Demographics:
                 - Overview: emod/software-demographics.md
                 - emod/software-demographics-overlay.md
-            - Configuration:
-                - Overview: emod/software-configuration.md
-                - emod/software-configuration-overlay.md
-                - emod/software-parameter-sweep.md
-            - Campaign:
-                - Overview: emod/software-campaign.md
-                - emod/software-campaign-overlay.md
+            - emod/software-configuration.md
+            - emod/software-campaign.md
             - Migration:
                 - Overview: emod/software-migration.md
                 - emod/software-migration-creation.md

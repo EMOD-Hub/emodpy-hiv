@@ -11,11 +11,6 @@ documentation.
 These parameters include three major groups: parameters for the *demographics file*,
 parameters for the *configuration file*, and parameters for the *campaign file*.
 
-If you would rather use a text file for parameter reference than this web documentation, you can
-also generate a *schema* with the EMOD executable (Eradication.exe) that defines all configuration and campaign
-parameters that can be used in a simulation, including names, data types, defaults, ranges, and
-short descriptions.
-
 ## JSON formatting overview
 
 All of these parameters are contained in *JSON (JavaScript Object Notation)* formatted files.
