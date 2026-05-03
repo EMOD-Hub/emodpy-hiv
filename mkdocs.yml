@@ -48,31 +48,7 @@ nav:
             - emod/software-load-balancing.md
         - Output reports:
             - Overview: emod/software-outputs.md
-            - Working with output: emod/software-working-with-output.md
             - Plot simulation output: emod/software-plotting.md
-            - emod/software-error-logging.md
-            - emod/software-report-binned.md
-            - emod/software-report-demographic-summary.md
-            - emod/software-report-inset-chart.md
-            - emod/software-report-property.md
-            - emod/software-report-event-counter.md
-            - emod/software-report-event-recorder.md
-            - emod/software-report-human-migration.md
-            - emod/software-report-infection-duration.md
-            - emod/software-report-node-demographics.md
-            - emod/software-report-simulation-stats.md
-            - emod/software-report-spatial.md
-            - emod/software-report-sql.md
-            - emod/software-report-age-gender.md
-            - emod/software-report-hivart.md
-            - emod/software-report-hivinfection.md
-            - emod/software-report-hivmort.md
-            - emod/software-report-relationship-end.md
-            - emod/software-report-relationship-census.md
-            - emod/software-report-relationship-consummated.md
-            - emod/software-report-relationship-migration-tracking.md
-            - emod/software-report-relationship-start.md
-            - emod/software-report-transmission.md
         - Troubleshooting: emod/troubleshooting.md
         - Tips and tricks:
             - emod/software-simulation-performance.md
@@ -209,13 +185,38 @@ nav:
             - emod/parameter-campaign-waningeffects.md
             - emod/parameter-campaign-targeting-config.md
             - emod/parameter-campaign-event-list.md
+        - Reports:
+            - Overview: emod/parameter-reports-overview.md
+            - emod/software-error-logging.md
+            - emod/software-report-binned.md
+            - emod/software-report-demographic-summary.md
+            - emod/software-report-inset-chart.md
+            - emod/software-report-property.md
+            - emod/software-report-event-counter.md
+            - emod/software-report-event-recorder.md
+            - emod/software-report-human-migration.md
+            - emod/software-report-infection-duration.md
+            - emod/software-report-node-demographics.md
+            - emod/software-report-simulation-stats.md
+            - emod/software-report-spatial.md
+            - emod/software-report-sql.md
+            - emod/software-report-age-gender.md
+            - emod/software-report-hivart.md
+            - emod/software-report-hivinfection.md
+            - emod/software-report-hivmort.md
+            - emod/software-report-relationship-end.md
+            - emod/software-report-relationship-census.md
+            - emod/software-report-relationship-consummated.md
+            - emod/software-report-relationship-migration-tracking.md
+            - emod/software-report-relationship-start.md
+            - emod/software-report-transmission.md
         - emod/parameter-schema.md
-        - emod/software-outputs.md
   - API reference: autoapi/
   - Related projects: https://emod.idmod.org/
 
 not_in_nav: |
   emod/virtual_environments.md
+  bib.md
 
 plugins:
   - search:
