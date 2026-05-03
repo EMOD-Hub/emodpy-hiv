@@ -48,6 +48,7 @@ nav:
             - emod/software-load-balancing.md
         - Output reports:
             - Overview: emod/software-outputs.md
+            - Working with output: emod/software-working-with-output.md
             - emod/software-error-logging.md
             - emod/software-report-binned.md
             - emod/software-report-demographic-summary.md
@@ -56,8 +57,11 @@ nav:
             - emod/software-report-event-counter.md
             - emod/software-report-event-recorder.md
             - emod/software-report-human-migration.md
+            - emod/software-report-infection-duration.md
             - emod/software-report-node-demographics.md
+            - emod/software-report-simulation-stats.md
             - emod/software-report-spatial.md
+            - emod/software-report-sql.md
             - emod/software-report-age-gender.md
             - emod/software-report-hivart.md
             - emod/software-report-hivinfection.md
