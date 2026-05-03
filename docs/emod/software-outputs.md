@@ -29,22 +29,12 @@ By default, the output report InsetChart.json is always produced, which contains
 time step values accumulated over the simulation in a variety of reporting channels, such as new infections, 
 prevalence, and recovered. EMOD provides several other
 built-in reports that you can produce if you enable them in the *configuration file*
-with the [parameter-configuration-output](parameter-configuration-output.md) parameters. Reports are generally in JSON or CSV format.
-If none of the built-in output reports provide the data you need, you can use a custom reporter that
-plugs in to the Eradication.exe as an EMODule *dynamic link library (DLL)*. For more information, see
-[software-custom-reporter](software-custom-reporter.md).
+with the [parameter-configuration-output](parameter-configuration-output.md) parameters.
+Reports are generally in JSON or CSV format.
 
 In order to interpret the output of EMOD simulations, you will find it useful to parse the output
 reports into an analyzable structure. For example, you can use a Python or MATLAB script to create graphs
 and charts for analysis.
-
-### Convert output to CSV format
-
-Most output reports, including the primary InsetChart report, are in JSON format. If you are using R
-for data analysis, you may prefer a CSV report. You can easily convert the output format using
-Python post-processing using the icjjson2csv.py_ script provided in the EMOD GitHub repository.
-Provide the path to this script using the `-P` argument when you run Eradication.exe at the command line.
-See [software-simulation-cli](software-simulation-cli.md) for more information.
 
 ### Use Python to plot data
 
@@ -68,25 +58,3 @@ plt.title( "Births" )
 plt.show()
 ```
 
-### Use MATLAB to plot data
-
-The example below uses the MATLAB toolbox JSONlab_ to parse an InsetChart.json file and plot one channel.
-This script uses JSONLab to parse the file into a usable form in MATLAB. This is a very simple
-example and not likely the most robust or elegant. Be sure to set the actual paths to JSONlab and
-your working directory.
-
-```matlab
-% this sample uses JSONLab toolbox
-addpath('PATH TO/jsonlab');
-
-% open and parse InsetChart.json
-ic_json = loadjson( fullfile( 'WorkingDirectoryLocation', 'output', 'InsetChart.json' ));
-ic_json_allchannels = ic_json.Channels;
-ic_json_birthinfo = ic_json_allchannels.Births;
-ic_json_birthdata = ic_json_birthinfo.Data;
-M = num2cell(ic_json_birthdata);
-
-% plot "Births" channel by time step
-plot(cell2mat(M));
-title( 'Births' );
-```

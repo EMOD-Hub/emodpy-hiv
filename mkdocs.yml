@@ -51,14 +51,8 @@ nav:
                 - Overview: emod/software-migration.md
                 - emod/software-migration-creation.md
             - emod/software-load-balancing.md
-        - Run simulation:
-            - Overview: emod/software-run-simulation.md
-            - emod/software-simulation-cli.md
-            - emod/software-simulation-mpiexec.md
-            - emod/software-simulation-performance.md
         - Output reports:
             - Overview: emod/software-outputs.md
-            - emod/software-custom-reporter.md
             - emod/software-error-logging.md
             - emod/software-report-binned.md
             - emod/software-report-demographic-summary.md
@@ -80,6 +74,8 @@ nav:
             - emod/software-report-relationship-start.md
             - emod/software-report-transmission.md
         - Troubleshooting: emod/troubleshooting.md
+        - Tips and tricks:
+            - emod/software-simulation-performance.md
     - Model:
         - Overview: emod/model-overview.md
         - STI model:
