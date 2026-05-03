@@ -1,47 +1,24 @@
-# Generate the schema
+# Parameter schema
 
-You can generate a *schema* from the EMOD executable (Eradication.exe) or Eradication binary for Linux that defines all configuration
-parameters and campaign parameters available in the version of EMOD that is installed, for all
-available simulation types. This includes parameter names, data types, defaults, ranges, and short
-descriptions. The schema does not include demographics parameters.
+A schema defines all configuration and campaign parameters available in the installed
+version of EMOD, for all simulation types. It includes parameter names, data types,
+defaults, valid ranges, and short descriptions. Note that the schema does not include
+demographics parameters. The schema is a JSON file and can be opened in any text editor.
 
-Logging information is also produced as part of the schema. If you are using EMOD source and have
-added or modified configuration parameters or intervention code, this logging information can help
-you troubleshoot any errors that may occur.
+In most cases, you will not need to work with the schema directly — emodpy-hiv handles
+all model configuration through its Python API and uses the schema internally.
 
-> **WARNING:**
-> If you modify the source code to add or remove configuration or campaign parameters, you may
-> need to update the code used to produce the schema. You must also verify that your simulations
-> are still scientifically valid.
+If you do need access to the schema, the EMOD executable and its associated schema are
+bundled in the `emod_hiv` package, which is installed automatically when you install
+emodpy-hiv. You can extract them using the `emod_hiv.bootstrap` module. Add the
+following to your project and run it once:
 
-## Command options
+```python
+if __name__ == "__main__":
+    import emod_hiv.bootstrap as bootstrap
+    import pathlib
+    bootstrap.setup(pathlib.Path("executables"))
+```
 
-The following command-line options are available for providing information about EMOD.
-
-## Usage
-
-1.  Open a Command Prompt window and navigate to the directory where Eradication.exe is installed.
-
-1.  To output the schema to the Command Prompt window, enter::
-
-        Eradication.exe --get-schema
-
-1.  To output the schema to a file, do one of the following (replacing <filename> with the desired filename):
-
-    *   To output a text file that includes logging information, enter::
-
-            Eradication.exe --get-schema > <filename>.txt
-
-    *   To display logging in the Command Prompt window and output a text file
-        that does not include logging information, enter::
-
-            Eradication.exe --get-schema --schema-path <filename>.txt
-
-    *   To output the schema to a JSON file that includes logging information, enter::
-
-            Eradication.exe --get-schema > <filename>.json
-
-    *   To display logging in the Command Prompt window and output a JSON file
-        that does not include logging information, enter::
-
-            Eradication.exe --get-schema --schema-path <filename>.json
+This will download and place the EMOD executable and schema files into an
+`executables` folder in your current directory.

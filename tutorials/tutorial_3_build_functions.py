@@ -201,7 +201,7 @@ def plot_results(output_path):
     import emodpy_hiv.plotting.plot_hiv_by_age_and_gender as ang
     
     ic.plot_inset_chart(dir_name=output_path,
-                        title="Tutorial #2 - Add Reports - InsetChart",
+                        title="Tutorial 3 - Build Functions - InsetChart",
                         include_filenames_in_title=True,
                         output=output_path)
 
