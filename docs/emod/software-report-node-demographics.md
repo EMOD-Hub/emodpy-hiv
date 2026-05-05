@@ -8,6 +8,12 @@ node and age bin.
 
 To generate this report, the following parameters must be configured in the custom_reports.json file:
 
+| Parameter name | Data type | Min | Max | Default | Description |
+|---|---|---|---|---|---|
+| **Age_Bins** | array of floats | -3.04E+38 | 3.04E+38 | [] | The age bins (in years, in ascending order) to aggregate within and report. An empty array does not stratify by age. |
+| **IP_Key_To_Collect** | string | NA | NA | (empty string) | The name of the **IndividualProperties** (IP) key by which to stratify the report. An empty string means the report is not stratified by IP. |
+| **Stratify_By_Gender** | boolean | NA | NA | 1 | Set to true (1) to stratify by gender; a value of 0 will not stratify by gender. |
+
 ```json
 {
     "Reports": [
@@ -41,7 +47,21 @@ columns.
 
 ### Stratification columns
 
+| Parameter | Data type | Description |
+|---|---|---|
+| Time | float | The day of the simulation that the data was collected. |
+| NodeID | integer | The external ID of the node for the data in the row in the report. |
+| Gender | enum | Possible values are M or F; the gender of the individuals in the row in the report. This column only appears if **Stratify_By_Gender** = 1. |
+| AgeYears | float | The max age in years of the bin for the individuals in the row in the report. If **Age_Bins** is empty, this column does not appear. |
+| IndividualProp | string | The value of the IP for the individuals in the row in the report. If **IP_Key_To_Collect** is an empty string, then this column does not appear. |
+
 ### Data columns
+
+| Parameter | Data type | Description |
+|---|---|---|
+| NumIndividuals | integer | The number of individuals that meet the stratification values. |
+| NumInfected | integer | The number of infected individuals that meet the stratification values. |
+| NodeProp = &lt;Node Property Keys&gt; | string | For each possible Node Property, there is one column where the data in the column is the value of that particular property. If there are no Node Properties, then there are no columns. |
 
 ## Example
 

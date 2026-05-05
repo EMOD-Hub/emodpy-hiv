@@ -56,6 +56,20 @@ This will create both the metadata and binary file needed by EMOD.
 
 The following parameters are used in the JSON file for migration file generation.  
 
+| Parameter | Data type | Description |
+|---|---|---|
+| IdReference | string | The metadata identifier used to generate the NodeID associated with each node in a simulation. The values for IdReference and NodeID must be the same across all input files used in a simulation. |
+| Interpolation_Type | enum | The method by which to interpolate the age dependent rate data. Accepted values are LINEAR_INTERPOLATION and PIECEWISE_CONSTANT. |
+| Gender_Data_Type | enum | Whether age data is provided for each gender separately or is the same for both. Accepted values are ONE_FOR_BOTH_GENDERS and ONE_FOR_EACH_GENDER. |
+| Ages_Years | array | An array that defines the age bins by which to separate the population and define migration rates. The first value defines the upper bound of a bin starting at zero. |
+| Node_Data | JSON object | The structure that contains the migration rate data for each node. |
+| From_Node_ID | integer | The origin node for which to define migration rate. |
+| Rate_Data | array | The structure that contains migration rate data for a single destination node. |
+| To_Node_ID | integer | The destination node for which to define migration rate. |
+| Avg_Num_Trips_Per_Day_Both | array | The array that lists the average number of trips per day for each age bin defined in **AgesYears** (male and female). |
+| Avg_Num_Trips_Per_Day_Female | array | The array that lists the average number of trips per day for each female age bin defined in **AgesYears**. |
+| Avg_Num_Trips_Per_Day_Male | array | The array that lists the average number of trips per day for each male age bin defined in **AgesYears**. |
+
 ### Example file
 
 *See example: [migration-input-file.json](../json/migration-input-file.json)*

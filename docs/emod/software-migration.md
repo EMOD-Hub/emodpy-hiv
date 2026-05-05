@@ -37,6 +37,20 @@ still be important to understand the provenance and meaning of the data.
 
 The following parameters can be included in the migration metadata file:
 
+| Parameter | Data type | Description |
+|---|---|---|
+| AgesYears | array | An array that defines the age bins by which to separate the population and define migration rates. |
+| Author | string | The author of the file. |
+| DatavalueCount | integer | (Used by EMOD.) The number of outbound data values per node (max 100). The number must be the same across every node in the binary file. If you are using an older file that does not include this parameter, each migration type has the following maximum data values:<br><br>* LOCAL_MIGRATION: 8<br>* REGIONAL_MIGRATION: 30<br>* AIR_MIGRATION: 60<br>* SEA_MIGRATION: 5 |
+| DateCreated | string | The day the file was created. |
+| GenderDataType | enum | Whether age data is provided for each gender separately or is the same for both. Accepted values are ONE_FOR_BOTH_GENDERS and ONE_FOR_EACH_GENDER. |
+| IdReference | string | (Used by EMOD.) A unique, user-selected string that indicates the method used by EMOD for generating **NodeID** values in the input files. For more information, see [software-inputs](software-inputs.md). |
+| InterpolationType | enum | The method by which to interpolate the age-dependent rate data. Accepted values are LINEAR_INTERPOLATION and PIECEWISE_CONSTANT. |
+| MigrationType | enum | The type of migration the data describes. Accepted values are:<br><br>* LOCAL_MIGRATION<br>* AIR_MIGRATION<br>* REGIONAL_MIGRATION<br>* SEA_MIGRATION |
+| NodeCount | integer | (Used by EMOD.) The number of nodes to expect in this file. |
+| NodeOffsets | string | (Used by EMOD.) A string that is **NodeCount** × 16 characters long. For each node, the first 8 characters are the origin **NodeID** in hexadecimal. The second 8 characters are the byte offset in hex to the location in the binary file where the destination **NodeIDs** and migration rates appear. |
+| Tool | string | The script used to create the file. |
+
 ### Example
 
 *See example: [migration-metadata.json](../json/migration-metadata.json)*

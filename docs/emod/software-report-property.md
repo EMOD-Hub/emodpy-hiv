@@ -16,14 +16,38 @@ The file contains a header and a channels section.
 
 The header section contains the following parameters.
 
+| Parameter | Data type | Description |
+|---|---|---|
+| DateTime | string | The time stamp indicating when the report was generated. |
+| DTK_Version | string | The version of EMOD used. |
+| Report_Type | string | The type of output report. |
+| Report_Version | string | The format version of the report. |
+| Start_Time | integer | The time noted in days when the simulation begins. |
+| Simulation_Timestep | integer | The number of days in each time step. |
+| Timesteps | integer | The number of time steps in this simulation. |
+| Channels | integer | The number of channels in the simulation. |
+
 ## Channels
 
 The channels section contains the following parameters.
+
+| Parameter | Data type | Description |
+|---|---|---|
+| &lt;Channel_Title&gt; | string | The title of the particular property channel. The channel titles use the following conventions: for a single property, &lt;channel type&gt;:&lt;property&gt;:&lt;value&gt;, and for multiple properties, &lt;channel type&gt;:&lt;property 1&gt;:&lt;value&gt;,&lt;property 2&gt;:&lt;value&gt;. For example, Infected:Accessibility:Easy or New Infections:Accessibility:Difficult,Risk:High. |
+| Units | string | The units used for this channel. |
+| Data | array | A list of the channel data at each time step. |
 
 ### Channel_Title
 
 The following information is available for the <Channel_Title> parameters. Note that these channels
 will have separate sections for each **IndividualProperites** key:value pair.
+
+| Channel | Description |
+|---|---|
+| Disease Deaths | The number of people who died from an infection that day. |
+| Infected | The number of people who have at least one infection on that day. These infections could be so new that they are not detectable via a diagnostic. |
+| New Infections | The number of people with new infections that day. |
+| Statistical Population | The total number of people in the simulation that day. |
 
 ## Example
 
