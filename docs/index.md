@@ -4,15 +4,15 @@ title: Home
 
 # Welcome to emodpy-hiv
 
-This documentation set describes how to use Epidemiological MODeling software (EMOD) for simulating HIV transmission
+This documentation set describes how to use EMOD for simulating HIV transmission
 and interventions and how to use emodpy-hiv for creating model configuration files,
 submitting simulation jobs to a compute cluster, and more.
 
 ## Epidemiological MODeling software (EMOD)
 
-EMOD is a stochastic, agent-based model developed by the Institute for Disease Modeling (IDM) that simulates
-sexual and vertical HIV transmission. It is used to evaluate the cost and impact of treatment
-and control programs across national-level epidemics. See [Overview](emod/overview.md) for a full
+EMOD is a *stochastic*, *agent-based model* (ABM) developed by the Institute for Disease Modeling (IDM),
+that simulates sexual and vertical HIV transmission. It is used to evaluate the cost and impact of treatment
+and control programs across national-level epidemics. See [HIV Overview](emod/hiv-disease-overview.md) for a full
 description of the model.
 
 If you encounter any issues while using the software, please visit our [discussion board][discussions].

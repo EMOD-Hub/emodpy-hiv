@@ -4,6 +4,9 @@ This tutorial introduces the key components of emodpy-hiv by running a baseline 
 using the built-in Zambia country model. The simulation creates three runs with different random
 seeds, using Docker to run EMOD locally.
 
+If you have not already read [EMOD input files](concepts.md), do that first — it introduces the
+configuration, demographics, campaign, and report concepts used in every tutorial.
+
 **File:** `tutorials/tutorial_1_intro.py`
 
 ## Obtaining the EMOD executable

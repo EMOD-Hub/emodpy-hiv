@@ -47,9 +47,9 @@ def run_experiment():
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     # UPDATE - Select the correct Platform below
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    platform = Platform('Container', job_directory="tutorial_output", docker_image=manifest.plat_image)
+    # platform = Platform('Container', job_directory="tutorial_output", docker_image=manifest.plat_image)
 
-    # platform = Platform("Calculon", node_group="idm_48cores", priority="Normal")
+    platform = Platform("Calculon", node_group="idm_48cores", priority="Normal")
 
     # platform = Platform( "SLURM_LOCAL",
     #                     job_directory="experiments",

@@ -20,22 +20,29 @@ The tutorials are Python scripts in the `tutorials/` directory of the emodpy-hiv
 
     2. Create a virtual environment and install emodpy-hiv — follow the [Installation](../installation.md) page.
 
-    3. Start Docker Desktop.
+    3. Install emodpy-hiv in editable mode:
 
-    4. Navigate to the `tutorials/` directory:
+        ```
+        pip install -e .
+        ```
+
+    4. Start Docker Desktop.
+
+    5. Navigate to the `tutorials/` directory:
 
         ```
         cd tutorials
         ```
 
-    5. Run a tutorial:
+    6. Run a tutorial:
 
         ```
         python tutorial_1_intro.py
         ```
 
     The first time you run a tutorial, `emod_hiv.bootstrap.setup()` downloads the EMOD executable
-    and schema to the `tutorials/executables/` directory. This may take a few minutes.
+    and schema to the `tutorials/executables/` directory. Subsequent runs can skip the download
+    if the files are already present.
 
 === "Codespaces"
 
@@ -55,9 +62,10 @@ The tutorials are Python scripts in the `tutorials/` directory of the emodpy-hiv
     2. Click the **Code** button, select the **Codespaces** tab, and click **+** to create a
        new codespace on `main`.
 
-    3. Wait for the container to build and for the post-creation `setup.sh` script to finish
-       installing dependencies. To check if setup is complete, open a terminal and run
-       `pip freeze` — if no packages appear, setup is still running.
+    3. Wait for the container to build and for the post-creation `setup.sh` script to finish.
+       The script automatically runs `pip install -e .` to install all dependencies. To check
+       if setup is complete, open a terminal and run `pip freeze` — if no packages appear,
+       setup is still running.
 
     4. In the terminal, navigate to the `tutorials/` directory:
 
@@ -72,7 +80,8 @@ The tutorials are Python scripts in the `tutorials/` directory of the emodpy-hiv
         ```
 
     The first time you run a tutorial, `emod_hiv.bootstrap.setup()` downloads the EMOD
-    executable and schema to the `tutorials/executables/` directory.
+    executable and schema to the `tutorials/executables/` directory. Subsequent runs can skip
+    the download if the files are already present.
 
     ### Stopping and deleting a Codespace
 
@@ -81,3 +90,19 @@ The tutorials are Python scripts in the `tutorials/` directory of the emodpy-hiv
     1. Go to the repository page on GitHub.
     2. Click **Code** → **Codespaces** tab.
     3. Find your Codespace, click the **...** ellipsis, and select **Stop Codespace** or **Delete**.
+
+## Platform notes
+
+**Container (default)**
+: Runs EMOD inside a Docker container on your local machine or in Codespaces. No credentials or
+cluster access required. Docker must be running.
+
+**COMPS** *(IDM-only)*
+: Requires IDM network access. A `comps_sif_file.id` file is included in the `tutorials/`
+directory with the AssetCollection ID of the EMOD Singularity image. Contact your COMPS
+administrator if you encounter access problems.
+
+**SLURM**
+: Set `slurm_sif_path` in `manifest.py` to the full path of the EMOD `.sif` file on your
+cluster, and update the `mail_user` and `partition` fields in the `Platform("SLURM_LOCAL", ...)`
+block inside each tutorial script.

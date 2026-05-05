@@ -9,7 +9,9 @@ The emodpy-hiv tutorials introduce you to the key components of configuring, run
 | [Tutorial 3: Customize with build functions](tutorial-3.md) | Write your own build functions to modify the baseline country model |
 | [Tutorial 4: Override the cascade of care](tutorial-4.md) | Subclass a country model to customize the HIV cascade of care |
 
-Before running the tutorials, see [Setup](setup.md) to prepare your environment.
+Before running the tutorials, see [Setup](setup.md) to prepare your environment. If you are
+new to EMOD, read [EMOD input files](concepts.md) for a brief overview of the configuration,
+demographics, campaign, and report concepts used throughout the tutorials.
 
 ## emodpy-workflow
 

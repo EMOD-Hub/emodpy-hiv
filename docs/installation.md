@@ -57,7 +57,7 @@ This step may also require IT support:
 
 ## Setup virtual environment
 
-A [virtual environment](emod/virtual_environments.md) keeps emodpy-hiv's software
+A [virtual environment](virtual_environments.md) keeps emodpy-hiv's software
 separate from other Python projects on your computer, preventing version conflicts.
 You will want to do this for all of your new projects.
 
