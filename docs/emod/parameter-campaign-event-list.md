@@ -49,3 +49,5 @@ configuration parameter.
 * PFA_SeekingPartner
 * PFA_FoundPartner
 * PFA_NoPartnerFound
+* MaritalCondomlessSexAct
+* NonMaritalCondomlessSexAct
