@@ -18,6 +18,7 @@ from emodpy.campaign.individual_intervention import SimpleVaccine as SimpleVacci
 from emodpy.campaign.individual_intervention import StandardDiagnostic as StandardDiagnostic
 from emodpy.campaign.individual_intervention import IndividualIntervention
 from emodpy.campaign.individual_intervention import IVCalendar as IVCalendar
+from emodpy.campaign.individual_intervention import FemaleContraceptive as FemaleContraceptive
 from emodpy.utils import validate_value_range
 from emodpy.campaign.utils import set_event
 from emodpy_hiv.utils.emod_enum import (SensitivityType, SettingType, RelationshipType, EventOrConfig, PrioritizePartnersBy,
@@ -1032,66 +1033,6 @@ class CoitalActRiskFactors(IndividualIntervention):
         if not isinstance(expiration_period_distribution, BaseDistribution):
             raise ValueError(f"expiration_period_distribution must be an instance of BaseDistribution, not {type(expiration_period_distribution)}.")
         self.set_distribution(expiration_period_distribution, 'Expiration_Period')
-
-
-class FemaleContraceptive(IndividualIntervention):
-    """
-    The **FemaleContraceptive** intervention is used to reduce the fertility rate of females of reproductive age
-    (14 to 45 years old), based on a distribution set by the user. This intervention can only be distributed to
-    females, and ignores the waning condition expiration (as women could still use a contraceptive, even if it
-    is ineffective). Note: the Birth_Rate_Dependence configuration parameter must be set to
-    INDIVIDUAL_PREGNANCIES or INDIVIDUAL_PREGNANCIES_BY_AGE_AND_YEAR or an error will result.
-
-    Args:
-        campaign (api_campaign, required):
-            An instance of the emod_api.campaign module.
-
-        waning_config(AbstractWaningConfig, required):
-            A WaningConfig object used to control the efficacy of the contraceptive, typically over time.
-            Specify how this effect decays over time using one of the Waning Config classes in
-            emodpy_hiv.campaign.waning_config.
-
-        usage_expiration_event(str, optional):
-            When the woman stops using the contraceptive, this event will be broadcast. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
-            Default value: None
-
-        usage_duration_distribution(BaseDistribution, required):
-            For the distribution of each contraceptive, a randomly selected duration from this distribution
-            will determine when the woman stops using the contraceptive.  This is independent of how long the
-            contraceptive is effective. Please use the following distribution classes
-            from emodpy_hiv.utils.distributions to define the distribution:
-            * ConstantDistribution
-            * UniformDistribution
-            * GaussianDistribution
-            * ExponentialDistribution
-            * PoissonDistribution
-            * LogNormalDistribution
-            * DualConstantDistribution
-            * WeibullDistribution
-            * DualExponentialDistribution
-
-        common_intervention_parameters (CommonInterventionParameters, optional):
-            The CommonInterventionParameters object that contains the 5 common
-            parameters: cost, intervention_name, new_property_value, disqualifying_properties, dont_allow_duplicates.
-            Default value: None
-    """
-
-    def __init__(self,
-                 campaign: api_campaign,
-                 waning_config: AbstractWaningConfig,
-                 usage_expiration_event: str,
-                 usage_duration_distribution: BaseDistribution,
-                 common_intervention_parameters: CommonInterventionParameters = None):
-        super().__init__(campaign, 'FemaleContraceptive', common_intervention_parameters)
-        if not isinstance(waning_config, AbstractWaningConfig):
-            raise ValueError(f"waning_config must be an instance of AbstractWaningConfig, not {type(waning_config)}.")
-        self._intervention.Waning_Config = waning_config.to_schema_dict(campaign)
-        self._intervention.Usage_Expiration_Event = set_event(usage_expiration_event, 'usage_expiration_event', campaign, True)
-        if not isinstance(usage_duration_distribution, BaseDistribution):
-            raise ValueError(f"usage_duration_distribution must be an instance of BaseDistribution, not {type(usage_duration_distribution)}.")
-        self.set_distribution(usage_duration_distribution, 'Usage_Duration')
 
 
 class HIVARTStagingByCD4Diagnostic(IndividualIntervention):
