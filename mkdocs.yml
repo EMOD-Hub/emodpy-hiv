@@ -13,6 +13,7 @@ theme:
   favicon: images/favicon.ico
   features:
     - content.code.copy
+    - content.tooltips
     # - navigation.footer
   palette:
     - scheme: default
@@ -227,6 +228,7 @@ nav:
 
 not_in_nav: |
   bib.md
+  abbreviations.md
 
 plugins:
   - search:
@@ -248,8 +250,14 @@ plugins:
         - venv/**/*
       autoapi_add_nav_entry: false
   - mkdocstrings:
+      handlers:
+        python:
+          paths: [.]
+          options:
+            docstring_style: google
 
 markdown_extensions:
+  - abbr:
   - admonition:
   - attr_list:  # enables HTMl and CSS classes to inline elements
   - def_list:
@@ -265,13 +273,14 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:  # syntax highlighting for code blocks
-      linenums: true  # adds line numbers to code blocks automatically
       anchor_linenums: true  # adds HTML anchors (#L1, #L2, etc.) to each line so you can link to specific ones.
       default_lang: 'python'
+  - pymdownx.superfences:  # enables extended code fence attributes, including per-block linenums="1"
   - pymdownx.mark:  # text highlighting
   - pymdownx.snippets:  # snippet reuse functionality
       auto_append:
         - docs/bib.md
+        - docs/abbreviations.md
   - pymdownx.tabbed:  # content tabs
       alternate_style: true
   - pymdownx.tilde:  # subscripts
@@ -280,6 +289,7 @@ copyright: Copyright &copy; 2025 Gates Foundation. All rights reserved.
 
 extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - customization/js/json-modal.js
 
 extra_css:
   - customization/css/extra.css

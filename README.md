@@ -1,79 +1,62 @@
 # emodpy-hiv
-emodpy-hiv is an extension to emodpy that contains HIV-specific campaign, demographics, and reporting classes for 
-configuring EMOD-HIV simulations. Standard country-specific configurations are wrapped into "country model" classes, 
-providing easily accessible, modifiable, and consistent starting points for new projects. HIV-specific plotting tools 
-are also provided to aid in exploring model output.
 
-### Table of Contents
+The Python interface for running EMOD HIV simulations.
 
-- [Documentation](#documentation)
-- [Installation](#installation)
-  - [Software Prerequisites](#software-prerequisites)
-  - [Install](#install)
-- [Training Resources](#training-resources)
-- [Support and Contributions](#support)
-- [Disclaimer](#disclaimer)
+![license](https://img.shields.io/badge/License-MIT-brightgreen.svg)
 
-<a id="documentation"></a>
-# Documentation
+## Description
 
-The emodpy-hiv code is intended to be self-documenting in order to keep the documentation fully up-to-date with the 
-particular installed version. Additional documentation is available at the [emodpy-hiv documentation](https://emod-hub.github.io/emodpy-hiv/).
+emodpy-hiv is the primary way to work with EMOD for HIV research. Use it to set up
+transmission settings, define populations, and evaluate the impact of interventions such as
+antiretroviral therapy, voluntary medical male circumcision, prevention of mother-to-child
+transmission, and PrEP — then run simulations and analyze the results.
 
-To build the documentation locally, do the following:
+## Try it now
 
-1. Create and activate a venv.
-2. Navigate to the root directory of the repo and enter the following
+No installation required. Open the repository in
+[GitHub Codespaces](https://github.com/codespaces/new?repo=EMOD-Hub/emodpy-hiv),
+wait for the environment to build, then run:
 
-    ```
-    python -m pip install .[docs]
-	python -m sphinx -T --keep-going -b html ./docs ./site
-    ```
-
-<a id="installation"></a>
-# Installation
-
-<a id="software-prerequisites"></a>
-## Software Prerequisites
-- Python 3.13.X x64 (also supports Python 3.11-3.14)
-- Please ensure pip is updated:
 ```
-python -m pip install --upgrade pip
+cd tutorials
+python tutorial_1_intro.py
 ```
 
-<a id="install"></a>
-## Install
+See the [tutorial setup page](https://emod.idmod.org/emodpy-hiv/tutorials/setup/) for
+Codespaces and local installation instructions, and
+[Tutorial 1](https://emod.idmod.org/emodpy-hiv/tutorials/tutorial-1/) for a walkthrough
+of what the script does.
+
+## Installation
+
+```shell
+pip install emodpy-hiv
 ```
-python -m pip install emodpy-hiv
-```
 
-<a id="training-resources"></a>
-# Training Resources
+## Documentation
 
-Tutorial Python code can be found in the [tutorials](tutorials) directory.
+Full documentation: https://emod.idmod.org/emodpy-hiv
 
+**Releases and changelog:** https://github.com/EMOD-Hub/emodpy-hiv/releases
 
-<a id="support"></a>
-# Support and Contributions
+## Community
 
-The code in this repository was developed by IDM to support our research in disease
-transmission and managing epidemics. We’ve made it publicly available under the MIT
-License to provide others with a better understanding of our research and an opportunity
-to build upon it for their own work. We make no representations that the code works as
-intended or that we will provide support, address issues that are found, or accept pull
-requests. You are welcome to create your own fork and modify the code to suit your own
-modeling needs as contemplated under the MIT License.
+Have a question or a comment? Check out our
+[Discussions](https://github.com/EMOD-Hub/issues-and-discussions) space.
+
+## Contributing
 
 If you have feature requests, issues, or new code, please see our
-[CONTRIBUTING](https://github.com/EMOD-Hub/emodpy-hiv/blob/main/CONTRIBUTING.rst) page for how to provide your feedback.
+[CONTRIBUTING][emodpy-hiv-contributing] page for how to provide your feedback.
 
-Questions or comments are welcome in [Discussions](https://github.com/orgs/EMOD-Hub/discussions).
+## Disclaimer
 
-<a id="disclaimer"></a>
-# Disclaimer
+The code in this repository was developed by IDM and other collaborators to support our
+joint research on flexible agent-based modeling. We've made it publicly available under
+the MIT License to provide others with a better understanding of our research and an
+opportunity to build upon it for their own work. We make no representations that the code
+works as intended or that we will provide support, address issues that are found, or accept
+pull requests. You are welcome to create your own fork and modify the code to suit your own
+modeling needs as permitted under the MIT License.
 
-The code in this repository was developed by IDM and other collaborators to support our joint research on flexible agent-based modeling.
- We've made it publicly available under the MIT License to provide others with a better understanding of our research and an opportunity to build upon it for 
- their own work. We make no representations that the code works as intended or that we will provide support, address issues that are found, or accept pull requests.
- You are welcome to create your own fork and modify the code to suit your own modeling needs as permitted under the MIT License.
-
+[emodpy-hiv-contributing]: https://github.com/EMOD-Hub/emodpy-hiv/blob/main/CONTRIBUTING.md

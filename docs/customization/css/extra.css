@@ -4,3 +4,78 @@ div.md-copyright__highlight
     flex-direction: row;
     gap: 2em;
 }
+
+/* Keep short metadata columns from wrapping; Description (always last) is excluded so it wraps */
+.md-typeset table td:not(:last-child),
+.md-typeset table th:not(:last-child) {
+    white-space: nowrap;
+}
+
+/* Ensure Description column is wide enough to push table beyond the viewport, triggering scroll */
+.md-typeset table td:last-child,
+.md-typeset table th:last-child {
+    min-width: 400px;
+}
+
+/* display:inline-block on .md-typeset__table breaks sticky in Chrome — override to block */
+.md-typeset__table {
+    display: block;
+}
+
+/* Sticky first column - keeps parameter name visible while scrolling horizontally */
+.md-typeset table td:first-child,
+.md-typeset table th:first-child {
+    position: sticky;
+    left: 0;
+    background-color: var(--md-default-bg-color);
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.08);
+}
+
+.md-typeset table td:first-child { z-index: 1; }
+.md-typeset table th:first-child { z-index: 4; }
+
+/* JSON example modal */
+.json-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.json-modal {
+    position: relative;
+    background: var(--md-default-bg-color);
+    border-radius: 4px;
+    padding: 2rem 2rem 1.5rem;
+    max-width: min(860px, 90vw);
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.json-modal pre {
+    margin: 0;
+    white-space: pre;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.json-modal-close {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.6rem;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--md-default-fg-color--light);
+    padding: 0;
+}
+
+.json-modal-close:hover {
+    color: var(--md-default-fg-color);
+}
