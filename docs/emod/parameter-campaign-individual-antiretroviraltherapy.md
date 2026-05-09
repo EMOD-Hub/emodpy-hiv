@@ -11,16 +11,16 @@ Additional considerations when using this intervention:
 * If a person is on already ART and receives the [parameter-campaign-individual-artmortalitytable](parameter-campaign-individual-artmortalitytable.md) intervention, the original ART start time will be used to calculate the duration from enrollment to ART AIDS Death. The duration since starting ART will not change; it will continue to increase.
 * If a person is on ART and receives the [parameter-campaign-individual-artdropout](parameter-campaign-individual-artdropout.md) intervention, the person will go off ART and the duration will be reset; if receiving a new ART intervention, this new start time/duration will be used in any calculations.
 
-> **NOTE:**
-> Parameters are case-sensitive. For Boolean parameters, set to 1 for true or 0 for false.
-> Minimum, maximum, or default values of "NA" indicate that those values are not applicable for
-> that parameter.
->
-> EMOD does not use true defaults; that is, if the dependency relationships indicate that a parameter is required, you must supply a value for it. However, many of the tools used to work with EMOD will use the default values provided below.
->
-> JSON format does not permit comments, but you can add "dummy" parameters to add contextual
-> information to your files. Any keys that are not EMOD parameter names will be ignored by the
-> model.
+!!! note
+    Parameters are case-sensitive. For Boolean parameters, set to 1 for true or 0 for false.
+    Minimum, maximum, or default values of "NA" indicate that those values are not applicable for
+    that parameter.
+
+    EMOD does not use true defaults; that is, if the dependency relationships indicate that a parameter is required, you must supply a value for it. However, many of the tools used to work with EMOD will use the default values provided below.
+
+    JSON format does not permit comments, but you can add "dummy" parameters to add contextual
+    information to your files. Any keys that are not EMOD parameter names will be ignored by the
+    model.
 
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.

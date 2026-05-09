@@ -52,10 +52,10 @@ the different properties are merely suggestions and can be used to track any pro
 1.  If you want to add another property and associated values, add a new JSON object in the
     **IndividualProperties** array as above.
 
-> **NOTE:**
-> Multiple properties must be defined in one file. They can be defined in either the base
-> layer demographics file or an overlay file, but they cannot be split between the files.
-> The maximum number of property types that can be added is two.
+!!! note
+    Multiple properties must be defined in one file. They can be defined in either the base
+    layer demographics file or an overlay file, but they cannot be split between the files.
+    The maximum number of property types that can be added is two.
 
 ## Create properties for age ranges
 

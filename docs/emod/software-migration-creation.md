@@ -5,16 +5,16 @@ from either CSV or JSON data using Python scripts provided by IDM. You can assig
 probability of migration to each individual in a node (vector or human), or you can assign different
 migration rates based on age and/or gender (human only).
 
-> **NOTE:**
-> The **IdReference** must match the value in the demographics file. Each node can be connected a
-> maximum of 100 destination nodes.
->
-> For both scripts, use one of the following migration types:
->
-> * LOCAL_MIGRATION
-> * AIR_MIGRATION
-> * REGIONAL_MIGRATION
-> * SEA_MIGRATION
+!!! note
+    The **IdReference** must match the value in the demographics file. Each node can be connected a
+    maximum of 100 destination nodes.
+
+    For both scripts, use one of the following migration types:
+
+    * LOCAL_MIGRATION
+    * AIR_MIGRATION
+    * REGIONAL_MIGRATION
+    * SEA_MIGRATION
 
 For regional migration, you may want to set up migration such that if a node is not part of the
 network, the migration of individuals to and from that node considers the closest road hub city. You

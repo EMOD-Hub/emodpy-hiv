@@ -14,8 +14,8 @@ To generate the report, set the **Report_Transmission** parameter to 1 in the co
 
 The output report will contain the following information.
 
-> **NOTE:**
-> Note: Data channels with <SRC or DEST> indicated will return one column for each partner: SRC (the source/transmitting partner) and DEST (the destination/receiving partner).
+!!! note
+    Note: Data channels with <SRC or DEST> indicated will return one column for each partner: SRC (the source/transmitting partner) and DEST (the destination/receiving partner).
 
 | Data channel | Data type | Description |
 |---|---|---|
