@@ -26,7 +26,7 @@ several other built-in reports that you can enable in the *configuration file* u
 Reports are generally in JSON or CSV format.
 
 In order to interpret the output of EMOD simulations, you will find it useful to parse the output
-reports into an analyzable structure. For example, you can use a Python or MATLAB script to create graphs
+reports into an analyzable structure. For example, you can use a Python or R script to create graphs
 and charts for analysis.
 
 For a full reference of available reports, see [Reports reference](parameter-reports-overview.md).

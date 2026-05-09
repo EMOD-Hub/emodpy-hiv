@@ -9,60 +9,62 @@ if you need help resolving an error.
 
 A status.txt file will be saved to the *working directory* that provides one
 output line per time step and includes the total run time of the simulation. A simulation
-with 50 time steps will look something like this::
+with 50 time steps will look something like this:
 
-    Beginning Simulation...
-    1 of 50 steps complete.
-    2 of 50 steps complete.
-    3 of 50 steps complete.
-    4 of 50 steps complete.
-    5 of 50 steps complete.
-    6 of 50 steps complete.
-    7 of 50 steps complete.
-    8 of 50 steps complete.
-    9 of 50 steps complete.
-    10 of 50 steps complete.
-    11 of 50 steps complete.
-    12 of 50 steps complete.
-    13 of 50 steps complete.
-    14 of 50 steps complete.
-    15 of 50 steps complete.
-    16 of 50 steps complete.
-    17 of 50 steps complete.
-    18 of 50 steps complete.
-    19 of 50 steps complete.
-    20 of 50 steps complete.
-    21 of 50 steps complete.
-    22 of 50 steps complete.
-    23 of 50 steps complete.
-    24 of 50 steps complete.
-    25 of 50 steps complete.
-    26 of 50 steps complete.
-    27 of 50 steps complete.
-    28 of 50 steps complete.
-    29 of 50 steps complete.
-    30 of 50 steps complete.
-    31 of 50 steps complete.
-    32 of 50 steps complete.
-    33 of 50 steps complete.
-    34 of 50 steps complete.
-    35 of 50 steps complete.
-    36 of 50 steps complete.
-    37 of 50 steps complete.
-    38 of 50 steps complete.
-    39 of 50 steps complete.
-    40 of 50 steps complete.
-    41 of 50 steps complete.
-    42 of 50 steps complete.
-    43 of 50 steps complete.
-    44 of 50 steps complete.
-    45 of 50 steps complete.
-    46 of 50 steps complete.
-    47 of 50 steps complete.
-    48 of 50 steps complete.
-    49 of 50 steps complete.
-    50 of 50 steps complete.
-    Done - 0:00:02
+```
+Beginning Simulation...
+1 of 50 steps complete.
+2 of 50 steps complete.
+3 of 50 steps complete.
+4 of 50 steps complete.
+5 of 50 steps complete.
+6 of 50 steps complete.
+7 of 50 steps complete.
+8 of 50 steps complete.
+9 of 50 steps complete.
+10 of 50 steps complete.
+11 of 50 steps complete.
+12 of 50 steps complete.
+13 of 50 steps complete.
+14 of 50 steps complete.
+15 of 50 steps complete.
+16 of 50 steps complete.
+17 of 50 steps complete.
+18 of 50 steps complete.
+19 of 50 steps complete.
+20 of 50 steps complete.
+21 of 50 steps complete.
+22 of 50 steps complete.
+23 of 50 steps complete.
+24 of 50 steps complete.
+25 of 50 steps complete.
+26 of 50 steps complete.
+27 of 50 steps complete.
+28 of 50 steps complete.
+29 of 50 steps complete.
+30 of 50 steps complete.
+31 of 50 steps complete.
+32 of 50 steps complete.
+33 of 50 steps complete.
+34 of 50 steps complete.
+35 of 50 steps complete.
+36 of 50 steps complete.
+37 of 50 steps complete.
+38 of 50 steps complete.
+39 of 50 steps complete.
+40 of 50 steps complete.
+41 of 50 steps complete.
+42 of 50 steps complete.
+43 of 50 steps complete.
+44 of 50 steps complete.
+45 of 50 steps complete.
+46 of 50 steps complete.
+47 of 50 steps complete.
+48 of 50 steps complete.
+49 of 50 steps complete.
+50 of 50 steps complete.
+Done - 0:00:02
+```
 
 ## Standard output
 
@@ -74,122 +76,183 @@ the files in use, as well as other initialization information, including the def
 and the logging levels set for particular modules. The file follows that information
 with log output using the following format: <timestep><HPC rank><log level><module><message>.
 
-By default, the logging level is set to "INFO". If you want to change the logging level, see [emod:dev-logging](emod:dev-logging.md).
+By default, the logging level is set to "INFO". If you want to change the logging level, see [emod:dev-debug-logging](emod:dev-debug-logging.md).
 
-For example::
+For example:
 
-    Intellectual Ventures(R)/EMOD Disease Transmission Kernel 2.18.16.0
-    Built on Jul  5 2018 15:32:59 by SYSTEM from master (e98fbf4) checked in on 2018-06-12 11:32:40 -0700
-    Supports sim_types: GENERIC, VECTOR, MALARIA, AIRBORNE, TBHIV, STI, HIV, PY.
-    Using config file: config.json
-    Using input path: ..\..\..\Demographics_Files
-    Using output path: output
-    Using dll path:
-    Python not initialized because --python-script-path (-P) not set.
-    Initializing environment...
-    Log-levels:
-            Default -> INFO
-            Eradication -> INFO
-    00:00:00 [0] [I] [Eradication] Loaded Configuration...
-    00:00:00 [0] [I] [Eradication] 56 parameters found.
-    00:00:00 [0] [I] [Eradication] Initializing Controller...
-    00:00:00 [0] [I] [Controller] DefaultController::execute_internal()...
-    00:00:00 [0] [I] [Simulation] Using PSEUDO_DES random number generator.
-    00:00:00 [0] [I] [DllLoader] ReadEmodulesJson: no file, returning.
-    00:00:00 [0] [I] [DllLoader] dllPath not passed in, getting from EnvPtr
-    00:00:00 [0] [I] [DllLoader] Trying to copy from string to wstring.
-    00:00:00 [0] [I] [DllLoader] DLL ws root path:
-    00:00:00 [0] [W] [Simulation] 00:00:00 [0] [W] [Simulation] Failed to load reporter emodules for SimType: GENERIC_SIM from path: reporter_plugins
-    Failed to load reporter emodules for SimType: GENERIC_SIM from path: reporter_plugins
-    00:00:00 [0] [I] [Simulation] Found 0 Custom Report DLL's to consider loading, load_all_reports=1
-    00:00:00 [0] [I] [Controller] DefaultController::execute_internal() populate simulation...
-    00:00:00 [0] [I] [Simulation] Campaign file name identified as: campaign.json
-    00:00:00 [0] [I] [Climate] Initialize
-    00:00:00 [0] [I] [LoadBalanceScheme] Using Checkerboard Load Balance Scheme.
-    00:00:00 [0] [I] [Simulation] Looking for campaign file campaign.json
-    00:00:00 [0] [I] [Simulation] Found campaign file successfully.
-    00:00:00 [0] [I] [DllLoader] ReadEmodulesJson: no file, returning.
-    00:00:00 [0] [I] [DllLoader] dllPath not passed in, getting from EnvPtr
-    00:00:00 [0] [I] [DllLoader] Trying to copy from string to wstring.
-    00:00:00 [0] [I] [DllLoader] DLL ws root path:
-    00:00:00 [0] [W] [Simulation] 00:00:00 [0] [W] [Simulation] Failed to load intervention emodules for SimType: GENERIC_SIM from path: interventions
-    Failed to load intervention emodules for SimType: GENERIC_SIM from path: interventions
-    00:00:01 [0] [I] [JsonConfigurable] Using the default value ( "Number_Repetitions" : 1 ) for unspecified parameter.
-    00:00:01 [0] [I] [JsonConfigurable] Using the default value ( "Timesteps_Between_Repetitions" : -1 ) for unspecified parameter.
-    00:00:01 [0] [I] [JsonConfigurable] Using the default value ( "Incubation_Period_Override" : -1 ) for unspecified parameter.
-    00:00:01 [0] [I] [Simulation] populateFromDemographics() created 1 nodes
-    00:00:01 [0] [I] [Simulation] populateFromDemographics() generated 1 nodes.
-    00:00:01 [0] [I] [Simulation] Rank 0 contributes 1 nodes...
-    00:00:01 [0] [I] [Simulation] Merging node rank maps...
-    00:00:01 [0] [I] [Simulation] Merged rank 0 map now has 1 nodes.
-    00:00:01 [0] [I] [Simulation] Rank map contents not displayed until NodeRankMap::ToString() (re)implemented.
-    00:00:01 [0] [I] [Simulation] Initialized 'InsetChart.json' reporter
-    00:00:01 [0] [I] [Simulation] Initialized 'BinnedReport.json' reporter
-    00:00:01 [0] [I] [Simulation] Initialized 'DemographicsSummary.json' reporter
-    00:00:01 [0] [I] [Simulation] Update(): Time: 1.0 Rank: 0 StatPop: 10000 Infected: 0
-    00:00:01 [0] [I] [SimulationEventContext] Time for campaign event. Calling Dispatch...
-    00:00:01 [0] [I] [SimulationEventContext] 1 node(s) visited.
-    00:00:01 [0] [I] [JsonConfigurable] Using the default value ( "Incubation_Period_Override" : -1 ) for unspecified parameter.
-    00:00:01 [0] [I] [StandardEventCoordinator] UpdateNodes() gave out 4 'OutbreakIndividual' interventions at node 1
-    00:00:01 [0] [I] [Simulation] Update(): Time: 2.0 Rank: 0 StatPop: 10000 Infected: 4
-    00:00:01 [0] [I] [Simulation] Update(): Time: 3.0 Rank: 0 StatPop: 10000 Infected: 13
-    00:00:01 [0] [I] [Simulation] Update(): Time: 4.0 Rank: 0 StatPop: 10000 Infected: 65
-    00:00:01 [0] [I] [Simulation] Update(): Time: 5.0 Rank: 0 StatPop: 10000 Infected: 283
-    00:00:01 [0] [I] [Simulation] Update(): Time: 6.0 Rank: 0 StatPop: 10000 Infected: 1149
-    00:00:01 [0] [I] [Simulation] Update(): Time: 7.0 Rank: 0 StatPop: 10000 Infected: 3777
-    00:00:01 [0] [I] [Simulation] Update(): Time: 8.0 Rank: 0 StatPop: 10000 Infected: 7268
-    00:00:01 [0] [I] [Simulation] Update(): Time: 9.0 Rank: 0 StatPop: 10000 Infected: 7065
-    00:00:01 [0] [I] [Simulation] Update(): Time: 10.0 Rank: 0 StatPop: 10000 Infected: 5578
-    00:00:01 [0] [I] [Simulation] Update(): Time: 11.0 Rank: 0 StatPop: 10000 Infected: 4377
-    00:00:01 [0] [I] [Simulation] Update(): Time: 12.0 Rank: 0 StatPop: 10000 Infected: 3392
-    00:00:01 [0] [I] [Simulation] Update(): Time: 13.0 Rank: 0 StatPop: 10000 Infected: 2640
-    00:00:01 [0] [I] [Simulation] Update(): Time: 14.0 Rank: 0 StatPop: 10000 Infected: 2054
-    00:00:01 [0] [I] [Simulation] Update(): Time: 15.0 Rank: 0 StatPop: 10000 Infected: 1624
-    00:00:01 [0] [I] [Simulation] Update(): Time: 16.0 Rank: 0 StatPop: 10000 Infected: 1247
-    00:00:01 [0] [I] [Simulation] Update(): Time: 17.0 Rank: 0 StatPop: 10000 Infected: 975
-    00:00:01 [0] [I] [Simulation] Update(): Time: 18.0 Rank: 0 StatPop: 10000 Infected: 742
-    00:00:01 [0] [I] [Simulation] Update(): Time: 19.0 Rank: 0 StatPop: 10000 Infected: 605
-    00:00:01 [0] [I] [Simulation] Update(): Time: 20.0 Rank: 0 StatPop: 10000 Infected: 469
-    00:00:01 [0] [I] [Simulation] Update(): Time: 21.0 Rank: 0 StatPop: 10000 Infected: 355
-    00:00:01 [0] [I] [Simulation] Update(): Time: 22.0 Rank: 0 StatPop: 10000 Infected: 267
-    00:00:01 [0] [I] [Simulation] Update(): Time: 23.0 Rank: 0 StatPop: 10000 Infected: 206
-    00:00:01 [0] [I] [Simulation] Update(): Time: 24.0 Rank: 0 StatPop: 10000 Infected: 164
-    00:00:01 [0] [I] [Simulation] Update(): Time: 25.0 Rank: 0 StatPop: 10000 Infected: 122
-    00:00:01 [0] [I] [Simulation] Update(): Time: 26.0 Rank: 0 StatPop: 10000 Infected: 89
-    00:00:01 [0] [I] [Simulation] Update(): Time: 27.0 Rank: 0 StatPop: 10000 Infected: 73
-    00:00:01 [0] [I] [Simulation] Update(): Time: 28.0 Rank: 0 StatPop: 10000 Infected: 57
-    00:00:01 [0] [I] [Simulation] Update(): Time: 29.0 Rank: 0 StatPop: 10000 Infected: 46
-    00:00:01 [0] [I] [Simulation] Update(): Time: 30.0 Rank: 0 StatPop: 10000 Infected: 32
-    00:00:01 [0] [I] [Simulation] Update(): Time: 31.0 Rank: 0 StatPop: 10000 Infected: 22
-    00:00:01 [0] [I] [Simulation] Update(): Time: 32.0 Rank: 0 StatPop: 10000 Infected: 17
-    00:00:01 [0] [I] [Simulation] Update(): Time: 33.0 Rank: 0 StatPop: 10000 Infected: 16
-    00:00:01 [0] [I] [Simulation] Update(): Time: 34.0 Rank: 0 StatPop: 10000 Infected: 15
-    00:00:01 [0] [I] [Simulation] Update(): Time: 35.0 Rank: 0 StatPop: 10000 Infected: 10
-    00:00:01 [0] [I] [Simulation] Update(): Time: 36.0 Rank: 0 StatPop: 10000 Infected: 6
-    00:00:01 [0] [I] [Simulation] Update(): Time: 37.0 Rank: 0 StatPop: 10000 Infected: 4
-    00:00:01 [0] [I] [Simulation] Update(): Time: 38.0 Rank: 0 StatPop: 10000 Infected: 3
-    00:00:01 [0] [I] [Simulation] Update(): Time: 39.0 Rank: 0 StatPop: 10000 Infected: 3
-    00:00:01 [0] [I] [Simulation] Update(): Time: 40.0 Rank: 0 StatPop: 10000 Infected: 2
-    00:00:01 [0] [I] [Simulation] Update(): Time: 41.0 Rank: 0 StatPop: 10000 Infected: 1
-    00:00:01 [0] [I] [Simulation] Update(): Time: 42.0 Rank: 0 StatPop: 10000 Infected: 1
-    00:00:01 [0] [I] [Simulation] Update(): Time: 43.0 Rank: 0 StatPop: 10000 Infected: 1
-    00:00:01 [0] [I] [Simulation] Update(): Time: 44.0 Rank: 0 StatPop: 10000 Infected: 1
-    00:00:01 [0] [I] [Simulation] Update(): Time: 45.0 Rank: 0 StatPop: 10000 Infected: 1
-    00:00:01 [0] [I] [Simulation] Update(): Time: 46.0 Rank: 0 StatPop: 10000 Infected: 0
-    00:00:01 [0] [I] [Simulation] Update(): Time: 47.0 Rank: 0 StatPop: 10000 Infected: 0
-    00:00:01 [0] [I] [Simulation] Update(): Time: 48.0 Rank: 0 StatPop: 10000 Infected: 0
-    00:00:01 [0] [I] [Simulation] Update(): Time: 49.0 Rank: 0 StatPop: 10000 Infected: 0
-    00:00:01 [0] [I] [Simulation] Update(): Time: 50.0 Rank: 0 StatPop: 10000 Infected: 0
-    00:00:02 [0] [I] [Simulation] Finalizing 'InsetChart.json' reporter.
-    00:00:02 [0] [I] [Simulation] Finalized  'InsetChart.json' reporter.
-    00:00:02 [0] [I] [Simulation] Finalizing 'BinnedReport.json' reporter.
-    00:00:02 [0] [I] [Simulation] Finalized  'BinnedReport.json' reporter.
-    00:00:02 [0] [I] [Simulation] Finalizing 'DemographicsSummary.json' reporter.
-    00:00:02 [0] [I] [Simulation] Finalized  'DemographicsSummary.json' reporter.
-    00:00:02 [0] [I] [Controller] Exiting DefaultController::execute_internal
-    00:00:02 [0] [I] [Eradication] Controller executed successfully.
+```
+Intellectual Ventures(R)/EMOD Disease Transmission Kernel 2.18.16.0
+Built on Jul  5 2018 15:32:59 by SYSTEM from master (e98fbf4) checked in on 2018-06-12 11:32:40 -0700
+Supports sim_types: GENERIC, VECTOR, MALARIA, AIRBORNE, TBHIV, STI, HIV, PY.
+Using config file: config.json
+Using input path: ..\..\..\Demographics_Files
+Using output path: output
+Using dll path:
+Python not initialized because --python-script-path (-P) not set.
+Initializing environment...
+Log-levels:
+        Default -> INFO
+        Eradication -> INFO
+00:00:00 [0] [I] [Eradication] Loaded Configuration...
+00:00:00 [0] [I] [Eradication] 56 parameters found.
+00:00:00 [0] [I] [Eradication] Initializing Controller...
+00:00:00 [0] [I] [Controller] DefaultController::execute_internal()...
+00:00:00 [0] [I] [Simulation] Using PSEUDO_DES random number generator.
+00:00:00 [0] [I] [DllLoader] ReadEmodulesJson: no file, returning.
+00:00:00 [0] [I] [DllLoader] dllPath not passed in, getting from EnvPtr
+00:00:00 [0] [I] [DllLoader] Trying to copy from string to wstring.
+00:00:00 [0] [I] [DllLoader] DLL ws root path:
+00:00:00 [0] [W] [Simulation] 00:00:00 [0] [W] [Simulation] Failed to load reporter emodules for SimType: GENERIC_SIM from path: reporter_plugins
+Failed to load reporter emodules for SimType: GENERIC_SIM from path: reporter_plugins
+00:00:00 [0] [I] [Simulation] Found 0 Custom Report DLL's to consider loading, load_all_reports=1
+00:00:00 [0] [I] [Controller] DefaultController::execute_internal() populate simulation...
+00:00:00 [0] [I] [Simulation] Campaign file name identified as: campaign.json
+00:00:00 [0] [I] [Climate] Initialize
+00:00:00 [0] [I] [LoadBalanceScheme] Using Checkerboard Load Balance Scheme.
+00:00:00 [0] [I] [Simulation] Looking for campaign file campaign.json
+00:00:00 [0] [I] [Simulation] Found campaign file successfully.
+00:00:00 [0] [I] [DllLoader] ReadEmodulesJson: no file, returning.
+00:00:00 [0] [I] [DllLoader] dllPath not passed in, getting from EnvPtr
+00:00:00 [0] [I] [DllLoader] Trying to copy from string to wstring.
+00:00:00 [0] [I] [DllLoader] DLL ws root path:
+00:00:00 [0] [W] [Simulation] 00:00:00 [0] [W] [Simulation] Failed to load intervention emodules for SimType: GENERIC_SIM from path: interventions
+Failed to load intervention emodules for SimType: GENERIC_SIM from path: interventions
+00:00:01 [0] [I] [JsonConfigurable] Using the default value ( "Number_Repetitions" : 1 ) for unspecified parameter.
+00:00:01 [0] [I] [JsonConfigurable] Using the default value ( "Timesteps_Between_Repetitions" : -1 ) for unspecified parameter.
+00:00:01 [0] [I] [JsonConfigurable] Using the default value ( "Incubation_Period_Override" : -1 ) for unspecified parameter.
+00:00:01 [0] [I] [Simulation] populateFromDemographics() created 1 nodes
+00:00:01 [0] [I] [Simulation] populateFromDemographics() generated 1 nodes.
+00:00:01 [0] [I] [Simulation] Rank 0 contributes 1 nodes...
+00:00:01 [0] [I] [Simulation] Merging node rank maps...
+00:00:01 [0] [I] [Simulation] Merged rank 0 map now has 1 nodes.
+00:00:01 [0] [I] [Simulation] Rank map contents not displayed until NodeRankMap::ToString() (re)implemented.
+00:00:01 [0] [I] [Simulation] Initialized 'InsetChart.json' reporter
+00:00:01 [0] [I] [Simulation] Initialized 'BinnedReport.json' reporter
+00:00:01 [0] [I] [Simulation] Initialized 'DemographicsSummary.json' reporter
+00:00:01 [0] [I] [Simulation] Update(): Time: 1.0 Rank: 0 StatPop: 10000 Infected: 0
+00:00:01 [0] [I] [SimulationEventContext] Time for campaign event. Calling Dispatch...
+00:00:01 [0] [I] [SimulationEventContext] 1 node(s) visited.
+00:00:01 [0] [I] [JsonConfigurable] Using the default value ( "Incubation_Period_Override" : -1 ) for unspecified parameter.
+00:00:01 [0] [I] [StandardEventCoordinator] UpdateNodes() gave out 4 'OutbreakIndividual' interventions at node 1
+00:00:01 [0] [I] [Simulation] Update(): Time: 2.0 Rank: 0 StatPop: 10000 Infected: 4
+00:00:01 [0] [I] [Simulation] Update(): Time: 3.0 Rank: 0 StatPop: 10000 Infected: 13
+00:00:01 [0] [I] [Simulation] Update(): Time: 4.0 Rank: 0 StatPop: 10000 Infected: 65
+00:00:01 [0] [I] [Simulation] Update(): Time: 5.0 Rank: 0 StatPop: 10000 Infected: 283
+00:00:01 [0] [I] [Simulation] Update(): Time: 6.0 Rank: 0 StatPop: 10000 Infected: 1149
+00:00:01 [0] [I] [Simulation] Update(): Time: 7.0 Rank: 0 StatPop: 10000 Infected: 3777
+00:00:01 [0] [I] [Simulation] Update(): Time: 8.0 Rank: 0 StatPop: 10000 Infected: 7268
+00:00:01 [0] [I] [Simulation] Update(): Time: 9.0 Rank: 0 StatPop: 10000 Infected: 7065
+00:00:01 [0] [I] [Simulation] Update(): Time: 10.0 Rank: 0 StatPop: 10000 Infected: 5578
+00:00:01 [0] [I] [Simulation] Update(): Time: 11.0 Rank: 0 StatPop: 10000 Infected: 4377
+00:00:01 [0] [I] [Simulation] Update(): Time: 12.0 Rank: 0 StatPop: 10000 Infected: 3392
+00:00:01 [0] [I] [Simulation] Update(): Time: 13.0 Rank: 0 StatPop: 10000 Infected: 2640
+00:00:01 [0] [I] [Simulation] Update(): Time: 14.0 Rank: 0 StatPop: 10000 Infected: 2054
+00:00:01 [0] [I] [Simulation] Update(): Time: 15.0 Rank: 0 StatPop: 10000 Infected: 1624
+00:00:01 [0] [I] [Simulation] Update(): Time: 16.0 Rank: 0 StatPop: 10000 Infected: 1247
+00:00:01 [0] [I] [Simulation] Update(): Time: 17.0 Rank: 0 StatPop: 10000 Infected: 975
+00:00:01 [0] [I] [Simulation] Update(): Time: 18.0 Rank: 0 StatPop: 10000 Infected: 742
+00:00:01 [0] [I] [Simulation] Update(): Time: 19.0 Rank: 0 StatPop: 10000 Infected: 605
+00:00:01 [0] [I] [Simulation] Update(): Time: 20.0 Rank: 0 StatPop: 10000 Infected: 469
+00:00:01 [0] [I] [Simulation] Update(): Time: 21.0 Rank: 0 StatPop: 10000 Infected: 355
+00:00:01 [0] [I] [Simulation] Update(): Time: 22.0 Rank: 0 StatPop: 10000 Infected: 267
+00:00:01 [0] [I] [Simulation] Update(): Time: 23.0 Rank: 0 StatPop: 10000 Infected: 206
+00:00:01 [0] [I] [Simulation] Update(): Time: 24.0 Rank: 0 StatPop: 10000 Infected: 164
+00:00:01 [0] [I] [Simulation] Update(): Time: 25.0 Rank: 0 StatPop: 10000 Infected: 122
+00:00:01 [0] [I] [Simulation] Update(): Time: 26.0 Rank: 0 StatPop: 10000 Infected: 89
+00:00:01 [0] [I] [Simulation] Update(): Time: 27.0 Rank: 0 StatPop: 10000 Infected: 73
+00:00:01 [0] [I] [Simulation] Update(): Time: 28.0 Rank: 0 StatPop: 10000 Infected: 57
+00:00:01 [0] [I] [Simulation] Update(): Time: 29.0 Rank: 0 StatPop: 10000 Infected: 46
+00:00:01 [0] [I] [Simulation] Update(): Time: 30.0 Rank: 0 StatPop: 10000 Infected: 32
+00:00:01 [0] [I] [Simulation] Update(): Time: 31.0 Rank: 0 StatPop: 10000 Infected: 22
+00:00:01 [0] [I] [Simulation] Update(): Time: 32.0 Rank: 0 StatPop: 10000 Infected: 17
+00:00:01 [0] [I] [Simulation] Update(): Time: 33.0 Rank: 0 StatPop: 10000 Infected: 16
+00:00:01 [0] [I] [Simulation] Update(): Time: 34.0 Rank: 0 StatPop: 10000 Infected: 15
+00:00:01 [0] [I] [Simulation] Update(): Time: 35.0 Rank: 0 StatPop: 10000 Infected: 10
+00:00:01 [0] [I] [Simulation] Update(): Time: 36.0 Rank: 0 StatPop: 10000 Infected: 6
+00:00:01 [0] [I] [Simulation] Update(): Time: 37.0 Rank: 0 StatPop: 10000 Infected: 4
+00:00:01 [0] [I] [Simulation] Update(): Time: 38.0 Rank: 0 StatPop: 10000 Infected: 3
+00:00:01 [0] [I] [Simulation] Update(): Time: 39.0 Rank: 0 StatPop: 10000 Infected: 3
+00:00:01 [0] [I] [Simulation] Update(): Time: 40.0 Rank: 0 StatPop: 10000 Infected: 2
+00:00:01 [0] [I] [Simulation] Update(): Time: 41.0 Rank: 0 StatPop: 10000 Infected: 1
+00:00:01 [0] [I] [Simulation] Update(): Time: 42.0 Rank: 0 StatPop: 10000 Infected: 1
+00:00:01 [0] [I] [Simulation] Update(): Time: 43.0 Rank: 0 StatPop: 10000 Infected: 1
+00:00:01 [0] [I] [Simulation] Update(): Time: 44.0 Rank: 0 StatPop: 10000 Infected: 1
+00:00:01 [0] [I] [Simulation] Update(): Time: 45.0 Rank: 0 StatPop: 10000 Infected: 1
+00:00:01 [0] [I] [Simulation] Update(): Time: 46.0 Rank: 0 StatPop: 10000 Infected: 0
+00:00:01 [0] [I] [Simulation] Update(): Time: 47.0 Rank: 0 StatPop: 10000 Infected: 0
+00:00:01 [0] [I] [Simulation] Update(): Time: 48.0 Rank: 0 StatPop: 10000 Infected: 0
+00:00:01 [0] [I] [Simulation] Update(): Time: 49.0 Rank: 0 StatPop: 10000 Infected: 0
+00:00:01 [0] [I] [Simulation] Update(): Time: 50.0 Rank: 0 StatPop: 10000 Infected: 0
+00:00:02 [0] [I] [Simulation] Finalizing 'InsetChart.json' reporter.
+00:00:02 [0] [I] [Simulation] Finalized  'InsetChart.json' reporter.
+00:00:02 [0] [I] [Simulation] Finalizing 'BinnedReport.json' reporter.
+00:00:02 [0] [I] [Simulation] Finalized  'BinnedReport.json' reporter.
+00:00:02 [0] [I] [Simulation] Finalizing 'DemographicsSummary.json' reporter.
+00:00:02 [0] [I] [Simulation] Finalized  'DemographicsSummary.json' reporter.
+00:00:02 [0] [I] [Controller] Exiting DefaultController::execute_internal
+00:00:02 [0] [I] [Eradication] Controller executed successfully.
+```
 
 ## Standard error
 
 When you run a simulation, it will also generate a standard error logging file
 (StdErr.txt) in the working directory that captures all standard error messages.
+
+## Configuration parameters
+
+The following parameters control logging behavior and can be set in your configuration file.
+
+| Parameter | Data type | Default | Description |
+|---|---|---|---|
+| `logLevel_default` | enum | INFO | The default log level for all modules. See [Log levels](#log-levels) below. |
+| `logLevel_<ModuleName>` | enum | INFO | Override the log level for a specific EMOD module, identified by the class name shown in StdOut.txt. Overrides `logLevel_default` for that module only. |
+| `Enable_Log_Throttling` | boolean | 0 | When set to 1, eliminates duplicate log messages from the same source file, retaining only the first occurrence of each repeated message. |
+| `Enable_Continuous_Log_Flushing` | boolean | 0 | When set to 1, flushes the log buffer to disk after every message. Useful when diagnosing crashes that may cut off buffered log output before it is written. |
+| `Enable_Warnings_Are_Fatal` | boolean | 0 | When set to 1, warning-level log messages are treated as fatal errors and will terminate the simulation. |
+
+## Log levels
+
+There are five log levels. The level chosen will log messages at that level and all higher levels
+(lower numeric value). You can set the default log level for all modules using `logLevel_default`
+and override it for individual modules using `logLevel_<ModuleName>`.
+
+**ERROR (1)**
+:   Only errors are logged. This is the least verbose level.
+
+**WARNING (2)**
+:   Warnings and errors are logged.
+
+**INFO (3)**
+:   The default level. Informational messages, warnings, and errors are logged. This is
+    the recommended level for normal use and provides the output needed to diagnose most issues.
+
+**DEBUG (4)**
+:   Debug messages, informational messages, warnings, and errors are logged. This setting
+    generates a large volume of output and may impact simulation performance. When using
+    this level, consider applying it to individual modules rather than setting it as the default.
+
+**VALID (5)**
+:   The most verbose level. Includes validation and low-level debug messages, in addition to all
+    higher-level messages. Because of the potential performance impact, this level only produces
+    output in a debug build of Eradication.exe.
+
+## Controlling log output size
+
+When running large numbers of simulations — for example, parameter sweeps with thousands of runs —
+the StdOut.txt file from each simulation can add up to significant disk usage. Setting
+`logLevel_default` to `WARNING` or `ERROR` reduces the volume of log output and can meaningfully
+reduce total disk usage.
+
+The tradeoff is that if a simulation fails or produces unexpected results, the reduced log output
+may not contain enough information to diagnose the problem. If you need to investigate an issue,
+re-run the simulation with `logLevel_default` set to `INFO` (or omit the parameter entirely to
+use the default) to get the full output needed for diagnosis.
+
+A middle ground is to reduce the default level but keep specific modules at `INFO`. For example:
+
+```json
+{
+    "logLevel_default": "WARNING",
+    "logLevel_Eradication": "INFO"
+}
+```

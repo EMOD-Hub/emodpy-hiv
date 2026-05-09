@@ -6,9 +6,6 @@ information below to resolve the issue.
 If you need assistance, please post on our [discussion board][discussions]. When submitting the issue, please include any error
 information.
 
-See [emod:dev-debugging-overview](emod:dev-debugging-overview.md) for troubleshooting issues when attempting to
-build Eradication.exe or Eradication binary for Linux.
-
 ## Exceptions
 
 Whenever EMOD encounters an error condition while running a simulation, it should throw an
@@ -27,11 +24,13 @@ Each exception will return, at a minimum, the following information:
 Specific exceptions may also return additional information in a message format. This message
 (msg) may contain variable names or the values of those variables, the name of a file that
 wasn't found, and other informational text regarding the nature of the problem. For example,
-a file not found exception (FileNotFoundException) might look similar to the following::
+a file not found exception (FileNotFoundException) might look similar to the following:
 
-    00:00:00 [0] [E] [Eradication] FileNotFoundException caught: msg = Could not find
-    file ./Namawala_single_node_demographics.compiled.json, filename = NodeDemographics.cpp,
-    lineNumber = 227
+```
+00:00:00 [0] [E] [Eradication] FileNotFoundException caught: msg = Could not find
+file ./Namawala_single_node_demographics.compiled.json, filename = NodeDemographics.cpp,
+lineNumber = 227
+```
 
 ### BadEnumInSwitchStatementException
 
