@@ -20,4 +20,29 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-stiispostdebut.csv') }}
 
-*See example: [campaign-stiispostdebut.json](../json/campaign-stiispostdebut.json)*
+```json
+{
+     "Use_Defaults": 1,
+     "Campaign_Name": "IsPostDebutCensus",
+     "Events": [
+        {
+            "class": "CampaignEvent",
+            "Event_Name": "Is Post Debut?  Broadcast for event reporter.",
+            "Start_Day": 14539,
+            "Nodeset_Config": { "class": "NodeSetAll" },
+            "Event_Coordinator_Config":
+            {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Demographic_Coverage": 1,
+                "Intervention_Config":
+                {
+                    "class": "STIIsPostDebut",
+                    "Event_Or_Config": "Event",
+                    "Positive_Diagnosis_Event": "PostDebut",
+                    "Negative_Diagnosis_Event": "PreDebut"
+                }
+            }
+        }
+     ]
+}
+```

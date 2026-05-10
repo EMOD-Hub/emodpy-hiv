@@ -22,4 +22,41 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-cd4diagnostic.csv') }}
 
-*See example: [campaign-cd4diagnostic.json](../json/campaign-cd4diagnostic.json)*
+```json
+{
+    "Campaign_Name": "4a_ARTRetention_Depends_on_Time_CD4_Demographics",
+    "Default_Campaign_Path": "defaults/hiv_default_campaign.json",
+    "Use_Defaults": 1,
+    "Events": [{
+        "class": "CampaignEventByYear",
+        "Event_Name": "",
+        "Start_Year": 1990,
+        "Nodeset_Config": {
+            "class": "NodeSetAll"
+        },
+        "Event_Coordinator_Config": {
+            "class": "StandardInterventionDistributionEventCoordinator",
+            "Intervention_Config": {
+                "class": "NodeLevelHealthTriggeredIV",
+                "Trigger_Condition_List": [
+                    "OnART1"
+                ],
+                "Actual_IndividualIntervention_Config": {
+                    "class": "CD4Diagnostic",
+                    "CD4_Thresholds": [{
+                            "Low": 0,
+                            "High": 200,
+                            "Event": "OnART4"
+                        },
+                        {
+                            "Low": 200,
+                            "High": 100000000,
+                            "Event": "OnART7"
+                        }
+                    ]
+                }
+            }
+        }
+    }]
+}
+```

@@ -20,4 +20,27 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-outbreakindividual.csv') }}
 
-*See example: [campaign-outbreakindividual.json](../json/campaign-outbreakindividual.json)*
+```json
+{
+  "Events": [
+    {
+      "Event_Coordinator_Config": {
+        "Demographic_Coverage": 0.001,
+        "Intervention_Config": {
+          "Clade": 1,
+          "Genome": 3,
+          "IgnoreImmunity": 1,
+          "class": "OutbreakIndividual"
+        },
+        "Target_Demographic": "Everyone",
+        "class": "StandardInterventionDistributionEventCoordinator"
+      },
+      "Nodeset_Config": {
+        "class": "NodeSetAll"
+      },
+      "Start_Day": 30,
+      "class": "CampaignEvent"
+    }
+  ]
+}
+```

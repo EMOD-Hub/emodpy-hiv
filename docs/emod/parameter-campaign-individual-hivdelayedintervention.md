@@ -21,4 +21,53 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-hivdelayedintervention.csv') }}
 
-*See example: [campaign-hivdelayedintervention.json](../json/campaign-hivdelayedintervention.json)*
+```json
+{
+  "Use_Defaults": 1,
+  "Campaign_Name": "35_HIV_Delayed_Intervention",
+  "Events": [
+    {
+      "class": "CampaignEvent",
+      "Event_Name": "LTFU0 broadcasts should proceed the expiration period of 9 days",
+      "Start_Day": 1,
+      "Nodeset_Config": {
+        "class": "NodeSetAll"
+      },
+      "Event_Coordinator_Config": {
+        "class": "StandardInterventionDistributionEventCoordinator",
+        "Demographic_Coverage": 1,
+        "Intervention_Config": {
+          "class": "HIVDelayedIntervention",
+          "Disqualifying_Properties": [],
+          "New_Property_Value": "",
+          "Delay_Period_Distribution": "CONSTANT_DISTRIBUTION",
+          "Delay_Period_Constant": 8,
+          "Expiration_Period": 9,
+          "Broadcast_Event": "LTFU0"
+        }
+      }
+    },
+    {
+      "class": "CampaignEvent",
+      "Event_Name": "LTFU1 broadcasts should be truncated by the expiration period of 7 days",
+      "Start_Day": 1,
+      "Nodeset_Config": {
+        "class": "NodeSetAll"
+      },
+      "Event_Coordinator_Config": {
+        "class": "StandardInterventionDistributionEventCoordinator",
+        "Demographic_Coverage": 1,
+        "Intervention_Config": {
+          "class": "HIVDelayedIntervention",
+          "Disqualifying_Properties": [],
+          "New_Property_Value": "",
+          "Delay_Period_Distribution": "CONSTANT_DISTRIBUTION",
+          "Delay_Period_Constant": 8,
+          "Expiration_Period": 7,
+          "Broadcast_Event": "LTFU1"
+        }
+      }
+    }
+  ]
+}
+```

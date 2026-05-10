@@ -23,4 +23,35 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-hivsimplediagnostic.csv') }}
 
-*See example: [campaign-hivsimplediagnostic.json](../json/campaign-hivsimplediagnostic.json)*
+```json
+{
+    "Events": [{
+        "Event_Coordinator_Config": {
+            "Demographic_Coverage": 1.0,
+            "Intervention_Config": {
+                "Base_Sensitivity": 1,
+                "Base_Specificity": 1,
+                "Days_to_Diagnosis": 0,
+                "Event_or_Config": "Event",
+                "Negative_Diagnosis_Event": "HIVNegativeTest",
+                "Positive_Diagnosis_Event": "HIVPositiveTest",
+                "Treatment_Fraction": 1,
+                "class": "HIVSimpleDiagnostic"
+            },
+            "Number_Distributions": -1,
+            "Number_Repetitions": 1,
+            "Property_Restrictions": [],
+            "Target_Group": "Everyone",
+            "Timesteps_Between_Repetitions": 1,
+            "class": "StandardInterventionDistributionEventCoordinator"
+        },
+        "Event_Name": "Test Everyone for HIV",
+        "Nodeset_Config": {
+            "class": "NodeSetAll"
+        },
+        "Start_Day": 2,
+        "class": "CampaignEvent"
+    }],
+    "Use_Defaults": 1
+}
+```

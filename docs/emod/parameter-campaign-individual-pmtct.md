@@ -21,4 +21,34 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-pmtct.csv') }}
 
-*See example: [campaign-pmtct.json](../json/campaign-pmtct.json)*
+```json
+{
+    "Use_Defaults": 1,
+    "Campaign_Name": "DrawBlood validation",
+    "Events": [
+        {
+            "Event_Name": "Nevarapine",
+            "Event_Coordinator_Config": {
+                "Demographic_Coverage": 1,
+                "Intervention_Config": {
+                    "Actual_IndividualIntervention_Config": {
+                        "class": "PMTCT",
+                        "Efficacy": 0.5
+                    },
+                    "Trigger_Condition_List": [
+                        "FourteenWeeksPregnant"
+                    ],
+                    "Duration": 365,
+                    "class": "NodeLevelHealthTriggeredIV"
+                },
+                "class": "StandardInterventionDistributionEventCoordinator"
+            },
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Start_Day": 1,
+            "class": "CampaignEvent"
+        }
+    ]
+}
+```

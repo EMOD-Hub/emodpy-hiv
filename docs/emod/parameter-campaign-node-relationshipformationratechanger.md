@@ -25,4 +25,26 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-relationshipformationratechanger.csv') }}
 
-*See example: [campaign-relationshipformationratechanger.json](../json/campaign-relationshipformationratechanger.json)*
+```json
+{
+    "Use_Defaults": 1,
+    "Events": [{
+        "class": "CampaignEvent",
+        "Start_Day": 40,
+        "Nodeset_Config": {
+            "class": "NodeSetAll"
+        },
+        "Event_Coordinator_Config": {
+            "class": "StandardInterventionDistributionEventCoordinator",
+            "Node_Property_Restrictions": [{
+                "HasHealthCare": "YES"
+            }],
+            "Intervention_Config": {
+                "class": "RelationshipFormationRateChanger",
+                "Relationship_Type": "MARITAL",
+                "Overriding_Formation_Rate": 0.0001
+            }
+        }
+    }]
+}
+```

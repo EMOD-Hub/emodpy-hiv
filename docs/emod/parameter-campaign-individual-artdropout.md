@@ -20,4 +20,28 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-artdropout.csv') }}
 
-*See example: [campaign-artdropout.json](../json/campaign-artdropout.json)*
+```json
+{
+    "Use_Defaults": 1,
+    "Events": [{
+        "class": "CampaignEventByYear",
+        "Event_Name": "OnART: state 3 (run ARTDropout)",
+        "Start_Year": 1990,
+        "Nodeset_Config": {
+            "class": "NodeSetAll"
+        },
+        "Event_Coordinator_Config": {
+            "class": "StandardInterventionDistributionEventCoordinator",
+            "Intervention_Config": {
+                "class": "NodeLevelHealthTriggeredIV",
+                "Trigger_Condition_List": [
+                    "OnART3"
+                ],
+                "Actual_IndividualIntervention_Config": {
+                    "class": "ARTDropout"
+                }
+            }
+        }
+    }]
+}
+```

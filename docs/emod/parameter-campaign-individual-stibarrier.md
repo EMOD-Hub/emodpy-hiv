@@ -20,4 +20,53 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-stibarrier.csv') }}
 
-*See example: [campaign-stibarrier.json](../json/campaign-stibarrier.json)*
+```json
+{
+    "Campaign_Name": "Baseline campaign for HIV-5 examples",
+    "Events": [
+        {
+            "Event_Coordinator_Config": {
+                "Demographic_Coverage": 1.0,
+                "Intervention_Config": {
+                    "class": "STIBarrier",
+                    "Early": 1.0,
+                    "Late": 1.0,
+                    "Midyear": 1990,
+                    "Rate": 1.0,
+                    "Relationship_Type": "INFORMAL",
+                    "Cost_To_Consumer": 1.0
+                },
+                "Target_Demographic": "Everyone",
+                "class": "StandardInterventionDistributionEventCoordinator"
+            },
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Start_Year": 1992,
+            "class": "CampaignEventByYear"
+        },
+        {
+            "Event_Coordinator_Config": {
+                "Demographic_Coverage": 1.0,
+                "Intervention_Config": {
+                    "class": "STIBarrier",
+                    "Early": 1.0,
+                    "Late": 1.0,
+                    "Midyear": 1990,
+                    "Rate": 1.0,
+                    "Relationship_Type": "MARITAL",
+                    "Cost_To_Consumer": 1.0
+                },
+                "Target_Demographic": "Everyone",
+                "class": "StandardInterventionDistributionEventCoordinator"
+            },
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Start_Year": 1996,
+            "class": "CampaignEventByYear"
+        }
+    ],
+    "Use_Defaults": 1
+}
+```

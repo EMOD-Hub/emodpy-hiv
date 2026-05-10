@@ -29,4 +29,50 @@ Example: Use **Tracking_Config** to look at men who are not circumcised (by any 
 intervention); if coverage is below the target level at the time of polling, apply the **MaleCircumcision** 
 intervention to uncircumcised men to reach the target coverage.
 
-*See example: [campaign-referencetrackingeventcoordinatortrackingconfig.json](../json/campaign-referencetrackingeventcoordinatortrackingconfig.json)*
+```json
+{
+    "Use_Defaults": 1,
+    "Events": [
+        {
+            "class": "CampaignEventByYear",
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Start_Year": 1960,
+            "Event_Coordinator_Config": {
+                "class": "ReferenceTrackingEventCoordinatorTrackingConfig",
+                "Target_Demographic": "ExplicitGender",
+                "Target_Gender": "Male",
+                "Update_Period": 182,
+                "End_Year": 1965,
+                "Time_Value_Map": {
+                    "Times": [
+                        1960,
+                        1961,
+                        1962,
+                        1963,
+                        1964
+                    ],
+                    "Values": [
+                        0.25,
+                        0.375,
+                        0.4,
+                        0.4375,
+                        0.46875
+                    ]
+                },
+                "Tracking_Config": {
+                    "class": "IsCircumcised",
+                    "Is_Equal_To": 1
+                },
+                "Intervention_Config": {
+                    "class": "MaleCircumcision",
+                    "Cost_To_Consumer": 10.0,
+                    "Circumcision_Reduced_Acquire": 0.6,
+                    "Distributed_Event_Trigger": "VMMC_1"
+                }
+            }
+        }
+    ]
+}
+```

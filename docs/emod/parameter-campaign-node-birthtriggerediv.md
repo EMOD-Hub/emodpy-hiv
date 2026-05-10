@@ -19,4 +19,34 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-birthtriggerediv.csv') }}
 
-*See example: [campaign-birthtriggerediv.json](../json/campaign-birthtriggerediv.json)*
+```json
+{
+    "Use_Defaults": 1,
+    "Events": [{
+        "class": "CampaignEventByYear",
+        "Nodeset_Config": {
+            "class": "NodeSetAll"
+        },
+        "Start_Year": 1960,
+        "Event_Coordinator_Config": {
+            "class": "StandardInterventionDistributionEventCoordinator",
+            "Intervention_Config": {
+                "class": "BirthTriggeredIV",
+                "Target_Demographic": "ExplicitGender",
+                "Target_Gender": "Male",
+                "Demographic_Coverage": 1,
+                "Actual_IndividualIntervention_Config": {
+                    "class": "HIVSigmoidByYearAndSexDiagnostic",
+                    "New_Property_Value": "InterventionStatus:None",
+                    "Ramp_Min": 0.0,
+                    "Ramp_Max": 0.3,
+                    "Ramp_MidYear": 2002.0,
+                    "Ramp_Rate": 0.5,
+                    "Positive_Diagnosis_Event": "HIVNeedsMaleCircumcision"
+                }
+            }
+        }
+
+    }]
+}
+```

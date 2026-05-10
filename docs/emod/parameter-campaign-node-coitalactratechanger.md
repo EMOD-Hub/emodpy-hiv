@@ -25,4 +25,27 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-coitalactratechanger.csv') }}
 
-*See example: [campaign-coitalactratechanger.json](../json/campaign-coitalactratechanger.json)*
+```json
+{
+    "Use_Defaults": 1,
+    "Events": [{
+        "class": "CampaignEvent",
+        "Start_Day": 40,
+        "Nodeset_Config": {
+            "class": "NodeSetAll"
+        },
+        "Event_Coordinator_Config": {
+            "class": "StandardInterventionDistributionEventCoordinator",
+            "Node_Property_Restrictions": [{
+                "HasAdministeredSexEducation": "YES"
+            }],
+            "Intervention_Config": {
+                "class": "CoitalActRateChanger",
+                "Intervention_Name":"CoitalActRateChanger-INFORMAL",
+                "Relationship_Type": "INFORMAL",
+                "Overriding_Formation_Rate": 0.1
+            }
+        }
+    }]
+}
+```

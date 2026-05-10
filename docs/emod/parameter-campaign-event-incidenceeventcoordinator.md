@@ -18,4 +18,10 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-incidenceeventcoordinator.csv') }}
 
-*See example: [campaign-incidenceeventcoordinator.json](../json/campaign-incidenceeventcoordinator.json)*
+```json
+{
+    "class": "IncidenceEventCoordinator",
+    "Number_Repetitions" : 3,
+    "Timesteps_Between_Repetitions" : 6
+}
+```

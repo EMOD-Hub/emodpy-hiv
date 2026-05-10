@@ -18,7 +18,26 @@ the simulation. The table below describes all available parameters, followed by 
 
 {{ read_csv('../csv/campaign-campaignevent.csv') }}
 
-*See example: [campaign-campaignevent.json](../json/campaign-campaignevent.json)*
+```json
+{
+    "Events": [{
+        "class": "CampaignEvent",
+        "Event_Name": "Individual outbreak",
+        "Start_Day": 1,
+        "Nodeset_Config": {
+            "class": "NodeSetAll"
+        },
+        "Event_Coordinator_Config": {
+            "class": "StandardInterventionDistributionEventCoordinator",
+            "Target_Demographic": "Everyone",
+            "Demographic_Coverage": 1.0,
+            "Intervention_Config": {
+                "class": "OutbreakIndividual"
+            }
+        }
+    }]
+}
+```
 
 ## CampaignEventByYear
 
@@ -28,4 +47,24 @@ use calendar-year timelines. The table below describes all available parameters,
 
 {{ read_csv('../csv/campaign-campaigneventbyyear.csv') }}
 
-*See example: [campaign-campaigneventbyyear.json](../json/campaign-campaigneventbyyear.json)*
+```json
+{
+    "Events": [{
+        "class": "CampaignEventByYear",
+        "Event_Name": "Everyone initiates ART",
+        "Start_Year": 2025,
+        "Nodeset_Config": {
+            "class": "NodeSetAll"
+        },
+        "Event_Coordinator_Config": {
+            "class": "StandardInterventionDistributionEventCoordinator",
+            "Target_Demographic": "Everyone",
+            "Demographic_Coverage": 1,
+            "Travel_Linked": 0,
+            "Intervention_Config": {
+                "class": "ARTBasic"
+            }
+        }
+    }]
+}
+```

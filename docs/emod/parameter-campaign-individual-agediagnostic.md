@@ -21,4 +21,51 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-agediagnostic.csv') }}
 
-*See example: [campaign-agediagnostic.json](../json/campaign-agediagnostic.json)*
+```json
+{
+    "Use_Defaults": 1,
+    "Events": [
+        {
+            "class": "CampaignEvent",
+            "Start_Day": 360,
+            "Nodeset_Config":
+            {
+                "class": "NodeSetAll"
+            },
+
+            "Event_Coordinator_Config":
+            {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Demographic_Coverage": 1,
+                "Intervention_Config":
+                {
+                    "class": "AgeDiagnostic",
+                    "Age_Thresholds": [
+                        {
+                            "Low": 0,
+                            "High": 15,
+                            "Event": "AgeMeasured0"
+                        },
+                        {
+                            "NOTE": "Age ranges need not be exclusive.  This event and the next will ffire for a 20 year old.",
+                            "Low": 15,
+                            "High": 25,
+                            "Event": "AgeMeasured1"
+                        },
+                        {
+                            "Low": 15,
+                            "High": 50,
+                            "Event": "AgeMeasured2"
+                        },
+                        {
+                            "Low": 50,
+                            "High": 100,
+                            "Event": "AgeMeasured3"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
+```

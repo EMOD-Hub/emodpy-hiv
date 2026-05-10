@@ -25,4 +25,27 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-relationshipdurationchanger.csv') }}
 
-*See example: [campaign-relationshipdurationchanger.json](../json/campaign-relationshipdurationchanger.json)*
+```json
+{
+    "Use_Defaults": 1,
+    "Events": [{
+        "class": "CampaignEvent",
+        "Start_Day": 40,
+        "Nodeset_Config": {
+            "class": "NodeSetAll"
+        },
+        "Event_Coordinator_Config": {
+            "class": "StandardInterventionDistributionEventCoordinator",
+            "Node_Property_Restrictions": [{
+                "HasHealthCare": "YES"
+            }],
+            "Intervention_Config": {
+                "class": "RelationshipDurationChanger",
+                "Relationship_Type": "COMMERCIAL",
+                "Overriding_Duration_Weibull_Heterogeneity": 0.6,
+                "Overriding_Duration_Weibull_Scale": 22.0
+            }
+        }
+    }]
+}
+```

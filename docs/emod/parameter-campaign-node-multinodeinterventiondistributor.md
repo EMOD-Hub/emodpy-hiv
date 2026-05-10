@@ -21,4 +21,35 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-multinodeinterventiondistributor.csv') }}
 
-*See example: [campaign-multinodeinterventiondistributor.json](../json/campaign-multinodeinterventiondistributor.json)*
+```json
+{
+    "Intervention_Config": {
+        "class": "MultiNodeInterventionDistributor",
+        "Node_Intervention_List": [
+            {
+                "class": "SpaceSpraying",
+                "Cost_To_Consumer": 1.0, 
+                "Habitat_Target": "ALL_HABITATS", 
+                "Spray_Kill_Target": "SpaceSpray_Indoor",
+                "Killing_Config": {
+                    "class": "WaningEffectExponential",
+                    "Initial_Effect": 1.0,
+                    "Decay_Time_Constant": 90
+                        }, 
+                "Reduction_Config": {
+                    "class": "WaningEffectExponential",
+                    "Initial_Effect": 1.0,
+                    "Decay_Time_Constant": 90
+                        }
+            }, 
+            {
+                "class": "NodePropertyValueChanger",
+                "Target_NP_Key_Value": "InterventionStatus:RECENT_SPRAY", 
+                "Daily_Probability": 1.0, 
+                "Maximum_Duration": 0, 
+                "Revert": 90
+            }
+        ]
+    }
+}
+```

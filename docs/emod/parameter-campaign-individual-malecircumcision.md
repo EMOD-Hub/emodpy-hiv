@@ -20,4 +20,30 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-malecircumcision.csv') }}
 
-*See example: [campaign-malecircumcision.json](../json/campaign-malecircumcision.json)*
+```json
+{
+    "Use_Defaults": 1,
+    "Campaign_Name": "HIV 3B: VMMC",
+    "Events": [{
+        "class": "CampaignEventByYear",
+        "Event_Name": "Male circumcision at birth starting in 2025",
+        "Start_Year": 2025,
+        "Nodeset_Config": {
+            "class": "NodeSetAll"
+        },
+        "Event_Coordinator_Config": {
+            "class": "StandardInterventionDistributionEventCoordinator",
+            "Intervention_Config": {
+                "class": "BirthTriggeredIV",
+                "Demographic_Coverage": 1,
+                "Target_Demographic": "ExplicitGender",
+                "Target_Gender": "Male",
+                "Actual_IndividualIntervention_Config": {
+                    "class": "MaleCircumcision",
+                    "Circumcision_Reduced_Acquire": 0.6
+                }
+            }
+        }
+    }]
+}
+```

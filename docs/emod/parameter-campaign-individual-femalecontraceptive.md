@@ -22,4 +22,32 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-femalecontraceptive.csv') }}
 
-*See example: [campaign-femalecontraceptive.json](../json/campaign-femalecontraceptive.json)*
+```json
+{
+    "Use_Defaults": 1,
+    "Events": [
+        {
+            "class": "CampaignEvent",
+            "Start_Day": 730,
+            "Nodeset_Config": { "class": "NodeSetAll" },
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Target_Demographic": "ExplicitGender",
+                "Target_Gender": "Female",
+                "Demographic_Coverage": 0.1,
+                "Intervention_Config": {
+                    "class": "FemaleContraceptive",
+                    "Cost_To_Consumer": 1,
+                    "Waning_Config": {
+                        "class": "WaningEffectConstant",
+                        "Initial_Effect": 0.25
+                    },
+                    "Usage_Duration_Distribution": "CONSTANT_DISTRIBUTION",
+                    "Usage_Duration_Constant": 730,
+                    "Usage_Expiration_Event": "StopUsingContraceptive"
+                }
+            }
+        }
+    ]
+}
+```

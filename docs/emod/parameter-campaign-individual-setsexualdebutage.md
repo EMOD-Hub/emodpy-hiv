@@ -37,4 +37,39 @@ example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-setsexualdebutage.csv') }}
 
-*See example: [campaign-setsexualdebutage.json](../json/campaign-setsexualdebutage.json)*
+```json
+{
+  "Use_Defaults": 1,
+  "Events": [
+    {
+      "Description": "Use reference tracking to debut the correct fraction of 15-19 year old males by year",
+      "class": "CampaignEventByYear",
+      "Start_Year": 1960.5,
+      "Nodeset_Config": {
+        "class": "NodeSetAll"
+      },
+      "Event_Coordinator_Config": {
+        "class": "ReferenceTrackingEventCoordinatorTrackingConfig",
+        "End_Year": 2050,
+        "Update_Period": 30.416667,
+        "Time_Value_Map": {
+          "Times": [ 1960.5, 2006, 2007, 2008, 2009, 2010 ],
+          "Values": [ 0.66, 0.66, 0.68, 0.69, 0.66, 0.65 ]
+        },
+        "Target_Demographic": "ExplicitAgeRangesAndGender",
+        "Target_Gender": "Male",
+        "Target_Age_Min": 15,
+        "Target_Age_Max": 20,
+        "Tracking_Config": {
+          "class": "IsPostDebut",
+          "Is_Equal_To": 1
+        },
+        "Intervention_Config": {
+          "class": "SetSexualDebutAge",
+          "Setting_Type": "CURRENT_AGE"
+        }
+      }
+    }
+  ]
+}
+```
