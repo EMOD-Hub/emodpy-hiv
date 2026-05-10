@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Disqualifying_Properties","[link](../json/campaign-condomusageprobabilitychanger_disqualifying_properties.json)","A list of **NodeProperty** key:value pairs that causes the intervention not to be distributed to the node or aborted (stopped before it could be applied). See :ref:`demo-properties` parameters for more information.","array of strings","NA","NA","[]"
 "Dont_Allow_Duplicates","[link](../json/campaign-condomusageprobabilitychanger_dont_allow_duplicates.json)","If a node's container has an intervention, set to true (1) to prevent it from receiving another copy of the intervention. Supported by all intervention classes.","boolean","0","1","0"
 "Intervention_Name","[link](../json/campaign-condomusageprobabilitychanger_intervention_name.json)","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.","string","NA","NA","CondomUsageProbabilityChanger"

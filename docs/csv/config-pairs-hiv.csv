@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Coital_Dilution_Factor_2_Partners","[link](../json/config-pairs-hiv_coital_dilution_factor_2_partners.json)","The multiplicative reduction in the coital act rate for all relationship types when an individual has exactly two current partners. Represents coital dilution.","float","1.19E-0","1","1"
 "Coital_Dilution_Factor_3_Partners","[link](../json/config-pairs-hiv_coital_dilution_factor_3_partners.json)","The multiplicative reduction in the coital act rate for all relationship types when an individual has exactly three current partners. Represents coital dilution.","float","1.19E-0","1","1"
 "Coital_Dilution_Factor_4_Plus_Partners","[link](../json/config-pairs-hiv_coital_dilution_factor_4_plus_partners.json)","The multiplicative reduction in the coital act rate for all relationship types when an individual has exactly three current partners. Represents coital dilution.","float","1.19E-0","1","1"

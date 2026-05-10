@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Concurrency_Parameters","The following example sets concurrency for transitory relationships regardless of individual properties.
 [link](../json/demo-concurrency-params-hiv_concurrency_parameters.json) [link](../json/demo-concurrency-params-hiv_concurrency_parameters_2.json)","The structure that determines how concurrent relationships are formed, for a *specific* relationship type. This parameter is nested under a parameter for one of the supported relationship types. To apply to all individuals regardless of individual property values, nest parameters under NONE. To apply only to individuals with certain property values, nest parameters under the property value as set in **Concurrency_Configuration**.","json object","NA","NA","NA"
 "Max_Simultaneous_Relationships_Female","[link](../json/demo-concurrency-params-hiv_max_simultaneous_relationships_female.json)","For females, the maximum number of concurrent relationships. The individual sets the value at initialization and whenever they change relationship type.","integer","0","63","1"

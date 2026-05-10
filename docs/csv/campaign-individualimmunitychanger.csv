@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Boost_Acquire","[link](../json/campaign-individualimmunitychanger_boost_acquire.json)","Specifies the boosting effect on acquisition immunity for naive individuals (without natural or vaccine-derived immunity) for a multi-effect booster vaccine. This does not replace current immunity, it builds multiplicatively on top of it.","float","0","1","0"
 "Boost_Mortality","[link](../json/campaign-individualimmunitychanger_boost_mortality.json)","Specifies the boosting effect on mortality immunity for naive individuals (without natural or vaccine-derived immunity) for a multi-effect booster vaccine. This does not replace current immunity, it builds multiplicatively on top of it.","float","0","1","0"
 "Boost_Threshold_Acquire","[link](../json/campaign-individualimmunitychanger_boost_threshold_acquire.json)","Specifies how much acquisition immunity is required before the vaccine changes from a prime to a boost.","float","0","1","0"

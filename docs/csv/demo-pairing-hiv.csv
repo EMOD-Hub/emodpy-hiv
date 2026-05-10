@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Age_of_First_Bin_Edge_Female","[link](../json/demo-pairing-hiv_age_of_first_bin_edge_female.json)","The maximum age for the first age bin when dividing the female population into age bins for pair formation.","integer","0","100","1"
 "Age_of_First_Bin_Edge_Male","[link](../json/demo-pairing-hiv_age_of_first_bin_edge_male.json)","The maximum age for the first age bin when dividing the male population into age bins for pair formation.","integer","0","100","1"
 "Assortivity","[link](../json/demo-pairing-hiv_assortivity.json)","The object that defines how people will preferentially form pairs based on their membership in different groups.","json object","NA","NA","NA"

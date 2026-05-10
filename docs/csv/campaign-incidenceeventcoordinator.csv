@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Action_List","[link](../json/campaign-incidenceeventcoordinator_action_list.json)","List (array) of JSON objects, including the values specified in the following parameters: **Threshold**, **Event_Type**, **Event_To_Broadcast**.","array of json objects","","","[]"
 "Coordinator_Name","","The unique identifying coordinator name, which is useful with the output report, ReportCoordinatorEventRecorder.csv.","string","NA","NA",""""""
 "Count_Events_For_Num_Timesteps","[link](../json/campaign-incidenceeventcoordinator_count_events_for_num_timesteps.json)","If set to true (1), then the waning effect values, as specified in the Effect_List list of objects for the WaningEffectCombo classes, are added together. If set to false (0), the waning effect values are multiplied. The resulting waning effect value cannot be greater than 1.","boolean","0","1","1"

@@ -21,6 +21,8 @@ to all simulation types):
 | Report_Event_Recorder_Individual_Properties | array of strings | NA | NA | [] | An array of optional individual property (IP) keys to be added to the report. One column will be added for each IP Key listed, indicating the individual's value for that IP Key at the time of the event. See [model-properties](model-properties.md) for details on setting individual properties. |
 | Report_Event_Recorder_Start_Day | float | 0 | 3.40282e+38 | 0 | The day of the simulation to start collecting data. |
 | Report_Event_Recorder_End_Day | float | 0 | 3.40282e+38 | 3.40282e+38 | The day of the simulation to stop collecting data. |
+| Report_Event_Recorder_Start_Year | float | 1900 | 2200 | 1900 | The simulation time in calendar years to start collecting data (January 1st of the specified year). For HIV simulations, use this instead of **Report_Event_Recorder_Start_Day**. |
+| Report_Event_Recorder_End_Year | float | 1900 | 2200 | 2200 | The simulation time in calendar years to stop collecting data (January 1st of the specified year). For HIV simulations, use this instead of **Report_Event_Recorder_End_Day**. |
 | Report_Event_Recorder_Node_IDs_Of_Interest | array of integers | 0 | 2.14748e+09 | [] | Data will be collected for the nodes in this list. Leave the array empty (default value) to collect data on all nodes. |
 | Report_Event_Recorder_PropertyChange_IP_Key_Of_Interest | string | NA | NA | "" | If the string is not empty, then the recorder will add the PropertyChange event to the list of events that the report is listening to. However, it will only record the events where the property changed the value of the given key. |
 | Report_Event_Recorder_Min_Age_Years | float | 0 | 9.3228e+35 | 0 | Minimum age in years of people to collect data on. |
@@ -36,6 +38,8 @@ to all simulation types):
     "Report_Event_Recorder_Individual_Properties": ["Risk"],
     "Report_Event_Recorder_Start_Day": 1,
     "Report_Event_Recorder_End_Day": 300,
+    "Report_Event_Recorder_Start_Year": 2000,
+    "Report_Event_Recorder_End_Year": 2050,
     "Report_Event_Recorder_Node_IDs_Of_Interest": [ 1, 2, 3 ],
     "Report_Event_Recorder_PropertyChange_IP_Key_Of_Interest": "",
     "Report_Event_Recorder_Min_Age_Years": 20,

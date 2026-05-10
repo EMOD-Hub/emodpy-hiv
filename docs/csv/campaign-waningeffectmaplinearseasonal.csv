@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Durability_Map","[link](../json/campaign-waningeffectmaplinearseasonal_durability_map.json)","The time, in days, since the intervention was distributed and a multiplier for the **Initial_Effect**.","json object","NA","NA","NA"
 "Initial_Effect","[link](../json/campaign-waningeffectmaplinearseasonal_initial_effect.json)","The multiplier used to define the magnitude of the shape of the curve, as specified when using the parameters with the **WaningEffectMapLinearSeasonal** class.","float","0","1","1"
 "Times","[link](../json/campaign-waningeffectmaplinearseasonal_times.json)","An array of days.","array of floats","0","365","[]"

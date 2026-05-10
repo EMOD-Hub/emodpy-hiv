@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Actual_IndividualIntervention_Config","[link](../json/campaign-nodelevelhealthtriggerediv_actual_individualintervention_config.json)","The configuration of an actual individual intervention to be distributed on the trigger. Selects a class for the intervention and configures the parameters specific for that intervention class.","json object","NA","NA","NA"
 "Actual_NodeIntervention_Config","[link](../json/campaign-nodelevelhealthtriggerediv_actual_nodeintervention_config.json)","The configuration of the actual node-level intervention sought. This parameter selects a class for the intervention and configures the parameters specific for that intervention class.","json object","NA","NA","NA"
 "Blackout_Event_Trigger","[link](../json/campaign-nodelevelhealthtriggerediv_blackout_event_trigger.json)","The event to broadcast if an intervention cannot be distributed due to the **Blackout_Period**. See :doc:`parameter-campaign-event-list` for possible values.","enum","NA","NA",""""""

@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Daily_Probability","[link](../json/campaign-nodepropertyvaluechanger_daily_probability.json)","The daily probability that the node's property value changes to the **Target_NP_Key_Value**.","float","0","1","1"
 "Disqualifying_Properties","[link](../json/campaign-nodepropertyvaluechanger_disqualifying_properties.json)","A list of **NodeProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to nodes with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.","array of strings","NA","NA","[]"
 "Dont_Allow_Duplicates","[link](../json/campaign-nodepropertyvaluechanger_dont_allow_duplicates.json)","If an individual's container has an intervention, set to true (1) to prevent them from receiving another copy of the intervention. Supported by all intervention classes.","boolean","0","1","0"

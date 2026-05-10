@@ -80,7 +80,6 @@
     "Migration_Model": "NO_MIGRATION",
     "Min_Days_Between_Adding_Relationships": 0,
     "Node_Grid_Size": 0.009,
-    "Number_Basestrains": 1,
     "PFA_Burnin_Duration_In_Days": 5475,
     "PFA_Cum_Prob_Selection_Threshold": 0.2,
     "Population_Density_Infectivity_Correction": "CONSTANT_INFECTIVITY",

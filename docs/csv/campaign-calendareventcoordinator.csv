@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Distribution_Coverages","[link](../json/campaign-calendareventcoordinator_distribution_coverages.json)","A vector of floats for the fraction of individuals that will receive this intervention in a **CalendarEventCoordinator**.","array of floats","0","1","0"
 "Distribution_Times","[link](../json/campaign-calendareventcoordinator_distribution_times.json)","A vector of integers for simulation times at which distribution of events occurs in a **CalendarEventCoordinator**. These times must be in ascending order.","array of integers","1","2.14748E+09","0"
 "Intervention_Config","[link](../json/campaign-calendareventcoordinator_intervention_config.json)","The nested JSON of the actual intervention to be distributed by this event coordinator.","json object","NA","NA","NA"

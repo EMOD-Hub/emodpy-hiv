@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Air_Migration_Filename","[link](../json/config-migration-hiv_air_migration_filename.json)","The path to the input file that defines patterns of migration by airplane. **Enable_Air_Migration** must be set to true (1). See :doc:`software-migration` for information on migration files.","string","NA","NA",""""""
 "Air_Migration_Roundtrip_Duration","[link](../json/config-migration-hiv_air_migration_roundtrip_duration.json)","The average time spent (in days) at the destination node during a round-trip migration by airplane. **Migration_Pattern** must be set to SINGLE_ROUND_TRIPS.","float","0","10000","1"
 "Air_Migration_Roundtrip_Probability","[link](../json/config-migration-hiv_air_migration_roundtrip_probability.json)","The likelihood that an individual who flies to another node will return to the node of origin during the next migration. **Enable_Air_Migration** must be set to true (1).","float","0","1","0.8"

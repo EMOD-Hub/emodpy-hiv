@@ -119,10 +119,6 @@
       "Simulation_Timestep": 1,
       "Start_Time": 0
     },
-    "STRAIN_TRACKING": {
-      "Number_Basestrains": 1,
-      "Number_Substrains": 1
-    },
     "Symptomatic_Infectious_Offset": 0
   }
 }

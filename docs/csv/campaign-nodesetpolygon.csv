@@ -1,3 +1,0 @@
-"Name","Example","Description","Type","Min","Max","Default"
-"Polygon_Format","[link](../json/campaign-nodesetpolygon_polygon_format.json)","The type of polygon to create. Currently, SHAPE is the only supported value.","enum","NA","NA","SHAPE"
-"Vertices","[link](../json/campaign-nodesetpolygon_vertices.json)","Comma-separated list of latitude/longitude points that bound a polygon.","string","NA","NA","UNINTIALIZED STRING"

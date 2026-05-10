@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Durability_Map","[link](../json/campaign-waningeffectmaplinearage_durability_map.json)","The time, in days, since the intervention was distributed and a multiplier for the **Initial_Effect**.","json object","NA","NA","NA"
 "Initial_Effect","[link](../json/campaign-waningeffectmaplinearage_initial_effect.json)","The multiplier used to define the magnitude of the shape of the curve, as specified when using the parameters with the **WaningEffectMapLinearAge** class.","float","0","1","1"
 "Times","[link](../json/campaign-waningeffectmaplinearage_times.json)","An array of years.","array of floats","0","125","[]"

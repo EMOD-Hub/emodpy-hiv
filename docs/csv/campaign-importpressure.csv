@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Antigen","[link](../json/campaign-importpressure_antigen.json)","The antigenic base strain ID of the outbreak infection.","integer","0","10","0"
 "Daily_Import_Pressures","[link](../json/campaign-importpressure_daily_import_pressures.json)","The rate of per-day importation for each node that the intervention is distributed to.","array of floats","0","3.40282E+38","0"
 "Durations","[link](../json/campaign-importpressure_durations.json)","The durations over which to apply import pressure.","array of integers","0","2147480000.0","1"

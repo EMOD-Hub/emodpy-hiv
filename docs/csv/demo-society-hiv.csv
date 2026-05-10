@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "COMMERCIAL","[link](../json/demo-society-hiv_commercial.json)","The structure that defines basic relationship, pair formation, and concurrency parameters for transactional relationships involving commercial sex work (CSW).","json object","NA","NA","NA"
 "Concurrency_Configuration","The following example sets extra-relational flags independently to everyone regardless of individual properties.
 [link](../json/demo-society-hiv_concurrency_configuration.json) [link](../json/demo-society-hiv_concurrency_configuration_2.json)","The structure that determines how concurrent relationships are formed, for *all* relationship types. To apply to all individuals regardless of individual property values, nest parameters under NONE. To apply only to individuals with certain property values, nest parameters under the property value.","json object","NA","NA","NA"

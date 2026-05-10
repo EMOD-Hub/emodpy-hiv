@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Coital_Act_Rate","[link](../json/demo-relationship-hiv_coital_act_rate.json)","The probability of a coital act occurring at each time step.","float","FLT_EPSILON","20","0.33"
 "Condom_Usage_Probability","[link](../json/demo-relationship-hiv_condom_usage_probability.json)","The structure that determines the probability of condom usage over time in a relationship type. The probability follows a sigmoidal curve, as defined by the following parameters:<br> <br> Min<br> The minimum asymptote (0 to 1, default 1).<br> Max<br> The maximum asymptote (0 to 1, default 1).<br> Mid<br> The year of the inflection point (0 to 3.40282e+038, default 2000).<br> Rate<br> The rate proportional to the slope at the inflection point (-100 to 100, default is 1).","json object","NA","NA","NA"
 "Duration_Weibull_Heterogeneity","[link](../json/demo-relationship-hiv_duration_weibull_heterogeneity.json)","Inverse of the Weibull shape (1/kappa) parameter of relationship duration in years.","float","0","100","1"

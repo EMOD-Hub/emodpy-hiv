@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Coordinator_Name","[link](../json/campaign-delayeventcoordinator_coordinator_name.json)","The unique identifying coordinator name, which is useful with the output report, ReportCoordinatorEventRecorder.csv.","string","NA","NA","DelayEventCoordinator"
 "Delay_Complete_Event","[link](../json/campaign-delayeventcoordinator_delay_complete_event.json)","The delay completion event to be included in the ReportCoordinatorEventRecorder.csv output report, upon completion of the delay period.","string","NA","NA","NA"
 "Delay_Period_Constant","[link](../json/campaign-delayeventcoordinator_delay_period_constant.json)","The delay period to use for all interventions, in days, when **Delay_Period_Distribution** is set to CONSTANT_DISTRIBUTION.","float","0","3.40282E+38","-1"

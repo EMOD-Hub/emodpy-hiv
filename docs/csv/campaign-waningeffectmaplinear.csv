@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Durability_Map","[link](../json/campaign-waningeffectmaplinear_durability_map.json)","The time, in days, since the intervention was distributed and a multiplier for the **Initial_Effect**.","json object","NA","NA","NA"
 "Expire_At_Durability_Map_End","[link](../json/campaign-waningeffectmaplinear_expire_at_durability_map_end.json)","Set to 1 to let the intervention expire when the end of the map is reached.","boolean","0","1","0"
 "Initial_Effect","[link](../json/campaign-waningeffectmaplinear_initial_effect.json)","The multiplier used to define the magnitude of the shape of the curve, as specified when using the parameters with the **WaningEffectMapLinear** class.","float","0","1","1"

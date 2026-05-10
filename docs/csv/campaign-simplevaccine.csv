@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Cost_To_Consumer","[link](../json/campaign-simplevaccine_cost_to_consumer.json)","The unit cost per vaccine (unamortized).","float","0","999999","10"
 "Disqualifying_Properties","[link](../json/campaign-simplevaccine_disqualifying_properties.json)","A list of **IndividualProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to individuals with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.","array of strings","NA","NA","[]"
 "Dont_Allow_Duplicates","[link](../json/campaign-simplevaccine_dont_allow_duplicates.json)","If an individual's container has an intervention, set to true (1) to prevent them from receiving another copy of the intervention. Supported by all intervention classes.","boolean","0","1","0"

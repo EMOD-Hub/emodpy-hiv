@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Choice_Names","[link](../json/campaign-hivrandomchoice_choice_names.json)","An array of event names to be broadcast if randomly selected, used with **Choice_Probabilities**.","array of strings","NA","NA","[]"
 "Choice_Probabilities","[link](../json/campaign-hivrandomchoice_choice_probabilities.json)","An array of probabilities that the event will be selected, used with **Choice_Names**. Values in map must be normalized to sum to one.","array of floats","","","[]"
 "Cost_To_Consumer","[link](../json/campaign-hivrandomchoice_cost_to_consumer.json)","The unit 'cost' assigned to the diagnostic. Setting **Cost_To_Consumer** to zero for all other interventions, and to a non-zero amount for one intervention, provides a convenient way to track the number of times the intervention has been applied in a simulation.","float","0","3.40282e+38","1"

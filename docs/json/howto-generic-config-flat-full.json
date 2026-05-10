@@ -37,8 +37,6 @@
     "Maternal_Infection_Transmission_Probability": 0,
     "Migration_Model": "NO_MIGRATION",
     "Node_Grid_Size": 0.042,
-    "Number_Basestrains": 1,
-    "Number_Substrains": 1,
     "Population_Density_Infectivity_Correction": "CONSTANT_INFECTIVITY",
     "Population_Scale_Type": "USE_INPUT_FILE",
     "Report_Event_Recorder": 0,

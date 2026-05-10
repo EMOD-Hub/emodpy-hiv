@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Completion_Event","[link](../json/campaign-triggeredeventcoordinator_completion_event.json)","The completion event list that will be broadcast every time the triggered event coordinator completes a set of repetitions. The events contained in the list are defined in **Custom_Coordinator_Events** in the simulation configuration file.","array of strings","NA","NA","NA"
 "Coordinator_Name","[link](../json/campaign-triggeredeventcoordinator_coordinator_name.json)","The unique identifying coordinator name used to identify the different coordinators in reports.","string","NA","NA","TriggeredEventCoordinator"
 "Demographic_Coverage","","The fraction of individuals in the target demographic that will receive this intervention.","float","0","1","1"

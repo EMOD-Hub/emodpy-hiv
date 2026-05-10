@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Coordinator_Name","[link](../json/campaign-firstnodewithnodepropertyeventcoordinator_coordinator_name.json)","The unique identifying coordinator name used to identify the different coordinators in reports.","string","NA","NA","FirstNodeWithNodePropertyEventCoordinator"
 "Node_ID_To_Coordinator_Event_List","[link](../json/campaign-firstnodewithnodepropertyeventcoordinator_node_id_to_coordinator_event_list.json)","The list of Node ID & Coordinator Event pairs to find the first node id that has the given **NodeProperty**.","array of json objects","","","[]"
 "Node_Property_Key_Value_To_Have","[link](../json/campaign-firstnodewithnodepropertyeventcoordinator_node_property_key_value_to_have.json)","The **NodeProperty** key:value pair that the node must have to get its event broadcasted.","string","NA","NA",""""""

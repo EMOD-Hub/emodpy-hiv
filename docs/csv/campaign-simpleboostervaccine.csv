@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Boost_Effect","[link](../json/campaign-simpleboostervaccine_boost_effect.json)","Specifies the boosting effect on [acquisition/transmission/mortality] immunity for previously exposed individuals (either natural or vaccine-derived). This does not replace current immunity, it builds multiplicatively on top of it.","float","0","1","1"
 "Boost_Threshold","[link](../json/campaign-simpleboostervaccine_boost_threshold.json)","Specifies how much immunity is required before the vaccine changes from a priming effect to a boosting effect.","float","0","1","0"
 "Cost_To_Consumer","[link](../json/campaign-simpleboostervaccine_cost_to_consumer.json)","The unit cost per vaccine (unamortized).","float","0","999999","10"

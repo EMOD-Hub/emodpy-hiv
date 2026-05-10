@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Actual_IndividualIntervention_Configs","[link](../json/campaign-delayedintervention_actual_individualintervention_configs.json)","An array of nested interventions to be distributed at the end of a delay period, to covered fraction of the population.","array of json objects","NA","NA","NA"
 "Coverage","[link](../json/campaign-delayedintervention_coverage.json)","The proportion of individuals who receive the **DelayedIntervention** that actually receive the configured interventions. This can be useful to target the intervention to a subset of the people that got the delay. To target the subgroup more specifically, distribute a **BroadcastEvent** and use a **NodeLevelHealthTriggeredIV** to distributes the desired intervention.","float","0","1","1"
 "Delay_Period_Constant","[link](../json/campaign-delayedintervention_delay_period_constant.json)","The delay period, in days, to use for all interventions when **Delay_Period_Distribution** is set to CONSTANT_DISTRIBUTION.","float","0","3.40282E+38","-1"

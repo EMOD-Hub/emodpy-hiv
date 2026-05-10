@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "Antigen","[link](../json/campaign-outbreakindividual_antigen.json)","The antigenic base strain ID of the outbreak infection.","integer","0","10","0"
 "Genome","Intervention distribution example:
 [link](../json/campaign-outbreakindividual_genome.json)","The genome ID of the outbreak infection. Together with the clade ID (**Clade**) they represent an infection as a unitary object. Values for **Genome** may range from -1 to 2\ :sup:`Log2_Number_of_Genomes_per_Clade-1`. Set this to -1 to create a random number generator.","integer","-1","1.67E+07","0"

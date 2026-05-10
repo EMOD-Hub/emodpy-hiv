@@ -1,4 +1,4 @@
-"Name","Example","Description","Type","Min","Max","Default"
+"Parameter","Example","Description","Type","Min","Max","Default"
 "End_Year","[link](../json/campaign-referencetrackingeventcoordinatortrackingconfig_end_year.json)","The final date at which this set of targeted coverages should be applied (expiration).","float","1900","2200","2200"
 "Intervention_Config","[link](../json/campaign-referencetrackingeventcoordinatortrackingconfig_intervention_config.json)","The nested JSON of the actual intervention to be distributed by this event coordinator.","json object","NA","NA","NA"
 "Node_Property_Restrictions","[link](../json/campaign-referencetrackingeventcoordinatortrackingconfig_node_property_restrictions.json)","A list of the **NodeProperty** key:value pairs, as defined in the demographics file, that nodes must have to be targeted by the intervention. See :ref:`demo-properties` parameters for more information.<br> <br> You can specify AND and OR combinations of key:value pairs with this parameter.","array of json objects","NA","NA","NA"
