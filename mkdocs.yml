@@ -181,6 +181,7 @@ nav:
               - OutbreakIndividual: emod/parameter-campaign-individual-outbreakindividual.md
               - PMTCT: emod/parameter-campaign-individual-pmtct.md
               - PropertyValueChanger: emod/parameter-campaign-individual-propertyvaluechanger.md
+              - SetSexualDebutAge: emod/parameter-campaign-individual-setsexualdebutage.md
               - SimpleBoosterVaccine: emod/parameter-campaign-individual-simpleboostervaccine.md
               - SimpleDiagnostic: emod/parameter-campaign-individual-simplediagnostic.md
               - SimpleHealthSeekingBehavior: emod/parameter-campaign-individual-simplehealthseekingbehavior.md

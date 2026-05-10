@@ -1,0 +1,6 @@
+{
+  "Intervention_Config": {
+    "class": "SetSexualDebutAge",
+    "New_Property_Value": "InterventionStatus:Debuted"
+  }
+}

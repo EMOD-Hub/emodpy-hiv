@@ -1,0 +1,7 @@
+{
+  "Intervention_Config": {
+    "class": "SetSexualDebutAge",
+    "Setting_Type": "USER_SPECIFIED",
+    "Age_Years": 16
+  }
+}
