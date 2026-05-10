@@ -18,7 +18,7 @@ how and where treatment is applied to individuals based on specified probabiliti
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-{{ read_csv('../csv/campaign-hivrandomchoice.csv') }}
+{{ read_csv('../csv/campaign-hivrandomchoice.csv', keep_default_na=False) }}
 
 ```json
 {

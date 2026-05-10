@@ -16,7 +16,7 @@
 The **CampaignEvent** class determines when to distribute the intervention based on the first day of
 the simulation. The table below describes all available parameters, followed by a JSON example.
 
-{{ read_csv('../csv/campaign-campaignevent.csv') }}
+{{ read_csv('../csv/campaign-campaignevent.csv', keep_default_na=False) }}
 
 ```json
 {
@@ -45,7 +45,7 @@ The **CampaignEventByYear** class determines when to distribute the intervention
 calendar year. Use this class instead of **CampaignEvent** when working with HIV simulations that
 use calendar-year timelines. The table below describes all available parameters, followed by a JSON example.
 
-{{ read_csv('../csv/campaign-campaigneventbyyear.csv') }}
+{{ read_csv('../csv/campaign-campaigneventbyyear.csv', keep_default_na=False) }}
 
 ```json
 {

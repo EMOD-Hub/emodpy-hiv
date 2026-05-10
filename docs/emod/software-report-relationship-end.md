@@ -34,4 +34,4 @@ The output report will contain the following information.
 
 The following is an example of a RelationshipEnd.csv report:
 
-{{ read_csv('RelationshipEnd-Example.csv') }}
+{{ read_csv('RelationshipEnd-Example.csv', keep_default_na=False) }}

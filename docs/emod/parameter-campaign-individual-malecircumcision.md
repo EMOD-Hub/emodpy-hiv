@@ -18,7 +18,7 @@ acquiring HIV; successful distribution results in a reduction in the probability
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-{{ read_csv('../csv/campaign-malecircumcision.csv') }}
+{{ read_csv('../csv/campaign-malecircumcision.csv', keep_default_na=False) }}
 
 ```json
 {

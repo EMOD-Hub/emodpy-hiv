@@ -77,4 +77,4 @@ The output report will contain the following information.
 
 The following is an example of a ReportRelationshipCensus.csv file.
 
-{{ read_csv('ReportRelationshipCensus-Example.csv') }}
+{{ read_csv('ReportRelationshipCensus-Example.csv', keep_default_na=False) }}

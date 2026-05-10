@@ -16,4 +16,4 @@ family at the same time.
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
 
-{{ read_csv('../csv/config-migration-hiv.csv') }}
+{{ read_csv('../csv/config-migration-hiv.csv', keep_default_na=False) }}

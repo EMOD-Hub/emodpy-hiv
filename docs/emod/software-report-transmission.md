@@ -67,4 +67,4 @@ The output report will contain the following information.
 
 The following is an example of a TransmissionReport.csv report:
 
-{{ read_csv('TransmissionReport-Example.csv') }}
+{{ read_csv('TransmissionReport-Example.csv', keep_default_na=False) }}

@@ -43,4 +43,4 @@ The output file is named `ReportInfectionDuration.csv`. The report contains the 
 
 ## Example
 
-{{ read_csv('../csv/ReportInfectionDuration.csv') }}
+{{ read_csv('../csv/ReportInfectionDuration.csv', keep_default_na=False) }}

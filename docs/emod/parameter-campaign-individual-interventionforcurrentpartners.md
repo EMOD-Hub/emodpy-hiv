@@ -19,7 +19,7 @@ paused, such as when a partner migrates to a different node, the partner will no
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-{{ read_csv('../csv/campaign-interventionforcurrentpartners.csv') }}
+{{ read_csv('../csv/campaign-interventionforcurrentpartners.csv', keep_default_na=False) }}
 
 ```json
 {

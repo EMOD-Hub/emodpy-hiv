@@ -15,4 +15,4 @@ disease can be maternally transmitted, and how population density affects infect
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
 
-{{ read_csv('../csv/config-infectivity-hiv.csv') }}
+{{ read_csv('../csv/config-infectivity-hiv.csv', keep_default_na=False) }}

@@ -100,4 +100,4 @@ The output report will contain the following information.
 
 The following is an example of a RelationshipStart.csv report:
 
-{{ read_csv('RelationshipStart-Example.csv') }}
+{{ read_csv('RelationshipStart-Example.csv', keep_default_na=False) }}

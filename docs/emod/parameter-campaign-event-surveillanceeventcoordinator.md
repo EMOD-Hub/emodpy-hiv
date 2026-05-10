@@ -17,7 +17,7 @@ event is typically used with other classes, such as [parameter-campaign-event-br
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-{{ read_csv('../csv/campaign-surveillanceeventcoordinator.csv') }}
+{{ read_csv('../csv/campaign-surveillanceeventcoordinator.csv', keep_default_na=False) }}
 
 ```json
 {

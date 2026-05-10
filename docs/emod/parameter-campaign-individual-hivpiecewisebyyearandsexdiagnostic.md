@@ -23,7 +23,7 @@ a clinical diagnostic, but more like a trend in behavior or coverage over time.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-{{ read_csv('../csv/campaign-hivpiecewisebyyearandsexdiagnostic.csv') }}
+{{ read_csv('../csv/campaign-hivpiecewisebyyearandsexdiagnostic.csv', keep_default_na=False) }}
 
 ```json
 {

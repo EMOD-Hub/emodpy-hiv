@@ -19,7 +19,7 @@ suppressive ART and will automatically expire 40 weeks after distribution. Effic
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-{{ read_csv('../csv/campaign-pmtct.csv') }}
+{{ read_csv('../csv/campaign-pmtct.csv', keep_default_na=False) }}
 
 ```json
 {

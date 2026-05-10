@@ -78,7 +78,7 @@ This generates a **NodeID** that is a 4-byte unsigned integer; the first two byt
 longitude of the node and the second two bytes represent the latitude. To reserve 0 to be used as a
 null value, 1 is added to the **NodeID** as part of the final calculation.
 
-{{ read_csv('../csv/demo-metadata-hiv.csv') }}
+{{ read_csv('../csv/demo-metadata-hiv.csv', keep_default_na=False) }}
 
 ## NodeProperties and IndividualProperties
 
@@ -101,7 +101,7 @@ that assign properties to individuals in a simulation.
 
 [model-properties](model-properties.md) provides more guidance.
 
-{{ read_csv('../csv/demo-properties-hiv.csv') }}
+{{ read_csv('../csv/demo-properties-hiv.csv', keep_default_na=False) }}
 
 ## NodeAttributes
 
@@ -109,7 +109,7 @@ The **NodeAttributes** section contains parameters that add or modify informatio
 regarding the location, migration, habitat, and population of node. Some **NodeAttributes**
 depend on values set in the configuration parameters.
 
-{{ read_csv('../csv/demo-nodeattributes-hiv.csv') }}
+{{ read_csv('../csv/demo-nodeattributes-hiv.csv', keep_default_na=False) }}
 
 ## IndividualAttributes
 
@@ -120,7 +120,7 @@ configured using a simple flag system of three parameters or a complex system of
 many more parameters. The following table contains the parameters that can be used with either
 distribution system.
 
-{{ read_csv('../csv/demo-individualattributes-hiv.csv') }}
+{{ read_csv('../csv/demo-individualattributes-hiv.csv', keep_default_na=False) }}
 
 ### Simple distributions
 
@@ -129,7 +129,7 @@ and the other two are used to further define the distribution. For example, if y
 to a uniform distribution, the initial ages of individuals in the simulation will be evenly
 distributed between some minimum and maximum value as defined by the other two parameters.
 
-{{ read_csv('../csv/demo-simpledistro-hiv.csv') }}
+{{ read_csv('../csv/demo-simpledistro-hiv.csv', keep_default_na=False) }}
 
 ### Complex distributions
 
@@ -139,7 +139,7 @@ linear distribution. The distribution is configured using arrays of axes (such a
 values at points along each of these axes. This allows you to have different distributions for
 different groups in the population.
 
-{{ read_csv('../csv/demo-complexdistro-hiv.csv') }}
+{{ read_csv('../csv/demo-complexdistro-hiv.csv', keep_default_na=False) }}
 
 ## Society
 
@@ -157,7 +157,7 @@ settings for the specific relationship type they are nested under.
 The **Concurrency_Configuration** section defines how the simultaneous relationship parameters are
 used across all relationship types.
 
-{{ read_csv('../csv/demo-society-hiv.csv') }}
+{{ read_csv('../csv/demo-society-hiv.csv', keep_default_na=False) }}
 
 ### Concurrency_Configuration
 
@@ -166,14 +166,14 @@ defines how the simultaneous relationship parameters are used across all relatio
 example, how flags that allow an individual to seek out different types of extra-relational
 partnerships are distributed.
 
-{{ read_csv('../csv/demo-concurrency-config-hiv.csv') }}
+{{ read_csv('../csv/demo-concurrency-config-hiv.csv', keep_default_na=False) }}
 
 ### Relationship_Parameters
 
 The **Relationship_Parameters** section defines basic attributes such as relationship duration, what
 happens if one member of a relationship migrates, and condom usage.
 
-{{ read_csv('../csv/demo-relationship-hiv.csv') }}
+{{ read_csv('../csv/demo-relationship-hiv.csv', keep_default_na=False) }}
 
 ### Pair_Formation_Parameters
 
@@ -181,7 +181,7 @@ The **Pair_Formation_Parameters** section defines the rate at which new relation
 partnership preference using the main pair forming algorithm that finds potential
 partners based on their age and the **Joint_Probabilities** matrix.
 
-{{ read_csv('../csv/demo-pairing-hiv.csv') }}
+{{ read_csv('../csv/demo-pairing-hiv.csv', keep_default_na=False) }}
 
 #### Assortivity
 
@@ -189,7 +189,7 @@ The **Assortivity** section refines who partners with whom. After the main pair 
 reduces the set of potential partners to a subset based on age, **Assortivity** allows for selection
 based on other criteria.
 
-{{ read_csv('../csv/demo-assortivity-hiv.csv') }}
+{{ read_csv('../csv/demo-assortivity-hiv.csv', keep_default_na=False) }}
 
 ### Concurrency_Parameters
 
@@ -205,4 +205,4 @@ parameters for that relationship type. In this section, all parameters should be
 name of the individual property relevant for setting concurrency. Again, if the properties are irrelevant,
 use "NONE".
 
-{{ read_csv('../csv/demo-concurrency-params-hiv.csv') }}
+{{ read_csv('../csv/demo-concurrency-params-hiv.csv', keep_default_na=False) }}

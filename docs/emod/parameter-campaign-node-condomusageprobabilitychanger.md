@@ -22,7 +22,7 @@ relationships one time step after it was distributed.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-{{ read_csv('../csv/campaign-condomusageprobabilitychanger.csv') }}
+{{ read_csv('../csv/campaign-condomusageprobabilitychanger.csv', keep_default_na=False) }}
 
 ```json
 {

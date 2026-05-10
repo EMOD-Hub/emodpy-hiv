@@ -30,4 +30,4 @@ The file contains the following data channels:
 
 The following is an example of ReportHumanMigrationTracking.csv.
 
-{{ read_csv('reporthumanmigration.csv') }}
+{{ read_csv('reporthumanmigration.csv', keep_default_na=False) }}

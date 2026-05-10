@@ -43,4 +43,4 @@ The output report will contain the following information.
 
 The following is an example of a HIVMortality.csv report:
 
-{{ read_csv('HIVMortality.csv') }}
+{{ read_csv('HIVMortality.csv', keep_default_na=False) }}

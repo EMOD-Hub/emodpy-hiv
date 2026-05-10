@@ -18,7 +18,7 @@ at a specific relationship type, and must be configured as a sigmoid trend over 
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-{{ read_csv('../csv/campaign-stibarrier.csv') }}
+{{ read_csv('../csv/campaign-stibarrier.csv', keep_default_na=False) }}
 
 ```json
 {

@@ -24,7 +24,7 @@ specify an action upon receipt of a negative diagnosis.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-{{ read_csv('../csv/campaign-standarddiagnostic.csv') }}
+{{ read_csv('../csv/campaign-standarddiagnostic.csv', keep_default_na=False) }}
 
 ```json
 {

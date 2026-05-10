@@ -35,7 +35,7 @@ girls aged 15–19 in Uganda ([PLOS Medicine](https://journals.plos.org/plosmedi
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-{{ read_csv('../csv/campaign-setsexualdebutage.csv') }}
+{{ read_csv('../csv/campaign-setsexualdebutage.csv', keep_default_na=False) }}
 
 ```json
 {

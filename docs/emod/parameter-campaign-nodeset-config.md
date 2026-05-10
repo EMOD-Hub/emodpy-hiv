@@ -30,7 +30,7 @@ The event will occur in all nodes in the simulation. This class has no parameter
 
 The event will occur only in the nodes specified by node ID.
 
-{{ read_csv('../csv/campaign-nodesetnodelist.csv') }}
+{{ read_csv('../csv/campaign-nodesetnodelist.csv', keep_default_na=False) }}
 
 ```json
 {

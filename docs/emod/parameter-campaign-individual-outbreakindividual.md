@@ -18,7 +18,7 @@ in the appropriate event coordinator. To instead add new infection individuals, 
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-{{ read_csv('../csv/campaign-outbreakindividual.csv') }}
+{{ read_csv('../csv/campaign-outbreakindividual.csv', keep_default_na=False) }}
 
 ```json
 {

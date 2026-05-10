@@ -63,4 +63,4 @@ The output report will contain the following information.
 
 The following is an example of a ReportHIVInfection.csv file.
 
-{{ read_csv('ReportHIVInfection-Example.csv') }}
+{{ read_csv('ReportHIVInfection-Example.csv', keep_default_na=False) }}

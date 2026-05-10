@@ -18,7 +18,7 @@ conjunction with the **ModifyCoInfectionStatus** flag.
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
-{{ read_csv('../csv/campaign-sticoinfectiondiagnostic.csv') }}
+{{ read_csv('../csv/campaign-sticoinfectiondiagnostic.csv', keep_default_na=False) }}
 
 ```json
 {

@@ -88,4 +88,4 @@ The output report will contain the following information.
 
 The following is an example of a RelationshipConsummated.csv report:
 
-{{ read_csv('RelationshipConsummated-Example.csv') }}
+{{ read_csv('RelationshipConsummated-Example.csv', keep_default_na=False) }}
