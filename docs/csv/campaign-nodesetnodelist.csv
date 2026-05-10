@@ -1,2 +1,2 @@
 Parameter,Type,Min,Max,Default,Description
-Node_List,array of integers,NA,NA,NA,A comma-separated list of node IDs in which this event will occur. See [example](../json/campaign-nodesetnodelist_node_list.json).
+Node_List,array of integers,NA,NA,NA,A comma-separated list of node IDs in which this event will occur. See [example](../json/campaign-nodesetnodelist-node-list.json).
