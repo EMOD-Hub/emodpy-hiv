@@ -1,8 +1,4 @@
-# CampaignEvent
-
-The **CampaignEvent** event class determines when to distribute the intervention based on the first day of
-the simulation. See the following JSON example and table, which shows all available parameters for this
-campaign event.
+# CampaignEvent and CampaignEventByYear
 
 !!! note
     Parameters are case-sensitive. For Boolean parameters, set to 1 for true or 0 for false.
@@ -15,37 +11,21 @@ campaign event.
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
 
-The table below describes all possible parameters with which this class can be configured. The JSON
-example that follows shows one potential configuration.
+## CampaignEvent
+
+The **CampaignEvent** class determines when to distribute the intervention based on the first day of
+the simulation. The table below describes all available parameters, followed by a JSON example.
 
 {{ read_csv('../csv/campaign-campaignevent.csv') }}
 
 *See example: [campaign-campaignevent.json](../json/campaign-campaignevent.json)*
 
-## Nodeset_Config classes
+## CampaignEventByYear
 
-The following classes determine in which nodes the event will occur.
+The **CampaignEventByYear** class determines when to distribute the intervention based on the
+calendar year. Use this class instead of **CampaignEvent** when working with HIV simulations that
+use calendar-year timelines. The table below describes all available parameters, followed by a JSON example.
 
-### NodeSetAll
+{{ read_csv('../csv/campaign-campaigneventbyyear.csv') }}
 
-The event will occur in all nodes in the simulation. This class has no associated parameters. For example,
-
-```json
-{
-    "Nodeset_Config": {
-        "class": "NodeSetAll"
-    }
-}
-```
-
-### NodeSetNodeList
-
-The event will occur in the nodes listed by Node ID.
-
-{{ read_csv('../csv/campaign-nodesetnodelist.csv') }}
-
-### NodeSetPolygon
-
-The event will occur in the nodes that fall within a given polygon.
-
-{{ read_csv('../csv/campaign-nodesetpolygon.csv') }}
+*See example: [campaign-campaigneventbyyear.json](../json/campaign-campaigneventbyyear.json)*

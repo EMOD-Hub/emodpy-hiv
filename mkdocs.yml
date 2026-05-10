@@ -111,8 +111,7 @@ nav:
               - Overview: emod/parameter-campaign-event-coordinators.md
               - BroadcastCoordinatorEvent: emod/parameter-campaign-event-broadcastcoordinatorevent.md
               - CalendarEventCoordinator: emod/parameter-campaign-event-calendareventcoordinator.md
-              - CampaignEvent: emod/parameter-campaign-event-campaignevent.md
-              - CampaignEventByYear: emod/parameter-campaign-event-campaigneventbyyear.md
+              - CampaignEvent/CampaignEventByYear: emod/parameter-campaign-event-campaignevent.md
               - CommunityHealthWorkerEventCoordinator: emod/parameter-campaign-event-communityhealthworkereventcoordinator.md
               - CoverageByNodeEventCoordinator: emod/parameter-campaign-event-coveragebynodeeventcoordinator.md
               - DelayEventCoordinator: emod/parameter-campaign-event-delayeventcoordinator.md
@@ -193,6 +192,7 @@ nav:
               - STIIsPostDebut: emod/parameter-campaign-individual-stiispostdebut.md
           - Waning effect classes: emod/parameter-campaign-waningeffects.md
           - Targeting_Config classes: emod/parameter-campaign-targeting-config.md
+          - Nodeset_Config classes: emod/parameter-campaign-nodeset-config.md
           - Builtin events: emod/parameter-campaign-event-list.md
       - Reports:
           - Overview: emod/parameter-reports-overview.md
