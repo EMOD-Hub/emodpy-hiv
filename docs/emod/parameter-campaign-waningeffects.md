@@ -43,7 +43,7 @@ The **WaningEffectCombo** class is used within individual-level interventions an
 
 *See example: [campaign-waningeffectcombo.json](../json/campaign-waningeffectcombo.json)*
 
-{{ read_csv('../csv/campaign-waningeffectconstant.csv') }}
+{{ read_csv('../csv/campaign-waningeffectcombo.csv') }}
 
 ## WaningEffectConstant
 
@@ -92,6 +92,16 @@ seasonal effects.
 *See example: [campaign-waningeffectmaplinearseasonal.json](../json/campaign-waningeffectmaplinearseasonal.json)*
 
 {{ read_csv('../csv/campaign-waningeffectmaplinearseasonal.csv') }}
+
+## WaningEffectMapCount
+
+The **WaningEffectMapCount** class assigns an efficacy value based on the count of how many times
+the effect has been applied (e.g., number of doses taken). The **Times** values should be integers
+starting from 1 and increasing.
+
+*See example: [campaign-waningeffectmapcount.json](../json/campaign-waningeffectmapcount.json)*
+
+{{ read_csv('../csv/campaign-waningeffectmapcount.csv') }}
 
 ## WaningEffectMapPiecewise
 
