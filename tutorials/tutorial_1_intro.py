@@ -47,9 +47,9 @@ def run_experiment():
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     # UPDATE - Select the correct Platform below
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    # platform = Platform('Container', job_directory="tutorial_output", docker_image=manifest.plat_image)
+    platform = Platform('Container', job_directory="tutorial_output", docker_image=manifest.plat_image)
 
-    platform = Platform("Calculon", node_group="idm_48cores", priority="Normal")
+    # platform = Platform("Calculon", node_group="idm_48cores", priority="Normal")
 
     # platform = Platform( "SLURM_LOCAL",
     #                     job_directory="experiments",
@@ -63,10 +63,11 @@ def run_experiment():
     zambia = cm.ZambiaForTraining
     task = emod_task.EMODTask.from_defaults(
         eradication_path=manifest.eradication_path,
-        schema_path=manifest.schema_file,
+        schema_path=manifest.schema_path,
         config_builder=zambia.build_config,
         campaign_builder=zambia.build_campaign,
         demographics_builder=zambia.build_demographics)
+    task.config.parameters.x_Base_Population *= manifest.x_Base_Population_scale
 
     if (platform.get_platform_type() == 'COMPS'):
         task.set_sif(path_to_sif=manifest.comps_sif_path, platform=platform)
@@ -81,7 +82,7 @@ def run_experiment():
     experiment.run(wait_until_done=True, platform=platform)
 
     print("\nTutorial #1 is done.")
-    return
+    return experiment
 
 
 if __name__ == "__main__":

@@ -185,11 +185,12 @@ def run_experiment():
     zambia = cm.ZambiaForTraining
     task = emod_task.EMODTask.from_defaults(
         eradication_path=manifest.eradication_path,
-        schema_path=manifest.schema_file,
+        schema_path=manifest.schema_path,
         config_builder=zambia.build_config,
         campaign_builder=zambia.build_campaign,
         demographics_builder=zambia.build_demographics,
         report_builder=build_reports)
+    task.config.parameters.x_Base_Population *= manifest.x_Base_Population_scale
 
     if (platform.get_platform_type() == 'COMPS'):
         task.set_sif(path_to_sif=manifest.comps_sif_path, platform=platform)
@@ -219,7 +220,7 @@ def run_experiment():
         print(f"Experiment {experiment.uid} failed.\n")
 
     print("\nTutorial #2 is done.")
-    return
+    return experiment
 
 
 if __name__ == "__main__":

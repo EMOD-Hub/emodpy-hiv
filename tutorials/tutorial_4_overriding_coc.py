@@ -369,11 +369,12 @@ def run_experiment():
 
     task = emod_task.EMODTask.from_defaults(
         eradication_path=manifest.eradication_path,
-        schema_path=manifest.schema_file,
+        schema_path=manifest.schema_path,
         config_builder=build_config,  # !!! from above !!!
         campaign_builder=build_campaign,  # !!! from above !!!
         demographics_builder=build_demographics,  # !!! from above !!!
         report_builder=add_reports)  # !!! from above !!!
+    task.config.parameters.x_Base_Population *= manifest.x_Base_Population_scale
 
     if (platform.get_platform_type() == 'COMPS'):
         task.set_sif(path_to_sif=manifest.comps_sif_path, platform=platform)
@@ -403,7 +404,7 @@ def run_experiment():
         print(f"Experiment {experiment.uid} failed.\n")
 
     print("\nTutorial #4 is done.")
-    return
+    return experiment
 
 
 if __name__ == "__main__":

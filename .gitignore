@@ -50,6 +50,8 @@ tests/*/*/outputs/*.json
 tests/failed_tests/*
 tests/sim_tests/inputs/*/output/*.csv
 tutorials/tutorial_output/*
+tests/executables/
+tutorials/executables/
 
 # PyBuilder
 target/

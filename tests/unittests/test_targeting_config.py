@@ -17,9 +17,9 @@ class TestTargetingConfig(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         if not os.path.isfile(manifest.eradication_path):
-            print(f'Eradication does not exist, writing it to {manifest.package_folder}.')
+            print(f'Eradication does not exist, writing it to {manifest.executables_dir}.')
             import emod_hiv.bootstrap as dtk
-            dtk.setup(manifest.package_folder)
+            dtk.setup(manifest.executables_dir)
         cls.campaign = api_campaign  # Initialize the campaign object
         cls.campaign.set_schema(manifest.schema_path)  # set the schema path to the HIV schema file
 

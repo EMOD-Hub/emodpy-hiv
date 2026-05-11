@@ -17,7 +17,7 @@ slurm_sif_path = "/gpfs/data/bershteynlab/EMOD/singularity_images/centos_dtk-bui
 # === Schema ===
 # The script is going to use this to store the downloaded schema file.
 # Create 'download' directory or change to your preferred (existing) location.
-schema_file = os.path.join(executables_dir, "schema.json")
+schema_path = os.path.join(executables_dir, "schema.json")
 
 # === Executable ===
 # The script is going to use this to store the downloaded Eradication binary.
@@ -37,3 +37,8 @@ embedded_python_scripts_path = "embedded_python"
 
 # === Container Platform ===
 plat_image = "ghcr.io/emod-hub/emod-ubuntu-runtime:latest"
+
+# === Simulation Scale ===
+# Scale factor applied to x_Base_Population in run_experiment(). Default 1.0 (no change).
+# Set to a smaller value (e.g. 0.5) to run faster simulations during testing.
+x_Base_Population_scale = 1.0

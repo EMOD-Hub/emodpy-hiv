@@ -20,7 +20,7 @@ class TestDownloadFromPackage(unittest.TestCase):
     def setUpClass(self):
         helpers.delete_existing_file(manifest.eradication_path)
         helpers.delete_existing_file(manifest.schema_path)
-        dtk.setup(manifest.package_folder)
+        dtk.setup(manifest.executables_dir)
         pass
 
     def setUp(self):

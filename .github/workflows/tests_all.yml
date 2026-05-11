@@ -44,6 +44,11 @@ jobs:
           python -m pytest unittests/test_emod_hiv_package.py
           python -m pytest --dist loadfile -v -m container --junitxml="test_results_container.xml"
         working-directory: ./tests
+      - name: Run tutorial tests
+        if: runner.os == 'Linux'
+        run: |
+          python -m pytest --dist loadfile -v -m tutorial --junitxml="test_results_tutorials.xml"
+        working-directory: ./tests
       - name: Run examples with Eradication from pip install snakemake (Container)
         if: runner.os == 'Linux'
         run: |
