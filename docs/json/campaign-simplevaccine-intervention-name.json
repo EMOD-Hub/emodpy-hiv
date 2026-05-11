@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "class": "SimpleVaccine",
-    "Intervention_Name": "Routine MMR vaccination"
-  }
-}

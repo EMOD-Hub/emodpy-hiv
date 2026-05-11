@@ -1,10 +1,10 @@
-{
-    "Nodeset_Config": {
-        "class": "NodeSetNodeList",
-        "Node_List": [
-            1,
-            5,
-            27
-        ]
-    }
+{
+    "Nodeset_Config": {
+        "class": "NodeSetNodeList",
+        "Node_List": [
+            1,
+            5,
+            27
+        ]
+    }
 }

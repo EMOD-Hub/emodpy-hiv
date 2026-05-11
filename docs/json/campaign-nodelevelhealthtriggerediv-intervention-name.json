@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "class": "NodeLevelHealthTriggeredIV",
-    "Intervention_Name": "Treat individuals when infectious"
-  }
-}

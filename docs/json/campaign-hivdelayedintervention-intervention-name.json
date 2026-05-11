@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "class": "HIVDelayedIntervention",
-    "Intervention_Name": "Time to return for test results"
-  }
-}

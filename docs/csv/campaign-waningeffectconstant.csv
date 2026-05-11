@@ -1,2 +1,2 @@
 Parameter,Type,Min,Max,Default,Description
-Initial_Effect,float,0,1,1,"Strength of the effect, which remains constant when using with the **WaningEffectConstant** class. See [example](../json/campaign-waningeffectconstant-initial-effect.json)."
+Initial_Effect,float,0,1,1,"Strength of the effect, which remains constant when using with the **WaningEffectConstant** class."

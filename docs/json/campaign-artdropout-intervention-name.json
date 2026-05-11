@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "class": "ARTDropout",
-    "Intervention_Name": "Lost to follow up"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "Positive_Diagnosis_Event": "TestedPositive_CureMeNow",
-    "class": "SimpleDiagnostic"
-  }
-}

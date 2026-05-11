@@ -1,8 +1,8 @@
-{
-  "Relationship_Types": [
-    "MARITAL",
-    "INFORMAL",
-    "TRANSITORY",
-    "COMMERCIAL"
-  ]
+{
+    "Relationship_Types": [
+        "MARITAL",
+        "INFORMAL",
+        "TRANSITORY",
+        "COMMERCIAL"
+    ]
 }

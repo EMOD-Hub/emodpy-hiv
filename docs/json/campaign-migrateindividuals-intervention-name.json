@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "class": "MigrateIndividuals",
-    "Intervention_Name": "Seasonal migration for agriculture"
-  }
-}

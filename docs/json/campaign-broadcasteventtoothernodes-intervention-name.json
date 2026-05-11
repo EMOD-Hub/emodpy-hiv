@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "class": "BroadcastEventToOtherNodes",
-    "Intervention_Name": "Malaria diagnosis triggering reactive case detection"
-  }
-}

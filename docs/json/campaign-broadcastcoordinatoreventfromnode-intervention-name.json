@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "Intervention_Name": "Coordinator Event 1",
-    "class": "BroadcastCoordinatorEventFromNode"
-  }
-}

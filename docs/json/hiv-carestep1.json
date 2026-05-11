@@ -13,9 +13,11 @@
             "Trigger_Condition_List": [
                 "STIDebut"
             ],
-            "Property_Restrictions_Within_Node": [{
-                "Accessibility": "Yes"
-            }],
+            "Property_Restrictions_Within_Node": [
+                {
+                    "Accessibility": "Yes"
+                }
+            ],
             "Actual_IndividualIntervention_Config": {
                 "class": "HIVSigmoidByYearAndSexDiagnostic",
                 "Disqualifying_Properties": [

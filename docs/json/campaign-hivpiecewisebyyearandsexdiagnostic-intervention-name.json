@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "class": "HIVPiecewiseByYearAndSexDiagnostic",
-    "Intervention_Name": "Change in health-seeking behavior"
-  }
-}

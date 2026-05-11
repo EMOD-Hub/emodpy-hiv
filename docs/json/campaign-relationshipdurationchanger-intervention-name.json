@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "Intervention_Name": "My_Duration_Changer",
-    "class": "RelationshipDurationChanger"
-  }
-}

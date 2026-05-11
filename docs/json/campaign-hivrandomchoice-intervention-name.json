@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "class": "HIVRandomChoice",
-    "Intervention_Name": "Probabilistic HIV diagnostic"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "class": "DelayedIntervention",
-    "Intervention_Name": "Treatment one week after diagnostic test"
-  }
-}

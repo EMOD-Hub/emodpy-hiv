@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "Positive_Diagnosis_Event": "ARTStaging2",
-    "class": "HIVDrawBlood"
-  }
-}

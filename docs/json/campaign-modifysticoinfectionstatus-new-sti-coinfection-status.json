@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "class": "ModifyStiCoInfectionStatus",
-    "New_STI_CoInfection_Status": 1
-  }
-}

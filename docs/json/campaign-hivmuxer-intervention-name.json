@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "class": "HIVMuxer",
-    "Intervention_Name": "Delay for clinic care"
-  }
-}

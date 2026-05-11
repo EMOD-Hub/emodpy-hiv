@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "class": "SetSexualDebutAge",
-    "Intervention_Name": "SetDebutAge_Male_15to20"
-  }
-}

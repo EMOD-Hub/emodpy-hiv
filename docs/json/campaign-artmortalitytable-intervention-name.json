@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "Intervention_Name": "My ART Mortality Table",
-    "class": "ARTMortalityTable"
-  }
-}

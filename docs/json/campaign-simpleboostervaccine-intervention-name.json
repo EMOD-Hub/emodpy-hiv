@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "class": "SimpleBoosterVaccine",
-    "Intervention_Name": "Tetanus booster shot"
-  }
-}

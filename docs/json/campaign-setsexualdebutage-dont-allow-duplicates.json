@@ -1,6 +1,0 @@
-{
-  "Intervention_Config": {
-    "class": "SetSexualDebutAge",
-    "Dont_Allow_Duplicates": 1
-  }
-}
