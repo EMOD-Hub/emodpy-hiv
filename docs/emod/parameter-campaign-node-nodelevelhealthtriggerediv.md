@@ -1,5 +1,6 @@
 # NodeLevelHealthTriggeredIV
 
+
 The **NodeLevelHealthTriggeredIV** intervention class is a node-level intervention that distributes
 an intervention to individuals when a specific event occurs to those individuals.
 **NodeLevelHealthTriggeredIV** monitors for event triggers from individuals, and when found, will
@@ -45,7 +46,6 @@ Notes and tips for this intervention:
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
-
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
@@ -54,30 +54,30 @@ example that follows shows one potential configuration.
 ```json
 {
     "Use_Defaults": 1,
-    "Events": [{
-        "class": "CampaignEvent",
-        "Start_Day": 1,
-        "Nodeset_Config": {
-            "class": "NodeSetAll"
-        },
-        "Event_Coordinator_Config": {
-            "class": "StandardInterventionDistributionEventCoordinator",
-            "Intervention_Config": {
-                "class": "NodeLevelHealthTriggeredIV",
-                "Trigger_Condition_List": ["HappyBirthday"],
-                "Demographic_Coverage": 1.0,
-                "Target_Age_Max": 99,
-                "Target_Age_Min": 21,
-                "Target_Demographic": "ExplicitAgeRanges",
-                "Target_Residents_Only": 1,
-                "Actual_IndividualIntervention_Config": {
-                    "class": "OutbreakIndividual",
-                    "Antigen": 0,
-                    "Genome": 0,
-                    "Outbreak_Source": "PrevalenceIncrease"
+    "Events": [
+        {
+            "class": "CampaignEvent",
+            "Start_Day": 1,
+            "Nodeset_Config": {"class": "NodeSetAll"},
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Intervention_Config": {
+                    "class": "NodeLevelHealthTriggeredIV",
+                    "Trigger_Condition_List": ["HappyBirthday"],
+                    "Demographic_Coverage": 1.0,
+                    "Target_Age_Max": 99,
+                    "Target_Age_Min": 21,
+                    "Target_Demographic": "ExplicitAgeRanges",
+                    "Target_Residents_Only": 1,
+                    "Actual_IndividualIntervention_Config": {
+                        "class": "OutbreakIndividual",
+                        "Antigen": 0,
+                        "Genome": 0,
+                        "Outbreak_Source": "PrevalenceIncrease"
+                    }
                 }
             }
         }
-    }]
+    ]
 }
 ```

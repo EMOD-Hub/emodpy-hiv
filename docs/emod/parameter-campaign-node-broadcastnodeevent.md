@@ -18,7 +18,6 @@ operating on the same core. You can also use [parameter-campaign-node-nlhtivnode
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
-
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
@@ -50,14 +49,14 @@ example that follows shows one potential configuration.
             "Start_Day": 5,
             "Nodeset_Config": {
                 "class": "NodeSetNodeList",
-                "Node_List": [ 1 ]
+                "Node_List": [1]
             },
             "Event_Coordinator_Config": {
                 "class": "StandardInterventionDistributionEventCoordinator",
                 "Intervention_Config": {
                     "class": "BroadcastNodeEvent",
-                    "Cost_To_Consumer" : 10,
-                    "Broadcast_Event" : "Node_Event_1"
+                    "Cost_To_Consumer": 10,
+                    "Broadcast_Event": "Node_Event_1"
                 }
             }
         },
@@ -66,27 +65,29 @@ example that follows shows one potential configuration.
             "Start_Day": 15,
             "Nodeset_Config": {
                 "class": "NodeSetNodeList",
-                "Node_List": [ 2,3 ]
+                "Node_List": [2, 3]
             },
             "Event_Coordinator_Config": {
                 "class": "StandardInterventionDistributionEventCoordinator",
                 "Intervention_Config": {
                     "class": "BroadcastNodeEvent",
-                    "Cost_To_Consumer" : 20,
-                    "Broadcast_Event" : "Node_Event_2"
+                    "Cost_To_Consumer": 20,
+                    "Broadcast_Event": "Node_Event_2"
                 }
             }
         },
         {
             "class": "CampaignEvent",
             "Start_Day": 25,
-            "Nodeset_Config": { "class": "NodeSetAll" },
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
             "Event_Coordinator_Config": {
                 "class": "StandardInterventionDistributionEventCoordinator",
                 "Intervention_Config": {
                     "class": "BroadcastNodeEvent",
-                    "Cost_To_Consumer" : 25,
-                    "Broadcast_Event" : "Node_Event_3"
+                    "Cost_To_Consumer": 25,
+                    "Broadcast_Event": "Node_Event_3"
                 }
             }
         }

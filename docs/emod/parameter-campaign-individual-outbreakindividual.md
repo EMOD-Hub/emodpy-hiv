@@ -14,7 +14,6 @@ in the appropriate event coordinator. To instead add new infection individuals, 
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
-
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
@@ -22,25 +21,25 @@ example that follows shows one potential configuration.
 
 ```json
 {
-  "Events": [
-    {
-      "Event_Coordinator_Config": {
-        "Demographic_Coverage": 0.001,
-        "Intervention_Config": {
-          "Clade": 1,
-          "Genome": 3,
-          "IgnoreImmunity": 1,
-          "class": "OutbreakIndividual"
-        },
-        "Target_Demographic": "Everyone",
-        "class": "StandardInterventionDistributionEventCoordinator"
-      },
-      "Nodeset_Config": {
-        "class": "NodeSetAll"
-      },
-      "Start_Day": 30,
-      "class": "CampaignEvent"
-    }
-  ]
+    "Events": [
+        {
+            "class": "CampaignEvent",
+            "Start_Day": 30,
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Target_Demographic": "Everyone",
+                "Demographic_Coverage": 0.001,
+                "Intervention_Config": {
+                    "class": "OutbreakIndividual",
+                    "Incubation_Period_Override": 1,
+                    "Antigen": 0,
+                    "Genome": 0
+                }
+            }
+        }
+    ]
 }
 ```

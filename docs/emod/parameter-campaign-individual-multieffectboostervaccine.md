@@ -1,5 +1,6 @@
 # MultiEffectBoosterVaccine
 
+
 The **MultiEffectBoosterVaccine** intervention class is derived from
 [parameter-campaign-individual-multieffectvaccine](parameter-campaign-individual-multieffectvaccine.md) and preserves many of the same parameters.
 Upon distribution and successful take, the vaccine’s effect in each immunity compartment
@@ -20,7 +21,6 @@ to the corresponding boost parameter. After distribution, the effect wanes, just
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
-
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
@@ -30,46 +30,48 @@ example that follows shows one potential configuration.
 {
     "Use_Defaults": 1,
     "Campaign_Name": "Generic Seattle Regression Campaign",
-    "Events": [{
-        "Event_Coordinator_Config": {
-            "Demographic_Coverage": 1.0,
-            "Intervention_Config": {
-                "Cost_To_Consumer": 10.0,
-                "Vaccine_Take": 1,
-                "Prime_Acquire": 0.1,
-                "Prime_Transmit": 0.2,
-                "Prime_Mortality": 0.3,
-                "Boost_Acquire": 0.7,
-                "Boost_Transmit": 0.5,
-                "Boost_Mortality": 1.0,
-                "Boost_Threshold_Acquire": 0.0,
-                "Boost_Threshold_Transmit": 0.0,
-                "Boost_Threshold_Mortality": 0.0,
-                "Acquire_Config": {
-                    "Box_Duration": 100,
-                    "Initial_Effect": 0.5,
-                    "class": "WaningEffectBox"
-                },
-                "Transmit_Config": {
-                    "Box_Duration": 100,
-                    "Initial_Effect": 0.5,
-                    "class": "WaningEffectBox"
-                },
-                "Mortality_Config": {
-                    "Box_Duration": 100,
-                    "Initial_Effect": 0.5,
-                    "class": "WaningEffectBox"
-                },
-                "class": "MultiEffectBoosterVaccine"
+    "Events": [
+        {
+            "class": "CampaignEvent",
+            "Start_Day": 1,
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
             },
-            "Target_Demographic": "Everyone",
-            "class": "StandardInterventionDistributionEventCoordinator"
-        },
-        "Nodeset_Config": {
-            "class": "NodeSetAll"
-        },
-        "Start_Day": 1,
-        "class": "CampaignEvent"
-    }]
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Target_Demographic": "Everyone",
+                "Demographic_Coverage": 1.0,
+                "Intervention_Config": {
+                    "class": "MultiEffectBoosterVaccine",
+                    "Cost_To_Consumer": 10.0,
+                    "Vaccine_Take": 1,
+                    "Prime_Acquire": 0.1,
+                    "Prime_Transmit": 0.2,
+                    "Prime_Mortality": 0.3,
+                    "Boost_Acquire": 0.7,
+                    "Boost_Transmit": 0.5,
+                    "Boost_Mortality": 1.0,
+                    "Boost_Threshold_Acquire": 0.0,
+                    "Boost_Threshold_Transmit": 0.0,
+                    "Boost_Threshold_Mortality": 0.0,
+                    "Acquire_Config": {
+                        "class": "WaningEffectBox",
+                        "Box_Duration": 100,
+                        "Initial_Effect": 0.5
+                    },
+                    "Transmit_Config": {
+                        "class": "WaningEffectBox",
+                        "Box_Duration": 100,
+                        "Initial_Effect": 0.5
+                    },
+                    "Mortality_Config": {
+                        "class": "WaningEffectBox",
+                        "Box_Duration": 100,
+                        "Initial_Effect": 0.5
+                    }
+                }
+            }
+        }
+    ]
 }
 ```

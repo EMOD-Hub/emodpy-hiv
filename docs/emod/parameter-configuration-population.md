@@ -2,7 +2,7 @@
 
 The following parameters determine characteristics related to population dynamics, such as age
 distribution, births, deaths, and gender. The values set here generally interact closely with values
-in the *demographics file*.
+in the demographics file.
 
 !!! note
     Parameters are case-sensitive. For Boolean parameters, set to 1 for true or 0 for false.

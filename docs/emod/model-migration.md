@@ -18,7 +18,7 @@ The mode of migration can be local (foot travel), regional (by roadway or rail),
 You can also define different migration patterns, such as one-way or roundtrip. Individuals have a
 "home node" that is relevant for some types of migration, such as migrating an entire family unit
 only when all members are home or returning home after passing through several waypoints. For more
-detailed information, see [parameter-configuration-migration](parameter-configuration-migration.md) parameters.
+detailed information, see [migration configuration](parameter-configuration-migration.md) parameters.
 
 For STIs including HIV, you can specify the consequence of migration on an individual's existing
 relationship. For example, you may configure the simulation such that an individual's partner

@@ -1,11 +1,11 @@
 # Configuration parameters
 
-The parameters described in this reference section can be added to the *JSON (JavaScript Object Notation)* formatted configuration file to determine the core behavior of a simulation
+The parameters described in this reference section can be added to the JSON (JavaScript Object Notation) formatted configuration file to determine the core behavior of a simulation
 including the computing environment, functionality to enable, additional files to use, and
 characteristics of the disease being modeled. This file contains mostly a flat list of JSON
 key:value pairs.
 
-For more information on the structure of these files, see [software-configuration](software-configuration.md).
+For more information on the structure of these files, see [Configuration file](software-configuration.md).
 
 The topics in this section contain only parameters available when using the HIV *simulation type*.
 Some parameters may appear in multiple categories.

@@ -10,7 +10,7 @@ individuals with interventions. For example, you might want to put individuals i
 bins and then target interventions to individuals in a particular age bin. Another common use is to
 configure treatment coverage to be higher for nodes that are easy to access and lower for nodes that
 are difficult to access. For more information on creating campaign interventions, see
-[model-campaign](model-campaign.md).
+[Creating campaigns](model-campaign.md).
 
 For HIV simulations, transmission is configured using mechanistic parameter settings, such as parasite
 density, viral load, biting frequency, and other measures relevant to the disease being modeled. See

@@ -19,7 +19,6 @@ does not need to be enabled to use this intervention. To instead change node pro
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
-
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
@@ -38,18 +37,16 @@ example that follows shows one potential configuration.
                 "class": "StandardInterventionDistributionEventCoordinator",
                 "Target_Demographic": "Everyone",
                 "Demographic_Coverage": 1.0,
-                "Property_Restrictions": [
-                    "Risk:LOW"
-                ],
+                "Property_Restrictions": ["Risk:LOW"],
                 "Intervention_Config": {
                     "class": "PropertyValueChanger",
-                    "Disqualifying_Properties": [ "InterventionStatus:Diagnosed"],
+                    "Disqualifying_Properties": ["InterventionStatus:Diagnosed"],
                     "New_Property_Value": "InterventionStatus:Monitor",
-                    "Target_Property_Key" : "Risk",
-                    "Target_Property_Value" : "HIGH",
-                    "Daily_Probability" : 1.0,
-                    "Maximum_Duration" : 0,
-                    "Revert" : 10
+                    "Target_Property_Key": "Risk",
+                    "Target_Property_Value": "HIGH",
+                    "Daily_Probability": 1.0,
+                    "Maximum_Duration": 0,
+                    "Revert": 10
                 }
             }
         }

@@ -1,5 +1,6 @@
 # How to create migration files
 
+
 You can create the JSON metadata and binary migration files needed by EMOD to run simulations
 from either CSV or JSON data using Python scripts provided by IDM. You can assign the same
 probability of migration to each individual in a node (vector or human), or you can assign different
@@ -18,14 +19,17 @@ migration rates based on age and/or gender (human only).
 
 For regional migration, you may want to set up migration such that if a node is not part of the
 network, the migration of individuals to and from that node considers the closest road hub city. You
-can do this by constructing a Voronoi_ tiling based on road hubs, with each non-hub connected to
+can do this by constructing a [Voronoi](https://en.wikipedia.org/wiki/Voronoi_diagram) tiling based on road hubs, with each non-hub connected to
 the hub of its tile.
+
 
 ## Create from CSV input
 
+
 To use the same average migration rate for every individual in a node, create the migration files from a CSV input file. 
 
-1.  Create a CSV file with the following three columns (do not include column headers):
+
+1. Create a CSV file with the following three columns (do not include column headers):
 
     From_Node_ID
         The origin node, which must match a node ID in the demographics file. You do not need to have the same number of entries for each **From_Node_ID**. 
@@ -34,42 +38,115 @@ To use the same average migration rate for every individual in a node, create th
     Rate
         The average number of trips per day.
 
-1.  Run the [convert_txt_to_bin.py][emod-convert-txt-to-bin] script using the command format below::
+#.  Run the 'convert_txt_to_bin.py' script using the command format below:
 
-        python convert_txt_to_bin.py [input-migration-csv] [output-bin] [migration-type] [idreference]
+```
+python -m emodpy_hiv.migration.convert_txt_to_bin [input-migration-csv] [output-bin] [migration-type] [idreference]
+```
 
 This will create both the metadata and binary file needed by EMOD. 
+
+### Example file
+
+
+```csv
+1,2,0.0
+1,3,0.0
+1,4,0.0
+1,9,0.0
+2,1,0.0
+2,3,0.0
+4,3,0.0
+4,5,0.0
+4,9,0.0
+5,1,0.00125
+5,2,0.00125
+5,3,0.00125
+5,4,0.00125
+5,6,0.00125
+5,7,0.00125
+```
 
 ## Create from JSON input
 
+
 To vary the average migration rate based on age and/or gender, create the migration files from a JSON input file.
 
-1.  Create a JSON file with the structure described in the sections below.
+1. Create a JSON file with the structure described in the sections below.
 
-1.  Run the [convert_json_to_bin.py][emod-convert-json-to-bin] script using the command format below::
+#.  Run the 'convert_json_to_bin.py' script using the command format below:
 
-        python convert_json_to_bin.py [input-json] [output-bin] [migration-type]
+```
+python -m emodpy_hiv.migration.convert_json_to_bin [input-json] [output-bin] [migration-type]
+```
 
 This will create both the metadata and binary file needed by EMOD. 
 
+
 ### JSON parameters
+
 
 The following parameters are used in the JSON file for migration file generation.  
 
 | Parameter | Data type | Description |
-|---|---|---|
-| IdReference | string | The metadata identifier used to generate the NodeID associated with each node in a simulation. The values for IdReference and NodeID must be the same across all input files used in a simulation. |
-| Interpolation_Type | enum | The method by which to interpolate the age dependent rate data. Accepted values are LINEAR_INTERPOLATION and PIECEWISE_CONSTANT. |
-| Gender_Data_Type | enum | Whether age data is provided for each gender separately or is the same for both. Accepted values are ONE_FOR_BOTH_GENDERS and ONE_FOR_EACH_GENDER. |
-| Ages_Years | array | An array that defines the age bins by which to separate the population and define migration rates. The first value defines the upper bound of a bin starting at zero. |
-| Node_Data | JSON object | The structure that contains the migration rate data for each node. |
-| From_Node_ID | integer | The origin node for which to define migration rate. |
-| Rate_Data | array | The structure that contains migration rate data for a single destination node. |
-| To_Node_ID | integer | The destination node for which to define migration rate. |
-| Avg_Num_Trips_Per_Day_Both | array | The array that lists the average number of trips per day for each age bin defined in **AgesYears** (male and female). |
-| Avg_Num_Trips_Per_Day_Female | array | The array that lists the average number of trips per day for each female age bin defined in **AgesYears**. |
-| Avg_Num_Trips_Per_Day_Male | array | The array that lists the average number of trips per day for each male age bin defined in **AgesYears**. |
+| --- | --- | --- |
+| `IdReference` | string | The metadata identifier used to generate the NodeID associated with each node in a simulation. The values for IdReference and NodeID must be the same across all input files used in a simulation. |
+| `Interpolation_Type` | enum | The method by which to interpolate the age dependent rate data. Accepted values are LINEAR_INTERPOLATION and PIECEWISE_CONSTANT. |
+| `Gender_Data_Type` | enum | Whether age data is provided for each gender separately or is the same for both. Accepted values are ONE_FOR_BOTH_GENDERS and ONE_FOR_EACH_GENDER. |
+| `Ages_Years` | array | An array that defines the age bins by which to separate the population and define migration rates. The first value defines the upper bound of a bin starting at zero. |
+| `Node_Data` | JSON object | The structure that contains the migration rate data for each node. |
+| `From_Node_ID` | integer | The origin node for which to define migration rate. |
+| `Rate_Data` | array | The structure that contains migration rate data for a single destination node. |
+| `To_Node_ID` | integer | The destination node for which to define migration rate. |
+| `Avg_Num_Trips_Per_Day_Both` | array | The array that lists the average number of trips per day for each age bin defined in **Ages_Years** (male and female). Used when **Gender_Data_Type** is set to ONE_FOR_BOTH_GENDERS. |
+| `Avg_Num_Trips_Per_Day_Female` | array | The array that lists the average number of trips per day for each female age bin defined in **Ages_Years**. Used when **Gender_Data_Type** is set to ONE_FOR_EACH_GENDER. |
+| `Avg_Num_Trips_Per_Day_Male` | array | The array that lists the average number of trips per day for each male age bin defined in **Ages_Years**. Used when **Gender_Data_Type** is set to ONE_FOR_EACH_GENDER. |
 
-### Example file
+### Example files
 
-*See example: [migration-input-file.json](../json/migration-input-file.json)*
+
+```json
+{
+    "IdReference": "ABC",
+    "Interpolation_Type": "PIECEWISE_CONSTANT",
+    "Gender_Data_Type": "ONE_FOR_EACH_GENDER",
+    "Ages_Years": [14.99, 15, 45, 75, 105],
+    "Node_Data": [{
+        "From_Node_ID": 1,
+        "Rate_Data": [{
+            "To_Node_ID": 2,
+            "Avg_Num_Trips_Per_Day_Male": [0.0, 0.1, 0.2, 0.3, 0.0],
+            "Avg_Num_Trips_Per_Day_Female": [0.0, 0.3, 0.2, 0.1, 0.0]
+        }]
+    }, {
+        "From_Node_ID": 2,
+        "Rate_Data": [{
+            "To_Node_ID": 1,
+            "Avg_Num_Trips_Per_Day_Male": [0.0, 0.2, 0.5, 0.3, 0.0],
+            "Avg_Num_Trips_Per_Day_Female": [0.0, 0.5, 0.3, 0.2, 0.0]
+        }]
+    }]
+}
+```
+
+```json
+{
+    "IdReference": "ABC",
+    "Interpolation_Type": "PIECEWISE_CONSTANT",
+    "Gender_Data_Type": "ONE_FOR_BOTH_GENDERS",
+    "Ages_Years": [14.99, 15, 45, 75, 105],
+    "Node_Data": [{
+        "From_Node_ID": 1,
+        "Rate_Data": [{
+            "To_Node_ID": 2,
+            "Avg_Num_Trips_Per_Day_Both": [0.0, 0.1, 0.2, 0.3, 0.0]
+        }]
+    }, {
+        "From_Node_ID": 2,
+        "Rate_Data": [{
+            "To_Node_ID": 1,
+            "Avg_Num_Trips_Per_Day_Both": [0.0, 0.2, 0.5, 0.3, 0.0]
+        }]
+    }]
+}
+```

@@ -1,5 +1,6 @@
 # CoverageByNodeEventCoordinator
 
+
 The **CoverageByNodeEventCoordinator** coordinator class distributes individual-level interventions and is
 similar to the **StandardInterventionDistributionEventCoordinator**, but adds the ability to specify
 different demographic coverages by node. If no coverage has been specified for a particular node ID,
@@ -20,7 +21,6 @@ parameters for this event coordinator.
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
-
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
@@ -28,38 +28,36 @@ example that follows shows one potential configuration.
 
 ```json
 {
-    "Events": [{
-        "class": "CampaignEvent",
-        "Start_Day": 0,
-        "Nodeset_Config": {
-            "Node_List": [
-                1,
-                2,
-                3
-            ],
-            "class": "NodeSetNodeList"
-        },
-        "Event_Coordinator_Config": {
-            "class": "CoverageByNodeEventCoordinator",
-            "Target_Demographic": "Everyone",
-            "Coverage_By_Node": [
-                [1, 0.6],
-                [2, 0.9],
-                [3, 0.1]
-            ],
-            "Intervention_Config": {
-                "Cost_To_Consumer": 10.0,
-                "Reduced_Transmit": 0,
-                "Vaccine_Take": 1,
-                "Vaccine_Type": "AcquisitionBlocking",
-                "Waning_Config": {
-                    "Box_Duration": 3650,
-                    "Initial_Effect": 1,
-                    "class": "WaningEffectBox"
-                },
-                "class": "SimpleVaccine"
+    "Events": [
+        {
+            "class": "CampaignEvent",
+            "Start_Day": 0,
+            "Nodeset_Config": {
+                "class": "NodeSetNodeList",
+                "Node_List": [1, 2, 3]
+            },
+            "Event_Coordinator_Config": {
+                "class": "CoverageByNodeEventCoordinator",
+                "Target_Demographic": "Everyone",
+                "Coverage_By_Node": [
+                    [1, 0.6],
+                    [2, 0.9],
+                    [3, 0.1]
+                ],
+                "Intervention_Config": {
+                    "class": "SimpleVaccine",
+                    "Cost_To_Consumer": 10.0,
+                    "Reduced_Transmit": 0,
+                    "Vaccine_Take": 1,
+                    "Vaccine_Type": "AcquisitionBlocking",
+                    "Waning_Config": {
+                        "class": "WaningEffectBox",
+                        "Initial_Effect": 1,
+                        "Box_Duration": 3650
+                    }
+                }
             }
         }
-    }]
+    ]
 }
 ```

@@ -2,7 +2,7 @@
 
 The following parameters configure whether or not output reports are created for the simulation,
 such as reports detailing spatial or demographic data at each time step. By default, the
-[software-report-inset-chart](software-report-inset-chart.md) is always created.
+[InsetChart](software-report-inset-chart.md) is always created.
 
 The following figures are examples for the parameter **Report_HIV_Period**.
 

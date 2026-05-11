@@ -21,7 +21,7 @@ parameter to enable each type of migration you want to include in the simulation
 additional parameters in the configuration file you can use to scale or otherwise modify the data
 included in the migration files. The migration rate can be differentially set by age and/or gender.
 Additionally, a modifier can be applied for the migration rates to follow a distribution curve in
-the population. For more information, see [parameter-configuration-migration](parameter-configuration-migration.md) parameters.
+the population. For more information, see [migration configuration](parameter-configuration-migration.md) parameters.
 
 Migration data is contained in a set of two files, a metadata file with header information and a
 binary data file. Both files are required. To create these files see, [software-migration-creation](software-migration-creation.md). 
@@ -44,7 +44,7 @@ The following parameters can be included in the migration metadata file:
 | DatavalueCount | integer | (Used by EMOD.) The number of outbound data values per node (max 100). The number must be the same across every node in the binary file. If you are using an older file that does not include this parameter, each migration type has the following maximum data values:<br><br>* LOCAL_MIGRATION: 8<br>* REGIONAL_MIGRATION: 30<br>* AIR_MIGRATION: 60<br>* SEA_MIGRATION: 5 |
 | DateCreated | string | The day the file was created. |
 | GenderDataType | enum | Whether age data is provided for each gender separately or is the same for both. Accepted values are ONE_FOR_BOTH_GENDERS and ONE_FOR_EACH_GENDER. |
-| IdReference | string | (Used by EMOD.) A unique, user-selected string that indicates the method used by EMOD for generating **NodeID** values in the input files. For more information, see [software-inputs](software-inputs.md). |
+| IdReference | string | (Used by EMOD.) A unique, user-selected string that indicates the method used by EMOD for generating **NodeID** values in the input files. For more information, see [Input files](software-inputs.md). |
 | InterpolationType | enum | The method by which to interpolate the age-dependent rate data. Accepted values are LINEAR_INTERPOLATION and PIECEWISE_CONSTANT. |
 | MigrationType | enum | The type of migration the data describes. Accepted values are:<br><br>* LOCAL_MIGRATION<br>* AIR_MIGRATION<br>* REGIONAL_MIGRATION<br>* SEA_MIGRATION |
 | NodeCount | integer | (Used by EMOD.) The number of nodes to expect in this file. |

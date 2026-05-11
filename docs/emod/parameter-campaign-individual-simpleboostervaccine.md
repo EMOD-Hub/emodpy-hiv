@@ -1,5 +1,6 @@
 # SimpleBoosterVaccine
 
+
 The **SimpleBoosterVaccine** intervention class is derived from [parameter-campaign-individual-simplevaccine](parameter-campaign-individual-simplevaccine.md)
 and preserves many of the same parameters. The behavior is much like **SimpleVaccine**, except that upon distribution
 and successful take, the vaccine's effect is determined by the recipient's immune state. If the
@@ -22,7 +23,6 @@ intended to mimic biological priming and boosting.
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
-
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
@@ -32,31 +32,33 @@ example that follows shows one potential configuration.
 {
     "Use_Defaults": 1,
     "Campaign_Name": "Generic Seattle Regression Campaign",
-    "Events": [{
-        "class": "CampaignEvent",
-        "Nodeset_Config": {
-            "class": "NodeSetAll"
-        },
-        "Start_Day": 20,
-        "Event_Coordinator_Config": {
-            "class": "StandardInterventionDistributionEventCoordinator",
-            "Target_Demographic": "Everyone",
-            "Demographic_Coverage": 1.0,
-            "Intervention_Config": {
-                "class": "SimpleBoosterVaccine",
-                "Cost_To_Consumer": 10.0,
-                "Vaccine_Take": 1,
-                "Vaccine_Type": "MortalityBlocking",
-                "Prime_Effect": 0.25,
-                "Boost_Effect": 0.45,
-                "Boost_Threshold": 0.0,
-                "Waning_Config": {
-                    "Box_Duration": 10,
-                    "Initial_Effect": 1,
-                    "class": "WaningEffectBox"
+    "Events": [
+        {
+            "class": "CampaignEvent",
+            "Start_Day": 20,
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Target_Demographic": "Everyone",
+                "Demographic_Coverage": 1.0,
+                "Intervention_Config": {
+                    "class": "SimpleBoosterVaccine",
+                    "Cost_To_Consumer": 10.0,
+                    "Vaccine_Take": 1,
+                    "Vaccine_Type": "MortalityBlocking",
+                    "Prime_Effect": 0.25,
+                    "Boost_Effect": 0.45,
+                    "Boost_Threshold": 0.0,
+                    "Waning_Config": {
+                        "class": "WaningEffectBox",
+                        "Box_Duration": 10,
+                        "Initial_Effect": 1
+                    }
                 }
             }
         }
-    }]
+    ]
 }
 ```

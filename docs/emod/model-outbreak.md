@@ -11,7 +11,7 @@ of the population or disease, the campaign file is organized into events that oc
 course of the simulation. Most of these events trigger disease interventions such as vaccinations
 and diagnostic tests, but the outbreak is included here as well. Like other interventions,
 outbreaks are nested within event coordinators and events, which control when, where, and within
-which demographic the outbreak occurs. For more information, see [model-campaign](model-campaign.md).
+which demographic the outbreak occurs. For more information, see [Creating campaigns](model-campaign.md).
 
 The two available classes for including a disease outbreak are:
 
@@ -32,7 +32,7 @@ the population has immunity, it may not. Immunity may be due to vaccination or, 
 recently endemic, prior infection.
 
 For an example of the effect of vaccination on herd immunity and the spread of an outbreak, see
-[model-campaign](model-campaign.md).
+[Creating campaigns](model-campaign.md).
 
 ### Endemic disease
 

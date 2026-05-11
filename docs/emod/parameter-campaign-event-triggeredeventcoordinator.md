@@ -1,5 +1,7 @@
 # TriggeredEventCoordinator
 
+
+
 The **TriggeredEventCoordinator** coordinator class listens for trigger events, begins a series of repetitions of intervention distributions, and then broadcasts an event upon completion. This campaign
 event is typically used with other classes that broadcast and distribute events, such as
 [parameter-campaign-event-broadcastcoordinatorevent](parameter-campaign-event-broadcastcoordinatorevent.md), [parameter-campaign-event-delayeventcoordinator](parameter-campaign-event-delayeventcoordinator.md), and [parameter-campaign-event-surveillanceeventcoordinator](parameter-campaign-event-surveillanceeventcoordinator.md).
@@ -14,14 +16,13 @@ event is typically used with other classes that broadcast and distribute events,
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
-
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-triggeredeventcoordinator.csv', keep_default_na=False) }}
 
 ```json
-{    
+{
     "Events": [
         {
             "class": "CampaignEvent",
@@ -46,12 +47,14 @@ example that follows shows one potential configuration.
             "Start_Day": 0,
             "Nodeset_Config": {
                 "class": "NodeSetNodeList",
-                "Node_List": [ 1, 2 ]
+                "Node_List": [1, 2]
             },
             "Event_Coordinator_Config": {
                 "class": "TriggeredEventCoordinator",
                 "Coordinator_Name": "1n2_Vaccinator",
-                "Start_Trigger_Condition_List": [ "Start_Vaccinating_1n2" ],
+                "Start_Trigger_Condition_List": [
+                    "Start_Vaccinating_1n2"
+                ],
                 "Stop_Trigger_Condition_List": [],
                 "Number_Repetitions": 1,
                 "Timesteps_Between_Repetitions": 1,
@@ -61,30 +64,32 @@ example that follows shows one potential configuration.
                 "Property_Restrictions_Within_Node": [],
                 "Demographic_Coverage": 0.05,
                 "Intervention_Config": {
-                   "class": "SimpleVaccine",
-                   "Cost_To_Consumer": 1,
-                   "Vaccine_Take": 1,
-                   "Vaccine_Type": "AcquisitionBlocking",
-                   "Waning_Config": {
-                      "class": "WaningEffectBox",
-                      "Initial_Effect": 0.59,
-                      "Box_Duration": 730
-                   }
+                    "class": "SimpleVaccine",
+                    "Cost_To_Consumer": 1,
+                    "Vaccine_Take": 1,
+                    "Vaccine_Type": "AcquisitionBlocking",
+                    "Waning_Config": {
+                        "class": "WaningEffectBox",
+                        "Initial_Effect": 0.59,
+                        "Box_Duration": 730
+                    }
                 },
                 "Completion_Event": "Done_Vaccinating_1n2"
             }
-        },        
+        },
         {
             "class": "CampaignEvent",
             "Start_Day": 0,
             "Nodeset_Config": {
                 "class": "NodeSetNodeList",
-                "Node_List": [ 1, 2 ]
+                "Node_List": [1, 2]
             },
             "Event_Coordinator_Config": {
                 "class": "TriggeredEventCoordinator",
                 "Coordinator_Name": "1n2_Party",
-                "Start_Trigger_Condition_List": [ "Done_Vaccinating_1n2" ],
+                "Start_Trigger_Condition_List": [
+                    "Done_Vaccinating_1n2"
+                ],
                 "Stop_Trigger_Condition_List": [],
                 "Number_Repetitions": 1,
                 "Timesteps_Between_Repetitions": 1,
@@ -94,24 +99,26 @@ example that follows shows one potential configuration.
                 "Property_Restrictions_Within_Node": [],
                 "Demographic_Coverage": 0.05,
                 "Intervention_Config": {
-                   "class": "BroadcastEvent",
-                   "Cost_To_Consumer": 1,
-                   "Broadcast_Event" : "Individual_Celebrate_1n2"
+                    "class": "BroadcastEvent",
+                    "Cost_To_Consumer": 1,
+                    "Broadcast_Event": "Individual_Celebrate_1n2"
                 },
                 "Completion_Event": "Done_Celebrating_1n2"
             }
-        },        
+        },
         {
             "class": "CampaignEvent",
             "Start_Day": 0,
             "Nodeset_Config": {
                 "class": "NodeSetNodeList",
-                "Node_List": [ 3, 4 ]
+                "Node_List": [3, 4]
             },
             "Event_Coordinator_Config": {
                 "class": "TriggeredEventCoordinator",
                 "Coordinator_Name": "3n4_Party",
-                "Start_Trigger_Condition_List": [ "Done_Vaccinating_3n4" ],
+                "Start_Trigger_Condition_List": [
+                    "Done_Vaccinating_3n4"
+                ],
                 "Stop_Trigger_Condition_List": [],
                 "Number_Repetitions": 1,
                 "Timesteps_Between_Repetitions": 1,
@@ -121,25 +128,29 @@ example that follows shows one potential configuration.
                 "Property_Restrictions_Within_Node": [],
                 "Demographic_Coverage": 0.05,
                 "Intervention_Config": {
-                   "class": "BroadcastEvent",
-                   "Cost_To_Consumer": 1,
-                   "Broadcast_Event" : "Individual_Celebrate_3n4"
+                    "class": "BroadcastEvent",
+                    "Cost_To_Consumer": 1,
+                    "Broadcast_Event": "Individual_Celebrate_3n4"
                 },
                 "Completion_Event": "Done_Celebrating_3n4"
             }
-        },        
+        },
         {
             "class": "CampaignEvent",
             "Start_Day": 0,
             "Nodeset_Config": {
                 "class": "NodeSetNodeList",
-                "Node_List": [ 3,4 ]
+                "Node_List": [3, 4]
             },
             "Event_Coordinator_Config": {
                 "class": "TriggeredEventCoordinator",
                 "Coordinator_Name": "3n4_Vaccinator",
-                "Start_Trigger_Condition_List": [ "Start_Vaccinating_3n4" ],
-                "Stop_Trigger_Condition_List": ["Stop_Vaccinating_3n4"],
+                "Start_Trigger_Condition_List": [
+                    "Start_Vaccinating_3n4"
+                ],
+                "Stop_Trigger_Condition_List": [
+                    "Stop_Vaccinating_3n4"
+                ],
                 "Number_Repetitions": 1,
                 "Timesteps_Between_Repetitions": 11,
                 "Duration": -1,
@@ -148,31 +159,31 @@ example that follows shows one potential configuration.
                 "Property_Restrictions_Within_Node": [],
                 "Demographic_Coverage": 0.05,
                 "Intervention_Config": {
-                   "class": "SimpleVaccine",
-                   "Cost_To_Consumer": 2,
-                   "Vaccine_Take": 1,
-                   "Vaccine_Type": "AcquisitionBlocking",
-                   "Waning_Config": {
-                      "class": "WaningEffectBox",
-                      "Initial_Effect": 0.59,
-                      "Box_Duration": 730
-                   }
+                    "class": "SimpleVaccine",
+                    "Cost_To_Consumer": 2,
+                    "Vaccine_Take": 1,
+                    "Vaccine_Type": "AcquisitionBlocking",
+                    "Waning_Config": {
+                        "class": "WaningEffectBox",
+                        "Initial_Effect": 0.59,
+                        "Box_Duration": 730
+                    }
                 },
                 "Completion_Event": "Done_Vaccinating_3n4"
             }
-        },        
+        },
         {
             "class": "CampaignEvent",
             "Start_Day": 5,
             "Nodeset_Config": {
                 "class": "NodeSetNodeList",
-                "Node_List": [ 1, 2 ]
+                "Node_List": [1, 2]
             },
             "Event_Coordinator_Config": {
                 "class": "BroadcastCoordinatorEvent",
-                "Coordinator_Name" : "Start_Coordnator_1n2",
-                "Cost_To_Consumer" : 100,
-                "Broadcast_Event" : "Start_Vaccinating_1n2"
+                "Coordinator_Name": "Start_Coordnator_1n2",
+                "Cost_To_Consumer": 100,
+                "Broadcast_Event": "Start_Vaccinating_1n2"
             }
         },
         {
@@ -180,13 +191,13 @@ example that follows shows one potential configuration.
             "Start_Day": 20,
             "Nodeset_Config": {
                 "class": "NodeSetNodeList",
-                "Node_List": [ 3, 4 ]
+                "Node_List": [3, 4]
             },
             "Event_Coordinator_Config": {
                 "class": "BroadcastCoordinatorEvent",
-                "Coordinator_Name" : "Start_Coordnator_3n4",
-                "Cost_To_Consumer" : 200,
-                "Broadcast_Event" : "Start_Vaccinating_3n4"
+                "Coordinator_Name": "Start_Coordnator_3n4",
+                "Cost_To_Consumer": 200,
+                "Broadcast_Event": "Start_Vaccinating_3n4"
             }
         }
     ],

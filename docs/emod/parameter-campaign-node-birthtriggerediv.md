@@ -1,7 +1,15 @@
 # BirthTriggeredIV
 
-The **BirthTriggeredIV** intervention class monitors for birth events and then distributes an actual intervention
-to the new individuals as specified in **Actual_IndividualIntervention_Config**.
+
+Note: This intervention has been replaced by NodeLevelHealthTriggeredIV, which provides more flexibility and can be
+triggered by any individual event, including **Births** which mimics the BirthTriggeredIV. BirthTriggeredIV will
+continue to be supported for backward compatibility but will not receive new features.
+
+The **BirthTriggeredIV** intervention class listens for births in a node and distributes
+an individual-level intervention to each newborn. It is a node-level intervention that persists
+on the node for the specified **Duration** (or indefinitely if set to -1), distributing the
+configured **Actual_IndividualIntervention_Config** to qualifying newborns based on demographic
+targeting and property restrictions.
 
 !!! note
     Parameters are case-sensitive. For Boolean parameters, set to 1 for true or 0 for false.
@@ -13,7 +21,6 @@ to the new individuals as specified in **Actual_IndividualIntervention_Config**.
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
-
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
@@ -22,31 +29,33 @@ example that follows shows one potential configuration.
 ```json
 {
     "Use_Defaults": 1,
-    "Events": [{
-        "class": "CampaignEventByYear",
-        "Nodeset_Config": {
-            "class": "NodeSetAll"
-        },
-        "Start_Year": 1960,
-        "Event_Coordinator_Config": {
-            "class": "StandardInterventionDistributionEventCoordinator",
-            "Intervention_Config": {
-                "class": "BirthTriggeredIV",
-                "Target_Demographic": "ExplicitGender",
-                "Target_Gender": "Male",
-                "Demographic_Coverage": 1,
-                "Actual_IndividualIntervention_Config": {
-                    "class": "HIVSigmoidByYearAndSexDiagnostic",
-                    "New_Property_Value": "InterventionStatus:None",
-                    "Ramp_Min": 0.0,
-                    "Ramp_Max": 0.3,
-                    "Ramp_MidYear": 2002.0,
-                    "Ramp_Rate": 0.5,
-                    "Positive_Diagnosis_Event": "HIVNeedsMaleCircumcision"
+    "Events": [
+        {
+            "class": "CampaignEvent",
+            "Start_Day": 1,
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Intervention_Config": {
+                    "class": "BirthTriggeredIV",
+                    "Duration": -1,
+                    "Demographic_Coverage": 0.95,
+                    "Target_Demographic": "Everyone",
+                    "Actual_IndividualIntervention_Config": {
+                        "class": "SimpleVaccine",
+                        "Cost_To_Consumer": 10,
+                        "Vaccine_Type": "AcquisitionBlocking",
+                        "Waning_Config": {
+                            "class": "WaningEffectExponential",
+                            "Decay_Time_Constant": 365,
+                            "Initial_Effect": 0.8
+                        }
+                    }
                 }
             }
         }
-
-    }]
+    ]
 }
 ```

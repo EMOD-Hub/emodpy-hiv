@@ -1,5 +1,6 @@
 # MigrateIndividuals
 
+
 The **MigrateIndividuals** intervention class is an individual-level intervention used to force
 migration and is separate from the normal migration system. However, it does require that human
 migration is enabled by setting the configuration parameters **Migration_Model** to
@@ -29,7 +30,6 @@ node, and Node A becomes the destination node and still remains the home node.
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
-
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
@@ -37,33 +37,31 @@ example that follows shows one potential configuration.
 
 ```json
 {
-  "Use_Defaults": 1,
-  "Events": [
-    {
-      "class": "CampaignEvent",
-      "Start_Day": 5,
-      "Nodeset_Config": {
-        "class": "NodeSetNodeList",
-        "Node_List": [
-          1
-        ]
-      },
-      "Event_Coordinator_Config": {
-        "class": "StandardInterventionDistributionEventCoordinator",
-        "Target_Residents_Only": 1,
-        "Target_Demographic": "Everyone",
-        "Demographic_Coverage": 1.0,
-        "Intervention_Config": {
-          "class": "MigrateIndividuals",
-          "NodeID_To_Migrate_To": 2,
-          "Duration_Before_Leaving_Distribution": "CONSTANT_DISTRIBUTION",
-          "Duration_At_Node_Distribution": "CONSTANT_DISTRIBUTION",
-          "Is_Moving": 0,
-          "Duration_Before_Leaving_Constant": 0,
-          "Duration_At_Node_Constant": 999
+    "Use_Defaults": 1,
+    "Events": [
+        {
+            "class": "CampaignEvent",
+            "Start_Day": 5,
+            "Nodeset_Config": {
+                "class": "NodeSetNodeList",
+                "Node_List": [1]
+            },
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Target_Residents_Only": 1,
+                "Target_Demographic": "Everyone",
+                "Demographic_Coverage": 1.0,
+                "Intervention_Config": {
+                    "class": "MigrateIndividuals",
+                    "NodeID_To_Migrate_To": 2,
+                    "Duration_Before_Leaving_Distribution": "CONSTANT_DISTRIBUTION",
+                    "Duration_At_Node_Distribution": "CONSTANT_DISTRIBUTION",
+                    "Is_Moving": 0,
+                    "Duration_Before_Leaving_Constant": 0,
+                    "Duration_At_Node_Constant": 999
+                }
+            }
         }
-      }
-    }
-  ]
+    ]
 }
 ```

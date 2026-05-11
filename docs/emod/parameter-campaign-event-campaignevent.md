@@ -13,29 +13,32 @@
 
 ## CampaignEvent
 
-The **CampaignEvent** class determines when to distribute the intervention based on the first day of
-the simulation. The table below describes all available parameters, followed by a JSON example.
+The **CampaignEvent** event class determines when to distribute the intervention based on the first day of
+the simulation. The table below describes all possible parameters with which this class can be configured. The JSON
+example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-campaignevent.csv', keep_default_na=False) }}
 
 ```json
 {
-    "Events": [{
-        "class": "CampaignEvent",
-        "Event_Name": "Individual outbreak",
-        "Start_Day": 1,
-        "Nodeset_Config": {
-            "class": "NodeSetAll"
-        },
-        "Event_Coordinator_Config": {
-            "class": "StandardInterventionDistributionEventCoordinator",
-            "Target_Demographic": "Everyone",
-            "Demographic_Coverage": 1.0,
-            "Intervention_Config": {
-                "class": "OutbreakIndividual"
+    "Events": [
+        {
+            "class": "CampaignEvent",
+            "Event_Name": "Individual outbreak",
+            "Start_Day": 1,
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Target_Demographic": "Everyone",
+                "Demographic_Coverage": 1.0,
+                "Intervention_Config": {
+                    "class": "OutbreakIndividual"
+                }
             }
         }
-    }]
+    ]
 }
 ```
 
@@ -43,28 +46,31 @@ the simulation. The table below describes all available parameters, followed by 
 
 The **CampaignEventByYear** class determines when to distribute the intervention based on the
 calendar year. Use this class instead of **CampaignEvent** when working with HIV simulations that
-use calendar-year timelines. The table below describes all available parameters, followed by a JSON example.
+use calendar-year timelines. The table below describes all possible parameters with which this class can be configured. The JSON
+example that follows shows one potential configuration.
 
 {{ read_csv('../csv/campaign-campaigneventbyyear.csv', keep_default_na=False) }}
 
 ```json
 {
-    "Events": [{
-        "class": "CampaignEventByYear",
-        "Event_Name": "Everyone initiates ART",
-        "Start_Year": 2025,
-        "Nodeset_Config": {
-            "class": "NodeSetAll"
-        },
-        "Event_Coordinator_Config": {
-            "class": "StandardInterventionDistributionEventCoordinator",
-            "Target_Demographic": "Everyone",
-            "Demographic_Coverage": 1,
-            "Travel_Linked": 0,
-            "Intervention_Config": {
-                "class": "ARTBasic"
+    "Events": [
+        {
+            "class": "CampaignEventByYear",
+            "Event_Name": "Individual outbreak by year",
+            "Start_Year": 2025,
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Target_Demographic": "Everyone",
+                "Demographic_Coverage": 1,
+                "Travel_Linked": 0,
+                "Intervention_Config": {
+                    "class": "OutbreakIndividual"
+                }
             }
         }
-    }]
+    ]
 }
 ```

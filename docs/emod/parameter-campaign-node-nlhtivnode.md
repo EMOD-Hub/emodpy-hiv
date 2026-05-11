@@ -1,5 +1,6 @@
 # NLHTIVNode
 
+
 The **NLHTIVNode** intervention class distributes node-level interventions to nodes when a specific
 user-defined node event occurs. For example, **NLHTIVNode** can be configured to have
 **SurveillanceEventCoordinator** set to listen for **NewInfectionEvents**, and then broadcast a
@@ -20,7 +21,6 @@ is focused on *node* interventions and events while **NodeLevelHealthTriggeredIV
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
-
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
@@ -28,33 +28,35 @@ example that follows shows one potential configuration.
 
 ```json
 {
-    "Events": [{
-        "comment": "No infections, Negative_Event_Node",
-        "class": "CampaignEvent",
-        "Start_Day": 1,
-        "Nodeset_Config": {
-            "class": "NodeSetAll"
-        },
-        "Event_Coordinator_Config": {
-            "class": "StandardInterventionDistributionEventCoordinator",
-            "Intervention_Config": {
-                "class": "NLHTIVNode",
-                "Trigger_Condition_List": ["SheddingComplete"],
-                "Duration": 1000,
-                "Blackout_Event_Trigger": "Blackout",
-                "Blackout_Period": 100.0,
-                "Blackout_On_First_Occurrence": 0,
-                "Actual_NodeIntervention_Config": {
-                    "class": "EnvironmentalDiagnostic",
-                    "Sample_Threshold": 0.0,
-                    "Environment_IP_Key_Value": "Risk:High",
-                    "Base_Specificity": 1.0,
-                    "Base_Sensitivity": 1.0,
-                    "Negative_Diagnostic_Event": "Negative_Event_Node",
-                    "Positive_Diagnostic_Event": "Positive_Event_Node"
+    "Events": [
+        {
+            "comment": "No infections, Negative_Event_Node",
+            "class": "CampaignEvent",
+            "Start_Day": 1,
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Intervention_Config": {
+                    "class": "NLHTIVNode",
+                    "Trigger_Condition_List": ["SheddingComplete"],
+                    "Duration": 1000,
+                    "Blackout_Event_Trigger": "Blackout",
+                    "Blackout_Period": 100.0,
+                    "Blackout_On_First_Occurrence": 0,
+                    "Actual_NodeIntervention_Config": {
+                        "class": "EnvironmentalDiagnostic",
+                        "Sample_Threshold": 0.0,
+                        "Environment_IP_Key_Value": "Risk:High",
+                        "Base_Specificity": 1.0,
+                        "Base_Sensitivity": 1.0,
+                        "Negative_Diagnostic_Event": "Negative_Event_Node",
+                        "Positive_Diagnostic_Event": "Positive_Event_Node"
+                    }
                 }
             }
         }
-    }]
+    ]
 }
 ```

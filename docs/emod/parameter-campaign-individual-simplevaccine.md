@@ -1,5 +1,6 @@
 # SimpleVaccine
 
+
 The **SimpleVaccine** intervention class implements vaccine campaigns in the simulation. Vaccines can have
 an effect on one of the following:
 
@@ -20,7 +21,6 @@ To configure vaccines that have an effect on more than one of these, use
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
-
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
@@ -28,29 +28,31 @@ example that follows shows one potential configuration.
 
 ```json
 {
-    "Events": [{
-        "class": "CampaignEvent",
-        "Nodeset_Config": {
-            "class": "NodeSetAll"
-        },
-        "Start_Day": 60,
-        "Event_Coordinator_Config": {
-            "class": "StandardInterventionDistributionEventCoordinator",
-            "Target_Demographic": "Everyone",
-            "Demographic_Coverage": 0.5,
-            "Intervention_Config": {
-                "class": "SimpleVaccine",
-                "Cost_To_Consumer": 10.0,
-                "Vaccine_Take": 1,
-                "Vaccine_Type": "AcquisitionBlocking",
-                "Waning_Config": {
-                    "Box_Duration": 3650,
-                    "Initial_Effect": 1,
-                    "class": "WaningEffectBox"
+    "Events": [
+        {
+            "class": "CampaignEvent",
+            "Start_Day": 60,
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Target_Demographic": "Everyone",
+                "Demographic_Coverage": 0.5,
+                "Intervention_Config": {
+                    "class": "SimpleVaccine",
+                    "Cost_To_Consumer": 10.0,
+                    "Vaccine_Take": 1,
+                    "Vaccine_Type": "AcquisitionBlocking",
+                    "Waning_Config": {
+                        "class": "WaningEffectBox",
+                        "Box_Duration": 3650,
+                        "Initial_Effect": 1
+                    }
                 }
             }
         }
-    }],
+    ],
     "Use_Defaults": 1
 }
 ```

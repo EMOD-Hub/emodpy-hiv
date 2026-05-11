@@ -54,7 +54,7 @@ Individuals are guided through care cascades using individual properties, a very
 powerful feature of the model.  With this feature, it is possible for you to create a set of tags
 for individuals in order to target them for events such as specific interventions, types of care, or
 even having a specific risk level. For more information on how individual properties, see
-[model-properties](model-properties.md).
+[Individual and node properties](model-properties.md).
 
 ## Model output and reporters
 

@@ -1,6 +1,6 @@
 # Parameter schema
 
-A schema defines all configuration and campaign parameters available in the installed
+A *schema* defines all configuration and campaign parameters available in the installed
 version of EMOD, for all simulation types. It includes parameter names, data types,
 defaults, valid ranges, and short descriptions. Note that the schema does not include
 demographics parameters. The schema is a JSON file and can be opened in any text editor.

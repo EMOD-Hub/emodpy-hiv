@@ -58,7 +58,7 @@ transmission rates can vary by:
 Note that in addition to configuration parameters, there are campaign interventions that will also
 impact the transmission rate. For example, voluntary male medical circumcision, the use of
 vaccines, and the use of treatments, can be distributed to individuals to
-lower the transmission rate. For more information, see [parameter-campaign-individual-interventions](parameter-campaign-individual-interventions.md).
+lower the transmission rate. For more information, see [Individual-level interventions](parameter-campaign-individual-interventions.md).
 
 ## Vertical (mother-to-child)
 
@@ -72,7 +72,7 @@ To implement MTCT, maternal transmission must be enabled. This will allow infect
 transmit to their children. Additionally, there are parameters that can modify the transmission
 probability. Finally, in order to simulate individual pregnancies, the **Birth_Rate_Dependence**
 parameter must be set to INDIVIDUAL_PREGNANCIES_BY_AGE_AND_YEAR. For more information on these
-parameters, see [parameter-configuration-population](parameter-configuration-population.md).
+parameters, see [Population dynamics](parameter-configuration-population.md).
 
 Note that there is a campaign intervention that can be configured to disrupt MTCT, the prevention
 of mother-to-child transmission (PMTCT) intervention. For more information, see

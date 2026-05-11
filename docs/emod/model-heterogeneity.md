@@ -31,7 +31,7 @@ this range can be chosen by "clamping," or choosing the nearest value within the
 also used when necessary to determine the non-disease mortality rate, which varies by gender, age, and
 simulation year.
 
-For more information on the demographics file, see [software-demographics](software-demographics.md).
+For more information on the demographics file, see [Demographics file](software-demographics.md).
 
 ## Individual and node properties
 
@@ -59,4 +59,4 @@ many diseases. You can assign different characteristics to each geographic *node
 how the disease spreads.
 
 For more information on how you can target campaign interventions to individuals or locations based
-on certain criteria, see [model-campaign](model-campaign.md).
+on certain criteria, see [Creating campaigns](model-campaign.md).

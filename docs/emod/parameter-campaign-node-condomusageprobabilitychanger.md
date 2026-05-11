@@ -3,7 +3,7 @@
 The **CondomUsageProbabilityChanger** node intervention class allows the user to change 
 the probability that a condom would be used during a coital act for a particular relationship 
 type in a node. This intervention overrides the **Condom_Usage_Probablility** Sigmoid in the 
-[software-demographics](software-demographics.md) that typically determines this probability. Note, this intervention 
+[Demographics file](software-demographics.md) that typically determines this probability. Note, this intervention 
 does not expire; it causes an existing intervention to be removed. Hence, to reset the parameter, 
 the user should submit a second intervention with the original value. This change impacts the 
 relationships one time step after it was distributed.

@@ -1,5 +1,6 @@
 # StandardInterventionDistributionEventCoordinator
 
+
 The **StandardInterventionDistributionEventCoordinator** coordinator class distributes an individual-level or
 node-level intervention to a specified fraction of individuals or nodes within a node set. Recurring
 campaigns can be created by specifying the number of times distributions should occur and the time
@@ -22,7 +23,6 @@ for this event coordinator.
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
-
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
@@ -31,21 +31,23 @@ example that follows shows one potential configuration.
 ```json
 {
     "Use_Defaults": 1,
-    "Events": [{
-        "Event_Name": "Outbreak",
-        "class": "CampaignEvent",
-        "Nodeset_Config": {
-            "class": "NodeSetAll"
-        },
-        "Start_Day": 1,
-        "Event_Coordinator_Config": {
-            "class": "StandardInterventionDistributionEventCoordinator",
-            "Demographic_Coverage": 0.005,
-            "Intervention_Config": {
-                "Outbreak_Source": "PrevalenceIncrease",
-                "class": "OutbreakIndividual"
+    "Events": [
+        {
+            "Event_Name": "Outbreak",
+            "class": "CampaignEvent",
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Start_Day": 1,
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Demographic_Coverage": 0.005,
+                "Intervention_Config": {
+                    "class": "OutbreakIndividual",
+                    "Outbreak_Source": "PrevalenceIncrease"
+                }
             }
         }
-    }]
+    ]
 }
 ```

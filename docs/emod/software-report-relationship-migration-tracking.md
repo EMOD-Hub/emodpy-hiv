@@ -16,8 +16,8 @@ To generate this report, the following parameters must be configured in the cust
 | Node_IDs_Of_Interest | array | 0 | 2.14748e+09 | [] | Data will be collected for the nodes in this list. Leave the array empty (default value) to include all nodes. |
 | Min_Age_Years | float | 0 | 9.3228e+35 | 0 | Minimum age in years of people to collect data on. |
 | Max_Age_Years | float | 0 | 9.3228e+35 | 9.3228e+35 | Maximum age in years of people to collect data on. |
-| Must_Have_IP_Key_Value | string | NA | NA | "" | A Key:Value pair that the individual must have in order to be included. Leave the string empty (default value) to not look at individual properties. For more information, see [model-properties](model-properties.md). |
-| Must_Have_Intervention | string | NA | NA | "" | The name of an intervention that the person must have in order to be included. Leave the string empty (default value) to not look at the interventions. For more information, see [parameter-campaign-individual-interventions](parameter-campaign-individual-interventions.md). |
+| Must_Have_IP_Key_Value | string | NA | NA | "" | A Key:Value pair that the individual must have in order to be included. Leave the string empty (default value) to not look at individual properties. For more information, see [Individual and node properties](model-properties.md). |
+| Must_Have_Intervention | string | NA | NA | "" | The name of an intervention that the person must have in order to be included. Leave the string empty (default value) to not look at the interventions. For more information, see [Individual-level interventions](parameter-campaign-individual-interventions.md). |
 
 ```json
 {

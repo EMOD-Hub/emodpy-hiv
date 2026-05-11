@@ -1,5 +1,6 @@
 # DelayedIntervention
 
+
 The **DelayedIntervention** intervention class introduces a delay between when the intervention is
 distributed to the individual and when they receive the actual intervention. This is due to the
 frequent occurrences of time delays as individuals seek care and receive treatment. This
@@ -16,7 +17,6 @@ the population that receives the specified intervention.
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
-
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 
@@ -24,58 +24,52 @@ example that follows shows one potential configuration.
 
 ```json
 {
-  "Campaign_Name": "Initial Seeding",
-  "Events": [
-    {
-      "Event_Name": "Outbreak",
-      "class": "CampaignEvent",
-      "Nodeset_Config": {
-        "class": "NodeSetAll"
-      },
-      "Start_Day": 1,
-      "Event_Coordinator_Config": {
-        "class": "StandardInterventionDistributionEventCoordinator",
-        "Target_Demographic": "Everyone",
-        "Demographic_Coverage": 1.0,
-        "Intervention_Config": {
-          "class": "DelayedIntervention",
-          "Delay_Period_Distribution": "CONSTANT_DISTRIBUTION",
-          "Delay_Period_Constant": 25,
-          "Actual_IndividualIntervention_Configs": [
-            {
-              "Outbreak_Source": "PrevalenceIncrease",
-              "class": "OutbreakIndividual"
+    "Use_Defaults": 1,
+    "Campaign_Name": "Initial Seeding",
+    "Events": [
+        {
+            "class": "CampaignEvent",
+            "Event_Name": "Outbreak",
+            "Start_Day": 1,
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Target_Demographic": "Everyone",
+                "Demographic_Coverage": 1.0,
+                "Intervention_Config": {
+                    "class": "DelayedIntervention",
+                    "Delay_Period_Distribution": "CONSTANT_DISTRIBUTION",
+                    "Delay_Period_Constant": 25,
+                    "Actual_IndividualIntervention_Configs": [
+                        {"class": "OutbreakIndividual", "Outbreak_Source": "PrevalenceIncrease"}
+                    ]
+                }
             }
-          ]
-        }
-      }
-    },
-    {
-      "Event_Name": "Outbreak",
-      "class": "CampaignEvent",
-      "Nodeset_Config": {
-        "class": "NodeSetAll"
-      },
-      "Start_Day": 50,
-      "Event_Coordinator_Config": {
-        "class": "StandardInterventionDistributionEventCoordinator",
-        "Target_Demographic": "Everyone",
-        "Demographic_Coverage": 1.0,
-        "Intervention_Config": {
-          "class": "DelayedIntervention",
-          "Delay_Period_Distribution": "UNIFORM_DISTRIBUTION",
-          "Delay_Period_Min": 15,
-          "Delay_Period_Max": 30,
-          "Actual_IndividualIntervention_Configs": [
-            {
-              "Outbreak_Source": "PrevalenceIncrease",
-              "class": "OutbreakIndividual"
+        },
+        {
+            "class": "CampaignEvent",
+            "Event_Name": "Outbreak",
+            "Start_Day": 50,
+            "Nodeset_Config": {
+                "class": "NodeSetAll"
+            },
+            "Event_Coordinator_Config": {
+                "class": "StandardInterventionDistributionEventCoordinator",
+                "Target_Demographic": "Everyone",
+                "Demographic_Coverage": 1.0,
+                "Intervention_Config": {
+                    "class": "DelayedIntervention",
+                    "Delay_Period_Distribution": "UNIFORM_DISTRIBUTION",
+                    "Delay_Period_Min": 15,
+                    "Delay_Period_Max": 30,
+                    "Actual_IndividualIntervention_Configs": [
+                        {"class": "OutbreakIndividual", "Outbreak_Source": "PrevalenceIncrease"}
+                    ]
+                }
             }
-          ]
         }
-      }
-    }
-  ],
-  "Use_Defaults": 1
+    ]
 }
 ```
