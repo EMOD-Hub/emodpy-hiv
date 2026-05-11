@@ -7,10 +7,11 @@ of individuals with each possible IP key-value combination. The < channel-title 
 statistic and property that are being counted. For example, it allows you to compare disease deaths
 for people in the high risk group versus the low risk group.
 
-To generate the property report, set the **Enable_Property_Output** configuration
-parameter to 1.
-
 The file contains a header and a channels section.
+
+## Configuration
+
+To generate the report, set the **Enable_Property_Output** configuration parameter to 1.
 
 ## Header
 

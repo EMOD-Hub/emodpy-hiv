@@ -5,10 +5,11 @@ demographic *channel* output results of the simulation, consisting of simulation
 by time step. The format is identical to the inset chart output report, except the channels reflect
 demographic categories, such as gender ratio.
 
-To generate the demographics summary report, set the **Enable_Demographics_Reporting** configuration
-parameter to 1. The [software-report-binned](software-report-binned.md) will also be generated.
-
 The file contains a header and a channels section.
+
+## Configuration
+
+To generate the report, set the **Enable_Demographics_Reporting** configuration parameter to 1. The [BinnedReport](software-report-binned.md) will also be generated.
 
 ## Header
 

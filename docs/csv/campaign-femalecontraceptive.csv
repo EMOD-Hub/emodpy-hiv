@@ -22,4 +22,4 @@ Usage_Duration_Poisson_Mean,float,0,3.40282e+38,6,The mean for a Poisson distrib
 Usage_Duration_Proportion_0,float,0,1,1,The proportion of individuals to assign a value of zero.
 Usage_Duration_Proportion_1,float,0,1,1,The proportion of individuals in the first exponential distribution.
 Usage_Expiration_Event,string,NA,NA,"""""","When the woman stops using the contraceptive, this event will be broadcasted. See [Event list](parameter-campaign-event-list.md) for possible built-in values, or create custom values using **Custom_Individual_Events**."
-Waning_Config,json object,NA,NA,NA,"A WaningEffect object used to control the efficacy of the contraceptive, typically over time. Specify how this effect decays over time using one of the [Waning effect classes](parameter-campaign-waningeffects.md). See [example](../json/campaign-simplevaccine-waning-config.json)."
+Waning_Config,json object,NA,NA,NA,"A WaningEffect object used to control the efficacy of the contraceptive, typically over time. Specify how this effect decays over time using one of the [Waning effect classes](parameter-campaign-waningeffects.md). See [example](../json/common-waning-config.json)."
