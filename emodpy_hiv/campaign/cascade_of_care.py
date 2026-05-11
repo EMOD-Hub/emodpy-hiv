@@ -27,6 +27,23 @@ from typing import List, Tuple, Dict, Union
 
 
 class CustomEvent:  # consider moving this to a separate file or make it a private class.
+    """
+    User-defined individual event names for the HIV care cascade.
+
+    In EMOD, individual events are acknowledgements that something has happened to an agent —
+    they are broadcast by interventions or the model itself and listened to by other interventions
+    and reports. This class defines the user-defined individual event names used by the cascade
+    of care; built-in individual event names are listed in the event list parameter reference
+    (``docs/emod/parameter-campaign-event-list.md``).
+
+    The cascade of care is implemented as a chain of broadcaster/listener pairs: each intervention
+    broadcasts one of these events when complete, triggering the next intervention in the chain.
+    Use these constants instead of raw strings to avoid silent misconfiguration from typos.
+
+    Example:
+        >>> from emodpy_hiv.campaign.cascade_of_care import CustomEvent
+        >>> add_intervention_triggered(campaign, trigger_condition_list=[CustomEvent.ART_STAGING], ...)
+    """
     ART_STAGING = 'ARTStaging'
     ART_STAGING_0 = 'ARTStaging0'  # immediate ART staging, rename this to ImmediateARTStaging?
     ART_STAGING_1 = 'ARTStaging1'  # ART staging diagnostic test, rename this to ARTStagingDiagnosticTest?
@@ -108,6 +125,20 @@ LOST_FOREVER_TRIGGER = CustomEvent.LOST_FOREVER_0
 
 
 class CascadeState:
+    """
+    String constants for the IndividualProperty values that track each person's position in the HIV care cascade.
+
+    These values are assigned to the ``CascadeState`` individual property. Campaign events use them via
+    PropertyRestrictions (to target individuals in a specific state) and PropertyValueChanger (to move
+    individuals from one state to another). Use these constants rather than raw strings so that typos
+    produce an AttributeError rather than a silently misconfigured simulation.
+
+    Example:
+        >>> from emodpy_hiv.campaign.cascade_of_care import CascadeState
+        >>> from emodpy_hiv.campaign.common import PropertyRestrictions
+        >>> # Target only individuals currently on ART
+        >>> restrictions = PropertyRestrictions(restrictions=[[{"CascadeState": CascadeState.ON_ART}]])
+    """
     LOST_FOREVER = "CascadeState:LostForever"
     ON_ART = "CascadeState:OnART"
     LINKING_TO_ART = "CascadeState:LinkingToART"

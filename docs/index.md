@@ -10,10 +10,16 @@ submitting simulation jobs to a compute cluster, and more.
 
 ## Epidemiological MODeling software (EMOD)
 
-EMOD is a *stochastic*, *agent-based model* (ABM) developed by the Institute for Disease Modeling (IDM),
-that simulates sexual and vertical HIV transmission. It is used to evaluate the cost and impact of treatment
-and control programs across national-level epidemics. See [HIV Overview](emod/hiv-disease-overview.md) for a full
-description of the model.
+EMOD has been used to evaluate the impact of HIV programs — including antiretroviral
+therapy scale-up, voluntary male circumcision, and pre-exposure prophylaxis — before
+large-scale investment. It has informed national HIV strategies across sub-Saharan
+Africa and guided resource allocation decisions by governments and global health organizations.
+
+For researchers and modelers, EMOD is a *stochastic*, *agent-based model* (ABM)
+developed by the Institute for Disease Modeling (IDM) that simulates sexual and
+vertical HIV transmission at the individual level. It is used to evaluate the cost
+and impact of treatment and control programs across national-level epidemics.
+See [HIV Overview](emod/hiv-disease-overview.md) for a full description of the model.
 
 If you encounter any issues while using the software, please visit our [discussion board][discussions].
 

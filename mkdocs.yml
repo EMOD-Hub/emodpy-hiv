@@ -81,7 +81,7 @@ nav:
           - Targeting interventions to nodes or individuals: emod/model-targeted-interventions.md
           - Vaccination and herd immunity: emod/model-vaccination.md
           - Cascade of care: emod/model-care-cascade.md
-  - emod/hiv-disease-overview.md
+  - HIV disease overview: emod/hiv-disease-overview.md
   - Parameters:
       - Overview: emod/parameter-overview.md
       - Demographics: emod/parameter-demographics.md

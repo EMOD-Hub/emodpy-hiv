@@ -78,6 +78,19 @@ class Zambia(Country):
 
     @classmethod
     def initialize_config(cls, schema_path: Union[str, Path]) -> ReadOnlyDict:
+        """
+        Build the Zambia-calibrated EMOD configuration.
+
+        Sets all HIV model parameters calibrated for Zambia: disease progression, infectivity,
+        sexual debut, relationship formation, and memory thresholds. Override in a subclass to
+        adjust specific parameters after calling super().
+
+        Args:
+            schema_path: Path to the EMOD schema file.
+
+        Returns:
+            ReadOnlyDict: Populated EMOD configuration object.
+        """
         config = super().initialize_config(schema_path=schema_path)
 
         config.parameters.Simulation_Type = "HIV_SIM"
@@ -174,6 +187,15 @@ class Zambia(Country):
 
     @classmethod
     def initialize_campaign(cls, schema_path: Union[str, Path]) -> emod_api.campaign:
+        """
+        Initialize an empty campaign object with the correct schema.
+
+        Args:
+            schema_path: Path to the EMOD schema file.
+
+        Returns:
+            emod_api.campaign: Empty campaign object ready for intervention additions.
+        """
         campaign = super().initialize_campaign(schema_path=schema_path)
         return campaign
 
@@ -183,6 +205,16 @@ class Zambia(Country):
 
     @classmethod
     def add_male_circumcision_parameterized_calls(cls) -> List[ParameterizedCall]:
+        """
+        Return ParameterizedCalls for all male circumcision interventions.
+
+        Includes three components: historical VMMC NChooser events (from calibrated historical
+        data), traditional male circumcision at province-level coverages, and VMMC reference
+        tracking.
+
+        Returns:
+            List[ParameterizedCall]: ParameterizedCalls for male circumcision interventions.
+        """
         parameterized_calls = []
 
         # ---- Add historical vmmc NChooser events to campaign ----
@@ -225,6 +257,13 @@ class Zambia(Country):
 
     @classmethod
     def add_pmtct_parameterized_calls(cls) -> List[ParameterizedCall]:
+        """
+        Return ParameterizedCalls for prevention of mother-to-child transmission (PMTCT).
+
+        Returns:
+            List[ParameterizedCall]: ParameterizedCalls covering the TestingOnANC and
+                TestingOnChild6w cascade states.
+        """
         parameterized_calls = []
 
         pc = ParameterizedCall(func=cls.add_pmtct)
@@ -234,6 +273,15 @@ class Zambia(Country):
 
     @classmethod
     def add_seed_infections_parameterized_calls(cls) -> List[ParameterizedCall]:
+        """
+        Return ParameterizedCalls for seeding HIV infections at calibrated node-level start years.
+
+        Each node receives an OutbreakIndividual intervention with a calibrated start year and
+        coverage drawn from historical epidemic data for Zambia.
+
+        Returns:
+            List[ParameterizedCall]: One ParameterizedCall per Zambia province node.
+        """
         seeding_data = []
         seeding_data.append({"node_id":  1, "start_year": 1977.96490840667, "coverage": 0.00994069137813979}) # noqa: E241
         seeding_data.append({"node_id":  2, "start_year": 1981.21526571588, "coverage": 0.0290879518815339}) # noqa: E241, E202
@@ -260,6 +308,15 @@ class Zambia(Country):
 
     @classmethod
     def add_csw_parameterized_calls(cls) -> List[ParameterizedCall]:
+        """
+        Return ParameterizedCalls for commercial sex worker (CSW) uptake and dropout.
+
+        Splits nodes into two groups with different male and female uptake coverages,
+        reflecting regional variation across Zambia.
+
+        Returns:
+            List[ParameterizedCall]: ParameterizedCalls for CSW dynamics across node groups.
+        """
         parameterized_calls = []
 
         pc = ParameterizedCall(func=cls.add_csw,
@@ -278,6 +335,15 @@ class Zambia(Country):
 
     @classmethod
     def add_post_debut_coinfection_parameterized_calls(cls) -> List[ParameterizedCall]:
+        """
+        Return ParameterizedCalls for STI co-infections post sexual debut.
+
+        Coverage is split by risk group (HIGH, MEDIUM, LOW) and treated as a hyperparameter
+        for calibration.
+
+        Returns:
+            List[ParameterizedCall]: ParameterizedCalls for post-debut co-infection.
+        """
         parameterized_calls = []
 
         hp = {'coinfection_coverage_HIGH': None, 'coinfection_coverage_MEDIUM': None, 'coinfection_coverage_LOW': None}
@@ -288,6 +354,15 @@ class Zambia(Country):
 
     @classmethod
     def add_health_care_testing_parameterized_calls(cls) -> List[ParameterizedCall]:
+        """
+        Return ParameterizedCalls for the health care testing (HCT) loop.
+
+        Configures HCT with node-specific delays between tests, covering the HCTUptakeAtDebut,
+        HCTUptakePostDebut, and HCTTestingLoop cascade states.
+
+        Returns:
+            List[ParameterizedCall]: ParameterizedCalls for the HCT testing loop.
+        """
         parameterized_calls = []
         non_hyperparameters = {
             'hct_delay_to_next_test': [730, 365, 1100],
@@ -303,6 +378,16 @@ class Zambia(Country):
 
     @classmethod
     def add_ART_cascade_parameterized_calls(cls) -> List[ParameterizedCall]:
+        """
+        Return ParameterizedCalls for the full ART cascade.
+
+        Covers eight cascade states: TestingOnSymptomatic, ARTStagingDiagnosticTest, ARTStaging,
+        LinkingToPreART, OnPreART, LinkingToART, OnART, and LostForever. Sigmoid linkage
+        parameters and retention rates are treated as hyperparameters for calibration.
+
+        Returns:
+            List[ParameterizedCall]: ParameterizedCalls for the ART cascade.
+        """
         parameterized_calls = []
 
         hp = {
@@ -328,6 +413,19 @@ class Zambia(Country):
 
     @classmethod
     def get_campaign_parameterized_calls(cls, campaign: emod_api.campaign) -> List[ParameterizedCall]:
+        """
+        Assemble all campaign ParameterizedCalls for the Zambia model.
+
+        Calls each add_*_parameterized_calls method in order and returns the combined list.
+        Override individual add_* methods in a subclass to replace specific components, or
+        override this method to reorder or exclude components entirely.
+
+        Args:
+            campaign: Empty campaign object passed through to each component.
+
+        Returns:
+            List[ParameterizedCall]: All ParameterizedCalls for the Zambia campaign.
+        """
         parameterized_calls = super().get_campaign_parameterized_calls(campaign=campaign)
 
         # ---- Add male circumcision to campaign -----
@@ -360,6 +458,17 @@ class Zambia(Country):
 
     @classmethod
     def initialize_demographics(cls) -> HIVDemographics:
+        """
+        Build the Zambia demographics object.
+
+        Constructs a multi-node HIVDemographics with 10 provincial nodes, UN World Population
+        mortality data, age distributions, concurrency parameters, and risk-group assignments.
+        The result is cached after the first call to avoid re-reading large data files on
+        repeated invocations.
+
+        Returns:
+            HIVDemographics: Fully configured demographics object for Zambia.
+        """
         import emodpy_hiv.demographics.un_world_pop as unwp
 
         # ------------------------------------------------------------------------------------
