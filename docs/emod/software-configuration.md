@@ -15,5 +15,5 @@ the parameters or parameter values in the JSON file. However, you may want to us
 scripting language to make large modifications. 
 
 For a complete list of configuration parameters that are available to use with this simulation type,
-see [parameter-configuration](parameter-configuration.md). For more information about JSON, see [parameter-overview](parameter-overview.md).
+see [Configuration parameters](parameter-configuration.md). For more information about JSON, see [Parameter overview](parameter-overview.md).
 

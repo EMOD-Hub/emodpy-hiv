@@ -24,7 +24,7 @@ Additionally, a modifier can be applied for the migration rates to follow a dist
 the population. For more information, see [migration configuration](parameter-configuration-migration.md) parameters.
 
 Migration data is contained in a set of two files, a metadata file with header information and a
-binary data file. Both files are required. To create these files see, [software-migration-creation](software-migration-creation.md). 
+binary data file. Both files are required. To create these files see, [Migration file creation](software-migration-creation.md). 
 
 ## JSON metadata file
 
@@ -61,7 +61,7 @@ The binary file contains the migration rate data. Migration rate determines the 
 individual takes a trip out of the node. This time is drawn from an exponential distribution with
 the parameter `\lambda` as the number of trips per day. Therefore, a migration rate of 0.1 can
 be viewed as 10 days until migration, on average. You can adjust this base rate using the 
-[parameter-configuration-scalars](parameter-configuration-scalars.md) parameters.
+[Configuration scalars](parameter-configuration-scalars.md) parameters.
 
 The data in the binary file is laid out in a sequential stream of 4-byte integers that identify the origin and destination nodes followed by a stream of 8-byte floats that contain the migration rate for those node pairs laid out in the same order. Therefore, the length of the stream is defined by **DatavalueCount**. For each source node, there must be **DatavalueCount** `\times` (4 bytes + 8 bytes). 
 

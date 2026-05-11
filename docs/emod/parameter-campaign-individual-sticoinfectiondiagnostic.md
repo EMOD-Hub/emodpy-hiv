@@ -1,6 +1,6 @@
 # StiCoInfectionDiagnostic
 
-The **StiCoInfectionDiagnostic** intervention class is based on [parameter-campaign-individual-simplediagnostic](parameter-campaign-individual-simplediagnostic.md)
+The **StiCoInfectionDiagnostic** intervention class is based on [SimpleDiagnostic](parameter-campaign-individual-simplediagnostic.md)
 and allows for diagnosis of STI co-infection. It includes **SimpleDiagnostic** features and works in
 conjunction with the **ModifyCoInfectionStatus** flag.
 

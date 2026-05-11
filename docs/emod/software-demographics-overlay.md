@@ -22,7 +22,7 @@ To use an overlay file:
 
     You may change this value if you desire, but all input files for a simulation must have the
     same **IdReference** value. For more information about this parameter and the structure of
-    demographics files in general, see [parameter-demographics](parameter-demographics.md).
+    demographics files in general, see [Demographics parameters](parameter-demographics.md).
 
 1. Create one or more overlay files. Keep the following things in mind:
 

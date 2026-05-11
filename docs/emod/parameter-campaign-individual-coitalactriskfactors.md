@@ -5,7 +5,7 @@ risk/probability of acquiring or transmitting an STI. If other risk multipliers 
 the values will be multiplied together; the resulting value will be multiplied with any active 
 STI co-infection factors. When the intervention expires, the individual's risk factor multiplier returns 
 to one. Since this intervention persists, it can be used with a reference tracking event coordinator (see 
-[parameter-campaign-event-coordinators](parameter-campaign-event-coordinators.md) for details).
+[Event coordinators](parameter-campaign-event-coordinators.md) for details).
 
 !!! note
     Parameters are case-sensitive. For Boolean parameters, set to 1 for true or 0 for false.

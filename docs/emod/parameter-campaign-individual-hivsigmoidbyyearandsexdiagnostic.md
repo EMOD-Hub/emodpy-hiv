@@ -1,8 +1,8 @@
 # HIVSigmoidByYearAndSexDiagnostic
 
-The **HIVSigmoidByYearAndSexDiagnostic** intervention class builds on [parameter-campaign-individual-hivsimplediagnostic](parameter-campaign-individual-hivsimplediagnostic.md)
+The **HIVSigmoidByYearAndSexDiagnostic** intervention class builds on [HIVSimpleDiagnostic](parameter-campaign-individual-hivsimplediagnostic.md)
 by allowing the probability of "positive diagnosis" to be configured sigmoidally in time. For a linear approach, use
-[parameter-campaign-individual-hivpiecewisebyyearandsexdiagnostic](parameter-campaign-individual-hivpiecewisebyyearandsexdiagnostic.md).
+[HIVPiecewiseByYearAndSexDiagnostic](parameter-campaign-individual-hivpiecewisebyyearandsexdiagnostic.md).
 
 !!! note
     Parameters are case-sensitive. For Boolean parameters, set to 1 for true or 0 for false.

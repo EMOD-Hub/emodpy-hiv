@@ -9,7 +9,7 @@ individuals with particular attributes are selected for particular types of care
 system is termed the cascade of care, and involves testing, diagnosis, and treatment; individuals
 can leave and enter the cascade at multiple time points.
 
-For more information on the cascade of care, see [model-care-cascade](model-care-cascade.md).
+For more information on the cascade of care, see [Care cascade](model-care-cascade.md).
 
 ## Restricting multiple entries into health care
 
@@ -27,7 +27,7 @@ of delay states and restricts the number of entries that individual is eligible 
 
 To route individuals into the care and treatment systems, it is necessary to use
 diagnostic testing. EMOD has multiple types of diagnostics, which can be found in
-[parameter-campaign](parameter-campaign.md).  The outcomes of different diagnostic tests can be used to initiate
+[Campaign parameters](parameter-campaign.md).  The outcomes of different diagnostic tests can be used to initiate
 treatment, prevention services,  entrance into health care systems, or lead to knowledge (such as
 HIV status) that will change the individual's behavior. Testing can be triggered by a variety of
 factors, such as age, time of sexual debut, onset of symptoms, pregnancy, or simply through
@@ -47,7 +47,7 @@ more than 2 choices are configured in the campaign file, a dice roll. All choice
 probabilities are configurable; should the sum of the probabilities not equal 1, then EMOD will
 normalize the sum to 1, while keeping their relative proportions the same.
 
-The [parameter-campaign-individual-hivrandomchoice](parameter-campaign-individual-hivrandomchoice.md) class allows you to
+The [HIVRandomChoice](parameter-campaign-individual-hivrandomchoice.md) class allows you to
 configure an array of options and the probabilities for each outcome. In those cases, the
 probabilities are not dependent on the number of choices, but must still sum to 1.
 
@@ -72,10 +72,10 @@ children were eligible for ART changed over time.
 
 ## Antiretroviral therapy (ART)
 
-Survival time for untreated HIV is described in [hiv-model-intrahost](hiv-model-intrahost.md), with individuals progressing
+Survival time for untreated HIV is described in [HIV intrahost model](hiv-model-intrahost.md), with individuals progressing
 through the three diseases stages (acute, latent, AIDS). Antiretroviral therapy (ART) significantly
 alters this progression and impacts survival in a positive way (for more information on ART, see
-[hiv-disease-overview](hiv-disease-overview.md)). In EMOD, survival time on ART is assumed to follow a Weibull
+[HIV disease overview](hiv-disease-overview.md)). In EMOD, survival time on ART is assumed to follow a Weibull
 proportional hazards model published by May et. al.  with the IeDEA Southern Africa
 collaboration [^Ref32]. The  hazard ratios are applied proportionally to weight and CD4 count (at
 initiation of ART for both), and are applied categorically to  WHO stage (at initiation of ART),
@@ -116,7 +116,7 @@ analogously to performing phlebotomy and logs an HIV-infected individual's curre
 
 Note that the multiplicative effect of ART for reducing HIV transmission is set in the configuration
 file, while the campaign interventions used determines who receives the effects of ART and at what
-time periods. See [sti-model-transmission](sti-model-transmission.md) for more information on STI transmission and the factors
+time periods. See [STI transmission](sti-model-transmission.md) for more information on STI transmission and the factors
 that influence it.
 
 ### ART's impact on CD4 count

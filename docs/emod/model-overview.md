@@ -44,7 +44,7 @@ uses a layered architecture in which the base functionality is contained in the 
 inherited by the transmission-level models that in turn are inherited by specific disease models.
 Because the EMOD modeling software can simulate all of these diseases, each "model" is more
 accurately referred to as a *simulation type*. For more information on the software architecture and
-inheritance, see [software-overview](software-overview.md).
+inheritance, see [Software overview](software-overview.md).
 
 ![Simulation type inheritance](../images/intro/simulation-types.png)
 
@@ -65,5 +65,5 @@ properties to individuals and nodes to vary how interventions are distributed.
 
 The configuration of the model regarding infectivity, immune response, and other qualities is
 handled via several *JSON (JavaScript Object Notation)* files. For more information, see
-[software-overview](software-overview.md).
+[Software overview](software-overview.md).
 

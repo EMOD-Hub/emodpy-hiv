@@ -1,8 +1,8 @@
 # HIVPiecewiseByYearandSexDiagnostic
 
 The **HIVPiecewiseByYearAndSexDiagnostic** intervention class builds on
-[parameter-campaign-individual-hivsimplediagnostic](parameter-campaign-individual-hivsimplediagnostic.md) to configure the roll-out of an intervention
-over time. Unlike [parameter-campaign-individual-hivsigmoidbyyearandsexdiagnostic](parameter-campaign-individual-hivsigmoidbyyearandsexdiagnostic.md),
+[HIVSimpleDiagnostic](parameter-campaign-individual-hivsimplediagnostic.md) to configure the roll-out of an intervention
+over time. Unlike [HIVSigmoidByYearAndSexDiagnostic](parameter-campaign-individual-hivsigmoidbyyearandsexdiagnostic.md),
 which requires the time trend to have a sigmoid shape, this intervention allows for any trend of
 time to be configured using piecewise or linear interpolation. The trends over time can be
 configured differently for males and females. Note that the term "diagnosis" is used because this

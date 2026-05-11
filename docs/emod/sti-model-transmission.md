@@ -4,24 +4,24 @@ In the EMOD STI model, disease transmission can occur via two routes: sexual tra
 vertical transmission (e.g. mother-to-child). The probability of transmission is calculated for each
 discordant coital act and each childbirth.
 
-Unlike the relationship parameters (see [sti-model-relationships](sti-model-relationships.md)), parameters that govern
-transmission are found in the configuration file (see [parameter-configuration](parameter-configuration.md) for a
+Unlike the relationship parameters (see [STI relationships](sti-model-relationships.md)), parameters that govern
+transmission are found in the configuration file (see [Configuration parameters](parameter-configuration.md) for a
 complete list of configuration parameters). Parameters used to interrupt transmission will be found
-in the campaign file (see [parameter-campaign](parameter-campaign.md) for a complete list of campaign events and
+in the campaign file (see [Campaign parameters](parameter-campaign.md) for a complete list of campaign events and
 their parameters).
 
 ## Sexual transmission
 
 Sexual transmission occurs between disease-discordant individuals that are paired in a relationship.
 Transmission occurs via coital acts, so the probability of transmission will vary by relationship
-type (see [sti-model-relationships](sti-model-relationships.md) for information on relationship type, formation, and coital
+type (see [STI relationships](sti-model-relationships.md) for information on relationship type, formation, and coital
 frequencies).  In addition, there are numerous configurable factors that can influence the
 transmission rate.
 
 ### Base infectivity and its multipliers
 
 Sexual transmission is configured through a base rate of infectivity, which is the transmission rate
-per total coital acts. See [parameter-configuration-infectivity](parameter-configuration-infectivity.md) parameters for more
+per total coital acts. See [Infectivity configuration](parameter-configuration-infectivity.md) parameters for more
 information. This base rate can be modified through various multipliers and scalars, such that
 transmission rates can vary by:
 
@@ -49,11 +49,11 @@ transmission rates can vary by:
 * **Condom usage.** Unlike the above multipliers, condom usage configures a blocking effect on
   transmission, such that the parameter represents the proportion of reduction in transmission. Each
   relationship type can have an independent probability of condom usage, which changes over time
-  (recall that relationship types are configured in the demographics file; see [sti-model-relationships](sti-model-relationships.md)
+  (recall that relationship types are configured in the demographics file; see [STI relationships](sti-model-relationships.md)
   for more information). The transmission blocking properties of condoms are then set in the
   config.json file. This blocking probability will be applied to condom use across all relationship
   types. Finally, it should be noted that condoms may also be distributed through a campaign
-  intervention. For more information, see [parameter-campaign-individual-stibarrier](parameter-campaign-individual-stibarrier.md).
+  intervention. For more information, see [STIBarrier](parameter-campaign-individual-stibarrier.md).
 
 Note that in addition to configuration parameters, there are campaign interventions that will also
 impact the transmission rate. For example, voluntary male medical circumcision, the use of
@@ -76,4 +76,4 @@ parameters, see [Population dynamics](parameter-configuration-population.md).
 
 Note that there is a campaign intervention that can be configured to disrupt MTCT, the prevention
 of mother-to-child transmission (PMTCT) intervention. For more information, see
-[parameter-campaign-individual-pmtct](parameter-campaign-individual-pmtct.md).
+[PMTCT](parameter-campaign-individual-pmtct.md).

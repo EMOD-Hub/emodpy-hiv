@@ -56,7 +56,7 @@ Data columns of each type are as follows.
 | Data channel | Data type | Description |
 |---|---|---|
 | Year | float | The year at the end of the semiannual interval being recorded. For example, 1980.5 means that the counts in this row were aggregated over the first half of 1980, reported as a snapshot in the middle of the year 1980. |
-| NodeId | integer | The numerical identifier of the node as defined in the demographics. See [parameter-demographics](parameter-demographics.md) for details on configuring the NodeID values. |
+| NodeId | integer | The numerical identifier of the node as defined in the demographics. See [Demographics parameters](parameter-demographics.md) for details on configuring the NodeID values. |
 | Gender | boolean | The gender of the individual. 0 indicates male, 1 indicates female. |
 | Age | float | The age of the individual, as configured by the **Report_HIV_ByAgeAndGender_Collect_Age_Bins_Data** parameter. |
 | IP_Key:&lt;IP_Key&gt; | string | For each IP key in the **Report_HIV_ByAgeAndGender_Collect_IP_Data** list, there will be a corresponding IP_Key column in the report. The individuals counted in that row will have that value for that key. See the [Configuration](#configuration) section, above, for details on setting the **Report_HIV_ByAgeAndGender_Collect_IP_Data** values. |

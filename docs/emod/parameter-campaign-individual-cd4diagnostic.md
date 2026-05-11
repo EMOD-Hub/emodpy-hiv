@@ -1,6 +1,6 @@
 # CD4Diagnostic
 
-The **CD4Diagnostic** intervention class is similar to [parameter-campaign-individual-simplediagnostic](parameter-campaign-individual-simplediagnostic.md),
+The **CD4Diagnostic** intervention class is similar to [SimpleDiagnostic](parameter-campaign-individual-simplediagnostic.md),
 but adds the ability to divide individual populations based on configurable CD4
 count ranges. It uses the individual’s current actual CD4 count, regardless of when a CD4 test has
 been performed. An event can then be applied based on the Low or High group to which the individuals

@@ -1,7 +1,7 @@
 # HIVRandomChoice
 
 The **HIVRandomChoice** intervention class is based on
-[parameter-campaign-individual-simplediagnostic](parameter-campaign-individual-simplediagnostic.md), but adds parameters to change the logic in
+[SimpleDiagnostic](parameter-campaign-individual-simplediagnostic.md), but adds parameters to change the logic in
 how and where treatment is applied to individuals based on specified probabilities.
 
 !!! note

@@ -1,6 +1,6 @@
 # HIVDelayedIntervention
 
-**HIVDelayedIntervention** is an intermediate intervention class based on [parameter-campaign-individual-delayedintervention](parameter-campaign-individual-delayedintervention.md),
+**HIVDelayedIntervention** is an intermediate intervention class based on [DelayedIntervention](parameter-campaign-individual-delayedintervention.md),
 but adds several features that are specific to the HIV model.
 This intervention provides new types of distributions for setting the delay and also enables event
 broadcasting after the delay period expires.

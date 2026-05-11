@@ -1,10 +1,10 @@
 # HIVSimpleDiagnostic
 
-The **HIVSimpleDiagnostic** intervention class is based on the [parameter-campaign-individual-simplediagnostic](parameter-campaign-individual-simplediagnostic.md)
+The **HIVSimpleDiagnostic** intervention class is based on the [SimpleDiagnostic](parameter-campaign-individual-simplediagnostic.md)
 intervention, but adds the ability to specify outcomes upon both positive and negative diagnosis
 (whereas **SimpleDiagnostic** only allows for an outcome resulting from a positive diagnosis).
 **HIVSimpleDiagnostic** tests for HIV status without logging the HIV test to the individual’s
-medical history. To log the HIV test to the medical history, use [parameter-campaign-individual-hivrapidhivdiagnostic](parameter-campaign-individual-hivrapidhivdiagnostic.md)
+medical history. To log the HIV test to the medical history, use [HIVRapidHIVDiagnostic](parameter-campaign-individual-hivrapidhivdiagnostic.md)
 instead.
 
 !!! note

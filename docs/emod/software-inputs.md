@@ -9,7 +9,7 @@ Many of the input files are formatted as *JSON (JavaScript Object Notation)* fil
 simple text format that uses key/value pairs to encode data. In EMOD, the key is a parameter
 name and the value is the setting for that parameter. For example, **"Base_Incubation_Period": 5**
 sets the incubation period for the disease being modeled to be five days. JSON files are easy to
-read and edit. For more information about JSON, see  [parameter-overview](parameter-overview.md). Some of the inputs
+read and edit. For more information about JSON, see  [Parameter overview](parameter-overview.md). Some of the inputs
 are compiled binary files.
 
 ## Primary files
@@ -54,4 +54,4 @@ input file type.
 All input files except configuration and campaign files include the parameter **IdReference** in the
 metadata, which is used to generate the **NodeID** associated with each node in a simulation. The
 values for **IdReference** and **NodeID** must be the same across all input files used in a
-simulation. See [parameter-demographics](parameter-demographics.md) for more information about **NodeID** generation.
+simulation. See [Demographics parameters](parameter-demographics.md) for more information about **NodeID** generation.

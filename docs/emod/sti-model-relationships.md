@@ -7,7 +7,7 @@ partnerships over time. There is a pair formation algorithm (PFA) that balances 
 demand" for partners (see [PFA](#pair-formation-algorithm-pfa) for more information), and numerous parameters that configure
 the type and duration of relationships, as well as the ages and behavior of the participants. These
 relationship settings are configured in the demographics file; for a complete list of the parameters
-see [parameter-demographics](parameter-demographics.md); the majority of the relationship parameters will be located in the
+see [Demographics parameters](parameter-demographics.md); the majority of the relationship parameters will be located in the
 **Society** section.
 
 ## Relationship formation
@@ -78,7 +78,7 @@ and the process is repeated. Note that this algorithm is symmetric: in principle
 females could choose based on their respective marginal distributions.
 
 Note that age bins and other PFA parameters are configured in the demographics file; see the
-**Pair_Formation_Parameters** in [parameter-demographics](parameter-demographics.md).
+**Pair_Formation_Parameters** in [Demographics parameters](parameter-demographics.md).
 
 ### Age of sexual debut
 
@@ -108,12 +108,12 @@ heterogeneity parameter, the Weibull scale parameter, and the minimum possible a
 The first two parameters can be set to different values for males and females. The third
 parameter prevents debut ages lower than a specific value, even if the Weibull distribution has some
 mass below that value. These parameters are located in the config.json input file; for more
-information on Weibull parameters, see [parameter-configuration-weibull](parameter-configuration-weibull.md).
+information on Weibull parameters, see [Weibull distribution](parameter-configuration-weibull.md).
 
 There is typically a lag between eligibility and the first relationship, and that can be due to how
 partner choice is made. The input matrix enables individuals to preferentially select partner age,
 and can be configured for each relationship type. To configure age preferences, the matrix will be
-created in the **Pair_Formation_Parameters** in [parameter-demographics](parameter-demographics.md) using the
+created in the **Pair_Formation_Parameters** in [Demographics parameters](parameter-demographics.md) using the
 **Joint_Probabilities** parameter.
 
 ![The lag between age of eligibility for relationship formation and age at actual relationship formation. The green line shows the expected distribution of individuals at sexual debut, the red line shows the number of individuals that have reached sexual debut, and the blue line shows the actual age at relationship formation.](../images/hiv/relationships-debut.png)
@@ -168,7 +168,7 @@ is governed by a *Weibull distribution*, which determines the duration that is a
 relationship upon formation. The duration time is then used to calculate the scheduled end time of
 the relationship. In some cases, relationships will dissolve prior to the scheduled end time, such
 as when a participant dies. Start times, scheduled end times, and actual end times for each
-relationship are recorded in output files (see [software-outputs](software-outputs.md) for more information on
+relationship are recorded in output files (see [Outputs](software-outputs.md) for more information on
 output).
 
 ![An example of potential relationship durations by type (here, transitory, informal, and marital).](../images/hiv/relationships-types.png)
@@ -204,7 +204,7 @@ simulation time t as follows:
 P(t) = h / [1 + e ^(-R(t-t0))] +l
 
 Where l, h, t0, and r are configurable for the parameter **Condom_Usage_Probability** (they
-correspond to min, max, mid, and rate, respectively. See [parameter-demographics](parameter-demographics.md) for more
+correspond to min, max, mid, and rate, respectively. See [Demographics parameters](parameter-demographics.md) for more
 information).
 
 ### Concurrent partnerships
@@ -242,7 +242,7 @@ Concurrency may be configured independently across each relationship type, or ma
 When concurrency is distributed independently by relationship type, few individuals will reach high
 levels of concurrency; however, it is possible to concentrate risk in a subset of the population by
 using correlated concurrency. These settings can be found in the **Concurrency_Configuration**
-section of the [parameter-demographics](parameter-demographics.md).
+section of the [Demographics parameters](parameter-demographics.md).
 
 ### Time-course
 
@@ -257,7 +257,7 @@ for the remainder of the simulation.
 
 Next, a timepoint is selected to see infections (1980 in the example). The seeding process infects a
 configured percentage of the population, as determined by data and configured in a campaign file (see
-[parameter-campaign-node-outbreak](parameter-campaign-node-outbreak.md) for more information).
+[Outbreak](parameter-campaign-node-outbreak.md) for more information).
 
 The last portion to configure is the introduction of treatment. Here, the ART intervention is enabled
 in the year 2012. Eligible individuals enroll in ART as determined in the campaign file. ART

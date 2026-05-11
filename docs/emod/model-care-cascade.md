@@ -18,8 +18,8 @@ example, undiagnosed, positive diagnosis, on therapy, lost to care, etc.
 
 In the campaign file, set up your *event coordinator* as you typically would, using
 **Target_Demographic**, **Property_Restrictions_Within_Node**, and other available parameters to
-target the desired individuals. See [model-targeted-interventions](model-targeted-interventions.md) for more information on
-targeting interventions and [parameter-campaign-event-coordinators](parameter-campaign-event-coordinators.md) for all available
+target the desired individuals. See [Targeted interventions](model-targeted-interventions.md) for more information on
+targeting interventions and [Event coordinators](parameter-campaign-event-coordinators.md) for all available
 event coordinators.
 
 Then, in the intervention itself, you can add any properties that should prevent someone who would
@@ -77,7 +77,7 @@ care system. There are several types of tests that can be implemented:
   individuals; gender-based percentages for symptom presentation are configurable.
 
 It is possible to create different triggers for testing, by using the **IndividualProperties** in
-the demographics file (see [parameter-demographics](parameter-demographics.md) for more information). The   **Property**,
+the demographics file (see [Demographics parameters](parameter-demographics.md) for more information). The   **Property**,
 **Value**, and **Initial_Distribution** parameters can be used to tag individuals in  as detailed a
 manner as needed, and interventions (such as diagnostic tests) can be configured to  use those tags
 for the target of the intervention. EMOD keeps track of age, pregnancies, births, and other
@@ -115,7 +115,7 @@ where individuals can drop out of care or are LTFU. Further, care systems can be
 specifically mirror current care systems, and so may differ in the types and numbers of diagnostics
 used, the probability that individuals will return or drop out of care, and the treatment guidelines
 that will trigger entry into the care system itself. Note that treatment guidelines can change over
-time in order to match the history of past guidelines (see [hiv-model-healthcare-systems](hiv-model-healthcare-systems.md) for more
+time in order to match the history of past guidelines (see [HIV health care systems](hiv-model-healthcare-systems.md) for more
 information).
 
 ### Configuring the cascade
@@ -125,7 +125,7 @@ network with many dependent properties. However, it can be simplified by breakin
 into its component steps.
 
 First, in the demographics file, use the **IndividualProperties** parameters
-([parameter-demographics](parameter-demographics.md)) to appropriately "tag" individuals to make them eligible  (or
+([Demographics parameters](parameter-demographics.md)) to appropriately "tag" individuals to make them eligible  (or
 ineligible) for treatment. For example, the **Property**, **Values**, and **Initial_Distribution**
 parameters can be configured to partition the population into those who will be accessible for
 treatment versus those who will not be accessible. Further, additional properties can be added, such
@@ -147,7 +147,7 @@ done in the campaign file, using a series of different campaign interventions an
 to determine which interventions (such as diagnostic tests, or treatment regimes) will be utilized,
 who will be targeted for the interventions, and when (or how) the interventions will be triggered.
 
-As described in [software-campaign](software-campaign.md), distributing an intervention (for example a diagnostic
+As described in [Campaign file](software-campaign.md), distributing an intervention (for example a diagnostic
 test), it is necessary to configure a *campaign event*, an *event coordinator*, and the
 actual *intervention* itself. So to configure a care cascade, start with the most basic route
 for care, such as a diagnostic test given to individuals that have reached the age of sexual debut,

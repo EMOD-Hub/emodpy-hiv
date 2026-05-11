@@ -29,7 +29,7 @@ You must include a separate migration file for each mode of travel that describe
 patterns for each node. It lists the migration rate for each node. Migration rate is defined as the
 fraction of the node’s population that is migrating *out* of the node per day. Units are per person
 per day, meaning the number of people migrating per day divided by the total population of the node.
-For more information on the structure of these files, see [software-migration](software-migration.md).
+For more information on the structure of these files, see [Migration file](software-migration.md).
 
 The Generic/Zoonosis scenario in the downloadable EMOD scenarios zip file includes daily migration.
 Review the README files there for more information.

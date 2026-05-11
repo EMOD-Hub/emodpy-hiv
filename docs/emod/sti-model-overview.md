@@ -16,7 +16,7 @@ Preference for partners is configurable through the model’s input files. Insid
 desired, can dynamically adjust the rates of relationship formation in each demographic category to
 produce a constant mixing pattern, even with demographic changes in the population. Alternatively,
 the dynamic adjustments can be turned off to allow mixing patterns to change in response to
-demographic changes. For more information on the PFA, see [sti-model-relationships](sti-model-relationships.md).
+demographic changes. For more information on the PFA, see [STI relationships](sti-model-relationships.md).
 
 The contact networks formed within the STI model are driven by the behavioral parameters found in
 the **Society** section of the demographics file. These parameters control pair formation,
@@ -26,7 +26,7 @@ of the demographics file, see [Society](parameter-demographics.md#society).
 Because the STI model is built around person-to-person contact networks, human relationships impact
 nearly every aspect of model functionality. For example, migration is supported in the STI model, but
 is more complicated than in other disease types, as now it impacts the relationships experienced
-by the migrating individual (see [sti-model-relationships](sti-model-relationships.md) for more information).
+by the migrating individual (see [STI relationships](sti-model-relationships.md) for more information).
 
 The following pages describe the structure of the STI model and explore the model components. Additionally,
 the specifics of the HIV model, which is based on the STI model, are discussed in detail in the articles

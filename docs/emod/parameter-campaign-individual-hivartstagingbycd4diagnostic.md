@@ -1,6 +1,6 @@
 # HIVARTStagingByCD4Diagnostic
 
-The **HIVARTStagingByCD4Diagnostic** intervention class builds on the [parameter-campaign-individual-hivsimplediagnostic](parameter-campaign-individual-hivsimplediagnostic.md)
+The **HIVARTStagingByCD4Diagnostic** intervention class builds on the [HIVSimpleDiagnostic](parameter-campaign-individual-hivsimplediagnostic.md)
 intervention by checking for treatment eligibility based on CD4
 count. It uses the lowest-ever recorded CD4 count for that individual, based on the history of past
 CD4 counts conducted using the HIVDrawBlood intervention. To specify the outcome based on age bins

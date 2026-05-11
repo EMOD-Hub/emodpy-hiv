@@ -66,6 +66,6 @@ broadcast a unique string, and having the second intervention be triggered upon 
 string. See [Event list](parameter-campaign-event-list.md).
 
 [Creating campaigns](model-campaign.md) describes some ways to configure a campaign file to target individuals with
-particular characteristics, repeat interventions, and more. See [parameter-campaign](parameter-campaign.md) for a
+particular characteristics, repeat interventions, and more. See [Campaign parameters](parameter-campaign.md) for a
 comprehensive list and description of all parameters available to use in the campaign file for this
 simulation type.

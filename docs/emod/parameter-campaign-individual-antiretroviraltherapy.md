@@ -1,15 +1,15 @@
 # AntiretroviralTherapy
 
 The **AntiretroviralTherapy** intervention class begins antiretroviral therapy (ART) for specified individuals.
-To remove an individual from ART, use [parameter-campaign-individual-artdropout](parameter-campaign-individual-artdropout.md).
+To remove an individual from ART, use [ARTDropout](parameter-campaign-individual-artdropout.md).
 
 Additional considerations when using this intervention:
 
 * The model will not allow someone who is HIV negative to be put on ART.
 * A person who has not previously been on ART is considered to be 'starting ART' at the time this intervention is applied; the model will track this start time/duration.
 * If a person is already on ART from another intervention, receiving a second ART intervention will have no effect.
-* If a person is on already ART and receives the [parameter-campaign-individual-artmortalitytable](parameter-campaign-individual-artmortalitytable.md) intervention, the original ART start time will be used to calculate the duration from enrollment to ART AIDS Death. The duration since starting ART will not change; it will continue to increase.
-* If a person is on ART and receives the [parameter-campaign-individual-artdropout](parameter-campaign-individual-artdropout.md) intervention, the person will go off ART and the duration will be reset; if receiving a new ART intervention, this new start time/duration will be used in any calculations.
+* If a person is on already ART and receives the [ARTMortalityTable](parameter-campaign-individual-artmortalitytable.md) intervention, the original ART start time will be used to calculate the duration from enrollment to ART AIDS Death. The duration since starting ART will not change; it will continue to increase.
+* If a person is on ART and receives the [ARTDropout](parameter-campaign-individual-artdropout.md) intervention, the person will go off ART and the duration will be reset; if receiving a new ART intervention, this new start time/duration will be used in any calculations.
 
 !!! note
     Parameters are case-sensitive. For Boolean parameters, set to 1 for true or 0 for false.

@@ -1,7 +1,7 @@
 # HIVMuxer
 
 The **HIVMuxer** intervention class is a method of placing groups of individuals into a waiting
-pattern for the next event, and is based on [parameter-campaign-individual-delayedintervention](parameter-campaign-individual-delayedintervention.md).
+pattern for the next event, and is based on [DelayedIntervention](parameter-campaign-individual-delayedintervention.md).
 **HIVMuxer** adds the ability to limit the number of times an individual can
 be registered with the delay, which ensures that an individual is only provided with the delay one
 time. For example, without **HIVMuxer**, an individual could be given an exponential delay twice,

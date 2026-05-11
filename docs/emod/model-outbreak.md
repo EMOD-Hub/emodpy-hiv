@@ -15,10 +15,10 @@ which demographic the outbreak occurs. For more information, see [Creating campa
 
 The two available classes for including a disease outbreak are:
 
-[parameter-campaign-individual-outbreakindividual](parameter-campaign-individual-outbreakindividual.md)
+[OutbreakIndividual](parameter-campaign-individual-outbreakindividual.md)
     This intervention infects existing individuals with a specified disease. You can configure the
     outbreak to occur in individuals that meet certain criteria, such as being high risk.
-[parameter-campaign-node-outbreak](parameter-campaign-node-outbreak.md)
+[Outbreak](parameter-campaign-node-outbreak.md)
     This intervention adds new infected individuals to a node or infects existing individuals. You
     cannot specify the demographics of these individuals because the outbreak is at the node level.
 
@@ -45,7 +45,7 @@ a steady state and disregard simulation output prior to that point. This is know
 a modeling concept borrowed from the electronics industry where the first items produced by a manufacturing
 process are discarded. EMOD enables you to then serialize the population state at this point
 so you can reload in subsequent simulations to analyze the effect of interventions on an endemic
-disease. See [parameter-configuration-setup](parameter-configuration-setup.md) for serialization parameters.
+disease. See [Setup configuration](parameter-configuration-setup.md) for serialization parameters.
 
 ## Infectivity reservoirs
 
@@ -60,7 +60,7 @@ parameter **Enable_Infectivity_Reservoir** and configure the demographics parame
 **InfectivityReservoirStartTime** and **InfectivityReservoirEndTime**.
 
 The rate of reservoir-to-human transmission is configured with the parameter **InfectivityReservoirSize** and
-human-to-human transmission by the [parameter-configuration-infectivity](parameter-configuration-infectivity.md) parameters. These values can be
+human-to-human transmission by the [Infectivity configuration](parameter-configuration-infectivity.md) parameters. These values can be
 adjusted to shift the disease from a low rate of primary zoonotic infection with substantial
 secondary human transmission to a high zoonosis rate with low human transmission. This changes the
 fraction of cases that are primary zoonotic infections.

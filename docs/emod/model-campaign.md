@@ -48,11 +48,11 @@ occur in all nodes at day 1 and day 30, respectively. Each event contains an eve
 describes who receives the intervention (everyone, with the vaccine repeated three times) and the
 configuration for the intervention itself. Note that the nested JSON elements have been organized to
 best illustrate their hierarchy, but that many files in the Regression directory list the parameters
-within the objects differently. See [parameter-campaign](parameter-campaign.md) for more information on the structure
+within the objects differently. See [Campaign parameters](parameter-campaign.md) for more information on the structure
 of these files and available parameters for this simulation type.
 
 *See example: [howto-generic-campaign-flat-full.json](../json/howto-generic-campaign-flat-full.json)*
 
 For a complete list of campaign parameters that are available to use with this simulation type and
-more detail about the campaign file structure, see [parameter-campaign](parameter-campaign.md). For more information about
-JSON, see [parameter-overview](parameter-overview.md).
+more detail about the campaign file structure, see [Campaign parameters](parameter-campaign.md). For more information about
+JSON, see [Parameter overview](parameter-overview.md).

@@ -46,9 +46,9 @@ off therapy.
 By using campaign interventions and the appropriate *event coordinator*, it is possible to
 configure retention along a care continuum to model how individuals progress with detailed
 time-linked variables associated with access to care. For more information on configuring a cascade
-of care, see [model-care-cascade](model-care-cascade.md). For configuring HIV-specific treatment
+of care, see [Care cascade](model-care-cascade.md). For configuring HIV-specific treatment
 guidelines and cascades of care, such as participation in ART programs and associated drop-out
-rates, see [hiv-model-healthcare-systems](hiv-model-healthcare-systems.md). 
+rates, see [HIV health care systems](hiv-model-healthcare-systems.md). 
 
 Individuals are guided through care cascades using individual properties, a very flexible and
 powerful feature of the model.  With this feature, it is possible for you to create a set of tags
@@ -59,10 +59,10 @@ even having a specific risk level. For more information on how individual proper
 ## Model output and reporters
 
 EMOD supports numerous methods for viewing simulation output. By default, every simulation
-creates an *output report* of aggregated data (see [software-overview](software-overview.md) for more
+creates an *output report* of aggregated data (see [Software overview](software-overview.md) for more
 information). While EMOD enables the creation of custom reports, the HIV model has an extensive
 list of available built-in reports. The reports are enabled in the config.json file (see
-[parameter-configuration-output](parameter-configuration-output.md) for a complete list) and provide information on
+[Output configuration](parameter-configuration-output.md) for a complete list) and provide information on
 aspects of relationships and pair formation, infection status (including CD4 counts, WHO stage, and
 start and stop years), ART status, demographics, mortality, and other pertinent information. Note
 that it is important to keep track of which reports are enabled when running simulations, as some

@@ -8,7 +8,7 @@ infection status, use of antiretroviral therapy, or other attributes.
 
 The following sections describe how the model functions for untreated HIV. Treatment, such as
 health care and continuous enrollment on ART will alter the survival rates, and will be described in
-[hiv-model-healthcare-systems](hiv-model-healthcare-systems.md).
+[HIV health care systems](hiv-model-healthcare-systems.md).
 
 ## Disease progression
 
@@ -41,7 +41,7 @@ parameters are configured in the config.json file.
 
 ## CD4 count
 
-CD4+ T cells are immune system cells that fight off infection (see [hiv-disease-overview](hiv-disease-overview.md) for
+CD4+ T cells are immune system cells that fight off infection (see [HIV disease overview](hiv-disease-overview.md) for
 more information). Measuring the count of CD4 cells is a method to gage how well the immune  system
 is functioning, or for HIV, to measure the progression of the disease.  In the EMOD HIV model,
 CD4 count is initialized at a value that is selected from a *Weibull distribution*. During an
@@ -55,7 +55,7 @@ CD4 count from initiation to end, and is used to determine the slope for declini
 some individuals may later initiate ART and survive longer than the time used to compute the slope.
 
 The heterogeneity in CD4 count can be configured for the starting and ending counts; see
-[parameter-configuration](parameter-configuration.md) for more information. Because CD4 counts are Weibull-distributed
+[Configuration parameters](parameter-configuration.md) for more information. Because CD4 counts are Weibull-distributed
 parameters, the scale and heterogeneity can be configured. The scale parameters set the post-
 infection and at-death values, while the heterogeneity parameters are the inverse of the Weibull
 shape. Setting the heterogeneity to small values is equivalent to large shape parameters, and will
@@ -69,7 +69,7 @@ to define and track the stages of HIV progression. Each WHO stage advances from 
 times sampled from a *Weibull distribution* and is associated with declining bodyweight. In
 EMOD, both CD4 count and the current WHO stage influence the individual's survival, although the
 WHO stage is not a configurable parameter. Note that WHO stage will determine eligibility for ART
-interventions. For more information, see [hiv-model-healthcare-systems](hiv-model-healthcare-systems.md).
+interventions. For more information, see [HIV health care systems](hiv-model-healthcare-systems.md).
 
 WHO stage is assumed to progress in proportion to an individual’s assigned survival time, but has
 added randomness to account for variability in HIV symptoms (and resulting ART eligibility) over a
@@ -89,7 +89,7 @@ transitions. For example, if an individual advances from WHO stage 1 to WHO stag
 of 100 days, the WHO stage on the 90th day will be 1.9. To obtain the expected integer value of WHO
 stage, the output should be rounded down. To examine WHO stage (and CD4 count) over time,  it is
 possible to log each individual's infection status with output reports. See
-[hiv-model-overview](hiv-model-overview.md) for more information.
+[HIV model overview](hiv-model-overview.md) for more information.
 
 While the base infectivity parameter serves as the transmission rate for latent HIV, it is possible
 to modify the rate for the acute and AIDS stages of the disease. Disease stages have both a duration
@@ -109,7 +109,7 @@ survival probability low. In EMOD, the model independently draws the time at whi
 may present for care due to AIDS-related symptoms. The time between symptomatic presentation and
 (untreated) AIDS-related death is assumed to be Weibull-distributed, and these parameters can be
 configured in the config.json file (see the "mortality and survival" section of
-[parameter-configuration](parameter-configuration.md) for more information).
+[Configuration parameters](parameter-configuration.md) for more information).
 
 Upon infection or ART discontinuation, the individuals draw from the configured Weibull distribution
 to determine the time between symptomatic presentation and untreated AIDS-related death. The

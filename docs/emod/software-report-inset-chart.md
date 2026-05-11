@@ -45,7 +45,7 @@ When running HIV simulations, the header section will contain the following para
 
 When running HIV simulations, the following channels are included in the InsetChart.json file.
 For channels related to the HIV stage (latent, acute, AIDS), these definitions are described in more
-detail in [hiv-model-intrahost](hiv-model-intrahost.md).
+detail in [HIV intrahost model](hiv-model-intrahost.md).
 
 | Channel | Description |
 |---|---|
@@ -74,7 +74,7 @@ detail in [hiv-model-intrahost](hiv-model-intrahost.md).
 | Number of (untreated) Individuals with Acute HIV | The number of individuals not on ART with acute HIV. |
 | Number of (untreated) Individuals with Latent HIV | The number of individuals not on ART with latent HIV. |
 | Number of ART dropouts (cumulative) | The number of individuals who started and dropped ART, cumulative up to that day. |
-| Number of Circumcised Males | The number of male individuals that are circumcised via the [parameter-campaign-individual-malecircumcision](parameter-campaign-individual-malecircumcision.md) intervention. |
+| Number of Circumcised Males | The number of male individuals that are circumcised via the [MaleCircumcision](parameter-campaign-individual-malecircumcision.md) intervention. |
 | Number of Events | The total number of events (births, new infections, etc.) cumulative up to that day. |
 | Number of Individuals Ever in a Relationship | The number of individuals who have ever been in a relationship cumulative up to that day. |
 | Number of Individuals HIV+ w/ CD4 &lt; 200 (non-ART) | The number of individuals who are HIV+ with CD4 count less than 200 and NOT on ART on that day. |

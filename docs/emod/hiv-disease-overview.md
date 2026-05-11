@@ -2,7 +2,7 @@
 
 IDM is committed to utilizing modeling approaches and quantitative analysis to explore how
 interventions can act to reduce the burden and transmission of HIV. This page provides information
-about HIV itself: the biology, symptoms, treatment, and prevention. See [hiv-model-overview](hiv-model-overview.md)
+about HIV itself: the biology, symptoms, treatment, and prevention. See [HIV model overview](hiv-model-overview.md)
 for information about the Epidemiological MODeling software (EMOD) HIV simulation type developed by IDM to aid in HIV control.
 
 ## About HIV

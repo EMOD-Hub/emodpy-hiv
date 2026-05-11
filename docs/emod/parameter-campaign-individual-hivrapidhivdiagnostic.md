@@ -1,6 +1,6 @@
 # HIVRapidHIVDiagnostic
 
-The **HIVRapidHIVDiagnostic** intervention class builds on [parameter-campaign-individual-hivsimplediagnostic](parameter-campaign-individual-hivsimplediagnostic.md)
+The **HIVRapidHIVDiagnostic** intervention class builds on [HIVSimpleDiagnostic](parameter-campaign-individual-hivsimplediagnostic.md)
 by also updating the individual's knowledge of their HIV status. This can affect their access to ART
 in the future as well as other behaviors. This intervention should be used only if the individual’s
 knowledge of their status should impact a voluntary male circumcision campaign.

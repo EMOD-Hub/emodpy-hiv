@@ -1,6 +1,6 @@
 # HIVDrawBlood
 
-The **HIVDrawBlood** intervention class builds on [parameter-campaign-individual-hivsimplediagnostic](parameter-campaign-individual-hivsimplediagnostic.md)
+The **HIVDrawBlood** intervention class builds on [HIVSimpleDiagnostic](parameter-campaign-individual-hivsimplediagnostic.md)
 to represent phlebotomy for CD4 or viral load testing. It allows for a test
 result to be recorded and used for future health care decisions, but does not intrinsically lead to
 a health care event. A future health care decision will use this recorded CD4 count or viral load,

@@ -7,7 +7,7 @@ line for each surviving individual that migrates during the simulation.
 ## Configuration
 
 There are no special parameters that need to be configured to generate the report. However, the
-simulation must have migration enabled (see the migration parameters in [parameter-configuration](parameter-configuration.md)).
+simulation must have migration enabled (see the migration parameters in [Configuration parameters](parameter-configuration.md)).
 
 ## Report structure and channel descriptions
 
