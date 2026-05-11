@@ -1,0 +1,3 @@
+Parameter,Data type,Min,Max,Default,Description
+Start_Day,float,0,3.40E+38,0,The day of the simulation to start collecting data.
+End_Day,float,0,3.40E+38,3.40E+38,The day of the simulation to stop collecting data.

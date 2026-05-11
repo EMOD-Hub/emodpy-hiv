@@ -8,16 +8,7 @@ The person initiating a migration event will first have their relationships list
 
 To generate this report, the following parameters must be configured in the custom_reports.json file:
 
-| Parameter | Data type | Min | Max | Default | Description |
-|---|---|---|---|---|---|
-| Filename_Suffix | string | NA | NA | "" | Augments the filename of the report. If multiple reports are being generated, this allows you to distinguish among the multiple reports. |
-| Start_Year | float | 1900 | 2200 | 1900 | Simulation time in years to start collecting data, including fractions of years. For example, 2025.0 means January 1st, 2025. |
-| End_Year | float | 1900 | 2200 | 2200 | Simulation time in years to stop collecting data, including fractions of years. For example, 2025.0 means January 1st, 2025. |
-| Node_IDs_Of_Interest | array | 0 | 2.14748e+09 | [] | Data will be collected for the nodes in this list. Leave the array empty (default value) to include all nodes. |
-| Min_Age_Years | float | 0 | 9.3228e+35 | 0 | Minimum age in years of people to collect data on. |
-| Max_Age_Years | float | 0 | 9.3228e+35 | 9.3228e+35 | Maximum age in years of people to collect data on. |
-| Must_Have_IP_Key_Value | string | NA | NA | "" | A Key:Value pair that the individual must have in order to be included. Leave the string empty (default value) to not look at individual properties. For more information, see [Individual and node properties](model-properties.md). |
-| Must_Have_Intervention | string | NA | NA | "" | The name of an intervention that the person must have in order to be included. Leave the string empty (default value) to not look at the interventions. For more information, see [Individual-level interventions](parameter-campaign-individual-interventions.md). |
+{{ read_csv('../csv/report-relationship-migration-tracking.csv', keep_default_na=False) }}
 
 ```json
 {

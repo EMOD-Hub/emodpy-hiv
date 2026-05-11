@@ -1,0 +1,13 @@
+Parameter,Data type,Min,Max,Default,Description
+Report_Coital_Acts,boolean,NA,NA,0,Set this to 1 to generate the report.
+Report_Coital_Acts_Start_Year,float,1900,2200,1900,Simulation time in years to start collecting data.
+Report_Coital_Acts_End_Year,float,1900,2200,2200,Simulation time in years to stop collecting data.
+Report_Coital_Acts_Node_IDs_Of_Interest,float,0,2.14748e+09,[],Data will be collected for the nodes in this list.
+Report_Coital_Acts_Min_Age_Years,float,0,9.3228e+35,0,The age that of one of the partners must be greater than or equal to for the coital act to be reported.
+Report_Coital_Acts_Max_Age_Years,float,0,9.3228e+35,9.3228e+35,The age that of one of the partners must be less than or equal to for the coital act to be reported.
+Report_Coital_Acts_Must_Have_IP_Key_Value,string,NA,NA,"""""","A Key:Value pair that one of the partners must have for the coital act to be reported. Empty string means don't look at individual properties. For more information, see [Individual and node properties](model-properties.md)."
+Report_Coital_Acts_Must_Have_Intervention,string,NA,NA,"""""","The name of an intervention that the one of the partners must have in order for the coital act to be reported. Empty string means don't look at the interventions. For more information, see [Individual-level interventions](parameter-campaign-individual-interventions.md)."
+Report_Coital_Acts_Relationship_Type,enum,NA,NA,NA,"If not NA, data will only be collected on coital acts in relationships of this type. Possible values are:<br><br>* TRANSITORY<br>* INFORMAL<br>* MARITAL<br>* COMMERCIAL"
+Report_Coital_Acts_Has_Intervention_With_Name,string,NA,NA,"""""","The name of an intervention that the one of the partners must have in order for the coital act to be reported. Empty string means don't look at the interventions. For more information, see [Individual-level interventions](parameter-campaign-individual-interventions.md)."
+Report_Coital_Acts_Individual_Properties,array of strings,NA,NA,[],"A list of individual property (IP) keys that will be included in the report as applicable to each partner. One column will be added to the report for each partner, for each key in the list. Specify the IP keys by adding an **IndividualProperties** parameter in the demographics file. See [Individual and node properties](model-properties.md) for details on setting individual properties."
+Report_Coital_Acts_Partners_With_IP_Key_Value,array of strings,NA,NA,[],"A list of Key:Value pairs. Two columns will be added to the report for each Key:Value pair listed, one for each partner, indicating the number of that individual's partners for which the Key:Value pair applies."

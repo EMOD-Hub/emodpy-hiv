@@ -8,12 +8,7 @@ is a one day event collecting data for that person as of that day.
 
 To generate this report, the following parameters must be configured in the custom_reports.json file:
 
-| Parameter | Data type | Min | Max | Default | Description |
-|---|---|---|---|---|---|
-| Report_File_Name | string | NA | NA | "ReportRelationshipCensus.csv" | Use this parameter to designate a custom file name, if desired. |
-| Start_Year | float | 0 | FLT_MAX | 0 | Simulation time in years to start collecting data. |
-| End_Year | float | 0 | FLT_MAX | FLT_MAX | Simulation time in years to stop collecting data. |
-| Reporting_Interval_Years | float | 0 | 100 | 1 | Years between census-taking. |
+{{ read_csv('../csv/report-relationship-census.csv', keep_default_na=False) }}
 
 ```json
 {

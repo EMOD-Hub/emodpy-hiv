@@ -11,17 +11,7 @@ event.
 
 The following parameters need to be configured to generate the report:
 
-| Parameter name | Data type | Min | Max | Default | Description |
-|---|---|---|---|---|---|
-| **Filename_Suffix** | string | NA | NA | (empty string) | Augments the filename of the report. If multiple reports are being generated, this allows you to distinguish among the multiple reports. |
-| **Start_Day** | float | 0 | 3.40282e+38 | 0 | The day of the simulation to start collecting data. |
-| **End_Day** | float | 0 | 3.40282e+38 | 3.40282e+38 | The day of the simulation to stop collecting data. |
-| **Node_IDs_Of_Interest** | array of integers | 0 | 2.14748e+09 | [] | Data will be collected for the nodes in this list. Empty list implies all nodes. |
-| **Min_Age_Years** | float | 0 | 9.3228e+35 | 0 | Minimum age in years of people to collect data on. |
-| **Max_Age_Years** | float | 0 | 9.3228e+35 | 9.3228e+35 | Maximum age in years of people to collect data on. |
-| **Must_Have_IP_Key_Value** | string | NA | NA | (empty string) | A Key:Value pair that the individual must have in order to be included. Empty string means to not include IPs in the selection criteria. |
-| **Must_Have_Intervention** | string | NA | NA | (empty string) | The name of the intervention that the person must have in order to be included. Empty string means to not include interventions in the selection criteria. |
-| **Event_Trigger_List** | list of strings | NA | NA | NA | The list of event triggers for the events included in the report. There will be a channel in the report for each event. |
+{{ read_csv('../csv/report-event-counter.csv', keep_default_na=False) }}
 
 ```json
 {

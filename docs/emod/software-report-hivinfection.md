@@ -6,11 +6,7 @@ The HIV disease progression report (ReportHIVInfection.csv) provides information
 
 To generate the report, the following parameters must be configured in the config.json file:
 
-| Parameter | Data type | Min | Max | Default | Description |
-|---|---|---|---|---|---|
-| Report_HIV_Infection | boolean | NA | NA | 0 | Set this to 1 to generate the report. |
-| Report_HIV_Infection_Start_Year | float | 1900 | 2200 | 1900 | Simulation time in years to start collecting data. |
-| Report_HIV_Infection_Stop_Year | float | 1900 | 2200 | 2200 | Simulation time in years to start collecting data. |
+{{ read_csv('../csv/report-hivinfection.csv', keep_default_na=False) }}
 
 ```json
 {

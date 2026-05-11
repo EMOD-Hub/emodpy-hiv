@@ -8,11 +8,7 @@ node and age bin.
 
 To generate this report, the following parameters must be configured in the custom_reports.json file:
 
-| Parameter name | Data type | Min | Max | Default | Description |
-|---|---|---|---|---|---|
-| **Age_Bins** | array of floats | -3.04E+38 | 3.04E+38 | [] | The age bins (in years, in ascending order) to aggregate within and report. An empty array does not stratify by age. |
-| **IP_Key_To_Collect** | string | NA | NA | (empty string) | The name of the **IndividualProperties** (IP) key by which to stratify the report. An empty string means the report is not stratified by IP. |
-| **Stratify_By_Gender** | boolean | NA | NA | 1 | Set to true (1) to stratify by gender; a value of 0 will not stratify by gender. |
+{{ read_csv('../csv/report-node-demographics.csv', keep_default_na=False) }}
 
 ```json
 {

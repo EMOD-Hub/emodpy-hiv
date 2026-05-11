@@ -9,13 +9,7 @@ information). Use the configuration parameters to manage the size of the databas
 
 To generate this report, configure the following parameters in the custom_reports.json file:
 
-| Parameter | Data type | Min | Max | Default | Description |
-|-----------|-----------|-----|-----|---------|-------------|
-| **Include_Health_Table** | boolean | NA | NA | 1 | A true value (1) includes the Health table which has data for each time step for the health of an individual. |
-| **Include_Infection_Data_Table** | boolean | NA | NA | 1 | A true value (1) includes the InfectionData table which has data for each time step for each active infection. |
-| **Include_Individual_Properties** | boolean | NA | NA | 0 | Include a table with all the possible IPs and include the IP data for each person in the Health table. |
-| **Start_Day** | float | 0 | 3.40E+38 | 0 | The day to start collecting data. |
-| **End_Day** | float | 0 | 3.40E+38 | 3.40E+38 | The day to stop collecting data. |
+{{ read_csv('../csv/report-sql.csv', keep_default_na=False) }}
 
 ```json
 {
