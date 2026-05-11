@@ -46,7 +46,7 @@ The event will occur only in the nodes specified by node ID.
                 "class": "StandardInterventionDistributionEventCoordinator",
                 "Demographic_Coverage": 1.0,
                 "Intervention_Config": {
-                    "class": "ARTBasic"
+                    "class": "AntiretroviralTherapy"
                 }
             }
         }

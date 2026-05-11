@@ -29,7 +29,7 @@ example that follows shows one potential configuration.
 
 ```json
 {
-    "Campaign_Name": "ARTBasic intervention test",
+    "Campaign_Name": "AntiretroviralTherapy intervention test",
     "Use_Defaults": 1,
     "Events": [
         {

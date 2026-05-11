@@ -106,7 +106,7 @@ greater than 350 cells/uL is identical to that of initiating at exactly 350 cell
 Categorically applied hazard ratios
 
 There are multiple campaign classes that are used to implement ART programs in the model. To enroll
-individuals on ART, the **ARTBasic** intervention is applied. To remove individuals from ART, the
+individuals on ART, the **AntiretroviralTherapy** intervention is applied. To remove individuals from ART, the
 **ARTDropout** intervention is applied. Note that both of these interventions will only impact
 individuals that are HIV+; in order to use ART as a prophylactic, the **SimpleVaccine** class must
 be used (see [PrEP](#pre-exposure-prophylaxis)). Finally, eligibility for ART can be determined through two classes,
