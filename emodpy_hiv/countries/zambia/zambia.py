@@ -146,7 +146,6 @@ class Zambia(Country):
         config.parameters.Incubation_Period_Distribution = "CONSTANT_DISTRIBUTION"
         config.parameters.Individual_Sampling_Type = "FIXED_SAMPLING"
         config.parameters.Infection_Updates_Per_Timestep = 1
-        config.parameters.Infectivity_Scale_Type = "CONSTANT_INFECTIVITY"
         config.parameters.Male_To_Female_Relative_Infectivity_Ages = [0, 15, 25]
         config.parameters.Male_To_Female_Relative_Infectivity_Multipliers = [
             2.26154624,

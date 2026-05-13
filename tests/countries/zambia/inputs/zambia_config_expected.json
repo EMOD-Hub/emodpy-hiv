@@ -42,7 +42,6 @@
     "Enable_Property_Output": 0,
     "Enable_Skipping": 0,
     "Enable_Spatial_Output": 0,
-    "Enable_Susceptibility_Scaling": 0,
     "Enable_Termination_On_Zero_Total_Infectivity": 0,
     "Enable_Vital_Dynamics": 1,
     "Enable_Warnings_Are_Fatal": 0,
@@ -60,7 +59,6 @@
     "Incubation_Period_Distribution": "CONSTANT_DISTRIBUTION",
     "Individual_Sampling_Type": "FIXED_SAMPLING",
     "Infection_Updates_Per_Timestep": 1,
-    "Infectivity_Scale_Type": "CONSTANT_INFECTIVITY",
     "Inset_Chart_Include_Coital_Acts": 1,
     "Load_Balance_Filename": "",
     "Male_To_Female_Relative_Infectivity_Ages": [
