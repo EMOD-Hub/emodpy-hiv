@@ -22,7 +22,7 @@ dependencies = [
     "pandas~=3.0",
     "scikit-learn~=1.8",
     "python-calamine~=0.6",
-    "emod-hiv==2.35.0",
+    "emod-hiv~=2.35,
 ]
 license = "MIT"
 classifiers = [
