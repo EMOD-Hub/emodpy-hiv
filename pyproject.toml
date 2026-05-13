@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "emodpy-hiv"
-version = "3.1.3"
+version = "3.2.0"
 description = "IDM's HIV-specific EMOD-API binding code"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -22,7 +22,7 @@ dependencies = [
     "pandas~=3.0",
     "scikit-learn~=1.8",
     "python-calamine~=0.6",
-    "emod-hiv==2.34.0",
+    "emod-hiv==2.35.0",
 ]
 license = "MIT"
 classifiers = [
@@ -78,7 +78,7 @@ emodpy_hiv = [
 "*" = ["*.xlsx", "WPP2012_*.XLS"]
 
 [tool.bumpversion]
-current_version = "3.1.3"
+current_version = "3.2.0"
 commit = true
 
 [[tool.bumpversion.files]]
