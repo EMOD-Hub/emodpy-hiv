@@ -35,7 +35,7 @@
 [swiss-hiv-cohort-study]: http://www.shcs.ch
 [unaids-2014-report]: http://www.unaids.org/en/resources/presscentre/pressreleaseandstatementarchive/2014/july/20140716prgapreport
 [what-is-prep]: http://www.whatisprep.org/
-[who-hiv-clinical-staging]: http://www.who.int/hiv/pub/guidelines/HIVstaging150307.pdf
+[who-hiv-clinical-staging]: https://iris.who.int/handle/10665/43699
 [who-hiv-global]: http://www.who.int/gho/hiv/en/
 [wikipedia-hiv-genome]: https://en.wikipedia.org/wiki/HIV#Structure_and_genome
 [idmtools]: https://institutefordiseasemodeling.github.io/idmtools/
