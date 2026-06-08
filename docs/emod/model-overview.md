@@ -17,7 +17,7 @@ take the Epidemics course from The Pennsylvania State University through Courser
 
 ## Agent-based models
 
-Epidemiological MODeling software (EMOD) is an *agent-based model* (ABM), another powerful tool used to help understand the
+Epidemiological MODeling software (EMOD) is an *agent-based model (ABM)*, another powerful tool used to help understand the
 complexity inherent in disease transmission systems. EMOD is a discrete time, Monte Carlo method simulator that simulates the simultaneous interactions of agents in an effort to recreate
 complex phenomena. Each agent (such as a human or vector) can be assigned a variety of properties
 (for example, age, gender, etc.), and their behavior and interactions with one another are
@@ -54,7 +54,7 @@ controlling the spread of disease that are targeted to individuals or geographic
 easily add heterogeneity to your simulation by configuring he infectivity of the disease,
 susceptibility of individuals, and more.
 
-The figure below demonstrates the main components of the generic EMOD *simulation type*.
+The figure below demonstrates the main components of the generic EMOD simulation type.
 Individuals reside in geographic nodes and can migrate from one node to another. Infected
 individuals shed contagion into a pool that can infect susceptible individuals. When modeling malaria,
 vector and malaria parasite biology is added to the model to simulate disease transmission rather than 
@@ -64,6 +64,6 @@ properties to individuals and nodes to vary how interventions are distributed.
 ![](../images/general/GenericModel_Flowchart.png)
 
 The configuration of the model regarding infectivity, immune response, and other qualities is
-handled via several *JSON (JavaScript Object Notation)* files. For more information, see
+handled via several JavaScript Object Notation (JSON) files. For more information, see
 [Software overview](software-overview.md).
 

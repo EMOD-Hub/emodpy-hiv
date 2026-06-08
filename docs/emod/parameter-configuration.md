@@ -7,7 +7,7 @@ key:value pairs.
 
 For more information on the structure of these files, see [Configuration file](software-configuration.md).
 
-The topics in this section contain only parameters available when using the HIV *simulation type*.
+The topics in this section contain only parameters available when using the HIV simulation type.
 Some parameters may appear in multiple categories.
 
 !!! note

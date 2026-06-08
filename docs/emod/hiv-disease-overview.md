@@ -342,7 +342,8 @@ Despite progress with these programs, there is still much room for improvement. 
 children had access to ART. For children born with HIV, 50% of them will not survive past the age of
 two [^Ref11] without treatment.
 
-For more information on the global PMTCT plans, targets, and progress, see [Avert][avert-pmtct].
+For more information on the global PMTCT plans, targets, and progress, see [Be in the KNOW][pmtct-beintheknow]
+and [The Global Alliance][pmtct-global-alliance].
 
 ### 90-90-90
 
@@ -354,9 +355,8 @@ suppression [^Ref13].
 
 Achievement of these goals will facilitate ending the worldwide AIDS epidemic by 2030. When the targets
 are reached, 73% of all people living with HIV will be virally suppressed--a roughly two- to three-fold
-increase over current estimates viral suppression [^Ref13]. Testing is a key step in acheving these
-goals, as many people living with HIV are unaware of their status. In 2014, a report by
-[UNAIDS][unaids-2014-report]
+increase over current estimates viral suppression [^Ref13]. Testing is a key step in achieving these
+goals, as many people living with HIV are unaware of their status. In 2014, a [report by UNAIDS][unaids-2014-report]
 found that approximately 54% of people were unaware of their positive infection status. Fortunately,
 current estimates are higher, with roughly 70% of people aware of their HIV status; an additional
 7.5 million people need to access testing to reach the 90% target [^Ref18]. To achieve viral suppression,
@@ -471,13 +471,12 @@ identify optimal drug therapy regimes [^Ref28].
 
 ## Further resources
 
-* World Health Organization (WHO), http://www.who.int/mediacentre/factsheets/fs360/en/
-* National Institutes of Health (NIH), https://www.niaid.nih.gov/diseases-conditions/hivaids
-* Centers for Disease Control and Prevention (CDC), https://www.cdc.gov/hiv/basics/index.html
-* UNAIDS, http://www.unaids.org/
-* Avert, https://www.avert.org/
-* HIV.gov, https://www.hiv.gov/hiv-basics
-* Wikipedia, https://en.wikipedia.org/wiki/HIV
+* World Health Organization (WHO) <http://www.who.int/mediacentre/factsheets/fs360/en/>
+* National Institutes of Health (NIH) <https://www.niaid.nih.gov/diseases-conditions/hivaids>
+* Centers for Disease Control and Prevention (CDC) <https://www.cdc.gov/hiv/about/>
+* UNAIDS <http://www.unaids.org/>
+* HIV.gov <https://www.hiv.gov/hiv-basics>
+* Wikipedia <https://en.wikipedia.org/wiki/HIV>
 
 ## Citations
 

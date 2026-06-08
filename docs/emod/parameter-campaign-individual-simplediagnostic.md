@@ -1,8 +1,9 @@
 # SimpleDiagnostic
 
-Note: We encourage you to use a newer intervention class, [StandardDiagnostic](parameter-campaign-individual-standarddiagnostic.md), 
-which has more features and flexibility than this one. However, **SimpleDiagnostic** is still available 
-for use.
+!!! note
+    We encourage you to use a newer intervention class, [StandardDiagnostic](parameter-campaign-individual-standarddiagnostic.md), 
+    which has more features and flexibility than this one. However, **SimpleDiagnostic** is still available 
+    for use.
 
 The **SimpleDiagnostic** intervention class identifies infected individuals, regardless of disease state, 
 based on specified diagnostic sensitivity and specificity. Diagnostics are a key component of modern 

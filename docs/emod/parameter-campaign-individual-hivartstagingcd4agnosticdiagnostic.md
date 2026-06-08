@@ -1,7 +1,7 @@
 # HIVARTStagingCD4AgnosticDiagnostic
 
 The **HIVARTStagingCD4AgnosticDiagnostic** intervention class is similar to the
-[parameter-campaign-individual-hivartstagingbycd4diagnostic](parameter-campaign-individual-hivartstagingbycd4diagnostic.md) intervention, but it uses age bins to
+[HIVArtStagingByCD4Diagnostic](parameter-campaign-individual-hivartstagingbycd4diagnostic.md) intervention, but it uses age bins to
 specify outcomes instead of the results of CD4 testing.
 
 !!! note

@@ -7,7 +7,7 @@ health policies and intervention strategies. It supports infectious disease camp
 gathering, new product development, and policy decisions. IDM shares this modeling software with the
 research community to advance the understanding of disease dynamics.
 
-EMOD is quite different from a *deterministic* *compartmental model*, which uses an
+EMOD is quite different from a *deterministic compartmental model*, which uses an
 *ordinary differential equation (ODE)* to determine the rates at which proportions of the
 population move from each compartment (or disease state) to another. EMOD is an
 *agent-based model* (ABM) that simulates the simultaneous interactions of agents in an effort

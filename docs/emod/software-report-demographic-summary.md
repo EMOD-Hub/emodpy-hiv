@@ -1,7 +1,7 @@
 # DemographicsSummary
 
 The demographic summary output report (DemographicsSummary.json) is a JSON-formatted file with the
-demographic *channel* output results of the simulation, consisting of simulation-wide averages
+demographic channel output results of the simulation, consisting of simulation-wide averages
 by time step. The format is identical to the inset chart output report, except the channels reflect
 demographic categories, such as gender ratio.
 

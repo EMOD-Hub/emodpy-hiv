@@ -18,8 +18,8 @@ Notes and tips for this intervention:
    serialization, in order to have those interventions continue after starting from the serialized file, they
    must be added to the new campaign file.
 *  This can be used to distribute other node-level interventions. For example, it can be used to
-   distribute SpaceSpraying to the node when someone becomes infected (e.g. by listening for for
-   NewInfectionEvent or an event from a diagnostic).
+   distribute **SpaceSpraying** to the node when someone becomes infected (e.g., by listening for
+   **NewInfectionEvent** or an event from a diagnostic).
 *  A powerful feature of this intervention is that it can target specific groups of individuals who
    broadcast the event. Individuals, and subgroups of individuals, can be targeted by age, gender, and Individual Property.
 *  Note that when distributing a node-level intervention parameters associated with targeting an
@@ -28,7 +28,7 @@ Notes and tips for this intervention:
 *  **Blackout_Period** is a feature that can be useful when monitoring an event from the individual
    in a node. It enables reaction to some individuals experiencing an event but ignoring subsequent
    events for a period of time. For example, **SpaceSpraying** could be distributed to the node on the
-   first occurrence of NewInfectionEvent, but after spraying has occurred all other infection events
+   first occurrence of **NewInfectionEvent**, but after spraying has occurred all other infection events
    can be ignored for a specific period of time. Without **Blackout_Period**, each infection event
    would trigger another round of spraying.
 *  The **Distribute_On_Return_Home** feature causes **NodeLevelHealthTriggeredIV** to keep track of

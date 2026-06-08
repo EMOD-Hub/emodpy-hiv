@@ -43,7 +43,7 @@ off therapy.
 
 ## Cascade of care
 
-By using campaign interventions and the appropriate *event coordinator*, it is possible to
+By using campaign interventions and the appropriate event coordinator, it is possible to
 configure retention along a care continuum to model how individuals progress with detailed
 time-linked variables associated with access to care. For more information on configuring a cascade
 of care, see [Care cascade](model-care-cascade.md). For configuring HIV-specific treatment
@@ -59,7 +59,7 @@ even having a specific risk level. For more information on how individual proper
 ## Model output and reporters
 
 EMOD supports numerous methods for viewing simulation output. By default, every simulation
-creates an *output report* of aggregated data (see [Software overview](software-overview.md) for more
+creates an output report of aggregated data (see [Software overview](software-overview.md) for more
 information). While EMOD enables the creation of custom reports, the HIV model has an extensive
 list of available built-in reports. The reports are enabled in the config.json file (see
 [Output configuration](parameter-configuration-output.md) for a complete list) and provide information on

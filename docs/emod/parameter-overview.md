@@ -13,7 +13,7 @@ parameters for the *configuration file*, and parameters for the *campaign file*.
 
 ## JSON formatting overview
 
-All of these parameters are contained in *JSON (JavaScript Object Notation)* formatted files.
+All of these parameters are contained in *JavaScript Object Notation (JSON)* formatted files.
 JSON is a data format that is human-readable and easy for software to read and generate. It
 can be created and edited using a simple text editor.
 
@@ -58,8 +58,8 @@ The following is an example of a JSON formatted file.
 
 ## JSON resources
 
-The website https://jsonlint.com provides validation of JSON formatting. This can be very helpful in
+The website <https://jsonlint.com> provides validation of JSON formatting. This can be very helpful in
 identifying missing commas, unbalanced curly braces, missing quotation marks, and other common JSON
-syntax errors. Another helpful site is http://jsondiff.com/, which highlights differences between
+syntax errors. Another helpful site is <http://jsondiff.com/>, which highlights differences between
 two uploaded JSON files.
 

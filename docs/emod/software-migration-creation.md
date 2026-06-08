@@ -31,14 +31,11 @@ To use the same average migration rate for every individual in a node, create th
 
 1. Create a CSV file with the following three columns (do not include column headers):
 
-    From_Node_ID
-        The origin node, which must match a node ID in the demographics file. You do not need to have the same number of entries for each **From_Node_ID**. 
-    To_Node_ID
-        The destination node, which must match a node ID in the demographics file.
-    Rate
-        The average number of trips per day.
+    * **From_Node_ID**: The origin node, which must match a node ID in the demographics file. You do not need to have the same number of entries for each **From_Node_ID**.
+    * **To_Node_ID**: The destination node, which must match a node ID in the demographics file.
+    * **Rate**: The average number of trips per day.
 
-#.  Run the 'convert_txt_to_bin.py' script using the command format below:
+1.  Run the 'convert_txt_to_bin.py' script using the command format below:
 
 ```
 python -m emodpy_hiv.migration.convert_txt_to_bin [input-migration-csv] [output-bin] [migration-type] [idreference]
@@ -74,7 +71,7 @@ To vary the average migration rate based on age and/or gender, create the migrat
 
 1. Create a JSON file with the structure described in the sections below.
 
-#.  Run the 'convert_json_to_bin.py' script using the command format below:
+2.  Run the 'convert_json_to_bin.py' script using the command format below:
 
 ```
 python -m emodpy_hiv.migration.convert_json_to_bin [input-json] [output-bin] [migration-type]

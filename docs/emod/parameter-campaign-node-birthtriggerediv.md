@@ -1,9 +1,10 @@
 # BirthTriggeredIV
 
 
-Note: This intervention has been replaced by NodeLevelHealthTriggeredIV, which provides more flexibility and can be
-triggered by any individual event, including **Births** which mimics the BirthTriggeredIV. BirthTriggeredIV will
-continue to be supported for backward compatibility but will not receive new features.
+!!! note
+    This intervention has been replaced by NodeLevelHealthTriggeredIV, which provides more flexibility and can be
+    triggered by any individual event, including **Births** which mimics the BirthTriggeredIV. BirthTriggeredIV will
+    continue to be supported for backward compatibility but will not receive new features.
 
 The **BirthTriggeredIV** intervention class listens for births in a node and distributes
 an individual-level intervention to each newborn. It is a node-level intervention that persists

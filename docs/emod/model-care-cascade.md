@@ -16,7 +16,7 @@ property in the demographics file (see [NodeProperties and IndividualProperties]
 demographics file, create as many property values as necessary to describe the care cascade. For
 example, undiagnosed, positive diagnosis, on therapy, lost to care, etc.
 
-In the campaign file, set up your *event coordinator* as you typically would, using
+In the campaign file, set up your event coordinator as you typically would, using
 **Target_Demographic**, **Property_Restrictions_Within_Node**, and other available parameters to
 target the desired individuals. See [Targeted interventions](model-targeted-interventions.md) for more information on
 targeting interventions and [Event coordinators](parameter-campaign-event-coordinators.md) for all available
@@ -45,7 +45,7 @@ Generally, the HIV cascade of care begins with a positive diagnostic test and li
 In practice, the cascade is more complicated. There are multiple routes to initiate diagnostic
 testing, and individuals may not always be eligible to enroll on ART. Further, once a patient begins
 ART, there is no guarantee that they will remain on ART. In some cases, patients do not return for
-their test results, or are otherwise lost to follow-up (*LTFU*). The figure below depicts the
+their test results, or are otherwise lost to follow-up (LTFU). The figure below depicts the
 potential routes for the HIV cascade of care.
 
 ![Cartoon depicting the cascade of care for HIV patients. Reprinted from [Klein et al 2014][klein-bershteyn-aids-2014].](../images/hiv/cascade_of_care.jpg)
@@ -148,8 +148,8 @@ to determine which interventions (such as diagnostic tests, or treatment regimes
 who will be targeted for the interventions, and when (or how) the interventions will be triggered.
 
 As described in [Campaign file](software-campaign.md), distributing an intervention (for example a diagnostic
-test), it is necessary to configure a *campaign event*, an *event coordinator*, and the
-actual *intervention* itself. So to configure a care cascade, start with the most basic route
+test), it is necessary to configure a campaign event, an event coordinator, and the
+actual intervention itself. So to configure a care cascade, start with the most basic route
 for care, such as a diagnostic test given to individuals that have reached the age of sexual debut,
 and build up the conditions. You will need to determine:
 

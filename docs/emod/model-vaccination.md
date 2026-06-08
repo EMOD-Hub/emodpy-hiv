@@ -20,7 +20,7 @@ $$
 \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I > 0
 $$
 
-If a vaccination *campaign* with coverage p `\in` [0, 1] is performed before the
+If a vaccination campaign with coverage p `\in` [0, 1] is performed before the
 outbreak, a fraction of susceptible people move to the recovered compartment. If the vaccine
 take is e `\in` [0, 1], representing the probability of being protected after receiving a
 vaccine dose, the fraction of immune people due to vaccination is *ep*. Therefore, the previous

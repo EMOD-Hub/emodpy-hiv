@@ -4,7 +4,7 @@ The **HIVARTStagingByCD4Diagnostic** intervention class builds on the [HIVSimple
 intervention by checking for treatment eligibility based on CD4
 count. It uses the lowest-ever recorded CD4 count for that individual, based on the history of past
 CD4 counts conducted using the HIVDrawBlood intervention. To specify the outcome based on age bins
-instead of CD4 testing, use [parameter-campaign-individual-hivartstagingcd4agnosticdiagnostic](parameter-campaign-individual-hivartstagingcd4agnosticdiagnostic.md).
+instead of CD4 testing, use [HIVArtStagingCD4AgnosticDiagnostic](parameter-campaign-individual-hivartstagingcd4agnosticdiagnostic.md).
 
 !!! note
     Parameters are case-sensitive. For Boolean parameters, set to 1 for true or 0 for false.

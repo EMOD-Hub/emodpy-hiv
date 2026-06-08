@@ -39,7 +39,7 @@ of the distributions and the two distributions will be independent. Therefore, e
 ## Campaign file overview
 
 For the interventions to take place, the campaign file must be in the same directory as the
-*configuration file* and you must set the configuration parameters **Enable_Interventions** to
+configuration file and you must set the configuration parameters **Enable_Interventions** to
 1 and **Campaign_Filename** to the name of the campaign file. When you run a simulation, you must
 have a single campaign file.
 

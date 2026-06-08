@@ -17,7 +17,7 @@ helpful if you want to experiment with different values in the overlay without m
 file. For more information, see [Demographics file](software-demographics.md).
 
 At least one demographics file is required for every simulation unless you set the parameter
-**Enable_Demographics_Builtin** to 1 (one) in the *configuration file*. This setting does not
+**Enable_Demographics_Builtin** to 1 (one) in the configuration file. This setting does not
 represent a real location and is generally only used for testing and validating code pathways rather
 than actual modeling of disease.
 
@@ -59,7 +59,7 @@ either the **Defaults** section or the **Nodes** section of the demographics fil
 applied to specific nodes, overriding the values in **Defaults** if they appear in both. Each node in
 the **Nodes** section is identified using a unique **NodeID**.
 
-The tables below contain only parameters available when using the HIV *simulation type*.
+The tables below contain only parameters available when using the HIV simulation type.
 
 !!! note
     Parameters are case-sensitive. For Boolean parameters, set to 1 for true or 0 for false.

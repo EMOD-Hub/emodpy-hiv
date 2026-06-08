@@ -3,7 +3,7 @@
 Note: This intervention has not been thoroughly tested and may not work as expected.
 
 The **ImmunityBloodTest** intervention class identifies whether an individual's immunity meets a
-specified threshold (as set with the **Positive_Threshold_AcquisitionImmunity** campaign parameter)
+specified threshold (as set with the **Positive_Threshold_Acquisition_Immunity** campaign parameter)
 and then broadcasts an event based on the results; positive has immunity while negative does not.
 Note that **Base_Sensitivity** and **Base_Specificity** function whether or not the immunity is
 above the threshold.

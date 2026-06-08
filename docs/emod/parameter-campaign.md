@@ -1,10 +1,10 @@
 # Campaign parameters
 
 
-The parameters described in this reference section can be added to the JSON (JavaScript Object Notation) formatted campaign file to determine the interventions that are used to
-control the spread of disease and where, when, how, and to whom the interventions are distributed.
-Additionally, the campaign file specifies the details of the outbreak of the disease itself. For
-more conceptual background on how to create a campaign file, see [Creating campaigns](model-campaign.md).
+The parameters described in this reference section can be added to the JSON (JavaScript Object Notation) formatted 
+campaign file to determine the interventions that are used to control the spread of disease and where, when, how, 
+and to whom the interventions are distributed. Additionally, the campaign file specifies the details of the outbreak 
+of the disease itself. For more conceptual background on how to create a campaign file, see [Creating campaigns](model-campaign.md).
 
 In the configuration file, you must set the **Enable_Interventions** parameter to 1 and set
 the **Campaign_Filename** parameter to the name of the campaign file for the interventions to take
@@ -54,7 +54,7 @@ repository list the parameters and nested objects differently.
 }
 ```
 
-The topics below contain only parameters available when using the malaria *simulation type*.
+The topics below contain only parameters available when using the HIV simulation type.
 
 !!! note
     Parameters are case-sensitive. For Boolean parameters, set to 1 for true or 0 for false.

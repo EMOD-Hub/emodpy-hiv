@@ -55,7 +55,7 @@ severity, coital acts, and more. Review the model overview for those simulation 
 ## Migration
 
 EMOD can also simulate human migration, which can be important in the transmission of
-many diseases. You can assign different characteristics to each geographic *node* to control
+many diseases. You can assign different characteristics to each geographic node to control
 how the disease spreads.
 
 For more information on how you can target campaign interventions to individuals or locations based

@@ -1,6 +1,6 @@
 # Weibull distributions
 
-The following parameters use a *Weibull distribution*.
+The following parameters use a Weibull distribution.
 
 !!! note
     Parameters are case-sensitive. For Boolean parameters, set to 1 for true or 0 for false.
