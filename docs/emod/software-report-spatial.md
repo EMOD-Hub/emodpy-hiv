@@ -1,7 +1,7 @@
 # SpatialReport
 
-The spatial output report breaks the *channel* data down per node, rather than across the
-entire simulation. It is a *set* of binary files, consisting of one file per channel. For each value
+The spatial output report breaks the channel data down per node, rather than across the
+entire simulation. It is a set of binary files, consisting of one file per channel. For each value
 set in the **Spatial_Output_Channels** configuration parameter array, a binary file with the name
 convention SpatialReport_<channel>.bin is generated. In addition, **Enable_Spatial_Output** must be
 set to 1.

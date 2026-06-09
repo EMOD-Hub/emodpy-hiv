@@ -16,46 +16,69 @@ boxcar function
     interval where it is equal to a constant.
 
 campaign
-:   A collection of events that use interventions to modify a *simulation*.
+:   A collection of events that use interventions to modify a simulation.
 
 campaign event
 :   A JSON object that determines when and where an intervention is distributed during a campaign.
 
 campaign file
-:   A *JSON (JavaScript Object Notation)* formatted file that contains the parameters that
+:   A JSON-formatted file that contains the parameters that
     specify the distribution instructions for all interventions used in a campaign, such as
     diagnostic tests, the target demographic, and the timing and cost of interventions. The
-    location of this file is specified in the *configuration file* with the
+    location of this file is specified in the configuration file with the
     **Campaign_Filename** parameter. Typically, the file name is campaign.json.
 
 channel
-:   A property of the simulation (for example, "Parasite Prevalence") that is accumulated once per
-    simulated *time step* and written to file, typically as an array of the accumulated values.
+:   A property of the simulation (for example, Parasite Prevalence) that is accumulated once per
+    simulated time step and written to file, typically as an array of the accumulated values.
 
 class factory
 :   A function that instantiate objects at run-time and use information
     from JSON-based configuration information in the creation of these objects.
 
+Clausius-Clayperon relation
+:   A way of characterizing a transition between two phases of matter; provides a method to find
+    a relationship between temperature and pressure along phase boundaries. Frequently used in
+    meteorology and climatology to describe the behavior of water vapor.
+    See [Wikipedia - Clausius-Clayperon relation](https://en.wikipedia.org/wiki/Clausius%E2%80%93Clapeyron_relation) for more information.
+
+compartmental model
+:   A disease model that divides the population into a number of compartments that represent
+    different disease states, such as susceptible, infected, or recovered. Every person in a
+    compartment is considered identical. Many compartmental models are deterministic,
+    but some are stochastic.
+
 configuration file
-:   A *JSON (JavaScript Object Notation)* formatted file that contains the parameters
+:   A JSON-formatted file that contains the parameters
     sufficient for initiating a simulation. It controls many different aspects of the
     simulation, such as population size, disease dynamics, and length of the simulation.
     Typically, the file name is config.json.
 
 core
 :   In computing, a core refers to an independent central processing unit (CPU) in the computer.
-    Multi-core computers have more than one CPU. However, through technologies such as Hyper-
-    Threading Technology (HTT or HT), a single physical core can actually act like two virtual
+    Multi-core computers have more than one CPU. However, through technologies such as Hyper-Threading
+    Technology (HTT or HT), a single physical core can actually act like two virtual
     or logical cores, and appear to the operating system as two processors.
 
 demographics file
-:   A *JSON (JavaScript Object Notation)* formatted file that contains the parameters that
+:   A JSON-formatted file that contains the parameters that
     specify the demographics of a population, such as age distribution, risk, birthrate, and more.
-    IDM provides demographics files for many geographic regions. This file is typically named <region>_demographics.json.
+    IDM provides demographics files for many geographic regions. This file is typically named &lt;region>_demographics.json.
 
 destination node
 :   The node an individual or group is traveling to for each leg of the migration. The destination updates as individuals
     move between nodes.
+
+deterministic
+:   Characterized by the output being fully determined by the parameter values and the initial
+    conditions. Given the same inputs, a deterministic model will always produce the same output.
+
+diffusive migration
+:   The diffusion of people in and out of nearby nodes by foot travel.
+
+disability-adjusted life years (DALY)
+:   The number of years of life lost due to premature mortality
+    plus the years lost due to disability while infected. Used to quantify the burden of disease.
 
 disease-specific build
 :   A build of the EMOD executable (Eradication.exe) built using SCons without any dynamic link libraries (DLLs).
@@ -67,8 +90,21 @@ dynamic link library (DLL)
 
 EMODule
 :   A modular component of EMOD that are consumed and used by the EMOD executable (Eradication.exe).
-    Under Windows, a EMODule is implemented as a *dynamic link library (DLL)* and,
+    Under Windows, a EMODule is implemented as a dynamic link library (DLL) and,
     under Linux, EMODules are currently not supported. EMODules are primarily custom reporters.
+
+epidemic
+:   An outbreak of an infectious disease, such that a greater number of individuals than normal
+    has the disease. Epidemics have very high $R_0$ (Recall $R_0$>1 for a disease to spread) and
+    are often associated with acute, highly transmissible pathogens that can be directly transmitted.
+    Further, pathogens with lower infectious periods create more explosive epidemics. To control
+    epidemics, it is necessary to reduce $R_0$. This can be done by:
+
+    * Reducing transmissibility.
+    * Decreasing the number of susceptibles (by vaccination, for example).
+    * Decreasing the mean number of contacts or the transmissibility, such as by improving
+    sanitation, or limiting the number of interactions sick people have with healthy people.
+    * Reducing the length of the infectious period.
 
 Epidemiological MODeling software (EMOD)
 :   The modeling software from the Institute for Disease Modeling (IDM) for disease researchers and developers to investigate
@@ -79,8 +115,24 @@ Eradication.exe
 :   Typical (default) name for the EMOD executable (Eradication.exe), whether built using monolithic build or
     modular (EMODule-enabled) build.
 
+Euler method
+:   Used in mathematics and computational science, this method is a first-order numerical
+    procedure for solving ordinary differential equations with a given initial value.
+
 event coordinator
 :   A JSON object that determines who will receive a particular intervention during a campaign.
+
+exp(
+:   The exponential function, $e^x$, where $e$ is the number (approximately 2.718281828)
+    such that the function $e^x$ is its own derivative. The exponential function is used to
+    model a relationship in which a constant change in the independent variable gives the same
+    proportional change (i.e. percentage increase or decrease) in the dependent variable. The
+    function is often written as $exp(x)$. The graph of $y = exp(x)$ is upward-sloping
+    and increases faster as $x$ increases.
+
+exposed
+:   Individual who has been infected with a pathogen, but due to the pathogen’s incubation
+    period, is not yet infectious.
 
 flattened file
 :   A single campaign or configuration file created by combining a default file with one or more
@@ -88,6 +140,18 @@ flattened file
     files are flattened to a single-depth JSON file without nesting, the format required for
     consumption by the EMOD executable (Eradication.exe). Separating the parameters into multiple files is primarily
     used for testing and experimentation.
+
+force of infection (FoI)
+:   A measure of the degree to which an infected individual can spread infection;
+    the per-capita rate at which susceptibles contract infection. Typically increases with
+    transmissibility and prevalence of infection.
+
+herd immunity
+:   The resistance to the spread of a contagious disease within a population that results if a
+    sufficiently high proportion of individuals are immune to the disease, especially through
+    vaccination. The portion of the population that needs to be immunized in
+    order to achieve herd immunity is  P > 1 – (1/ $R_0$), where P = proportion
+    vaccinated * vaccine efficacy.
 
 Heterogeneous Intra-Node Transmission (HINT)
 :   A feature for modeling person-to-person transmission of diseases in heterogeneous population
@@ -100,10 +164,21 @@ high-performance computing (HPC)
 home node
 :   The node where the individuals reside; each individual has a single home node.
 
+immune
+:   Unable to become infected/infectious, whether through vaccination or having the disease in the
+    past.
+
+incidence
+:   The rate of new cases of a disease during a specified time period. This is a measure of
+    the risk of contracting a disease.
+
 individual properties
 :   Labels that can be applied to individuals within a simulation and used to configure
     heterogeneous transmission, target interventions, and move individuals through a health care
     cascade.
+
+infectious
+:   Individual who is infected with a pathogen and is capable of transmitting the pathogen to others.
 
 input files
 :   The JSON and binary files used as inputs to an EMOD simulation. The primary input files
@@ -120,15 +195,12 @@ intervention
 :   An object aimed at reducing the spread of a disease that is distributed either to an
     individual; such as a vaccine, drug, or bednet; or to a node; such as a larvicide. Additionally,
     initial disease outbreaks and intermediate interventions that schedule another intervention
-    are implemented as interventions in the *campaign file*.
+    are implemented as interventions in the campaign file.
 
 JSON (JavaScript Object Notation)
 :   A human-readable, open standard, text-based file format for data interchange. It is
     typically used to represent simple data structures and associative arrays, and is
     language-independent. For more information, see [json.org](https://www.json.org).
-
-JSON
-:   See JavaSCript Object Notation.
 
 Keyhole Markup Language (KML)
 :   A file format used to display geographic data in an Earth browser, for example, Google Maps.
@@ -142,6 +214,11 @@ Link-Time Code Generation (LTCG)
     LTCG then, unlike the compiler, can see the whole body of code in all object files and be
     able to optimize the result more effectively.
 
+loss to follow-up (LTFU)
+:   Patients who at one point were actively participating in disease treatment or clinical
+    research, but have become lost either by error or by becoming unreachable at the point of
+    follow-up.
+
 Message Passing Interface (MPI)
 :   An interface used to pass information between computing cores in parallel simulations. One
     example is the migration of individuals from one geographic location to another within EMOD
@@ -153,22 +230,22 @@ microsolver
     microsimulation in order to accurately capture the dynamics of that particular aspect of the
     model.
 
-Monte Carlo method
-:   A class of algorithms using repeated random sampling to obtain numerical results. Monte
-    Carlo simulations create probability distributions for possible outcomes, which provides a
-    more realistic way of describing uncertainty.
-
 monolithic build
 :   A single EMOD executable (Eradication.exe) with no DLLs that includes all components as
     part of Eradication.exe itself. You can still use EMODules with the monolithic build;
     for example, a custom reporter is a common type of EMODule. View the documentation on
     EMODules and emodules_map.json for more information about creation and use of EMODules.
 
+Monte Carlo method
+:   A class of algorithms using repeated random sampling to obtain numerical results. Monte
+    Carlo simulations create probability distributions for possible outcomes, which provides a
+    more realistic way of describing uncertainty.
+
 node
 :   A grid size that is used for modeling geographies. Within EMOD, a node is a geographic
     region containing simulated individuals. Individuals migrate between nodes either
-    temporarily or permanently using mobility patterns driven by local, regional, and long-
-    distance transportation.
+    temporarily or permanently using mobility patterns driven by local, regional, and
+    long-distance transportation.
 
 node properties
 :   Labels that can be applied to nodes within a simulation and used to target interventions based on geography.
@@ -178,11 +255,12 @@ node-targeted intervention
     individual. One example is larvicides, which affect all mosquitoes living and feeding within
     a given node.
 
-nodes
-:   See *node*.
+ordinary differential equation (ODE)
+:   A differential equation containing one or more functions of one independent variable and
+    its derivatives.
 
 origin node
-:   The "starting point" node fo reach leg of a migration trip. The origin updates as individuals move between nodes.
+:   The starting node for each leg of a migration trip. The origin updates as individuals move between nodes.
 
 output report
 :   A file that is the output from an EMOD simulation. Output reports are in JSON, CSV, or binary
@@ -197,10 +275,17 @@ overlay file
     logical groups. Configuration and campaign files must be flattened into a single file before
     running a simulation.
 
+prevalence
+:   The rate of all cases of a disease during a specified time period. This is a measure of how
+    widespread a disease is.
+
 preview
 :   Software that undergoes a shorter testing cycle in order to make it available
     more quickly. Previews may contain software defects that could result in unexpected
     behavior. Use EMOD previews at your own discretion.
+
+recovered
+:   An individual who is either no longer infectious, and is removed from the infected population.
 
 regression test
 :   A test to verify that existing EMOD functionality works with new
@@ -216,162 +301,8 @@ release
 
 reporter
 :   Functionality that extracts simulation data, aggregates it, and saves it as an
-    *output report*. EMOD provides several built-in reporters for outputting data from
+    output report. EMOD provides several built-in reporters for outputting data from
     simulations and you also have the ability to create a custom reporter.
-
-scenario
-:   A collection of input files that describes a real-world example of a disease outbreak and
-    interventions. Scenarios are included with EMOD source installations to help users
-    learn more about epidemiology and disease modeling.
-
-schema
-:   A text or JSON file that can be generated from the EMOD executable (Eradication.exe) that defines all
-    configuration and campaign parameters.
-
-simulation
-:   An execution of the EMOD software using an associated set of input files.
-
-simulation type
-:   The disease or disease class to model.
-
-    EMOD currently supports the following simulation types for modeling a variety of diseases:
-
-    * Generic disease (GENERIC_SIM), which can be used for modeling a variety of diseases such as
-      influenza or measles
-    * Vector-borne diseases (VECTOR_SIM), which can be used for modeling vector-borne diseases such as
-      dengue
-    * Malaria (MALARIA_SIM), which adds features specific to malaria biology and treatment
-    * Sexually transmitted infections (STI_SIM), which adds features for sexual relationship
-      networks
-    * HIV (HIV_SIM), which adds features specific to HIV biology and treatment
-
-solvers
-:   Solvers are used to find computational solutions to problems. In simulations, they can be used,
-    for example, to determine the time of the next simulation step, or to compute the states of
-    a model at particular time steps.
-
-Standard Template Library (STL)
-:   A library that contains a set of common C++ classes (including generic algorithms and data
-    structures) that are independent of container and implemented as templates, which enables
-    compile-time polymorphism (often more efficient than run-time polymorphism). For more
-    information and discussion of STL, see [Wikipedia - Standard Template Library](https://en.wikipedia.org/wiki/Standard_Template_Library)
-    for more information.
-
-state transition event
-:   A change in state (e.g. healthy to infected, undiagnosed to positive diagnosis, or birth)
-    that may trigger a subsequent action, often an intervention. "Campaign events" should not be
-    confused with state transition events.
-
-time step
-:   A discrete number of hours or days in which the "simulation states" of all "simulation
-    objects" (interventions, infections, immune systems, or individuals) are updated in a
-    simulation. Each time step will complete processing before launching the next one. For
-    example, a time step would process the migration data for populations moving between nodes
-    via rail, airline, and road. The migration of individuals between nodes is the last step of
-    the time step after updating states.
-
-tutorial
-:   A set of instructions in the documentation to learn more about epidemiology and
-    disease modeling. Tutorials are based on real-world scenarios and demonstrate the mechanics
-    of the the model. Each tutorial consists of one or more scenarios.
-
-working directory
-:   The directory that contains the configuration and campaign files for a simulation. You must
-    be in this directory when you invoke Eradication.exe at the command line to run a simulation.
-
-Clausius-Clayperon relation
-:   A way of characterizing a transition between two phases of matter; provides a method to find
-    a relationship between temperature and pressure along phase boundaries. Frequently used in
-    meteorology and climatology to describe the behavior of water vapor.
-    See [Wikipedia - Clausius-Clayperon relation](https://en.wikipedia.org/wiki/Clausius%E2%80%93Clapeyron_relation) for more information.
-
-compartmental model
-:   A disease model that divides the population into a number of compartments that represent
-    different disease states, such as susceptible, infected, or recovered. Every person in a
-    compartment is considered identical. Many compartmental models are *deterministic*,
-    but some are *stochastic*.
-
-deterministic
-:   Characterized by the output being fully determined by the parameter values and the initial
-    conditions. Given the same inputs, a deterministic model will always produce the same output.
-
-disability-adjusted life years (DALY)
-:   The number of years of life lost due to premature mortality
-    plus the years lost due to disability while infected. Used to quantify the burden of disease.
-
-diffusive migration
-:   The diffusion of people in and out of nearby nodes by foot travel.
-
-epidemic
-:   An outbreak of an infectious disease, such that a greater number of individuals than normal
-    has the disease. Epidemics have very high $R_0$ (Recall $R_0$>1 for a disease to spread) and
-    are often associated with acute, highly transmissible pathogens that can be directly transmitted.
-    Further, pathogens with lower infectious periods create more explosive epidemics. To control
-    epidemics, it is necessary to reduce $R_0$. This can be done by:
-
-    * Reducing transmissibility.
-    * Decreasing the number of susceptibles (by vaccination, for example).
-    * Decreasing the mean number of contacts or the transmissibility, such as by improving
-    sanitation, or limiting the number of interactions sick people have with healthy people.
-    * Reducing the length of the infectious period.
-
-Euler method
-:   Used in mathematics and computational science, this method is a first-order numerical
-    procedure for solving ordinary differential equations with a given initial value.
-
-exp(
-:   The exponential function, $e^x$, where $e$ is the number (approximately 2.718281828)
-    such that the function $e^x$ is its own derivative. The exponential function is used to
-    model a relationship in which a constant change in the independent variable gives the same
-    proportional change (i.e. percentage increase or decrease) in the dependent variable. The
-    function is often written as $exp(x)$. The graph of $y = exp(x)$ is upward-sloping
-    and increases faster as $x$ increases.
-
-exposed
-:   Individual who has been infected with a pathogen, but due to the pathogen’s incubation
-    period, is not yet infectious.
-
-force of infection (FoI)
-:   A measure of the degree to which an infected individual can spread infection;
-    the per-capita rate at which susceptibles contract infection. Typically increases with
-    transmissibility and prevalence of infection.
-
-herd immunity
-:   The resistance to the spread of a contagious disease within a population that results if a
-    sufficiently high proportion of individuals are immune to the disease, especially through
-    vaccination. The portion of the population that needs to be immunized in
-    order to achieve herd immunity is  P > 1 – (1/ $R_0$), where P = proportion
-    vaccinated * vaccine efficacy.
-
-immune
-:   Unable to become infected/infectious, whether through vaccination or having the disease in the
-    past.
-
-incidence
-:   The rate of new cases of a disease during a specified time period. This is a measure of
-    the risk of contracting a disease.
-
-infectious
-:   Individual who is infected with a pathogen and is capable of transmitting the pathogen to others.
-
-loss to follow-up (LTFU)
-:   Patients who at one point were actively participating in disease treatment or clinical
-    research, but have become lost either by error or by becoming unreachable at the point of
-    follow-up.
-
-LTFU
-:   See loss to follow-up.
-
-ordinary differential equation (ODE)
-:   A differential equation containing one or more functions of one independent variable and
-    its derivatives.
-
-prevalence
-:   The rate of all cases of a disease during a specified time period. This is a measure of how
-    widespread a disease is.
-
-recovered
-:   Individual who is either no longer infectious, or “removed” from the population.
 
 reproductive number
 :   In a fully susceptible population, the basic reproductive number $R_0$ \ is the number of
@@ -393,22 +324,19 @@ routine immunization (RI)
 :   The standard practice of vaccinating the majority of susceptible people in a population against
     vaccine-preventable diseases.
 
-stochastic
-:   Characterized by having a random probability distribution that may be analyzed statistically
-    but not predicted precisely.
+scenario
+:   A collection of input files that describes a real-world example of a disease outbreak and
+    interventions. Scenarios are included with EMOD source installations to help users
+    learn more about epidemiology and disease modeling.
 
-stochastic die-out
-:   When an disease outbreak ends, despite having an effective $R_0$ above 1, due to
-    randomness. A *deterministic* model cannot estimate the probability of stochastic die-
-    out, but a stochastic model can.
-
-subpatent
-:   When an individual is infected but asymptomatic, so the infection is not readily detectable.
+schema
+:   A text or JSON file that can be generated from the EMOD executable (Eradication.exe) that defines all
+    configuration and campaign parameters.
 
 SEIR model
 :   A generic epidemiological model that provides a simplified means of describing the transmission
     of an infectious disease through individuals where those individuals can pass through the
-    following five states: susceptible, exposed, infectious, and recovered.
+    following four states: susceptible, exposed, infectious, and recovered.
 
 SEIRS model
 :   A generic epidemiological model that provides a simplified means of describing the transmission
@@ -418,7 +346,10 @@ SEIRS model
 SI model
 :   A generic epidemiological model that provides a simplified means of describing the transmission
     of an infectious disease through individuals where those individuals can pass through the
-    following five states: susceptible and infectious.
+    following two states: susceptible and infectious.
+
+simulation
+:   An execution of the EMOD software using an associated set of input files.
 
 simulation burn-in
 :   A modeling concept in which a simulation runs for a period of time before reaching a steady
@@ -426,66 +357,130 @@ simulation burn-in
     borrowed from the electronics industry where the first items produced by a manufacturing
     process are discarded.
 
+simulation type
+:   The disease or disease class to model.
+
+    EMOD currently supports the following simulation types for modeling a variety of diseases:
+
+    * Generic disease (GENERIC_SIM), which can be used for modeling a variety of diseases such as
+      influenza or measles
+    * Vector-borne diseases (VECTOR_SIM), which can be used for modeling vector-borne diseases such as
+      dengue
+    * Malaria (MALARIA_SIM), which adds features specific to malaria biology and treatment
+    * Sexually transmitted infections (STI_SIM), which adds features for sexual relationship
+      networks
+    * HIV (HIV_SIM), which adds features specific to HIV biology and treatment
+
 SIR model
 :   A generic epidemiological model that provides a simplified means of describing the transmission
     of an infectious disease through individuals where those individuals can pass through the
-    following five states: susceptible, infectious, and recovered.
+    following three states: susceptible, infectious, and recovered.
 
 SIRS model
 :   A generic epidemiological model that provides a simplified means of describing the transmission
     of an infectious disease through individuals where those individuals can pass through the
-    following five states: susceptible, infectious, recovered, and susceptible.
+    following four states: susceptible, infectious, recovered, and susceptible.
 
 SIS model
 :   A generic epidemiological model that provides a simplified means of describing the transmission
     of an infectious disease through individuals where those individuals can pass through the
-    following five states: susceptible, infectious, and susceptible.
+    following three states: susceptible, infectious, and susceptible.
+
+solvers
+:   Solvers are used to find computational solutions to problems. In simulations, they can be used,
+    for example, to determine the time of the next simulation step, or to compute the states of
+    a model at particular time steps.
+
+Standard Template Library (STL)
+:   A library that contains a set of common C++ classes (including generic algorithms and data
+    structures) that are independent of container and implemented as templates, which enables
+    compile-time polymorphism (often more efficient than run-time polymorphism). For more
+    information and discussion of STL, see [Wikipedia - Standard Template Library](https://en.wikipedia.org/wiki/Standard_Template_Library)
+    for more information.
+
+state transition event
+:   A change in state (e.g. healthy to infected, undiagnosed to positive diagnosis, or birth)
+    that may trigger a subsequent action, often an intervention. Campaign events should not be
+    confused with state transition events.
+
+stochastic
+:   Characterized by having a random probability distribution that may be analyzed statistically
+    but not predicted precisely.
+
+stochastic die-out
+:   When an disease outbreak ends, despite having an effective $R_0$ above 1, due to
+    randomness. A deterministic model cannot estimate the probability of stochastic die-out,
+    but a stochastic model can.
+
+subpatent
+:   When an individual is infected but asymptomatic, so the infection is not readily detectable.
 
 superinfection
 :   The simultaneous infection with multiple strains of the same pathogen.
 
 supplemental immunization activity (SIA)
-:   In contrast to *routine immunization (RI)*, SIAs are large-scale operations with a
+:   In contrast to routine immunization (RI), SIAs are large-scale operations with a
     goal of delivering vaccines to every household.
 
 susceptible
-:   Individual who is able to become infected.
+:   An individual who is able to become infected.
 
 transmissibility ($\beta$)
 :   Also known as the effective contact rate, is the product of the contact rate and the
     probability of transmission per contact.
-
-virulence
-:   The capacity of a pathogen to produce disease. It is proportional to parasitemia, or the
-    number of circulating copies of the pathogen in the host. The higher the virulence (given
-    contact between S and I individuals), the more likely transmission is to occur. However,
-    higher virulence means contact may be less likely as infected hosts show more symptoms of
-    the disease. There is a trade-off that occurs between high transmissibility and disease-
-    induced mortality.
-
-WAIFW matrix
-:   A matrix of values that describes the rate of transmission between different population
-    groups. WAIFW is an abbreviation for Who Acquires Infection From Whom.
-
-Weibull distribution
-:   A probability distribution often used in EMOD and that requires both a shape parameter
-    and a scale parameter. The shape parameter governs the shape of the density function. When
-    the shape parameter is equal to 1, it is an exponential distribution. For shape parameters
-    above 1, it forms a unimodal (hump-shaped) density function. As the shape parameter becomes
-    large, the function forms a sharp peak. The inverse of the shape parameter is sometimes
-    referred to here as the “heterogeneity” of the distribution (heterogeneity = 1/shape),
-    because it can be helpful to think about the degree of heterogeneity of draws from the
-    distribution, especially for hump-shaped functions with heterogeneity values between 0 and 1
-    (i.e., shape parameters greater than 1). The scale parameter shifts the distribution from
-    left to right. When heterogeneity is small (i.e., the shape parameter is large), the scale
-    parameter sets the location of the sharp peak.
 
 transmission-blocking vaccine (TBV)
 :   A vaccine that blocks gametocytes from infected humans by producing viable sporozoites in
     mosquitoes. Also referred to as a "sexual-stage" vaccine, since vaccines in this class block
     gametocytes from infected humans by producing viable sporozoites in mosquitoes.
 
+time step
+:   A discrete number of hours or days in which the "simulation states" of all "simulation
+    objects" (interventions, infections, immune systems, or individuals) are updated in a
+    simulation. Each time step will complete processing before launching the next one. For
+    example, a time step would process the migration data for populations moving between nodes
+    via rail, airline, and road. The migration of individuals between nodes is the last step of
+    the time step after updating states.
+
+tutorial
+:   A set of instructions in the documentation to learn more about epidemiology and
+    disease modeling. Tutorials are based on real-world scenarios and demonstrate the mechanics
+    of the the model. Each tutorial consists of one or more scenarios.
+
 vaccine intervention types
-:   In EMOD, vaccine intervention types are either "AcquisitionBlocking",
-    "TransmissionBlocking" or "MortalityBlocking". For example, "mode-of-action", "targeted
-    parasite stages", (such as pre-erythrocytic, asexual, or sexual), etc.
+:   In EMOD, vaccine interventions are one of four types:
+
+    * AcquisitionBlocking: reduces the acquisition of the pathogen by reducing the force of infection
+      experienced by the vaccinated individual.
+    * MortalityBlocking: reduces the disease-mortality rate of a vaccinated individual.
+    * TransmissionBlocking: reduces pathogen transmission.
+    * Generic: reduces transmission, acquisition, and mortality.
+
+virulence
+:   The capacity of a pathogen to produce disease. It is proportional to parasitemia, or the
+    number of circulating copies of the pathogen in the host. The higher the virulence (given
+    contact between susceptible and infectious individuals), the more likely transmission is to occur. However,
+    higher virulence means contact may be less likely as infected hosts show more symptoms of
+    the disease. There is a trade-off that occurs between high transmissibility and disease-induced
+    mortality.
+
+WAIFW matrix
+:   A matrix of values that describes the rate of transmission between different population
+    groups. WAIFW is an abbreviation for Who Acquires Infection From Whom.
+
+Weibull distribution
+:   A probability distribution often used in EMOD that requires both a shape parameter
+    and a scale parameter. The shape parameter governs the shape of the density function. When
+    the shape parameter is equal to 1, it is an exponential distribution. For shape parameters
+    above 1, it forms a unimodal (hump-shaped) density function. As the shape parameter becomes
+    large, the function forms a sharp peak. The inverse of the shape parameter is sometimes
+    referred to here as the *heterogeneity* of the distribution (heterogeneity = 1/shape),
+    because it can be helpful to think about the degree of heterogeneity of draws from the
+    distribution, especially for hump-shaped functions with heterogeneity values between 0 and 1
+    (i.e., shape parameters greater than 1). The scale parameter shifts the distribution from
+    left to right. When heterogeneity is small (i.e., the shape parameter is large), the scale
+    parameter sets the location of the sharp peak.
+
+working directory
+:   The directory that contains the configuration and campaign files for a simulation. You must
+    be in this directory when you invoke Eradication.exe at the command line to run a simulation.
