@@ -17,20 +17,20 @@ Notes and tips for this intervention:
 *  This is a node-level intervention and is not serialized. If interventions were distributed prior to
    serialization, in order to have those interventions continue after starting from the serialized file, they
    must be added to the new campaign file.
-*  This can be used to distribute other node-level interventions. For example, it can be used to
-   distribute **SpaceSpraying** to the node when someone becomes infected (e.g., by listening for
-   **NewInfectionEvent** or an event from a diagnostic).
+*  This can be used to distribute other node-level interventions. For example, if doing house-level modeling
+   (houses as nodes), when someone becomes infected, you could distribute the **MigrateFamily** intervention
+   to have the whole family go to the health care node.
 *  A powerful feature of this intervention is that it can target specific groups of individuals who
    broadcast the event. Individuals, and subgroups of individuals, can be targeted by age, gender, and Individual Property.
 *  Note that when distributing a node-level intervention parameters associated with targeting an
    individual (such as **Target_Demographic**, **Target_Gender**, **Property_Restriction_Within_Node**,
    etc.) do not apply.
-*  **Blackout_Period** is a feature that can be useful when monitoring an event from the individual
-   in a node. It enables reaction to some individuals experiencing an event but ignoring subsequent
-   events for a period of time. For example, **SpaceSpraying** could be distributed to the node on the
-   first occurrence of **NewInfectionEvent**, but after spraying has occurred all other infection events
-   can be ignored for a specific period of time. Without **Blackout_Period**, each infection event
-   would trigger another round of spraying.
+*  **Blackout_Period** is a feature that can be useful when monitoring an event from the individual in a node.
+   It enables reaction to some individuals experiencing an event but ignoring subsequent events for a period of time.
+   For example, assume you are doing household-level modeling (houses as nodes) and that when someone in the house gets
+   infected, you want the family in the house to go to the health care node. If one person gets infected and not everyone is
+   at home, then the family will wait to travel until everyone is home. You use **Blackout_Period** to ignore other people
+   getting infected while they are waiting so that the family doesn't try to travel multiple times.
 *  The **Distribute_On_Return_Home** feature causes **NodeLevelHealthTriggeredIV** to keep track of
    residents when they leave the node and then return. If a person leaves the node and an intervention
    is distributed while the person is gone, **NodeLevelHealthTriggeredIV** gives the person the
