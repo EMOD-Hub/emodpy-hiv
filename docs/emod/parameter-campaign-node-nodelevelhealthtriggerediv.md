@@ -17,9 +17,9 @@ Notes and tips for this intervention:
 *  This is a node-level intervention and is not serialized. If interventions were distributed prior to
    serialization, in order to have those interventions continue after starting from the serialized file, they
    must be added to the new campaign file.
-*  This can be used to distribute other node-level interventions. For example, if doing house-level modeling
-   (houses as nodes), when someone becomes infected, you could distribute the **MigrateFamily** intervention
-   to have the whole family go to the health care node.
+*  This can be used to distribute other node-level interventions. For example, it can be used to
+   distribute **SpaceSpraying** to the node when someone becomes infected (e.g., by listening for
+   **NewInfectionEvent** or an event from a diagnostic).
 *  A powerful feature of this intervention is that it can target specific groups of individuals who
    broadcast the event. Individuals, and subgroups of individuals, can be targeted by age, gender, and Individual Property.
 *  Note that when distributing a node-level intervention parameters associated with targeting an
