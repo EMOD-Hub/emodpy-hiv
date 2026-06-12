@@ -161,8 +161,7 @@ class TestReportersHIV(BaseSimTest):
                                               demographics_builder=self.demographics_builder)
 
         self.task.set_sif(self.sif_path, platform=self.platform)
-        self.task.config.parameters.Custom_Coordinator_Events = self.event_list
-        self.task.config.parameters.Custom_Node_Events = self.event_list
+
 
         experiment = Experiment.from_task(task=self.task,
                                           name=self.case_name)

@@ -5971,21 +5971,18 @@
             }
         ],
         "NodeAttributes": {
-            "Airport": 1,
             "Altitude": 0,
             "BirthRate": 0,
             "FacilityName": "default_node",
             "InitialPopulation": 0,
             "Latitude": 0,
-            "Longitude": 0,
-            "Region": 1,
-            "Seaport": 1
+            "Longitude": 0
         },
         "NodeID": 0
     },
     "Metadata": {
-        "Author": "danbr",
-        "DateCreated": "05/29/2025",
+        "Author": "stitova",
+        "DateCreated": "06/11/2026",
         "IdReference": "EMOD-HIV world",
         "NodeCount": 10,
         "Tool": "emod-api"

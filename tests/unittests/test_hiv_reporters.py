@@ -117,8 +117,9 @@ class TestReportersHIV(unittest.TestCase):
         self.node_ids = [1241, 2342, 485]
         self.age_bins = [0, 5.6, 34, 70.1, 99]
 
-    def create_final_task(self, reporters, builtin=False):
+    def create_final_task(self, reporters, builtin=False, config_builder=None):
         task = EMODTask.from_defaults(schema_path=self.schema_path,
+                                         config_builder=config_builder,
                                          report_builder=reporters)
         if task.reporters.builtin_reporters:
             task.config.parameters.Custom_Reports_Filename = "custom_reports.json"
@@ -367,7 +368,12 @@ class TestReportersHIV(unittest.TestCase):
                                                                          must_have_intervention=self.must_have_intervention)))
             return reporters
 
-        task = self.create_final_task(build_reports)
+        def set_custom_events(config):
+            config.parameters.Custom_Individual_Events = list(self.event_list)
+            config.parameters.Custom_Node_Events = list(self.event_list)
+            return config
+
+        task = self.create_final_task(build_reports, config_builder=set_custom_events)
         # verifying that the settings made it to the config
         self.assertEqual(task.config.parameters.Report_Event_Recorder_Individual_Properties, self.individual_properties)
         self.assertEqual(task.config.parameters.Report_Event_Recorder_PropertyChange_IP_Key_Of_Interest,

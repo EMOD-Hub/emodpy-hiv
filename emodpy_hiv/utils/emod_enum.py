@@ -1,5 +1,5 @@
 from emodpy.utils.emod_enum import StrEnum, DistributionType, NodeSelectionType, VaccineType, SensitivityType, \
-    EventOrConfig, SettingType
+    EventOrConfig, SettingType, BirthRateDependence
 
 
 class PrioritizePartnersBy(StrEnum):

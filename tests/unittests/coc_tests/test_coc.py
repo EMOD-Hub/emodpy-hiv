@@ -91,7 +91,7 @@ class TestAddStateFunctions(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.camp = camp
-        cls.camp.schema_path = manifest.schema_path
+        cls.camp.set_schema(manifest.schema_path)
         cls.camp.base_year = 1960.5
         cls.art_cascade_start_year = 1990
         cls.output_dir = output_folder
@@ -100,7 +100,7 @@ class TestAddStateFunctions(unittest.TestCase):
             os.makedirs(cls.output_dir)
 
     def setUp(self):
-        self.camp.reset()
+        self.camp.set_schema(manifest.schema_path)
         self.output_filename = None
         print(f"running test: {self._testMethodName}:")
 

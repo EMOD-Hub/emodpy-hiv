@@ -118,7 +118,13 @@ class TestCommonReportersHIV(unittest.TestCase):
         self.age_bins = [0, 5.6, 34, 70.1, 99]
 
     def create_final_task(self, reporters, builtin=False):
+        def build_config(config):
+            config.parameters.Custom_Individual_Events = ["Dax", "Picard"]
+            config.parameters.Custom_Coordinator_Events = self.event_list
+            config.parameters.Custom_Node_Events = self.event_list
+            return config
         task = EMODTask.from_defaults(schema_path=self.schema_path,
+                                      config_builder=build_config,
                                          report_builder=reporters)
         if task.reporters.builtin_reporters:
             task.config.parameters.Custom_Reports_Filename = "custom_reports.json"

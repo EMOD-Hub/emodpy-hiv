@@ -23,6 +23,8 @@ from emodpy.campaign.distributor import add_intervention_scheduled
 # the specified year when the simulation starts to listen to the event instead of start_day.
 from emodpy.campaign.distributor import add_intervention_triggered
 
+from emodpy.campaign.distributor import add_community_health_worker
+
 
 def add_intervention_nchooser_df(campaign: api_campaign,
                                  intervention_list: list[IndividualIntervention],
@@ -445,7 +447,7 @@ def add_intervention_reference_tracking(campaign: api_campaign,
 
 # __all_exports: A list of classes that are intended to be exported from this module.
 __all_exports = [add_intervention_scheduled, add_intervention_triggered, _add_intervention_nchooser,
-                 add_intervention_nchooser_df, add_intervention_reference_tracking]
+                 add_intervention_nchooser_df, add_intervention_reference_tracking, add_community_health_worker]
 
 # The following loop sets the __module__ attribute of each class in __all_exports to the name of the current module.
 # This is done to ensure that when these classes are imported from this module, their __module__ attribute correctly
