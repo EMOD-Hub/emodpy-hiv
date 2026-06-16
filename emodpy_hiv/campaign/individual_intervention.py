@@ -25,7 +25,7 @@ from emodpy_hiv.utils.emod_enum import (SensitivityType, SettingType, Relationsh
                                         CondomUsageParametersType)
 from emodpy_hiv.utils.distributions import BaseDistribution
 from emodpy_hiv.campaign.common import ValueMap, CommonInterventionParameters
-from emodpy_hiv.campaign.waning_config import AbstractWaningConfig
+from emodpy_hiv.campaign.waning_config import AbstractWaningConfig  # noqa: F401
 from emod_api import campaign as api_campaign
 
 from typing import Union
