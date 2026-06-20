@@ -10,16 +10,15 @@ class CondomUsageParameters(Updateable):
                  max: float = 0,
                  rate: float = 0):
         """
-            Parameterizes condom usage over time, a component of EMOD relationship parameters.
+        Parameterizes condom usage over time, a component of EMOD relationship parameters.
+        See additional documentation on [Condom Usage](https://emod.idmod.org/emodpy-hiv/emod/sti-model-relationships/#condom-usage)
+        and [Relationship Parameters](https://emod.idmod.org/emodpy-hiv/emod/parameter-demographics/#relationship_parameters).
 
-            https://emod.idmod.org/emodpy-hiv/emod/sti-model-relationships.html#condom-usage
-            https://emod.idmod.org/emodpy-hiv/emod/parameter-demographics.html#relationship-parameters
-
-            Args:
-                min: minimum condom usage probability (pre-inflection point)
-                mid: inflection point in condom usage (a year)
-                max: maximum condom usage probability (post-inflection point)
-                rate: slope of condom usage at inflection point
+        Args:
+            min (float): minimum condom usage probability (pre-inflection point)
+            mid (float): inflection point in condom usage (a year)
+            max (float): maximum condom usage probability (post-inflection point)
+            rate (float): slope of condom usage at inflection point
         """
         super().__init__()
         self.min = min

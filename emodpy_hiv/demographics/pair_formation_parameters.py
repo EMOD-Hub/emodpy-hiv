@@ -20,21 +20,26 @@ class PairFormationParameters(Updateable):
                  Years_Between_Bin_Edges_Male: float = None,
                  Joint_Probabilities: List[List[float]] = None):
         """
-        https://emod.idmod.org/emodpy-hiv/emod/parameter-demographics.html#pair-formation-parameters
+        PairFormationParameters defines the rate at which new relationships are formed and partnership
+        preference using the main pair forming algorithm that finds potential partners based on their
+        age and the Joint_Probabilities matrix.
 
         Args:
-            Assortivity:
-            Formation_Rate_Constant:
-            Age_of_First_Bin_Edge_Female:
-            Age_of_First_Bin_Edge_Male:
-            Extra_Relational_Rate_Ratio_Female:
-            Extra_Relational_Rate_Ratio_Male:
-            Number_Age_Bins_Female:
-            Number_Age_Bins_Male:
-            Update_Period:
-            Years_Between_Bin_Edges_Female:
-            Years_Between_Bin_Edges_Male:
-            Joint_Probabilities:
+            Assortivity (AssortivityClass): Defines how people will preferentially form pairs based on their membership in different groups.
+            Formation_Rate_Constant (float): If Formation_Rate_Type is set to CONSTANT, the number of new relationships per day for this relationship type.
+            Age_of_First_Bin_Edge_Female (int): The maximum age for the first age bin when dividing the female population into age bins for pair formation.
+            Age_of_First_Bin_Edge_Male (int): The maximum age for the first age bin when dividing the male population into age bins for pair formation.
+            Extra_Relational_Rate_Ratio_Female (int): For women, the rate ratio for having extra-relational sex for this relationship type,
+                where the ratio is the event over the period of time defined in Update_Period.
+            Extra_Relational_Rate_Ratio_Male (int): For males, the rate ratio for having extra-relational sex for this relationship type,
+                where the ratio is the event over the period of time defined in Update_Period.
+            Number_Age_Bins_Female (int): The number of age bins to divide the female population into for pair formation.
+            Number_Age_Bins_Male (int): The number of age bins to divide the male population into for pair formation.
+            Update_Period (float): The period, in days, to wait before an individual is eligible to seek out new relationships.
+            Years_Between_Bin_Edges_Female (float): For the female population, the number of years covered in each age bin.
+            Years_Between_Bin_Edges_Male (float): For the male population, the number of years covered in each age bin.
+            Joint_Probabilities (List[List[float]]): The relative preference of members of one age bin to form relationships
+                with members of another age bin. The columns represent female bins and rows represent male bins.
         """
         super().__init__()
         self.Assortivity = Assortivity if Assortivity is not None else AssortivityClass()

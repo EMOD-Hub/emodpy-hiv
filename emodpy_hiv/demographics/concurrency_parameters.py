@@ -13,15 +13,13 @@ class ConcurrencyParameters(Updateable):
         A ConcurrencyParameters object represents the likelihood and maximum count of additional concurrent
         relationships for males and females in a simulation. One ConcurrencyParameters object typically is created
         per relationship type and risk group (e.g. one for Commercial HIGH risk relationships, one for
-        Transitory MED risk relationships, etc.).
-
-        https://emod.idmod.org/emodpy-hiv/emod/parameter-demographics.html#concurrency-parameters
+        Transitory MED risk relationships, etc.). See additional documentation [here](https://emod.idmod.org/emodpy-hiv/emod/parameter-demographics/#concurrency_parameters).
 
         Args:
-            probability_extra_relationship_male: the probability of having extra relationships for males
-            probability_extra_relationship_female: the probability of extra relationships for females
-            max_simultaneous_relationships_male: the maximum simultaneous relationships for males
-            max_simultaneous_relationships_female: the maximum simultaneous relationships for females
+            probability_extra_relationship_male (float): the probability of having extra relationships for males
+            probability_extra_relationship_female (float): the probability of extra relationships for females
+            max_simultaneous_relationships_male (float): the maximum simultaneous relationships for males
+            max_simultaneous_relationships_female (float): the maximum simultaneous relationships for females
         """
         super().__init__()
         self.probability_extra_relationship_male = probability_extra_relationship_male

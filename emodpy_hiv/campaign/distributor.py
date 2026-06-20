@@ -44,7 +44,7 @@ def add_intervention_nchooser_df(campaign: api_campaign,
     'N' is assumed to be a number that is for the non-scaled population. This means you can make it the number actually
     used in the real world. The 'N' values entered will be multiplied by the config parameter `x_Base_Population`.
 
-    For example:
+    For example,
         - If you wanted to model how the real world distributed 2,000 male circumcisions in 1990 when the total
           population was 400,000, and your demographic parameters are configured such that EMOD has about 400,000 people
           in 1990, you would distribute 2,000 male circumcisions.
@@ -57,17 +57,17 @@ def add_intervention_nchooser_df(campaign: api_campaign,
 
     NChooser will also spread out the number of interventions being distributed over the entire time period.
 
-    For example:
+    For example,
         - Let's assume that you are trying to distribute MaleCircumcision to 9 men over five update periods. NChooser
           will give out two interventions the first four update periods and one during the last update period.
 
     # DataFrame Requirements:
 
-    This function takes in a DataFrame containing the distribution data:
+    This function takes in a DataFrame containing the distribution data
         - Required columns: `year`, `min_age`, `max_age`
         - At least one of the following columns is required: `num_targeted`, `num_targeted_female`, `num_targeted_male`
 
-    The data in the DataFrame is used to create a list of `NChooserTargetedDistributionHIV` objects specifying:
+    The data in the DataFrame is used to create a list of `NChooserTargetedDistributionHIV` objects specifying
         - When: with the `year` data
         - To whom: with the `min_age` and `max_age` data
         - How many interventions are distributed: with the `num_targeted` data, or the `num_targeted_female` for female
@@ -113,55 +113,53 @@ def add_intervention_nchooser_df(campaign: api_campaign,
             - Default value: None.
 
     Returns:
-            None: This function does not return anything. It modifies the campaign object in place.
+        None: This function does not return anything. It modifies the campaign object in place.
 
     Examples:
         Example 1: This example demonstrates how to distribute a MaleCircumcision intervention to male individuals
         who are HIV positive and do not have the intervention already. The intervention is distributed based on the
         distribution data provided in a DataFrame.
-
-        >>> import emod_api
-        >>> from emodpy_hiv.campaign.distributor import add_intervention_nchooser_df
-        >>> from emodpy_hiv.campaign.individual_intervention import MaleCircumcision
-        >>> from emodpy_hiv.campaign.common import CommonInterventionParameters as CIP
-        >>> from emodpy_hiv.utils.emod_enum import TargetDiseaseState
-        >>> import pandas as pd
-        >>>
-        >>> campaign_obj = emod_api.campaign
-        >>> campaign_obj.schema_path = 'path_to_schema'
-        >>> # Initialize a MaleCircumcision intervention with intervention_name: 'MaleCircumcision'
-        >>> intervention_name='MaleCircumcision'
-        >>> mc = MaleCircumcision(campaign_obj, common_intervention_parameters=CIP(intervention_name=intervention_name)
-        >>> # Create a DataFrame with the distribution data: year, min_age, max_age, num_targeted_male
-        >>> # The intervention will be distributed to MALE individuals with the following values:
-        >>> #    for the year 2010, age ranges: [1, 14.999), [15, 49.999), the number of targeted MALE individuals are: [200, 1300].
-        >>> #    for the year 2011, age ranges: [1, 14.999), [15, 49.999), the number of targeted MALE individuals are: [290, 1490].
-        >>> data = {'year': [2010, 2010, 2011, 2011],
-        >>>         'min_age': [1, 15, 1, 15],
-        >>>         'max_age': [14.999, 49.999, 14.999, 49.999],
-        >>>         'num_targeted_male': [200, 1300, 290, 1490]}
-        >>> distributions_df = pd.DataFrame.from_dict(data)
-        >>> # Distribute the MaleCircumcision intervention to the campaign with the distribution data. The targeted
-        >>> # individuals should be male, HIV negative and don't have an intervention called 'MaleCircumcision' already.
-        >>> add_intervention_nchooser_df(campaign_obj,
-        >>>                              intervention_list=[mc],
-        >>>                              target_disease_state=[[TargetDiseaseState.HIV_POSITIVE, TargetDiseaseState.NOT_HAVE_INTERVENTION]],
-        >>>                              target_disease_state_has_intervention_name=intervention_name,
-        >>>                              distribution_df=distributions_df)
-
+        ```
+        import emod_api
+        from emodpy_hiv.campaign.distributor import add_intervention_nchooser_df
+        from emodpy_hiv.campaign.individual_intervention import MaleCircumcision
+        from emodpy_hiv.campaign.common import CommonInterventionParameters as CIP
+        from emodpy_hiv.utils.emod_enum import TargetDiseaseState
+        import pandas as pd
+        
+        campaign_obj = emod_api.campaign
+        campaign_obj.schema_path = 'path_to_schema'
+        # Initialize a MaleCircumcision intervention with intervention_name: 'MaleCircumcision'
+        intervention_name='MaleCircumcision'
+        mc = MaleCircumcision(campaign_obj, common_intervention_parameters=CIP(intervention_name=intervention_name)
+        # Create a DataFrame with the distribution data: year, min_age, max_age, num_targeted_male
+        # The intervention will be distributed to MALE individuals with the following values:
+        #    for the year 2010, age ranges: [1, 14.999), [15, 49.999), the number of targeted MALE individuals are: [200, 1300].
+        #    for the year 2011, age ranges: [1, 14.999), [15, 49.999), the number of targeted MALE individuals are: [290, 1490].
+        data = {'year': [2010, 2010, 2011, 2011],
+                'min_age': [1, 15, 1, 15],
+                'max_age': [14.999, 49.999, 14.999, 49.999],
+                'num_targeted_male': [200, 1300, 290, 1490]}
+        distributions_df = pd.DataFrame.from_dict(data)
+        # Distribute the MaleCircumcision intervention to the campaign with the distribution data. The targeted
+        # individuals should be male, HIV negative and don't have an intervention called 'MaleCircumcision' already.
+        add_intervention_nchooser_df(campaign_obj,
+                                     intervention_list=[mc],
+                                     target_disease_state=[[TargetDiseaseState.HIV_POSITIVE, TargetDiseaseState.NOT_HAVE_INTERVENTION]],
+                                     target_disease_state_has_intervention_name=intervention_name,
+                                     distribution_df=distributions_df)
+        ```
         Example 2: This example demonstrates the usage of "And" and "Or" relationship in the target_disease_state parameter.
         With the following target_disease_state parameter, the MaleCircumcision intervention will be distributed to
         individuals who don't have the intervention already and are either HIV positive or tested positive.
-
-        >>> add_intervention_nchooser_df(campaign_obj,
-        >>>                              intervention_list=[mc],
-        >>>                              target_disease_state=[[TargetDiseaseState.HIV_POSITIVE, TargetDiseaseState.NOT_HAVE_INTERVENTION],
-        >>>                                                   [TargetDiseaseState.TESTED_POSITIVE, TargetDiseaseState.NOT_HAVE_INTERVENTION]],
-        >>>                              target_disease_state_has_intervention_name=intervention_name,
-        >>>                              distribution_df=distributions_df)
-
-    Raises:
-
+        ```
+        add_intervention_nchooser_df(campaign_obj,
+                                     intervention_list=[mc],
+                                     target_disease_state=[[TargetDiseaseState.HIV_POSITIVE, TargetDiseaseState.NOT_HAVE_INTERVENTION],
+                                                           [TargetDiseaseState.TESTED_POSITIVE, TargetDiseaseState.NOT_HAVE_INTERVENTION]],
+                                     target_disease_state_has_intervention_name=intervention_name,
+                                     distribution_df=distributions_df)
+        ```
     """
     # These are the columns that are expected in the distribution dataframe
     required_columns = {'year', 'min_age', 'max_age'}
@@ -240,8 +238,7 @@ def _add_intervention_nchooser(campaign: api_campaign,
     This function takes in a list of NChooserTargetedDistributionHIV object specifying when, to whom, and how many
     interventions are distributed.
 
-    Please refer to the Emod documentation for NChooserEventCoordinatorHIV at the following link:
-    :doc:`emod-hiv:parameter-campaign-event-nchoosereventcoordinatorhiv`
+    Please refer to the Emod documentation for [NChooserEventCoordinatorHIV](https://emod.idmod.org/emodpy-hiv/emod/parameter-campaign-event-nchoosereventcoordinatorhiv/)
 
     Args:
         campaign (api_campaign, required):
@@ -267,20 +264,22 @@ def _add_intervention_nchooser(campaign: api_campaign,
         None: This function does not return anything. It modifies the campaign object in place.
 
     Examples:
-        >>> from emodpy_hiv.campaign.common import NChooserTargetedDistributionHIV
-        >>> from emod_api import campaign as api_campaign
-        >>> from emodpy_hiv.campaign.individual_intervention import MaleCircumcision
-        >>> from emodpy_hiv.campaign.distributor import _add_intervention_nchooser
-        >>>
-        >>> api_campaign.set_schema('path_to_schema')
-        >>> intervention_config = MaleCircumcision(api_campaign)
-        >>> distribution_1 = NChooserTargetedDistributionHIV( ...)
-        >>> distribution_2 = NChooserTargetedDistributionHIV( ...)
-        >>> _add_intervention_nchooser(api_campaign,
-        >>>                           intervention_list=[intervention_config],
-        >>>                           targeted_distributions=[distribution_1, distribution_2],
-        >>>                           start_year=1990,
-        >>>                           node_ids=[1, 2, 3])
+        ```
+        from emodpy_hiv.campaign.common import NChooserTargetedDistributionHIV
+        from emod_api import campaign as api_campaign
+        from emodpy_hiv.campaign.individual_intervention import MaleCircumcision
+        from emodpy_hiv.campaign.distributor import _add_intervention_nchooser
+        
+        api_campaign.set_schema('path_to_schema')
+        intervention_config = MaleCircumcision(api_campaign)
+        distribution_1 = NChooserTargetedDistributionHIV( ...)
+        distribution_2 = NChooserTargetedDistributionHIV( ...)
+        _add_intervention_nchooser(api_campaign,
+                                   intervention_list=[intervention_config],
+                                   targeted_distributions=[distribution_1, distribution_2],
+                                   start_year=1990,
+                                   node_ids=[1, 2, 3])
+        ```
     """
     # Create a NChooserEventCoordinatorHIV with the intervention
     coordinator = NChooserEventCoordinatorHIV(campaign, intervention_list=intervention_list,
@@ -384,30 +383,32 @@ def add_intervention_reference_tracking(campaign: api_campaign,
         Please note that you don't need to specify the negative of what you want to track(~IsCircumcised()) in the
         targeting_config. See more details in the targeting_config argument description.
 
-        >>> import emod_api
-        >>> from emodpy_hiv.campaign.distributor import add_intervention_reference_tracking
-        >>> from emodpy_hiv.campaign.individual_intervention import MaleCircumcision
-        >>> from emodpy_hiv.campaign.common import (ValueMap, TargetGender, CommonInterventionParameters as CIP,
-        >>>                                        TargetDemographicsConfig as TDC)
-        >>> from emodpy_hiv.utils.targeting_config import IsCircumcised, HasIP
-        >>>
-        >>> campaign_obj = emod_api.campaign
-        >>> campaign_obj.schema_path = 'path_to_schema'
-        >>> mc = MaleCircumcision(campaign_obj,
-        >>>                       distributed_event_trigger='VMMC_1')
-        >>> time_value_map = ValueMap(times=[1960,  1961,   1962,   1963,   1964],
-        >>>                          values=[0.25,  0.375,  0.4,    0.4375, 0.46875])
-        >>> targeting_config = HasIP(ip_key_value="Risk:MEDIUM")
-        >>> tracking_config = IsCircumcised()
-        >>> add_intervention_reference_tracking(campaign_obj,
-        >>>                                     intervention_list=[mc],
-        >>>                                     time_value_map=time_value_map,
-        >>>                                     tracking_config=tracking_config,
-        >>>                                     targeting_config=targeting_config,
-        >>>                                     start_year=1960,
-        >>>                                     end_year=1965,
-        >>>                                     update_period=182,
-        >>>                                     target_demographics_config=TDC(target_gender=TargetGender.MALE))
+        ```
+        import emod_api
+        from emodpy_hiv.campaign.distributor import add_intervention_reference_tracking
+        from emodpy_hiv.campaign.individual_intervention import MaleCircumcision
+        from emodpy_hiv.campaign.common import (ValueMap, TargetGender, CommonInterventionParameters as CIP,
+                                                TargetDemographicsConfig as TDC)
+        from emodpy_hiv.utils.targeting_config import IsCircumcised, HasIP
+        
+        campaign_obj = emod_api.campaign
+        campaign_obj.schema_path = 'path_to_schema'
+        mc = MaleCircumcision(campaign_obj,
+                              distributed_event_trigger='VMMC_1')
+        time_value_map = ValueMap(times=[1960,  1961,   1962,   1963,   1964],
+                                 values=[0.25,  0.375,  0.4,    0.4375, 0.46875])
+        targeting_config = HasIP(ip_key_value="Risk:MEDIUM")
+        tracking_config = IsCircumcised()
+        add_intervention_reference_tracking(campaign_obj,
+                                            intervention_list=[mc],
+                                            time_value_map=time_value_map,
+                                            tracking_config=tracking_config,
+                                            targeting_config=targeting_config,
+                                            start_year=1960,
+                                            end_year=1965,
+                                            update_period=182,
+                                            target_demographics_config=TDC(target_gender=TargetGender.MALE))
+        ```
     """
     if not isinstance(time_value_map, ValueMap):
         raise ValueError("The time_value_map should be an instance of the ValueMap class.")

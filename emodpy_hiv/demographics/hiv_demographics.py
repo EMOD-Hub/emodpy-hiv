@@ -1,7 +1,7 @@
 """
 This module contains the classes and functions for creating demographics files
-for HIV simulations. For more information on |EMOD_s| demographics files,
-see :doc:`emod-hiv:emod/software-demographics`.
+for HIV simulations. For more information on EMOD demographics files,
+see [Demographics file](https://emod.idmod.org/emodpy-hiv/emod/parameter-demographics/).
 """
 import pandas as pd
 
@@ -22,12 +22,12 @@ from emodpy_hiv.demographics.year_age_rate import YearAgeRate
 class HIVDemographics(Demographics):
     def __init__(self, nodes: List[HIVNode], default_society_template: str = None):
         """
-        This class is derived from :py:class:`emodpy:emodpy.demographics.demographics.Demographics` adding HIV-
+        This class is derived from `emodpy:emodpy.demographics.demographics.Demographics` adding HIV-
         specific features and sets certain defaults for HIV in construction.
 
         Args:
-            nodes: A list of (non-Default) HIVNode objects
-            default_society_template: society template name for loading initial society information. Will apply
+            nodes (List[HIVNode]): A list of (non-Default) HIVNode objects
+            default_society_template (str): society template name for loading initial society information. Will apply
                 to the Default node. Default society template is 'PFA-Southern-Africa'.
 
         Returns:
@@ -69,10 +69,10 @@ class HIVDemographics(Demographics):
                                    node_ids: List[int] = None) -> None:
         """
         Sets a fertility distribution on the demographics object. Automatically handles any necessary config updates.
+
         Args:
-            distribution: The distribution to set. Must be a FertilityDistribution object for a complex distribution.
-            node_ids: The node id(s) to apply changes to. None or 0 means the default node.
-        Returns:
+            distribution (FertilityDistribution): The distribution to set. Must be a FertilityDistribution object for a complex distribution.
+            node_ids (List[int]): The node id(s) to apply changes to. None or 0 means the default node.
         """
         from emod_api.demographics.implicit_functions import _set_fertility_age_year
         self._set_distribution(distribution=distribution,
@@ -92,30 +92,30 @@ class HIVDemographics(Demographics):
         Each agent updates their max values and their ability to have extra relationships when they change
         nodes/locations or change their Risk IP value.
 
-        Notes on maximums:
-            - A max relationships parameter can be set to 2+, but if probability of extra is zero, an agent will never
-              have more than one relationship of the given type.
-            - fractional max relationship parameters are probabilistically rounded up or down per agent. E.g., max
-              relationships of 2.3 implies agents have a (70%, 30%) chance of getting a maximum of (2, 3), respectively.
+        Notes on maximums
 
-        Note on probabilities:
-            - These probabilities apply to agents currently with at least ONE relationship of the given type seeking
-              an additional such relationship.
+        * A max relationships parameter can be set to 2+, but if probability of extra is zero, an agent will never
+        have more than one relationship of the given type.
+        * fractional max relationship parameters are probabilistically rounded up or down per agent. E.g., max
+        relationships of 2.3 implies agents have a (70%, 30%) chance of getting a maximum of (2, 3), respectively.
+
+        Note on probabilities
+
+        * These probabilities apply to agents currently with at least ONE relationship of the given type seeking
+        an additional such relationship.
 
         Args:
-            relationship_type: Relationship type to update: "COMMERCIAL", "MARITAL", "INFORMAL" or "TRANSITORY"
-            risk_group: risk group to set concurrency parameters for. "HIGH", "MEDIUM", or "LOW"
-            max_simul_rels_male: Sets the maximum simultaneous relationships of the given relationship_type for males
+            relationship_type (str): Relationship type to update: "COMMERCIAL", "MARITAL", "INFORMAL" or "TRANSITORY"
+            risk_group (str): risk group to set concurrency parameters for. "HIGH", "MEDIUM", or "LOW"
+            max_simul_rels_male (float): Sets the maximum simultaneous relationships of the given relationship_type for males
                 in the given risk_group.
-            max_simul_rels_female: Sets the maximum simultaneous relationships of the given relationship_type for
+            max_simul_rels_female (float): Sets the maximum simultaneous relationships of the given relationship_type for
                 females in the given risk_group.
-            prob_xtra_rel_male: The probability of a male receiving a flag that allows him to seek additional
+            prob_xtra_rel_male (float): The probability of a male receiving a flag that allows him to seek additional
                 relationships while currently in another relationship.
-            prob_xtra_rel_female: The probability of a female receiving a flag that allows her to seek additional
+            prob_xtra_rel_female (float): The probability of a female receiving a flag that allows her to seek additional
                 relationships while currently in another relationship.
-            node_ids: the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
-
-        Returns:
+            node_ids (List[int]): the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
         """
         for node in self.get_nodes_by_id(node_ids=node_ids).values():
             node.society.set_concurrency_parameters(relationship_type=relationship_type,
@@ -135,16 +135,14 @@ class HIVDemographics(Demographics):
         Only non-None values will be updated.
 
         Args:
-            relationship_type: Relationship type to update: "COMMERCIAL", "MARITAL", "INFORMAL" or "TRANSITORY"
-            assortivity_matrix: 3x3 row-major matrix of assortivity values, row represents male,
+            relationship_type (str): Relationship type to update: "COMMERCIAL", "MARITAL", "INFORMAL" or "TRANSITORY"
+            assortivity_matrix (List[List[float]]): 3x3 row-major matrix of assortivity values, row represents male,
                 column represents female. E.g. matrix[male_index, female_index]
                 This matrix defines the tendency for a man of a particular Risk group to select a woman based on her
                 Risk group (LOW/MEDIUM/HIGH male selecting LOW/MEDIUM/HIGH female -> 3x3 matrix).
-            formation_rate: The number of new relationships per day for this relationship type that an individual will
+            formation_rate (float): The number of new relationships per day for this relationship type that an individual will
                 start. This can be changed during a simulation via a RelationshipFormationRateChanger intervention.
-            node_ids: the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
-
-        Returns:
+            node_ids (List[int]): the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
         """
         assortivity = None if assortivity_matrix is None else Assortivity(matrix=assortivity_matrix)
         for node in self.get_nodes_by_id(node_ids=node_ids).values():
@@ -167,19 +165,17 @@ class HIVDemographics(Demographics):
         Only non-None values will be updated.
 
         Args:
-            relationship_type: Relationship type to update: "COMMERCIAL", "MARITAL", "INFORMAL" or "TRANSITORY"
-            coital_act_rate: Sets the per-day coital act rate for the specified relationship type. This can be changed
+            relationship_type (str): Relationship type to update: "COMMERCIAL", "MARITAL", "INFORMAL" or "TRANSITORY"
+            coital_act_rate (float): Sets the per-day coital act rate for the specified relationship type. This can be changed
                 during a simulation via a CoitalActRateChanger intervention.
-            condom_usage_min: minimum condom usage probability (pre-inflection point). All four of these condom usage
+            condom_usage_min (float): minimum condom usage probability (pre-inflection point). All four of these condom usage
                 parameters can be changed during a simulation via a CondomUsageProbabilityChanger intervention.
-            condom_usage_mid: inflection point in condom usage (a year)
-            condom_usage_max: maximum condom usage probability (post-inflection point)
-            condom_usage_rate: slope of condom usage at inflection point
-            duration_scale: weibull distributed relationship duration value (Lambda)
-            duration_heterogeneity: weibull distributed relationship heterogeneity value (1/Kappa)
-            node_ids: the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
-
-        Returns:
+            condom_usage_mid (float): inflection point in condom usage (a year)
+            condom_usage_max (float): maximum condom usage probability (post-inflection point)
+            condom_usage_rate (float): slope of condom usage at inflection point
+            duration_scale (float): weibull distributed relationship duration value (Lambda)
+            duration_heterogeneity (float): weibull distributed relationship heterogeneity value (1/Kappa)
+            node_ids (List[int]): the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
         """
         for node in self.get_nodes_by_id(node_ids=node_ids).values():
             node.society.set_relationship_parameters(relationship_type=relationship_type,
@@ -207,12 +203,9 @@ class HIVDemographics(Demographics):
         Adds the Risk individual property with specified initial distribution to the specified node(s).
 
         Args:
-            distribution: a list of three floats that sum to 1 corresponding to distribution of Risk in this order:
+            distribution (List[float]): a list of three floats that sum to 1 corresponding to distribution of Risk in this order:
                 'LOW', 'MEDIUM', 'HIGH'
-            node_ids: the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
-
-        Returns:
-            None
+            node_ids (List[int]): the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
         """
         property = 'Risk'
         values = ['LOW', 'MEDIUM', 'HIGH']
@@ -227,15 +220,12 @@ class HIVDemographics(Demographics):
         Adds the CascadeState individual property with specified initial distribution to the specified node(s).
 
         Args:
-            distribution: a list of fourteen floats that sum to 1 corresponding to distribution of CascadeState in this
+            distribution (List[float]): a list of fourteen floats that sum to 1 corresponding to distribution of CascadeState in this
                 order:
                 '', 'ARTStaging', 'ARTStagingDiagnosticTest', 'LinkingToART', 'LinkingToPreART', 'OnART', 'OnPreART',
                 'HCTTestingLoop', 'HCTUptakeAtDebut', 'HCTUptakePostDebut', 'TestingOnANC', 'TestingOnChild6w',
                 'TestingOnSymptomatic', 'LostForever'
-            node_ids: the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
-
-        Returns:
-            None
+            node_ids (List[int]): the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
         """
         property = 'CascadeState'
         values = ["", "ARTStaging", "ARTStagingDiagnosticTest", "LinkingToART", "LinkingToPreART", "OnART", "OnPreART",
@@ -251,12 +241,10 @@ class HIVDemographics(Demographics):
             node(s).
 
         Args:
-            distribution: a list of three floats that sum to 1 corresponding to distribution of Accessibility in this
+            distribution (List[float]): a list of three floats that sum to 1 corresponding to distribution of Accessibility in this
                 order:
                 'Yes', 'No'
-            node_ids: the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
-
-        Returns:
+            node_ids (List[int]): the id(s) of node(s) to apply changes to. None or 0 refers to the Default node.
         """
         property = 'Accessibility'
         values = ['Yes', 'No']
@@ -277,24 +265,22 @@ class HIVDemographics(Demographics):
         airborne, or TBHIV simulations as other simulation types have parameters for modeling the heterogeneity of
         transmission. By default, transmission is assumed to occur homogeneously among the population within a node.
 
-        Note: EMOD requires individual property key and values (Property and Values args) to be the same across all
-            nodes. The individual distributions of individual properties (InitialDistribution) can vary acros nodes.
+        EMOD requires individual property key and values (Property and Values args) to be the same across all
+        nodes. The individual distributions of individual properties (InitialDistribution) can vary across nodes.
 
-        Documentation of individual properties and HINT:
-            https://docs.idmod.org/projects/emod-generic/en/latest/model-properties.html
-            https://docs.idmod.org/projects/emod-generic/en/latest/model-hint.html
+        See additional documentation on [individual properties](https://emod.idmod.org/emodpy-hiv/emod/model-properties/)
+        and [HINT](https://emod.idmod.org/EMOD-Generic/md_model/model-hint/).
 
         Args:
-            Property: a new individual property key to add (if property already exists an exception is raised
+            Property (str): a new individual property key to add (if property already exists an exception is raised
                 unless overwrite_existing is True).
-            Values: the valid values of the new property key
-            InitialDistribution: The fractional initial distribution of each valid Values entry. Order must match
+            Values (List[str]): the valid values of the new property key
+            InitialDistribution (List[float]): The fractional initial distribution of each valid Values entry. Order must match
                 Values argument.
-            TransmissionMatrix: HINT transmission matrix.
-            node_ids: The node ids to apply changes to. None or 0 means the 'Defaults' node.
-            overwrite_existing: Determines if an error is thrown if the IP is found pre-existing at a specified node.
+            TransmissionMatrix (List[List[float]]): HINT transmission matrix.
+            node_ids (List[int]): The node ids to apply changes to. None or 0 means the 'Defaults' node.
+            overwrite_existing (bool): Determines if an error is thrown if the IP is found pre-existing at a specified node.
                 False: throw exception. True: overwrite the existing property.
-        Returns:
         """
         # TODO: This does not play nicely with emod-api Demographics (used by malaria/other diseases). Need to remove
         #  this HIV-specific override method once demographics.raw is removed entirely from emod-api
@@ -336,30 +322,27 @@ class HIVDemographics(Demographics):
         Loads per-node population information from a formatted pandas DataFrame object into HIVNode objects, returning
         an HIVDemographics object containing them.
 
-        Expected DataFrame format:
-
+        Expected DataFrame format
+        ```
         node_id,name,population
         1,Province1,1000
         2,Province2,2500
-        ...
-
+        ```
 
         Args:
-            df: data for initializing the nodes of an
-            default_society_template: society template name for loading initial society information. Will apply
+            df (pd.DataFrame): data for initializing the nodes of an
+            default_society_template (str): society template name for loading initial society information. Will apply
                 to the Default node. Default society template is 'PFA-Southern-Africa'.
 
         Returns:
             an HIVDemographics object
         """
-        """
-        TODO: add demographics file error checks
-        - no duplicate node_ids
-        - node_ids are integers 1+
-        - no duplicate node names
-        - populations are integers 0+
-        - column checking: are exactly the required columns in the file?
-        """
+        # TODO: add demographics file error checks
+        # - no duplicate node_ids
+        # - node_ids are integers 1+
+        # - no duplicate node names
+        # - populations are integers 0+
+        # - column checking: are exactly the required columns in the file?
         # TODO: consider if this can be merged into a more general emod-api call
         nodes = []
         for index, row in df.iterrows():
@@ -371,16 +354,16 @@ class HIVDemographics(Demographics):
     def from_template_node(cls, lat: float = 0, lon: float = 0, pop: float = 1e6, name: str = 'node1',
                            forced_id: int = 1, default_society_template: str = None) -> '__class__':
         """
-        Creates a single-node HIVDemographics object from the supplied parameters
+        Creates a single-node HIVDemographics object from the supplied parameters.
 
         Args:
-            lat: Latitude of the centroid of the node to create.
-            lon: Longitude of the centroid of the node to create.
-            pop: Human population of the node.
-            name: The name of the node. This may be a characteristic of the node, such as "rural" or "urban", or an
+            lat (float): Latitude of the centroid of the node to create.
+            lon (float): Longitude of the centroid of the node to create.
+            pop (float): Human population of the node.
+            name (str): The name of the node. This may be a characteristic of the node, such as "rural" or "urban", or an
                 identifying feature or value.
-            forced_id: The node ID for the single node.
-            default_society_template: society template name for loading initial society information. Will apply
+            forced_id (int): The node ID for the single node.
+            default_society_template (str): society template name for loading initial society information. Will apply
                 to the Default node. Default society template is 'PFA-Southern-Africa'.
 
         Returns:
@@ -419,19 +402,19 @@ class HIVDemographics(Demographics):
         fertility, and mortality.
 
         Args:
-            pop_df: A pandas dataframe with columns "node_id", "name", and "population" where:
+            pop_df (pd.DataFrame): A pandas dataframe with columns "node_id", "name", and "population" where:
                 "node_id" is an unsigned integer ranging from 1 to  4,294,967,295
                 "name" is a string that one can use when creating the demographics
                 "population" is an unsigned integer ranging from 0 to  4,294,967,295
-            age_distribution_yar: A YearAgeRate object containing data for the ages of the
+            age_distribution_yar (YearAgeRate): A YearAgeRate object containing data for the ages of the
                 initial population
-            fertility_yar: A YearAgeRate object containing the fertility rates to use during
+            fertility_yar (YearAgeRate): A YearAgeRate object containing the fertility rates to use during
                 the simulation
-            male_mortality_yar: A YearAgeRate object containing the male mortality rates to use
+            male_mortality_yar (YearAgeRate): A YearAgeRate object containing the male mortality rates to use
                 during the simulation
-            female_mortality_yar: A YearAgeRate object containing the fwmale mortality rates to use
+            female_mortality_yar (YearAgeRate): A YearAgeRate object containing the female mortality rates to use
                 during the simulation
-            society: A Society object defining how people form relationships and have coital acts.
+            society (Society): A Society object defining how people form relationships and have coital acts.
                 Defaults to None (to be set later).
 
         Returns:

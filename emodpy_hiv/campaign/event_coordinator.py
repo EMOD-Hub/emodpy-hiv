@@ -32,9 +32,7 @@ class NChooserEventCoordinatorHIV(InterventionDistributorEventCoordinator):
                  campaign: api_campaign,
                  intervention_list: list[IndividualIntervention],
                  targeted_distributions: list[NChooserTargetedDistributionHIV]):
-        """
-        NChooserEventCoordinatorHIV class to create a
-        """
+
         super().__init__(campaign, "NChooserEventCoordinatorHIV", intervention_list)
 
         self._coordinator.Distributions = [targeted_distribution.to_schema_dict(campaign)

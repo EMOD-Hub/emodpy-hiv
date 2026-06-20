@@ -1,6 +1,5 @@
 """
-This module contains methods for extracting data from UN World Population files.
-https://population.un.org/wpp/
+This module contains methods for extracting data from [UN World Population files](https://population.un.org/wpp/).
 
 These methods output dataframes that can be used to initialize Demographic objects in EMOD.
 """
@@ -109,33 +108,33 @@ def extract_population_by_age(country: str,
                               years: list[float],
                               filename: Union[str, Path] = None):
     """
-    This code is for extracting population by age data from the files
-    downloaded from the UN World Pop (https://population.un.org/wpp/Download/Standard/Population/).
-    The code assumes that the files is in Strict Open XML Spreadsheet format.  This format require
-    us to use the 'calamine' engine to read the file.  The file is expected to be for both sexes
+    This code is for extracting [population by age data](https://population.un.org/wpp/Download/Standard/Population/)
+    from the files downloaded from the UN World Pop.
+    The code assumes that the files is in Strict Open XML Spreadsheet format. This format require
+    us to use the 'calamine' engine to read the file. The file is expected to be for both sexes
     and to have 5 year age bins. (i.e. WPP2019_POP_F15_1_ANNUAL_POPULATION_BY_AGE_BOTH_SEXES.xlsx,
     WPP2024_POP_F02_1_POPULATION_5-YEAR_AGE_GROUPS_BOTH_SEXES.xlsx)
 
     Args:
-        country:
+        country (str):
             The name of the country used in the spreadsheet for which you want to extract the data.
 
-        version:
+        version (str):
             A string with the year/version of the file.  Supported versions are 2012, 2015, 2019, 2024
 
-        years:
+        years (list[float]):
             A list of years to get data for
             NOTE: Data files say it is for July 1st of the given year.
 
-        filename:
-            If not provided, the 'version' will be used to select from the known versions.  If a filename
-            is provided, it is assumed to be file from the UN World Pop website.  It may have several sheets
-            but the data will be extracted from the first two.  The 'estimates' sheet gives you data for the
+        filename (Union[str, Path]):
+            If not provided, the 'version' will be used to select from the known versions. If a filename
+            is provided, it is assumed to be file from the UN World Pop website. It may have several sheets
+            but the data will be extracted from the first two. The 'estimates' sheet gives you data for the
             past while the 'medium variant' sheet gives you the data for the future. It is expected to be in
             the Strict Open XML Spreadsheet format.
 
-    Return
-        It will return a pandas DataFrame where each row is a year and the columns are for an age range
+    Returns:
+        (pandas.DataFrame): It will return a pandas DataFrame where each row is a year and the columns are for an age range.
     """
     if filename is None:
         filename = _get_population_filename(version)
@@ -300,35 +299,35 @@ def extract_population_by_age_and_distribution(country: str,
                                                year: int = 1960,
                                                filename: Union[str, Path] = None):
     """
-    This code is for extracting population by age data from the files
-    downloaded from the UN World Pop (https://population.un.org/wpp/Download/Standard/Population/).
-    The code assumes that the files is in Strict Open XML Spreadsheet format.  This format require
-    us to use the 'calamine' engine to read the file.  The file is expected to be for both sexes
+    This code is for extracting [population by age data](https://population.un.org/wpp/Download/Standard/Population/)
+    from the files downloaded from the UN World Pop.
+    The code assumes that the files is in Strict Open XML Spreadsheet format. This format requires
+    us to use the 'calamine' engine to read the file. The file is expected to be for both sexes
     and to have 5 year age bins. (i.e. WPP2019_POP_F15_1_ANNUAL_POPULATION_BY_AGE_BOTH_SEXES.xlsx,
     WPP2024_POP_F02_1_POPULATION_5-YEAR_AGE_GROUPS_BOTH_SEXES.xlsx)
 
     Args:
-        country:
+        country (str):
             The name of the country used in the spreadsheet for which you want to extract the data.
 
-        version:
-            A string with the year/version of the file.  Supported versions are 2012, 2015, 2019, 2024
+        version (str):
+            A string with the year/version of the file. Supported versions are 2012, 2015, 2019, 2024
 
-        year:
-            The year in the data to get the total population and age distribution for.  Default is 1960
+        year (int):
+            The year in the data to get the total population and age distribution for. Default is 1960
             NOTE: Data files say it is for July 1st of the given year.
 
-        filename:
-            If not provided, the 'version' will be used to select from the known versions.  If a filename
-            is provided, it is assumed to be file from the UN World Pop website.  It may have several sheets
-            but the data will be only be extracted from the first sheet, 'estimates'.  The 'estimates' sheet
-            gives you data for the past.  It is assumed that you are using this function to get the starting
+        filename (Union[str, Path]):
+            If not provided, the 'version' will be used to select from the known versions. If a filename
+            is provided, it is assumed to be file from the UN World Pop website. It may have several sheets
+            but the data will be only be extracted from the first sheet, 'estimates'. The 'estimates' sheet
+            gives you data for the past. It is assumed that you are using this function to get the starting
             point of an EMOD simulation that starts in the past. It is expected to be in the Strict Open XML
             Spreadsheet format.
 
-    Return:
-        It will return the total population for the given year PLUS a YearAgeRate object where
-        the "rate" column contains the fraction of people in that particular year and age ranges.
+    Returns:
+        (float): The total population for the given year
+        (YearAgeRate): A YearAgeRate object where the "rate" column contains the fraction of people in that particular year and age ranges.
     """
     if filename is None:
         filename = _get_population_filename(version)
@@ -486,28 +485,28 @@ def extract_fertility(country: str,
                       version: str,
                       filename: Union[str, Path] = None):
     """
-    This code is for extracting fertility rates for the given country from the fertility files
-    downloaded from the UN World Pop (https://population.un.org/wpp/Download/Standard/Fertility/).
+    This code is for extracting fertility rates for the given country from the
+    [fertility files](https://population.un.org/wpp/Download/Standard/Fertility/) downloaded from the UN World Pop.
     The code assumes that the files is in Strict Open XML Spreadsheet format.  This format require
     us to use the 'calamine' engine to read the file.  The file is expected to be the Age Specific
     rates (i.e. WPP2012_FERT_F07_AGE_SPECIFIC_FERTILITY, WPP2024_FERT_F02_FERTILITY_RATES_BY_5-YEAR_AGE_GROUPS_OF_MOTHER)
 
     Args:
-        country:
+        country (str):
             The name of the country used in the spreadsheet for which you want to extract the data.
 
-        version:
+        version (str):
             A string with the year/version of the file.  Supported versions are 2012, 2015, 2019, 2024
 
-        filename:
-            If not provided, the 'version' will be used to select from the known versions.  If a filename
-            is provided, it is assumed to be file from the UN World Pop website.  It may have several sheets
-            but the data will be extracted from the first two.  The 'estimates' sheet gives you data for the
+        filename (Union[str, Path]):
+            If not provided, the 'version' will be used to select from the known versions. If a filename
+            is provided, it is assumed to be file from the UN World Pop website. It may have several sheets
+            but the data will be extracted from the first two. The 'estimates' sheet gives you data for the
             past while the 'medium variant' sheet gives you the data for the future. It is expected to be in
             the Strict Open XML Spreadsheet format.
 
-    Return
-        A YearAgeRate object containing the fertility data in the given file.
+    Returns:
+        (YearAgeRate): A YearAgeRate object containing the fertility data in the given file.
     """
     if filename is None:
         filename = _get_fertility_filename(version)
@@ -602,32 +601,32 @@ def extract_mortality(country: str,
                       gender: str = None,
                       filename: Union[str, Path] = None):
     """
-    This code is for extracting mortality rates for the given country from the mortality files
-    downloaded from the UN World Pop (https://population.un.org/wpp/Download/Standard/Mortality/).
+    This code is for extracting mortality rates for the given country from the
+    [mortality files](https://population.un.org/wpp/Download/Standard/Mortality/) downloaded from the UN World Pop.
     The code assumes that the files is in Strict Open XML Spreadsheet format.  This format require
     us to use the 'calamine' engine to read the file.  The file is expected to be for one gender
-    and to be the Abriged Life Table.
+    and to be the Abridged Life Table.
 
     Args:
-        country:
+        country (str):
             The name of the country used in the spreadsheet for which you want to extract the data.
 
-        version:
+        version (str):
             A string with the year/version of the file.  Supported versions are 2012, 2015, 2019, 2024
 
-        gender:
+        gender (str):
             The gender of the data to be extracted.  Possible values are 'male' and 'female'.
             Required if the filename is not provided.
 
-        filename:
+        filename (Union[str, Path]):
             If not provided, the 'version' will be used to select from the known versions.  If a filename
             is provided, it is assumed to be file from the UN World Pop website.  It may have several sheets
             but the data will be extracted from the first one plus the next one or two.  The 'estimates'
             sheet gives you data for the past while the 'medium XXX' sheets give you the data for the future.
             It is expected to be in the Strict Open XML Spreadsheet format.
-
-    Return
-        A YearAgeRate object containing the mortality data in the given file.
+            
+    Returns:
+        (YearAgeRate): A YearAgeRate object containing the mortality data in the given file.
     """
     if filename is None:
         filename = _get_mortality_filename(version, gender)

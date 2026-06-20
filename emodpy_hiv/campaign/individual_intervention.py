@@ -127,8 +127,8 @@ class RangeThreshold:
 
         event_to_broadcast(str, required):
             If 'low' <= value < 'high, then this event will be broadcast.
-            See :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
     """
     def __init__(self,
                  event_to_broadcast: str,
@@ -250,56 +250,57 @@ class ARTMortalityTable(IndividualIntervention):
             parameters: cost, intervention_name, new_property_value, disqualifying_properties, dont_allow_duplicates.
             Default value: None
 
-    Example:
+    Examples:
         Creating an ARTMortalityTable intervention with comprehensive mortality data:
             - 5 ART duration bins (0-6mo, 6-12mo, 12-24mo, 24-36mo, 36+mo)
             - 2 age groups (under 40, 40 and over)
             - 7 CD4 count bins reflecting different immune system states
             - Higher mortality rates for early ART duration and lower CD4 counts
             - Reduced mortality over time as patients stabilize on treatment
-
-            >>> from emodpy_hiv.campaign.individual_intervention import ARTMortalityTable
-            >>> from emodpy_hiv.campaign.common import CommonInterventionParameters
-            >>> import emodpy_hiv.campaign as api_campaign
-            >>>
-            >>> art_duration_days_bins=[0, 183, 365, 730, 1095]                    # 0, 6mo, 1yr, 2yr, 3yr in days
-            >>> age_years_bins=[0, 40]                                             # Under 40, 40+
-            >>> cd4_count_bins=[0, 25, 74.5, 149.5, 274.5, 424.5, 624.5]           # CD4 count thresholds
-            >>> # Define mortality table: 5 duration bins x 2 age bins x 7 CD4 bins
-            >>> mortality_table = [
-            >>>     [  # Duration bin 0 (0-6 months)
-            >>>         [0.2015, 0.2015, 0.1128, 0.0625, 0.0312, 0.0206, 0.0162],  # Age 0-40
-            >>>         [0.0875, 0.0875, 0.0490, 0.0271, 0.0136, 0.0062, 0.0041]   # Age 40+
-            >>>     ],
-            >>>     [  # Duration bin 1 (6-12 months)
-            >>>         [0.0271, 0.0271, 0.0184, 0.0149, 0.0074, 0.0048, 0.0048],
-            >>>         [0.0171, 0.0171, 0.0116, 0.0094, 0.0047, 0.0030, 0.0030]
-            >>>     ],
-            >>>     [  # Duration bin 2 (12-24 months)
-            >>>         [0.0095, 0.0095, 0.0065, 0.0052, 0.0026, 0.0026, 0.0026],
-            >>>         [0.0095, 0.0095, 0.0065, 0.0052, 0.0026, 0.0026, 0.0026]
-            >>>     ],
-            >>>     [  # Duration bin 3 (24-36 months)
-            >>>         [0.0075, 0.0075, 0.0051, 0.0041, 0.0021, 0.0021, 0.0021],
-            >>>         [0.0075, 0.0075, 0.0051, 0.0041, 0.0021, 0.0021, 0.0021]
-            >>>     ],
-            >>>     [  # Duration bin 4 (36+ months)
-            >>>         [0.0060, 0.0060, 0.0041, 0.0033, 0.0017, 0.0017, 0.0017],
-            >>>         [0.0060, 0.0060, 0.0041, 0.0033, 0.0017, 0.0017, 0.0017]
-            >>>     ]
-            >>>   ]
-            >>>
-            >>> # Create the intervention
-            >>> art_intervention = ARTMortalityTable(campaign=api_campaign,
-            >>>                                      mortality_table=mortality_table,
-            >>>                                      art_duration_days_bins=art_duration_days_bins,
-            >>>                                      age_years_bins=age_years_bins,
-            >>>                                      cd4_count_bins=cd4_count_bins,
-            >>>                                      days_to_achieve_viral_suppression=183.0,
-            >>>                                      art_multiplier_on_transmission_prob_per_act=0.08,
-            >>>                                      art_is_active_against_mortality_and_transmission=True,
-            >>>                                      common_intervention_parameters=CommonInterventionParameters(cost=1)
-            >>> )
+            ```
+            from emodpy_hiv.campaign.individual_intervention import ARTMortalityTable
+            from emodpy_hiv.campaign.common import CommonInterventionParameters
+            import emodpy_hiv.campaign as api_campaign
+            
+            art_duration_days_bins=[0, 183, 365, 730, 1095]                    # 0, 6mo, 1yr, 2yr, 3yr in days
+            age_years_bins=[0, 40]                                             # Under 40, 40+
+            cd4_count_bins=[0, 25, 74.5, 149.5, 274.5, 424.5, 624.5]           # CD4 count thresholds
+            # Define mortality table: 5 duration bins x 2 age bins x 7 CD4 bins
+            mortality_table = [
+                [  # Duration bin 0 (0-6 months)
+                    [0.2015, 0.2015, 0.1128, 0.0625, 0.0312, 0.0206, 0.0162],  # Age 0-40
+                    [0.0875, 0.0875, 0.0490, 0.0271, 0.0136, 0.0062, 0.0041]   # Age 40+
+                ],
+                [  # Duration bin 1 (6-12 months)
+                    [0.0271, 0.0271, 0.0184, 0.0149, 0.0074, 0.0050, 0.0040],
+                    [0.0171, 0.0171, 0.0116, 0.0094, 0.0047, 0.0030, 0.0030]
+                ],
+                [  # Duration bin 2 (12-24 months)
+                    [0.0095, 0.0095, 0.0065, 0.0052, 0.0026, 0.0026, 0.0026],
+                    [0.0095, 0.0095, 0.0065, 0.0052, 0.0026, 0.0026, 0.0026]
+                ],
+                [  # Duration bin 3 (24-36 months)
+                    [0.0075, 0.0075, 0.0051, 0.0041, 0.0021, 0.0021, 0.0021],
+                    [0.0075, 0.0075, 0.0051, 0.0041, 0.0021, 0.0021, 0.0021]
+                ],
+                [  # Duration bin 4 (36+ months)
+                    [0.0060, 0.0060, 0.0041, 0.0033, 0.0017, 0.0017, 0.0017],
+                    [0.0060, 0.0060, 0.0041, 0.0033, 0.0017, 0.0017, 0.0017]
+                ]
+              ]
+            
+            # Create the intervention
+            art_intervention = ARTMortalityTable(campaign=api_campaign,
+                                                 mortality_table=mortality_table,
+                                                 art_duration_days_bins=art_duration_days_bins,
+                                                 age_years_bins=age_years_bins,
+                                                 cd4_count_bins=cd4_count_bins,
+                                                 days_to_achieve_viral_suppression=183.0,
+                                                 art_multiplier_on_transmission_prob_per_act=0.08,
+                                                 art_is_active_against_mortality_and_transmission=True,
+                                                 common_intervention_parameters=CommonInterventionParameters(cost=1)
+            )
+            ```
     """
 
     def __init__(self,
@@ -447,8 +448,7 @@ class AntiretroviralTherapy(IndividualIntervention):
     """
     The **AntiretroviralTherapy** intervention class begins antiretroviral therapy (ART) for specified individuals.
     To remove an individual from ART, use **ARTDropout**. Please refer to the documentation for
-    **AntiretroviralTherapy** at the following link:
-    :doc:`emod-hiv:emod/hiv-model-healthcare-systems`.
+    **AntiretroviralTherapy** [here](https://emod.idmod.org/emodpy-hiv/emod/hiv-model-healthcare-systems/#antiretroviral-therapy-art).
 
     Additional considerations when using this intervention:
         - The model will not allow someone who is HIV negative to be put on ART.
@@ -646,6 +646,7 @@ class AntiretroviralTherapyFull(IndividualIntervention):
             The type of distribution to use when determine how long a person will be on ART.
             Please use the following distribution classes from emodpy_hiv.utils.distributions
             to define the distribution:
+
             * ConstantDistribution
             * UniformDistribution
             * GaussianDistribution
@@ -658,9 +659,9 @@ class AntiretroviralTherapyFull(IndividualIntervention):
 
         stop_art_event(str, optional):
             This event is broadcast when the person drops off ART. This could happen either via the timer
-            running out or the intervention detected a disqualifying property.  See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            running out or the intervention detected a disqualifying property.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         days_to_achieve_viral_suppression(float, optional):
@@ -706,11 +707,13 @@ class AntiretroviralTherapyFull(IndividualIntervention):
         art_survival_hazard_ratio_body_weight_kg_slope(float, optional):
             The slope to use when calculating the hazard ratio for the person's body weight.
             The body weight is determined by WHO stage:
+
             * WHO Stage 0 = 65.0 kg
             * WHO Stage 1-2 = 62.1 kg
             * WHO Stage 2-3 = 57.0 kg
             * WHO Stage 3-4 = 50.0 kg
             * WHO Stage 4+ = 40.1 kg
+
             multiplier = exp(weight_slope * weight + weight_intercept)
             Minimum value: -1000000.0
             Maximum value: 1000000.0
@@ -864,130 +867,127 @@ class CoitalActRiskFactors(IndividualIntervention):
     it can be used with Distributors.add_intervention_tracker(). NOTE: An individual can have
     multiple of these interventions with each one being multiplied times the other.
 
-    The risk multiplier for a coital act has three contributions:
+    The risk multiplier for a coital act has three contributions.
 
-        1. *Coital Act Risk Factors* - The factors from the use of this intervention.
+    1. **Coital Act Risk Factors** - The factors from the use of this intervention.
 
-        2. *Co-Infection* - A person can get a co-infection by using the **ModifyStiCoInfectionStatus**
-           intervention.  If the person has a co-infection, then the configuration paameters **STI_Coinfection_Transmission_Multiplier**
-           or **STI_Coinfection_Acquisition_Multiplier** depending on whether the person has HIV (transmitter)
-           or not (aquirer).  The maximum value of the multiplier between the transmitter and acquirer is used.
+    2. **Co-Infection** - A person can get a co-infection by using the **ModifyStiCoInfectionStatus**
+        intervention.  If the person has a co-infection, then the configuration parameters **STI_Coinfection_Transmission_Multiplier**
+        or **STI_Coinfection_Acquisition_Multiplier** depending on whether the person has HIV (transmitter)
+        or not (acquirer).  The maximum value of the multiplier between the transmitter and acquirer is used.
 
-        3. *Condom Transmission Blocking* - If condoms were used in this coital act, then the
-           configuration parameter **Condom_Transmission_Blocking_Probability** is included.
+    3. **Condom Transmission Blocking** - If condoms were used in this coital act, then the
+        configuration parameter **Condom_Transmission_Blocking_Probability** is included.
 
-    The value of the multiplier is calculated as follows:
+    The value of the multiplier is calculated as follows.
+        ```
+        co_inf_transmission = infected_individual.STI_Coinfection_Transmission_Multiplier if co-infected else 1
+        co_inf_acquisition  = uninfected_individual.STI_Coinfection_Acquisition_Multiplier if co-infected else 1
+        risk_multiplier = max( co_inf_transmission, co_inf_acquisition )
+        
+        risk_factor_transmission = infected_individual.CoitalActsRiskFactors.Transmission_Multiplier
+        risk_factor_acquisition = uninfected_individual.CoitalActsRiskFactors.Acquisition_Multiplier
+        risk_multiplier *= risk_factor_transmission * risk_factor_acquisition;
+        
+        risk_multiplier *= (1 - Condom_Transmission_Blocking_Probability) if using_condom else 1
+        ```
 
-        >>> co_inf_transmission = infected_individual.STI_Coinfection_Transmission_Multiplier if co-infected else 1
-        >>> co_inf_acquisition  = uninfected_individual.STI_Coinfection_Acquisition_Multiplier if co-infected else 1
-        >>> risk_multiplier = max( co_inf_transmission, co_inf_acquisition )
-        >>>
-        >>> risk_factor_transmission = infected_individual.CoitalActsRiskFactors.Transmission_Multiplier
-        >>> risk_factor_acquisition = uninfected_individual.CoitalActsRiskFactors.Acquisition_Multiplier
-        >>> risk_multiplier *= risk_factor_transmission * risk_factor_acquisition;
-        >>>
-        >>> risk_multiplier *= (1 - Condom_Transmission_Blocking_Probability) if using_condom else 1
-
-    This risk multiplier is then used to determine if the uninfected person becomes infected:
-
-        >>> probability_infected = risk_multiplier
-        >>>                      * transmission_probability
-        >>>                      * acquisition_probability
-
+    This risk multiplier is then used to determine if the uninfected person becomes infected.
+        ```
+        probability_infected = risk_multiplier * transmission_probability * acquisition_probability
+        ```
     **Acquisition Probability**
 
     There are three things that contribute to the probability that an uninfected person can acquire HIV
-    from a coital act with an infected person.  They are:
+    from a coital act with an infected person.
 
-        1. *Male Circumcision* - If the uninfected person is male and has been circumcised, their probability
-           of acquisition is reduced.  The male individual will have the **MaleCircumcision** intervention and its
-           **Circumcision_Reduced_Acquire** parameter will be used.
+    1. **Male Circumcision** - If the uninfected person is male and has been circumcised, their probability
+        of acquisition is reduced.  The male individual will have the **MaleCircumcision** intervention and its
+        **Circumcision_Reduced_Acquire** parameter will be used.
 
-        2. *Female Susceptibility By Age* - If the uninfected person is female, then their current age is used
-           to determine the a factor from the configuration parameters **Male_To_Female_Relative_Infectivity_Ages**
-           and **Male_To_Female_Relative_Infectivity_Multipliers**.  Their age is used with linear interpolation
-           to calculate a multiplier.
+    2. **Female Susceptibility By Age** - If the uninfected person is female, then their current age is used
+        to determine the a factor from the configuration parameters **Male_To_Female_Relative_Infectivity_Ages**
+        and **Male_To_Female_Relative_Infectivity_Multipliers**.  Their age is used with linear interpolation
+        to calculate a multiplier.
 
-        3. *PrEP / Vaccine* - If the uninfected person has a vaccine or PrEP, their probability of acquisition
-           is also reduced.
-
-        >>> probability_acquire = 1.0
-        >>> probability_acquire *= MaleCircumcision.Circumcision_Reduced_Acquire if male and circumcised else 1
-        >>> probability_acquire *= get_female_susceptibility( person.age ) if female else 1
-        >>> probability_acquire *= vaccine_reduced_acquire if person has vaccine else 1
+    3. **PrEP / Vaccine** - If the uninfected person has a vaccine or PrEP, their probability of acquisition
+        is also reduced.
+        ```
+        probability_acquire = 1.0
+        probability_acquire *= MaleCircumcision.Circumcision_Reduced_Acquire if male and circumcised else 1
+        probability_acquire *= get_female_susceptibility( person.age ) if female else 1
+        probability_acquire *= vaccine_reduced_acquire if person has vaccine else 1
+        ```
 
     **Transmission Probability**
 
     In EMOD, the probability of a person transmitting HIV comes down to whether nor not the person has been
     vaccinated and how infectious they are.
 
-        1. *Vaccine* - If the infected person has a vaccine that reduces transmission, its probability of
-           transmission reduction is used.
+    1. **Vaccine** - If the infected person has a vaccine that reduces transmission, its probability of
+        transmission reduction is used.
 
-        2. *Infectiousness* - The infectiousness of a person depends on the following four factors:
+    2. **Infectiousness** - The infectiousness of a person depends on the following four factors:
 
-            2a. *Base Infectivity* - The configuration parameter **Base_Infectivity** determines the starting
-            amount of infectiousness. It is the starting point of the calculation and is assumed to be
-            female-to-male transmission.
+        * **Base Infectivity** - The configuration parameter **Base_Infectivity** determines the starting
+        amount of infectiousness. It is the starting point of the calculation and is assumed to be
+        female-to-male transmission.
+        * **Heterogeneity** - To represent the heterogeneity in people, the **Base_Infectivity** is
+        multiplied by a value from a Log Normal distribution based on the configuration parameter
+        **Heterogeneous_Infectiousness_LogNormal_Scale**.
+            ```
+            median = -0.5 * Heterogeneous_Infectiousness_LogNormal_Scale**2
+            heterogeneity_factor = median + eGauss() * Heterogeneous_Infectiousness_LogNormal_Scale
+            ```
+        where eGauss() is a gaussian distributed random number between 0 and 1.
+        * **Stage of Infection** - The mount the infection has progressed also impacts the amount of
+        infectiousness.  If the person is in the 'acute' stage, then we multiply the **Base_Infectivity**
+        times the configuration parameter **Acute_Stage_Infectivity_Multiplier**.  If the person is in
+        the 'AIDS' stage, we multiply by the configuration parameter **AIDS_Stage_Infectivity_Multiplier**.
+        If they are in the 'latent' stage, we do not adjust the **Base_Infectivity**.
+        * **ART Suppression** - If a person has been given an ART intervention (**AntiretroviralTherapy**,
+        **AntiretroviralTherapyFull**, or **ARTMortalityTable**) and has not dropped off of art (**ARTDropout**),
+        then ART can suppress the person's infectiousness.  This amount of suppression is determined by
+        the intervention parameters **ART_Multiplier_On_Transmission_Prob_Per_Act** and
+        **Days_To_Achieve_Viral_Suppression**.  If the person has been on ART less than
+        **Days_To_Achieve_Viral_Suppression**, the **ART_Multiplier_On_Transmission_Prob_Per_Act**
+        will be reduced proportionally.
 
-            2b. *Heterogeneity* - To represent the heterogeneity in people, the **Base_Infectivity** is
-            multiplied by a value from a Log Normal distribution based on the configuration parameter
-            **Heterogeneous_Infectiousness_LogNormal_Scale**.
-
-                >>> median = -0.5 * Heterogeneous_Infectiousness_LogNormal_Scale**2
-                >>> heterogeneity_factor = median + eGauss() * Heterogeneous_Infectiousness_LogNormal_Scale
-
-            where eGauss() is a gaussian distributed random number between 0 and 1.
-
-            2c. *Stage of Infection* - The mount the infection has progressed also impacts the amount of
-            infectiousness.  If the person is in the 'acute' stage, then we multiply the **Base_Infectivity**
-            times the configuration parameter **Acute_Stage_Infectivity_Multiplier**.  If the person is in
-            the 'AIDS' stage, we multiply by the configuration parameter **AIDS_Stage_Infectivity_Multiplier**.
-            If they are in the 'latent' stage, we do not adjust the **Base_Infectivity**.
-
-            2d. *ART Suppression* - If a person has been given an ART intervention (**AntiretroviralTherapy**,
-            **AntiretroviralTherapyFull**, or **ARTMortalityTable**) and has not dropped off of art (**ARTDropout**),
-            then ART can suppress the person's infectiousness.  This amount of suppression is determined by
-            the intervention parameters **ART_Multiplier_On_Transmission_Prob_Per_Act** and
-            **Days_To_Achieve_Viral_Suppression**.  If the person has been on ART less than
-            **Days_To_Achieve_Viral_Suppression**, the **ART_Multiplier_On_Transmission_Prob_Per_Act**
-            will be reduced proportionally.
-
-        These different factors are combined as follows:
-
-            >>> infectiousness = Base_Infectivity
-            >>> infectiousness *= heterogeneity_factor
-            >>>
-            >>> if hiv_stage == ACUTE:
-            >>>     infectiousness *= Acute_Stage_Infectivity_Multiplier
-            >>> elif hiv_stage == AIDS:
-            >>>     infectiousness *= AIDS_Stage_Infectivity_Multiplier
-            >>>
-            >>> suppression = ART_Multiplier_On_Transmission_Prob_Per_Act
-            >>> if Days_To_Achieve_Viral_Suppression > 0:
-            >>>     art_mult = ART_Multiplier_On_Transmission_Prob_Per_Act
-            >>>     days_to_achieve = Days_To_Achieve_Viral_Suppression
-            >>>     suppression = 1 - ((1 - art_mult) / days_to_achieve) * time_since_starting_ART
-            >>> infectiousness *= suppression
-
-    The transmission probability is then calculated as:
-
-        >>> probability_transmission = infectiousness * vaccine_reduced_transmission
+        These different factors are combined as follows.
+            ```
+            infectiousness = Base_Infectivity
+            infectiousness *= heterogeneity_factor
+            
+            if hiv_stage == ACUTE:
+                infectiousness *= Acute_Stage_Infectivity_Multiplier
+            elif hiv_stage == AIDS:
+                infectiousness *= AIDS_Stage_Infectivity_Multiplier
+            
+            suppression = ART_Multiplier_On_Transmission_Prob_Per_Act
+            if Days_To_Achieve_Viral_Suppression > 0:
+                art_mult = ART_Multiplier_On_Transmission_Prob_Per_Act
+                days_to_achieve = Days_To_Achieve_Viral_Suppression
+                suppression = 1 - ((1 - art_mult) / days_to_achieve) * time_since_starting_ART
+            infectiousness *= suppression
+            ```
+    The transmission probability is then calculated as
+        ```
+        probability_transmission = infectiousness * vaccine_reduced_transmission
+        ```
 
     Args:
         campaign (api_campaign, required):
             An instance of the emod_api.campaign module.
-
         transmission_multiplier(float, optional):
             Multiplier for STI transmission probability per coital act.
             Minimum value: 0
             Maximum value: 100
             Default value: 1
-
         expiration_period_distribution(BaseDistribution, required):
             The distribution type to use for setting the expiration of the intervention. Each intervention gets
             an expiration duration by doing a random draw from the distribution.  Please use the following
             distribution classes from emodpy_hiv.utils.distributions to define the distribution:
+
             * ConstantDistribution
             * UniformDistribution
             * GaussianDistribution
@@ -1000,16 +1000,14 @@ class CoitalActRiskFactors(IndividualIntervention):
 
         expiration_event_trigger(str, optional):
             When the intervention expires, this individual-level event will be broadcast. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             Default value: None
-
         acquisition_multiplier(float, optional):
             Multiplier for STI acquisition probability per coital act.
             Minimum value: 0
             Maximum value: 100
             Default value: 1
-
         common_intervention_parameters (CommonInterventionParameters, optional):
             The CommonInterventionParameters object that contains the 5 common
             parameters: cost, intervention_name, new_property_value, disqualifying_properties, dont_allow_duplicates.
@@ -1053,7 +1051,7 @@ class FemaleContraceptive(IndividualIntervention):
 
         usage_expiration_event(str, optional):
             When the woman stops using the contraceptive, this event will be broadcast. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
+            [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html) for events already used in EMOD or use your
             own custom event.
             Default value: None
 
@@ -1062,6 +1060,7 @@ class FemaleContraceptive(IndividualIntervention):
             will determine when the woman stops using the contraceptive.  This is independent of how long the
             contraceptive is effective. Please use the following distribution classes
             from emodpy_hiv.utils.distributions to define the distribution:
+
             * ConstantDistribution
             * UniformDistribution
             * GaussianDistribution
@@ -1122,14 +1121,15 @@ class HIVARTStagingByCD4Diagnostic(IndividualIntervention):
             individual_property_active_tb_value(typically 'Yes').
 
         positive_diagnosis_event(str, required):
-            If the test is positive, this specifies an event that will be broadcast. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
+            If the test is positive, this specifies an event that will be broadcast.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             own custom event.
 
         negative_diagnosis_event(str, optional):
             If the test is negative, this specifies an event that will be broadcast.
-            See :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         individual_property_active_tb_value(str, optional):
@@ -1178,7 +1178,7 @@ class HIVARTStagingCD4AgnosticDiagnostic(IndividualIntervention):
     """
     The **HIVARTStagingCD4AgnosticDiagnostic** intervention class checks for treatment eligibility based on age.
     It uses the individual's age and the **adult_treatment_age** argument to determine if the person should be
-    usin the adult or child requirements. To specify the outcome based on CD4 testing,
+    using the adult or child requirements. To specify the outcome based on CD4 testing,
     use **HIVARTStagingByCD4Diagnostic**.
 
     Args:
@@ -1222,14 +1222,14 @@ class HIVARTStagingCD4AgnosticDiagnostic(IndividualIntervention):
 
         positive_diagnosis_event(str, required):
             If an individual tests positive, this specifies an event that may trigger another intervention when
-            the event occurs. See :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in
-            EMOD or use your own custom event.
+            the event occurs.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
 
         negative_diagnosis_event(str, optional):
             If an individual tests negative, this specifies an event that will be broadcast and may trigger another
-            intervention. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            intervention. See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         individual_property_active_tb_value(str, optional):
@@ -1322,6 +1322,7 @@ class _HIVDelayedIntervention(IndividualIntervention):  # make this class privat
             The distribution type to use for assigning the delay period for distributing interventions. Each
             assigned value is a random draw from the distribution. Please use the following distribution classes
             from emodpy_hiv.utils.distributions to define the distribution:
+
             * ConstantDistribution
             * UniformDistribution
             * GaussianDistribution
@@ -1339,9 +1340,8 @@ class _HIVDelayedIntervention(IndividualIntervention):  # make this class privat
             be set to 183 days and **Broadcast_On_Expiration_Event** can link to another delay intervention
             with a longer average delay time until loss to follow up (LTFU). If LTFU does not occur in the
             first 6 months, then the expiration will allow the first rate to give way to the post-6-month rate.
-            See the list of available events for possible values .See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         common_intervention_parameters (CommonInterventionParameters, optional):
@@ -1388,8 +1388,8 @@ class HIVDrawBlood(IndividualIntervention):
 
         positive_diagnosis_event(str, required):
             If an individual tests positive, this specifies an event that may trigger another intervention when
-            the event occurs. See :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or
-            use your own custom event.
+            the event occurs. See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
 
         common_intervention_parameters (CommonInterventionParameters, optional):
             The CommonInterventionParameters object that contains the 5 common
@@ -1414,8 +1414,7 @@ class HIVMuxer(IndividualIntervention):
     example, without **HIVMuxer**, an individual could be given an exponential delay twice, effectively doubling the rate
     of leaving the delay.
 
-    Please refer to the documentation for **HIVMuxer** at the following link:
-    :doc:`emod-hiv:emod/parameter-campaign-individual-hivmuxer`
+    Please refer to the documentation for [HIVMuxer](https://emod.idmod.org/emodpy-hiv/emod/parameter-campaign-individual-hivmuxer/).
 
     Args:
         campaign (api_campaign, required):
@@ -1430,6 +1429,7 @@ class HIVMuxer(IndividualIntervention):
             The distribution type to use for assigning the delay period for distributing interventions. Each
             assigned value is a random draw from the distribution. Please use the following distribution classes
             from emodpy_hiv.utils.distributions to define the distribution:
+
             * ConstantDistribution
             * UniformDistribution
             * GaussianDistribution
@@ -1468,15 +1468,14 @@ class HIVMuxer(IndividualIntervention):
             be set to 183 days and **Broadcast_On_Expiration_Event** can link to another delay intervention
             with a longer average delay time until loss to follow up (LTFU). If LTFU does not occur in the
             first 6 months, then the expiration will allow the first rate to give way to the post-6-month rate.
-            See the list of available events for possible values. See :doc:`emod-hiv:emod/parameter-campaign-event-list`
+            See the list of available events for possible values. See [Event List](https://emod.idmod.org/emodpy-hiv/emod/parameter-campaign-event-list)
             for events already used in EMOD or use your own custom event.
             Default value: None
 
         broadcast_delay_complete_event(str, optional):
             The event that should occur at the end of the delay period. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your own custom
+            [Event List](https://emod.idmod.org/emodpy-hiv/emod/parameter-campaign-event-list) for events already used in EMOD or use your own custom
             event.
-            custom event.
             Default value: None
 
         common_intervention_parameters (CommonInterventionParameters, optional):
@@ -1541,13 +1540,13 @@ class HIVPiecewiseByYearAndSexDiagnostic(IndividualIntervention):
 
         positive_diagnosis_event(str, required):
             If an individual tests positive, this specifies an event that may trigger another intervention when
-            the event occurs. See :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or
-            use your own custom event.
+            the event occurs. See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
 
         negative_diagnosis_event(str, optional):
             If an individual tests negative, this specifies an event that may trigger another intervention when
-            the event occurs. See :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or
-            use your own custom event.
+            the event occurs. See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         linear_interpolation(bool, optional):
@@ -1651,8 +1650,8 @@ class HIVRapidHIVDiagnostic(IndividualIntervention):
 
         positive_diagnosis_event(str, required):
             If the test is positive, this specifies an event that will be broadcast.
-            See :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or
-            use your own custom event.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
 
         base_sensitivity(float, optional):
             Use this parameter to set a constant value for sensitivity of the diagnostic. If you want to set
@@ -1691,9 +1690,9 @@ class HIVRapidHIVDiagnostic(IndividualIntervention):
             Default value: 1
 
         negative_diagnosis_event(str, optional):
-            If the test is negative, this event will be broadcast. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your own
-            custom event.
+            If the test is negative, this event will be broadcast.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         enable_is_symptomatic(bool, optional):
@@ -1758,8 +1757,9 @@ class HIVSigmoidByYearAndSexDiagnostic(IndividualIntervention):
 
         positive_diagnosis_event(str, required):
             If an individual tests positive, this specifies an event that may trigger another intervention when
-            the event occurs. See :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or
-            use your own custom event.
+            the event occurs.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
 
         year_sigmoid(Sigmoid, required):
             Defines a sigmoidal curve for the probability of a positive diagnosis versus time (year).
@@ -1773,9 +1773,8 @@ class HIVSigmoidByYearAndSexDiagnostic(IndividualIntervention):
 
         negative_diagnosis_event(str, optional):
             If an individual tests negative, this specifies an event that may trigger another intervention when
-            the event occurs. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            the event occurs. See [Event List](https://emod.idmod.org/emodpy-hiv/emod/parameter-campaign-event-list)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         common_intervention_parameters (CommonInterventionParameters, optional):
@@ -1823,15 +1822,14 @@ class _HIVSimpleDiagnostic(IndividualIntervention):  # make this class private u
 
         positive_diagnosis_event(str, required):
             If the test is positive, this specifies an event that can trigger another intervention when the
-            event occurs. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            event occurs. See [Event List](https://emod.idmod.org/emodpy-hiv/emod/parameter-campaign-event-list)
+            for events already used in EMOD or use your own custom event.
 
         negative_diagnosis_event(str, optional):
             This parameter defines the event to be broadcasted on a
             negative test result. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            [Event List](https://emod.idmod.org/emodpy-hiv/emod/parameter-campaign-event-list)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         enable_is_symptomatic(bool, optional):
@@ -1909,15 +1907,16 @@ class InterventionForCurrentPartners(IndividualIntervention):
 
         broadcast_event(str, optional):
             The event that is immediately broadcast to the partner.
-            See :doc:`emod-hiv:emod/parameter-campaign-event-list` for possible built-in values, or use your own
-            custom event. This parameter is required if **intervention_config** is not set.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         prioritize_partners_by(PrioritizePartnersBy, optional):
             How to prioritize partners for the intervention, as long as they have been in a relationship longer
             than **minimum_duration_years**. Expect PrioritizePartnersBy enum from emodpy_hiv.utils.emod_enum.
             Possible values are:
-            * NO_PRIORTIZATION - All partners are contacted.
+
+            * NO_PRIORITIZATION - All partners are contacted.
             * CHOSEN_AT_RANDOM - Partners are randomly selected until **maximum_partners** have received the
             intervention.
             * LONGER_TIME_IN_RELATIONSHIP - Partners are sorted in descending order of the duration of the
@@ -1934,7 +1933,7 @@ class InterventionForCurrentPartners(IndividualIntervention):
             * RELATIONSHIP_TYPE - Partners are sorted based on the order of relationship types defined in the
             **relationship_types** array. For example, 'relationship_types' : ['MARITAL', 'INFORMAL',
             'TRANSITORY', 'COMMERCIAL'], will prioritize marital first, then informal, then transitory, then
-            commercial, with random selection between mulitple partners of the same type.
+            commercial, with random selection between multiple partners of the same type.
             Default value: PrioritizePartnersBy.NO_PRIORITIZATION
 
         relationship_types(list[RelationshipTypes], optional):
@@ -2016,9 +2015,9 @@ class MaleCircumcision(IndividualIntervention):
             An instance of the emod_api.campaign module.
 
         distributed_event_trigger(str, optional):
-            The name of the event to be broadcast when the intervention is distributed to an individual. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            The name of the event to be broadcast when the intervention is distributed to an individual.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         circumcision_reduced_acquire(float, optional):
@@ -2144,9 +2143,9 @@ class STIBarrier(IndividualIntervention):
             An instance of the emod_api.campaign module.
 
         usage_expiration_event(str, optional):
-            When the person stops using the STIBarrier, this event will be broadcasted.  See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            When the person stops using the STIBarrier, this event will be broadcasted.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         usage_duration_distribution(BaseDistribution, required):
@@ -2154,6 +2153,7 @@ class STIBarrier(IndividualIntervention):
             will determine when the man stops using the intervention and revert back to condom usage based on
             the relationship type. Please use the following distribution classes
             from emodpy_hiv.utils.distributions to define the distribution:
+
             * ConstantDistribution
             * UniformDistribution
             * GaussianDistribution
@@ -2166,17 +2166,20 @@ class STIBarrier(IndividualIntervention):
 
         relationship_type('RelationshipType', optional):
             The relationship type to which the condom usage probability is applied. Possible values are:
+
             * TRANSITORY
             * INFORMAL
             * MARITAL
             * COMMERCIAL
+
             Default value: TRANSITORY
 
         condom_usage_sigmoid(Sigmoid, required):
             The new sigmoid to use when determining the probability that a condom is used during a coital act
-            within the specified relationship. This overrides the **Condom_Usage_Probablility** for the
-            relationship type as defined in the Demographics file.  If None (default), the **Condom_Usage_Probablility**
+            within the specified relationship. This overrides the **Condom_Usage_Probability** for the
+            relationship type as defined in the Demographics file.  If None (default), the **Condom_Usage_Probability**
             is not overridden.
+
             - **WARNING:** For **STIBarrier**, the 'min' and 'max' values of the sigmoid must be between 0 and 1.
 
         common_intervention_parameters (CommonInterventionParameters, optional):
@@ -2220,11 +2223,11 @@ class STIIsPostDebut(IndividualIntervention):
     The **STIIsPostDebut** intervention class checks to see if the individual is post-STI debut.
     Note that this is not connected to IndividualProperties in the demographics file.
 
-    User can either set the diagnosis_config parameters:
+    User can either set the diagnosis_config parameters
     - `positive_diagnosis_config` (required)
     - `negative_diagnosis_config` (optional)
 
-    or set the diagnosis_event parameters:
+    or set the diagnosis_event parameters
     - `positive_diagnosis_event` (required)
     - `negative_diagnosis_event` (optional)
 
@@ -2243,15 +2246,15 @@ class STIIsPostDebut(IndividualIntervention):
             Default value: None
 
         positive_diagnosis_event(str, optional):
-            The event to be broadcast on a positive test result. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            The event to be broadcast on a positive test result.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         negative_diagnosis_event(str, optional):
-            The event to be broadcast on a negative test result. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            The event to be broadcast on a negative test result.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         common_intervention_parameters (CommonInterventionParameters, optional):
@@ -2321,9 +2324,9 @@ class SetSexualDebutAge(IndividualIntervention):
             Default value: CURRENT_AGE
 
         distributed_event_trigger(str, optional):
-            The name of the event to be broadcast when the intervention is distributed to an individual. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            The name of the event to be broadcast when the intervention is distributed to an individual.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         age_years(float, optional):
@@ -2388,16 +2391,17 @@ class StartNewRelationship(IndividualIntervention):
             Default value: None
 
         relationship_created_event(str, optional):
-            The event trigger to broadcast when a new relationship is created due to the intervention. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            The event trigger to broadcast when a new relationship is created due to the intervention.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         condom_usage_sigmoid(Sigmoid, required):
             The new sigmoid to use when determining the probability that a condom is used during a coital act
-            within the specified relationship. This overrides the **Condom_Usage_Probablility** for the
-            relationship type as defined in the Demographics file.  If None (default), the **Condom_Usage_Probablility**
+            within the specified relationship. This overrides the **Condom_Usage_Probability** for the
+            relationship type as defined in the Demographics file.  If None (default), the **Condom_Usage_Probability**
             is not overridden.
+
             - **WARNING:** For **StartNewRelationship**, the 'min' and 'max' values of the sigmoid must be between 0 and 1.
 
         common_intervention_parameters (CommonInterventionParameters, optional):
@@ -2461,8 +2465,9 @@ class _StiCoInfectionDiagnostic(IndividualIntervention): # make this class priva
 
         positive_diagnosis_event(str, optional):
             If the test is positive, this specifies an event that can trigger another intervention when the event
-            occurs. See :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used in EMOD or use your
-            own custom event.
+            occurs.
+            See [EventList](http://emod-hiv.readthedocs.io/en/latest/parameter-campaign-event-list.html)
+            for events already used in EMOD or use your own custom event.
             Default value: None
 
         enable_is_symptomatic(bool, optional):
