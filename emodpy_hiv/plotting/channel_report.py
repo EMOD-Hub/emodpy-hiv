@@ -80,7 +80,7 @@ class ChannelReport:
     def save(self, filename):
         """
         Save this report data to a file.
-        
+
         Args:
             filename (str): The name of the file (including path) to contain the data/JSON.
         """

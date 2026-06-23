@@ -261,7 +261,7 @@ class ARTMortalityTable(IndividualIntervention):
             from emodpy_hiv.campaign.individual_intervention import ARTMortalityTable
             from emodpy_hiv.campaign.common import CommonInterventionParameters
             import emodpy_hiv.campaign as api_campaign
-            
+
             art_duration_days_bins=[0, 183, 365, 730, 1095]                    # 0, 6mo, 1yr, 2yr, 3yr in days
             age_years_bins=[0, 40]                                             # Under 40, 40+
             cd4_count_bins=[0, 25, 74.5, 149.5, 274.5, 424.5, 624.5]           # CD4 count thresholds
@@ -288,7 +288,7 @@ class ARTMortalityTable(IndividualIntervention):
                     [0.0060, 0.0060, 0.0041, 0.0033, 0.0017, 0.0017, 0.0017]
                 ]
               ]
-            
+
             # Create the intervention
             art_intervention = ARTMortalityTable(campaign=api_campaign,
                                                  mortality_table=mortality_table,
@@ -884,11 +884,11 @@ class CoitalActRiskFactors(IndividualIntervention):
         co_inf_transmission = infected_individual.STI_Coinfection_Transmission_Multiplier if co-infected else 1
         co_inf_acquisition  = uninfected_individual.STI_Coinfection_Acquisition_Multiplier if co-infected else 1
         risk_multiplier = max( co_inf_transmission, co_inf_acquisition )
-        
+
         risk_factor_transmission = infected_individual.CoitalActsRiskFactors.Transmission_Multiplier
         risk_factor_acquisition = uninfected_individual.CoitalActsRiskFactors.Acquisition_Multiplier
         risk_multiplier *= risk_factor_transmission * risk_factor_acquisition;
-        
+
         risk_multiplier *= (1 - Condom_Transmission_Blocking_Probability) if using_condom else 1
         ```
 
@@ -957,12 +957,12 @@ class CoitalActRiskFactors(IndividualIntervention):
             ```
             infectiousness = Base_Infectivity
             infectiousness *= heterogeneity_factor
-            
+
             if hiv_stage == ACUTE:
                 infectiousness *= Acute_Stage_Infectivity_Multiplier
             elif hiv_stage == AIDS:
                 infectiousness *= AIDS_Stage_Infectivity_Multiplier
-            
+
             suppression = ART_Multiplier_On_Transmission_Prob_Per_Act
             if Days_To_Achieve_Viral_Suppression > 0:
                 art_mult = ART_Multiplier_On_Transmission_Prob_Per_Act

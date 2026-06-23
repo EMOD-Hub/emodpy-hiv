@@ -1435,7 +1435,7 @@ def add_state_HCTTestingLoop(campaign: emod_api.campaign,
                                  hct_delay_to_next_test_node_ids=hct_delay_to_next_test_node_ids,
                                  hct_delay_to_next_test_node_names=hct_delay_to_next_test_node_names))
         ```
-        
+
         This example demonstrates how to add the HCTTestingLoop state to the campaign with a single delay period for all
         regions/nodes.
 
@@ -1566,7 +1566,7 @@ def add_state_TestingOnSymptomatic(campaign: emod_api.campaign,
 
     Returns:
         Tuple[str, str]: The triggers for the ARTStagingDiagnosticTest and ARTStaging states.
-    
+
     When the 'NewlySymptomatic' event occurs, this state is initiated. The sigmoiddiag intervention is then applied. If
     the test result is positive, it triggers the ARTStagingDiagnosticTest state via the
     ART_STAGING_DIAGNOSTIC_TEST_TRIGGER event. However, if the sigmoiddiag test is negative, it triggers a

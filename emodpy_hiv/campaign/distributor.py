@@ -126,7 +126,7 @@ def add_intervention_nchooser_df(campaign: api_campaign,
         from emodpy_hiv.campaign.common import CommonInterventionParameters as CIP
         from emodpy_hiv.utils.emod_enum import TargetDiseaseState
         import pandas as pd
-        
+
         campaign_obj = emod_api.campaign
         campaign_obj.schema_path = 'path_to_schema'
         # Initialize a MaleCircumcision intervention with intervention_name: 'MaleCircumcision'
@@ -250,7 +250,7 @@ def _add_intervention_nchooser(campaign: api_campaign,
         targeted_distributions (list[NChooserTargetedDistributionHIV], required):
             - A list of NChooserTargetedDistributionHIV object specifying when, to whom, and how many interventions are distributed.
             - Please refer emodpy_hiv.campaign.event_coordinator.NChooserTargetedDistributionHIV for more details.
-        start_year (float, requied):
+        start_year (float, required):
             - The year when the event starts.
         event_name (str, optional):
             - The name of the campaign event.
@@ -269,7 +269,7 @@ def _add_intervention_nchooser(campaign: api_campaign,
         from emod_api import campaign as api_campaign
         from emodpy_hiv.campaign.individual_intervention import MaleCircumcision
         from emodpy_hiv.campaign.distributor import _add_intervention_nchooser
-        
+
         api_campaign.set_schema('path_to_schema')
         intervention_config = MaleCircumcision(api_campaign)
         distribution_1 = NChooserTargetedDistributionHIV( ...)
@@ -390,7 +390,7 @@ def add_intervention_reference_tracking(campaign: api_campaign,
         from emodpy_hiv.campaign.common import (ValueMap, TargetGender, CommonInterventionParameters as CIP,
                                                 TargetDemographicsConfig as TDC)
         from emodpy_hiv.utils.targeting_config import IsCircumcised, HasIP
-        
+
         campaign_obj = emod_api.campaign
         campaign_obj.schema_path = 'path_to_schema'
         mc = MaleCircumcision(campaign_obj,

@@ -123,7 +123,7 @@ class ReportHIVByAgeAndGender(ConfigReporter):
             report for each event listed, showing the number of times the event occurred during the reporting for the
             people in the row. To be counted, the individual must qualify for that row at the time the event occurred,
             not necessarily at the end of the reporting period (the individual themselves might end up being counted
-            in a different row). See the [Event List](https://emod.idmod.org/emodpy-hiv/emod/parameter-campaign-event-list) 
+            in a different row). See the [Event List](https://emod.idmod.org/emodpy-hiv/emod/parameter-campaign-event-list)
             for events already used by EMOD, or add custom events you're using in campaigns.
 
             Default: None
