@@ -624,7 +624,7 @@ def extract_mortality(country: str,
             but the data will be extracted from the first one plus the next one or two.  The 'estimates'
             sheet gives you data for the past while the 'medium XXX' sheets give you the data for the future.
             It is expected to be in the Strict Open XML Spreadsheet format.
-   
+
     Returns:
         (YearAgeRate): A YearAgeRate object containing the mortality data in the given file.
     """
