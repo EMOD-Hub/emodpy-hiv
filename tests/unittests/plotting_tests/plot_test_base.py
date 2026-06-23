@@ -29,12 +29,6 @@ class PlotTestBase(unittest.TestCase):
         print(f"Test {self._testMethodName} took {elapsed_time:.2f} seconds.")
 
     def compare_files(self, exp_dir: str, act_dir: str, file_extension: str=".png"):
-        # ----------------------------------------------------------------------------
-        # the windows and linux image files are different.  they look exactly the same
-        # but the comparision is different.  I think it is a compression difference.
-        # ----------------------------------------------------------------------------
-        if sys.platform.startswith('linux'):
-            exp_dir = exp_dir + "_linux"
 
         exp_image_filenames = helpers.get_filenames(dir_or_filename=exp_dir,
                                                     file_prefix="",
