@@ -1,5 +1,5 @@
 """
-This module contains stuff related to a YearAgeRate dataframe object that can be used
+This module contains the classes and functions related to a YearAgeRate dataframe object that can be used
 to create demographic objects.
 """
 
@@ -13,18 +13,18 @@ from emod_api.demographics.mortality_distribution import MortalityDistribution
 class YearAgeRate:
     """
     The YearAgeRate class is a wrapper around a pandas dataframe such that the dataframe
-    is expected to have a specific format that is used in the demographics.  Objects of
+    is expected to have a specific format that is used in the demographics. Objects of
     this class are used as output from UN World Pop functions and as input into the
-    creation of a Demograhics object.  This gives us a standard format of the data for
+    creation of a Demographics object. This gives us a standard format of the data for
     most population-based demographic data.
 
-    The dataframe is expected to have four columns:
-        * node_id: An integer representing the node the data is associated with
-        * min_year: A float representing the calendar start year of the period of years
-            for which the represents.
-        * min_age: A float representing the age of the people in years.
-        * rate: The value (a float) of this column depends on the data contained.
-            It can be a rate of fertility or mortality or a fraction of the population.
+    The dataframe is expected to have four columns,
+
+    - node_id: An integer representing the node the data is associated with.
+    - min_year: A float representing the calendar start year of the period of years represented.
+    - min_age: A float representing the age of the people in years.
+    - rate: The value (a float) of this column depends on the data contained.
+    It can be a rate of fertility or mortality or a fraction of the population.
 
     This format assumes that the year/age ranges are contiguous from one value to the
     next largest value.  For example, if a row has a min_age = 15 and the next row of
@@ -57,11 +57,11 @@ class YearAgeRate:
     @staticmethod
     def _validate_df(df):
         """
-        Throws an exception if dataframe doesn't conform to one of the following:
+        Throws an exception if dataframe doesn't conform to one of the following
             * Not the expected column names
             * Number of min_ages not the same for each min_year
             * Not the exact set of min_ages for each min_year
-            * If there are dupliate rows that have the same node_id, min_year, and min_age.
+            * If there are duplicate rows that have the same node_id, min_year, and min_age.
         """
         node_group_collection = df.groupby(YearAgeRate.COL_NAME_NODE_ID)
         for node_id, node_group in node_group_collection:
@@ -103,8 +103,8 @@ class YearAgeRate:
         You can only define the dataframe OR the csv_filename, bot NOT both.
 
         Args:
-            df: A pandas dataframe that follows the format of a YearAgeRate object.
-            csv_filename: A CSV file containing data for YearAgeRate dataframe.
+            df (pd.DataFrame): A pandas dataframe that follows the format of a YearAgeRate object.
+            csv_filename (str): A CSV file containing data for YearAgeRate dataframe.
         """
         if (df is None and csv_filename is None) or (df is not None and csv_filename is not None):
             raise ValueError("You must define either 'df' or 'csv_filename', but not both.")
@@ -141,7 +141,7 @@ class YearAgeRate:
         The "rate" column is assumed to be the fraction of people in that year and age range.
         The dataframe is also assumed to only have the data for one year.
 
-        NOTE: EMOD expects the ReslutValues/Ages to be maximums of the bin. This implies that
+        NOTE: EMOD expects the ResultValues/Ages to be maximums of the bin. This implies that
         if the last age has a DistributionValue = 1.0, then there should be no people aged
         greater than this last age.  It also means that the first age is also a minimum.
         For example, if the first age were 1.0, then there can be zero people less than 1.0.
@@ -209,10 +209,10 @@ class YearAgeRate:
                                          stepwise_for_year: bool = True) -> Dict:
         """
         Since fertility and mortality data is formatted the same, this method converts the dataframe
-        to an EMOD distribution dictionary.  This dictionary can be used with FertilityDistribution's
+        to an EMOD distribution dictionary. This dictionary can be used with FertilityDistribution's
         or MortalityDistribution's from_dict() method to create the appropriate distribution object.
 
-        The method assumes that the user wants the data in a step-wise format.  That is, for a
+        The method assumes that the user wants the data in a step-wise format. That is, for a
         calendar year range and age range, the user wants EMOD to produce the same value/rate
         for the entire range.  The rate doesn't change until the year or age moves to a new range.
 
@@ -309,13 +309,13 @@ class YearAgeRate:
         """
         Convert this YearAgeRate object to a list of tuples of node_id and FertilityDistribution.
 
-        The method assumes that the user wants the data in a step-wise format.  That is, for a
+        The method assumes that the user wants the data in a step-wise format. That is, for a
         calendar year range and age range, the user wants EMOD to produce the same value/rate
-        for the entire range.  The rate doesn't change until the year or age moves to a new range.
+        for the entire range. The rate doesn't change until the year or age moves to a new range.
 
         For the max age of the last bin, a value of 125 is used and, for the max_year of the last bin,
-        a value of 2100 is used.  Using these maximums still produces the correct values because we
-        want the result constant for the entire range.  Having the range wider just produces
+        a value of 2100 is used. Using these maximums still produces the correct values because we
+        want the result constant for the entire range. Having the range wider just produces
         the same constant.
         """
         fertility_distributions = []
@@ -335,7 +335,7 @@ class YearAgeRate:
 
     def to_mortality_distributions(self, stepwise_for_year: bool = True) -> Dict[int, MortalityDistribution]:
         """
-        Convert this YearAgeRate object to a dict of node_id: MortalityDistribution entries.
+        Convert this YearAgeRate object to a dict of `node_id: MortalityDistribution` entries.
 
         The method assumes that the user wants the data in a step-wise format.  That is, for a
         calendar year range and age range, the user wants EMOD to produce the same value/rate
@@ -347,7 +347,7 @@ class YearAgeRate:
         the same constant.
 
         Args:
-            stepwise_for_year:
+            stepwise_for_year (bool):
                 If true, the age and calendar year both in step-wise format.  If false, calendar year
                 is adjust by 2.5 and the linear interpolation will be used between calendar years.
         """
@@ -377,21 +377,23 @@ def plot(year_age_rate_list: List[YearAgeRate],
     in the 'year_age_rate_list' will have one curve on each subplot
 
     Args:
-        year_age_rate_list: A list of YearAgeRate objects that have same min_age values
+        year_age_rate_list (List[YearAgeRate]):
+            A list of YearAgeRate objects that have same min_age values
             for all min_year values.  The min_year values do not need to be the same,
             just the min_ages.
 
-        title:
+        title (str):
             The title of the plot window.
 
-        node_id:
+        node_id (int):
             Data will be extracted from the YearAgeRate objects for this node.
 
-        img_dir: If this is defined, the images are saved to this directory.  If not defined,
+        img_dir (str):
+            If this is defined, the images are saved to this directory.  If not defined,
             the images are displayed in a window.
 
-        filename_to_save_to: The name of the file to save the image to.  This is only used if
-            img_dir is defined.
+        filename_to_save_to (str):
+            The name of the file to save the image to.  This is only used if img_dir is defined.
     """
     from math import sqrt, ceil
     import matplotlib.pyplot as plt

@@ -37,7 +37,7 @@ class ReportHIVByAgeAndGender(ConfigReporter):
     Some results, such as population size or number infected, are reported as single 'snapshots' at the end of the
     reporting period. Other values, such as deaths or new infections, are aggregated for the entire reporting period.
 
-    For more information, see :doc:`emod-hiv:emod/software-report-age-gender`.
+    For more information, see the [report documentation](https://emod.idmod.org/emodpy-hiv/emod/software-report-age-gender/).
 
     Args:
         reporters_object (Reporters): The reporters object given by the emodpy.
@@ -84,7 +84,7 @@ class ReportHIVByAgeAndGender(ConfigReporter):
 
         collect_ip_data (list[str], optional): A list of individual property (IP) keys used to stratify the report.
             A column 'IP_Key:X' will be added to the report for each IP listed, and a row for each possible
-            IP Key:Value pair. For more information, see :doc:`emod-hiv:emod/model-properties`.
+            IP Key:Value pair. For more information, see [Model Properties](https://emod.idmod.org/emodpy-hiv/emod/model-properties).
 
             Default: None
 
@@ -123,9 +123,8 @@ class ReportHIVByAgeAndGender(ConfigReporter):
             report for each event listed, showing the number of times the event occurred during the reporting for the
             people in the row. To be counted, the individual must qualify for that row at the time the event occurred,
             not necessarily at the end of the reporting period (the individual themselves might end up being counted
-            in a different row). See :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used by EMOD,
-            or add custom events you're using in campaigns.
-            parameter in config.
+            in a different row). See the [Event List](https://emod.idmod.org/emodpy-hiv/emod/parameter-campaign-event-list) 
+            for events already used by EMOD, or add custom events you're using in campaigns.
 
             Default: None
 
@@ -163,8 +162,8 @@ class ReportHIVByAgeAndGender(ConfigReporter):
         report_filter (ReportFilter, optional): Common report filtering parameters. Valid filtering parameters for this
             report are:
 
-                - start_year
-                - end_year
+            - start_year
+            - end_year
 
     """
     def __init__(self,
@@ -284,7 +283,7 @@ class ReportRelationshipStart(ConfigReporter):
     properties. The male in the relationship is indicated on the report as participant 'A', and the female as
     participant 'B'.
 
-    For more information, see :doc:`emod-hiv:emod/software-report-relationship-start`.
+    For more information, see the [report documentation](https://emod.idmod.org/emodpy-hiv/emod/software-report-relationship-start/).
 
     Args:
         reporters_object (Reporters): The reporters object given by the emodpy.
@@ -300,25 +299,25 @@ class ReportRelationshipStart(ConfigReporter):
             for each partner in the relationship, as well as total relationships in the past six month and total
             lifetime relationships. Additionally, a bitmask column will indicate which types of concurrent relationships
             are allowed; these are configured using the Concurrency_Configuration parameter in the demographics, see
-            :doc:`emod-hiv:emod/parameter-demographics`.
+            [demographics documentation](https://emod.idmod.org/emodpy-hiv/emod/parameter-demographics).
 
             Default: False
 
         individual_properties (list[str], optional): A list of strings individual property (IP) keys that will be
             included in the report as applicable to each partner at the start of the relationship. One column will be
             added to the report for each partner, for each key in the list. For more information, see
-            :doc:`emod-hiv:emod/model-properties`.
+            [model properties](https://emod.idmod.org/emodpy-hiv/emod/model-properties).
 
         report_filter (ReportFilter, optional): Common report filtering parameters. To be included into the report, only
             one of the partners needs to satisfy the field. Valid filtering parameters for this report are:
 
-                - start_year
-                - end_year
-                - node_ids
-                - min_age_years
-                - max_age_years
-                - must_have_ip_key_value
-                - must_have_intervention
+            - start_year
+            - end_year
+            - node_ids
+            - min_age_years
+            - max_age_years
+            - must_have_ip_key_value
+            - must_have_intervention
 
     """
 
@@ -370,7 +369,7 @@ class ReportCoitalActs(ConfigReporter):
     any one of their partners. The probability of transmission from any one of these coital acts is still determined by
     the simulation parameters (number of acts, acquisition multipliers, etc.)
 
-    For more information, please see :doc:`emod-hiv:emod/software-report-relationship-consummated`.
+    For more information, please see the [report documentation](https://emod.idmod.org/emodpy-hiv/emod/software-report-relationship-consummated).
 
     Args:
         reporters_object (Reporters): The reporters object given by the emodpy.
@@ -388,13 +387,13 @@ class ReportCoitalActs(ConfigReporter):
 
         individual_properties (list[str], optional): A list of strings individual property (IP) keys that will be
             included in the report as columns. Each person will have the value of that key in their row. For more
-            information, see :doc:`emod-hiv:emod/model-properties`.
+            information, see the [model properties](https://emod.idmod.org/emodpy-hiv/emod/model-properties) documentation.
             Default: None
 
         partners_with_ip_key_value (list[str], optional): A list of strings in format of "Key:Value", denoting specific
             IndividualProperty key:value pair. For each IP Key:Value string in the list, two columns will be added -
             one for each partner indicating the number of their partners for whom that IP Key:Value applies. For more
-            information, see :doc:`emod-hiv:emod/model-properties`.
+            information, see the [model properties](https://emod.idmod.org/emodpy-hiv/emod/model-properties) documentation.
 
             Default: None
 
@@ -402,13 +401,13 @@ class ReportCoitalActs(ConfigReporter):
             one of the partners needs to satisfy the field. Valid filtering parameters for this
             report are:
 
-                - start_year
-                - end_year
-                - node_ids
-                - min_age_years
-                - max_age_years
-                - must_have_ip_key_value
-                - must_have_intervention
+            - start_year
+            - end_year
+            - node_ids
+            - min_age_years
+            - max_age_years
+            - must_have_ip_key_value
+            - must_have_intervention
 
     """
 
@@ -466,7 +465,7 @@ class ReportRelationshipEnd(ConfigReporter):
     to each relationship and is the same across all reports that reference relationships: ReportRelationshipStart,
     ReportTransmission, and the ReportCoitalActs.
 
-    For more information, please see :doc:`emod-hiv:emod/software-report-relationship-end`.
+    For more information, please see the [report documentation](https://emod.idmod.org/emodpy-hiv/emod/software-report-relationship-end).
 
     Args:
         reporters_object (Reporters): The reporters object given by the emodpy
@@ -486,7 +485,7 @@ class ReportTransmission(ConfigReporter):
     gender, current and lifetime number of relationships, infection stage, circumcision status for males, co-infections,
     and disease-specific biomarkers, if applicable.
 
-    For more information, see :doc:`emod-hiv:emod/software-report-transmission`.
+    For more information, see the [report documentation](https://emod.idmod.org/emodpy-hiv/emod/software-report-transmission).
 
     Args:
         reporters_object (Reporters): The reporters object given by the emodpy
@@ -504,7 +503,7 @@ class ReportHIVART(ConfigReporter):
     The ART initiation and discontinuation report (ReportHIVART.csv) provides information on individuals at time of
     ART initiation and discontinuation, including ID, age, gender, and CD4 count at ART initiation.
 
-    For more information, see :doc:`emod-hiv:emod/software-report-hivart`.
+    For more information, see the [report documentation](https://emod.idmod.org/emodpy-hiv/emod/software-report-hivart).
 
     Args:
         reporters_object (Reporters): The reporters object given by the emodpy
@@ -523,15 +522,15 @@ class ReportHIVInfection(ConfigReporter):
     at each time step, including age, gender, CD4 count, survival prognosis, ART status, and factors impacting
     transmission and acquisition.
 
-    For more information, see :doc:`emod-hiv:emod/software-report-hivinfection`.
+    For more information, see the [report documentation](https://emod.idmod.org/emodpy-hiv/emod/software-report-hivinfection).
 
     Args:
         reporters_object (Reporters): The reporters object given by the emodpy
         report_filter (ReportFilter, optional): Common report filtering parameters. Valid filtering parameters for this
             report are:
 
-                - start_year
-                - end_year
+            - start_year
+            - end_year
     """
 
     def __init__(self,
@@ -574,10 +573,10 @@ class ReportHIVMortality(ConfigReporter):
     The HIV mortality report (HIVMortality.csv) provides information about individuals at the time of their death,
     including disease status, CD4 count, medical history, and relationship history.
 
-    For more information, see :doc:`emod-hiv:emod/software-report-hivmort`.
+    For more information, see the [report documentation](https://emod.idmod.org/emodpy-hiv/emod/software-report-hivmort).
 
     Args:
-        reporters_object (Reporters): The reporters object given by the emodpy
+        reporters_object (Reporters): The reporters object given by the emodpy.
 
     """
 
@@ -603,21 +602,21 @@ class ReportRelationshipMigrationTracking(BuiltInReporter):
     listed. Any migrated partner should only have the relationship with the partner initiating migration. Their other
     relationships will have been terminated.
 
-    For more information, see :doc:`emod-hiv:emod/software-report-relationship-migration-tracking`.
+    For more information, see the [report documentation](https://emod.idmod.org/emodpy-hiv/emod/software-report-relationship-migration-tracking).
 
     Args:
         reporters_object (Reporters): The reporters object given by the emodpy.
         report_filter (ReportFilter, optional): Common report filtering parameters. Valid filtering parameters for this
             report are:
 
-                - start_year
-                - end_year
-                - filename_suffix
-                - node_ids
-                - min_age_years
-                - max_age_years
-                - must_have_ip_key_value
-                - must_have_intervention
+            - start_year
+            - end_year
+            - filename_suffix
+            - node_ids
+            - min_age_years
+            - max_age_years
+            - must_have_ip_key_value
+            - must_have_intervention
 
 
     """
@@ -649,8 +648,8 @@ class ReportPfaQueues(BuiltInReporter):
     the individuals remaining in the PFA after pairing, who will wait until the next time step to enter a relationship
     of the specified type.
 
-    For more information:
-    `ReportPfaQueues <https://github.com/EMOD-Hub/emodpy-hiv/issues/14>`_
+    Additional documentation for this report is in development.
+    See [ReportPfaQueues](https://github.com/EMOD-Hub/emodpy-hiv/issues/14) for the current status.
 
     Args:
         reporters_object (Reporters): The reporters object given by the emodpy.
@@ -669,7 +668,7 @@ class ReportRelationshipCensus(BuiltInReporter):
     numbers for each person during each taking of the census. The census is a one-day event collecting data for that
     person as of that day.
 
-    For more information, see :doc:`emod-hiv:emod/software-report-relationship-census`.
+    For more information, see the [report documentation](https://emod.idmod.org/emodpy-hiv/emod/software-report-relationship-census).
 
     Args:
         reporters_object (Reporters): The reporters object given by the emodpy.
@@ -678,8 +677,8 @@ class ReportRelationshipCensus(BuiltInReporter):
         report_filter (ReportFilter, optional): Common report filtering parameters. Valid filtering parameters for this
             report are:
 
-                - start_year
-                - end_year
+            - start_year
+            - end_year
 
     """
 
@@ -729,39 +728,39 @@ class ReportEventRecorder(ConfigReporter):
     demographics and health status at the time of an event. Additionally, it is possible to see the value of specific
     IndividualProperties, as assigned in the demographics file.
 
-    For more information, see :doc:`emod-hiv:emod/software-report-event-recorder`.
+    For more information, see the [report documentation](https://emod.idmod.org/emodpy-hiv/emod/software-report-event-recorder).
 
     Args:
         reporters_object (Reporters): The reporters object given by the emodpy.
 
         event_list (list[str]): The list of individual-level events to include in the output report. See
-            :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already used by EMOD,
-            or add custom events you're using in campaigns.
+            the [Event List](https://emod.idmod.org/emodpy-hiv/emod/parameter-campaign-event-list)
+            for events already used by EMOD, or add custom events you're using in campaigns.
 
         individual_properties (list[str], optional): A list of strings individual property (IP) keys that will be
             included in the report as applicable to each partner at the start of the relationship. One column will be
             added to the report for each partner, for each key in the list. For more information, see
-            :doc:`emod-hiv:emod/model-properties`.
+             the [Model Properties](https://emod.idmod.org/emodpy-hiv/emod/model-properties) documentation.
 
             Default: None
 
         property_change_ip_to_record (str, optional): IndividualProperty key string for which recorder will add the
             PropertyChange event to the list of events that the report is listening to. However, it will only record
             the events where the property changed the value of this given key. For more information,
-            see :doc:`emod-hiv:emod/model-properties`.
+            see the [Model Properties](https://emod.idmod.org/emodpy-hiv/emod/model-properties) documentation.
 
             Default: None
 
         report_filter (ReportFilter, optional): Common report filtering parameters. Valid filtering parameters for this
             report are:
 
-                - start_year
-                - end_year
-                - node_ids
-                - min_age_years
-                - max_age_years
-                - must_have_ip_key_value
-                - must_have_intervention
+            - start_year
+            - end_year
+            - node_ids
+            - min_age_years
+            - max_age_years
+            - must_have_ip_key_value
+            - must_have_intervention
 
     """
 
@@ -806,14 +805,14 @@ class InsetChart(_InsetChart):
     specified by the simulation type and cannot be altered without making changes to the EMOD source code. Python or
     other tools can be used to create charts out of the information contained in the file.
 
-    For more information, see :doc:`emod-hiv:emod/software-report-inset-chart`
+    For more information, see the [report documentation](https://emod.idmod.org/emodpy-hiv/emod/software-report-inset-chart).
 
     Args:
         reporters_object (Reporters): The reporters object given by the emodpy
         has_ip (list[str], optional): A channel is added to InsetChart for each value of each
             IndividualProperty key provided.  The channel name will be HasIP_<Key:Value> and will be the fraction
             of the population that has that value for that Individual Property Key. For more information,
-            see :doc:`emod-hiv:emod/model-properties`.
+            see the [Model Properties](https://emod.idmod.org/emodpy-hiv/emod/model-properties) documentation.
             Default: None
         has_interventions (list[str], optional): A channel is added to InsetChart for each intervention name provided.
             The channel name will be Has_<InterventionName> and will be the fraction of the population that has that
@@ -828,8 +827,8 @@ class InsetChart(_InsetChart):
         event_channels_list (list[str], optional): This is the list of events included in the InsetChart report. If
             events are specified with this parameter, the InsetChart will include a channel for each event listed.
             If no events are listed, a 'Number of Events' channel will display the total number of all events that
-            occurred during the simulation. See :doc:`emod-hiv:emod/parameter-campaign-event-list` for events already
-            used by EMOD or add custom events you're using in campaigns.
+            occurred during the simulation. See the [Event List](https://emod.idmod.org/emodpy-hiv/emod/parameter-campaign-event-list)
+            for events already used by EMOD or add custom events you're using in campaigns.
             Default: None
     """
 

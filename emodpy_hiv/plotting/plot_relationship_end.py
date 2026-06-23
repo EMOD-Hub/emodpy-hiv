@@ -33,7 +33,7 @@ def extract_data_for_relationship(filename: str,
     """
     Extract the relationship duration information for the given relationship type in the given file.
     Please note that only relationships that "broke-up" are considered because those are the relationships
-    that went to the completion of the drawn duration.  The relationship could have ended prematurely due
+    that went to the completion of the drawn duration. The relationship could have ended prematurely due
     to things like death or a partner migrating away.
 
     Args:
@@ -76,7 +76,7 @@ def plot_relationship_duration_histogram(dir_or_filename: str,
     Plot the relationship duration histogram for the given relationship type and
     show information in the title about the expected Weibull distribution.
     Please note that only relationships that "broke-up" are considered because those are the relationships
-    that went to the completion of the drawn duration.  The relationship could have ended prematurely due
+    that went to the completion of the drawn duration. The relationship could have ended prematurely due
     to things like death or a partner migrating away.
 
     Args:
@@ -106,8 +106,6 @@ def plot_relationship_duration_histogram(dir_or_filename: str,
 
         img_dir (str, optional):
             Directory to save the images. If None, the images will not be saved and a window will be opened.
-
-    Returns:
     """
 
     # -------------------------------------------------------
@@ -251,7 +249,7 @@ def plot_relationship_duration_histogram_with_expected(dir_or_filename: str,
     """
     Plot the relationship duration histogram for the given relationship type.
     Please note that only relationships that "broke-up" are considered because those are the relationships
-    that went to the completion of the drawn duration.  The relationship could have ended prematurely due
+    that went to the completion of the drawn duration. The relationship could have ended prematurely due
     to things like death or a partner migrating away.
 
     Args:
@@ -273,8 +271,6 @@ def plot_relationship_duration_histogram_with_expected(dir_or_filename: str,
         img_dir (str, optional):
             Directory to save the images.  If None, the images will not be saved and a window will be opened.
             Default is none - don't save image and open a window.
-
-    Returns:
     """
     bin_size = None
     expected = None

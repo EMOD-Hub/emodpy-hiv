@@ -63,7 +63,7 @@ def extract_assortivity_risk(start_rel_filename: str,
                              male_risk_value="LOW"):
     """
     For the given relationship type, extract the number of relationships that started
-    during each time step for each risk value pair.  The male risk value is constant
+    during each time step for each risk value pair. The male risk value is constant
     so it should return a dataframe with three columns.
 
     Args:
@@ -80,8 +80,8 @@ def extract_assortivity_risk(start_rel_filename: str,
 
     Returns:
         (pd.DataFrame): Dataframe with three columns where each column is for a risk value pairing.
-            Each row should represent a simulation time (in days) that had relationhips
-            created of that time and risk value pairing.  There is no guarantee that
+            Each row should represent a simulation time (in days) that had relationships
+            created of that time and risk value pairing. There is no guarantee that
             relationships are created each time step.
     """
     df = pd.read_csv(start_rel_filename)
@@ -132,13 +132,13 @@ def plot_relationship_assortivity_risk(dir_or_filename: str,
     that started during the timestep for a male with the give risk value
     versus females with the other possible values.  For example, if the
     male's risk value is HIGH, the plot will contain three curves:
-    HIGH-LOW, HIGH-MEDIUM, and HIGH-HIGH.  They will all be for the
-    given relationship type.  We only do three curves because the data
+    HIGH-LOW, HIGH-MEDIUM, and HIGH-HIGH. They will all be for the
+    given relationship type. We only do three curves because the data
     can be quite noisy.
 
     The plot also has the option to show a least squares regression line
-    for each risk value pair.  A CSV file can be saved with the regression
-    data.  This can be used to compare with the plot_a_vs_b() function to
+    for each risk value pair. A CSV file can be saved with the regression
+    data. This can be used to compare with the plot_a_vs_b() function to
     compare the regression from two different sets of files.
 
     Args:
@@ -172,8 +172,6 @@ def plot_relationship_assortivity_risk(dir_or_filename: str,
 
         img_dir (str, optional):
             Directory to save the images. If None, the images will not be saved and a window will be opened.
-
-    Returns:
     """
     if not show_regression and regression_dir:
         raise ValueError("Regression directory is set but show_regression is False.\nYou need to show regression if you want to save it.")
@@ -319,8 +317,6 @@ def plot_relationship_assortivity_risk_all(dir_or_filename: str,
         img_dir (str, optional):
             Directory to save the images.  If None, the images will not be saved and a window will be opened.
             Default is none - don't save image and open a window.
-
-    Returns:
     """
     male_risk_values = ["LOW", "MEDIUM", "HIGH"]
     for rel_type in [0, 1, 2, 3]:
