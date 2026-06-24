@@ -55,21 +55,23 @@ class Zambia(Country):
     Zambia country model class. This class is a subclass of the Country class and implements the build_campaign method
     to build campaign object to be used with EMODTask.
 
-    Example:
-        >>> from emodpy_hiv.countries.zambia import Zambia
-        >>> from emodpy.emod_task import EMODTask
-        >>> import manifest
-        >>> from functools import partial
-        >>> # Define a campaign_builder function to pass in the required arguments for the Zambia.build_campaign() method.
-        >>> def campaign_builder():
-        >>>     return Zambia.build_campaign(schema_path=manifest.schema_file, base_year=Zambia.base_year)
-        >>> # Alternatively, you can use the partial function to pass in the required arguments for the
-        >>> # Zambia.build_campaign() method. For example:
-        >>> # campaign_builder = partial(Zambia.build_campaign, schema_path=manifest.schema_file, base_year=Zambia.base_year)
-        >>> # Create an EMODTask object using the campaign_builder function
-        >>> task = EMODTask.from_defaults(config_path="config.json",
-        >>>                               eradication_path=manifest.eradication_path,
-        >>>                               campaign_builder=campaign_builder, ...)
+    Examples:
+        ```
+        from emodpy_hiv.countries.zambia import Zambia
+        from emodpy.emod_task import EMODTask
+        import manifest
+        from functools import partial
+        # Define a campaign_builder function to pass in the required arguments for the Zambia.build_campaign() method.
+        def campaign_builder():
+            return Zambia.build_campaign(schema_path=manifest.schema_file, base_year=Zambia.base_year)
+        # Alternatively, you can use the partial function to pass in the required arguments for the
+        # Zambia.build_campaign() method. For example:
+        # campaign_builder = partial(Zambia.build_campaign, schema_path=manifest.schema_file, base_year=Zambia.base_year)
+        # Create an EMODTask object using the campaign_builder function
+        task = EMODTask.from_defaults(config_path="config.json",
+                                      eradication_path=manifest.eradication_path,
+                                      campaign_builder=campaign_builder, ...)
+        ```
     """
 
     country_name = "Zambia"
@@ -415,8 +417,8 @@ class Zambia(Country):
         """
         Assemble all campaign ParameterizedCalls for the Zambia model.
 
-        Calls each add_*_parameterized_calls method in order and returns the combined list.
-        Override individual add_* methods in a subclass to replace specific components, or
+        Calls each `add_*_parameterized_calls` method in order and returns the combined list.
+        Override individual `add_*` methods in a subclass to replace specific components, or
         override this method to reorder or exclude components entirely.
 
         Args:

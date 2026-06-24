@@ -8,21 +8,19 @@ class ChannelReport:
     """
     A class that can be used to convert an EMOD channel report/dictionary
     (i.e. InsetChart, DemographicsSummary, PropertyReport, etc) into a
-    dataframe.  A static method is provided to go the other way.
+    dataframe. A static method is provided to convert a dataframe to a channel report.
     """
     def __init__(self, df: pd.DataFrame = None):
         self.json_data = self.convert_df_to_channel_report(df)
 
     def create_empty_channel_report(self):
+        #  It would be really nice if we could include Start_Time & Simulation_Timestep
+        # from the input files, but these are hardcoded for now.
         """
         Create the dictionary that has the right format for a channel report.
-        It would be really nice if we could include Start_Time & Simulation_Timestep
-        from the input files, but these are hardcoded for now.
-
-        Args:
 
         Returns:
-            (dict): A dictionary that has the header and an emtpy 'Channels' entry
+            (dict): A dictionary that has the header and an empty 'Channels' entry
         """
         report = {}
         report["Header"] = {}
@@ -45,10 +43,11 @@ class ChannelReport:
 
         Args:
             report (dict): a channel report formatted JSON dictionary
-            channel_name (str): the name of the channel to Add
+            channel_name (str): the name of the channel to add
             values (list): a list of integers or floats for that channel
 
         Returns:
+            (dict): The updated dictionary with the channel added.
         """
         report["Channels"][channel_name] = {}
         report["Channels"][channel_name]["Units"] = ""
@@ -81,10 +80,9 @@ class ChannelReport:
     def save(self, filename):
         """
         Save this report data to a file.
-        Args:
-            filename: The name of the file (including path) to contain the data/JSON.
 
-        Returns:
+        Args:
+            filename (str): The name of the file (including path) to contain the data/JSON.
         """
         with open(filename, 'w') as file:
             json.dump(self.json_data, file, indent=4)

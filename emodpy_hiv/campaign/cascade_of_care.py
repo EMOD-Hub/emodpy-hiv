@@ -33,16 +33,18 @@ class CustomEvent:  # consider moving this to a separate file or make it a priva
     In EMOD, individual events are acknowledgements that something has happened to an agent —
     they are broadcast by interventions or the model itself and listened to by other interventions
     and reports. This class defines the user-defined individual event names used by the cascade
-    of care; built-in individual event names are listed in the event list parameter reference
-    (``docs/emod/parameter-campaign-event-list.md``).
+    of care; built-in individual event names are listed in the [event list](https://emod.idmod.org/emodpy-hiv/emod/parameter-campaign-event-list/)
+    parameter reference.
 
     The cascade of care is implemented as a chain of broadcaster/listener pairs: each intervention
     broadcasts one of these events when complete, triggering the next intervention in the chain.
     Use these constants instead of raw strings to avoid silent misconfiguration from typos.
 
-    Example:
-        >>> from emodpy_hiv.campaign.cascade_of_care import CustomEvent
-        >>> add_intervention_triggered(campaign, trigger_condition_list=[CustomEvent.ART_STAGING], ...)
+    Examples:
+        ```
+        from emodpy_hiv.campaign.cascade_of_care import CustomEvent
+        add_intervention_triggered(campaign, trigger_condition_list=[CustomEvent.ART_STAGING], ...)
+        ```
     """
     ART_STAGING = 'ARTStaging'
     ART_STAGING_0 = 'ARTStaging0'  # immediate ART staging, rename this to ImmediateARTStaging?
@@ -126,18 +128,20 @@ LOST_FOREVER_TRIGGER = CustomEvent.LOST_FOREVER_0
 
 class CascadeState:
     """
-    String constants for the IndividualProperty values that track each person's position in the HIV care cascade.
+    String constants for the **IndividualProperty** values that track each person's position in the HIV care cascade.
 
-    These values are assigned to the ``CascadeState`` individual property. Campaign events use them via
-    PropertyRestrictions (to target individuals in a specific state) and PropertyValueChanger (to move
+    These values are assigned to the **CascadeState** individual property. Campaign events use them via
+    **PropertyRestrictions** (to target individuals in a specific state) and **PropertyValueChanger** (to move
     individuals from one state to another). Use these constants rather than raw strings so that typos
     produce an AttributeError rather than a silently misconfigured simulation.
 
-    Example:
-        >>> from emodpy_hiv.campaign.cascade_of_care import CascadeState
-        >>> from emodpy_hiv.campaign.common import PropertyRestrictions
-        >>> # Target only individuals currently on ART
-        >>> restrictions = PropertyRestrictions(restrictions=[[{"CascadeState": CascadeState.ON_ART}]])
+    Examples:
+        ```
+        from emodpy_hiv.campaign.cascade_of_care import CascadeState
+        from emodpy_hiv.campaign.common import PropertyRestrictions
+        Target only individuals currently on ART:
+        restrictions = PropertyRestrictions(restrictions=[[{"CascadeState": CascadeState.ON_ART}]])
+        ```
     """
     LOST_FOREVER = "CascadeState:LostForever"
     ON_ART = "CascadeState:OnART"
@@ -175,16 +179,18 @@ def convert_time_value_map(time_value_map) -> dict:
     function.
 
     Args:
-        time_value_map (dict): A dictionary containing two lists, "Times" and "Values".
-                               "Times" is a list of times (years) and "Values" is a list of corresponding values.
+        time_value_map (dict): A dictionary containing two lists, "Times" and "Values".<br>
+            "Times" is a list of times (years) and "Values" is a list of corresponding values.
 
     Returns:
         dict: A dictionary where each time from "Times" is a key and its corresponding value from "Values" is the value.
 
-    Example:
-        >>> time_value_map = {"Times": [2002, 2010.5, 2013.95], "Values": [200, 350, 500]}
-        >>> convert_time_value_map(time_value_map)
+    Examples:
+        ```
+        time_value_map = {"Times": [2002, 2010.5, 2013.95], "Values": [200, 350, 500]}
+        convert_time_value_map(time_value_map)
         {2002: 200, 2010.5: 350, 2013.95: 500}
+        ```
     """
     time_value_map_convert = {}
     for time, value in zip(time_value_map["Times"], time_value_map["Values"]):
@@ -207,19 +213,16 @@ def seed_infections(campaign: emod_api.campaign,
                     seeding_target_gender: TargetGender = TargetGender.ALL,
                     seeding_target_property_restrictions: list = None) -> None:
     """
-    Add a OutbreakIndividual intervention with StandardEventCoordinator to the campaign object.
+    Add a **OutbreakIndividual** intervention with **StandardEventCoordinator** to the campaign object.
     Args:
-        campaign: emod_api.campaign object
-        seeding_node_ids: List of node IDs to seed infections in. Defaults to None, which seeds infections in all nodes.
-        seeding_start_year: The year to start seeding infections. Defaults to 1982.
-        seeding_coverage: The coverage of the seeding infections. Defaults to 0.075.
-        seeding_target_min_age: The minimum age of the target population. Defaults to 0.
-        seeding_target_max_age: The maximum age of the target population. Defaults to 200.
-        seeding_target_gender: The TargetGender object which defines the gender of the target population. Defaults to TargetGender.ALL. Options are TargetGender.MALE, TargetGender.FEMALE, TargetGender.ALL.
-        seeding_target_property_restrictions: List of property restrictions. Defaults to None.
-
-    Returns:
-
+        campaign (emod_api.campaign): emod_api.campaign object
+        seeding_node_ids (Union[List[int], None]): List of node IDs to seed infections in. Defaults to None, which seeds infections in all nodes.
+        seeding_start_year (float): The year to start seeding infections. Defaults to 1982.
+        seeding_coverage (float): The coverage of the seeding infections. Defaults to 0.075.
+        seeding_target_min_age (float): The minimum age of the target population. Defaults to 0.
+        seeding_target_max_age (float): The maximum age of the target population. Defaults to 200.
+        seeding_target_gender (TargetGender): The TargetGender object which defines the gender of the target population. Defaults to TargetGender.ALL. Options are TargetGender.MALE, TargetGender.FEMALE, TargetGender.ALL.
+        seeding_target_property_restrictions (list): List of property restrictions. Defaults to None.
     """
     event_name = f"Epidemic seeding in node(s) {str(seeding_node_ids)}"
     intervention = OutbreakIndividual(campaign, incubation_period_override=0)
@@ -257,10 +260,10 @@ def add_csw(campaign: emod_api.campaign,
         male_uptake_coverage (float, optional): The coverage of CSW uptake among males. Defaults to 0.03.
         female_uptake_coverage (float, optional): The coverage of CSW uptake among females. Defaults to 0.03.
 
-    Returns:
-
-    Example:
-        >>> add_csw(campaign, node_ids=[1, 2, 3], male_uptake_coverage=0.05, female_uptake_coverage=0.04)
+    Examples:
+        ```
+        add_csw(campaign, node_ids=[1, 2, 3], male_uptake_coverage=0.05, female_uptake_coverage=0.04)
+        ```
     """
     # manages commercial sex worker uptake and dropout (with delays) for men and women
     initial_trigger = CustomEvent.STI_DEBUT
@@ -387,10 +390,10 @@ def add_post_debut_coinfection(campaign: emod_api.campaign,
         coinfection_IP (Union[List[str], str], optional): The individual properties to which the co-infection management is to be applied.
                                                           Defaults to "Risk:HIGH".
 
-    Returns:
-
-    Example:
-        >>> add_post_debut_coinfection(campaign, coinfection_node_ids=[1, 2, 3], coinfection_coverage=0.4, coinfection_gender='Male', coinfection_IP="Risk:MEDIUM")
+    Examples:
+        ```
+        add_post_debut_coinfection(campaign, coinfection_node_ids=[1, 2, 3], coinfection_coverage=0.4, coinfection_gender='Male', coinfection_IP="Risk:MEDIUM")
+        ```
     """
     post_debut_trigger = 'initial_coinfection_post_debut'
     at_debut_trigger = CustomEvent.STI_DEBUT
@@ -464,22 +467,22 @@ def add_pmtct(campaign: emod_api.campaign,
         treatment_b_efficacy (float, optional): The efficacy of treatment B. Defaults to 0.96667.
         sdNVP_efficacy (float, optional): The efficacy of Single-Dose Nevirapine (sdNVP). Defaults to 0.66.
 
-    Returns:
-
-    Example:
-        >>> add_pmtct(campaign,
-        >>>           child_testing_time_value_map={"Times": [2002, 2010.5, 2013.95], "Values": [200, 350, 500]},
-        >>>           node_ids=[1, 2, 3],
-        >>>           coverage=0.8,
-        >>>           start_year=1995,
-        >>>           sigmoid_min=0.1,
-        >>>           sigmoid_max=0.9,
-        >>>           sigmoid_midyear=2005,
-        >>>           sigmoid_rate=0.7,
-        >>>           link_to_ART_rate=0.85,
-        >>>           treatment_a_efficacy=0.92,
-        >>>           treatment_b_efficacy=0.96,
-        >>>           sdNVP_efficacy=0.7)
+    Examples:
+        ```
+        add_pmtct(campaign,
+                child_testing_time_value_map={"Times": [2002, 2010.5, 2013.95], "Values": [200, 350, 500]},
+                node_ids=[1, 2, 3],
+                coverage=0.8,
+                start_year=1995,
+                sigmoid_min=0.1,
+                sigmoid_max=0.9,
+                sigmoid_midyear=2005,
+                sigmoid_rate=0.7,
+                link_to_ART_rate=0.85,
+                treatment_a_efficacy=0.92,
+                treatment_b_efficacy=0.96,
+                sdNVP_efficacy=0.7)
+        ```
     """
 
     disqualifying_properties = [CascadeState.LOST_FOREVER,
@@ -537,10 +540,10 @@ def add_traditional_male_circumcision(campaign: emod_api.campaign,
         traditional_male_circumcision_node_ids (List[int], optional): A list of node IDs where the traditional male_circumcision management is to be applied.
                                                          Defaults to None, which applies to all nodes.
 
-    Returns:
-
-    Example:
-        >>> add_traditional_male_circumcision(campaign, traditional_male_circumcision_coverage=0.06, traditional_male_circumcision_reduced_acquire=0.5, traditional_male_circumcision_node_ids=[1, 2, 3])
+    Examples:
+        ```
+        add_traditional_male_circumcision(campaign, traditional_male_circumcision_coverage=0.06, traditional_male_circumcision_reduced_acquire=0.5, traditional_male_circumcision_node_ids=[1, 2, 3])
+        ```
     """
     # start time is arbitrary; just needs to be pre-epidemic
     will_circumcise = 'WillReceiveTraditionalMaleCircumcision'
@@ -625,8 +628,10 @@ def add_vmmc_reference_tracking(campaign: emod_api.campaign,
     Returns:
         (str): The intervention name for male circumcision.
 
-    Example:
-        >>> add_vmmc_reference_tracking(campaign, vmmc_time_value_map={"Times": [2002, 2010.5, 2013.95], "Values": [200, 350, 500]}, vmmc_node_ids=[1, 2, 3], vmmc_reduced_acquire=0.5, vmmc_target_min_age=10, vmmc_target_max_age=30, vmmc_start_year=2010, update_period=30, distributed_event_trigger=PROGRAM_VMMC, target_disease_state=HIV_NEGATIVE)
+    Examples:
+        ```
+        add_vmmc_reference_tracking(campaign, vmmc_time_value_map={"Times": [2002, 2010.5, 2013.95], "Values": [200, 350, 500]}, vmmc_node_ids=[1, 2, 3], vmmc_reduced_acquire=0.5, vmmc_target_min_age=10, vmmc_target_max_age=30, vmmc_start_year=2010, update_period=30, distributed_event_trigger=PROGRAM_VMMC, target_disease_state=HIV_NEGATIVE)
+        ```
     """
     malecirc_intervention_name = ANY_MC
     distribute_circumcision = MaleCircumcision(campaign,
@@ -678,20 +683,20 @@ def add_historical_vmmc_nchooser(campaign: emod_api.campaign,
                                                          to match the intervention name in add_traditional_vmmc() and add_vmmc_reference_tracking().
         event_name (str, optional): The name of the event. Defaults to 'nchooser of VMMC'.
 
-    Returns:
-
-    Example:
-        >>> data = {'year': [2010, 2010, 2011, 2011],
-        >>>         'min_age': [1, 15, 1, 15],
-        >>>         'max_age': [14.999, 49.999, 14.999, 49.999],
-        >>>         'n_circumcisions': [200, 1300, 290, 1490]}
-        >>> historical_vmmc_distributions_by_time = pd.DataFrame.from_dict(data)
-        >>> add_historical_vmmc_nchooser(campaign,
-        >>>                              historical_vmmc_distributions_by_time=historical_vmmc_distributions_by_time,
-        >>>                              historical_vmmc_reduced_acquire=0.5,
-        >>>                              historical_vmmc_property_restrictions=None,
-        >>>                              historical_vmmc_node_ids=[1, 2, 3],
-        >>>                              has_intervention_name_exclusion=ANY_MC)
+    Examples:
+        ```
+        data = {'year': [2010, 2010, 2011, 2011],
+                'min_age': [1, 15, 1, 15],
+                'max_age': [14.999, 49.999, 14.999, 49.999],
+                'n_circumcisions': [200, 1300, 290, 1490]}
+            historical_vmmc_distributions_by_time = pd.DataFrame.from_dict(data)
+            add_historical_vmmc_nchooser(campaign,
+                                     historical_vmmc_distributions_by_time=historical_vmmc_distributions_by_time,
+                                     historical_vmmc_reduced_acquire=0.5,
+                                     historical_vmmc_property_restrictions=None,
+                                     historical_vmmc_node_ids=[1, 2, 3],
+                                     has_intervention_name_exclusion=ANY_MC)
+        ```
     """
 
     if historical_vmmc_property_restrictions is not None:
@@ -729,38 +734,38 @@ def add_health_care_testing(campaign: emod_api.campaign,
     Manages the addition of health care testing in the campaign.
 
     Args:
-      campaign (emod_api.campaign): The campaign to which the health care testing is to be added.
-      hct_node_ids (List[int], optional): A list of node IDs where the health care testing is to be applied.
+        campaign (emod_api.campaign): The campaign to which the health care testing is to be added.
+        hct_node_ids (List[int], optional): A list of node IDs where the health care testing is to be applied.
                                            Defaults to None, which applies to all nodes.
-      hct_start_year (float, optional): The start year for health care testing. Defaults to 1990.
-      hct_reentry_rate (float, optional): The reentry rate for health care testing. Defaults to 1.
-      hct_retention_rate (float, optional): The retention rate for health care testing. Defaults to 0.95.
-      hct_delay_to_next_test (Union[int, List[int]], optional): The delay to the next test in days. If it's a list, it
-        will add different delays(using HIVMuxer) for different node sets which are defined in
-        hct_delay_to_next_test_node_ids. If it's a single value, it will apply the same delay to all nodes in
-        hct_node_ids. Defaults to None, which will apply the Zambia model default values: [730, 365, 1100].
-      hct_delay_to_next_test_node_ids (List[int], optional): A list of node sets where the different delays will be
-        applied. It's used when hct_delay_to_next_test is a list. Defaults to None, which will apply the Zambia
-        model default values: [[1, 2, 3, 4, 6, 7], [5, 9, 10], [8]].
-      hct_delay_to_next_test_node_names (List[str], optional): A list of node set names where the different delays will be
-        applied. It's used when hct_delay_to_next_test is a list. Defaults to None, which will apply the Zambia
-        model default values: ['Default', 'Lusaka, Southern, Western', 'Northern'].
-      tvmap_test_for_enter_HCT_testing_loop (dict, optional): A dictionary containing time-value map for testing for
-        entering HCT testing loop in HCTUptakePostDebut state. Defaults to all_negative_time_value_map.
-      tvmap_consider_immediate_ART (dict, optional): A dictionary containing time-value map for considering immediate ART
-        in HCTTestingLoop state. Defaults to all_negative_time_value_map.
+        hct_start_year (float, optional): The start year for health care testing. Defaults to 1990.
+        hct_reentry_rate (float, optional): The reentry rate for health care testing. Defaults to 1.
+        hct_retention_rate (float, optional): The retention rate for health care testing. Defaults to 0.95.
+        hct_delay_to_next_test (Union[int, List[int]], optional): The delay to the next test in days. If it's a list, it
+            will add different delays(using HIVMuxer) for different node sets which are defined in
+            hct_delay_to_next_test_node_ids. If it's a single value, it will apply the same delay to all nodes in
+            hct_node_ids. Defaults to None, which will apply the Zambia model default values: [730, 365, 1100].
+        hct_delay_to_next_test_node_ids (List[int], optional): A list of node sets where the different delays will be
+            applied. It's used when hct_delay_to_next_test is a list. Defaults to None, which will apply the Zambia
+            model default values: [[1, 2, 3, 4, 6, 7], [5, 9, 10], [8]].
+        hct_delay_to_next_test_node_names (List[str], optional): A list of node set names where the different delays will be
+            applied. It's used when hct_delay_to_next_test is a list. Defaults to None, which will apply the Zambia
+            model default values: ['Default', 'Lusaka, Southern, Western', 'Northern'].
+        tvmap_test_for_enter_HCT_testing_loop (dict, optional): A dictionary containing time-value map for testing for
+            entering HCT testing loop in HCTUptakePostDebut state. Defaults to all_negative_time_value_map.
+        tvmap_consider_immediate_ART (dict, optional): A dictionary containing time-value map for considering immediate ART
+            in HCTTestingLoop state. Defaults to all_negative_time_value_map.
 
-    Returns:
-
-    Example:
-        >>> add_health_care_testing(
-        >>>     campaign,
-        >>>     hct_node_ids=[1, 2, 3],
-        >>>     hct_start_year=1995,
-        >>>     hct_reentry_rate=0.9,
-        >>>     hct_retention_rate=0.85,
-        >>>     hct_delay_to_next_test=365
-        >>> )
+    Examples:
+        ```
+        add_health_care_testing(
+            campaign,
+            hct_node_ids=[1, 2, 3],
+            hct_start_year=1995,
+            hct_reentry_rate=0.9,
+            hct_retention_rate=0.85,
+            hct_delay_to_next_test=365
+        )
+        ```
     """
     disqualifying_properties = [CascadeState.LOST_FOREVER,
                                 CascadeState.ON_ART,
@@ -817,26 +822,26 @@ def add_ART_cascade(campaign: emod_api.campaign,
     Manages the addition of Antiretroviral Therapy (ART) cascade in the campaign.
 
     Args:
-       campaign (emod_api.campaign): The campaign to which the ART cascade is to be added.
-       art_cascade_node_ids (List[int], optional): A list of node IDs where the ART cascade is to be applied.
-                                                   If None, the ART cascade applies to all nodes. Defaults to None.
-       art_cascade_start_year (float, optional): The start year for the ART cascade. Defaults to 1990.
-       art_cascade_pre_staging_retention (float, optional): The retention rate before ART staging. Defaults to 0.85.
-       art_cascade_cd4_retention_rate (float, optional): The retention rate for CD4 count. Defaults to 1.
-       art_cascade_pre_art_retention (float, optional): The retention rate before ART. Defaults to 0.75.
-       art_cascade_immediate_art_rate (float, optional): The rate for immediate ART. Defaults to 0.1.
-       art_cascade_art_reenrollment_willingness (float, optional): The willingness rate for ART reenrollment. Defaults to 0.9.
-       tvmap_increased_symptomatic_presentation (dict, optional): A dictionary containing time-value map for increased
-          symptomatic presentation in TestingOnSymptomatic state. Defaults to all_negative_time_value_map.
-       tvmap_immediate_ART_restart (dict, optional): A dictionary containing time-value map for immediate ART restart in
-          OnART state. Defaults to all_negative_time_value_map.
-       tvmap_reconsider_lost_forever (dict, optional): A dictionary containing time-value map for reconsidering lost
-          forever in LostForever state. Defaults to all_negative_time_value_map.
+        campaign (emod_api.campaign): The campaign to which the ART cascade is to be added.
+        art_cascade_node_ids (List[int], optional): A list of node IDs where the ART cascade is to be applied.
+                                                    If None, the ART cascade applies to all nodes. Defaults to None.
+        art_cascade_start_year (float, optional): The start year for the ART cascade. Defaults to 1990.
+        art_cascade_pre_staging_retention (float, optional): The retention rate before ART staging. Defaults to 0.85.
+        art_cascade_cd4_retention_rate (float, optional): The retention rate for CD4 count. Defaults to 1.
+        art_cascade_pre_art_retention (float, optional): The retention rate before ART. Defaults to 0.75.
+        art_cascade_immediate_art_rate (float, optional): The rate for immediate ART. Defaults to 0.1.
+        art_cascade_art_reenrollment_willingness (float, optional): The willingness rate for ART reenrollment. Defaults to 0.9.
+        tvmap_increased_symptomatic_presentation (dict, optional): A dictionary containing time-value map for increased
+            symptomatic presentation in TestingOnSymptomatic state. Defaults to all_negative_time_value_map.
+        tvmap_immediate_ART_restart (dict, optional): A dictionary containing time-value map for immediate ART restart in
+            OnART state. Defaults to all_negative_time_value_map.
+        tvmap_reconsider_lost_forever (dict, optional): A dictionary containing time-value map for reconsidering lost
+            forever in LostForever state. Defaults to all_negative_time_value_map.
 
-    Returns:
-
-    Example:
-       >>> add_ART_cascade(campaign, art_cascade_node_ids=[1, 2, 3], art_cascade_start_year=1995, art_cascade_pre_staging_retention=0.8, art_cascade_cd4_retention_rate=0.9, art_cascade_pre_art_retention=0.7, art_cascade_immediate_art_rate=0.15, art_cascade_art_reenrollment_willingness=0.85)
+    Examples:
+        ```
+        add_ART_cascade(campaign, art_cascade_node_ids=[1, 2, 3], art_cascade_start_year=1995, art_cascade_pre_staging_retention=0.8, art_cascade_cd4_retention_rate=0.9, art_cascade_pre_art_retention=0.7, art_cascade_immediate_art_rate=0.15, art_cascade_art_reenrollment_willingness=0.85)
+        ```
     """
     disqualifying_properties = [CascadeState.LOST_FOREVER,
                                 CascadeState.ON_ART,
@@ -952,7 +957,6 @@ def add_state_TestingOnANC(campaign: emod_api.campaign,
                            start_year: float,
                            property_restrictions: Union[List[str], str] = 'Accessibility:Yes') -> str:
     """
-
     Manages the addition of Testing on Antenatal Care (ANC) in the campaign.
 
     This state is triggered when an individual reaches 'TwelveWeeksPregnant'. At some point in this state, it initiates
@@ -1132,7 +1136,7 @@ def add_state_TestingOnChild6w(campaign: emod_api.campaign,
     """
     This function adds a state for testing on children at 6 weeks old in the campaign.
 
-    When an individual broadcast the 'SixWeeksOld' event, this state is triggered. If the test result is positive, it
+    When an individual broadcasts the 'SixWeeksOld' event, this state is triggered. If the test result is positive, it
     will then trigger the ARTStagingDiagnosticTest state using the event identified as ART_STAGING_DIAGNOSTIC_TEST_TRIGGER.
 
     Args:
@@ -1407,47 +1411,52 @@ def add_state_HCTTestingLoop(campaign: emod_api.campaign,
 
     Examples:
         This example demonstrates how to add the HCTTestingLoop state to the campaign with different delay periods for each
-        region/node
+        region/node:
 
-        >>> disqualifying_properties = [CascadeState.LOST_FOREVER,
-        >>>                             CascadeState.ON_ART,
-        >>>                             CascadeState.LINKING_TO_ART,
-        >>>                             CascadeState.ON_PRE_ART,
-        >>>                             CascadeState.LINKING_TO_PRE_ART,
-        >>>                             CascadeState.ART_STAGING]
-        >>> hct_retention_rate = 0.95
-        >>> hct_delay_to_next_test = [730, 365, 1100]
-        >>> hct_delay_to_next_test_node_ids = [[1, 2, 3, 4, 6, 7], [5, 9, 10], [8]]
-        >>> hct_delay_to_next_test_node_names = ['Default', 'Lusaka, Southern, Western', 'Northern']
-        >>> art_cascade_start_year = 1995
-        >>> add_state_HCTTestingLoop(campaign=camp,
-        >>>                          disqualifying_properties=disqualifying_properties,
-        >>>                          hct_delay_to_next_test=hct_delay_to_next_test,
-        >>>                          node_ids=None,
-        >>>                          hct_retention_rate=hct_retention_rate,
-        >>>                          start_year=art_cascade_start_year,
-        >>>                          tvmap_consider_immediate_ART=all_negative_time_value_map,
-        >>>                          hct_delay_to_next_test_node_ids=hct_delay_to_next_test_node_ids,
-        >>>                          hct_delay_to_next_test_node_names=hct_delay_to_next_test_node_names))
+        ```
+        disqualifying_properties = [CascadeState.LOST_FOREVER,
+                                    CascadeState.ON_ART,
+                                    CascadeState.LINKING_TO_ART,
+                                    CascadeState.ON_PRE_ART,
+                                    CascadeState.LINKING_TO_PRE_ART,
+                                    CascadeState.ART_STAGING]
+        hct_retention_rate = 0.95
+        hct_delay_to_next_test = [730, 365, 1100]
+        hct_delay_to_next_test_node_ids = [[1, 2, 3, 4, 6, 7], [5, 9, 10], [8]]
+        hct_delay_to_next_test_node_names = ['Default', 'Lusaka, Southern, Western', 'Northern']
+        art_cascade_start_year = 1995
+        add_state_HCTTestingLoop(campaign=camp,
+                                 disqualifying_properties=disqualifying_properties,
+                                 hct_delay_to_next_test=hct_delay_to_next_test,
+                                 node_ids=None,
+                                 hct_retention_rate=hct_retention_rate,
+                                 start_year=art_cascade_start_year,
+                                 tvmap_consider_immediate_ART=all_negative_time_value_map,
+                                 hct_delay_to_next_test_node_ids=hct_delay_to_next_test_node_ids,
+                                 hct_delay_to_next_test_node_names=hct_delay_to_next_test_node_names))
+        ```
 
         This example demonstrates how to add the HCTTestingLoop state to the campaign with a single delay period for all
         regions/nodes.
-        >>> disqualifying_properties = [CascadeState.LOST_FOREVER,
-        >>>                             CascadeState.ON_ART,
-        >>>                             CascadeState.LINKING_TO_ART,
-        >>>                             CascadeState.ON_PRE_ART,
-        >>>                             CascadeState.LINKING_TO_PRE_ART,
-        >>>                             CascadeState.ART_STAGING]
-        >>> hct_retention_rate = 0.95
-        >>> hct_delay_to_next_test = 365
-        >>> art_cascade_start_year = 1995
-        >>> add_state_HCTTestingLoop(campaign=camp,
-        >>>                          disqualifying_properties=disqualifying_properties,
-        >>>                          hct_delay_to_next_test=hct_delay_to_next_test,
-        >>>                          node_ids=None,
-        >>>                          hct_retention_rate=hct_retention_rate,
-        >>>                          start_year=art_cascade_start_year,
-        >>>                          tvmap_consider_immediate_ART=all_negative_time_value_map)
+
+        ```
+        disqualifying_properties = [CascadeState.LOST_FOREVER,
+                                    CascadeState.ON_ART,
+                                    CascadeState.LINKING_TO_ART,
+                                    CascadeState.ON_PRE_ART,
+                                    CascadeState.LINKING_TO_PRE_ART,
+                                    CascadeState.ART_STAGING]
+        hct_retention_rate = 0.95
+        hct_delay_to_next_test = 365
+        art_cascade_start_year = 1995
+        add_state_HCTTestingLoop(campaign=camp,
+                                 disqualifying_properties=disqualifying_properties,
+                                 hct_delay_to_next_test=hct_delay_to_next_test,
+                                 node_ids=None,
+                                 hct_retention_rate=hct_retention_rate,
+                                 start_year=art_cascade_start_year,
+                                 tvmap_consider_immediate_ART=all_negative_time_value_map)
+        ```
     """
     hct_testing_loop_pv = CascadeState.HCT_TESTING_LOOP
 
@@ -1557,8 +1566,7 @@ def add_state_TestingOnSymptomatic(campaign: emod_api.campaign,
 
     Returns:
         Tuple[str, str]: The triggers for the ARTStagingDiagnosticTest and ARTStaging states.
-    """
-    """
+
     When the 'NewlySymptomatic' event occurs, this state is initiated. The sigmoiddiag intervention is then applied. If
     the test result is positive, it triggers the ARTStagingDiagnosticTest state via the
     ART_STAGING_DIAGNOSTIC_TEST_TRIGGER event. However, if the sigmoiddiag test is negative, it triggers a
@@ -1863,8 +1871,6 @@ def add_state_OnPreART(campaign: emod_api.campaign,
 
     Returns:
         Tuple[str, str]: The triggers for the OnART and HCTUptakePostDebut states.
-
-
     """
     on_pre_art_pv = CascadeState.ON_PRE_ART
 
@@ -2195,7 +2201,6 @@ def add_state_LostForever(campaign: emod_api.campaign, node_ids: Union[List[int]
         campaign (emod_api.campaign): The campaign object to which the state transition is to be added.
         node_ids (List[int]): A list of node IDs where this transition is applicable.
         start_year (float): The starting year of the campaign when this transition becomes active.
-
     """
     # Actually lost forever now
     initial_trigger = LOST_FOREVER_TRIGGER

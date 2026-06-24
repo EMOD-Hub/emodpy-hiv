@@ -51,7 +51,7 @@ class NChooserTargetedDistributionHIV:
             - A 2D list specifying age ranges in years for qualifying individuals.
             - It should contain 2 lists, the first list is 'Min' age and the second list for 'Max' age.
             - An individual is considered in range if their age is greater than or equal to the minimum age and less than the maximum age.
-            - In each age range (minimum age, maximum age), maxinum age must be greater or equal to minimum age.
+            - In each age range (minimum age, maximum age), maximum age must be greater or equal to minimum age.
             - There should not be overlapping age ranges.
             - It must have the same number of objects as num_targeted_xxx has elements.
             - For example, age_ranges_years = [[0, 1, 15, 50], [0.9999999, 14.9999999, 49.9999999, 64.9999999]] means that the
@@ -120,42 +120,46 @@ class NChooserTargetedDistributionHIV:
         [0, 8064, 25054, 179]. While no FEMALE individuals are targeted. The targeted individuals should not have the
         intervention 'DMPA_or_control'.
 
-        >>> from emodpy_hiv.campaign.common import NChooserTargetedDistributionHIV
-        >>> age_ranges_years = [[0,         1,          15,         50],                # Min ages
-        >>>                     [0.9999999, 14.9999999, 49.9999999, 64.9999999]]        # Max ages
-        >>> num_targeted_females = [0,    0,          0,       0]
-        >>> num_targeted_males   = [0,    8064,       25054,   179]
-        >>> target_distribution = NChooserTargetedDistributionHIV(
-        >>>                                           age_ranges_years=age_ranges_years,
-        >>>                                           start_year=2010.0,
-        >>>                                           end_year=2010.999,
-        >>>                                           num_targeted_females=num_targeted_females,
-        >>>                                           num_targeted_males=num_targeted_males,
-        >>>                                           target_disease_state=[[TargetDiseaseState.NOT_HAVE_INTERVENTION]],
-        >>>                                           target_disease_state_has_intervention_name="DMPA_or_control")
+        ```
+        from emodpy_hiv.campaign.common import NChooserTargetedDistributionHIV
+        age_ranges_years = [[0,         1,          15,         50],                # Min ages
+                            [0.9999999, 14.9999999, 49.9999999, 64.9999999]]        # Max ages
+        num_targeted_females = [0,    0,          0,       0]
+        num_targeted_males   = [0,    8064,       25054,   179]
+        target_distribution = NChooserTargetedDistributionHIV(
+                                            age_ranges_years=age_ranges_years,
+                                            start_year=2010.0,
+                                            end_year=2010.999,
+                                            num_targeted_females=num_targeted_females,
+                                            num_targeted_males=num_targeted_males,
+                                            target_disease_state=[[TargetDiseaseState.NOT_HAVE_INTERVENTION]],
+                                            target_disease_state_has_intervention_name="DMPA_or_control")
+        ```
 
-        Example 2: Simular to example 1, this example also demonstrates how to create a target distribution to target
+        Example 2: Similar to example 1, this example also demonstrates how to create a target distribution to target
         individuals with specific disease states. In this case, the intervention will be distributed to individuals with
         the following disease states:  (is HIV positive AND on ART) OR (has tested positive AND on ART), meaning that
         they are on ART and have either tested positive or are HIV positive.
 
-        >>> from emodpy_hiv.campaign.common import NChooserTargetedDistributionHIV
-        >>> age_ranges_years = [[0,         1,          15,         50],                # Min ages
-        >>>                     [0.9999999, 14.9999999, 49.9999999, 64.9999999]]        # Max ages
-        >>> num_targeted_females = [0,    0,          0,       0]
-        >>> num_targeted_males   = [0,    8064,       25054,   179]
-        >>> target_distribution = NChooserTargetedDistributionHIV(
-        >>>                                           age_ranges_years=age_ranges_years,
-        >>>                                           start_year=2010.0,
-        >>>                                           end_year=2010.999,
-        >>>                                           num_targeted_females=num_targeted_females,
-        >>>                                           num_targeted_males=num_targeted_males,
-        >>>                                           target_disease_state=[[TargetDiseaseState.HIV_POSITIVE, TargetDiseaseState.HAS_INTERVENTION],
-        >>>                                                                 [TargetDiseaseState.TESTED_POSITIVE, TargetDiseaseState.HAS_INTERVENTION]],
-        >>>                                           target_disease_state_has_intervention_name="ART")
+        ```
+        from emodpy_hiv.campaign.common import NChooserTargetedDistributionHIV
+        age_ranges_years = [[0,         1,          15,         50],                # Min ages
+                            [0.9999999, 14.9999999, 49.9999999, 64.9999999]]        # Max ages
+        num_targeted_females = [0,    0,          0,       0]
+        num_targeted_males   = [0,    8064,       25054,   179]
+        target_distribution = NChooserTargetedDistributionHIV(
+                                            age_ranges_years=age_ranges_years,
+                                            start_year=2010.0,
+                                            end_year=2010.999,
+                                            num_targeted_females=num_targeted_females,
+                                            num_targeted_males=num_targeted_males,
+                                            target_disease_state=[[TargetDiseaseState.HIV_POSITIVE, TargetDiseaseState.HAS_INTERVENTION],
+                                                                  [TargetDiseaseState.TESTED_POSITIVE, TargetDiseaseState.HAS_INTERVENTION]],
+                                            target_disease_state_has_intervention_name="ART")
+        ```
 
         You can use property_restrictions to target **individuals** with specific properties that are not disease state
-        specifc. Node property restriction is not supported in this feature. Please see examples in the PropertyRestrictions class.
+        specific. Node property restriction is not supported in this feature. Please see examples in the PropertyRestrictions class.
 
     """
     def __init__(self,

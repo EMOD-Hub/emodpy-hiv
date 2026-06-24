@@ -17,20 +17,20 @@ def infer_natural_mortality(year_age_rate_data: YearAgeRate,
                             predict_horizon: float = 2100.0) -> YearAgeRate:
     """
     Convert the raw mortality data to what would have been the expected natural mortality had HIV
-    not caused a spike in mortality.  This algorithm assumes that during the 'interval_fit'
+    not caused a spike in mortality. This algorithm assumes that during the 'interval_fit'
     mortality rates had a relatively steady decline (i.e. less people were dying each year),
-    but shortly after the 'interval_fit' there was a spike in mortality.  The algorithm uses
+    but shortly after the 'interval_fit' there was a spike in mortality. The algorithm uses
     the data in the 'interval_fit' and extrapolates it out over the time period.
 
     It assumes that the input data is for only one node.
 
     Args:
-        year_age_rate_data: This is a YearAgeRate data object containing the raw mortality data,
+        year_age_rate_data (YearAgeRate): This is a YearAgeRate data object containing the raw mortality data,
             probably output from the **extract_mortality()** function
-        interval_fit: This tuple contains the range of years that we want to determine the
-            mortality trend before the HIV epidemic.  These years will be extrapolated
+        interval_fit (tuple[float, float]): This tuple contains the range of years that we want to determine the
+            mortality trend before the HIV epidemic. These years will be extrapolated
             from the end of the fit forward.
-        predict_horizon: This determines how far out the data will be extrapolated.
+        predict_horizon (float): This determines how far out the data will be extrapolated.
 
     Returns:
         A YearAgeRate object with the inferred mortality rates.
@@ -174,32 +174,33 @@ def mortality_read_infer_plot(country: str,
     age range being represented is from this value to the next largest age that is plotted.
 
     Args:
-        country: The name of the country to be extracted.  It must match exactly to the
+        country (str): The name of the country to be extracted.  It must match exactly to the
             country name used in the referenced spreadsheet.
 
-        version: The year/version of the indicated spreadsheet.  Each year has a slightly
+        version (str): The year/version of the indicated spreadsheet.  Each year has a slightly
             different format.  Supported versions are 2012, 2015, 2019, 2024
 
-        gender:
+        gender (str):
             The gender of the data to be extracted.  Possible values are 'male' and 'female'.
 
-        save_data: If true (default is False), two YearAgeRate CSV formatted files are
+        interval_fit (tuple[float, float]): This tuple contains the range of years that we want to determine the
+            mortality trend before the HIV epidemic. These years will be extrapolated
+            from the end of the fit forward.
+
+        save_data (bool): If true (default is False), two YearAgeRate CSV formatted files are
             output into the current directory.  The files are: 'raw_mortality_year_age_rate.csv'
             and 'mortality_minus_hiv_year_age_rate.csv'.
 
-        other_csv_filename: If the filename is defined, it reads an expected YearAgeRate CSV
+        other_csv_filename (str): If the filename is defined, it reads an expected YearAgeRate CSV
             file and plots it with the raw and inferred data from the spreadsheet.
             This allows the user to plot other mortality data (i.e. older versions)
             with the new data.
 
-        img_dir: If this is defined, the images are saved to this directory.  If not defined,
+        img_dir (str): If this is defined, the images are saved to this directory.  If not defined,
             the images are displayed in a window.
 
-        filename_to_save_to: The name of the file to save the image to.  This is only used if
+        filename_to_save_to (str): The name of the file to save the image to.  This is only used if
             img_dir is defined.
-
-    Return:
-        No return
     """
     raw_mortality_yar = unwp.extract_mortality(country=country,
                                                version=version,
@@ -269,9 +270,6 @@ def mortality_read_infer_plot_app(country: str,
 
         img_dir: If this is defined, the images are saved to this directory.  If not defined,
             the images are displayed in a window.
-
-    Return:
-        No return
     """
     if min_year >= max_year:
         raise ValueError(f"Invalid interval: {min_year} >= {max_year}.\n"

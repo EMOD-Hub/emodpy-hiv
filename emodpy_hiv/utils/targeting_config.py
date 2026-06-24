@@ -7,7 +7,7 @@ from emodpy.utils.targeting_config import HasIP, HasIntervention, IsPregnant
 class YesNoNa(Enum):
     """
     This enum is used in the Targeting_Config logic to indicate if a particular attribute
-    should be yes, no, or na (not applicable/don't consider)
+    should be yes, no, or na (not applicable/don't consider).
     """
     YES = "YES"
     NO  = "NO"    # noqa: E221
@@ -119,24 +119,25 @@ class IsCircumcised(BaseTargetingConfig):
 
 class IsHivPositive(BaseTargetingConfig):
     """
-    Select the individual based on whether or not they have HIV.  The "and_has_XXX"
+    Select the individual based on whether or not they have HIV. The "and_has_XXX"
     parameters extend this by being and'd with the check on whether or not the person
-    has HIV.  For example, if you want to select people that are:
+    has HIV. For example, if you want to select people that are:
 
-        * HIV negative
-        * AND have been tested
-        * AND have never tested positive
+    * HIV negative
+    * AND have been tested
+    * AND have never tested positive
 
-    you will create the following:
-
-        >>> targeting_config = ~IsHivPositive( and_has_ever_been_tested=YesNoNa.YES,
-        >>>                                    and_has_ever_tested_positive=YesNoNa.NO )
+    you will create the following
+        ```
+        targeting_config = ~IsHivPositive( and_has_ever_been_tested=YesNoNa.YES,
+                                           and_has_ever_tested_positive=YesNoNa.NO )
+        ```
 
     Notice that if the person being considered was HIV positive, the rest of the checks
     would not matter because the first check was false.
 
     Also notice that when you invert IsHivPositive, you are only changing the whether
-    or not you are looking for infected people.  It does not impact the "and_has_XXX" checks.
+    or not you are looking for infected people. It does not impact the "and_has_XXX" checks.
 
     Args:
         and_has_ever_been_tested: If the user sets this Enum to 'YES', then the
@@ -209,11 +210,11 @@ class HasBeenOnArtMoreOrLessThanNumMonths(BaseTargetingConfig):
     strictly less than.
 
     Args:
-        num_months: This is the number of months that will be used in the test.
+        num_months (float): This is the number of months that will be used in the test.
             The individual's duration on ART must be more or less than this value.
             NOTE: 1500 months is about 12 months / year * 125 years of max age
 
-        more_or_less: This is used to determine if the check should be less than
+        more_or_less (MoreOrLess): This is used to determine if the check should be less than
             or greater than.
     """
     def __init__(self,
@@ -249,14 +250,14 @@ class HasMoreOrLessThanNumPartners(BaseTargetingConfig):
     or less than.
 
     Args:
-        num_partners: This parameter allows the user to set the number of active
+        num_partners (int): This parameter allows the user to set the number of active
             partners/relationships that the individual must have more or less of.
             The value can range between 0 and 62.
 
-        more_or_less: This is used to determine if the check should be less than
+        more_or_less (MoreOrLess): This is used to determine if the check should be less than
             or greater than.  The default value is 'LESS'.
 
-        of_relationship_type: If the user sets this value to one of the four specific types
+        of_relationship_type (OfRelationshipType): If the user sets this value to one of the four specific types
             (TRANSITORY, INFORMAL, MARITAL, COMMERCIAL), then the individual must have more or
             less relationships of this type. When the value is set to 'NA' (default), then it
             will count the relationships regardless of type.
@@ -305,17 +306,17 @@ class HasHadMultiplePartnersInLastNumMonths(BaseTargetingConfig):
     broke up, got back together after six months, and the time period was twelve months, then
     it would be considered one partner.
 
-    NOTE: Also note that one partner can count across multiple periods.  For example, if the
+    NOTE: Also note that one partner can count across multiple periods. For example, if the
     person has been in a MARITAL relationship for years, that partner will be counted in the
-    last three months, last six months, last nine months, and last twelve months.  If the
+    last three months, last six months, last nine months, and last twelve months. If the
     person started a relationship last month, it will only be counted within the last three
     months.
 
     Args:
-        num_month_type: This parameter allows the user to set the maximum number of months
+        num_month_type (NumMonthsType): This parameter allows the user to set the maximum number of months
             from the current day to consider if the individual had multiple relationships.
 
-        of_relationship_type: If the user sets this value to one of the four specific types
+        of_relationship_type (OfRelationshipType): If the user sets this value to one of the four specific types
             (TRANSITORY, INFORMAL, MARITAL, COMMERCIAL), then the individual must have had
             more than one relationship of this type. When the value is set to 'NA' (default),
             then it just matters if the person had more than one relationship, regardless
@@ -352,12 +353,12 @@ class HasCd4BetweenMinAndMax(BaseTargetingConfig):
     The test is inclusive for "min" and exclusive for "max".
 
     Args:
-        min_cd4: The minimum value of the test range. The individuals CD4 can be
-            equal to this value to be considered "between".  The value can range
+        min_cd4 (float): The minimum value of the test range. The individuals CD4 can be
+            equal to this value to be considered "between". The value can range
             from 0 to 1999 and must be less than 'max_cd4'.
 
-        max_cd4: The maximum value of the test range. The individual's CD4 must be
-            strictly less than this value to be considered "between".  The value
+        max_cd4 (float): The maximum value of the test range. The individual's CD4 must be
+            strictly less than this value to be considered "between". The value
             can range from 0 to 2000 and must be greater than 'min_cd4'.
     """
     def __init__(self, min_cd4: float = 0, max_cd4: float = 2000):
@@ -396,13 +397,13 @@ class HasRelationship(BaseTargetingConfig):
     qualifications.
 
     Args:
-        of_relationship_type: If the user sets this value to one of the four specific
+        of_relationship_type (OfRelationshipType): If the user sets this value to one of the four specific
             types (TRANSITORY, INFORMAL, MARITAL, COMMERCIAL), then the individual must
             have at least one relationships of this type.(default).  The other constraints
             will be on these relationships.  If NA is selected, then all of the individual's
             relationships will be considered.
 
-        that_recently: This parameter is used if the relationship being considered must have
+        that_recently (RecentlyType): This parameter is used if the relationship being considered must have
             recently been started or ended. Possible values are:
 
             - NA (Default) - Do no consider That_Recently in the selection process.
@@ -418,7 +419,7 @@ class HasRelationship(BaseTargetingConfig):
                 be used with NodeLevelHealthTriggeredIV listening for the 'ExitedRelationship'
                 event.
 
-        that_recently_ended_due_to: If That_Recently is set to 'ENDED', this is used to look at the
+        that_recently_ended_due_to (RelationshipTerminationReasonType): If That_Recently is set to 'ENDED', this is used to look at the
             reason the relationship ended. Possible values are:
 
             - NA (Default) - The relationship has not been terminated.
@@ -433,7 +434,7 @@ class HasRelationship(BaseTargetingConfig):
             - PARTNER_TERMINATED - This happens when the couple is separated due to migration and one
                 of the partners decides to terminate the relationship.
 
-        with_partner_who: Given that the parameters about the relationship are true, this parameter
+        with_partner_who (AbstractTargetingConfig): Given that the parameters about the relationship are true, this parameter
             is used to look at the partner of the relationship. It is a Targeting_Config so one uses
             the same classes to query the partner. For example, to find out if person has a partner
             with HIV, you could use IsHivPositive.
@@ -464,7 +465,7 @@ class HasRelationship(BaseTargetingConfig):
         This is the dictionary used to generate the JSON for EMOD.
 
         Args:
-            campaign (emod_api.campaign): The campaign module that has the path to the schema
+            campaign (emod_api.campaign): The campaign module that has the path to the schema.
 
         Returns:
             (ReadOnlyDict): Schema for object.
@@ -486,7 +487,7 @@ class HasRelationship(BaseTargetingConfig):
         that the logic written in python is translated to the JSON correctly.
 
         Args:
-            campaign (emod_api.campaign): The campaign module that has the path to the schema
+            campaign (emod_api.campaign): The campaign module that has the path to the schema.
 
         Returns:
             (dict): Campagin object as a dictionary.

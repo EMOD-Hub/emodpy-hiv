@@ -51,7 +51,7 @@ def create_common_x_values(a_old, b_old):
 
 def fill_in_y_values(x_old, y_old, x_new):
     """
-    Since matplotlib needs the lines/curves to have the same X-values,
+    Since Matplotlib needs the lines/curves to have the same X-values,
     we need to find the associated Y-values when we add the new X-values.
     This method uses linear interpolation to find the values between points.
     """
@@ -174,12 +174,10 @@ def xy_plot(img_dir: str,
             the minimum based on the data.
 
         x_axis_as_log_scale (bool, optional):
-            If True, the X-axis is assumed to be logrithmic.
+            If True, the X-axis is assumed to be logarithmic.
 
         y_axis_as_log_scale (bool, optional):
-            If True, the Y-axis is assumed to be logrithmic.
-
-    Returns:
+            If True, the Y-axis is assumed to be logarithmic.
     """
 
     fig, ax = plt.subplots(layout='constrained')

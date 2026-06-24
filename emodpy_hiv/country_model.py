@@ -25,11 +25,12 @@ def get_country_class(country_class_name: str):
 
     Args:
         country_class_name:
-            The name of the country to get the class for.  The name is expected to be exactly like
-            like it is in its module.  Countries with more than one word are expected to have an
+            The name of the country to get the class for. The name is expected to be exactly like
+            like it is in its module. Countries with more than one word are expected to have an
             underscore ('_') between the words.
 
             Examples of naming convention:
+
             - Zambia should be located in the module emodpy_hiv.countries.zambia.zambia
             - South Africa should have a class called South_Africa and be in a module called
             emodpy_hiv.countries.south_africa.south_africa
@@ -49,33 +50,33 @@ class Country(ABC):
     One could use this to ensure that things that are supposed to be the same across all
     of the country models are the same.
 
-    WARNING: Country models are used as the class and not an instance object.  That is,
+    WARNING: Country models are used as the class and not an instance object. That is,
     one does not create an object like:
-    * my_country = MyCountry()
+    `* my_country = MyCountry()`
     Instead, they call the classmethods directly from the class like:
-    * demographics = MyCountry.build_demographics()
+    `* demographics = MyCountry.build_demographics()`
     If someone attempts to create an instance, we want it to throw an exception so people
     don't use it in a way that is not intended.
 
     WARNING_2: As of Python 3.13, you are not supposed to combine different properties
-    with the classmethod property. It should be used by itself.  This is way we are using
-    class variables instead of properties.  When we do class inheritance, each subclass
-    gets its own instance of the class variables.  For example, if Zambia and Kenya are
-    both subclasss of Country, they will have their own instance of country_name even
-    though it is declared in Country.  This allows us to set country_name for Zambia
+    with the classmethod property. It should be used by itself. This is way we are using
+    class variables instead of properties. When we do class inheritance, each subclass
+    gets its own instance of the class variables. For example, if Zambia and Kenya are
+    both subclasses of Country, they will have their own instance of country_name even
+    though it is declared in Country. This allows us to set country_name for Zambia
     without it impacting Kenya.
 
     NOTE: We are using classes instead of modules because we can still get inheritance
-    like you'd expect.  For example, with classes if BaseCountry has three methods:
-    func_A(), func_B(), and func_C().  Assume func_C() calls both func_A() and func_B().
-    Let's alo assume that we create Zambia as a subclass of BaseCountry and have it
-    override func_B().  With classes, when func_C()) is called for Zambia, it will use
-    the overridden func_B().  If we tried to do the same thing with modules, func_C()
+    like you'd expect. For example, with classes if BaseCountry has three methods:
+    func_A(), func_B(), and func_C(). Assume func_C() calls both func_A() and func_B().
+    Let's also assume that we create Zambia as a subclass of BaseCountry and have it
+    override func_B(). With classes, when func_C()) is called for Zambia, it will use
+    the overridden func_B(). If we tried to do the same thing with modules, func_C()
     would use the func_B() defined in BaseCountry.
 
     We use Country as a class and this idea of "parameterized calls" so that the country
-    can play well with emod_workflow.  The "parameterized calls" need the functions to be
-    static and these calls allow us to give a unique name to each parameter.   Unique
+    can play well with emod_workflow. The "parameterized calls" need the functions to be
+    static and these calls allow us to give a unique name to each parameter. Unique
     parameter names allow the user to specifically refer to a parameter even when there
     are numerous instances of the object that has the parameter.
 
@@ -118,7 +119,7 @@ class Country(ABC):
         Return a list of ParameterizedCall objects that will complete the configuration of an
         EMOD config object.
 
-        Args
+        Args:
             config: The object to be updated when using instance methods with ParameterizedCall.
 
         Returns:
@@ -229,6 +230,7 @@ class Country(ABC):
         Args:
             config(ReadOnlyDict): the config object that will be modified. It has the following structure:
                 config.parameters.<parameter_name> , with <parameter_name> being an attribute.
+
         Returns:
             a config object
         """
@@ -257,6 +259,7 @@ class Country(ABC):
 
         Args:
             campaign(emod_api.campaign): The emod_api campaign object to be modified.
+
         Returns:
             a campaign object
         """
@@ -273,6 +276,7 @@ class Country(ABC):
     def load_nchooser_distribution_data(file_path: str) -> dict:
         """
         Load target distribution data into a dataframe format that works for Nchooser and group by node_id.
+
         Args:
             file_path: path to the csv file that contains the data
 

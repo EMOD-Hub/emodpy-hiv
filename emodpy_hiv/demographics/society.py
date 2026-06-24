@@ -15,31 +15,34 @@ class Society:
         """
         The Society object defines the behavioral-based parameters of a relationship type in the STI and HIV models,
         such as rates of partnership formation, partner preference, relationship duration, and concurrent partnerships.
-        It must contain the (argument listed)) sets of relationship type parameters and the concurrency configuration.
+        It must contain the (argument listed) sets of relationship type parameters and the concurrency configuration.
 
-        https://emod.idmod.org/emodpy-hiv/emod/parameter-demographics.html#society
+        For more information, see [Society](https://emod.idmod.org/emodpy-hiv/emod/parameter-demographics/#society)
+        in the Demographics documentation.
 
         Args:
-            concurrency_configuration: a non-default concurrency configuration dict, if provided. A broadly applicable
-                default is provided in method _default_concurrency_configuration() .
-            relationship_parameters: a dict of RelationshipParameters objects, each key: value pair being
+            concurrency_configuration (Dict): a non-default concurrency configuration dict, if provided. A broadly applicable
+                default is provided in method _default_concurrency_configuration().
+            relationship_parameters (Dict[str, RelationshipParameters]): a dict of RelationshipParameters objects, each key: value pair being
                 relationship_type: RelationshipParameters()
-            pair_formation_parameters: a dict of PairFormationParameters objects, each key: value pair being
+            pair_formation_parameters (Dict[str, PairFormationParameters]): a dict of PairFormationParameters objects, each key: value pair being
                 relationship_type: PairFormationParameters()
-            concurrency_parameters: a nested dict of ConcurrencyParameters objects, indexed by type then risk, e.g.:
-                {
-                    "INFORMAL": {
-                        "HIGH": ConcurrencyParameter object,
-                        "MED": ConcurrencyParameter object,
-                        "LOW": ConcurrencyParameter object
-                    },
-                    "TRANSITORY": {
-                        "HIGH": ConcurrencyParameter object,
-                        "MED": ConcurrencyParameter object,
-                        "LOW": ConcurrencyParameter object
-                    },
-                    ...
-                }
+            concurrency_parameters (Dict[str, Dict[str, ConcurrencyParameters]]): a nested dict of ConcurrencyParameters objects, indexed by type then risk.
+                Example:
+                ```
+                    {
+                        "INFORMAL": {
+                            "HIGH": ConcurrencyParameter object,
+                            "MED": ConcurrencyParameter object,
+                            "LOW": ConcurrencyParameter object
+                        },
+                        "TRANSITORY": {
+                            "HIGH": ConcurrencyParameter object,
+                            "MED": ConcurrencyParameter object,
+                            "LOW": ConcurrencyParameter object
+                        },
+                    }
+                ```
         """
         super().__init__()
         self.concurrency_configuration = concurrency_configuration if concurrency_configuration is not None \
