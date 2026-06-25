@@ -46,7 +46,7 @@ class HIVDemographics(Demographics):
 
         # default individual attributes for HIV
         # Uniform age distribution by default
-        initial_age_distribution = UniformDistribution(uniform_min=0, uniform_max=18250)
+        initial_age_distribution = UniformDistribution(uniform_min=0, uniform_max=50)
         self.set_age_distribution(distribution=initial_age_distribution)
 
         # Node attributes copied from Demographics.SetDefaultNodeAttributes (which uses self.raw, which cannot

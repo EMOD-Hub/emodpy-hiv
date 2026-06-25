@@ -133,10 +133,6 @@ def config_builder(config):
     config.parameters.Sexual_Debut_Age_Male_Weibull_Heterogeneity = 0.1268087803455056
     config.parameters.Sexual_Debut_Age_Male_Weibull_Scale = 15.582384534190258
     config.parameters.Sexual_Debut_Age_Min = 13
-    config.parameters.Custom_Node_Events = ["HappyBirthday", "NewInfectionEvent"]
-    config.parameters.Custom_Coordinator_Events = ["HappyBirthday", "NewInfectionEvent"]
-    config.parameters.Custom_Individual_Events = ["Dax", "Picard"]
-
 
     return config
 

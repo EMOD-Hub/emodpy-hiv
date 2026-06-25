@@ -2828,7 +2828,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -2887,7 +2887,7 @@
                         "class": "MaleCircumcision"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -2992,7 +2992,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -3051,7 +3051,7 @@
                         "class": "MaleCircumcision"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -3156,7 +3156,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -3215,7 +3215,7 @@
                         "class": "MaleCircumcision"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -3320,7 +3320,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -3379,7 +3379,7 @@
                         "class": "MaleCircumcision"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -3484,7 +3484,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -3543,7 +3543,7 @@
                         "class": "MaleCircumcision"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -3648,7 +3648,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -3707,7 +3707,7 @@
                         "class": "MaleCircumcision"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -3812,7 +3812,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -3871,7 +3871,7 @@
                         "class": "MaleCircumcision"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -3976,7 +3976,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -4035,7 +4035,7 @@
                         "class": "MaleCircumcision"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -4140,7 +4140,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -4199,7 +4199,7 @@
                         "class": "MaleCircumcision"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -4304,7 +4304,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -4363,7 +4363,7 @@
                         "class": "MaleCircumcision"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -4491,7 +4491,7 @@
                         "class": "HIVSigmoidByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -4564,7 +4564,7 @@
                         "class": "HIVRapidHIVDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -4633,7 +4633,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -4701,7 +4701,7 @@
                         "class": "HIVSigmoidByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -4754,7 +4754,7 @@
                         "class": "PMTCT"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -4828,7 +4828,7 @@
                         "class": "HIVPiecewiseByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -4881,7 +4881,7 @@
                         "class": "PMTCT"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -4934,7 +4934,7 @@
                         "class": "PMTCT"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -5016,7 +5016,7 @@
                         "class": "HIVPiecewiseByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -5156,7 +5156,7 @@
                         "class": "HIVPiecewiseByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -5229,7 +5229,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -5302,7 +5302,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -5375,7 +5375,7 @@
                         "class": "HIVPiecewiseByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -5448,7 +5448,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -5521,7 +5521,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -5585,7 +5585,7 @@
                         "class": "PropertyValueChanger"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -5649,7 +5649,7 @@
                         "class": "PropertyValueChanger"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -5722,7 +5722,7 @@
                         "class": "HIVPiecewiseByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -5795,7 +5795,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -5868,7 +5868,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -5941,7 +5941,7 @@
                         "class": "HIVPiecewiseByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -6014,7 +6014,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -6087,7 +6087,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -6151,7 +6151,7 @@
                         "class": "PropertyValueChanger"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -6215,7 +6215,7 @@
                         "class": "PropertyValueChanger"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -6308,7 +6308,7 @@
                         "class": "ModifyStiCoInfectionStatus"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 0.3,
                     "Disqualifying_Properties": [],
@@ -6399,7 +6399,7 @@
                         "class": "ModifyStiCoInfectionStatus"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 0.3,
                     "Disqualifying_Properties": [],
@@ -6490,7 +6490,7 @@
                         "class": "ModifyStiCoInfectionStatus"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 0.1,
                     "Disqualifying_Properties": [],
@@ -6562,7 +6562,7 @@
                         "class": "HIVSigmoidByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -6664,7 +6664,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -6721,7 +6721,7 @@
                         "class": "STIIsPostDebut"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -6789,7 +6789,7 @@
                         "class": "HIVMuxer"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -6861,7 +6861,7 @@
                         "class": "HIVSigmoidByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -6941,7 +6941,7 @@
                         "class": "HIVPiecewiseByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -7008,7 +7008,7 @@
                         "class": "HIVMuxer"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -7083,7 +7083,7 @@
                         "class": "HIVMuxer"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -7155,7 +7155,7 @@
                         "class": "HIVMuxer"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -7226,7 +7226,7 @@
                         "class": "HIVRapidHIVDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -7294,7 +7294,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -7369,7 +7369,7 @@
                         "class": "HIVPiecewiseByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -7436,7 +7436,7 @@
                         "class": "HIVSigmoidByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -7511,7 +7511,7 @@
                         "class": "HIVPiecewiseByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -7578,7 +7578,7 @@
                         "class": "HIVRapidHIVDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -7645,7 +7645,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -7711,7 +7711,7 @@
                         "class": "HIVMuxer"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -7771,7 +7771,7 @@
                         "class": "HIVDrawBlood"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -7897,7 +7897,7 @@
                         "class": "HIVARTStagingCD4AgnosticDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -7964,7 +7964,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -8061,7 +8061,7 @@
                         "class": "HIVARTStagingByCD4Diagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -8126,7 +8126,7 @@
                         "class": "HIVSigmoidByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -8190,7 +8190,7 @@
                         "class": "HIVMuxer"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -8255,7 +8255,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -8379,7 +8379,7 @@
                         "class": "HIVARTStagingCD4AgnosticDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -8437,7 +8437,7 @@
                         "class": "HIVDrawBlood"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -8532,7 +8532,7 @@
                         "class": "HIVARTStagingByCD4Diagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -8595,7 +8595,7 @@
                         "class": "HIVSigmoidByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -8658,7 +8658,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -8721,7 +8721,7 @@
                         "class": "HIVMuxer"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -8788,7 +8788,7 @@
                         "class": "AntiretroviralTherapy"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -8850,7 +8850,7 @@
                         "class": "HIVMuxer"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -8903,7 +8903,7 @@
                         "class": "ARTDropout"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -8966,7 +8966,7 @@
                         "class": "HIVRandomChoice"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -9036,7 +9036,7 @@
                         "class": "HIVPiecewiseByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -9106,7 +9106,7 @@
                         "class": "HIVPiecewiseByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -9163,7 +9163,7 @@
                         "class": "PropertyValueChanger"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],

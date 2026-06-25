@@ -153,15 +153,21 @@ class TestReportersHIV(BaseSimTest):
                                                                               end_year=self.end_year)))
             return reporters
 
+        def config_with_custom_events(config):
+            config = self.config_builder(config)
+            config.parameters.Custom_Individual_Events = self.event_list
+            config.parameters.Custom_Coordinator_Events = self.event_list
+            config.parameters.Custom_Node_Events = self.event_list
+            return config
+
         self.task = EMODTask.from_defaults(eradication_path=self.eradication_path,
                                               schema_path=self.schema_path,
                                               campaign_builder=self.campaign_builder,
-                                              config_builder=self.config_builder,
+                                              config_builder=config_with_custom_events,
                                               report_builder=build_reports,
                                               demographics_builder=self.demographics_builder)
 
         self.task.set_sif(self.sif_path, platform=self.platform)
-
 
         experiment = Experiment.from_task(task=self.task,
                                           name=self.case_name)

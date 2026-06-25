@@ -125,7 +125,7 @@ class TestCommonReportersHIV(unittest.TestCase):
             return config
         task = EMODTask.from_defaults(schema_path=self.schema_path,
                                       config_builder=build_config,
-                                         report_builder=reporters)
+                                      report_builder=reporters)
         if task.reporters.builtin_reporters:
             task.config.parameters.Custom_Reports_Filename = "custom_reports.json"
         for reporter in task.reporters.config_reporters:

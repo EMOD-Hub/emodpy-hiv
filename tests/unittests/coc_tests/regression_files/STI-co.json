@@ -47,7 +47,7 @@
                         "class": "ModifyStiCoInfectionStatus"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 0.3,
                     "Disqualifying_Properties": [],
@@ -138,7 +138,7 @@
                         "class": "ModifyStiCoInfectionStatus"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 0.3,
                     "Disqualifying_Properties": [],
@@ -229,7 +229,7 @@
                         "class": "ModifyStiCoInfectionStatus"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 0.1,
                     "Disqualifying_Properties": [],

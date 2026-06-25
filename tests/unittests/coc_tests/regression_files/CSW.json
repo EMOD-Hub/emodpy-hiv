@@ -27,7 +27,7 @@
                         "class": "HIVPiecewiseByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -100,7 +100,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -173,7 +173,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -246,7 +246,7 @@
                         "class": "HIVPiecewiseByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -319,7 +319,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -392,7 +392,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -456,7 +456,7 @@
                         "class": "PropertyValueChanger"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -520,7 +520,7 @@
                         "class": "PropertyValueChanger"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -593,7 +593,7 @@
                         "class": "HIVPiecewiseByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -666,7 +666,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -739,7 +739,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -812,7 +812,7 @@
                         "class": "HIVPiecewiseByYearAndSexDiagnostic"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -885,7 +885,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -958,7 +958,7 @@
                         "class": "DelayedIntervention"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -1022,7 +1022,7 @@
                         "class": "PropertyValueChanger"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
@@ -1086,7 +1086,7 @@
                         "class": "PropertyValueChanger"
                     },
                     "Blackout_Event_Trigger": "",
-                    "Blackout_On_First_Occurrence": 0,
+                    "Blackout_On_First_Occurrence": 1,
                     "Blackout_Period": 0,
                     "Demographic_Coverage": 1,
                     "Disqualifying_Properties": [],
