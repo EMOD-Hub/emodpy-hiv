@@ -5973,10 +5973,10 @@
         "NodeAttributes": {
             "Altitude": 0,
             "BirthRate": 0,
-            "FacilityName": "default_node",
             "InitialPopulation": 0,
             "Latitude": 0,
-            "Longitude": 0
+            "Longitude": 0,
+            "Name": "default_node"
         },
         "NodeID": 0,
         "Society": {
@@ -7662,7 +7662,7 @@
     },
     "Metadata": {
         "Author": "stitova",
-        "DateCreated": "06/11/2026",
+        "DateCreated": "06/24/2026",
         "IdReference": "EMOD-HIV world",
         "NodeCount": 10,
         "Tool": "emod-api"
@@ -7732,10 +7732,10 @@
                 }
             ],
             "NodeAttributes": {
-                "FacilityName": "Central",
                 "InitialPopulation": 304498,
                 "Latitude": 0,
-                "Longitude": 0
+                "Longitude": 0,
+                "Name": "Central"
             },
             "NodeID": 1,
             "Society": {
@@ -7912,10 +7912,10 @@
                 }
             ],
             "NodeAttributes": {
-                "FacilityName": "Copperbelt",
                 "InitialPopulation": 459461,
                 "Latitude": 0,
-                "Longitude": 0
+                "Longitude": 0,
+                "Name": "Copperbelt"
             },
             "NodeID": 2,
             "Society": {
@@ -8092,10 +8092,10 @@
                 }
             ],
             "NodeAttributes": {
-                "FacilityName": "Eastern",
                 "InitialPopulation": 371018,
                 "Latitude": 0,
-                "Longitude": 0
+                "Longitude": 0,
+                "Name": "Eastern"
             },
             "NodeID": 3,
             "Society": {
@@ -8272,10 +8272,10 @@
                 }
             ],
             "NodeAttributes": {
-                "FacilityName": "Luapula",
                 "InitialPopulation": 231074,
                 "Latitude": 0,
-                "Longitude": 0
+                "Longitude": 0,
+                "Name": "Luapula"
             },
             "NodeID": 4,
             "Society": {
@@ -8452,10 +8452,10 @@
                 }
             ],
             "NodeAttributes": {
-                "FacilityName": "Lusaka",
                 "InitialPopulation": 510456,
                 "Latitude": 0,
-                "Longitude": 0
+                "Longitude": 0,
+                "Name": "Lusaka"
             },
             "NodeID": 5,
             "Society": {
@@ -8632,10 +8632,10 @@
                 }
             ],
             "NodeAttributes": {
-                "FacilityName": "Muchinga",
                 "InitialPopulation": 165784,
                 "Latitude": 0,
-                "Longitude": 0
+                "Longitude": 0,
+                "Name": "Muchinga"
             },
             "NodeID": 6,
             "Society": {
@@ -8812,10 +8812,10 @@
                 }
             ],
             "NodeAttributes": {
-                "FacilityName": "Northwestern",
                 "InitialPopulation": 169368,
                 "Latitude": 0,
-                "Longitude": 0
+                "Longitude": 0,
+                "Name": "Northwestern"
             },
             "NodeID": 7,
             "Society": {
@@ -8992,10 +8992,10 @@
                 }
             ],
             "NodeAttributes": {
-                "FacilityName": "Northern",
                 "InitialPopulation": 257607,
                 "Latitude": 0,
-                "Longitude": 0
+                "Longitude": 0,
+                "Name": "Northern"
             },
             "NodeID": 8,
             "Society": {
@@ -9172,10 +9172,10 @@
                 }
             ],
             "NodeAttributes": {
-                "FacilityName": "Southern",
                 "InitialPopulation": 370381,
                 "Latitude": 0,
-                "Longitude": 0
+                "Longitude": 0,
+                "Name": "Southern"
             },
             "NodeID": 9,
             "Society": {
@@ -9352,10 +9352,10 @@
                 }
             ],
             "NodeAttributes": {
-                "FacilityName": "Western",
                 "InitialPopulation": 210352,
                 "Latitude": 0,
-                "Longitude": 0
+                "Longitude": 0,
+                "Name": "Western"
             },
             "NodeID": 10,
             "Society": {

@@ -155,9 +155,8 @@ class TestReportersHIV(BaseSimTest):
 
         def config_with_custom_events(config):
             config = self.config_builder(config)
-            config.parameters.Custom_Individual_Events = self.event_list
-            config.parameters.Custom_Coordinator_Events = self.event_list
             config.parameters.Custom_Node_Events = self.event_list
+            config.parameters.Custom_Coordinator_Events = self.event_list
             return config
 
         self.task = EMODTask.from_defaults(eradication_path=self.eradication_path,
