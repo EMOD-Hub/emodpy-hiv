@@ -102,7 +102,7 @@ be configured. Individuals can become eligible for ART during these visits. For 
 rates for dropout can be configured (and may also change over duration on ART).
 
 To summarize, the cascade of care system consists of a series of campaign intervention classes
-which are configured to have dependencies based on the previous intervention (or it's outcome).
+which are configured to have dependencies based on the previous intervention (or its outcome).
 The simplified version is as follows:
 
 1. Start with diagnostic testing.
@@ -190,7 +190,7 @@ The example can be illustrated with a flow chart:
 ![](../images/hiv/hiv-cascade-example.png)
 
 The individual enters the cascade after reaching the age of sexual debut (STIDebut on the chart).
-They received a diagnostic  test, and positive results routed them into the the HCTUptakePostDebut0
+They received a diagnostic  test, and positive results routed them into the HCTUptakePostDebut0
 intervention (another diagnostic test); a positive result routes the individual into the next
 intervention, and the cascade continues. Note that this example has been simplified, and does not
 include individuals that are lost to follow up, or any ART interventions.

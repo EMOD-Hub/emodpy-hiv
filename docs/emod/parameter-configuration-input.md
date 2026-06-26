@@ -1,6 +1,6 @@
 # Input files
 
-The following parameters set the paths to the the campaign file and the input
+The following parameters set the paths to the campaign file and the input
 files for climate, migration, demographics, and load-balancing.
 
 !!! note

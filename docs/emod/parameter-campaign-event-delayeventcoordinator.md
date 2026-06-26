@@ -2,7 +2,7 @@
 
 
 
-The **DelayEventCoordinator** coordinator class insert delays into coordinator event chains. This campaign
+The **DelayEventCoordinator** coordinator class inserts delays into coordinator event chains. This campaign
 event is typically used with [BroadcastCoordinatorEvent](parameter-campaign-event-broadcastcoordinatorevent.md) to broadcast events after the delays.
 
 !!! note

@@ -494,7 +494,7 @@ class AntiretroviralTherapy(IndividualIntervention):
             Default value: 0.6775
 
         art_survival_hazard_ratio_cd4_slope(float, optional):
-            The slope value to sue when calculating the hazard for for the person based on their CD4 count.
+            The slope value to use when calculating the hazard for the person based on their CD4 count.
             multiplier = exp(cd4_slope * cd4 + cd4_intercept)
             Minimum value: -1000000.0
             Maximum value: 1000000.0
@@ -691,7 +691,7 @@ class AntiretroviralTherapyFull(IndividualIntervention):
             Default value: 0.6775
 
         art_survival_hazard_ratio_cd4_slope(float, optional):
-            The slope value to sue when calculating the hazard for for the person based on their CD4 count.
+            The slope value to use when calculating the hazard for the person based on their CD4 count.
             multiplier = exp(cd4_slope * cd4 + cd4_intercept)
             Minimum value: -1000000.0
             Maximum value: 1000000.0
@@ -906,7 +906,7 @@ class CoitalActRiskFactors(IndividualIntervention):
         **Circumcision_Reduced_Acquire** parameter will be used.
 
     2. **Female Susceptibility By Age** - If the uninfected person is female, then their current age is used
-        to determine the a factor from the configuration parameters **Male_To_Female_Relative_Infectivity_Ages**
+        to determine a factor from the configuration parameters **Male_To_Female_Relative_Infectivity_Ages**
         and **Male_To_Female_Relative_Infectivity_Multipliers**.  Their age is used with linear interpolation
         to calculate a multiplier.
 

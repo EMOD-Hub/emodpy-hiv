@@ -77,7 +77,7 @@ def create_title(base_title: str = "",
             If True, then 'by Age' is added to the title.
 
     Returns:
-        (str): A string to be used a the top line title of the plot.
+        (str): A string to be used as the top line title of the plot.
     """
     title = ""
     if show_avg_per_run and not show_fraction:
@@ -155,7 +155,7 @@ def create_y_axis_name(base_title: str = "",
             TBD
 
     Returns:
-        (str): A string to be used a the top line title of the plot.
+        (str): A string to be used as the top line title of the plot.
     """
     y_axis_name = "Number of "
     if show_fraction:
