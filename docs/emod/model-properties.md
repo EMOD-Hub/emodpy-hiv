@@ -12,8 +12,8 @@ configure treatment coverage to be higher for nodes that are easy to access and 
 are difficult to access. For more information on creating campaign interventions, see
 [Creating campaigns](model-campaign.md).
 
-For HIV simulations, transmission is configured using mechanistic parameter settings, such as parasite
-density, viral load, biting frequency, and other measures relevant to the disease being modeled. See
+For HIV simulations, transmission is configured using mechanistic parameter settings, such as
+viral load and other measures relevant to the disease being modeled. See
 [Infectivity configuration](parameter-configuration-infectivity.md) for more information.
 
 The following sections describe how to define individual properties and assign different values to

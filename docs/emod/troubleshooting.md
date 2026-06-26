@@ -111,7 +111,7 @@ the file is found and loaded, but there is a problem with the data in the file.
 
 ### FileNotFoundException
 
-This exception is thrown if a file cannot be found. Possible causes might include a incorrectly
+This exception is thrown if a file cannot be found. Possible causes might include an incorrectly
 typed filename in the configuration file, a wrong path to the file, or even the path not being set
 in the system environment leading to the system not finding a relative path to the file. One of the
 most likely causes is that quotes are missing around the file name.
