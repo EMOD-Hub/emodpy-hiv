@@ -17,6 +17,7 @@ but also on things such as whether or not they have a particular intervention or
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
+
 Below is a simple example where we want to distribute a vaccine to 20% of the people that do not
 already have the vaccine on the 100th day of the simulation.
 
