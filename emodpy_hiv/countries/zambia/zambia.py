@@ -621,8 +621,8 @@ class Zambia(Country):
 
         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         # Since we need to set separate Risk distributions per node, the following
-        # is working around a JSON overlay challene where the list of IP's in a node
-        # overrides the the list of IPs in Defaults. EMOD does not allow you to override
+        # is working around a JSON overlay challenge where the list of IPs in a node
+        # overrides the list of IPs in Defaults. EMOD does not allow you to override
         # specific IPs.
         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         distribution = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]

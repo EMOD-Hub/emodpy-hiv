@@ -109,7 +109,7 @@ It is worth noting that the process of reverse transcriptase is extremely error-
 arising out of these copying errors are thought to contribute to the development of drug resistance and
 to also enable the virus to escape detection by the immune system.
 
-Once the viral DNA has integrated into the cell's genome, the cell uses it's own machinery to transcribe
+Once the viral DNA has integrated into the cell's genome, the cell uses its own machinery to transcribe
 viral DNA into viral RNA. This viral RNA is either used to build new HIV proteins, or serves as the genome
 of new virions.
 
@@ -120,7 +120,7 @@ the host cell. Viral structural proteins (created from the Gag gene) associate w
 of the host cell, causing a new virion to start forming and bud from the cell. Within the bud, or the
 immature virion, are more structural proteins necessary for capsid formation and the viral genome. As the
 bud progresses, viral proteases cleave the structural components so they can be assembled to form
-a the capsid and other capsid enzymes. The process is completed when the bud is cleaved from the host
+the capsid and other capsid enzymes. The process is completed when the bud is cleaved from the host
 cell (mediated by viral proteases), and results in the release of mature virions.  This process is
 represented in steps six and seven in the above figure.
 
@@ -216,7 +216,7 @@ it could be much shorter.  Individuals are still infectious in this stage.
 
 One HIV progresses to AIDS (acquired immunodeficiency syndrome), the disease has reached its most
 severe phase, and is characterized by progressive failure of the immune system. Because the immune
-system is severely damaged,  individuals succumb to increasing numbers of severe illnesses
+system is severely damaged, individuals succumb to increasing numbers of severe illnesses
 (opportunistic infections). Without treatment, survival with AIDS is roughly 3 years.  Diagnosis of
 AIDS can be by CD4 cell count: individuals with AIDS have CD4 counts of < 200 cells/mm^3  (compared
 to healthy individuals, with CD4 counts of 500 - 1600 cells/mm^3). In this stage, individuals are
@@ -240,8 +240,8 @@ possible to become infected through contact with those fluids, nor by sharing fo
 infectious individuals.
 
 HIV has specific transmission routes and it only survives in particular bodily fluids: blood, semen,
-pre-seminal fluid, rectal and vaginal  fluids, and breast milk. To get infected with HIV, infected
-fluids must come into contact with a mucous membrane or damaged tissue,  or by being injected into
+pre-seminal fluid, rectal and vaginal fluids, and breast milk. To get infected with HIV, infected
+fluids must come into contact with a mucous membrane or damaged tissue, or by being injected into
 the bloodstream (e.g. with shared needles).
 
 The most common routes of HIV transmission are:

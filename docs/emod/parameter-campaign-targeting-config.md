@@ -17,6 +17,7 @@ but also on things such as whether or not they have a particular intervention or
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
+
 Below is a simple example where we want to distribute a vaccine to 20% of the people that do not
 already have the vaccine on the 100th day of the simulation.
 
@@ -263,7 +264,7 @@ Select the individual based on whether or not they have HIV.
 | **Is_Equal_To** | boolean | 0 | 1 | 1 | This is used to determine if the individual is selected based on the result of the value of the question. Set to 1 for true and 0 for false. |
 | **And_Has_Ever_Been_Tested** | enum | NA | NA | 'NA' | If the user sets this Enum to 'YES', then the individual's true infection status must equal **Is_Equal_To** and the person must have been tested at least once. Notice that this only tells if the person has been tested, NOT that they tested positive. If set to 'NA' (default), then do not include this as part of the check. Possible values are 'YES', 'NO', and 'NA'. |
 | **And_Has_Ever_Tested_Positive** | enum | NA | NA | 'NA' | If the user sets this Enum to 'YES', then the individual's true infection status must equal **Is_Equal_To** and the person must have tested POSITIVE at least once. Notice that this is different than just having been tested. However, it does not say the person received the results. If set to 'NA' (default), then do not include this as part of the check. Possible values are 'YES', 'NO', and 'NA'. |
-| **And_Has_Recieved_Positive_Results** | enum | NA | NA | 'NA' | If the user sets this Enum to 'YES', then the individual's true infection status must equal **Is_Equal_To** and the last test result received was positive. Possible values are 'YES', 'NO', and 'NA' (default). |
+| **And_Has_Received_Positive_Results** | enum | NA | NA | 'NA' | If the user sets this Enum to 'YES', then the individual's true infection status must equal **Is_Equal_To** and the last test result received was positive. Possible values are 'YES', 'NO', and 'NA' (default). |
 
 ### Example
 

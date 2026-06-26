@@ -445,7 +445,7 @@ time step
 tutorial
 :   A set of instructions in the documentation to learn more about epidemiology and
     disease modeling. Tutorials are based on real-world scenarios and demonstrate the mechanics
-    of the the model. Each tutorial consists of one or more scenarios.
+    of the model. Each tutorial consists of one or more scenarios.
 
 vaccine intervention types
 :   In EMOD, vaccine interventions are one of four types:

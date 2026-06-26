@@ -38,7 +38,7 @@ In the schema, these are labeled as **IndividualTargeted**.
 
 It is also possible (but not required) to configure *why* a particular intervention is distributed
 by adding trigger conditions to the intervention. For example, interventions can be triggered by
-notifications broadcast after some an event, such as Births (the individual’s own
+notifications broadcast after an event, such as Births (the individual’s own
 birth), GaveBirth, NewInfectionEvent, and more. It's also possible to have one intervention trigger
 another intervention by asking the first intervention to broadcast a unique string, and having the
 second intervention be triggered upon receipt of that string. See [Event list](parameter-campaign-event-list.md).
@@ -60,7 +60,7 @@ these are labeled as **NodeTargeted**.
 
 It is also possible (but not required) to configure *why* a particular intervention is distributed
 by adding trigger conditions to the intervention. For example, interventions can be triggered by
-notifications broadcast after some an event, such as Births, NewInfectionEvent, and more. It's also
+notifications broadcast after an event, such as Births, NewInfectionEvent, and more. It's also
 possible to have one intervention trigger another intervention by asking the first intervention to
 broadcast a unique string, and having the second intervention be triggered upon receipt of that
 string. See [Event list](parameter-campaign-event-list.md).

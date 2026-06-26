@@ -95,7 +95,7 @@ hierarchies. This inner information contains information the factory needs to co
 instantiation, but this information might not be correct. If that happens, then the factory will
 throw this exception.
 
-Campaign files often have this kind of nested hierarchical structure, so it's important to t verify
+Campaign files often have this kind of nested hierarchical structure, so it's important to verify
 that the hierarchy is set up correctly. For example, if the class name were mistyped and EMOD
 had no implementation of that class, this exception will be thrown.
 
@@ -111,7 +111,7 @@ the file is found and loaded, but there is a problem with the data in the file.
 
 ### FileNotFoundException
 
-This exception is thrown if a file cannot be found. Possible causes might include a incorrectly
+This exception is thrown if a file cannot be found. Possible causes might include an incorrectly
 typed filename in the configuration file, a wrong path to the file, or even the path not being set
 in the system environment leading to the system not finding a relative path to the file. One of the
 most likely causes is that quotes are missing around the file name.

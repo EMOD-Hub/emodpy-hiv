@@ -87,7 +87,7 @@ The WHO stage is generally considered an integer of 1, 2, 3, or 4. To provide ad
 about how close an individual is to advancing to the next WHO stage, EMOD interpolates between
 transitions. For example, if an individual advances from WHO stage 1 to WHO stage 2 over the course
 of 100 days, the WHO stage on the 90th day will be 1.9. To obtain the expected integer value of WHO
-stage, the output should be rounded down. To examine WHO stage (and CD4 count) over time,  it is
+stage, the output should be rounded down. To examine WHO stage (and CD4 count) over time, it is
 possible to log each individual's infection status with output reports. See
 [HIV model overview](hiv-model-overview.md) for more information.
 
@@ -98,7 +98,7 @@ acute or AIDS stages are applied, and the duration of the latent stage is calcul
 the durations of the acute and AIDS stages from the overall survival time. If individuals receive
 survival durations that are shorter than the sum of the acute and AIDS stage durations, then the
 latent stage is eliminated. The acute stage will receive the multiplier for its entire duration, and
-the AIDS stage will receive it's multiplier for the remainder; should the survival time be shorter
+the AIDS stage will receive its multiplier for the remainder; should the survival time be shorter
 than the acute stage duration, the acute multiplier will be applied for the full survival duration.
 
 ### Symptomatic presentation

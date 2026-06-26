@@ -28,7 +28,7 @@ of delay states and restricts the number of entries that individual is eligible 
 To route individuals into the care and treatment systems, it is necessary to use
 diagnostic testing. EMOD has multiple types of diagnostics, which can be found in
 [Campaign parameters](parameter-campaign.md).  The outcomes of different diagnostic tests can be used to initiate
-treatment, prevention services,  entrance into health care systems, or lead to knowledge (such as
+treatment, prevention services, entrance into health care systems, or lead to knowledge (such as
 HIV status) that will change the individual's behavior. Testing can be triggered by a variety of
 factors, such as age, time of sexual debut, onset of symptoms, pregnancy, or simply through
 voluntary/routine testing.  The triggers can be configured in the different types of diagnostics,

@@ -203,6 +203,9 @@ nav:
             - PropertyReport: emod/software-report-property.md
             - ReportEventCounter: emod/software-report-event-counter.md
             - ReportEventRecorder: emod/software-report-event-recorder.md
+            - ReportNodeEventRecorder: emod/software-report-node-event-recorder.md
+            - ReportCoordinatorEventRecorder: emod/software-report-coordinator-event-recorder.md
+            - ReportSurveillanceEventRecorder: emod/software-report-surveillance-event-recorder.md
             - ReportHumanMigrationTracking: emod/software-report-human-migration.md
             - ReportInfectionDuration: emod/software-report-infection-duration.md
             - ReportNodeDemographics: emod/software-report-node-demographics.md

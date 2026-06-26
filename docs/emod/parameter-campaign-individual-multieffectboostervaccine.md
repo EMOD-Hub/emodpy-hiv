@@ -4,7 +4,7 @@
 The **MultiEffectBoosterVaccine** intervention class is derived from
 [MultiEffectVaccine](parameter-campaign-individual-multieffectvaccine.md) and preserves many of the same parameters.
 Upon distribution and successful take, the vaccine’s effect in each immunity compartment
-(acquisition, transmission,  and mortality) is determined by the recipient’s immune state. If the
+(acquisition, transmission, and mortality) is determined by the recipient’s immune state. If the
 recipient’s immunity modifier in the corresponding compartment is above a user-specified threshold,
 then the vaccine’s initial effect will be equal to the corresponding priming parameter. If the
 recipient’s immune modifier is below this threshold, then the vaccine’s initial effect will be equal
@@ -21,6 +21,7 @@ to the corresponding boost parameter. After distribution, the effect wanes, just
     JSON format does not permit comments, but you can add "dummy" parameters to add contextual
     information to your files. Any keys that are not EMOD parameter names will be ignored by the
     model.
+
 The table below describes all possible parameters with which this class can be configured. The JSON
 example that follows shows one potential configuration.
 

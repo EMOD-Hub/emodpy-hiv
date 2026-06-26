@@ -2,7 +2,7 @@
 
 The **ARTMortalityTable** intervention class allows the user to modify an individual’s life expectancy 
 based on different levels of ART adherence; the user defines parameters for age, CD4 count, and time on ART 
-in a multi-dimensional table which is then used to determine mortality rate. Note: If you have have different adherence levels for each gender, then you will need to configure your campaign to distribute an **ARTMortalityTable** for each gender and adherence level.
+in a multi-dimensional table which is then used to determine mortality rate. Note: If you have different adherence levels for each gender, then you will need to configure your campaign to distribute an **ARTMortalityTable** for each gender and adherence level.
 
 Additional considerations when using this intervention:
 
